@@ -1,11 +1,8 @@
-[gd_resource type="Resource" script_class="SaveDataConfig" load_steps=2 format=3 uid="uid://2ikxe4tu3eb6"]
+[gd_resource type="Resource" script_class="SaveDataConfig" format=3 uid="uid://2ikxe4tu3eb6"]
 
-[ext_resource type="Script" path="res://core/common/saves/SaveDataConfig.gd" id="1_8ii7x"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="1_8ii7x"]
 
 [resource]
 script = ExtResource("1_8ii7x")
-group = 0
 key = "DialogueTitleState"
-save_id = 0
 level_id = -2
-data = {}

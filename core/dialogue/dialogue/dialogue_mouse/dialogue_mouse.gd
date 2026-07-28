@@ -39,6 +39,7 @@ func _body_entered() -> void:
 	elif dialogue_config.current_res!=CutsceneState.current_cutscene:
 		dialogue_config.dialogue_res=DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
 		dialogue_config.current_res=CutsceneState.current_cutscene
+	Dialogue.current_talker=obj.talker_name
 	Dialogue.start(dialogue_config)
 	
 func _body_exited() -> void:

@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq1w2fqfgdvt"]
+[gd_scene format=3 uid="uid://bq1w2fqfgdvt"]
 
-[ext_resource type="Script" path="res://core/dialogue/dialogue/dialogue_ballon/dialogue_balloon.gd" id="1_fane2"]
+[ext_resource type="Script" uid="uid://numw0soegfsk" path="res://core/dialogue/dialogue/dialogue_ballon/dialogue_balloon.gd" id="1_fane2"]
 [ext_resource type="StyleBox" uid="uid://dnmoqh76xtff" path="res://core/dialogue/dialogue/dialogue_ballon/dialogue/response style box focus.tres" id="3_0f3ae"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="4_ak1da"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="4_ak1da"]
 [ext_resource type="PackedScene" uid="uid://chsjmyajlpl3t" path="res://core/common/component/rect_debug/RectDebug.tscn" id="4_fycgq"]
 [ext_resource type="Theme" uid="uid://c3gcusv0manb6" path="res://core/dialogue/dialogue/dialogue_ballon/resource/dialogue_balloon.tres" id="4_lqgeo"]
 [ext_resource type="AudioStream" uid="uid://denwrqgt8dihf" path="res://core/common/sound/SE/talking.mp3" id="5_6xaee"]
@@ -38,18 +38,18 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6e77p")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="DialogueBalloon" type="Node2D"]
+[node name="DialogueBalloon" type="Node2D" unique_id=1422607112]
 light_mask = 0
 visibility_layer = 32
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fane2")
 
-[node name="Balloon" type="Control" parent="."]
+[node name="Balloon" type="Control" parent="." unique_id=1453483627]
 light_mask = 1024
 layout_mode = 3
 anchors_preset = 15
@@ -59,7 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="VB" type="VBoxContainer" parent="Balloon"]
+[node name="VB" type="VBoxContainer" parent="Balloon" unique_id=1353594614]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -71,14 +71,14 @@ theme = ExtResource("4_lqgeo")
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="responseMargin" type="MarginContainer" parent="Balloon/VB"]
+[node name="responseMargin" type="MarginContainer" parent="Balloon/VB" unique_id=1963756787]
 unique_name_in_owner = true
 light_mask = 1024
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_bottom = 1
 
-[node name="Responses" type="VBoxContainer" parent="Balloon/VB/responseMargin"]
+[node name="Responses" type="VBoxContainer" parent="Balloon/VB/responseMargin" unique_id=1568745890]
 unique_name_in_owner = true
 light_mask = 1024
 layout_mode = 2
@@ -87,30 +87,30 @@ mouse_force_pass_scroll_events = false
 theme = ExtResource("4_lqgeo")
 theme_override_constants/separation = 1
 
-[node name="Response" type="MarginContainer" parent="Balloon/VB/responseMargin"]
+[node name="Response" type="MarginContainer" parent="Balloon/VB/responseMargin" unique_id=1056824676]
 visible = false
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ResponseBackground" type="ColorRect" parent="Balloon/VB/responseMargin/Response"]
+[node name="ResponseBackground" type="ColorRect" parent="Balloon/VB/responseMargin/Response" unique_id=1421325741]
 light_mask = 0
 visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ResponseTemplate" type="RichTextLabel" parent="Balloon/VB/responseMargin/Response"]
+[node name="ResponseTemplate" type="RichTextLabel" parent="Balloon/VB/responseMargin/Response" unique_id=1934360578]
 unique_name_in_owner = true
 light_mask = 1024
-clip_contents = false
 custom_minimum_size = Vector2(0, 9)
+clip_contents = false
 layout_mode = 2
 focus_mode = 2
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_lqgeo")
-theme_override_styles/focus = ExtResource("3_0f3ae")
 theme_override_styles/normal = SubResource("StyleBoxFlat_tjpum")
+theme_override_styles/focus = ExtResource("3_0f3ae")
 text = "awrdwawad"
 fit_content = true
 scroll_active = false
@@ -120,19 +120,19 @@ meta_underlined = false
 hint_underlined = false
 visible_characters_behavior = 1
 
-[node name="background" type="MarginContainer" parent="Balloon/VB"]
+[node name="background" type="MarginContainer" parent="Balloon/VB" unique_id=1545693893]
 light_mask = 1024
 layout_mode = 2
 
-[node name="Panel" parent="Balloon/VB/background" instance=ExtResource("4_fycgq")]
+[node name="Panel" parent="Balloon/VB/background" unique_id=461365575 instance=ExtResource("4_fycgq")]
 visible = false
 z_index = 1
 layout_mode = 2
 
-[node name="BackgroundMC" type="MarginContainer" parent="Balloon/VB/background"]
+[node name="BackgroundMC" type="MarginContainer" parent="Balloon/VB/background" unique_id=1520187682]
 layout_mode = 2
 
-[node name="BackgroundColor" type="ColorRect" parent="Balloon/VB/background/BackgroundMC"]
+[node name="BackgroundColor" type="ColorRect" parent="Balloon/VB/background/BackgroundMC" unique_id=1132543284]
 light_mask = 0
 visibility_layer = 32
 clip_contents = true
@@ -140,7 +140,7 @@ layout_mode = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="Margin" type="MarginContainer" parent="Balloon/VB/background"]
+[node name="Margin" type="MarginContainer" parent="Balloon/VB/background" unique_id=1791214817]
 light_mask = 1024
 layout_mode = 2
 mouse_filter = 2
@@ -149,17 +149,17 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 1
 
-[node name="HB" type="HBoxContainer" parent="Balloon/VB/background/Margin"]
+[node name="HB" type="HBoxContainer" parent="Balloon/VB/background/Margin" unique_id=1288139970]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="VB" type="VBoxContainer" parent="Balloon/VB/background/Margin/HB"]
+[node name="VB" type="VBoxContainer" parent="Balloon/VB/background/Margin/HB" unique_id=1213149475]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/VB/background/Margin/HB/VB"]
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/VB/background/Margin/HB/VB" unique_id=516950036]
 light_mask = 1024
 layout_mode = 2
 mouse_filter = 2
@@ -172,13 +172,14 @@ scroll_active = false
 autowrap_mode = 0
 visible_characters_behavior = 3
 
-[node name="HB" type="HBoxContainer" parent="Balloon/VB/background/Margin/HB/VB"]
+[node name="HB" type="HBoxContainer" parent="Balloon/VB/background/Margin/HB/VB" unique_id=1629489186]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="DialogueLabel" type="RichTextLabel" parent="Balloon/VB/background/Margin/HB/VB/HB"]
+[node name="DialogueLabel" type="RichTextLabel" parent="Balloon/VB/background/Margin/HB/VB/HB" unique_id=456421539]
+visible = false
 light_mask = 0
 visibility_layer = 32
 clip_contents = false
@@ -193,19 +194,21 @@ autowrap_mode = 0
 shortcut_keys_enabled = false
 visible_characters_behavior = 1
 script = ExtResource("4_ak1da")
+debug = true
 seconds_per_step = 0.05
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 
-[node name="auplayer" type="AudioStreamPlayer" parent="Balloon/VB/background/Margin/HB/VB/HB/DialogueLabel"]
+[node name="auplayer" type="AudioStreamPlayer" parent="Balloon/VB/background/Margin/HB/VB/HB/DialogueLabel" unique_id=1935195115]
 stream = ExtResource("5_6xaee")
 
-[node name="MC" type="MarginContainer" parent="Balloon/VB/background/Margin/HB/VB/HB"]
+[node name="MC" type="MarginContainer" parent="Balloon/VB/background/Margin/HB/VB/HB" unique_id=507127930]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_filter = 2
 theme_override_constants/margin_left = 6
 
-[node name="Hint" type="AnimatedSprite2D" parent="Balloon/VB/background/Margin/HB/VB/HB/MC"]
+[node name="Hint" type="AnimatedSprite2D" parent="Balloon/VB/background/Margin/HB/VB/HB/MC" unique_id=1183698938]
 light_mask = 0
 visibility_layer = 32
 position = Vector2(0, -4.31965)
@@ -215,75 +218,75 @@ autoplay = "default"
 frame_progress = 0.312957
 offset = Vector2(8.13031, 10.3891)
 
-[node name="MC" type="MarginContainer" parent="Balloon/VB"]
+[node name="MC" type="MarginContainer" parent="Balloon/VB" unique_id=732543043]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="HB" type="HBoxContainer" parent="Balloon/VB/MC"]
+[node name="HB" type="HBoxContainer" parent="Balloon/VB/MC" unique_id=1105376742]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="MC" type="MarginContainer" parent="Balloon/VB/MC/HB"]
+[node name="MC" type="MarginContainer" parent="Balloon/VB/MC/HB" unique_id=64303244]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="PointerLeft" type="Polygon2D" parent="Balloon/VB/MC/HB/MC"]
+[node name="PointerLeft" type="Polygon2D" parent="Balloon/VB/MC/HB/MC" unique_id=902121860]
 light_mask = 0
 position = Vector2(-0.0111607, 0.0107138)
 polygon = PackedVector2Array(0, -0.0339293, 0, 7.10893, 7.14286, -0.0339293)
 
-[node name="ScreenCheckerL" type="VisibleOnScreenNotifier2D" parent="Balloon/VB/MC/HB/MC/PointerLeft"]
+[node name="ScreenCheckerL" type="VisibleOnScreenNotifier2D" parent="Balloon/VB/MC/HB/MC/PointerLeft" unique_id=1265586255]
 unique_name_in_owner = true
 position = Vector2(-26, 0.0339293)
 scale = Vector2(0.465, 0.465)
 
-[node name="Sprite2D" type="Sprite2D" parent="Balloon/VB/MC/HB/MC/PointerLeft/ScreenCheckerL"]
+[node name="Sprite2D" type="Sprite2D" parent="Balloon/VB/MC/HB/MC/PointerLeft/ScreenCheckerL" unique_id=1357590785]
 visible = false
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("8_cn6xi")
 
-[node name="MC2" type="MarginContainer" parent="Balloon/VB/MC/HB"]
+[node name="MC2" type="MarginContainer" parent="Balloon/VB/MC/HB" unique_id=1739567181]
 layout_mode = 2
 size_flags_horizontal = 10
 mouse_filter = 2
 theme_override_constants/margin_right = 0
 
-[node name="PointerRight" type="Polygon2D" parent="Balloon/VB/MC/HB/MC2"]
+[node name="PointerRight" type="Polygon2D" parent="Balloon/VB/MC/HB/MC2" unique_id=1160139346]
 light_mask = 0
 position = Vector2(-0.0401808, 0.122321)
 offset = Vector2(0.301346, -0.078125)
 polygon = PackedVector2Array(-0.285706, -0.0339289, -0.285706, 7.10893, -7.42856, -0.0339289)
 
-[node name="ScreenCheckerR" type="VisibleOnScreenNotifier2D" parent="Balloon/VB/MC/HB/MC2/PointerRight"]
+[node name="ScreenCheckerR" type="VisibleOnScreenNotifier2D" parent="Balloon/VB/MC/HB/MC2/PointerRight" unique_id=1659454911]
 unique_name_in_owner = true
 position = Vector2(27, 0)
 scale = Vector2(0.465, 0.465)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Balloon/VB/MC/HB/MC2/PointerRight/ScreenCheckerR"]
+[node name="Sprite2D2" type="Sprite2D" parent="Balloon/VB/MC/HB/MC2/PointerRight/ScreenCheckerR" unique_id=1288186288]
 visible = false
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("8_cn6xi")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=828946858]
 visible = false
 offset_left = -11.3764
 offset_top = -12.8976
 offset_right = -3.37638
 offset_bottom = -4.89763
 
-[node name="DialogueEndedTimer" type="Timer" parent="."]
+[node name="DialogueEndedTimer" type="Timer" parent="." unique_id=1276578606]
 wait_time = 0.5
 
-[node name="DialogueEndTimer" type="Timer" parent="."]
+[node name="DialogueEndTimer" type="Timer" parent="." unique_id=1773536938]
 one_shot = true
 
-[node name="DialogueStartTimer" type="Timer" parent="."]
+[node name="DialogueStartTimer" type="Timer" parent="." unique_id=1151597228]
 one_shot = true
 
-[node name="TypeoutTimer" type="Timer" parent="."]
+[node name="TypeoutTimer" type="Timer" parent="." unique_id=1337800699]
 wait_time = 0.1
 one_shot = true
 

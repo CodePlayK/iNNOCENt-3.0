@@ -8,7 +8,7 @@ class_name DialogueConfig
 		if r:on_update_dialogue_res(r)
 @export_global_file("*.crd") var dialogue_checker_path:String
 #当前的有效台词资源
-@export var current_res:String
+@export var current_res:String 
 #当前标题
 @export var title:String:
 	set(r):
@@ -29,5 +29,9 @@ func on_update_dialogue_res(dialogue_res:DialogueResource):
 	title_list = ""
 	for title in dialogue_res.titles.keys():
 		title_list += "%s | " %title
+	if !current_res:
+		var p= dialogue_res.resource_path.get_file().get_basename()
+		current_res = p
+	return
 func update():
 	on_update_dialogue_res(dialogue_res)

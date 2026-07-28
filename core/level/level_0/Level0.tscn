@@ -1353,7 +1353,7 @@ dialogue_config = ExtResource("2_tow6h")
 [node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
 unique_name_in_owner = true
 position = Vector2(-312, -457)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(3, 3)
 process_callback = 0
 limit_left = -940
 limit_top = -165

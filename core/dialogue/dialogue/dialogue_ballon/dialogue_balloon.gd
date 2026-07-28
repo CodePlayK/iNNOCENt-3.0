@@ -128,8 +128,8 @@ func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:Dialog
 			await back_color_tween.finished
 			back_color_tween.kill()
 		nextable=true
-		DialogueState.add_dialogue_history(talker_name[0],dialogue_line.text)
-	# Wait for input
+
+		# Wait for input
 	if dialogue_line.responses.size() > 0:
 		responses_menu.modulate.a = 1
 	elif dialogue_line.time != null:
@@ -145,7 +145,20 @@ func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:Dialog
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
 	hint_sprite.show()	
-
+		#判断是否为第一次对白，是才进入历史	
+	if Dialogue.dialogue_title_dic.has(dialogue_config.current_res):
+		if Dialogue.dialogue_title_dic[dialogue_config.current_res].has(dialogue_config.title):
+			return
+		else :
+			if Dialogue.dialogue_title_dic_tmp.has(dialogue_config.current_res+dialogue_config.title+str(current_talker)):
+				if Dialogue.dialogue_title_dic_tmp[dialogue_config.current_res][dialogue_config.title]!=1:
+					return			
+	else :
+		if Dialogue.dialogue_title_dic_tmp.has(dialogue_config.current_res+dialogue_config.title+str(current_talker)):
+				if Dialogue.dialogue_title_dic_tmp[dialogue_config.current_res][dialogue_config.title]!=1:
+					return	
+	DialogueState.add_dialogue_history(talker_name[0],dialogue_line.text)
+	
 func end_talk():
 	typeout_timer.stop()
 	typeout_timer.start()

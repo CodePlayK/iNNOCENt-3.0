@@ -24,7 +24,7 @@ signal paused_typing(duration: float)
 
 ## The action to press to skip typing.
 @export var skip_action: StringName = &"ui_cancel"
-
+@export var debug:bool = false
 ## The speed with which the text types out.
 @export var seconds_per_step: float = 0.02
 
@@ -99,6 +99,13 @@ func _update_text() -> void:
 
 ## Start typing out the text
 func type_out() -> void:
+	#更新台词单条计数，不需要台词块执行结束才统计，实时统计每一句话
+	if Dialogue.dialogue_title_dic_tmp.has(Dialogue.dialogue_config.current_res+Dialogue.current_title+str(Dialogue.current_talker)):
+		Dialogue.dialogue_title_dic_tmp[Dialogue.dialogue_config.current_res+Dialogue.current_title+str(Dialogue.current_talker)]+=1
+	else:
+		Dialogue.dialogue_title_dic_tmp[Dialogue.dialogue_config.current_res+Dialogue.current_title+str(Dialogue.current_talker)]=1
+	if debug:Debug.dprintinfo(DebugCT.dp("更新前:%s" %Dialogue.dialogue_title_dic_tmp,self))
+	
 	_update_text()
 	visible_characters = 0
 	visible_ratio = 0
