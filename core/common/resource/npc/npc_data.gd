@@ -7,4 +7,3 @@ class_name NpcsDataResource
 @export var hitting:bool = false
 @export var health:float = 20
 @export var stamina:float = 100
-

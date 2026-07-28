@@ -1,7 +1,7 @@
 extends BaseDataCollector
 #自定义在[LEVEL_ID][GROUP][KEY]唯一键key	
 func custom_key():
-	save_data_config.key = obj.obj_name
+	save_data_config = obj.save_data_config
 	
 #配置要写入存档的数据
 func custom_data():

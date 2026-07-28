@@ -25,11 +25,13 @@ visibility_layer = 0
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
+mouse_filter = 2
 
 [node name="DebugBox" type="HBoxContainer" parent="MC/VBoxContainer" unique_id=1256456622]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
+mouse_filter = 2
 
 [node name="DebugPrinter" type="RichTextLabel" parent="MC/VBoxContainer/DebugBox" unique_id=129606733]
 custom_minimum_size = Vector2(0, 52.055)
@@ -37,6 +39,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.57
 focus_mode = 2
+mouse_filter = 2
 mouse_default_cursor_shape = 1
 theme = ExtResource("2_uinww")
 bbcode_enabled = true

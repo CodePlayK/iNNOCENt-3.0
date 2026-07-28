@@ -49,9 +49,16 @@ var current_patrol_right:Marker
 var current_bot_y:float
 @export_group("基础配置")
 @export var npc_name:String
-@export var talker_name:Array[String]
-@export var patrol_area:Area2D
+var talker_name:Array[String]
 @export var data:NpcsDataResource
+@export var dialogue_config:DialogueConfig:
+	set(r):
+		if r:
+			dialogue_config=r
+			talker_name=dialogue_config.talkers
+
+@export var save_data_config:SaveDataConfig
+
 @export_group("状态机配置")
 ##初始化时进入的首个节点(并不会运行)
 @export var starting_state:String
@@ -81,7 +88,8 @@ var patrol_left:Marker2D
 @export var jump_force_max_cell_dis_x:int = 8
 @export var jump_force_min_force_mid:float = 700
 @export var jump_force_min_cell_dis_x:int = 4
-@export var dialogue_config:DialogueConfig
+@export var patrol_area:Area2D
+
 var last_cell
 var current_cell
 var current_state

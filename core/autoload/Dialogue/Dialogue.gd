@@ -7,13 +7,14 @@ var dialogue_resource: DialogueResource
 var temporary_game_states: Array = []
 var dialogue_config:DialogueConfig
 var current_talker:Array[String]
-var current_start_talker:Array[String]
 		
 var current_dialogue_balloon
 var current_title:String
 var current_start_obj
 var current_start_title:String
+#记录每条对话的执行次数：{对白资源名+标题名+[talker]}
 var dialogue_title_dic:Dictionary
+#记录每条对话的执行次数：{对白资源名+标题名+[talker]:次数}
 var dialogue_title_dic_tmp:Dictionary
 
 
@@ -24,6 +25,7 @@ var dialogue_line: DialogueLine:
 	set(next_dialogue_line):
 		if not next_dialogue_line:
 			current_dialogue_balloon.dialogue_finished()
+			#记录对话整体执行的次数，只会在整个话结束后统计，中断不会统计
 			if dialogue_title_dic.has(dialogue_config.current_res):
 				if dialogue_title_dic[dialogue_config.current_res].has(current_title):
 					dialogue_title_dic[dialogue_config.current_res][current_title]+=1

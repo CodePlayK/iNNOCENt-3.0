@@ -95,10 +95,10 @@
 [ext_resource type="Script" uid="uid://dqmqxfw8v3qe" path="res://core/npc/prototype/npc_state_manager/states/fall.gd" id="81_vuxa1"]
 [ext_resource type="Texture2D" uid="uid://dtibm26d7r0xv" path="res://test/sprite spped curve/The Blood King.png" id="82_sll3h"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="83_e75wk"]
-[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue.tscn" id="84_vaxnc"]
+[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContect.tscn" id="84_vaxnc"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="89_s1dc0"]
 [ext_resource type="Script" uid="uid://duojnvfx06qoe" path="res://core/npc/blood_king/data/blood_king_data.gd" id="90_f37dg"]
-[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="91_yv8ja"]
+[ext_resource type="Resource" uid="uid://c53hxlnm3yy0u" path="res://core/npc/blood_king/data/blooad1_king_sdc.tres" id="97_yowun"]
 
 [sub_resource type="Resource" id="Resource_six7i"]
 script = ExtResource("2_ntogp")
@@ -3839,12 +3839,6 @@ loop = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
-
-[sub_resource type="Resource" id="Resource_3k4om"]
-script = ExtResource("91_yv8ja")
-group = 1
-key = "bloodking"
-metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljb0i"]
 atlas = ExtResource("82_sll3h")
@@ -8214,7 +8208,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("89_s1dc0")]
 script = ExtResource("90_f37dg")
-save_data_config = SubResource("Resource_3k4om")
+save_data_config = ExtResource("97_yowun")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 script = ExtResource("81_d5aum")

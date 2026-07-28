@@ -6,7 +6,9 @@ class_name DialogueConfig
 	set(r):
 		dialogue_res=r
 		if r:on_update_dialogue_res(r)
-@export_global_file("*.crd") var dialogue_checker_path:String
+var dialogue_checker_path:String
+#用于显示气球的定位名，可以配置多个
+@export var talkers:Array[String] 
 #当前的有效台词资源
 @export var current_res:String 
 #当前标题
@@ -20,7 +22,6 @@ class_name DialogueConfig
 		import = f
 		update()
 @export var auto_next:bool = true
-@export var talker_name:Array[String]
 @export var balloon_color:Color
 @export var line_end_wait_time:float = 1
 

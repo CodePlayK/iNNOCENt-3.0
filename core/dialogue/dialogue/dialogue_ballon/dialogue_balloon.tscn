@@ -179,7 +179,6 @@ mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="DialogueLabel" type="RichTextLabel" parent="Balloon/VB/background/Margin/HB/VB/HB" unique_id=456421539]
-visible = false
 light_mask = 0
 visibility_layer = 32
 clip_contents = false

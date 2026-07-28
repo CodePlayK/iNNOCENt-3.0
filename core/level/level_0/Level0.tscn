@@ -42,9 +42,13 @@
 [ext_resource type="Resource" uid="uid://onb8u2j1uao2" path="res://test/dialogue/test1.dialogue" id="28_dypld"]
 [ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="29_m48am"]
 [ext_resource type="Script" uid="uid://b4otcmujx4vs6" path="res://test/NpcPath/PatrolArea.gd" id="31_eldf7"]
+[ext_resource type="Resource" uid="uid://ww01r8pk0y5u" path="res://core/npc/blood_king/dilogues/bloodking2_dialogue.tres" id="31_i46tv"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="31_ly6y8"]
 [ext_resource type="PackedScene" uid="uid://dx4miwehgo47b" path="res://core/item/collectable_item/collectable_item.tscn" id="32_dirdt"]
 [ext_resource type="Resource" uid="uid://xfpvrn43qq55" path="res://core/item/resource/pickaxe.tres" id="32_dyqav"]
+[ext_resource type="Resource" uid="uid://bokwhaxx5h1ll" path="res://core/npc/blood_king/data/blooad2_king_sdc.tres" id="32_ekuu4"]
 [ext_resource type="Resource" uid="uid://dqcybmkayfdow" path="res://core/item/resource/tent.tres" id="32_fwoov"]
+[ext_resource type="Resource" uid="uid://bxi5abugxwqv2" path="res://core/npc/blood_king/dilogues/bloodking1_dialogue.tres" id="33_hw0qa"]
 [ext_resource type="Script" uid="uid://dheawyf6jpi38" path="res://core/level/level_0/test/Test.gd" id="33_hxppo"]
 [ext_resource type="PackedScene" uid="uid://dr3sv5p0vd2na" path="res://core/autoload/EventData/events.tscn" id="33_uknva"]
 [ext_resource type="Script" uid="uid://dfuwy7thfv5dg" path="res://core/events/FlashlightCountEvent.gd" id="34_5wuja"]
@@ -164,6 +168,7 @@ size = Vector2(173.085, 153.678)
 [sub_resource type="Resource" id="Resource_0x72g"]
 script = ExtResource("29_m48am")
 dialogue_res = ExtResource("18_0sxsj")
+talkers = null
 current_res = "0_0_0"
 title = "废弃汽车1"
 title_list = "废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
@@ -225,21 +230,15 @@ size = Vector2(80, 453)
 [sub_resource type="Resource" id="Resource_nkocd"]
 script = ExtResource("25_tak07")
 
-[sub_resource type="Resource" id="Resource_e5tat"]
-script = ExtResource("29_m48am")
-dialogue_res = ExtResource("18_0sxsj")
-title_list = "废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
-balloon_color = Color(0.462745, 0.0313726, 0, 1)
-
 [sub_resource type="Resource" id="Resource_xvoeb"]
 script = ExtResource("25_tak07")
 health = 9999.0
 
-[sub_resource type="Resource" id="Resource_q6psj"]
-script = ExtResource("29_m48am")
-dialogue_res = ExtResource("18_0sxsj")
-title_list = "废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
-balloon_color = Color(0.380392, 0.0235294, 0, 1)
+[sub_resource type="Resource" id="Resource_vp0qe"]
+script = ExtResource("31_ly6y8")
+group = 1
+key = "bloodking1"
+metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8m1d"]
 size = Vector2(84, 20)
@@ -1297,6 +1296,7 @@ _data = {
 [sub_resource type="Resource" id="Resource_m1fas"]
 script = ExtResource("29_m48am")
 dialogue_res = ExtResource("28_dypld")
+talkers = null
 title = "_0_0_2"
 title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
 import = true
@@ -1665,7 +1665,7 @@ z_index = 1
 astar_range = NodePath("../CollisionShape2D")
 enabel_ui = false
 base_tile = NodePath("..")
-npc = NodePath("../../../Npcs/BloodKing")
+npc = NodePath("../../../Npcs/BloodKing1")
 target = NodePath("../../../Player")
 jump_try_time_range = Vector2i(2, 4)
 
@@ -1753,12 +1753,12 @@ debug_color = Color(0.909804, 1, 0.0901961, 0.168627)
 
 [node name="Npcs" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=1145705739]
 
-[node name="BloodKing2" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1130788761 node_paths=PackedStringArray("patrol_area", "astar") instance=ExtResource("24_vkc5v")]
-position = Vector2(1011, 189)
+[node name="BloodKing2" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1130788761 node_paths=PackedStringArray("astar") instance=ExtResource("24_vkc5v")]
+position = Vector2(-270, 243)
 npc_name = "bloodking2"
-talker_name = Array[String](["bloodking2"])
-patrol_area = NodePath("../../../../Trash/NpcPathFind/BloodKing/PatrolArea")
 data = SubResource("Resource_nkocd")
+dialogue_config = ExtResource("31_i46tv")
+save_data_config = ExtResource("32_ekuu4")
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar2")
 max_chase_speed = 200.0
@@ -1773,14 +1773,13 @@ jump_force_max_force_mid = 500.0
 jump_force_max_cell_dis_x = 4
 jump_force_min_force_mid = 200.0
 jump_force_min_cell_dis_x = 1
-dialogue_config = SubResource("Resource_e5tat")
 
-[node name="BloodKing" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1157398745 node_paths=PackedStringArray("patrol_area", "astar") instance=ExtResource("24_vkc5v")]
-position = Vector2(1144, 228)
-npc_name = "bloodking"
-talker_name = Array[String](["bloodking"])
-patrol_area = NodePath("../../../../Trash/NpcPathFind/BloodKing/PatrolArea")
+[node name="BloodKing1" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1157398745 node_paths=PackedStringArray("astar") instance=ExtResource("24_vkc5v")]
+position = Vector2(-112.00001, 281)
+npc_name = "bloodking1"
 data = SubResource("Resource_xvoeb")
+dialogue_config = ExtResource("33_hw0qa")
+save_data_config = SubResource("Resource_vp0qe")
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar")
 max_chase_speed = 300.0
@@ -1795,7 +1794,6 @@ jump_force_max_force_mid = 100.0
 jump_force_max_cell_dis_x = 5
 jump_force_min_force_mid = 200.0
 jump_force_min_cell_dis_x = 2
-dialogue_config = SubResource("Resource_q6psj")
 
 [node name="Player" parent="Parallax/ParallaxLayer_6" unique_id=1540481417 node_paths=PackedStringArray("astar") instance=ExtResource("6_d8c2x")]
 unique_name_in_owner = true

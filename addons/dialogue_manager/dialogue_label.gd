@@ -104,7 +104,7 @@ func type_out() -> void:
 		Dialogue.dialogue_title_dic_tmp[Dialogue.dialogue_config.current_res+Dialogue.current_title+str(Dialogue.current_talker)]+=1
 	else:
 		Dialogue.dialogue_title_dic_tmp[Dialogue.dialogue_config.current_res+Dialogue.current_title+str(Dialogue.current_talker)]=1
-	if debug:Debug.dprintinfo(DebugCT.dp("更新前:%s" %Dialogue.dialogue_title_dic_tmp,self))
+	if debug:Debug.dprintinfo(DebugCT.dp("更新:%s" %Dialogue.dialogue_title_dic_tmp,self))
 	
 	_update_text()
 	visible_characters = 0
