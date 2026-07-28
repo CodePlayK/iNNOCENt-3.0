@@ -55,3 +55,13 @@ func _on_printer_mouse_exited():
 
 func _on_button_pressed():
 	debug_printer.get_v_scroll_bar().hide()
+
+
+func _on_debug_box_mouse_entered() -> void:
+	_on_printer_mouse_entered()
+	pass # Replace with function body.
+
+
+func _on_debug_box_mouse_exited() -> void:
+	_on_printer_mouse_exited()
+	pass # Replace with function body.

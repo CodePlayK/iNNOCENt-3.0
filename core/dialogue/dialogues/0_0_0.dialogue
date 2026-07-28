@@ -43,17 +43,17 @@ M: 难道……我已经来到了地面上?
 => END!
 
 ~ 遇见队友
-bloodking: 呼,终于找到你了[color=ffff00]潜行者[/color].
-bloodking: 这该死的降落伞果然不靠谱.
+bloodking1: 呼,终于找到你了[color=ffff00]潜行者[/color].
+bloodking1: 这该死的降落伞果然不靠谱.
 bloodking2: 你没事吧?
 bloodking2: 我们得赶紧去和大部队汇合.
 我: …… ……
 M: 他们认识我？
-bloodking: …… ……？
-bloodking: 你不会摔傻了吧？
-bloodking: 别愣着，这里不安全。
+bloodking1: …… ……？
+bloodking1: 你不会摔傻了吧？
+bloodking1: 别愣着，这里不安全。
 bloodking2: 算了，你就先跟在我们身后。
-bloodking: 出发！
+bloodking1: 出发！
 => END!
 
 ~ 遇见队友1

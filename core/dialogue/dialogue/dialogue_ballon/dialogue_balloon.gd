@@ -146,17 +146,17 @@ func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:Dialog
 		balloon.grab_focus()
 	hint_sprite.show()	
 	#判断是否为第一次对白，是才进入历史	
-	var a=dialogue_config.current_res+dialogue_config.title+str(Dialogue.current_talker)
+	var l = Dialogue.dialogue_config.current_res+str(dialogue_line.id).split("@",true,0)[1]
 	if Dialogue.dialogue_title_dic.has(dialogue_config.current_res):
 		if Dialogue.dialogue_title_dic[dialogue_config.current_res].has(dialogue_config.title):
 			return
 		else :
-			if Dialogue.dialogue_title_dic_tmp.has(a):
-				if Dialogue.dialogue_title_dic_tmp[a]!=1:
+			if Dialogue.dialogue_title_dic_tmp.has(l):
+				if Dialogue.dialogue_title_dic_tmp[l]!=1:
 					return			
 	else :
-		if Dialogue.dialogue_title_dic_tmp.has(a):
-				if Dialogue.dialogue_title_dic_tmp[a]!=1:
+		if Dialogue.dialogue_title_dic_tmp.has(l):
+				if Dialogue.dialogue_title_dic_tmp[l]!=1:
 					return	
 	DialogueState.add_dialogue_history(talker_name[0],dialogue_line.text)
 	

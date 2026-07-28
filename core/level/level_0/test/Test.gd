@@ -1,4 +1,4 @@
-extends MarginContainer
+extends HBoxContainer
 @onready var enemy_timer: Timer = $VBoxContainer/HBoxContainer/enemy/enemyTimer
 @onready var patrol_left: Marker = $"../../Parallax/ParallaxLayer_6/Marks/PatrolLeft"
 @onready var patrol_right: Marker = $"../../Parallax/ParallaxLayer_6/Marks/PatrolRight"
@@ -106,8 +106,8 @@ func _on_show_astar_pressed() -> void:
 @onready var player_camera_aniplayer: AnimationPlayer = $"../../Setting/PlayerCamera/PlayerCameraAniplayer"
 func _on_show_mind_box_pressed() -> void:
 	player_camera_aniplayer.play("0_0_0")
-
-@onready var cutscener_trigger: Area2D = $"../../Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger"
+@export_category("过场设置")
+@export var cutscener_trigger: Area2D = $"../../Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger"
 func _on_cutscene_runner_pressed() -> void:
 	cutscener_trigger.enable=true
 	CutscenerGlobal.cutscener_run.emit("NA")

@@ -100,10 +100,12 @@ func _update_text() -> void:
 ## Start typing out the text
 func type_out() -> void:
 	#更新台词单条计数，不需要台词块执行结束才统计，实时统计每一句话
-	if Dialogue.dialogue_title_dic_tmp.has(Dialogue.dialogue_config.current_res+Dialogue.current_title+str(Dialogue.current_talker)):
-		Dialogue.dialogue_title_dic_tmp[Dialogue.dialogue_config.current_res+Dialogue.current_title+str(Dialogue.current_talker)]+=1
+	#var l = Dialogue.dialogue_config.current_res+Dialogue.current_title+str(Dialogue.current_talker)+str(dialogue_line.id).split("@",true,0)[1]
+	var l = Dialogue.dialogue_config.current_res+str(dialogue_line.id).split("@",true,0)[1]
+	if Dialogue.dialogue_title_dic_tmp.has(l):
+		Dialogue.dialogue_title_dic_tmp[l]+=1
 	else:
-		Dialogue.dialogue_title_dic_tmp[Dialogue.dialogue_config.current_res+Dialogue.current_title+str(Dialogue.current_talker)]=1
+		Dialogue.dialogue_title_dic_tmp[l]=1
 	if debug:Debug.dprintinfo(DebugCT.dp("更新:%s" %Dialogue.dialogue_title_dic_tmp,self))
 	
 	_update_text()

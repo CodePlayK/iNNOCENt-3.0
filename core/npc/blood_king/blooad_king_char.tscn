@@ -7440,9 +7440,9 @@ metadata/_edit_pinned_properties_ = [&"connects"]
 
 [node name="Health" parent="Config" unique_id=814573476 node_paths=PackedStringArray("tagets") instance=ExtResource("3_wa5ky")]
 tagets = [NodePath("../../UIs")]
-max_health = 999.0
+max_health = 100.0
 min_health = null
-health_regeneration = null
+health_regeneration = 1.0
 print_health = null
 
 [node name="Obj2PlayerSide" parent="Config" unique_id=2122604695 instance=ExtResource("4_gbfy1")]
@@ -7466,17 +7466,19 @@ position = Vector2(35, -89)
 
 [node name="DamageNum" parent="UIs/HurtFX" unique_id=1574429031 instance=ExtResource("8_1rf8v")]
 position = Vector2(0, -67)
+metadata/_edit_lock_ = true
 
 [node name="Marker" parent="UIs/HurtFX/DamageNum" unique_id=1340617557 instance=ExtResource("7_tfgkb")]
 visible = false
 position = Vector2(-57, -61)
 
 [node name="HealthBar" parent="UIs" unique_id=982675793 instance=ExtResource("9_esw4n")]
-offset_top = -64.0
-offset_bottom = -62.0
-pivot_offset = Vector2(17, 0)
+anchors_preset = -1
+offset_left = -20.0
+offset_top = -115.0
+offset_right = 20.0
 mouse_filter = 2
-bar_color = Color(0, 1, 0, 0.490196)
+bar_color = Color(1, 0, 0.016666412, 0.654902)
 metadata/_edit_use_anchors_ = true
 
 [node name="Test" type="Control" parent="UIs" unique_id=1541553526]

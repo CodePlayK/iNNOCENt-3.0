@@ -60,14 +60,14 @@ content_margin_left = 5.0
 content_margin_top = 0.0
 content_margin_right = 5.0
 content_margin_bottom = 0.0
-bg_color = Color(0, 0, 0, 0.529412)
+bg_color = Color(0, 0, 0, 0.61960787)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7ybt"]
 content_margin_left = 5.0
 content_margin_top = 3.0
 content_margin_right = 5.0
 content_margin_bottom = 1.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0, 0, 0, 0.85882354)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtgou"]
 bg_color = Color(1, 1, 1, 0.294118)

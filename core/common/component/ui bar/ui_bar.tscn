@@ -26,8 +26,10 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-expand_margin_top = 4.0
-anti_aliasing = false
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jn07y"]
 bg_color = Color(1, 0, 0, 1)
@@ -35,17 +37,21 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-expand_margin_top = 2.0
-anti_aliasing = false
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lubfn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yowun"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-expand_margin_top = 4.0
-anti_aliasing = false
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
 
 [node name="UIBar" type="MarginContainer" unique_id=472572121]
 modulate = Color(1, 1, 1, 0.854902)
@@ -57,7 +63,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.87
 theme = SubResource("Theme_xmfd2")
 script = ExtResource("1_5ivna")
 back_bar_color = Color(1, 1, 1, 0.482353)
@@ -75,14 +80,14 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_jn07y")
 show_percentage = false
 
 [node name="UIBar" type="ProgressBar" parent="." unique_id=1823077236]
-modulate = Color(0, 1, 0, 0.9372549)
+modulate = Color(0, 18.892157, 0, 1)
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 mouse_filter = 2
 theme = SubResource("Theme_xmfd2")
-theme_override_styles/fill = SubResource("StyleBoxFlat_lubfn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yowun")
 value = 50.0
 show_percentage = false
 

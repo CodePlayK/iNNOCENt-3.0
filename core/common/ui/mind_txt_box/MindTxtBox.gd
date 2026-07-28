@@ -40,17 +40,17 @@ func on_talker_start(current_talker:String,dialogue_config:DialogueConfig,dialog
 	dialogue_line.text = "[center]%s" %txt
 	nextable=true
 	is_waiting_for_input = true	
-
+	var l = Dialogue.dialogue_config.current_res+str(dialogue_line.id).split("@",true,0)[1]
 	if Dialogue.dialogue_title_dic.has(dialogue_config.current_res):
 		if Dialogue.dialogue_title_dic[dialogue_config.current_res].has(dialogue_config.title):
 			return
 		else :
-			if Dialogue.dialogue_title_dic_tmp.has(dialogue_config.current_res+dialogue_config.title+str(current_talker)):
-				if Dialogue.dialogue_title_dic_tmp[dialogue_config.current_res][dialogue_config.title]!=1:
+			if Dialogue.dialogue_title_dic_tmp.has(l):
+				if Dialogue.dialogue_title_dic_tmp[l]!=1:
 					return			
 	else :
-		if Dialogue.dialogue_title_dic_tmp.has(dialogue_config.current_res+dialogue_config.title+str(current_talker)):
-				if Dialogue.dialogue_title_dic_tmp[dialogue_config.current_res][dialogue_config.title]!=1:
+		if Dialogue.dialogue_title_dic_tmp.has(l):
+				if Dialogue.dialogue_title_dic_tmp[l]!=1:
 					return	
 					
 	DialogueState.add_dialogue_history(DialogueState.player_name[0],txt)
