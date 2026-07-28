@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://chv5pwxfl01u3"]
+
+[ext_resource type="Script" uid="uid://xypiost8j3d7" path="res://core/autoload/debug/debug.gd" id="1_jq1f5"]
+[ext_resource type="Theme" uid="uid://bpydhupj7vcjn" path="res://core/autoload/debug/debug.tres" id="2_aggdk"]
+
+[node name="Debug" type="CanvasLayer" unique_id=439546090]
+script = ExtResource("1_jq1f5")
+
+[node name="MC" type="MarginContainer" parent="." unique_id=1925302473]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 517.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MC" unique_id=754308421]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="MarginContainer" parent="MC/VBoxContainer" unique_id=1601956510]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="DebugBox" type="HBoxContainer" parent="MC/VBoxContainer" unique_id=477595998]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="DebugPrinter" type="RichTextLabel" parent="MC/VBoxContainer/DebugBox" unique_id=1766672859]
+custom_minimum_size = Vector2(0, 52.055)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.57
+focus_mode = 2
+mouse_default_cursor_shape = 1
+theme = ExtResource("2_aggdk")
+bbcode_enabled = true
+scroll_following = true
+context_menu_enabled = true
+selection_enabled = true
+
+[node name="Button" type="Button" parent="MC/VBoxContainer/DebugBox" unique_id=1451441938]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1

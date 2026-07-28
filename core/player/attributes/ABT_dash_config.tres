@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PlayerABTDashConfig" load_steps=2 format=3 uid="uid://r4qhrf2xruyk"]
+
+[ext_resource type="Script" path="res://core/player/attributes/PlayerABTDashConfig.gd" id="1_6xrpc"]
+
+[resource]
+script = ExtResource("1_6xrpc")
+dash_cooldown = 1.0
+dash_time = 0.2

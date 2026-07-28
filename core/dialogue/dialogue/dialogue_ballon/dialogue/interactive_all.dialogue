@@ -1,0 +1,63 @@
+~ on_main_light
+卧室主灯开关: 要使用[color=f88d69]卧室灯[/color]开关吗？
+=> END
+~ on_bathroom_light
+浴室灯开关: 要使用[color=f88d69]浴室灯[/color]开关吗？
+=> END
+~ on_sleep_light
+夜灯开关: 要使用[color=f88d69]夜灯[/color]开关吗？
+=> END
+~ on_desk_light
+作业本: 要开始写今天的[color=f88d69]作业[/color]吗？
+作业本: [wave amp=25 freq=5][color=f88d69]作业[/color]完成~~[/wave]
+=> END
+~ memery
+=> END
+~ on_gameplay
+收容系统: 按对应方向收容[shake rate=20 level=5][color=f88d69]炎魔[/color][/shake]
+=> END
+~ on_to_trainingroom
+卧室房门: 要进入[color=f88d69]训练室[/color]吗？
+=> END
+~ on_to_corridor
+训练室大门: 要进入[color=f88d69]走廊[/color]吗？
+=> END
+~ play_cutscene
+白大褂: 要播放过场吗？
+=> END
+~ open_gameplay
+白大褂: 要开始[shake rate=20 level=3][color=f88d69]抑制炎魔[/color][/shake]训练吗？
+=> END
+~ close_gameplay
+白大褂: 要结束[shake rate=20 level=3][color=f88d69]抑制炎魔[/color][/shake]训练吗？
+=> END
+~ on_picture_strange_love_doc
+电影海报: [color=70acff]白大褂[/color]挂上去的海报
+电影海报: 这家伙的电影口味真奇怪
+=> END
+~ on_picture_sunset
+风景画: [color=16ff78]赫默[/color]送的画
+风景画: 每天看到就莫名的安心呢~
+=> END
+~ on_bedroom_water
+洗手池: 开始[color=f88d69]刷牙[/color]？
+=> END
+~ on_bedroom_water_ok
+洗手池: [wave amp=25 freq=5]刷好了~[/wave]
+=> END
+~ on_bedroom_water_no_light
+洗手池: 太黑了，打开[color=f88d69]浴室灯[/color]再刷牙吧
+=> END
+~ on_door_locked
+伊芙利特: 门被[color=f88d69]锁上了[/color]……
+=> END
+~ today_brushed_teeth
+伊芙利特: 今天已经刷过牙了
+=> END
+~ training_room_box_light
+训练室灯: 要打开训练房灯光吗
+=> END
+~ test
+森: 鼠标左键降低[color=f88d69]重力[/color]，右键短暂[color=f88d69]无敌[/color]，技能都有冷却哦 
+~ test1
+安: [wave amp=15 freq=5]对话框测试~[/wave] 

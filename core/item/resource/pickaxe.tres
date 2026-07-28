@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="ItemConfig" format=3 uid="uid://xfpvrn43qq55"]
+
+[ext_resource type="Script" uid="uid://wyjigxdq0doq" path="res://core/item/ItemTextureConfig.gd" id="1_67a0w"]
+[ext_resource type="Texture2D" uid="uid://b56bvcbjigiuo" path="res://core/common/resource/texture/items/test_items/Pop Cans.png" id="2_45jd2"]
+[ext_resource type="Script" uid="uid://blp5uvxjp3h6q" path="res://core/item/ItemConfig.gd" id="3_8c3o3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi1ik"]
+atlas = ExtResource("2_45jd2")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="Resource" id="Resource_gdwop"]
+resource_local_to_scene = true
+script = ExtResource("1_67a0w")
+import = true
+animation_name = "pickaxe"
+static_texture = SubResource("AtlasTexture_oi1ik")
+animation_name_list = "1
+2
+3
+4
+Access Key
+Blank Blueprint
+Mine
+Tag
+ammo
+bandage
+blueprint1
+blueprint2
+blueprint3
+blueprint4
+blueprint5
+blueprint6
+bottle
+f;ashlight
+generator
+key
+pickaxe
+supply box
+tac knife
+tent
+"
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_8c3o3")
+item_texture_config = SubResource("Resource_gdwop")
+item_name = "斧子"
+item_txt = "我的世界"

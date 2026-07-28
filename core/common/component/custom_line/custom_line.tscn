@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu0jsjt48ug37"]
+
+[ext_resource type="Script" path="res://core/common/component/custom_line/custom_line.gd" id="1_4mkuu"]
+
+[sub_resource type="Curve" id="Curve_leds1"]
+_data = [Vector2(0, 0.310289), 0.0, 0.0, 0, 0, Vector2(0.521886, 0.898556), 0.0, 0.0, 0, 0, Vector2(1, 0.298346), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="CustomLine" type="Line2D"]
+points = PackedVector2Array(0, -1, 736.667, 337.5)
+width_curve = SubResource("Curve_leds1")
+default_color = Color(1, 1, 1, 0.764706)
+script = ExtResource("1_4mkuu")

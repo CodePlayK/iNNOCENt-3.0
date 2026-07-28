@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogueConfig" load_steps=3 format=3 uid="uid://va5higdagugc"]
+
+[ext_resource type="Resource" uid="uid://onb8u2j1uao2" path="res://test/dialogue/test1.dialogue" id="1_j368i"]
+[ext_resource type="Script" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="2_srlro"]
+
+[resource]
+script = ExtResource("2_srlro")
+dialogue_res = ExtResource("1_j368i")
+dialogue_checker_path = ""
+title = "_0_0_0"
+title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
+import = true
+auto_next = true
+talker_name = Array[String](["bloodking"])
+balloon_color = Color(0, 0.286275, 0.25098, 1)
+line_end_wait_time = 1.0

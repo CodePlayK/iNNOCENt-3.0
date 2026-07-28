@@ -1,0 +1,15 @@
+[gd_resource type="Environment" format=3 uid="uid://cec60t840ib8d"]
+
+[resource]
+background_mode = 3
+background_canvas_max_layer = 10
+tonemap_white = 0.21
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.62
+glow_strength = 0.74
+glow_mix = 0.009
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 0.97
+fog_light_energy = 2.51

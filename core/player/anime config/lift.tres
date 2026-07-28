@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AnimeConfig" load_steps=2 format=3 uid="uid://cy0f0aqmerss5"]
+
+[ext_resource type="Script" path="res://core/common/anime/AnimeConfig.gd" id="1_8muon"]
+
+[resource]
+script = ExtResource("1_8muon")
+animation_name = "NA"
+speed_scale = 1.0
+backward = false
+loop = true
+sound_config = Array[Resource("res://core/common/anime/AnimeSoundConfig.gd")]([])
+hitbox_config = Array[Resource("res://core/common/anime/AnimeHitBoxConfig.gd")]([])
+bati_config = Array[Resource("res://core/common/anime/AnimeBatiConfig.gd")]([])
+fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])

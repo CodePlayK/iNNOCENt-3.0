@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bli7y1u5kjxe4"]
+
+[ext_resource type="Shader" path="res://test/shader/ctr.gdshader" id="1_1mmfc"]
+
+[resource]
+shader = ExtResource("1_1mmfc")
+shader_parameter/enable = true
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.408
+shader_parameter/scanlines_width = 0.139
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(320, 240)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 5.0
+shader_parameter/distort_intensity = 0.001
+shader_parameter/noise_opacity = 0.098
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0
+shader_parameter/aberration = 0.00500005
+shader_parameter/brightness = 1.255
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.03
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.221

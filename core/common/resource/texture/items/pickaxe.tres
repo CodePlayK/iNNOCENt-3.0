@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="ItemTextureConfig" load_steps=4 format=3 uid="uid://c4hagaruictv4"]
+
+[ext_resource type="Script" path="res://core/item/ItemTextureConfig.gd" id="1_kwh4v"]
+[ext_resource type="Texture2D" uid="uid://b56bvcbjigiuo" path="res://core/common/resource/texture/items/test_items/Pop Cans.png" id="2_k5tpa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi1ik"]
+atlas = ExtResource("2_k5tpa")
+region = Rect2(16, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_kwh4v")
+import = true
+item_texture = 0
+animation_name = "pickaxe"
+static_texture_frame = 0
+static_texture = SubResource("AtlasTexture_oi1ik")
+animation_name_list = "1
+2
+3
+4
+Access Key
+Blank Blueprint
+Mine
+Tag
+ammo
+bandage
+blueprint1
+blueprint2
+blueprint3
+blueprint4
+blueprint5
+blueprint6
+bottle
+f;ashlight
+generator
+key
+pickaxe
+supply box
+tac knife
+tent
+"

@@ -1,0 +1,76 @@
+[gd_resource type="Theme" format=3 uid="uid://brsfaf6oapa4p"]
+
+[ext_resource type="FontFile" uid="uid://b5cupb7ee3t3d" path="res://core/common/resource/font/柳宋.ttf" id="1_uag1a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6e28s"]
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0.615686)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxpif"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+bg_color = Color(3.00817e-08, 0.166095, 0.167732, 0.239216)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mreh5"]
+bg_color = Color(0, 0, 0, 0.956863)
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.756863)
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5lut"]
+bg_color = Color(1, 1, 1, 0.592157)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh0dq"]
+content_margin_right = 20.0
+bg_color = Color(1, 1, 1, 0.592157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ah7w"]
+content_margin_left = 6.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erkme"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[resource]
+HSeparator/styles/separator = SubResource("StyleBoxFlat_6e28s")
+MarginContainer/constants/margin_bottom = 3
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 2
+RichTextLabel/colors/font_outline_color = Color(0.278431, 0.278431, 0.278431, 0)
+RichTextLabel/constants/line_separation = 4
+RichTextLabel/constants/outline_size = 1
+RichTextLabel/font_sizes/normal_font_size = 17
+RichTextLabel/fonts/normal_font = ExtResource("1_uag1a")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_cxpif")
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_mreh5")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_e5lut")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_sh0dq")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_4ah7w")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_erkme")

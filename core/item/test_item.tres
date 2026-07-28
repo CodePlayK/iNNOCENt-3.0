@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="ItemConfig" load_steps=6 format=3 uid="uid://ck2wbm11yrnix"]
+
+[ext_resource type="Script" path="res://core/item/ItemTextureConfig.gd" id="1_164bm"]
+[ext_resource type="Script" path="res://core/item/ItemConfig.gd" id="1_c3cmc"]
+[ext_resource type="Texture2D" uid="uid://b56bvcbjigiuo" path="res://core/common/resource/texture/items/test_items/Pop Cans.png" id="2_mm0e5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im272"]
+atlas = ExtResource("2_mm0e5")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="Resource" id="Resource_r8y7k"]
+script = ExtResource("1_164bm")
+import = true
+item_texture = 0
+animation_name = "tent"
+static_texture_frame = 0
+static_texture = SubResource("AtlasTexture_im272")
+animation_name_list = "1
+2
+3
+4
+Access Key
+Blank Blueprint
+Mine
+Tag
+ammo
+bandage
+blueprint1
+blueprint2
+blueprint3
+blueprint4
+blueprint5
+blueprint6
+bottle
+f;ashlight
+generator
+key
+pickaxe
+supply box
+tac knife
+tent
+"
+
+[resource]
+script = ExtResource("1_c3cmc")
+item_id = 0
+item_type = 2
+item_texture_config = SubResource("Resource_r8y7k")
+item_txt = "一把平平无奇的旋转钥匙"
+item_name = "钥匙"

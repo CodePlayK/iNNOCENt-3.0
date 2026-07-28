@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://818e7p2k8d0a"]
+
+[sub_resource type="Gradient" id="Gradient_04lay"]
+offsets = PackedFloat32Array(0.0630915, 0.602524, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.631373, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3g2uu"]
+gradient = SubResource("Gradient_04lay")
+width = 1920
+height = 275
+fill_from = Vector2(0.474576, 1)
+fill_to = Vector2(0.48184, 0)
+
+[node name="MindTxtBox" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 461.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_3g2uu")
+flip_v = true

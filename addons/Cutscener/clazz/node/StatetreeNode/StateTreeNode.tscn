@@ -1,0 +1,720 @@
+[gd_scene load_steps=19 format=3 uid="uid://cxrlb6f5tks3v"]
+
+[ext_resource type="Theme" uid="uid://ch03cnrspt63o" path="res://addons/Cutscener/resource/node_theme.tres" id="1_irxfv"]
+[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/StatetreeNode/StateTreeNode.gd" id="2_eyj4c"]
+[ext_resource type="PackedScene" uid="uid://brijnx0ig81b1" path="res://addons/Cutscener/clazz/node/Conmmon/param_2.tscn" id="3_hmswt"]
+[ext_resource type="PackedScene" uid="uid://biow5ccnofp2u" path="res://addons/Cutscener/clazz/node/Conmmon/index_op.tscn" id="4_4wka5"]
+[ext_resource type="PackedScene" uid="uid://dobf7nc4fqttn" path="res://addons/Cutscener/clazz/node/Conmmon/delete_param_butt.tscn" id="4_sia3i"]
+[ext_resource type="PackedScene" uid="uid://us35lq4dhp2h" path="res://addons/Cutscener/clazz/node/Conmmon/export.tscn" id="5_jf4bp"]
+[ext_resource type="PackedScene" uid="uid://ce0jui8jj3xxr" path="res://addons/Cutscener/clazz/node/Conmmon/choose_file_butt.tscn" id="6_2ybc7"]
+[ext_resource type="PackedScene" uid="uid://dug4013bo7vnr" path="res://addons/Cutscener/clazz/node/Conmmon/edit_menu.tscn" id="6_pgc7m"]
+[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/StatetreeNode/Param.gd" id="8_b7j4v"]
+[ext_resource type="PackedScene" uid="uid://oclkone2cmff" path="res://addons/Cutscener/clazz/node/Conmmon/choose_vec_2_butt.tscn" id="8_sota0"]
+[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/StatetreeNode/runner.gd" id="9_rw2g7"]
+[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/SetNode/DialoguePath.gd" id="10_6wf84"]
+[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/Conmmon/EventParam.gd" id="10_f6kph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgnk3"]
+bg_color = Color(0, 0, 0, 0.921569)
+
+[sub_resource type="Image" id="Image_4iius"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_nwy1d"]
+image = SubResource("Image_4iius")
+
+[sub_resource type="Image" id="Image_ghxoy"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_dht5b"]
+image = SubResource("Image_ghxoy")
+
+[node name="StateTreeNode" type="GraphNode"]
+offset_right = 249.0
+offset_bottom = 144.0
+theme = ExtResource("1_irxfv")
+resizable = true
+title = "状态树"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+script = ExtResource("2_eyj4c")
+metadata/node_type = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Node2D" type="Node2D" parent="MarginContainer"]
+position = Vector2(3, -79)
+
+[node name="Dialogues" type="RichTextLabel" parent="MarginContainer/Node2D"]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+offset_left = -26.0
+offset_top = -364.0
+offset_right = 476.0
+offset_bottom = 30.0
+mouse_force_pass_scroll_events = false
+theme = ExtResource("1_irxfv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgnk3")
+bbcode_enabled = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ResFile" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="ChooseFile" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
+visible = true
+layout_mode = 2
+icon = SubResource("ImageTexture_nwy1d")
+node = NodePath("../ResFile")
+
+[node name="Update" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "更新资源"
+
+[node name="ParamPrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/ParamPrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+text = "参数.1"
+
+[node name="Min" parent="MarginContainer/VBoxContainer/ParamPrototype" instance=ExtResource("3_hmswt")]
+layout_mode = 2
+tooltip_text = "目标值"
+theme = null
+text = "-1"
+
+[node name="IndexOp" parent="MarginContainer/VBoxContainer/ParamPrototype" node_paths=PackedStringArray("target") instance=ExtResource("4_4wka5")]
+layout_mode = 2
+size_flags_stretch_ratio = 3.15
+target = NodePath("../Min")
+
+[node name="Max" parent="MarginContainer/VBoxContainer/ParamPrototype" instance=ExtResource("3_hmswt")]
+layout_mode = 2
+tooltip_text = "目标值"
+theme = null
+text = "-1"
+
+[node name="IndexOp2" parent="MarginContainer/VBoxContainer/ParamPrototype" node_paths=PackedStringArray("target") instance=ExtResource("4_4wka5")]
+layout_mode = 2
+size_flags_stretch_ratio = 3.15
+target = NodePath("../Max")
+
+[node name="DeleteParam" parent="MarginContainer/VBoxContainer/ParamPrototype" instance=ExtResource("4_sia3i")]
+visible = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="CheckButton" parent="MarginContainer/VBoxContainer/ParamPrototype" instance=ExtResource("5_jf4bp")]
+visible = false
+layout_mode = 2
+
+[node name="ConditionPrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ConditionLinkType" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "连接类型"
+item_count = 2
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "and"
+popup/item_0/id = 20
+popup/item_1/text = "or"
+popup/item_1/id = 21
+
+[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+text = "参数.1"
+
+[node name="Param" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+item_count = 56
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "CutsceneState.title_able"
+popup/item_0/id = 0
+popup/item_1/text = "CutsceneState.cutscene_playing"
+popup/item_1/id = 1
+popup/item_2/text = "CutsceneState.dic_cutscenes"
+popup/item_2/id = 2
+popup/item_3/text = "CutsceneState.cutscener_playing"
+popup/item_3/id = 3
+popup/item_4/text = "CutsceneState.current_cutscene"
+popup/item_4/id = 4
+popup/item_5/text = "CutsceneState.test_var_String"
+popup/item_5/id = 5
+popup/item_6/text = "CutsceneState.test_var_Vector2"
+popup/item_6/id = 6
+popup/item_7/text = "CutsceneState.test_var_int"
+popup/item_7/id = 7
+popup/item_8/text = "CutsceneState.test_var_float"
+popup/item_8/id = 8
+popup/item_9/text = "CutsceneState.test_var_Array"
+popup/item_9/id = 9
+popup/item_10/text = "CutsceneState.test_var_Dictionary"
+popup/item_10/id = 10
+popup/item_11/text = "CutsceneState.test_var_Resource"
+popup/item_11/id = 11
+popup/item_12/text = "CutsceneState.player_position"
+popup/item_12/id = 12
+popup/item_13/text = "Dialogue.dialogue_resource"
+popup/item_13/id = 13
+popup/item_14/text = "Dialogue.temporary_game_states"
+popup/item_14/id = 14
+popup/item_15/text = "Dialogue.dialogue_config"
+popup/item_15/id = 15
+popup/item_16/text = "Dialogue.current_talker"
+popup/item_16/id = 16
+popup/item_17/text = "Dialogue.current_start_talker"
+popup/item_17/id = 17
+popup/item_18/text = "Dialogue.current_dialogue_balloon"
+popup/item_18/id = 18
+popup/item_19/text = "Dialogue.current_title"
+popup/item_19/id = 19
+popup/item_20/text = "Dialogue.current_start_obj"
+popup/item_20/id = 20
+popup/item_21/text = "Dialogue.current_start_title"
+popup/item_21/id = 21
+popup/item_22/text = "Dialogue.dialogue_title_dic"
+popup/item_22/id = 22
+popup/item_23/text = "Dialogue.dialogue_line"
+popup/item_23/id = 23
+popup/item_24/text = "PlayerState.player"
+popup/item_24/id = 24
+popup/item_25/text = "PlayerState.player_health_config"
+popup/item_25/id = 25
+popup/item_26/text = "PlayerState.player_stamina_config"
+popup/item_26/id = 26
+popup/item_27/text = "PlayerState.player_control_lcok"
+popup/item_27/id = 27
+popup/item_28/text = "PlayerState.face_left"
+popup/item_28/id = 28
+popup/item_29/text = "PlayerState.face_left_normalize"
+popup/item_29/id = 29
+popup/item_30/text = "PlayerState.player_interact_being_locked"
+popup/item_30/id = 30
+popup/item_31/text = "PlayerState.player_lock_interact_obj"
+popup/item_31/id = 31
+popup/item_32/text = "PlayerState.player_z_index"
+popup/item_32/id = 32
+popup/item_33/text = "PlayerState.is_player_on_fighting"
+popup/item_33/id = 33
+popup/item_34/text = "PlayerState.player_on_fighting"
+popup/item_34/id = 34
+popup/item_35/text = "PlayerState.player_state_history"
+popup/item_35/id = 35
+popup/item_36/text = "PlayerState.player_unnormal_state"
+popup/item_36/id = 36
+popup/item_37/text = "PlayerState.player_global_position"
+popup/item_37/id = 37
+popup/item_38/text = "PlayerState.player_screen_position"
+popup/item_38/id = 38
+popup/item_39/text = "PlayerState.max_height"
+popup/item_39/id = 39
+popup/item_40/text = "PlayerState.current_height"
+popup/item_40/id = 40
+popup/item_41/text = "PlayerState.start_jump_height"
+popup/item_41/id = 41
+popup/item_42/text = "PlayerState.last_state"
+popup/item_42/id = 42
+popup/item_43/text = "PlayerState.last2_state"
+popup/item_43/id = 43
+popup/item_44/text = "PlayerState.current_state"
+popup/item_44/id = 44
+popup/item_45/text = "PlayerState.ability_lock"
+popup/item_45/id = 45
+popup/item_46/text = "PlayerState.dense_flag"
+popup/item_46/id = 46
+popup/item_47/text = "PlayerState.denseable_flag"
+popup/item_47/id = 47
+popup/item_48/text = "PlayerState.dense_success_flag"
+popup/item_48/id = 48
+popup/item_49/text = "PlayerState.attacking"
+popup/item_49/id = 49
+popup/item_50/text = "PlayerState.hitting"
+popup/item_50/id = 50
+popup/item_51/text = "PlayerState.lightable_flag"
+popup/item_51/id = 51
+popup/item_52/text = "PlayerState.light_flag"
+popup/item_52/id = 52
+popup/item_53/text = "PlayerState.player_be_hitting"
+popup/item_53/id = 53
+popup/item_54/text = "PlayerState.double_jump_able"
+popup/item_54/id = 54
+popup/item_55/text = "PlayerState.on_collection_hint"
+popup/item_55/id = 55
+script = ExtResource("8_b7j4v")
+
+[node name="ParamType" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "参数类型"
+item_count = 8
+selected = 7
+fit_to_longest_item = false
+popup/item_0/text = "String"
+popup/item_0/id = 4
+popup/item_0/disabled = true
+popup/item_1/text = "float"
+popup/item_1/id = 3
+popup/item_1/disabled = true
+popup/item_2/text = "int"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+popup/item_3/text = "bool"
+popup/item_3/id = 1
+popup/item_3/disabled = true
+popup/item_4/text = "Array"
+popup/item_4/id = 28
+popup/item_4/disabled = true
+popup/item_5/text = "Dictionary"
+popup/item_5/id = 27
+popup/item_5/disabled = true
+popup/item_6/text = "Resource"
+popup/item_6/id = 24
+popup/item_6/disabled = true
+popup/item_7/text = "Vector2"
+popup/item_7/id = 5
+popup/item_7/disabled = true
+
+[node name="ConditionType" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "判断符号"
+item_count = 8
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "=="
+popup/item_0/id = 0
+popup/item_1/text = "!="
+popup/item_1/id = 1
+popup/item_2/text = "<"
+popup/item_2/id = 2
+popup/item_3/text = "<="
+popup/item_3/id = 3
+popup/item_4/text = ">"
+popup/item_4/id = 4
+popup/item_5/text = ">="
+popup/item_5/id = 5
+popup/item_6/text = "not"
+popup/item_6/id = 23
+popup/item_7/text = "in"
+popup/item_7/id = 24
+
+[node name="Param2" parent="MarginContainer/VBoxContainer/ConditionPrototype" instance=ExtResource("3_hmswt")]
+layout_mode = 2
+tooltip_text = "目标值"
+theme = null
+
+[node name="DeleteParam" parent="MarginContainer/VBoxContainer/ConditionPrototype" instance=ExtResource("4_sia3i")]
+visible = true
+layout_mode = 2
+
+[node name="ChooseFile" parent="MarginContainer/VBoxContainer/ConditionPrototype" node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
+layout_mode = 2
+icon = SubResource("ImageTexture_nwy1d")
+node = NodePath("../Param2")
+
+[node name="ChooseVec2" parent="MarginContainer/VBoxContainer/ConditionPrototype" node_paths=PackedStringArray("target") instance=ExtResource("8_sota0")]
+layout_mode = 2
+icon = SubResource("ImageTexture_nwy1d")
+target = NodePath("../Param2")
+
+[node name="Export" parent="MarginContainer/VBoxContainer/ConditionPrototype" instance=ExtResource("5_jf4bp")]
+visible = false
+layout_mode = 2
+
+[node name="EventPrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ConditionLinkType" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "连接类型"
+item_count = 2
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "and"
+popup/item_0/id = 20
+popup/item_1/text = "or"
+popup/item_1/id = 21
+
+[node name="Type" type="LineEdit" parent="MarginContainer/VBoxContainer/EventPrototype"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+text = "0"
+
+[node name="Param" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+item_count = 4
+selected = 0
+popup/item_0/text = "0.玩家攻击次数"
+popup/item_0/id = 0
+popup/item_1/text = "1.BloodkingAttack攻击次数"
+popup/item_1/id = 1
+popup/item_2/text = "2.PlayerDenseSucTimeEvent"
+popup/item_2/id = 2
+popup/item_3/text = "3.玩家拥有的手电筒的数量"
+popup/item_3/id = 3
+script = ExtResource("10_f6kph")
+
+[node name="ParamType" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "参数类型"
+item_count = 8
+selected = 7
+fit_to_longest_item = false
+popup/item_0/text = "String"
+popup/item_0/id = 4
+popup/item_0/disabled = true
+popup/item_1/text = "float"
+popup/item_1/id = 3
+popup/item_1/disabled = true
+popup/item_2/text = "int"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+popup/item_3/text = "bool"
+popup/item_3/id = 1
+popup/item_3/disabled = true
+popup/item_4/text = "Array"
+popup/item_4/id = 28
+popup/item_4/disabled = true
+popup/item_5/text = "Dictionary"
+popup/item_5/id = 27
+popup/item_5/disabled = true
+popup/item_6/text = "Resource"
+popup/item_6/id = 24
+popup/item_6/disabled = true
+popup/item_7/text = "Vector2"
+popup/item_7/id = 5
+popup/item_7/disabled = true
+
+[node name="ConditionType" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "判断符号"
+item_count = 8
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "=="
+popup/item_0/id = 0
+popup/item_1/text = "!="
+popup/item_1/id = 1
+popup/item_2/text = "<"
+popup/item_2/id = 2
+popup/item_3/text = "<="
+popup/item_3/id = 3
+popup/item_4/text = ">"
+popup/item_4/id = 4
+popup/item_5/text = ">="
+popup/item_5/id = 5
+popup/item_6/text = "not"
+popup/item_6/id = 23
+popup/item_7/text = "in"
+popup/item_7/id = 24
+
+[node name="Param2" parent="MarginContainer/VBoxContainer/EventPrototype" instance=ExtResource("3_hmswt")]
+layout_mode = 2
+tooltip_text = "目标值"
+theme = null
+
+[node name="DeleteParam" parent="MarginContainer/VBoxContainer/EventPrototype" instance=ExtResource("4_sia3i")]
+visible = true
+layout_mode = 2
+
+[node name="ChooseFile" parent="MarginContainer/VBoxContainer/EventPrototype" node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
+layout_mode = 2
+icon = SubResource("ImageTexture_nwy1d")
+node = NodePath("../Param2")
+
+[node name="ChooseVec2" parent="MarginContainer/VBoxContainer/EventPrototype" node_paths=PackedStringArray("target") instance=ExtResource("8_sota0")]
+layout_mode = 2
+icon = SubResource("ImageTexture_nwy1d")
+target = NodePath("../Param2")
+
+[node name="Export" parent="MarginContainer/VBoxContainer/EventPrototype" instance=ExtResource("5_jf4bp")]
+visible = false
+layout_mode = 2
+
+[node name="TitlePrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+visible = false
+layout_mode = 2
+text = "参数.1"
+
+[node name="ConditionLinkType" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "连接类型"
+item_count = 2
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "and"
+popup/item_0/id = 20
+popup/item_1/text = "or"
+popup/item_1/id = 21
+
+[node name="DialoguePath" type="LineEdit" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "参数名"
+script = ExtResource("10_6wf84")
+
+[node name="ChooseFile" parent="MarginContainer/VBoxContainer/TitlePrototype" node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
+visible = true
+layout_mode = 2
+icon = SubResource("ImageTexture_nwy1d")
+node = NodePath("../DialoguePath")
+
+[node name="Param" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "参数名"
+item_count = 1
+popup/item_0/text = ""
+popup/item_0/id = 0
+script = ExtResource("8_b7j4v")
+
+[node name="ConditionType" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "参数类型"
+item_count = 6
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "="
+popup/item_0/id = 0
+popup/item_1/text = "+="
+popup/item_1/id = 6
+popup/item_2/text = "-="
+popup/item_2/id = 7
+popup/item_3/text = "×="
+popup/item_3/id = 8
+popup/item_4/text = "÷="
+popup/item_4/id = 9
+popup/item_5/text = "%="
+popup/item_5/id = 12
+
+[node name="Param2" parent="MarginContainer/VBoxContainer/TitlePrototype" instance=ExtResource("3_hmswt")]
+layout_mode = 2
+tooltip_text = "设置值"
+theme = null
+
+[node name="DeleteParam" parent="MarginContainer/VBoxContainer/TitlePrototype" instance=ExtResource("4_sia3i")]
+visible = true
+layout_mode = 2
+
+[node name="ChooseVec2" parent="MarginContainer/VBoxContainer/TitlePrototype" instance=ExtResource("8_sota0")]
+layout_mode = 2
+icon = SubResource("ImageTexture_nwy1d")
+
+[node name="Export" parent="MarginContainer/VBoxContainer/TitlePrototype" instance=ExtResource("5_jf4bp")]
+visible = false
+layout_mode = 2
+
+[node name="ParamType" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+tooltip_text = "参数类型"
+item_count = 8
+selected = 7
+fit_to_longest_item = false
+popup/item_0/text = "String"
+popup/item_0/id = 4
+popup/item_0/disabled = true
+popup/item_1/text = "float"
+popup/item_1/id = 3
+popup/item_1/disabled = true
+popup/item_2/text = "int"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+popup/item_3/text = "bool"
+popup/item_3/id = 1
+popup/item_3/disabled = true
+popup/item_4/text = "Array"
+popup/item_4/id = 28
+popup/item_4/disabled = true
+popup/item_5/text = "Dictionary"
+popup/item_5/id = 27
+popup/item_5/disabled = true
+popup/item_6/text = "Resource"
+popup/item_6/id = 24
+popup/item_6/disabled = true
+popup/item_7/text = "Vector2"
+popup/item_7/id = 5
+popup/item_7/disabled = true
+
+[node name="main" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_irxfv")
+theme_override_constants/margin_top = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main"]
+layout_mode = 2
+
+[node name="StateName" type="MarginContainer" parent="main/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_irxfv")
+theme_override_constants/margin_bottom = 3
+
+[node name="StateName" type="HBoxContainer" parent="main/VBoxContainer/StateName"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_irxfv")
+theme_override_constants/separation = 7
+
+[node name="Icon" type="Button" parent="main/VBoxContainer/StateName/StateName"]
+layout_mode = 2
+theme_override_colors/icon_disabled_color = Color(1, 0.890196, 0.501961, 1)
+disabled = true
+icon = SubResource("ImageTexture_dht5b")
+
+[node name="Index" type="Button" parent="main/VBoxContainer/StateName/StateName"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(1, 0.890196, 0.501961, 1)
+theme_override_colors/icon_disabled_color = Color(1, 0.890196, 0.501961, 1)
+disabled = true
+text = "#1"
+
+[node name="TitleList" type="OptionButton" parent="main/VBoxContainer/StateName/StateName"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.59
+tooltip_text = "选择方法"
+theme = ExtResource("1_irxfv")
+theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
+
+[node name="CurrentValue" type="Button" parent="main/VBoxContainer/StateName/StateName"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "查看"
+
+[node name="AddParam" type="Button" parent="main/VBoxContainer/StateName/StateName"]
+layout_mode = 2
+tooltip_text = "添加参数"
+text = "Add"
+
+[node name="StateBoxs" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="EditMenu" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_irxfv")
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_bottom = 7
+
+[node name="EditMenu" parent="EditMenu" instance=ExtResource("6_pgc7m")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="runner" type="Node" parent="."]
+script = ExtResource("9_rw2g7")
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="mouse_exited" from="MarginContainer/Node2D/Dialogues" to="." method="_on_dialogues_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Update" to="." method="_on_update_pressed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/ConditionPrototype/Param" to="MarginContainer/VBoxContainer/ConditionPrototype/Param" method="_on_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/EventPrototype/Param" to="MarginContainer/VBoxContainer/EventPrototype/Param" method="_on_item_selected"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/TitlePrototype/DialoguePath" to="MarginContainer/VBoxContainer/TitlePrototype/DialoguePath" method="_on_text_changed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/TitlePrototype/Param" to="MarginContainer/VBoxContainer/TitlePrototype/Param" method="_on_item_selected"]
+[connection signal="item_selected" from="main/VBoxContainer/StateName/StateName/TitleList" to="." method="_on_title_list_item_selected"]
+[connection signal="mouse_entered" from="main/VBoxContainer/StateName/StateName/CurrentValue" to="." method="_on_current_value_mouse_entered"]
+[connection signal="pressed" from="main/VBoxContainer/StateName/StateName/CurrentValue" to="." method="_on_current_value_pressed"]
+[connection signal="pressed" from="main/VBoxContainer/StateName/StateName/AddParam" to="." method="_on_add_param_pressed"]

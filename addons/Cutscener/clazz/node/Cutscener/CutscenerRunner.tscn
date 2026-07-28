@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dcc7bu2anjt2v"]
+
+[ext_resource type="Script" uid="uid://c6yf0o8ovvu12" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.gd" id="1_k2wxd"]
+[ext_resource type="Script" uid="uid://dtxa786jcmhpc" path="res://addons/Cutscener/clazz/node/SignalNode/runner.gd" id="2_ieleg"]
+[ext_resource type="Script" uid="uid://b2anh3thg7jh4" path="res://addons/Cutscener/clazz/node/StartNode/runner.gd" id="3_qdttn"]
+[ext_resource type="Script" uid="uid://83lm877mpki7" path="res://addons/Cutscener/clazz/node/SetNode/runner.gd" id="4_nkpg4"]
+[ext_resource type="Script" uid="uid://dquyr2ti0t4ty" path="res://addons/Cutscener/clazz/node/ConditionNode/runner.gd" id="5_fju3x"]
+[ext_resource type="Script" uid="uid://do346p5kgurj8" path="res://addons/Cutscener/clazz/node/EndNode/runner.gd" id="6_b33p6"]
+[ext_resource type="Script" uid="uid://cqj8lie0hulvt" path="res://addons/Cutscener/clazz/node/CombineNode/runner.gd" id="7_fkqpi"]
+[ext_resource type="Script" uid="uid://y0x0j0x77nl6" path="res://addons/Cutscener/clazz/node/StatetreeNode/runner.gd" id="8_1r4sv"]
+
+[node name="CutscenerRunner" type="Node2D" unique_id=555228932]
+position = Vector2(85, 27)
+script = ExtResource("1_k2wxd")
+
+[node name="SignalRunner" type="Node" parent="." unique_id=1251615380]
+script = ExtResource("2_ieleg")
+
+[node name="StartRunner" type="Node" parent="." unique_id=1302966916]
+script = ExtResource("3_qdttn")
+
+[node name="SetRunner" type="Node" parent="." unique_id=1606658657]
+script = ExtResource("4_nkpg4")
+
+[node name="ConditionRunner" type="Node" parent="." unique_id=1330402367]
+script = ExtResource("5_fju3x")
+
+[node name="EndRunner" type="Node" parent="." unique_id=948824811]
+script = ExtResource("6_b33p6")
+
+[node name="CombineRunner" type="Node" parent="." unique_id=1636035013]
+script = ExtResource("7_fkqpi")
+
+[node name="StateTreeRunner" type="Node" parent="." unique_id=969002934]
+script = ExtResource("8_1r4sv")

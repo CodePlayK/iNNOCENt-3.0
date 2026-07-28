@@ -1,0 +1,57 @@
+@tool
+extends Node
+signal talk_start
+signal end_dialogue
+##全局单例台词
+var dialogue_resource: DialogueResource
+var temporary_game_states: Array = []
+var dialogue_config:DialogueConfig
+var current_talker:Array[String]
+var current_start_talker:Array[String]
+var current_dialogue_balloon
+var current_title:String
+var current_start_obj
+var current_start_title:String
+var dialogue_title_dic:Dictionary
+
+func set_dialogue_title_dic(title,ct):
+	dialogue_title_dic[title] = int(ct)
+
+var dialogue_line: DialogueLine:
+	set(next_dialogue_line):
+		if not next_dialogue_line:
+			current_dialogue_balloon.dialogue_finished()
+			if dialogue_title_dic.has(current_start_title):
+				dialogue_title_dic[current_start_title]+=1
+			else :
+				dialogue_title_dic[current_start_title]=1
+			end_dialogue.emit()
+			return
+		dialogue_line = next_dialogue_line
+		if !current_talker.has(dialogue_line.character):
+			if current_dialogue_balloon:current_dialogue_balloon.dialogue_finished()
+		talk_start.emit(dialogue_line.character,dialogue_config,dialogue_line)
+	get:
+		return dialogue_line
+
+func _on_next_dialogue() -> void:
+	next(dialogue_line.next_id)
+	
+func start(dialogue_config1:DialogueConfig,start_title:String = "",extra_game_states: Array = []) -> void:
+	if dialogue_config1:dialogue_config = dialogue_config1
+	temporary_game_states = extra_game_states
+	current_start_title = dialogue_config.title
+	dialogue_resource = dialogue_config.dialogue_res
+	if start_title and dialogue_resource.titles.has(start_title):
+		dialogue_config.title = start_title
+	var d = await DialogueManager.get_next_dialogue_line(dialogue_resource, dialogue_config.title, temporary_game_states)
+	if d and d.text:self.dialogue_line = d
+	
+func next(next_id: String) -> void:
+	self.dialogue_line = await DialogueManager.get_next_dialogue_line(dialogue_resource, next_id, temporary_game_states)
+
+func on_passed_title(title):
+	current_title = title
+	
+func _ready() -> void:
+	DialogueManager.passed_title.connect(on_passed_title)

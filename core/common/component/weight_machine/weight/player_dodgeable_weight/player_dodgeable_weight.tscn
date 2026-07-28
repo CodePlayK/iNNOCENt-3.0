@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://n0mmsgq85v2h"]
+
+[ext_resource type="Script" path="res://core/common/component/weight_machine/weight/player_dodgeable_weight/player_dodgeable_weight.gd" id="1_whtp8"]
+
+[node name="PlayerDodgeableWeight" type="Node"]
+script = ExtResource("1_whtp8")

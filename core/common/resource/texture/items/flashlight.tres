@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ItemTextureConfig" format=3 uid="uid://lgoikjqwcw8g"]
+
+[ext_resource type="Script" uid="uid://wyjigxdq0doq" path="res://core/item/ItemTextureConfig.gd" id="1_vyq5b"]
+[ext_resource type="Texture2D" uid="uid://b56bvcbjigiuo" path="res://core/common/resource/texture/items/test_items/Pop Cans.png" id="2_q2uok"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v482"]
+atlas = ExtResource("2_q2uok")
+region = Rect2(112, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_vyq5b")
+import = true
+animation_name = "f;ashlight"
+static_texture = SubResource("AtlasTexture_2v482")
+animation_name_list = "1
+2
+3
+4
+Access Key
+Blank Blueprint
+Mine
+Tag
+ammo
+bandage
+blueprint1
+blueprint2
+blueprint3
+blueprint4
+blueprint5
+blueprint6
+bottle
+f;ashlight
+generator
+key
+pickaxe
+supply box
+tac knife
+tent
+"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://170qvodclcgw"]
+
+[ext_resource type="Script" path="res://core/common/component/weight_machine/weight/time_2_last_attack_weight/time_2_last_attack_weight.gd" id="1_i45lf"]
+
+[node name="Time2LastAttackWeight" type="Node"]
+script = ExtResource("1_i45lf")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://sff6u1l8p3lm"]
+
+[ext_resource type="Script" path="res://core/common/component/sprite bright/Light.gd" id="1_fah01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbl1q"]
+size = Vector2(29, 53)
+
+[node name="Light" type="Area2D"]
+collision_layer = 0
+collision_mask = 8388608
+input_pickable = false
+monitorable = false
+script = ExtResource("1_fah01")
+max_bright = 1.0
+min_bright = 0.604
+trans_time = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1.5, 37.5)
+shape = SubResource("RectangleShape2D_vbl1q")

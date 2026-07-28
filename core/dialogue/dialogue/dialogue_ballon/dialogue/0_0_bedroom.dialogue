@@ -1,0 +1,91 @@
+~ wake_ifrit
+???: [color=f88d69][speed=0.2]伊芙利特[/color]?[wait=1]
+???: …………[wait=2]这孩子怎么还在睡
+- 这里是测试A
+	白大褂: 选了A
+	set test=11111111111111
+- 这里是测试B
+	白大褂: 选了B
+	set test=22222222222222
+=> END
+
+~ wake_ifrit_0
+???: (看了一眼桌子上的记事本)
+???: 昨天的[color=f88d69]记录[/color]又只写了一半……
+???: 上次的[color=f88d69]源石剂量[/color]果然还是有点超了么……
+=> END
+~ wake_ifrit_1
+???: [speed=.1]太阳照屁股[shake rate=20 level=10]啦！！[/shake]
+???: (猛地一把掀开被子)
+伊芙利特: [speed=0.2]唔…………[shake rate=20 level=10]啊！！！？？？？[/shake]
+=> END
+~ wake_ifrit_2
+伊芙利特: [shake rate=20 level=15]你！！[/shake]
+伊芙利特: 混蛋[shake rate=20 level=10][b][color=70acff]白大褂[/color][/b]！！[/shake]
+伊芙利特: 星期六一大清早要吵死人[shake rate=20 level=10]啊啊啊啊！！！！[/shake]
+白大褂: 你小子
+白大褂: 昨晚作业没写完
+白大褂: 今早又睡过头
+白大褂: 真是越来越狂了啊
+伊芙利特: [speed=0.1][shake rate=20 level=10]要！你！管！[/shake]
+白大褂: 那我还真得管
+白大褂: 谁让你摊上我当[color=f88d69]看护人[/color]了呢
+白大褂: 话说啊小子
+白大褂: 明天可就这周最后一天了
+白大褂: 你心心盼盼的[color=16ff78][wave amp=15 freq=5]赫默医生[/wave][/color]难得来看你
+白大褂: 以你现在作业差了这么多的成绩
+白大褂: 明天我提交给赫默医生的话
+白大褂: 可很难让她满意哦
+=> END
+~ wake_ifrit_3
+伊芙利特: [speed=0.2]………………
+伊芙利特: [speed=0.2]唔…………
+伊芙利特: (挠头)
+伊芙利特: 不能让赫默……
+伊芙利特: [shake rate=20 level=10]啊！！！[/shake]
+伊芙利特: 知道了！！
+伊芙利特: 我起来就是了……
+=> END
+~ wake_ifrit_4
+伊芙利特: 另外[wait=1]……本大爷今天被你吵醒的账[shake rate=20 level=10][wait=1]还没算完！！[/shake]
+伊芙利特: [shake rate=20 level=10]臭白大褂！[/shake]
+=> END
+~ ready_to_leave_bedroom_1
+白大褂: 小子，[color=f88d69]牙都不刷[/color]就想跑啊
+伊芙利特: [speed=0.2]………………
+伊芙利特: [shake rate=20 level=10]好！烦！啊！[/shake]
+白大褂: （耸耸肩）
+=> END
+~ ready_to_leave_bedroom_2
+% 白大褂: [color=f88d69]洗手间[/color]刷牙
+% 白大褂: [speed=.3][shake rate=20 level=5]刷    牙[/shake]
+%2 白大褂: 逛啥呢，还不去[color=f88d69]刷牙[/color]
+% 白大褂: 你小子不会找不到[color=f88d69]洗手间[/color]了吧
+% 白大褂: 刷个牙醒醒盹吧
+=> END
+~ ready_to_leave_bedroom_3
+白大褂: 这才乖嘛，[wave amp=25 freq=5]伊芙芙~[/wave]
+=> END
+~ ready_to_leave_bedroom_4
+伊芙利特: 不许那样叫我[shake rate=20 level=10]！！！[/shake]
+伊芙利特: 臭白大褂信不信本大人把你烧成秃头[shake rate=20 level=10]！！[/shake]
+白大褂: 啧啧，刚睡醒就这么有劲头
+白大褂: 看来可以在早餐前把昨晚落下的[color=f88d69]测试[/color]补上了
+伊芙利特: [speed=0.2]………………
+伊芙利特: （肚子发出空瘪的咕咕声）
+伊芙利特: [speed=0.2] …………………………
+白大褂: 喂喂，别发火嘛
+白大褂: 一个小测试而已
+白大褂: 本来是昨晚上就该交上去的
+白大褂: 已经拖了太久了
+白大褂: 赫默主任也一直在催
+=> END
+~ ready_to_leave_bedroom_5
+伊芙利特: [speed=0.2]唔………
+伊芙利特: 好吧……[wait=1]反正本大人也休息够了
+白大褂: 那我们走吧
+=> END
+~ first_training
+白大褂: 巴拉巴拉巴拉巴拉
+伊芙利特: ……………
+=> END

@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://boer66sak1shi"]
+
+[ext_resource type="Texture2D" uid="uid://bxrjsuoa2xip4" path="res://test/texture/女主.png" id="1_iuhow"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="2_iaaos"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mis7"]
+bg_color = Color(0, 0, 0, 0.454902)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Gradient" id="Gradient_upb8q"]
+offsets = PackedFloat32Array(0, 0.374384, 0.997537)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.729412, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dqp7l"]
+gradient = SubResource("Gradient_upb8q")
+fill = 1
+fill_from = Vector2(0.470085, 0.481481)
+fill_to = Vector2(0.777778, 0.0797721)
+
+[sub_resource type="Gradient" id="Gradient_i5u2h"]
+offsets = PackedFloat32Array(0, 0.507389, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.796078, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lfqbu"]
+gradient = SubResource("Gradient_i5u2h")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Theme" id="Theme_hreqw"]
+
+[node name="CharacterDialogueBox" type="MarginContainer"]
+offset_left = 101.0
+offset_top = 741.0
+offset_right = 1835.0
+offset_bottom = 1525.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 10.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mis7")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_dqp7l")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_iuhow")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.63
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_lfqbu")
+
+[node name="DialogueLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_hreqw")
+text = "啦啦啦啦啦啦啦啦啦啦"
+script = ExtResource("2_iaaos")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.65

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cpqke0y4idekh"
+path="res://.godot/imported/Icons Separated.aseprite-afb17807dc20f58c73e12cf44cf7c297.res"
+
+[deps]
+
+source_file="res://core/common/ui/state_box/ABTState/Icons Separated.aseprite"
+dest_files=["res://.godot/imported/Icons Separated.aseprite-afb17807dc20f58c73e12cf44cf7c297.res"]
+
+[params]
+

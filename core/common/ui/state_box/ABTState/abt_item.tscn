@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtphdry0yywm8"]
+
+[ext_resource type="Script" path="res://core/common/ui/state_box/ABTState/abt_item.gd" id="1_rcgqx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7ha1"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ABTItem" type="MarginContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+script = ExtResource("1_rcgqx")
+
+[node name="Panel" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0.470588)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7ha1")

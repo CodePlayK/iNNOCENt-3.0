@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="ItemConfig" format=3 uid="uid://dqcybmkayfdow"]
+
+[ext_resource type="Script" uid="uid://wyjigxdq0doq" path="res://core/item/ItemTextureConfig.gd" id="1_k48ua"]
+[ext_resource type="Texture2D" uid="uid://b56bvcbjigiuo" path="res://core/common/resource/texture/items/test_items/Pop Cans.png" id="2_043ty"]
+[ext_resource type="Script" uid="uid://blp5uvxjp3h6q" path="res://core/item/ItemConfig.gd" id="3_3ruj8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im272"]
+atlas = ExtResource("2_043ty")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="Resource" id="Resource_r8y7k"]
+script = ExtResource("1_k48ua")
+import = true
+animation_name = "tent"
+static_texture = SubResource("AtlasTexture_im272")
+animation_name_list = "1
+2
+3
+4
+Access Key
+Blank Blueprint
+Mine
+Tag
+ammo
+bandage
+blueprint1
+blueprint2
+blueprint3
+blueprint4
+blueprint5
+blueprint6
+bottle
+f;ashlight
+generator
+key
+pickaxe
+supply box
+tac knife
+tent
+"
+
+[resource]
+script = ExtResource("3_3ruj8")
+item_type = 2
+item_texture_config = SubResource("Resource_r8y7k")
+item_name = "帐篷"
+item_txt = "只是看起来像粽子"

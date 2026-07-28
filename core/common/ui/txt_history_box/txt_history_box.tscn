@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwrkrtl7ks4vh"]
+
+[ext_resource type="Script" path="res://core/common/ui/TxtBox.gd" id="1_y7i51"]
+[ext_resource type="Theme" uid="uid://brsfaf6oapa4p" path="res://core/common/resource/theme/txt_history_box.tres" id="2_6hwtw"]
+[ext_resource type="Script" path="res://core/common/ui/txt_history_box/TxtBox.gd" id="3_hmgca"]
+[ext_resource type="Material" uid="uid://ciiuadaupd2x8" path="res://test/shader/txt_his_box_crt.tres" id="4_5anja"]
+[ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="5_c0x8t"]
+[ext_resource type="Script" path="res://core/common/ui/txt_history_box/DataController.gd" id="6_4rlgf"]
+[ext_resource type="Resource" uid="uid://b0ux6gn7mio0w" path="res://core/common/ui/txt_history_box/txt_history_box_data_config.tres" id="7_ta3h3"]
+
+[node name="TxtHistoryBox" type="MarginContainer"]
+clip_children = 2
+offset_left = -492.0
+offset_right = 105.0
+offset_bottom = 809.0
+script = ExtResource("1_y7i51")
+
+[node name="TxtBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HC" type="HBoxContainer" parent="TxtBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VC" type="VBoxContainer" parent="TxtBox/HC"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.93
+
+[node name="MC2" type="MarginContainer" parent="TxtBox/HC/VC"]
+layout_mode = 2
+theme_override_constants/margin_bottom = -3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TxtBox/HC/VC/MC2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TxtBox/HC/VC/MC2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.46
+
+[node name="Pin" type="Button" parent="TxtBox/HC/VC/MC2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PIN"
+
+[node name="TxtBox" type="ScrollContainer" parent="TxtBox/HC/VC"]
+unique_name_in_owner = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.81
+mouse_filter = 0
+theme = ExtResource("2_6hwtw")
+follow_focus = true
+scroll_vertical_custom_step = 0.5
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("3_hmgca")
+
+[node name="MC" type="MarginContainer" parent="TxtBox/HC/VC/TxtBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Box" type="VBoxContainer" parent="TxtBox/HC/VC/TxtBox/MC"]
+unique_name_in_owner = true
+clip_children = 2
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Trigger" type="MarginContainer" parent="TxtBox/HC"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.61
+
+[node name="ColorRect3" type="ColorRect" parent="TxtBox/HC/Trigger"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.670588, 0.670588, 0.670588, 0.392157)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 37
+theme_override_constants/margin_right = 117
+
+[node name="ShaderCRT" type="ColorRect" parent="MarginContainer"]
+unique_name_in_owner = true
+material = ExtResource("4_5anja")
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="DataCollector" parent="." instance=ExtResource("5_c0x8t")]
+script = ExtResource("6_4rlgf")
+save_data_config = ExtResource("7_ta3h3")
+has_master = false
+load_on_ready = true
+save_obj_id = false
+save_position = false
+save_faced = false
+
+[connection signal="mouse_exited" from="TxtBox/HC/VC" to="." method="_on_txt_box_mouse_exited"]
+[connection signal="pressed" from="TxtBox/HC/VC/MC2/HBoxContainer/Pin" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="TxtBox/HC/Trigger" to="TxtBox" method="_on_mc_mouse_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://kfoghtsehk7s"
+path="res://.godot/imported/UI - Borders and HP Bars.aseprite-3d9f879ef6ffeaf123838066f14e67e5.res"
+
+[deps]
+
+source_file="res://core/common/resource/texture/ui/UI - Borders and HP/UI - Borders and HP Bars.aseprite"
+dest_files=["res://.godot/imported/UI - Borders and HP Bars.aseprite-3d9f879ef6ffeaf123838066f14e67e5.res"]
+
+[params]
+

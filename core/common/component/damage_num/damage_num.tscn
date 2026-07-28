@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://buesm2hojnri5"]
+
+[ext_resource type="Script" path="res://core/common/component/damage_num/damage_num.gd" id="1_2vv3y"]
+[ext_resource type="LabelSettings" uid="uid://b0a4nstd7bp7r" path="res://core/common/component/damage_num/damage_num_setting.tres" id="2_lvhsh"]
+
+[node name="DamageNum" type="Node2D"]
+script = ExtResource("1_2vv3y")
+
+[node name="damageNum" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 12.0
+pivot_offset = Vector2(19, 12)
+text = "0"
+label_settings = ExtResource("2_lvhsh")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj536dsd57up0"]
+
+[ext_resource type="Script" path="res://core/common/component/weight_machines/weight_machines.gd" id="1_sh52t"]
+
+[node name="WeightMachines" type="Node"]
+script = ExtResource("1_sh52t")

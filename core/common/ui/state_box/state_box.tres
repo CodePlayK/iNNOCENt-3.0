@@ -1,0 +1,94 @@
+[gd_resource type="Theme" format=3 uid="uid://erqhxpjclrdo"]
+
+[ext_resource type="FontFile" uid="uid://b5cupb7ee3t3d" path="res://core/common/resource/font/柳宋.ttf" id="1_k3vrn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jiatj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwpbg"]
+content_margin_left = 6.0
+content_margin_right = 15.0
+bg_color = Color(0, 0.45098, 0.329412, 0.780392)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(1, 1, 1, 0.721569)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+expand_margin_left = 8.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgioq"]
+content_margin_left = 10.0
+content_margin_right = 18.0
+bg_color = Color(0, 0.45098, 0.329412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(1, 1, 1, 0.694118)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+expand_margin_left = 8.0
+expand_margin_top = 5.0
+expand_margin_bottom = 4.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-0.35, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fatfn"]
+content_margin_left = 8.0
+content_margin_right = 16.0
+bg_color = Color(0, 0.219608, 0.239216, 0.870588)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_color = Color(1, 1, 1, 0.694118)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+expand_margin_left = 8.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o2yrg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uy3u2"]
+bg_color = Color(0.568627, 1, 1, 0.243137)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0t6h"]
+bg_color = Color(0.568627, 1, 1, 0.592157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxpjd"]
+bg_color = Color(0.568627, 1, 1, 0.776471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvjxo"]
+content_margin_left = 6.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th8oe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[resource]
+default_font = ExtResource("1_k3vrn")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_jiatj")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_vwpbg")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_lgioq")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_fatfn")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxEmpty_o2yrg")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_uy3u2")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_u0t6h")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_vxpjd")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_hvjxo")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_th8oe")

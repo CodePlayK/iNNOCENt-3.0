@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SaveDataConfig" load_steps=2 format=3 uid="uid://prvms4x62jbm"]
+
+[ext_resource type="Script" path="res://core/common/saves/SaveDataConfig.gd" id="1_7n2ag"]
+
+[resource]
+script = ExtResource("1_7n2ag")
+group = 0
+key = "EventsData"
+save_id = 0
+level_id = -2
+data = {}

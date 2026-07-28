@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://ctu1bxos34g5l"]
+
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="1_1t4il"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="1_6k6mq"]
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_528qt"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="1_d2w1h"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="3_0uqex"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="3_e2mas"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_2m7nw"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_8lomu"]
+
+[sub_resource type="Resource" id="Resource_pqiif"]
+script = ExtResource("1_6k6mq")
+bati_end_frame = 2
+
+[sub_resource type="Resource" id="Resource_tqdnw"]
+script = ExtResource("1_1t4il")
+collision_index = 1
+
+[sub_resource type="Resource" id="Resource_cte7m"]
+script = ExtResource("3_e2mas")
+se_name = "slash1"
+
+[resource]
+script = ExtResource("1_d2w1h")
+speed_scale = 1.5
+sound_config = Array[ExtResource("3_e2mas")]([SubResource("Resource_cte7m")])
+hitbox_config = Array[ExtResource("1_1t4il")]([SubResource("Resource_tqdnw")])
+bati_config = Array[ExtResource("1_6k6mq")]([SubResource("Resource_pqiif")])

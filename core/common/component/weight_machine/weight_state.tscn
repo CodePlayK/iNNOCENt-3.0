@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn5b54jhro8ih"]
+
+[ext_resource type="Script" path="res://core/common/component/weight_machine/weight_state.gd" id="1_vpmfd"]
+
+[node name="attack0" type="Node2D"]
+modulate = Color(0.239216, 1, 1, 1)
+script = ExtResource("1_vpmfd")

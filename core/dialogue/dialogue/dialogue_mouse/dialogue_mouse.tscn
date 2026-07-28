@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cvfffp6l2q1to"]
+
+[ext_resource type="Script" uid="uid://coin0xjqgad03" path="res://core/dialogue/dialogue/dialogue_mouse/dialogue_mouse.gd" id="1_si5u3"]
+[ext_resource type="PackedScene" uid="uid://bq1w2fqfgdvt" path="res://core/dialogue/dialogue/dialogue_ballon/dialogue_balloon.tscn" id="4_ik8w0"]
+[ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="5_yha47"]
+
+[node name="DialogueMouse" type="Node2D" unique_id=806978562]
+z_index = 10
+script = ExtResource("1_si5u3")
+
+[node name="DialogueBalloon" parent="." unique_id=871110867 instance=ExtResource("4_ik8w0")]
+
+[node name="CutscenerRunner" parent="." unique_id=197715333 instance=ExtResource("5_yha47")]
+cutscener_name = "Dialogue"

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmqmqrx5uo43d"]
+
+[ext_resource type="Script" path="res://core/common/component/godray/godray.gd" id="1_x05xa"]
+[ext_resource type="Script" path="res://core/common/component/godray/LightArea.gd" id="2_lya7x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54sdk"]
+size = Vector2(57.6, 378)
+
+[sub_resource type="Gradient" id="Gradient_j451u"]
+offsets = PackedFloat32Array(0, 0.377163, 0.653979, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b1xxa"]
+gradient = SubResource("Gradient_j451u")
+
+[node name="Godyray" type="Polygon2D"]
+light_mask = 0
+position = Vector2(19, -1)
+polygon = PackedVector2Array(-3, -45, -69, 287, -27, 287, 16, -46)
+script = ExtResource("1_x05xa")
+
+[node name="LightArea" type="Area2D" parent="."]
+collision_layer = 65536
+collision_mask = 0
+monitoring = false
+script = ExtResource("2_lya7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
+visible = false
+position = Vector2(-26.5, 104)
+shape = SubResource("RectangleShape2D_54sdk")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 32
+position = Vector2(0, 63.25)
+scale = Vector2(1.98438, 649.5)
+range_item_cull_mask = 32
+texture = SubResource("GradientTexture1D_b1xxa")

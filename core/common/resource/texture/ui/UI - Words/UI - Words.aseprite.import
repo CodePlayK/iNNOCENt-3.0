@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://gjngy6bi7i61"
+path="res://.godot/imported/UI - Words.aseprite-80428fce193536a64f25d2cc05364d31.res"
+
+[deps]
+
+source_file="res://core/common/resource/texture/ui/UI - Words/UI - Words.aseprite"
+dest_files=["res://.godot/imported/UI - Words.aseprite-80428fce193536a64f25d2cc05364d31.res"]
+
+[params]
+

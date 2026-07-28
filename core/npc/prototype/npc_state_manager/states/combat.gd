@@ -1,0 +1,2 @@
+extends NpcsBaseState
+class_name NpcsCombatState

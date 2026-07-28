@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://tkfxwcgyooyj"]
+
+[ext_resource type="Script" path="res://core/common/component/fallen from top/FallenFromTop.gd" id="1_f3wh7"]
+
+[node name="FallenFromTop" type="Node2D"]
+position = Vector2(0, -282)
+script = ExtResource("1_f3wh7")
+
+[node name="LeftBorder" type="Node2D" parent="."]
+position = Vector2(-596, -300)
+
+[node name="Panel" type="Panel" parent="LeftBorder"]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RightBorder" type="Node2D" parent="."]
+position = Vector2(1010, -318)
+
+[node name="Panel" type="Panel" parent="RightBorder"]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true

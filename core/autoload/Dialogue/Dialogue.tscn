@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://r62rvfws1r8w"]
+
+[ext_resource type="Script" path="res://core/autoload/Dialogue/Dialogue.gd" id="1_y4sqp"]
+[ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="2_1sytg"]
+[ext_resource type="Script" path="res://core/autoload/Dialogue/DialogueDataController.gd" id="3_82b4r"]
+[ext_resource type="Resource" uid="uid://2ikxe4tu3eb6" path="res://core/autoload/Dialogue/Dialogue.tres" id="4_serwl"]
+
+[node name="Dialogue" type="Node"]
+script = ExtResource("1_y4sqp")
+
+[node name="DataCollector" parent="." instance=ExtResource("2_1sytg")]
+script = ExtResource("3_82b4r")
+save_data_config = ExtResource("4_serwl")
+has_master = false
+save_obj_id = false
+save_position = false
+save_faced = false

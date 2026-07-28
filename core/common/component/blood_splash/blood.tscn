@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://b02hgnehx6i3m"]
+
+[ext_resource type="Texture2D" uid="uid://b1oo5shrg8vwj" path="res://core/common/resource/texture/blood/With_Drops_of_Blood_splatter_illustration_1.png" id="1_ei1bq"]
+[ext_resource type="Script" uid="uid://nc6jgjot3sbl" path="res://core/common/component/blood_splash/blood.gd" id="1_hxr7g"]
+
+[sub_resource type="Animation" id="Animation_ef8g6"]
+resource_name = "BOT2TOP"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(180, 0), Vector2(180, 251)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, -0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_pj0jp"]
+resource_name = "FADE_OUT"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j8rgy"]
+resource_name = "LEFT2RIGHT"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 251), Vector2(180, 251)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_vdvoc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(180, 251)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, -0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x5n5e"]
+resource_name = "RIGHT2LEFT"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 251), Vector2(180, 251)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_u2x5u"]
+resource_name = "TOP2BOT"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(180, 0), Vector2(180, 251)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l2bgj"]
+_data = {
+&"BOT2TOP": SubResource("Animation_ef8g6"),
+&"FADE_OUT": SubResource("Animation_pj0jp"),
+&"LEFT2RIGHT": SubResource("Animation_j8rgy"),
+&"RESET": SubResource("Animation_vdvoc"),
+&"RIGHT2LEFT": SubResource("Animation_x5n5e"),
+&"TOP2BOT": SubResource("Animation_u2x5u")
+}
+
+[node name="Blood" type="Node2D" unique_id=1831438661]
+script = ExtResource("1_hxr7g")
+
+[node name="Blood" type="MarginContainer" parent="." unique_id=1741545702]
+light_mask = 0
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -114.0
+offset_right = 90.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, -0.5)
+pivot_offset = Vector2(90, 114)
+mouse_filter = 2
+
+[node name="aniplayer" type="AnimationPlayer" parent="Blood" unique_id=1861368775]
+libraries/ = SubResource("AnimationLibrary_l2bgj")
+
+[node name="TextureRect" type="TextureRect" parent="Blood" unique_id=265149977]
+clip_children = 2
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_ei1bq")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=1271493556]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

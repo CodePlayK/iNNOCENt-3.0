@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckuax7vqmwe5p"]
+
+[ext_resource type="Script" path="res://core/common/component/Move2Vec2/Move2Vec2.gd" id="1_65qxs"]
+
+[node name="Move2Vec2" type="Node"]
+script = ExtResource("1_65qxs")

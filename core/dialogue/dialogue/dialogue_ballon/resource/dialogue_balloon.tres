@@ -1,0 +1,15 @@
+[gd_resource type="Theme" format=3 uid="uid://c3gcusv0manb6"]
+
+[ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="1_5021c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0i7t"]
+bg_color = Color(1, 1, 1, 0.631373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbrjb"]
+
+[resource]
+default_font = ExtResource("1_5021c")
+default_font_size = 20
+Label/colors/font_color = Color(0, 0, 0, 1)
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_w0i7t")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_gbrjb")

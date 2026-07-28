@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EventConfig" load_steps=2 format=3 uid="uid://c1uhesqrcgwhd"]
+
+[ext_resource type="Script" path="res://core/autoload/EventData/Event.gd" id="1_jai63"]
+
+[resource]
+script = ExtResource("1_jai63")
+event_key = 0
+event_key_txt = "玩家攻击次数"
+event_value_txt = ""
+refer_node_paths = Array[NodePath]([])

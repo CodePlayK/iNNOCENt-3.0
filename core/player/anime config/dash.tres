@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://dtbqgw4un2v8c"]
+
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_crn8k"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="1_dqluu"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="1_ilq0p"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="2_bqx23"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="2_l6hdi"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_f8hxt"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="5_ijw7b"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_1u2d1"]
+
+[sub_resource type="Resource" id="Resource_4bwa2"]
+script = ExtResource("1_dqluu")
+fx_node_name = "DashPartical"
+start_frame = 0
+
+[sub_resource type="Resource" id="Resource_oesvw"]
+script = ExtResource("2_bqx23")
+se_name = "lazer"
+se_pitch = -15.0
+
+[resource]
+script = ExtResource("1_ilq0p")
+speed_scale = 2.0
+sound_config = Array[ExtResource("2_bqx23")]([SubResource("Resource_oesvw")])
+fx_config = Array[ExtResource("1_dqluu")]([SubResource("Resource_4bwa2")])

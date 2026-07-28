@@ -1,0 +1,178 @@
+[gd_scene load_steps=16 format=3 uid="uid://dkgxdrht840tp"]
+
+[ext_resource type="Script" path="res://core/common/ui/character_dialogue_box/character_box.gd" id="1_n6rnh"]
+[ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="1_yo8ib"]
+[ext_resource type="Script" path="res://core/common/component/ui bar/ui bar.gd" id="3_ef2qo"]
+[ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="3_mp7xp"]
+[ext_resource type="Texture2D" uid="uid://dcpegds0x4k4g" path="res://test/texture/女主p.png" id="5_jcgrg"]
+[ext_resource type="Material" uid="uid://b0knml4t7nt5w" path="res://test/shader/character_box_crt.tres" id="6_24omf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lx3nq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxxn1"]
+bg_color = Color(1, 0.34902, 0.34902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_xmfd2"]
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_lx3nq")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_xxxn1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngx7a"]
+bg_color = Color(0, 0, 0, 0.435294)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 6.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23hh6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 6.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svija"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 6.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mis7"]
+bg_color = Color(0, 0, 0, 0.454902)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.713726)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 12
+
+[sub_resource type="Gradient" id="Gradient_upb8q"]
+offsets = PackedFloat32Array(0, 0.374384, 0.997537)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.729412, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dqp7l"]
+gradient = SubResource("Gradient_upb8q")
+fill = 1
+fill_from = Vector2(0.470085, 0.481481)
+fill_to = Vector2(0.777778, 0.0797721)
+
+[node name="CharacterBox" type="MarginContainer"]
+offset_right = 64.0
+offset_bottom = 74.0
+pivot_offset = Vector2(29, 74)
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("1_yo8ib")
+script = ExtResource("1_n6rnh")
+health_config = ExtResource("3_mp7xp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ImgBoxTopMarg" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="ImgBoxTopMarg2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.86
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 1
+
+[node name="UIBar" type="MarginContainer" parent="VBoxContainer/ImgBoxTopMarg2"]
+modulate = Color(1, 1, 1, 0.854902)
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_ef2qo")
+back_bar_color = Color(1, 0, 0, 0.960784)
+
+[node name="UIBarBack" type="ProgressBar" parent="VBoxContainer/ImgBoxTopMarg2/UIBar"]
+modulate = Color(1, 0, 0, 0.960784)
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_xmfd2")
+theme_override_styles/background = SubResource("StyleBoxFlat_ngx7a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_23hh6")
+show_percentage = false
+
+[node name="UIBar" type="ProgressBar" parent="VBoxContainer/ImgBoxTopMarg2/UIBar"]
+modulate = Color(0, 1, 0, 0.937255)
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_xmfd2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_svija")
+value = 50.0
+show_percentage = false
+
+[node name="BackBarTimer" type="Timer" parent="VBoxContainer/ImgBoxTopMarg2/UIBar"]
+one_shot = true
+
+[node name="ImgBox" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/ImgBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7mis7")
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/ImgBox"]
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_dqp7l")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ImgBox"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_jcgrg")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ImgBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 0
+
+[node name="ShaderCRT" type="ColorRect" parent="VBoxContainer/ImgBox/MarginContainer"]
+unique_name_in_owner = true
+material = ExtResource("6_24omf")
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="MouseTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="VBoxContainer/ImgBoxTopMarg2/UIBar/BackBarTimer" to="VBoxContainer/ImgBoxTopMarg2/UIBar" method="_on_back_bar_timer_timeout"]
+[connection signal="gui_input" from="VBoxContainer/ImgBox" to="." method="_on_img_box_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/ImgBox" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/ImgBox" to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MouseTimer" to="." method="_on_mouse_timer_timeout"]

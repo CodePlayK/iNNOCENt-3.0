@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://qdlqi8cgc661"]
+
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="1_sq3gl"]
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_vg4wf"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="2_yogqv"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="3_gak4h"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="3_melds"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="4_0vybf"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_grakl"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_ituuo"]
+
+[sub_resource type="Resource" id="Resource_ebfti"]
+script = ExtResource("1_vg4wf")
+frame = 3
+start_frame = 3
+end_frame = 4
+target_vec2 = Vector2(80, 0)
+
+[sub_resource type="Resource" id="Resource_5d357"]
+script = ExtResource("1_vg4wf")
+frame = 8
+start_frame = 7
+end_frame = 9
+target_vec2 = Vector2(45, 0)
+
+[sub_resource type="Resource" id="Resource_qjkgv"]
+script = ExtResource("1_sq3gl")
+bati_start_frame = 10
+bati_end_frame = 12
+
+[sub_resource type="Resource" id="Resource_valb6"]
+script = ExtResource("2_yogqv")
+hit_start_frame = 3
+hit_end_frame = 4
+
+[sub_resource type="Resource" id="Resource_3fh5v"]
+script = ExtResource("2_yogqv")
+collision_index = 1
+hit_start_frame = 8
+hit_end_frame = 9
+
+[sub_resource type="Resource" id="Resource_qrnq8"]
+script = ExtResource("4_0vybf")
+se_name = "slash5"
+start_frame = 4
+
+[sub_resource type="Resource" id="Resource_hgdjm"]
+script = ExtResource("4_0vybf")
+se_name = "slash6"
+start_frame = 9
+
+[sub_resource type="Curve" id="Curve_t84jq"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0.19186, 0.60223), 0.0, -0.138625, 0, 0, Vector2(0.884817, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("3_gak4h")
+speed_scale = 2.0
+speed_scale_curve = SubResource("Curve_t84jq")
+anime_offset = Array[ExtResource("1_vg4wf")]([SubResource("Resource_ebfti"), SubResource("Resource_5d357")])
+sound_config = Array[ExtResource("4_0vybf")]([SubResource("Resource_qrnq8"), SubResource("Resource_hgdjm")])
+hitbox_config = Array[ExtResource("2_yogqv")]([SubResource("Resource_valb6"), SubResource("Resource_3fh5v")])
+bati_config = Array[ExtResource("1_sq3gl")]([SubResource("Resource_qjkgv")])

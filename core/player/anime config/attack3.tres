@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://c65vk35hvyh30"]
+
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_1hodn"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="1_2cwox"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="1_fbonb"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="1_y2445"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="2_2rfg2"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="3_o3mio"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_6qo46"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_cjdcg"]
+
+[sub_resource type="Resource" id="Resource_y6qvg"]
+script = ExtResource("1_fbonb")
+bati_end_frame = 4
+
+[sub_resource type="Resource" id="Resource_qaqme"]
+script = ExtResource("2_2rfg2")
+fx_node_name = "SwordWind"
+
+[sub_resource type="Resource" id="Resource_ve56s"]
+script = ExtResource("1_2cwox")
+collision_index = 3
+damage = 3.0
+hit_start_frame = 1
+hit_end_frame = 2
+
+[sub_resource type="Resource" id="Resource_4mlmh"]
+script = ExtResource("3_o3mio")
+se_name = "slash2"
+start_frame = 1
+
+[resource]
+script = ExtResource("1_y2445")
+speed_scale = 2.0
+sound_config = Array[ExtResource("3_o3mio")]([SubResource("Resource_4mlmh")])
+hitbox_config = Array[ExtResource("1_2cwox")]([SubResource("Resource_ve56s")])
+bati_config = Array[ExtResource("1_fbonb")]([SubResource("Resource_y6qvg")])
+fx_config = Array[ExtResource("2_2rfg2")]([SubResource("Resource_qaqme")])

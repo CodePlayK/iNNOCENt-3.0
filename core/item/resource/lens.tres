@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ItemConfig" format=3 uid="uid://dg4f1bjmaynvm"]
+
+[ext_resource type="Script" uid="uid://wyjigxdq0doq" path="res://core/item/ItemTextureConfig.gd" id="1_iqyqa"]
+[ext_resource type="Texture2D" uid="uid://b56bvcbjigiuo" path="res://core/common/resource/texture/items/test_items/Pop Cans.png" id="2_gk70o"]
+[ext_resource type="Script" uid="uid://blp5uvxjp3h6q" path="res://core/item/ItemConfig.gd" id="3_upfpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkcw1"]
+atlas = ExtResource("2_gk70o")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_2oclb"]
+script = ExtResource("1_iqyqa")
+import = true
+animation_name = "2"
+static_texture = SubResource("AtlasTexture_gkcw1")
+animation_name_list = "1
+2
+3
+4
+Access Key
+Blank Blueprint
+Mine
+Tag
+ammo
+bandage
+blueprint1
+blueprint2
+blueprint3
+blueprint4
+blueprint5
+blueprint6
+bottle
+f;ashlight
+generator
+key
+pickaxe
+supply box
+tac knife
+tent
+"
+
+[resource]
+script = ExtResource("3_upfpu")
+item_texture_config = SubResource("Resource_2oclb")
+item_name = "镜片"
+item_txt = "往日监控摄像头的镜片"

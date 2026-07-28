@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dqsg4633lcsdw"
+path="res://.godot/imported/me-sword-wind.aseprite-a98bfa909ce41c0dd98216623b6c58c2.res"
+
+[deps]
+
+source_file="res://core/player/animation/me-sword-wind.aseprite"
+dest_files=["res://.godot/imported/me-sword-wind.aseprite-a98bfa909ce41c0dd98216623b6c58c2.res"]
+
+[params]
+

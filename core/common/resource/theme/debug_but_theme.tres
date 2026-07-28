@@ -1,0 +1,40 @@
+[gd_resource type="Theme" format=3 uid="uid://ttbiiav5vib8"]
+
+[ext_resource type="FontFile" uid="uid://b0n77lv360tc6" path="res://core/common/resource/font/DinkieBitmap-7pxDemo.ttf" id="1_doct6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64mfq"]
+content_margin_left = 7.0
+content_margin_right = 7.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq4f2"]
+content_margin_left = 7.0
+content_margin_right = 7.0
+bg_color = Color(0, 0, 0, 0.427451)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2agwl"]
+content_margin_left = 7.0
+content_margin_right = 7.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0m1g"]
+content_margin_left = 7.0
+content_margin_right = 7.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[resource]
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_doct6")
+Button/styles/focus = SubResource("StyleBoxFlat_64mfq")
+Button/styles/hover = SubResource("StyleBoxFlat_qq4f2")
+Button/styles/normal = SubResource("StyleBoxFlat_2agwl")
+Button/styles/pressed = SubResource("StyleBoxFlat_k0m1g")

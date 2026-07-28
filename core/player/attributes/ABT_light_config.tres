@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlayerABTLightConfig" load_steps=2 format=3 uid="uid://ckdoxt3m3a82"]
+
+[ext_resource type="Script" path="res://core/player/attributes/PlayerABTLightConfig.gd" id="1_qrad6"]
+
+[resource]
+script = ExtResource("1_qrad6")
+light_gravity_scale = 6.0
+light_time = 5.0
+light_cooldown = 5.0

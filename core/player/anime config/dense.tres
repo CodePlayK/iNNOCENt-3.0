@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AnimeConfig" load_steps=2 format=3 uid="uid://c4ruomcquwmpt"]
+
+[ext_resource type="Script" path="res://core/common/anime/AnimeConfig.gd" id="1_v8dan"]
+
+[resource]
+script = ExtResource("1_v8dan")
+state_name = "NA"
+animation_name = "NA"
+speed_scale = 1.0
+backward = false
+loop = false
+anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
+sound_config = Array[Resource("res://core/common/anime/AnimeSoundConfig.gd")]([])
+hitbox_config = Array[Resource("res://core/common/anime/AnimeHitBoxConfig.gd")]([])
+fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
+bati_config = Array[Resource("res://core/common/anime/AnimeBatiConfig.gd")]([])
+invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
+fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])

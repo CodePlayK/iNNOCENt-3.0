@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://n1fmqnyotqy1"]
+
+[ext_resource type="Script" path="res://core/common/component/light/light.gd" id="1_cvu6c"]
+
+[node name="Light" type="Area2D"]
+collision_layer = 0
+collision_mask = 65536
+script = ExtResource("1_cvu6c")
+metadata/clazz_name = "Component"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UISettingItemConfig" load_steps=3 format=3 uid="uid://wk0jnm23w7xm"]
+
+[ext_resource type="Script" path="res://core/common/ui/state_box/setting/UISettingItemConfig.gd" id="1_ht8wn"]
+[ext_resource type="Texture2D" uid="uid://dinc88m3q5n3a" path="res://core/common/resource/texture/ui/UI - ICONS/UI - Icons9.png" id="2_236al"]
+
+[resource]
+script = ExtResource("1_ht8wn")
+setting_name = "删除存档"
+setting_txt = "删除存档"
+texture = ExtResource("2_236al")

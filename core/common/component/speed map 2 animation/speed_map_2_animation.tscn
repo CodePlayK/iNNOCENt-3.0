@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://daa5ujnpwnls1"]
+
+[ext_resource type="Script" path="res://core/common/component/speed map 2 animation/Speed2AnimationSpeed.gd" id="1_5mver"]
+
+[node name="SpeedMap2Animation" type="Node"]
+script = ExtResource("1_5mver")
+map_max = 1.5
+map_min = 0.7
+get_speed_max_min = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

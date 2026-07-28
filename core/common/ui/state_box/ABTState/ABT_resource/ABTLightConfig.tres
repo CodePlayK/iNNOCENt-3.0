@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ABTItemConfig" load_steps=3 format=3 uid="uid://bj5e288d06172"]
+
+[ext_resource type="Texture2D" uid="uid://2afulh84wihv" path="res://core/common/ui/state_box/ABTState/Icons Separated.png" id="1_enph0"]
+[ext_resource type="Script" path="res://core/common/ui/state_box/ABTState/ABTItemConfig.gd" id="2_bhf4m"]
+
+[resource]
+script = ExtResource("2_bhf4m")
+ABT_name = "轻化"
+ABT_name_line = "降低自身所受的重力"
+ABT_name_txt = "通过降低肉体密度达到的效果"
+ABT_cooldown = 0.0
+ABT_during = 0.0
+ABT_texture_rect = Rect2(121, 97, 22, 22)
+ABT_texture = ExtResource("1_enph0")

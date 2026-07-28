@@ -1,0 +1,2 @@
+extends InteractiveState
+var touched_floor=false

@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://dp2uy02klmmdx"]
+
+[ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="1_5clqw"]
+[ext_resource type="Script" uid="uid://jq373v1mxqdr" path="res://core/common/ui/state_box/Attribute/Attribute.gd" id="2_yy7v1"]
+[ext_resource type="Texture2D" uid="uid://v2hb5gk5vomc" path="res://test/ui/UI - Icons1.png" id="3_i2snx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lip2b"]
+bg_color = Color(0, 0, 0, 0.458824)
+border_color = Color(1, 1, 1, 0.435294)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln414"]
+bg_color = Color(0.298039, 1, 0.258824, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="Theme" id="Theme_ihiit"]
+default_font = ExtResource("1_5clqw")
+ProgressBar/colors/font_color = Color(0.572549, 0.572549, 0.572549, 0)
+ProgressBar/font_sizes/font_size = 2
+ProgressBar/styles/background = SubResource("StyleBoxFlat_lip2b")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ln414")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lae1s"]
+bg_color = Color(0.0627451, 0.705882, 0.521569, 1)
+
+[sub_resource type="Theme" id="Theme_p5k2c"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_lae1s")
+
+[node name="state" type="MarginContainer" unique_id=777335751]
+custom_minimum_size = Vector2(0, 40)
+offset_right = 273.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+mouse_filter = 0
+theme = SubResource("Theme_ihiit")
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+script = ExtResource("2_yy7v1")
+
+[node name="Panel" type="Panel" parent="." unique_id=565300676]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1968905674]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.521569, 1, 1, 0.662745)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2133177384]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1723171866]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=982661127]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer" unique_id=1064245661]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_i2snx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=2104429594]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.92
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer2" unique_id=541428404]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1238957355]
+layout_mode = 2
+
+[node name="StateName" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=553085919]
+layout_mode = 2
+theme = SubResource("Theme_p5k2c")
+text = "生命值:"
+
+[node name="Current" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=1968351684]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "60"
+horizontal_alignment = 2
+
+[node name="ItemName" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=858357216]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 0.0
+text = "/"
+horizontal_alignment = 1
+
+[node name="Max" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=118332820]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+text = "100"
+horizontal_alignment = 2
+
+[node name="UIBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=146797692]
+layout_mode = 2
+size_flags_vertical = 10
+mouse_filter = 2
+value = 60.0

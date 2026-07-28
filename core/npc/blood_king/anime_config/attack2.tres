@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://bpis4y3u6lqg4"]
+
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="1_h1fqs"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="1_p5mmc"]
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_tuteo"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="2_snq4f"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_br4x1"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="5_2mmyc"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_fila0"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="8_73gss"]
+
+[sub_resource type="Resource" id="Resource_20icp"]
+script = ExtResource("1_p5mmc")
+bati_end_frame = 12
+
+[sub_resource type="Resource" id="Resource_u51mj"]
+script = ExtResource("2_snq4f")
+fx_node_name = "BloodGift"
+start_frame = 4
+
+[resource]
+script = ExtResource("1_h1fqs")
+bati_config = Array[ExtResource("1_p5mmc")]([SubResource("Resource_20icp")])
+fx_config = Array[ExtResource("2_snq4f")]([SubResource("Resource_u51mj")])

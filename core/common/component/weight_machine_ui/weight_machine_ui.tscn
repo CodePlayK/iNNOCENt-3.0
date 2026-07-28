@@ -1,0 +1,291 @@
+[gd_scene load_steps=16 format=3 uid="uid://536neyrjw7ey"]
+
+[ext_resource type="Script" path="res://core/common/component/weight_machine_ui/weightmachineui.gd" id="1_2h5lj"]
+[ext_resource type="Theme" uid="uid://ttbiiav5vib8" path="res://core/common/resource/theme/debug_but_theme.tres" id="3_uq8ux"]
+
+[sub_resource type="Curve" id="Curve_leds1"]
+_data = [Vector2(0, 0.11744), 0.0, 0.0, 0, 0, Vector2(0.521886, 0.898556), 0.0, 0.0, 0, 0, Vector2(1, 0.0870074), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eriyx"]
+bg_color = Color(0, 0, 0, 0.670588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p43tw"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jb15t"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lifj"]
+line_spacing = 0.0
+font_size = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65rbq"]
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_605if"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_tk611"]
+Panel/styles/panel = SubResource("StyleBoxFlat_65rbq")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_605if")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2x3bn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6viv4"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_6wncm"]
+line_spacing = 0.0
+font_size = 14
+font_color = Color(0.6, 0.6, 0.6, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_tuen4"]
+line_spacing = 0.0
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_jthrl"]
+line_spacing = 0.0
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Node2D"]
+script = ExtResource("1_2h5lj")
+negtive_color = Color(0.054902, 0.054902, 0.054902, 1)
+detail_state_name_flash_color = Color(0.529412, 0.529412, 0.529412, 1)
+
+[node name="Line" type="Line2D" parent="."]
+points = PackedVector2Array(0, -1, -8, -1)
+width_curve = SubResource("Curve_leds1")
+default_color = Color(1, 1, 1, 0.509804)
+
+[node name="WeightMachineUi" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -60.0
+offset_right = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(218, 60)
+
+[node name="Timer" type="Timer" parent="WeightMachineUi"]
+wait_time = 0.2
+autostart = true
+
+[node name="VBC" type="VBoxContainer" parent="WeightMachineUi"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Detail" type="PanelContainer" parent="WeightMachineUi/VBC"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_eriyx")
+
+[node name="WeightStateDebugUI" type="VBoxContainer" parent="WeightMachineUi/VBC/Detail"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="WeightState" type="VBoxContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="StateName" type="PanelContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI"]
+visible = false
+self_modulate = Color(0, 0, 0, 0.509804)
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_p43tw")
+
+[node name="WeightData" type="Label" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/StateName"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jb15t")
+text = "attacko"
+label_settings = SubResource("LabelSettings_3lifj")
+horizontal_alignment = 1
+justification_flags = 0
+clip_text = true
+text_overrun_behavior = 1
+visible_characters_behavior = 1
+
+[node name="WeightDetailBar" type="MarginContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI"]
+visible = false
+layout_mode = 2
+
+[node name="WeightDetailBar" type="HBoxContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="WeightDetailBar" type="Panel" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WeightDetailBar"]
+light_mask = 0
+z_index = 99
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.78
+mouse_filter = 1
+theme = SubResource("Theme_tk611")
+
+[node name="filler" type="PanelContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WeightDetailBar"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = SubResource("Theme_tk611")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2x3bn")
+
+[node name="WerghtDetailTxt" type="HBoxContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WerghtDetailTxt"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6viv4")
+text = "weight"
+label_settings = SubResource("LabelSettings_6wncm")
+vertical_alignment = 1
+justification_flags = 0
+text_overrun_behavior = 1
+visible_characters_behavior = 1
+
+[node name="Label2" type="Label" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WerghtDetailTxt"]
+light_mask = 0
+z_index = 99
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6viv4")
+text = "weight"
+label_settings = SubResource("LabelSettings_6wncm")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="WightMachineTitle" type="PanelContainer" parent="WeightMachineUi/VBC"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_eriyx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WeightMachineUi/VBC/WightMachineTitle"]
+layout_mode = 2
+
+[node name="WightMachineTitle" type="Label" parent="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "attacko"
+label_settings = SubResource("LabelSettings_tuen4")
+horizontal_alignment = 1
+justification_flags = 0
+clip_text = true
+text_overrun_behavior = 1
+visible_characters_behavior = 1
+
+[node name="ShowDetail" type="Button" parent="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_uq8ux")
+text = "show detail"
+
+[node name="Button2" type="Button" parent="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("3_uq8ux")
+text = "cacz"
+
+[node name="Text" type="HBoxContainer" parent="WeightMachineUi/VBC"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="WeightData" type="PanelContainer" parent="WeightMachineUi/VBC/Text"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_eriyx")
+
+[node name="WeightData" type="Label" parent="WeightMachineUi/VBC/Text/WeightData"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+text = "attacko"
+label_settings = SubResource("LabelSettings_tuen4")
+horizontal_alignment = 1
+justification_flags = 0
+visible_characters_behavior = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="WeightMachineUi/VBC"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_eriyx")
+
+[node name="Bar" type="HBoxContainer" parent="WeightMachineUi/VBC/PanelContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="WeightBar" type="PanelContainer" parent="WeightMachineUi/VBC/PanelContainer/Bar"]
+visible = false
+light_mask = 0
+z_index = 99
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_tk611")
+
+[node name="Label" type="Label" parent="WeightMachineUi/VBC/PanelContainer/Bar/WeightBar"]
+light_mask = 0
+z_index = 99
+layout_mode = 2
+text = "attacko"
+label_settings = SubResource("LabelSettings_jthrl")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+clip_text = true
+text_overrun_behavior = 1
+visible_characters_behavior = 1
+
+[connection signal="timeout" from="WeightMachineUi/Timer" to="." method="_on_timer_timeout"]
+[connection signal="gui_input" from="WeightMachineUi/VBC" to="." method="_on_detail_gui_input"]
+[connection signal="gui_input" from="WeightMachineUi/VBC/Detail" to="." method="_on_detail_gui_input"]
+[connection signal="pressed" from="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer/ShowDetail" to="." method="_on_show_detail_pressed"]

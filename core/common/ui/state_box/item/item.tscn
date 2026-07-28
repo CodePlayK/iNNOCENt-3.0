@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbvn8yksd1p41"]
+
+[ext_resource type="Script" path="res://core/common/ui/state_box/item/item.gd" id="1_x5ju8"]
+[ext_resource type="Texture2D" uid="uid://bn8b56iut3eje" path="res://test/ui/test item1.png" id="2_wy8xl"]
+
+[node name="Item" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 6.0
+grow_horizontal = 2
+mouse_filter = 0
+theme_override_constants/margin_right = 5
+script = ExtResource("1_x5ju8")
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.521569, 1, 1, 0.662745)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 13
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_wy8xl")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.83
+
+[node name="ItemName" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "测试物品"
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

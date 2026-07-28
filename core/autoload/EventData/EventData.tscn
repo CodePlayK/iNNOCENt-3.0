@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceuvbqujenhlt"]
+
+[ext_resource type="Script" path="res://core/autoload/EventData/EventData.gd" id="1_aduvi"]
+[ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="2_rvxoa"]
+[ext_resource type="Script" path="res://core/autoload/EventData/EventDataDataController.gd" id="3_qtycb"]
+[ext_resource type="Resource" uid="uid://prvms4x62jbm" path="res://core/events/EventsDataConfig.tres" id="4_a0jhb"]
+
+[node name="EventData" type="Node"]
+script = ExtResource("1_aduvi")
+
+[node name="DataCollector" parent="." instance=ExtResource("2_rvxoa")]
+script = ExtResource("3_qtycb")
+save_data_config = ExtResource("4_a0jhb")
+has_master = false
+save_obj_id = false
+save_position = false
+save_faced = false

@@ -1,0 +1,47 @@
+~ _0_0_0
+bloodking: 你说得对.
+bloodking2: 但是这就是奎桑提.
+- 我 4700.
+	M: 有不可阻挡，有护盾,还能过墙.
+- 护甲 329.
+	我: 有控制，甚至冷却时间只有1秒，只要15点蓝。.
+- 魔抗 201的英雄.
+- 转换姿态时甚至可以刷新W的cd，还有真实伤害。~ => END
+M: 然后，护甲和魔抗提升后还能获得技能加速,
+bloodking: 缩短Q的cd，还缩短释放时间，然后还有攻击力。W就啊啊啊啊啊啊!!!
+=> END!
+
+~ _0_0_1
+bloodking2: 咱们都读了这么多次复读圣经了
+bloodking: 您该听够了吧
+- 确实. 
+	bloodking: 好好好
+	bloodking2: 好好好.
+- 没有.
+	bloodking: 行吧
+	bloodking2: 您说的算
+	do Dialogue.set_dialogue_title_dic("_0_0_0",0)
+=> END!
+
+~ _0_0_3
+bloodking2: 从现在开始
+bloodking: 我们哥俩要保持沉默
+=> END
+~ _0_0_2
+bloodking2: 挥了这么多次手臂累不累啊?
+=> END
+~ _0_0_5
+bloodking2: 另外这个发波到底是什么原理?
+=> END
+~ _0_0_6
+bloodking2: *********
+bloodking: *********
+=> END
+
+~ _0_0_7
+bloodking2: 你是怎么能挡下我的攻击的?
+=> END
+
+~ _0_0_8
+bloodking2: 看来你已经捡到三支手电筒了
+=> END

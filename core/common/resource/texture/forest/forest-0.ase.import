@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://nixa33lbb3vg"
+path="res://.godot/imported/forest-0.ase-10b6fe2a8d225be5f3320a4159021422.res"
+
+[deps]
+
+source_file="res://core/common/resource/texture/forest/forest-0.ase"
+dest_files=["res://.godot/imported/forest-0.ase-10b6fe2a8d225be5f3320a4159021422.res"]
+
+[params]
+

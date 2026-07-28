@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UISettingItemConfig" load_steps=3 format=3 uid="uid://1j4fvfecu1s7"]
+
+[ext_resource type="Script" path="res://core/common/ui/state_box/setting/UISettingItemConfig.gd" id="1_tknqe"]
+[ext_resource type="Texture2D" uid="uid://lwqtbym57k31" path="res://core/common/resource/texture/ui/UI - ICONS/UI - Icons8.png" id="2_oylpg"]
+
+[resource]
+script = ExtResource("1_tknqe")
+setting_name = "新存档"
+setting_txt = "新建存档"
+texture = ExtResource("2_oylpg")

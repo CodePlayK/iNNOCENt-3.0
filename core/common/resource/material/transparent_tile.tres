@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b4ag5pa4kipx8"]
+
+[ext_resource type="Shader" path="res://core/common/shader/transparent.gdshader" id="1_ruops"]
+
+[resource]
+shader = ExtResource("1_ruops")
+shader_parameter/player_position = null
+shader_parameter/circle_radius = 432.41
+shader_parameter/inner_circle_radius_scale = -0.045
+shader_parameter/strength = 0.815

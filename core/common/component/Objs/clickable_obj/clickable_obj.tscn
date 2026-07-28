@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cen83g0qoqxey"]
+
+[ext_resource type="Script" uid="uid://8sfdkihq3jqa" path="res://core/common/component/Objs/clickable_obj/clickable_obj.gd" id="1_hefso"]
+[ext_resource type="PackedScene" uid="uid://bqso6f2lcyqp5" path="res://core/common/component/highlight_out_line/highlight_out_line.tscn" id="2_lw7oj"]
+[ext_resource type="PackedScene" uid="uid://r17fxu1au77o" path="res://core/common/component/master/Master.tscn" id="2_t13rw"]
+[ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="3_khtn1"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="5_23l2a"]
+[ext_resource type="Script" uid="uid://sukyydolfg8x" path="res://core/interectable/ruin_car_data.gd" id="5_t13rw"]
+
+[sub_resource type="Resource" id="Resource_t13rw"]
+resource_local_to_scene = true
+script = ExtResource("5_23l2a")
+group = 3
+key = "ruincar"
+
+[node name="ClickableObj" type="Area2D" unique_id=872968464]
+script = ExtResource("1_hefso")
+
+[node name="Master" parent="." unique_id=796609639 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("2_t13rw")]
+obj = NodePath("..")
+connects = [NodePath("../Data/DataCollector")]
+
+[node name="HighlightOutLine" parent="." unique_id=1559337134 instance=ExtResource("2_lw7oj")]
+
+[node name="Data" type="Node" parent="." unique_id=1005281366]
+
+[node name="DataCollector" parent="Data" unique_id=1848048086 instance=ExtResource("3_khtn1")]
+script = ExtResource("5_t13rw")
+save_data_config = SubResource("Resource_t13rw")
+debug = true
+save_faced = false
+log_level = 1

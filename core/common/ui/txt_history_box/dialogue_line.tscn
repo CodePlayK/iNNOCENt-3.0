@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck8mudkj4mcdr"]
+
+[ext_resource type="Theme" uid="uid://brsfaf6oapa4p" path="res://core/common/resource/theme/txt_history_box.tres" id="1_av5k7"]
+[ext_resource type="Script" path="res://core/common/ui/txt_history_box/dialogue_line.gd" id="2_vnj80"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkh12"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xb3y6"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[node name="DialogueLine" type="HBoxContainer"]
+z_index = 1
+offset_right = 75.0
+offset_bottom = 57.0
+theme = ExtResource("1_av5k7")
+script = ExtResource("2_vnj80")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_av5k7")
+theme_override_constants/margin_left = 6
+
+[node name="VC" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HC" type="HBoxContainer" parent="MC/VC"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="LeftTalkerName" type="RichTextLabel" parent="MC/VC/HC"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkh12")
+bbcode_enabled = true
+text = "谁谁谁"
+fit_content = true
+autowrap_mode = 0
+hint_underlined = false
+
+[node name="MC" type="MarginContainer" parent="MC/VC/HC"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 33
+theme_override_constants/margin_right = 3
+
+[node name="VSeparator" type="HSeparator" parent="MC/VC/HC/MC"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="RightTalkerName" type="RichTextLabel" parent="MC/VC/HC"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkh12")
+bbcode_enabled = true
+text = "谁谁谁"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MC" type="MarginContainer" parent="MC/VC"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="LineBackColor" type="ColorRect" parent="MC/VC/MC"]
+visible = false
+z_index = -1
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.156863)
+
+[node name="MC" type="MarginContainer" parent="MC/VC/MC"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Line" type="RichTextLabel" parent="MC/VC/MC/MC"]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_av5k7")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xb3y6")
+bbcode_enabled = true
+text = "按单号啥都好说快活的酷飒还得看哈达迪喀斯柯达"
+fit_content = true
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[connection signal="mouse_entered" from="MC/VC/MC" to="." method="_on_mc_mouse_entered"]
+[connection signal="mouse_exited" from="MC/VC/MC" to="." method="_on_mc_mouse_exited"]

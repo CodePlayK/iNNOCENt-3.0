@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf1neckchry1q"]
+
+[ext_resource type="Script" path="res://core/dialogue/Dialogue.gd" id="1_or7fu"]
+[ext_resource type="Script" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="2_tidma"]
+[ext_resource type="PackedScene" uid="uid://bq1w2fqfgdvt" path="res://core/dialogue/dialogue/dialogue_ballon/dialogue_balloon.tscn" id="3_gna7p"]
+[ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="4_eb2v6"]
+
+[sub_resource type="Resource" id="Resource_628xn"]
+script = ExtResource("2_tidma")
+dialogue_checker_path = ""
+title = ""
+title_list = ""
+import = false
+auto_next = true
+talker_name = Array[String]([])
+balloon_color = Color(0, 0, 0, 1)
+line_end_wait_time = 1.0
+
+[node name="Dialogue" type="Node2D"]
+z_index = 10
+script = ExtResource("1_or7fu")
+dialogue_config = SubResource("Resource_628xn")
+
+[node name="CutscenerRunner" parent="." instance=ExtResource("4_eb2v6")]
+cutscener_name = "Dialogue"
+
+[node name="DialogueBalloon" parent="." instance=ExtResource("3_gna7p")]

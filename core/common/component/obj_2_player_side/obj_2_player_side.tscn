@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5tj5di0fre4c"]
+
+[ext_resource type="Script" path="res://core/common/component/obj_2_player_side/obj_2_player_side.gd" id="1_eu33s"]
+
+[node name="Obj2PlayerSide" type="Node"]
+script = ExtResource("1_eu33s")

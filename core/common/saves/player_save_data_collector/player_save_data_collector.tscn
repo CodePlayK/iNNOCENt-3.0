@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://wnma64238otk"]
+
+[ext_resource type="Script" path="res://core/common/saves/player_save_data_collector/save_controller.gd" id="1_wcw32"]
+[ext_resource type="Script" path="res://core/common/saves/player_save_data_collector/Saver.gd" id="2_4rd20"]
+
+[node name="DataCollector" type="Node"]
+script = ExtResource("1_wcw32")
+
+[node name="Saver" type="Node" parent="."]
+script = ExtResource("2_4rd20")

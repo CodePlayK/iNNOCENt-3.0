@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgulj2rd5vcbx"]
+
+[ext_resource type="Script" path="res://core/common/AStar/AStarMap.gd" id="1_grd8p"]
+[ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="2_qxab5"]
+[ext_resource type="Texture2D" uid="uid://cgt53h65keko5" path="res://core/common/AStar/arror.png" id="3_ttdjw"]
+[ext_resource type="Script" path="res://core/common/AStar/EndMark.gd" id="4_685gm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_saiuq"]
+font = ExtResource("2_qxab5")
+font_size = 11
+font_color = Color(0.192157, 0.192157, 0.192157, 1)
+
+[node name="AStar" type="Node2D"]
+script = ExtResource("1_grd8p")
+frontier_color = Color(0.470588, 0.74902, 0.470588, 1)
+path_color = Color(1, 0.905882, 0.431373, 1)
+
+[node name="UpdataTimer" type="Timer" parent="."]
+wait_time = 0.201
+
+[node name="Prop" type="Node2D" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2(116, 71)
+
+[node name="CellVec2iLabel" type="Label" parent="Prop"]
+offset_left = -31.0
+offset_top = -29.0
+offset_right = 31.0
+offset_bottom = -6.0
+text = "xxxxx"
+label_settings = SubResource("LabelSettings_saiuq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackPanel" type="ColorRect" parent="Prop"]
+z_index = -1
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.262745)
+
+[node name="EdgeMark" type="ColorRect" parent="Prop"]
+offset_left = -24.0
+offset_top = -15.0
+offset_right = 24.0
+offset_bottom = -8.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Arror" type="Sprite2D" parent="Prop"]
+position = Vector2(-1.43051e-06, 8.25)
+scale = Vector2(0.476563, 0.476563)
+texture = ExtResource("3_ttdjw")
+
+[node name="EndMark" type="Node2D" parent="."]
+visible = false
+z_index = 3
+script = ExtResource("4_685gm")
+
+[node name="StartMark" type="MarginContainer" parent="EndMark"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+mouse_filter = 0
+
+[node name="ColorRect" type="ColorRect" parent="EndMark/StartMark"]
+z_index = 1
+layout_mode = 2
+mouse_filter = 1
+
+[connection signal="timeout" from="UpdataTimer" to="." method="_on_updata_timer_timeout"]
+[connection signal="gui_input" from="EndMark/StartMark" to="EndMark" method="_on_start_mark_gui_input"]

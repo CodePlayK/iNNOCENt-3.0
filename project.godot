@@ -1,0 +1,193 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="iNNOCENt 3.0"
+run/main_scene="uid://j145gtkvw2ri"
+config/features=PackedStringArray("4.7", "Forward Plus")
+config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://d1i5l801pb4te"
+
+[autoload]
+
+LevelState="*res://core/autoload/LevelState.gd"
+EventBus="*res://core/autoload/EventBus.gd"
+CutsceneState="*res://core/autoload/CutsceneState.gd"
+PlayerState="*res://core/autoload/PlayerState.gd"
+DataState="*res://core/autoload/DataState.gd"
+Global="*res://core/autoload/Global.gd"
+NpcState="*res://core/autoload/NpcState.gd"
+Debug="*res://core/autoload/debug/debug2.tscn"
+Everything42="*res://core/common/level_loader/everything_42.tscn"
+Music="*res://core/common/component/music/music.tscn"
+CutscenerGlobal="*uid://dii6bn0hay6i8"
+UiState="*res://core/autoload/UIState.gd"
+ItemState="*res://core/autoload/ItemState.gd"
+AbtState="*res://core/autoload/ABTState.gd"
+EventData="*res://core/autoload/EventData/EventData.tscn"
+Dialogue="*res://core/autoload/Dialogue/Dialogue.tscn"
+DialogueState="*res://core/autoload/Dialogue/DialogueState.tscn"
+DialogueManager="*uid://c3rodes2l3gxb"
+
+[debug]
+
+gdscript/warnings/enable=false
+
+[dialogue_manager]
+
+runtime/state_autoload_shortcuts=["CutsceneState", "EventData", "Dialogue"]
+runtime/balloon_path="res://test/dialogue/balloon.tscn"
+
+[display]
+
+window/size/viewport_width=2560
+window/size/viewport_height=1440
+window/size/initial_position_type=3
+window/size/always_on_top=true
+window/stretch/mode="viewport"
+window/per_pixel_transparency/allowed=true
+
+[editor]
+
+script/templates_search_path="res://core/autoload/script_templates/"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/Cutscener/plugin.cfg", "res://addons/camera_2d_plus/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "green"
+}
+
+[importer_defaults]
+
+texture={
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/high_quality": false,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d/compress_to": 1,
+"editor/convert_colors_with_editor_theme": false,
+"editor/scale_with_editor_scale": true,
+"mipmaps/generate": false,
+"mipmaps/limit": -1,
+"process/fix_alpha_border": true,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": "",
+"svg/scale": 1.0
+}
+
+[input]
+
+move_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+move_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+jump={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+run={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+dash={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194328,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":4,"position":Vector2(198, 23),"global_position":Vector2(204, 85),"factor":1.0,"button_index":3,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+interactive={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+dense={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(380, 23),"global_position":Vector2(386, 85),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":76,"key_label":0,"unicode":108,"location":0,"echo":false,"script":null)
+]
+}
+light={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+attack={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":106,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(382, 26),"global_position":Vector2(388, 88),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+drag={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(231, 21),"global_position":Vector2(237, 83),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+uiselect={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(237, 19),"global_position":Vector2(243, 81),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://test/dialogue/test1.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/0_0_bedroom.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/interactive_all.dialogue", "res://core/dialogue/dialogues/0_0_0.dialogue", "res://core/dialogue/dialogues/0_0_1.dialogue")
+
+[layer_names]
+
+2d_render/layer_1="基础光照-BaseLight"
+2d_render/layer_5="环境光照 - godray"
+2d_render/layer_11="FX照明层"
+2d_physics/layer_1="世界"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="NPC交互"
+2d_physics/layer_4="Player武器"
+2d_physics/layer_5="npc武器-玩家hitbox"
+2d_physics/layer_6="npc武器检测-玩家hitbox"
+2d_physics/layer_13="JumpPathContect"
+2d_physics/layer_17="灯光bright层"
+2d_physics/layer_18="血液泼洒层"
+
+[physics]
+
+common/layer_18="血液泼洒层"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
