@@ -4,12 +4,12 @@ class_name UIStateBox
 @onready var state_box_center: VBoxContainer = %StateBoxCenter
 @onready var close_box_but: Button = %CloseBoxBut
 @onready var item_list: VBoxContainer = %ItemList
-@onready var item_data_txt: RichTextLabel = $"HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/ItemDataTxt"
-@onready var item_texture: AnimatedSprite2D = $"HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/CenterContainer/ItemTexture"
+@export var item_data_txt: RichTextLabel = $"HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/ItemDataTxt"
+@export var item_texture: AnimatedSprite2D = $"HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/CenterContainer/ItemTexture"
 @onready var mc_left: MarginContainer = %MCLeft
 @onready var mc_right: MarginContainer = %MCRight
-@onready var mc_bot: MarginContainer = $HBoxContainer/StateBoxCenter/MCBot
-@onready var mc_top: MarginContainer = $HBoxContainer/StateBoxCenter/MCTop
+@onready var mc_bot: MarginContainer = %MCBot
+@onready var mc_top: MarginContainer = %MCTop
 @onready var abt_data_txt: RichTextLabel = %ABTDataTxt
 @onready var shader_crt: ColorRect = %ShaderCRT
 @export var state_box_trans_time:float = 1
@@ -27,6 +27,8 @@ func _ready() -> void:
 	mc_bot.gui_input.connect(_on_gui_input)
 	UiState.SAVE_FILE_ITEM.instantiate()
 	set_crt_shader(false)
+	position = Vector2(0,get_window().size.y)
+
 ##设置CRTsgader是否启用	
 func set_crt_shader(f):
 	shader_crt.material.set_shader_parameter("enable",f)

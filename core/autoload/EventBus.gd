@@ -22,6 +22,8 @@ signal camera_shake
 signal change_level
 signal level_tree_exited
 signal transition_show
+#对白历史载入完毕
+signal txt_his_load_fin
 ##player
 signal player_health_update
 signal player_stamina_update
@@ -100,3 +102,6 @@ func _play_screen_effect(e_name:String,args:Array = []):
 	play_screen_effect.emit(e_name,args)
 func _player_waked():
 	player_waked.emit()
+func _txt_his_load_fin():
+	txt_his_load_fin.emit()
+	

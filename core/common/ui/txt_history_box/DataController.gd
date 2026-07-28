@@ -40,6 +40,8 @@ func load_custom_data(data:Dictionary):
 	DialogueState.current_index = max_i
 	DialogueState.last_line = last_line
 	DialogueState.dialogue_his_dic = dialogue_his_dic_fin
+	EventBus._txt_his_load_fin()
+	
 	
 ##删除存档事件
 func on_delete_save():

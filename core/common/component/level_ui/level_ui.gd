@@ -1,7 +1,7 @@
 extends CanvasLayer
 @onready var player_camera: Camera2DPlus = %PlayerCamera
-@onready var fight_dely_time: Timer = $LeftTop/VBC/HBC/FightDelyTime
-@onready var stamina_bar: UIbar = $LeftTop/VBC/HBC/StaminaBar
+@export var fight_dely_time: Timer = $LeftTop/VBC/HBC/FightDelyTime
+@export var stamina_bar: UIbar = $LeftTop/VBC/HBC/StaminaBar
 @onready var player_collect_marker: Marker = $PlayerCollectMarker
 @export var stamina_config:StaminaConfig
 

@@ -14,13 +14,20 @@ var on_hiding:bool = false
 var hidden_position:Vector2
 var pined:bool = false
 
+func _init() -> void:
+	#EventBus.txt_his_load_fin.connect(refresh_pos)
+	pass
+
+func refresh_pos():
+	hidden_position.x = -txt_box.size.x
+	position = hidden_position
+
 func _ready() -> void:
 	UiState.dialogue_history_box = self
-	hidden_position = position
 	trigger.mouse_entered.connect(_on_trigger_mouse_entered)
 	pin.mouse_exited.connect(_on_txt_box_mouse_exited)
 	set_crt_shader(false)
-	show()
+
 	
 func set_crt_shader(f):
 	shader_crt.material.set_shader_parameter("enable",f)
@@ -78,3 +85,9 @@ func _on_timer_timeout() -> void:
 	if !showing:return
 	if !Rect2(Vector2(), vc.size).has_point(get_local_mouse_position()):
 		_on_txt_box_mouse_exited()
+
+
+func _on_timer_2_timeout() -> void:
+	refresh_pos()
+	show()
+	pass # Replace with function body.

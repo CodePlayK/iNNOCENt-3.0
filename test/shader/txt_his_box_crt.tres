@@ -1,28 +1,28 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ciiuadaupd2x8"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ciiuadaupd2x8"]
 
-[ext_resource type="Shader" path="res://test/shader/txt_his_box_crt.gdshader" id="1_4errd"]
+[ext_resource type="Shader" uid="uid://btpqimfrbs5mc" path="res://core/common/shader/txt_his_shader.gdshader" id="1_x6m6w"]
 
 [resource]
-shader = ExtResource("1_4errd")
-shader_parameter/enable = false
+shader = ExtResource("1_x6m6w")
+shader_parameter/enable = true
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.529
-shader_parameter/scanlines_width = 0.196
+shader_parameter/scanlines_opacity = 0.5270000250325
+shader_parameter/scanlines_width = 0.226000010735
 shader_parameter/grille_opacity = 0.0
 shader_parameter/resolution = Vector2(120, 160)
 shader_parameter/pixelate = false
 shader_parameter/roll = true
 shader_parameter/roll_speed = 0.9
-shader_parameter/roll_size = 4.473
+shader_parameter/roll_size = 8.23600039121
 shader_parameter/roll_variation = 5.0
-shader_parameter/distort_intensity = 0.001
-shader_parameter/noise_opacity = 0.069
+shader_parameter/distort_intensity = 0.0400000019
+shader_parameter/noise_opacity = 0.2390000113525
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.0
-shader_parameter/aberration = 4.75e-08
+shader_parameter/static_noise_intensity = 0.054000002564999997
+shader_parameter/aberration = -0.0019999525949999652
 shader_parameter/brightness = 1.975
 shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.04
+shader_parameter/warp_amount = 1.0650000505875
 shader_parameter/clip_warp = true
 shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.126
+shader_parameter/vignette_opacity = 1.0

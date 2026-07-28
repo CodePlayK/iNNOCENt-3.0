@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://osw374to73sm"]
+[gd_scene format=3 uid="uid://osw374to73sm"]
 
-[ext_resource type="Script" path="res://core/common/component/ui bar/ui bar.gd" id="1_5ivna"]
+[ext_resource type="Script" uid="uid://5xj7spu46f11" path="res://core/common/component/ui bar/ui bar.gd" id="1_5ivna"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lx3nq"]
 
@@ -26,7 +26,7 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-expand_margin_top = 2.0
+expand_margin_top = 4.0
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jn07y"]
@@ -44,42 +44,49 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
-expand_margin_top = 2.0
+expand_margin_top = 4.0
 anti_aliasing = false
 
-[node name="UIBar" type="MarginContainer"]
+[node name="UIBar" type="MarginContainer" unique_id=472572121]
 modulate = Color(1, 1, 1, 0.854902)
 light_mask = 0
-offset_left = -17.0
-offset_top = -7.0
-offset_right = 17.0
-offset_bottom = -5.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.87
 theme = SubResource("Theme_xmfd2")
 script = ExtResource("1_5ivna")
 back_bar_color = Color(1, 1, 1, 0.482353)
 
-[node name="UIBarBack" type="ProgressBar" parent="."]
+[node name="UIBarBack" type="ProgressBar" parent="." unique_id=857574255]
 modulate = Color(1, 1, 1, 0.482353)
 show_behind_parent = true
 light_mask = 0
 layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
 theme = SubResource("Theme_o685y")
 theme_override_styles/background = SubResource("StyleBoxFlat_x1i65")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jn07y")
 show_percentage = false
 
-[node name="UIBar" type="ProgressBar" parent="."]
-modulate = Color(0, 1, 0, 0.937255)
+[node name="UIBar" type="ProgressBar" parent="." unique_id=1823077236]
+modulate = Color(0, 1, 0, 0.9372549)
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
 theme = SubResource("Theme_xmfd2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_lubfn")
 value = 50.0
 show_percentage = false
 
-[node name="BackBarTimer" type="Timer" parent="."]
+[node name="BackBarTimer" type="Timer" parent="." unique_id=805667155]
 one_shot = true
 
 [connection signal="timeout" from="BackBarTimer" to="." method="_on_back_bar_timer_timeout"]

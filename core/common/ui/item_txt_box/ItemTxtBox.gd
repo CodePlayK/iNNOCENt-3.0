@@ -1,7 +1,7 @@
 extends MarginContainer
 class_name ItemTxtBox
-@onready var item_txt: RichTextLabel = %ItemTxt
-@onready var item_texture: TextureRect = $VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ItemTexture
+@export var item_txt: RichTextLabel = %ItemTxt
+@export var item_texture: TextureRect = $VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ItemTexture
 @onready var flashlight_count_event: Node = $FlashlightCountEvent
 @export var trans_time:float = 1
 @export var txt_trans_time:float = .2

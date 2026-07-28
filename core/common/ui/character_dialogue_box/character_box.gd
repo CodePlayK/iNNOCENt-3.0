@@ -4,7 +4,6 @@ class_name CharacterBox
 @onready var img_box_top_marg: MarginContainer = $VBoxContainer/ImgBoxTopMarg
 @onready var img_box: MarginContainer = $VBoxContainer/ImgBox
 @onready var timer: Timer = $Timer
-@onready var mouse_timer: Timer = $MouseTimer
 @onready var ui_bar: UIbar = $VBoxContainer/ImgBoxTopMarg2/UIBar
 @export var unselect_modulate:Color = Color("727272")
 @export var selected_modulate:Color = Color("ffffff")
@@ -44,7 +43,7 @@ func _on_call_player_pressed() -> void:
 	on_changing = false
 
 func _on_mouse_entered() -> void:
-	mouse_timer.start()
+	box_select()
 
 func _on_mouse_exited() -> void:
 	box_deselect()
@@ -65,14 +64,14 @@ func box_select():
 
 func box_deselect():
 	if on_changing or !box_selected:return
-	timer.stop()
+	#timer.stop()
 	on_changing = true
 	var twn = img_box_top_marg.create_tween()
 	twn.set_trans(Tween.TRANS_CUBIC)
 	twn.set_ease(Tween.EASE_OUT)
 	twn.tween_property(img_box_top_marg,"size_flags_stretch_ratio",img_box_top_marg_hide,time)
 	twn.parallel().tween_property(self,"modulate",unselect_modulate,time)
-	await  twn.finished
+	await twn.finished
 	twn.kill()
 	box_selected = false
 	on_changing = false
@@ -85,11 +84,8 @@ func _on_timer_timeout() -> void:
 		pass
 		
 func check_has_mouse():
-	return Rect2(img_box.position, img_box.size).has_point(get_local_mouse_position())
+	return Rect2(position, size).has_point(get_local_mouse_position())
 
-func _on_mouse_timer_timeout() -> void:
-	if check_has_mouse():
-		box_select()
 
 func _on_img_box_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("uiselect"):
@@ -102,3 +98,11 @@ func on_player_health_damaged():
 	
 func on_player_health_healed():
 	ui_bar.bar_grow(health_config.current_health)
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("uiselect"):
+		if !UiState.state_box.showing:
+			UiState.state_box.show_box()
+		else :
+			UiState.state_box.hide_box()

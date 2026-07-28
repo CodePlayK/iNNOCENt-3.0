@@ -1,31 +1,31 @@
-[gd_scene load_steps=37 format=3 uid="uid://cpebs4ek1lfvb"]
+[gd_scene format=3 uid="uid://cpebs4ek1lfvb"]
 
 [ext_resource type="Theme" uid="uid://erqhxpjclrdo" path="res://core/common/ui/state_box/state_box.tres" id="1_40a3c"]
-[ext_resource type="Script" path="res://core/common/ui/state_box/StateBox.gd" id="2_geiyy"]
-[ext_resource type="Script" path="res://core/common/ui/state_box/PlyaerAttributes.gd" id="3_a2woo"]
+[ext_resource type="Script" uid="uid://cc2rogafkxi6j" path="res://core/common/ui/state_box/StateBox.gd" id="2_geiyy"]
+[ext_resource type="Script" uid="uid://cdicn01d3mb8m" path="res://core/common/ui/state_box/PlyaerAttributes.gd" id="3_a2woo"]
 [ext_resource type="Texture2D" uid="uid://iu8ffg47lk2l" path="res://test/texture/06e77f69c77946c39c23cbd4014192982c096d1763bc7c17cabda949af866c60.png" id="4_ag7h1"]
-[ext_resource type="Script" path="res://core/common/ui/state_box/Attribute/Health.gd" id="5_2m7rp"]
+[ext_resource type="Script" uid="uid://c3kw8ig3ma252" path="res://core/common/ui/state_box/Attribute/Health.gd" id="5_2m7rp"]
 [ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="6_xkib6"]
-[ext_resource type="Script" path="res://core/common/ui/state_box/Attribute/Stamina.gd" id="8_58rw0"]
+[ext_resource type="Script" uid="uid://b6i3obyo2fvfq" path="res://core/common/ui/state_box/Attribute/Stamina.gd" id="8_58rw0"]
 [ext_resource type="PackedScene" uid="uid://dp2uy02klmmdx" path="res://core/common/ui/state_box/Attribute/Attribute.tscn" id="8_hlttq"]
 [ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="8_rildj"]
 [ext_resource type="Resource" uid="uid://cjos3jdrktjxn" path="res://core/player/attributes/player_stamina.tres" id="9_56dnf"]
 [ext_resource type="PackedScene" uid="uid://dtphdry0yywm8" path="res://core/common/ui/state_box/ABTState/abt_item.tscn" id="11_4sda2"]
 [ext_resource type="PackedScene" uid="uid://b81hgkg6syg5x" path="res://core/common/ui/state_box/setting/setting_item.tscn" id="11_x27xv"]
-[ext_resource type="Script" path="res://core/common/ui/state_box/菜单.gd" id="11_yaq3f"]
+[ext_resource type="Script" uid="uid://dfkxj7p1v3mhp" path="res://core/common/ui/state_box/菜单.gd" id="11_yaq3f"]
 [ext_resource type="Resource" uid="uid://cjsxe3ktngblm" path="res://core/common/ui/state_box/ABTState/ABT_resource/ABTSwordWindConfig.tres" id="12_6qn6u"]
 [ext_resource type="Resource" uid="uid://dnvpenvyx8rgr" path="res://core/common/ui/state_box/ABTState/ABT_resource/ABTDashConfig.tres" id="12_bm4i8"]
 [ext_resource type="Texture2D" uid="uid://2afulh84wihv" path="res://core/common/ui/state_box/ABTState/Icons Separated.png" id="12_dyn74"]
 [ext_resource type="Resource" uid="uid://bj5e288d06172" path="res://core/common/ui/state_box/ABTState/ABT_resource/ABTLightConfig.tres" id="14_oh2u7"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="15_f5qa1"]
 [ext_resource type="Resource" uid="uid://dimiykt48q1pc" path="res://core/common/ui/state_box/ABTState/ABT_resource/ABTDenseConfig.tres" id="15_vl54w"]
-[ext_resource type="Script" path="res://core/common/ui/state_box/StateDataController.gd" id="16_cnyhu"]
+[ext_resource type="Script" uid="uid://c6573i1xaw1n0" path="res://core/common/ui/state_box/StateDataController.gd" id="16_cnyhu"]
 [ext_resource type="Resource" uid="uid://cosditoy814sf" path="res://core/common/ui/state_box/setting/load_game.tres" id="20_r052k"]
 [ext_resource type="Resource" uid="uid://1j4fvfecu1s7" path="res://core/common/ui/state_box/setting/new_save_file.tres" id="21_5q5g4"]
 [ext_resource type="PackedScene" uid="uid://dk2mepf1eu5ro" path="res://core/common/ui/state_box/setting/save_file_item/save_file_item.tscn" id="21_o8lit"]
 [ext_resource type="Resource" uid="uid://wk0jnm23w7xm" path="res://core/common/ui/state_box/setting/delete_game.tres" id="22_80r3y"]
-[ext_resource type="Script" path="res://core/common/saves/SaveDataConfig.gd" id="23_77qh7"]
-[ext_resource type="Script" path="res://core/common/ui/state_box/setting/SaveFileDataController.gd" id="24_1qo2b"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="23_77qh7"]
+[ext_resource type="Script" uid="uid://ouhl12atvg6x" path="res://core/common/ui/state_box/setting/SaveFileDataController.gd" id="24_1qo2b"]
 [ext_resource type="Resource" uid="uid://dortpr4kglj6k" path="res://core/common/ui/state_box/setting/save_menu_ui_save_file_config.tres" id="25_bhkcg"]
 [ext_resource type="Material" uid="uid://bli7y1u5kjxe4" path="res://test/shader/state_box_crt.tres" id="27_6r5qt"]
 
@@ -99,54 +99,72 @@ corner_radius_bottom_left = 8
 script = ExtResource("23_77qh7")
 group = 4
 key = "statebox"
-save_id = 0
 level_id = -2
-data = {}
 
-[node name="StateBox" type="MarginContainer"]
-offset_top = 1276.0
-offset_right = 1920.0
-offset_bottom = 2356.0
+[node name="StateBox" type="MarginContainer" unique_id=1079221896 node_paths=PackedStringArray("item_data_txt", "item_texture")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.00091, 1)
+offset_transform_enabled = true
+mouse_filter = 2
 theme = ExtResource("1_40a3c")
 script = ExtResource("2_geiyy")
+item_data_txt = NodePath("VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/ItemDataTxt")
+item_texture = NodePath("VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/CenterContainer/ItemTexture")
 state_box_trans_time = 0.5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1619980348]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MCLeft" type="MarginContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1653893928]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1004931526]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MCLeft" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1306138188]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 13.17
+mouse_filter = 0
 
-[node name="StateBoxCenter" type="VBoxContainer" parent="HBoxContainer"]
+[node name="StateBoxCenter" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=2116350562]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 20.0
 mouse_filter = 2
 
-[node name="MCTop" type="MarginContainer" parent="HBoxContainer/StateBoxCenter"]
+[node name="MCTop" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter" unique_id=1560573779]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.64
+mouse_filter = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter" unique_id=486742669]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 8.96
+size_flags_stretch_ratio = 3.03
+mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2" unique_id=1166280536]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer" unique_id=2012100823]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
-[node name="StateTabs" type="TabContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer"]
+[node name="StateTabs" type="TabContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer" unique_id=646550955]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 0
@@ -155,27 +173,28 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_g47y2")
 current_tab = 2
 tab_focus_mode = 1
 
-[node name="角色属性" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs"]
+[node name="角色属性" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=242220930]
 visible = false
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("3_a2woo")
+metadata/_tab_index = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性" unique_id=791430943]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer" unique_id=1351070586]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer" unique_id=1934065859]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.37
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer/VBoxContainer" unique_id=866467949]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_vertical = 3
@@ -185,191 +204,192 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 60
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=89736628]
 layout_mode = 2
 texture = ExtResource("4_ag7h1")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Panel" type="Panel" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1394848090]
 layout_mode = 2
 size_flags_stretch_ratio = 2.71
 theme_override_styles/panel = SubResource("StyleBoxFlat_iimtv")
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer" unique_id=1008499337]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.89
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2" unique_id=1019867261]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MC" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MC" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=674709588]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.29
 
-[node name="MC2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MC2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1981438005]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Attributes" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC2"]
+[node name="Attributes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC2" unique_id=1683485897]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Health" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC2/Attributes" instance=ExtResource("8_hlttq")]
+[node name="Health" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC2/Attributes" unique_id=1126723424 instance=ExtResource("8_hlttq")]
 layout_mode = 2
 script = ExtResource("5_2m7rp")
 health_config = ExtResource("6_xkib6")
 
-[node name="Stamina" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC2/Attributes" instance=ExtResource("8_hlttq")]
+[node name="Stamina" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC2/Attributes" unique_id=648067983 instance=ExtResource("8_hlttq")]
 layout_mode = 2
 theme = SubResource("Theme_kl77h")
 script = ExtResource("8_58rw0")
 stamina_config = ExtResource("9_56dnf")
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC2"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC2" unique_id=875075491]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 color = Color(0.0901961, 0.341176, 0.266667, 0.0941176)
 
-[node name="MC3" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MC3" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=365392079]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 12.62
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3" unique_id=891524278]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer" unique_id=537456353]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 5
 
-[node name="ABTItem4" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer" instance=ExtResource("11_4sda2")]
+[node name="ABTItem4" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer" unique_id=1394417381 instance=ExtResource("11_4sda2")]
 layout_mode = 2
 import = true
 ABT_item_config = ExtResource("12_6qn6u")
 
-[node name="base" type="Sprite2D" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer/ABTItem4"]
+[node name="base" type="Sprite2D" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer/ABTItem4" unique_id=1071069191]
 position = Vector2(32, 32)
 scale = Vector2(2, 2)
 texture = ExtResource("12_dyn74")
 region_enabled = true
 region_rect = Rect2(1, 121, 22, 22)
 
-[node name="ABTItem" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer" instance=ExtResource("11_4sda2")]
+[node name="ABTItem" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer" unique_id=1261963666 instance=ExtResource("11_4sda2")]
 layout_mode = 2
 import = true
 ABT_item_config = ExtResource("12_bm4i8")
 
-[node name="base" type="Sprite2D" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer/ABTItem"]
+[node name="base" type="Sprite2D" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer/ABTItem" unique_id=1007772321]
 position = Vector2(32, 32)
 scale = Vector2(2, 2)
 texture = ExtResource("12_dyn74")
 region_enabled = true
 region_rect = Rect2(49, 73, 22, 22)
 
-[node name="ABTItem2" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer" instance=ExtResource("11_4sda2")]
+[node name="ABTItem2" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer" unique_id=2136819819 instance=ExtResource("11_4sda2")]
 layout_mode = 2
 import = true
 ABT_item_config = ExtResource("14_oh2u7")
 
-[node name="base" type="Sprite2D" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer/ABTItem2"]
+[node name="base" type="Sprite2D" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer/ABTItem2" unique_id=1321705077]
 position = Vector2(32, 32)
 scale = Vector2(2, 2)
 texture = ExtResource("12_dyn74")
 region_enabled = true
 region_rect = Rect2(121, 97, 22, 22)
 
-[node name="ABTItem3" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer" instance=ExtResource("11_4sda2")]
+[node name="ABTItem3" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer" unique_id=1962131262 instance=ExtResource("11_4sda2")]
 layout_mode = 2
 import = true
 ABT_item_config = ExtResource("15_vl54w")
 
-[node name="base" type="Sprite2D" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer/ABTItem3"]
+[node name="base" type="Sprite2D" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/GridContainer/ABTItem3" unique_id=1769914464]
 position = Vector2(32, 32)
 scale = Vector2(2, 2)
 texture = ExtResource("12_dyn74")
 region_enabled = true
 region_rect = Rect2(97, 73, 22, 22)
 
-[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer" unique_id=1253686098]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.95
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer" unique_id=1650994518]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="Panel" type="Panel" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/MarginContainer" unique_id=1982439331]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_n1u8n")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/MarginContainer" unique_id=438589579]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ABTDataTxt" type="RichTextLabel" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="ABTDataTxt" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer/MarginContainer/MarginContainer" unique_id=1990145666]
 unique_name_in_owner = true
 layout_mode = 2
 text = "选择技能图标查看明细"
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer/MC3/VBoxContainer" unique_id=1895764054]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.57
 
-[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer" unique_id=1940829278]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 
-[node name="收集品" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs"]
+[node name="收集品" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=569137082]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品" unique_id=1160350364]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2" unique_id=380948176]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.32
 
-[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2"]
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2" unique_id=271492488]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer" unique_id=236443489]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.6
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer" unique_id=155743283]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 14.86
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2" unique_id=817209311]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=1959234661]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 15
@@ -377,18 +397,18 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 5
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=1121110826]
 layout_mode = 2
 color = Color(0, 0, 0, 0.262745)
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=1646506829]
 layout_mode = 2
 
-[node name="ItemTexture" type="AnimatedSprite2D" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/CenterContainer"]
+[node name="ItemTexture" type="AnimatedSprite2D" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/CenterContainer" unique_id=1544030043]
 position = Vector2(249, 151)
 scale = Vector2(10.615, 10.615)
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer" unique_id=2017298464]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 15
@@ -396,14 +416,14 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 5
 
-[node name="ItemDataTxt" type="RichTextLabel" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
+[node name="ItemDataTxt" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2" unique_id=1037593679]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2" unique_id=1098803944]
 layout_mode = 2
 color = Color(0, 0, 0, 0.227451)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer" unique_id=1776780483]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -414,97 +434,98 @@ follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="ItemList" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/ScrollContainer"]
+[node name="ItemList" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2/VBoxContainer/ScrollContainer" unique_id=384237611]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 26
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/收集品/VBoxContainer2" unique_id=1364903869]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.32
 
-[node name="菜单" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs"]
+[node name="菜单" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=1224675942]
 layout_mode = 2
 script = ExtResource("11_yaq3f")
+metadata/_tab_index = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单" unique_id=1936883550]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer" unique_id=297903949]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2" unique_id=1721334806]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=862362638]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 15.33
 theme_override_constants/margin_top = 8
 
-[node name="Screenshot" type="TextureRect" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2"]
+[node name="Screenshot" type="TextureRect" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2" unique_id=1672228869]
 unique_name_in_owner = true
 layout_mode = 2
 expand_mode = 3
 stretch_mode = 5
 
-[node name="NewSaveFile" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer" instance=ExtResource("11_x27xv")]
+[node name="NewSaveFile" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=367339227 instance=ExtResource("11_x27xv")]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "新建存档"
 setting_item = 2
 setting_item_config = ExtResource("21_5q5g4")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1559728427]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.89
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=1201274520]
 layout_mode = 2
 
-[node name="SaveList" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="SaveList" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1190685603]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SaveFileItem" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer/SaveList" instance=ExtResource("21_o8lit")]
+[node name="SaveFileItem" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer/SaveList" unique_id=1691027328 instance=ExtResource("21_o8lit")]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer" unique_id=919529801]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.22
 theme_override_constants/margin_top = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer" unique_id=496367180]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="save" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("11_x27xv")]
+[node name="save" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer/VBoxContainer" unique_id=570774760 instance=ExtResource("11_x27xv")]
 layout_mode = 2
 
-[node name="load" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("11_x27xv")]
+[node name="load" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1996439048 instance=ExtResource("11_x27xv")]
 layout_mode = 2
 tooltip_text = "读取存档"
 update = true
 setting_item = 1
 setting_item_config = ExtResource("20_r052k")
 
-[node name="delete" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("11_x27xv")]
+[node name="delete" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1749942804 instance=ExtResource("11_x27xv")]
 layout_mode = 2
 tooltip_text = "删除存档"
 bk_conf_color = Color(0.74902, 0.0117647, 0, 0.72549)
 setting_item = 3
 setting_item_config = ExtResource("22_80r3y")
 
-[node name="DataCollector" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单" instance=ExtResource("15_f5qa1")]
+[node name="DataCollector" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单" unique_id=393713953 instance=ExtResource("15_f5qa1")]
 script = ExtResource("24_1qo2b")
 save_data_config = ExtResource("25_bhkcg")
 has_master = false
@@ -514,28 +535,28 @@ save_obj_id = false
 save_position = false
 save_faced = false
 
-[node name="HBoxContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer"]
+[node name="HBoxContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer" unique_id=226930803]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.03
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2" unique_id=1559512413]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1671118]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.96
 mouse_filter = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer" unique_id=102856795]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.73
 
-[node name="CloseBoxBut" type="Button" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer/MarginContainer3"]
+[node name="CloseBoxBut" type="Button" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer/MarginContainer3" unique_id=1954924270]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -545,7 +566,7 @@ mouse_default_cursor_shape = 7
 alignment = 0
 text_overrun_behavior = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer/MarginContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer/MarginContainer3" unique_id=2115414749]
 custom_minimum_size = Vector2(21.51, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -555,14 +576,14 @@ vertical_alignment = 1
 autowrap_mode = 1
 visible_characters = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1614383954]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/StateBoxCenter/MarginContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2" unique_id=734738228]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 5
@@ -571,25 +592,32 @@ theme_override_constants/margin_right = 33
 theme_override_constants/margin_bottom = 5
 metadata/_edit_lock_ = true
 
-[node name="ShaderCRT" type="ColorRect" parent="HBoxContainer/StateBoxCenter/MarginContainer2/MarginContainer"]
+[node name="ShaderCRT" type="ColorRect" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/MarginContainer" unique_id=324398917]
 unique_name_in_owner = true
 material = ExtResource("27_6r5qt")
 layout_mode = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="MCBot" type="MarginContainer" parent="HBoxContainer/StateBoxCenter"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/MarginContainer" unique_id=1959762248]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MCBot" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter" unique_id=512118928]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 4.39
+mouse_filter = 0
 
-[node name="MCRight" type="MarginContainer" parent="HBoxContainer"]
+[node name="MCRight" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1719948007]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 12.35
+mouse_filter = 0
 
-[node name="DataCollector" parent="." instance=ExtResource("15_f5qa1")]
+[node name="DataCollector" parent="." unique_id=1510862497 instance=ExtResource("15_f5qa1")]
 script = ExtResource("16_cnyhu")
 save_data_config = SubResource("Resource_ky0tv")
 has_master = false
@@ -597,6 +625,6 @@ save_obj_id = false
 save_position = false
 save_faced = false
 
-[connection signal="gui_input" from="HBoxContainer/MCLeft" to="." method="_on_mc_left_gui_input"]
-[connection signal="focus_exited" from="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" to="." method="_on_state_tabs_focus_exited"]
-[connection signal="pressed" from="HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer/MarginContainer3/CloseBoxBut" to="." method="_on_close_box_but_pressed"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/MCLeft" to="." method="_on_mc_left_gui_input"]
+[connection signal="focus_exited" from="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" to="." method="_on_state_tabs_focus_exited"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer/MarginContainer3/CloseBoxBut" to="." method="_on_close_box_but_pressed"]

@@ -1197,13 +1197,13 @@ fill_from = Vector2(0.5, 1)
 fill_to = Vector2(0.5, 0)
 
 [sub_resource type="Gradient" id="Gradient_8pgwe"]
-offsets = PackedFloat32Array(0, 0.281324, 0.723404)
+offsets = PackedFloat32Array(0, 0.46857142, 0.74285716)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.780392, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t3o0j"]
 gradient = SubResource("Gradient_8pgwe")
 width = 1920
-height = 400
+height = 646
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
 
@@ -1428,7 +1428,7 @@ metadata/_edit_lock_ = true
 
 [node name="Godyray3" parent="Parallax/ParallaxLayer_0" unique_id=2076721908 instance=ExtResource("10_g8fn5")]
 modulate = Color(1, 1, 1, 0.870588)
-position = Vector2(551, 33)
+position = Vector2(875, 36)
 polygon = PackedVector2Array(43, -315, -112, 287, 6, 291, 55, -314)
 base_layer = "ParallaxLayer_4"
 
@@ -2007,25 +2007,23 @@ texture = SubResource("GradientTexture2D_b1qy0")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="MainCanvas" type="CanvasLayer" parent="." unique_id=1075155551]
+[node name="MainCanvas" type="CanvasLayer" parent="." unique_id=1075155551 node_paths=PackedStringArray("fight_dely_time", "stamina_bar")]
 layer = 10
 follow_viewport_scale = 0.001
 script = ExtResource("15_lghyi")
+fight_dely_time = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime")
+stamina_bar = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/StaminaBar")
 stamina_config = ExtResource("41_g7k6w")
-
-[node name="PlayerCollectMarker" parent="MainCanvas" unique_id=1980541122 instance=ExtResource("6_pwwgx")]
-z_index = 2
-position = Vector2(89, 1025)
 
 [node name="MindTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1141188428]
 modulate = Color(1, 1, 1, 0)
 z_index = -1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
-offset_top = -4.0
-offset_right = 10.0
-offset_bottom = 663.0
+anchor_bottom = 0.435
 grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 4.93
 mouse_filter = 2
 theme = ExtResource("40_ffagx")
 script = ExtResource("44_gtdm3")
@@ -2093,24 +2091,39 @@ size_flags_vertical = 3
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="ItemTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1058628516]
-visible = false
-offset_right = 1920.0
-offset_bottom = 400.0
+[node name="PlayerCollectMarker" parent="MainCanvas" unique_id=1980541122 instance=ExtResource("6_pwwgx")]
+z_index = 2
+position = Vector2(89, 1025)
+
+[node name="ItemTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1058628516 node_paths=PackedStringArray("item_txt", "item_texture")]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.514
 mouse_filter = 2
 theme = ExtResource("47_ky1hp")
 script = ExtResource("48_n26n5")
+item_txt = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/ItemTxt")
+item_texture = NodePath("VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ItemTexture")
 trans_time = 0.5
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="MainCanvas/ItemTxtBox" unique_id=537145012]
 layout_mode = 2
+size_flags_stretch_ratio = 5.46
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_t3o0j")
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainCanvas/ItemTxtBox" unique_id=817577058]
 layout_mode = 2
+mouse_filter = 2
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer" unique_id=390773940]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.29
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
@@ -2119,9 +2132,46 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer" unique_id=69202422]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=102770769]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1404113380]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=1871980706]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1097254611]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ItemTexture" type="TextureRect" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer/MarginContainer" unique_id=247628129]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer3" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1169958269]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
 [node name="MarginContainer2" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer" unique_id=1950935178]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2" unique_id=499552567]
@@ -2131,45 +2181,23 @@ mouse_filter = 2
 [node name="MarginContainer" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1840558527]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.36
 mouse_filter = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1634644079]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 4
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2" unique_id=951044761]
-layout_mode = 2
-size_flags_horizontal = 8
-mouse_filter = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1671911682]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_stretch_ratio = 18.99
-mouse_filter = 2
-
-[node name="ItemTexture" type="TextureRect" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/HBoxContainer/MarginContainer" unique_id=159745874]
-layout_mode = 2
-mouse_filter = 2
-expand_mode = 3
-
-[node name="MarginContainer2" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1360235168]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_constants/margin_left = 22
-
-[node name="ItemTxt" type="RichTextLabel" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2" unique_id=1895640517]
+[node name="ItemTxt" type="RichTextLabel" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2" unique_id=1895640517]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
-size_flags_vertical = 8
 mouse_filter = 2
 bbcode_enabled = true
 text = "[center]测试一下的点点滴滴的等等多多多多多多"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=973749141]
 layout_mode = 2
@@ -2179,7 +2207,7 @@ mouse_filter = 2
 [node name="MarginContainer3" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer" unique_id=13830209]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.76
+size_flags_stretch_ratio = 2.81
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
@@ -2187,45 +2215,67 @@ metadata/_edit_lock_ = true
 script = ExtResource("34_5wuja")
 event = ExtResource("35_mpohg")
 
-[node name="LeftTop" type="MarginContainer" parent="MainCanvas" unique_id=629212696]
-offset_left = 1395.0
-offset_top = 994.0
-offset_right = 1895.0
-offset_bottom = 1041.0
+[node name="StateBar" type="VBoxContainer" parent="MainCanvas" unique_id=146361538]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 30
 
-[node name="VBC" type="VBoxContainer" parent="MainCanvas/LeftTop" unique_id=1746322588]
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/StateBar" unique_id=1309906642]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.2
 mouse_filter = 2
 
-[node name="HBC" type="HBoxContainer" parent="MainCanvas/LeftTop/VBC" unique_id=290678535]
+[node name="HBC" type="HBoxContainer" parent="MainCanvas/StateBar" unique_id=290678535]
 custom_minimum_size = Vector2(0, 6.32)
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.67
+size_flags_stretch_ratio = 0.55
 mouse_filter = 2
 
-[node name="StaminaBar" parent="MainCanvas/LeftTop/VBC/HBC" unique_id=1763954993 instance=ExtResource("15_n3d4w")]
-custom_minimum_size = Vector2(0, 12.175)
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=577191233]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.7
 mouse_filter = 2
-back_bar_enable = false
+
+[node name="MarginContainer3" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=1461420513]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainCanvas/StateBar/HBC/MarginContainer3" unique_id=1230579486]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="StaminaBar" parent="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2" unique_id=1763954993 instance=ExtResource("15_n3d4w")]
+layout_mode = 2
+size_flags_stretch_ratio = 2.67
+mouse_filter = 2
 bar_color = Color(1, 1, 0, 0.811765)
 
-[node name="FightDelyTime" type="Timer" parent="MainCanvas/LeftTop/VBC/HBC" unique_id=692563253]
+[node name="FightDelyTime" type="Timer" parent="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2" unique_id=692563253]
 one_shot = true
 
-[node name="StateBox" parent="MainCanvas" unique_id=1721225745 instance=ExtResource("50_kihhd")]
+[node name="MarginContainer4" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=1118141144]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.17
 mouse_filter = 2
+
+[node name="StateBox" parent="MainCanvas" unique_id=1721225745 instance=ExtResource("50_kihhd")]
 
 [node name="TxtHistoryBCanvas" type="CanvasLayer" parent="." unique_id=524535970]
 layer = 10
 
 [node name="TxtHistoryBox" parent="TxtHistoryBCanvas" unique_id=1847707320 instance=ExtResource("40_8hxee")]
-offset_bottom = 752.0
-mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
@@ -2282,10 +2332,11 @@ libraries/ = SubResource("AnimationLibrary_oekpy")
 layer = 3
 
 [node name="CharacterDialogueBox" type="MarginContainer" parent="CharacterCanvas" unique_id=27117377]
-offset_left = 36.0
-offset_top = 709.0
-offset_right = 1868.0
-offset_bottom = 1276.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("37_jie1n")
 script = ExtResource("38_ojgy4")
@@ -2297,7 +2348,7 @@ mouse_filter = 2
 [node name="MarginContainer3" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer" unique_id=1144078633]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.38
+size_flags_stretch_ratio = 9.03
 mouse_filter = 2
 
 [node name="callPlayer" type="Button" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3" unique_id=1260254178]
@@ -2309,39 +2360,46 @@ text = "展开"
 [node name="MarginContainer" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer" unique_id=2147012840]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 10.0
+size_flags_stretch_ratio = 1.88
 mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer" unique_id=1289908402]
 layout_mode = 2
-size_flags_stretch_ratio = 10.0
 mouse_filter = 2
 theme_override_constants/separation = 15
 
+[node name="MarginContainer3" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=872044987]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.08
+mouse_filter = 2
+
 [node name="CharacterBox" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1194901040 instance=ExtResource("39_8hfjh")]
 layout_mode = 2
-mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
 is_player = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1315556821]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 8.63
+size_flags_stretch_ratio = 4.25
 mouse_filter = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer" unique_id=564318789]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 6.5
+size_flags_stretch_ratio = 0.0
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="TestCanvas" type="CanvasLayer" parent="." unique_id=470471263]
 
 [node name="Test" type="MarginContainer" parent="TestCanvas" unique_id=563000591 node_paths=PackedStringArray("astar")]
-offset_left = 9.71428
-offset_top = 4.57143
-offset_right = 342.714
-offset_bottom = 44.5714
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 343.0
+offset_bottom = 44.99997
 mouse_filter = 2
 script = ExtResource("33_hxppo")
 dialogue_mind_config = SubResource("Resource_m1fas")
@@ -2518,7 +2576,7 @@ shape = SubResource("RectangleShape2D_wces5")
 [connection signal="body_entered" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_exited"]
 [connection signal="timeout" from="Parallax/ParallaxLayer_6/Test/FallenFromTop/FallenLeave" to="Parallax/ParallaxLayer_6/Test/FallenFromTop/FallenLeave" method="_on_timeout"]
-[connection signal="timeout" from="MainCanvas/LeftTop/VBC/HBC/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
+[connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
 [connection signal="pressed" from="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
 [connection signal="mouse_entered" from="TestCanvas/Test" to="TestCanvas/Test" method="_on_mouse_entered"]
 [connection signal="pressed" from="TestCanvas/Test/VBoxContainer/HBoxContainer/enemy" to="TestCanvas/Test" method="_on_enemy_pressed"]

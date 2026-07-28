@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkgxdrht840tp"]
+[gd_scene format=3 uid="uid://dkgxdrht840tp"]
 
-[ext_resource type="Script" path="res://core/common/ui/character_dialogue_box/character_box.gd" id="1_n6rnh"]
+[ext_resource type="Script" uid="uid://bms07vih51cge" path="res://core/common/ui/character_dialogue_box/character_box.gd" id="1_n6rnh"]
 [ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="1_yo8ib"]
-[ext_resource type="Script" path="res://core/common/component/ui bar/ui bar.gd" id="3_ef2qo"]
+[ext_resource type="Script" uid="uid://5xj7spu46f11" path="res://core/common/component/ui bar/ui bar.gd" id="3_ef2qo"]
 [ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="3_mp7xp"]
 [ext_resource type="Texture2D" uid="uid://dcpegds0x4k4g" path="res://test/texture/女主p.png" id="5_jcgrg"]
 [ext_resource type="Material" uid="uid://b0knml4t7nt5w" path="res://test/shader/character_box_crt.tres" id="6_24omf"]
@@ -48,19 +48,6 @@ corner_radius_bottom_left = 2
 expand_margin_top = 6.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mis7"]
-bg_color = Color(0, 0, 0, 0.454902)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 0.713726)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-corner_detail = 12
-
 [sub_resource type="Gradient" id="Gradient_upb8q"]
 offsets = PackedFloat32Array(0, 0.374384, 0.997537)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.729412, 0, 0, 0, 0)
@@ -71,41 +58,51 @@ fill = 1
 fill_from = Vector2(0.470085, 0.481481)
 fill_to = Vector2(0.777778, 0.0797721)
 
-[node name="CharacterBox" type="MarginContainer"]
-offset_right = 64.0
-offset_bottom = 74.0
+[node name="CharacterBox" type="MarginContainer" unique_id=999910355]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -146.0
+offset_right = 127.0
+grow_vertical = 0
 pivot_offset = Vector2(29, 74)
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
+mouse_filter = 0
 theme = ExtResource("1_yo8ib")
 script = ExtResource("1_n6rnh")
+img_box_top_marg_hide = 2.0
+time = 0.3
 health_config = ExtResource("3_mp7xp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1508256018]
 layout_mode = 2
+mouse_filter = 2
+alignment = 1
 
-[node name="ImgBoxTopMarg" type="MarginContainer" parent="VBoxContainer"]
+[node name="ImgBoxTopMarg" type="MarginContainer" parent="VBoxContainer" unique_id=691810778]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 20.0
+size_flags_stretch_ratio = 2.0
+mouse_filter = 2
 
-[node name="ImgBoxTopMarg2" type="MarginContainer" parent="VBoxContainer"]
+[node name="ImgBoxTopMarg2" type="MarginContainer" parent="VBoxContainer" unique_id=2049888864]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.86
+size_flags_stretch_ratio = 0.63
+mouse_filter = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 1
 
-[node name="UIBar" type="MarginContainer" parent="VBoxContainer/ImgBoxTopMarg2"]
+[node name="UIBar" type="MarginContainer" parent="VBoxContainer/ImgBoxTopMarg2" unique_id=389559903]
 modulate = Color(1, 1, 1, 0.854902)
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 script = ExtResource("3_ef2qo")
 back_bar_color = Color(1, 0, 0, 0.960784)
 
-[node name="UIBarBack" type="ProgressBar" parent="VBoxContainer/ImgBoxTopMarg2/UIBar"]
+[node name="UIBarBack" type="ProgressBar" parent="VBoxContainer/ImgBoxTopMarg2/UIBar" unique_id=1100214965]
 modulate = Color(1, 0, 0, 0.960784)
 light_mask = 0
 layout_mode = 2
@@ -115,8 +112,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ngx7a")
 theme_override_styles/fill = SubResource("StyleBoxFlat_23hh6")
 show_percentage = false
 
-[node name="UIBar" type="ProgressBar" parent="VBoxContainer/ImgBoxTopMarg2/UIBar"]
-modulate = Color(0, 1, 0, 0.937255)
+[node name="UIBar" type="ProgressBar" parent="VBoxContainer/ImgBoxTopMarg2/UIBar" unique_id=1800345058]
+modulate = Color(0, 1, 0, 0.9372549)
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
@@ -125,54 +122,78 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_svija")
 value = 50.0
 show_percentage = false
 
-[node name="BackBarTimer" type="Timer" parent="VBoxContainer/ImgBoxTopMarg2/UIBar"]
+[node name="BackBarTimer" type="Timer" parent="VBoxContainer/ImgBoxTopMarg2/UIBar" unique_id=368164045]
 one_shot = true
 
-[node name="ImgBox" type="MarginContainer" parent="VBoxContainer"]
+[node name="ImgBox" type="MarginContainer" parent="VBoxContainer" unique_id=1129589410]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 20.0
-mouse_filter = 0
+size_flags_stretch_ratio = 14.54
+mouse_filter = 2
 mouse_default_cursor_shape = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer/ImgBox"]
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/ImgBox" unique_id=1813683723]
 layout_mode = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7mis7")
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/ImgBox"]
-layout_mode = 2
+size_flags_stretch_ratio = 5.27
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_dqp7l")
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ImgBox"]
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("5_jcgrg")
-expand_mode = 3
+expand_mode = 1
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ImgBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ImgBox" unique_id=1134976964]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/ImgBox/HBoxContainer" unique_id=1506111022]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ImgBox/HBoxContainer" unique_id=915368832]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 14.96
+mouse_filter = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ImgBox/HBoxContainer/VBoxContainer" unique_id=1217981904]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ImgBox/HBoxContainer/VBoxContainer/MarginContainer" unique_id=809646722]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("5_jcgrg")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="ShaderCRT" type="ColorRect" parent="VBoxContainer/ImgBox/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1916982512]
+unique_name_in_owner = true
+material = ExtResource("6_24omf")
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.37
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ImgBox/HBoxContainer" unique_id=386693409]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ImgBox" unique_id=55102190]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_top = 0
 
-[node name="ShaderCRT" type="ColorRect" parent="VBoxContainer/ImgBox/MarginContainer"]
-unique_name_in_owner = true
-material = ExtResource("6_24omf")
-layout_mode = 2
-mouse_filter = 2
+[node name="Timer" type="Timer" parent="." unique_id=1168666781]
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-
-[node name="MouseTimer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
-
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="timeout" from="VBoxContainer/ImgBoxTopMarg2/UIBar/BackBarTimer" to="VBoxContainer/ImgBoxTopMarg2/UIBar" method="_on_back_bar_timer_timeout"]
-[connection signal="gui_input" from="VBoxContainer/ImgBox" to="." method="_on_img_box_gui_input"]
-[connection signal="mouse_entered" from="VBoxContainer/ImgBox" to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/ImgBox" to="." method="_on_mouse_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="MouseTimer" to="." method="_on_mouse_timer_timeout"]

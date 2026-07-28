@@ -1,60 +1,92 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwrkrtl7ks4vh"]
+[gd_scene format=3 uid="uid://dwrkrtl7ks4vh"]
 
-[ext_resource type="Script" path="res://core/common/ui/TxtBox.gd" id="1_y7i51"]
+[ext_resource type="Script" uid="uid://px8el8okof2s" path="res://core/common/ui/TxtBox.gd" id="1_y7i51"]
 [ext_resource type="Theme" uid="uid://brsfaf6oapa4p" path="res://core/common/resource/theme/txt_history_box.tres" id="2_6hwtw"]
-[ext_resource type="Script" path="res://core/common/ui/txt_history_box/TxtBox.gd" id="3_hmgca"]
+[ext_resource type="Script" uid="uid://d2v6uo3pidjuy" path="res://core/common/ui/txt_history_box/TxtBox.gd" id="3_hmgca"]
 [ext_resource type="Material" uid="uid://ciiuadaupd2x8" path="res://test/shader/txt_his_box_crt.tres" id="4_5anja"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="5_c0x8t"]
-[ext_resource type="Script" path="res://core/common/ui/txt_history_box/DataController.gd" id="6_4rlgf"]
+[ext_resource type="Script" uid="uid://blaxbt3qvk7g1" path="res://core/common/ui/txt_history_box/DataController.gd" id="6_4rlgf"]
 [ext_resource type="Resource" uid="uid://b0ux6gn7mio0w" path="res://core/common/ui/txt_history_box/txt_history_box_data_config.tres" id="7_ta3h3"]
 
-[node name="TxtHistoryBox" type="MarginContainer"]
+[node name="TxtHistoryBox" type="MarginContainer" unique_id=558634794]
 clip_children = 2
-offset_left = -492.0
-offset_right = 105.0
-offset_bottom = 809.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1460.0
+offset_right = -1460.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_y7i51")
 
-[node name="TxtBox" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=694339483]
 layout_mode = 2
-size_flags_horizontal = 3
+mouse_filter = 2
 
-[node name="HC" type="HBoxContainer" parent="TxtBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=256237657]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+mouse_filter = 2
 
-[node name="VC" type="VBoxContainer" parent="TxtBox/HC"]
+[node name="TxtBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1037569222]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HC" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TxtBox" unique_id=1078100818]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="VC" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TxtBox/HC" unique_id=1795438722]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.93
+mouse_filter = 2
 
-[node name="MC2" type="MarginContainer" parent="TxtBox/HC/VC"]
+[node name="MC2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/TxtBox/HC/VC" unique_id=542842010]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_bottom = -3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TxtBox/HC/VC/MC2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TxtBox/HC/VC/MC2" unique_id=989770150]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="TxtBox/HC/VC/MC2/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/TxtBox/HC/VC/MC2/HBoxContainer" unique_id=2029342117]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.46
+mouse_filter = 2
 
-[node name="Pin" type="Button" parent="TxtBox/HC/VC/MC2/HBoxContainer"]
+[node name="Pin" type="Button" parent="VBoxContainer/HBoxContainer/TxtBox/HC/VC/MC2/HBoxContainer" unique_id=1903228231]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "PIN"
 
-[node name="TxtBox" type="ScrollContainer" parent="TxtBox/HC/VC"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/TxtBox/HC/VC" unique_id=76923724]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ShaderCRT" type="ColorRect" parent="VBoxContainer/HBoxContainer/TxtBox/HC/VC/MarginContainer" unique_id=715040604]
+unique_name_in_owner = true
+z_index = 1
+material = ExtResource("4_5anja")
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TxtBox" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TxtBox/HC/VC/MarginContainer" unique_id=386569467]
 unique_name_in_owner = true
 clip_children = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.81
 mouse_filter = 0
 theme = ExtResource("2_6hwtw")
 follow_focus = true
@@ -63,49 +95,59 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 script = ExtResource("3_hmgca")
 
-[node name="MC" type="MarginContainer" parent="TxtBox/HC/VC/TxtBox"]
+[node name="MC" type="MarginContainer" parent="VBoxContainer/HBoxContainer/TxtBox/HC/VC/MarginContainer/TxtBox" unique_id=579172714]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Box" type="VBoxContainer" parent="TxtBox/HC/VC/TxtBox/MC"]
+[node name="Box" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TxtBox/HC/VC/MarginContainer/TxtBox/MC" unique_id=1728478670]
 unique_name_in_owner = true
-clip_children = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Trigger" type="MarginContainer" parent="TxtBox/HC"]
+[node name="Trigger" type="MarginContainer" parent="VBoxContainer/HBoxContainer/TxtBox/HC" unique_id=197700184]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.61
 
-[node name="ColorRect3" type="ColorRect" parent="TxtBox/HC/Trigger"]
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/HBoxContainer/TxtBox/HC/Trigger" unique_id=10261671]
 visible = false
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.670588, 0.670588, 0.670588, 0.392157)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=474455062]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1118189940]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.31
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=586328662]
 z_index = 1
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_top = 37
 theme_override_constants/margin_right = 117
 
-[node name="ShaderCRT" type="ColorRect" parent="MarginContainer"]
-unique_name_in_owner = true
-material = ExtResource("4_5anja")
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer2" type="Timer" parent="." unique_id=308603091]
+wait_time = 3.0
+one_shot = true
 autostart = true
 
-[node name="DataCollector" parent="." instance=ExtResource("5_c0x8t")]
+[node name="Timer" type="Timer" parent="." unique_id=732589131]
+autostart = true
+
+[node name="DataCollector" parent="." unique_id=470812934 instance=ExtResource("5_c0x8t")]
 script = ExtResource("6_4rlgf")
 save_data_config = ExtResource("7_ta3h3")
 has_master = false
@@ -114,7 +156,8 @@ save_obj_id = false
 save_position = false
 save_faced = false
 
-[connection signal="mouse_exited" from="TxtBox/HC/VC" to="." method="_on_txt_box_mouse_exited"]
-[connection signal="pressed" from="TxtBox/HC/VC/MC2/HBoxContainer/Pin" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="TxtBox/HC/Trigger" to="TxtBox" method="_on_mc_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HBoxContainer/TxtBox/HC/VC" to="." method="_on_txt_box_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TxtBox/HC/VC/MC2/HBoxContainer/Pin" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/TxtBox/HC/Trigger" to="VBoxContainer/HBoxContainer/TxtBox" method="_on_mc_mouse_entered"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
