@@ -13,4 +13,3 @@ func healing(heal,update:bool = true):
 	health_config.current_health+=heal
 	if owner:
 		owner.ui.on_health_healed()
-

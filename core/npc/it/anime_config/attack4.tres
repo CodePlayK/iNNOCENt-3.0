@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://b3qkr156dvewp"]
+
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_sqtcw"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="2_3hhp5"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="3_5f1s5"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_s2pe6"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="5_ih5sx"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_winiq"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="7_wa0dl"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="8_tdjme"]
+
+[sub_resource type="Resource" id="Resource_getoi"]
+script = ExtResource("1_sqtcw")
+start_frame = 1
+end_frame = 3
+target_vec2 = Vector2(0, -130)
+
+[sub_resource type="Resource" id="Resource_i647k"]
+script = ExtResource("1_sqtcw")
+start_frame = 5
+end_frame = 6
+target_vec2 = Vector2(0, 130)
+
+[sub_resource type="Resource" id="Resource_olpii"]
+script = ExtResource("2_3hhp5")
+bati_end_frame = 12
+
+[sub_resource type="Resource" id="Resource_jfn3t"]
+script = ExtResource("3_5f1s5")
+fx_node_name = "BloodGift"
+
+[sub_resource type="Resource" id="Resource_m0w7a"]
+script = ExtResource("5_ih5sx")
+collision_index = 5
+damage = 999.0
+hit_start_frame = 6
+hit_end_frame = 9
+
+[sub_resource type="Resource" id="Resource_537nx"]
+script = ExtResource("8_tdjme")
+se_name = "slash5"
+start_frame = 2
+
+[sub_resource type="Resource" id="Resource_y0y2r"]
+script = ExtResource("8_tdjme")
+se_name = "slash6"
+start_frame = 6
+
+[resource]
+script = ExtResource("7_wa0dl")
+speed_scale = 1.5
+anime_offset = Array[ExtResource("1_sqtcw")]([SubResource("Resource_getoi"), SubResource("Resource_i647k")])
+sound_config = Array[ExtResource("8_tdjme")]([SubResource("Resource_537nx"), SubResource("Resource_y0y2r")])
+hitbox_config = Array[ExtResource("5_ih5sx")]([SubResource("Resource_m0w7a")])
+bati_config = Array[ExtResource("2_3hhp5")]([SubResource("Resource_olpii")])
+fx_config = Array[ExtResource("3_5f1s5")]([SubResource("Resource_jfn3t")])

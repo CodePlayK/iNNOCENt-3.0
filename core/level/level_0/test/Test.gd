@@ -29,7 +29,7 @@ extends HBoxContainer
 var target_flag:bool = false
 var enemy_dic={
 	ENEMY.NPC:preload("res://core/npc/prototype/npc.tscn"),
-	ENEMY.BLOOD_KING:preload("res://core/npc/blood_king/blooad_king.tscn"),
+	ENEMY.BLOOD_KING:preload("res://core/npc/blood_king/blood_king.tscn"),
 }
 enum ENEMY {
 	NPC,
