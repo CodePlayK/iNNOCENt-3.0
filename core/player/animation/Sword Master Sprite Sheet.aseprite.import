@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cm5ava062uuds"
+path="res://.godot/imported/Sword Master Sprite Sheet.aseprite-265cb953230f029661a360c18608d1be.res"
+
+[deps]
+
+source_file="res://core/player/animation/Sword Master Sprite Sheet.aseprite"
+dest_files=["res://.godot/imported/Sword Master Sprite Sheet.aseprite-265cb953230f029661a360c18608d1be.res"]
+
+[params]
+

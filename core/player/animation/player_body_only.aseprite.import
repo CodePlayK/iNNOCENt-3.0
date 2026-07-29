@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cmybwtmpblgsa"
+path="res://.godot/imported/player_body_only.aseprite-03ebca9e63874a22a6ea5fa998159aa7.res"
+
+[deps]
+
+source_file="res://core/player/animation/player_body_only.aseprite"
+dest_files=["res://.godot/imported/player_body_only.aseprite-03ebca9e63874a22a6ea5fa998159aa7.res"]
+
+[params]
+
