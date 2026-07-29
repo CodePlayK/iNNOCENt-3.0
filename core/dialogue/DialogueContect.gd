@@ -31,7 +31,7 @@ func _body_entered(body: Node2D) -> void:
 	if !obj.interaction.enable:return
 	var d:DialogueResource= DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
 	#判断当前cutscene state下是否有台词更新
-	if !d.get_titles().has(dialogue_config.title):
+	if obj.dialogue_debug and !d.get_titles().has(dialogue_config.title):
 		Debug.dprintinfo(DebugCT.dp("[%s]在当前场景[%s]中无台词更新" %[dialogue_config.title,CutsceneState.current_cutscene],self))
 	elif dialogue_config.current_res!=CutsceneState.current_cutscene:
 		dialogue_config.dialogue_res=DialogueState.dialogue_file_res[CutsceneState.current_cutscene]

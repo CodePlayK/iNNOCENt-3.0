@@ -56,9 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://lv1uokjjtteq" path="res://core/common/component/collect_hint/collect_hint.tscn" id="34_lsjjf"]
 [ext_resource type="PackedScene" uid="uid://dlacte5mobc5k" path="res://core/npc/it/it.tscn" id="35_hw0qa"]
 [ext_resource type="Resource" uid="uid://kb1ml1x6xud" path="res://core/events/FlashlightCountEvent.tres" id="35_mpohg"]
-[ext_resource type="Resource" uid="uid://2eq6j7q8hcxf" path="res://core/npc/it/dilogues/it_dialogue.tres" id="36_2bf10"]
 [ext_resource type="Resource" uid="uid://cbxxkcbt002lv" path="res://core/item/resource/flashlight.tres" id="36_p80hx"]
-[ext_resource type="Resource" uid="uid://clxhl3hhekbgt" path="res://core/npc/it/data/it_sdc.tres" id="37_3d7fh"]
 [ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="37_jie1n"]
 [ext_resource type="Material" uid="uid://b4ag5pa4kipx8" path="res://core/common/resource/material/transparent_tile.tres" id="37_o61b0"]
 [ext_resource type="Resource" uid="uid://c1b7bivetoi1j" path="res://core/item/resource/bandage.tres" id="37_ww2t1"]
@@ -1810,10 +1808,7 @@ jump_force_min_force_mid = 200.0
 jump_force_min_cell_dis_x = 2
 
 [node name="it" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1077960373 node_paths=PackedStringArray("astar") instance=ExtResource("35_hw0qa")]
-position = Vector2(332, 258)
-npc_name = "it"
-dialogue_config = ExtResource("36_2bf10")
-save_data_config = ExtResource("37_3d7fh")
+position = Vector2(-399, 253)
 starting_state = "lock"
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar3")
@@ -1829,6 +1824,7 @@ jump_force_max_force_mid = 100.0
 jump_force_max_cell_dis_x = 5
 jump_force_min_force_mid = 200.0
 jump_force_min_cell_dis_x = 2
+dialogue_debug = true
 
 [node name="Player" parent="Parallax/ParallaxLayer_6" unique_id=1540481417 node_paths=PackedStringArray("astar") instance=ExtResource("6_d8c2x")]
 unique_name_in_owner = true

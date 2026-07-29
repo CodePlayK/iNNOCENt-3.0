@@ -89,6 +89,9 @@ var patrol_left:Marker2D
 @export var jump_force_min_force_mid:float = 700
 @export var jump_force_min_cell_dis_x:int = 4
 @export var patrol_area:Area2D
+@export_group("DEBUG配置")
+@export var dialogue_debug:bool = false
+
 
 var last_cell
 var current_cell

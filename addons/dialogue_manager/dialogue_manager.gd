@@ -189,8 +189,10 @@ func get_line(resource: DialogueResource, key: String, extra_game_states: Array)
 		passed_title.emit(resource.titles.find_key(key))
 
 	if not resource.lines.has(key):
+		Debug.dprintwarn(DebugCT.dp("对话资源[%s]中无对应titile:[%s]" %[Dialogue.dialogue_resource,key],self))
+		return
 		assert(false, DMConstants.translate(&"errors.key_not_found").format({ key = key }))
-
+		
 	var data: Dictionary = resource.lines.get(key)
 
 	# If next_id is an expression we need to resolve it.
