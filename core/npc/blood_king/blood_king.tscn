@@ -7606,7 +7606,6 @@ print_debug = null
 [node name="Areas" type="Node2D" parent="Components" unique_id=1757821694]
 
 [node name="ChaseRange" type="Area2D" parent="Components/Areas" unique_id=976945710]
-visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -7699,6 +7698,19 @@ metadata/_aseprite_wizard_config_ = {
 "op_exp": false,
 "player": "Animations/Anime/aniplayer",
 "source": "D:/Create/iNNOCENt/ASE/The Blood King.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"layers": [],
+"scale": "1.0",
+"slice": "",
+"source_uid": -1
+}
 }
 
 [node name="baseFX" type="Sprite2D" parent="Animations/Anime" unique_id=858767135]
@@ -7953,7 +7965,6 @@ anime_config = ExtResource("48_ko7lx")
 
 [node name="follow" type="Node" parent="NpcStateManager/base" unique_id=413843932]
 script = ExtResource("52_rj8mx")
-following_offset_vec2i = Vector2i(2, 0)
 anime_config = ExtResource("53_p625v")
 
 [node name="move2vec2" type="Node" parent="NpcStateManager/base" unique_id=1798920021]

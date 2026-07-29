@@ -34,6 +34,7 @@ const clazz_name = "Npcs"
 @onready var astar_move: Node2D = $Components/AStarMove
 @onready var move_2_vec_2: Node = $Components/Move2Vec2
 @onready var blood_surface: Area2D = $Components/Areas/BloodSurface
+@onready var follwing_idel_range: Area2D = $Components/Areas/FollwingIdelRange
 
 ##当前Astar执行的模式,会影响其他状态执行选择
 enum ASTAR_MODE {
@@ -73,6 +74,7 @@ var patrol_left:Marker2D
 @onready var speed_map_2_animation: SpeedMap2Animation = $Components/SpeedMap2Animation
 @export_group("AStar配置")
 @export var astar:AStarMap
+@export var following_offset_vec2i:Vector2i
 @export var max_chase_speed:float = 600
 @export var accelerate:float = 2000
 @export var fric2acc_scale:float = 10

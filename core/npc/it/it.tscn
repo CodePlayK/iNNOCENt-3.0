@@ -135,8 +135,11 @@ size = Vector2(34, 42)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u86bx"]
 size = Vector2(94, 55)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7q8t"]
+size = Vector2(260, 72.9167)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2sd1"]
-size = Vector2(181.667, 72.9167)
+size = Vector2(145.00003, 72.9167)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24s10"]
 size = Vector2(330, 59)
@@ -6727,6 +6730,7 @@ dialogue_config = ExtResource("3_w7q8t")
 save_data_config = ExtResource("97_sxw3c")
 starting1_state = "birth"
 running_state = "patrol"
+following_offset_vec2i = Vector2i(1, 0)
 air_fric2acc_scale = 7.0
 
 [node name="Master" parent="." unique_id=760131985 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("3_gfoj1")]
@@ -6904,14 +6908,22 @@ print_debug = null
 
 [node name="Areas" type="Node2D" parent="Components" unique_id=1757821694]
 
+[node name="FollwingIdelRange" type="Area2D" parent="Components/Areas" unique_id=1673386299]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/FollwingIdelRange" unique_id=1387926539]
+position = Vector2(-3.8494663e-06, -35.833332)
+shape = SubResource("RectangleShape2D_w7q8t")
+
 [node name="ChaseRange" type="Area2D" parent="Components/Areas" unique_id=976945710]
-visible = false
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/ChaseRange" unique_id=1590849605]
-position = Vector2(51.6667, -36.0417)
+position = Vector2(0, -35.833332)
 shape = SubResource("RectangleShape2D_o2sd1")
 
 [node name="PlayerDetection" type="Area2D" parent="Components/Areas" unique_id=2078433877]
@@ -6920,7 +6932,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="PlayerDetectionRect" parent="Components/Areas/PlayerDetection" unique_id=591433884 instance=ExtResource("20_u6h05")]
-visible = false
 modulate = Color(0.192157, 0.764706, 0.74902, 1)
 light_mask = 0
 z_index = 99
@@ -7131,7 +7142,7 @@ position = Vector2(-12.5, -22.5)
 texture = ExtResource("37_ifdpf")
 hframes = 11
 vframes = 10
-frame = 47
+frame = 49
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",
@@ -7286,15 +7297,27 @@ script = ExtResource("56_8c3ig")
 
 [node name="idle" type="Node" parent="NpcStateManager/base" unique_id=820482523]
 script = ExtResource("57_krdwa")
+enable_physics = null
+follow_distance = null
+is_normal_state = null
+on_combat = null
+on_fighting = null
+enable_player_detection = null
 enable_self = true
 interact2player = true
+player_interact_lock = null
+change_animation = null
+change_sprite_color = null
+pause_on_change_sprite_color = null
+sprite_color = null
+stamina_cost = null
+need_stamina = null
 anime_config = ExtResource("58_a3tr1")
 
 [node name="FollowTimer" type="Timer" parent="NpcStateManager/base/idle" unique_id=1847390560]
 
 [node name="follow" type="Node" parent="NpcStateManager/base" unique_id=413843932]
 script = ExtResource("59_tt6gm")
-following_offset_vec2i = Vector2i(2, 0)
 anime_config = ExtResource("60_yrlba")
 
 [node name="move2vec2" type="Node" parent="NpcStateManager/base" unique_id=1798920021]

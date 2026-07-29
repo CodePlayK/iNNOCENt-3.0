@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcyatlj3xhn1k"
-path="res://.godot/imported/2D像素游戏树林剪影.png-04fac296688e770b12532d0b288ba702.ctex"
+uid="uid://dhrj7bxf6hqni"
+path="res://.godot/imported/marks.png-e468a0aaf774bf51921e8754437d8c7a.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://core/common/resource/texture/forest/2D像素游戏树林剪影.png"
-dest_files=["res://.godot/imported/2D像素游戏树林剪影.png-04fac296688e770b12532d0b288ba702.ctex"]
+source_file="res://core/common/resource/texture/marks.png"
+dest_files=["res://.godot/imported/marks.png-e468a0aaf774bf51921e8754437d8c7a.ctex"]
 
 [params]
 

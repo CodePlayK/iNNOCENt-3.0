@@ -38,6 +38,8 @@ signal player_health_healed
 signal player_stamina_damaged
 signal player_stamina_recovered
 signal player_face_changed
+signal player_running_changed
+
 ##sound
 signal play_SE_LOOP
 signal play_SE
@@ -104,4 +106,5 @@ func _player_waked():
 	player_waked.emit()
 func _txt_his_load_fin():
 	txt_his_load_fin.emit()
-	
+func _player_running_changed():
+	player_running_changed.emit()

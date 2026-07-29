@@ -29,10 +29,10 @@
 [ext_resource type="SpriteFrames" uid="uid://dfen7m4dyep0h" path="res://core/player/animation/base_fx.tres" id="13_b6fc3"]
 [ext_resource type="Script" uid="uid://bi4lnn664ji86" path="res://core/player/states/base.gd" id="13_kkt5v"]
 [ext_resource type="Script" uid="uid://b0mehjb05vhj8" path="res://core/player/states/stack.gd" id="14_mcp7q"]
+[ext_resource type="Script" uid="uid://bwpkk4ma2gyfo" path="res://core/player/player_state_update.gd" id="18_yurw6"]
 [ext_resource type="Texture2D" uid="uid://cmh5u1a81trbo" path="res://core/player/animation/me-sword-wind.png" id="19_brn72"]
 [ext_resource type="PackedScene" uid="uid://ctvwf1cocln24" path="res://core/common/component/rays/rays.tscn" id="19_dcy0e"]
 [ext_resource type="PackedScene" uid="uid://c56xbxh2my7gr" path="res://core/common/component/marks/marks.tscn" id="20_57tia"]
-[ext_resource type="Texture2D" uid="uid://boeapwrwv2llt" path="res://core/player/animation/aniplayer/baseFx.png" id="21_3laxe"]
 [ext_resource type="Script" uid="uid://ne18seyasygs" path="res://core/player/states/idle.gd" id="21_gp4na"]
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="21_ykyob"]
 [ext_resource type="Script" uid="uid://ci2822lvels6x" path="res://core/player/states/behitbati.gd" id="24_ugr5b"]
@@ -57,7 +57,6 @@
 [ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="32_likyd"]
 [ext_resource type="Script" uid="uid://ffsamgvv3i8n" path="res://core/player/states/lift.gd" id="32_ssiia"]
 [ext_resource type="Script" uid="uid://doa1oqnpnftrt" path="res://core/player/states/toptrans.gd" id="33_0so5l"]
-[ext_resource type="Texture2D" uid="uid://b5juukyy77ote" path="res://core/player/animation/aniplayer/base.png" id="33_dq6eo"]
 [ext_resource type="Resource" uid="uid://dpkv2ecdi42dm" path="res://core/player/anime config/run.tres" id="33_idsae"]
 [ext_resource type="Texture2D" uid="uid://b5juukyy77ote" path="res://core/player/animation/aniplayer/base.png" id="33_yurw6"]
 [ext_resource type="Texture2D" uid="uid://boeapwrwv2llt" path="res://core/player/animation/aniplayer/baseFx.png" id="34_kaqeq"]
@@ -164,26 +163,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [112, 113, 114, 115, 112]
+"values": [0, 0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0]
+"values": [113, 114, 115, 116, 113]
 }
 
 [sub_resource type="Animation" id="Animation_pxowy"]
@@ -216,26 +215,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [93, 94, 95, 96, 97, 98]
+"values": [38, 32, 33, 34, 35, 36]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [38, 32, 33, 34, 35, 36]
+"values": [94, 95, 96, 97, 98, 99]
 }
 
 [sub_resource type="Animation" id="Animation_noujb"]
@@ -268,26 +267,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [50, 51, 52, 53, 54, 55, 56]
+"values": [0, 6, 7, 8, 9, 10, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 6, 7, 8, 9, 10, 0]
+"values": [51, 52, 53, 54, 55, 56, 57]
 }
 
 [sub_resource type="Animation" id="Animation_kh7lt"]
@@ -320,26 +319,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [56, 57, 58, 59, 50]
+"values": [0, 11, 12, 13, 14]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 11, 12, 13, 14]
+"values": [57, 58, 59, 60, 51]
 }
 
 [sub_resource type="Animation" id="Animation_s2o4u"]
@@ -372,26 +371,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [65, 66, 67, 68, 69, 70]
+"values": [18, 0, 19, 20, 21, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [18, 0, 19, 20, 21, 0]
+"values": [66, 67, 68, 69, 70, 71]
 }
 
 [sub_resource type="Animation" id="Animation_31yl5"]
@@ -424,26 +423,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [60, 61, 62, 63, 64]
+"values": [0, 15, 0, 16, 17]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 15, 0, 16, 17]
+"values": [61, 62, 63, 64, 65]
 }
 
 [sub_resource type="Animation" id="Animation_tb8vv"]
@@ -476,26 +475,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [122, 123]
+"values": [0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 0]
+"values": [123, 124]
 }
 
 [sub_resource type="Animation" id="Animation_adi1s"]
@@ -528,26 +527,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [71, 72, 73, 74, 75, 76]
+"values": [22, 23, 24, 25, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [22, 23, 24, 25, 0, 0]
+"values": [72, 73, 74, 75, 76, 77]
 }
 
 [sub_resource type="Animation" id="Animation_2py30"]
@@ -580,26 +579,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [77, 52, 78, 54, 55, 56]
+"values": [26, 27, 28, 29, 30, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [26, 27, 28, 29, 30, 0]
+"values": [78, 53, 79, 55, 56, 57]
 }
 
 [sub_resource type="Animation" id="Animation_befvo"]
@@ -632,26 +631,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [124, 125, 126, 127, 128, 129]
+"values": [0, 0, 0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0]
+"values": [125, 126, 127, 128, 129, 0]
 }
 
 [sub_resource type="Animation" id="Animation_ytak2"]
@@ -684,26 +683,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [76]
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [77]
 }
 
 [sub_resource type="Animation" id="Animation_0y5bn"]
@@ -736,26 +735,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [86, 87, 88]
+"values": [0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 0, 0]
+"values": [87, 88, 89]
 }
 
 [sub_resource type="Animation" id="Animation_bnxs7"]
@@ -788,26 +787,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [99, 100, 101, 102, 103, 104, 105, 106, 107]
+"values": [39, 40, 0, 41, 42, 0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [39, 40, 0, 41, 42, 0, 0, 0, 0]
+"values": [100, 101, 102, 103, 104, 105, 106, 107, 108]
 }
 
 [sub_resource type="Animation" id="Animation_ix5mp"]
@@ -840,26 +839,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [26, 27, 28, 29, 30, 31, 32, 33]
+"values": [0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0]
+"values": [27, 28, 29, 30, 31, 32, 33, 34]
 }
 
 [sub_resource type="Animation" id="Animation_j6v2a"]
@@ -892,26 +891,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 2, 3, 4, 5, 6, 7, 8, 9]
+"values": [0, 0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0, 0]
+"values": [2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
 
 [sub_resource type="Animation" id="Animation_scyt5"]
@@ -944,26 +943,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [89, 90, 91, 92, 92, 92, 92, 92, 92]
+"values": [31, 32, 33, 34, 35, 36, 37, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [31, 32, 33, 34, 35, 36, 37, 0, 0]
+"values": [90, 91, 92, 93, 93, 93, 93, 93, 93]
 }
 
 [sub_resource type="Animation" id="Animation_r4dw0"]
@@ -996,26 +995,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [108, 109, 110, 111]
+"values": [0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0]
+"values": [109, 110, 111, 112]
 }
 
 [sub_resource type="Animation" id="Animation_1kqd2"]
@@ -1048,102 +1047,79 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [79, 80, 81]
+"values": [0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 0, 0]
+"values": [80, 81, 82]
 }
 
 [sub_resource type="Animation" id="Animation_fetig"]
 resource_name = "onfloor"
-length = 0.6
+length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("base:texture")
+tracks/0/path = NodePath("baseFX:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("33_yurw6")]
+"values": [ExtResource("34_kaqeq")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("base:hframes")
+tracks/1/path = NodePath("baseFX:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [12]
+"values": [7]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:vframes")
+tracks/2/path = NodePath("baseFX:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [11]
+"values": [7]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:texture")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("21_3laxe")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("baseFX:hframes")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("baseFX:vframes")
-tracks/5/interp = 1
-tracks/5/loop_wrap = false
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_p127a"]
@@ -1176,26 +1152,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [34, 35, 36, 37, 38, 39, 40, 41]
+"values": [0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0]
+"values": [35, 36, 37, 38, 39, 40, 41, 42]
 }
 
 [sub_resource type="Animation" id="Animation_bp5tt"]
@@ -1228,26 +1204,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.086, 0.172, 0.258, 0.344, 0.43, 0.516, 0.602, 0.688, 0.774),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [34, 42, 36, 43, 44, 45, 46, 47, 48, 49]
+"values": [0, 0, 0, 0, 0, 1, 2, 3, 4, 5]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.086, 0.172, 0.258, 0.344, 0.43, 0.516, 0.602, 0.688, 0.774),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 1, 2, 3, 4, 5]
+"values": [35, 43, 37, 44, 45, 46, 47, 48, 49, 50]
 }
 
 [sub_resource type="Animation" id="Animation_frh15"]
@@ -1280,26 +1256,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [18, 19, 20, 21, 22, 23, 24, 25]
+"values": [0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0]
+"values": [19, 20, 21, 22, 23, 24, 25, 26]
 }
 
 [sub_resource type="Animation" id="Animation_fjaki"]
@@ -1332,7 +1308,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
@@ -1344,14 +1320,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_wca2n"]
@@ -1384,26 +1360,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [82, 83, 84, 85]
+"values": [0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0]
+"values": [83, 84, 85, 86]
 }
 
 [sub_resource type="Animation" id="Animation_y6mvg"]
@@ -1436,26 +1412,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [10, 11, 12, 13, 14, 15, 16, 17]
+"values": [0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0]
+"values": [11, 12, 13, 14, 15, 16, 17, 18]
 }
 
 [sub_resource type="Animation" id="Animation_r5r04"]
@@ -1488,26 +1464,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [116]
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [117]
 }
 
 [sub_resource type="Animation" id="Animation_bhpo8"]
@@ -1540,26 +1516,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [119, 120, 121]
+"values": [0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 0, 0]
+"values": [120, 121, 122]
 }
 
 [sub_resource type="Animation" id="Animation_hd7sg"]
@@ -1592,26 +1568,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [118, 117, 116]
+"values": [0, 0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 0, 0]
+"values": [119, 118, 117]
 }
 
 [sub_resource type="Animation" id="Animation_a1bkc"]
@@ -1644,26 +1620,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("base:frame")
+tracks/2/path = NodePath("baseFX:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [117, 118]
+"values": [0, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("baseFX:frame")
+tracks/3/path = NodePath("base:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 0]
+"values": [118, 119]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g4fry"]
@@ -1706,15 +1682,15 @@ shader_parameter/from_color = Color(0, 0, 0, 1)
 shader_parameter/to_color = Color(0, 0, 0, 1)
 shader_parameter/enable = true
 shader_parameter/colored = false
-shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate = false
 shader_parameter/precision = 0.1
-shader_parameter/mix_modulate_strength = 1.0
-shader_parameter/original_0 = Color(0, 0, 0, 1)
+shader_parameter/mix_modulate_strength = 1.922000186295
+shader_parameter/original_0 = Color(1, 1, 1, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
 shader_parameter/original_3 = Color(0, 0, 0, 1)
 shader_parameter/original_4 = Color(0, 0, 0, 1)
-shader_parameter/replace_0 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(1, 1, 1, 1)
 shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
@@ -2139,6 +2115,14 @@ position = Vector2(-42, -70)
 [node name="FightingDelayTimer" type="Timer" parent="UIs/Timer" unique_id=1584988411]
 one_shot = true
 
+[node name="PlayerStateUpdate0_1s" type="Timer" parent="UIs/Timer" unique_id=1207543485]
+wait_time = 0.1
+script = ExtResource("18_yurw6")
+
+[node name="PlayerStateUpdate1s" type="Timer" parent="UIs/Timer" unique_id=249843411]
+autostart = true
+script = ExtResource("18_yurw6")
+
 [node name="Test" type="Node2D" parent="UIs" unique_id=834096373]
 script = ExtResource("10_h2v12")
 
@@ -2267,11 +2251,11 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_iop30")
 position = Vector2(0, 43)
 scale = Vector2(2.1, 2.1)
-texture = ExtResource("33_dq6eo")
+texture = ExtResource("33_yurw6")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 57
+frame = 123
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2297,7 +2281,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {},
 "slice_section": true
 }
-metadata/_aseprite_wizard_source_file_hash_ = "4d6a8c767ad0cf84afba56f0e6d3248e"
+metadata/_aseprite_wizard_source_file_hash_ = "877d54aaac106339f1bf5c078221efeb"
 
 [node name="baseFX" type="Sprite2D" parent="Animations/Anime" unique_id=1664924147]
 light_mask = 64
@@ -2309,7 +2293,6 @@ texture = ExtResource("34_kaqeq")
 offset = Vector2(17.143, -7.143)
 hframes = 7
 vframes = 7
-frame = 11
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2437,6 +2420,7 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
+changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
@@ -2694,6 +2678,8 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [connection signal="timeout" from="UIs/Timer/FightingDelayTimer" to="UIs" method="_on_fighting_delay_timer_timeout"]
+[connection signal="timeout" from="UIs/Timer/PlayerStateUpdate0_1s" to="UIs/Timer/PlayerStateUpdate0_1s" method="_on_timeout_0_1"]
+[connection signal="timeout" from="UIs/Timer/PlayerStateUpdate1s" to="UIs/Timer/PlayerStateUpdate1s" method="_on_timeout_1"]
 [connection signal="timeout" from="UIs/Test/RunningTime/Timer" to="UIs/Test" method="_on_timer_timeout"]
 [connection signal="timeout" from="Components/UpdateTimer" to="." method="_on_update_timer_timeout"]
 [connection signal="animation_finished" from="Animations/Anime/aniplayer" to="UIs/Test" method="_on_aniplayer_animation_finished"]

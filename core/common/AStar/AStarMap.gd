@@ -18,6 +18,7 @@ class_name AStarMap
 			for p in path_array:
 				set_cell_data(p,DIRECTION,Vector2i(0,0))
 		enable = f		
+@export var only_update_on_floor:bool = false
 @export var base_tile:TileMap
 ##寻路对象
 @export var npc:CharacterBody2D
@@ -223,6 +224,7 @@ func create_prop_by_cell_vec2i(cell_vec2i):
 	cell_prop_vec2i_dic[cell_vec2i] = cell_prop_pos_dic[pos]		
 	
 func _on_updata_timer_timeout() -> void:
+	target_pos_update(target.global_position)
 	if !enable:return
 	on_update()
 	
@@ -354,6 +356,7 @@ func npc_pos_update(pos:Vector2):
 			if enabel_ui:cell_prop_pos_dic[last_npc_current_cell_pos][2].self_modulate = Color.WHITE
 ##目标位置更新
 func target_pos_update(pos:Vector2):
+	if !PlayerState.player.is_on_floor() and only_update_on_floor:return
 	if target_is_vec2:
 		pos = target_vec2
 	var cell_vec2i = get_cell_vec2i_by_pos(pos)

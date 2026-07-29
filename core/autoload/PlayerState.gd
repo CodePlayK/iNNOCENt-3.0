@@ -21,6 +21,20 @@ var face_left_normalize:int=1:
 		face_left_normalize = i
 		if player:
 			player.face_left_normalozed = i
+##面朝左
+var running_left:bool=false:
+	set(f):
+		if running_left!=f:EventBus._player_running_changed()
+		running_left = f
+		if f:
+			running_left_normalize = -1
+		else :
+			running_left_normalize = 1
+var running_left_normalize:int=1:
+	set(i):
+		running_left_normalize = i
+
+			
 ##玩家是否可以进行交互
 var player_interact_being_locked:bool=false
 ##玩家交互锁对象{对象名,对象}
@@ -142,4 +156,5 @@ func remove_player_lock_interact_obj(obj):
 	player_lock_interact_obj.erase(obj.name)
 func on_player_ready(player1:Player):
 	player = player1
-	
+func is_player_on_floor():
+	return player.is_on_floor()
