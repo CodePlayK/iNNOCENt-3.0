@@ -4058,7 +4058,6 @@ animation_name = "onfloor"
 [sub_resource type="Resource" id="Resource_0uuym"]
 script = ExtResource("85_wauv8")
 dialogue_res = ExtResource("84_ptnat")
-talkers = null
 current_res = "test1"
 title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
 balloon_color = Color(0.49, 0.343, 0, 1)
@@ -4330,7 +4329,7 @@ texture = ExtResource("20_rioux")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 129
+frame = 112
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",
@@ -4341,6 +4340,9 @@ metadata/_aseprite_wizard_config_ = {
 "op_exp": true,
 "player": "Animations/Anime/aniplayer",
 "source": "D:/Create/iNNOCENt/ASE/Sword Master Sprite Sheet.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
 }
 
 [node name="baseFX" type="Sprite2D" parent="Animations/Anime" unique_id=1664924147]
@@ -4353,6 +4355,7 @@ texture = ExtResource("21_3laxe")
 offset = Vector2(17.143, -7.143)
 hframes = 7
 vframes = 7
+frame = 43
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",
