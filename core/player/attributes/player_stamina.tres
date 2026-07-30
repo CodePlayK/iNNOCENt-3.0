@@ -1,10 +1,7 @@
-[gd_resource type="Resource" script_class="StaminaConfig" load_steps=2 format=3 uid="uid://cjos3jdrktjxn"]
+[gd_resource type="Resource" script_class="StaminaConfig" format=3 uid="uid://cjos3jdrktjxn"]
 
-[ext_resource type="Script" path="res://core/common/attributes/StaminaConfig.gd" id="1_34876"]
+[ext_resource type="Script" uid="uid://bngy1e4ul1dar" path="res://core/common/attributes/StaminaConfig.gd" id="1_34876"]
 
 [resource]
 script = ExtResource("1_34876")
-max_stamina = 200.0
-last_stamina = 200.0
-stamina_recover_speed = 10.0
-current_stamina = 200.0
+stamina_recover_speed = 30.0

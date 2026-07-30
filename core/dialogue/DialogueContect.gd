@@ -36,7 +36,7 @@ func _body_entered(body: Node2D) -> void:
 	elif dialogue_config.current_res!=CutsceneState.current_cutscene:
 		dialogue_config.dialogue_res=DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
 		dialogue_config.current_res=CutsceneState.current_cutscene
-	Dialogue.current_talker=obj.dialogue_config.talkers
+	#Dialogue.current_talker=obj.dialogue_config.talkers
 	Dialogue.current_start_obj = obj
 	Dialogue.start(dialogue_config)
 	

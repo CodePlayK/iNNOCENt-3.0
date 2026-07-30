@@ -106,8 +106,9 @@ func type_out() -> void:
 		Dialogue.dialogue_title_dic_tmp[l]+=1
 	else:
 		Dialogue.dialogue_title_dic_tmp[l]=1
-	if debug:Debug.dprintinfo(DebugCT.dp("更新:%s" %Dialogue.dialogue_title_dic_tmp,self))
-	
+	if debug:
+		#Debug.dprintinfo(DebugCT.dp("更新:%s" %Dialogue.dialogue_title_dic_tmp,self))
+		pass
 	_update_text()
 	visible_characters = 0
 	visible_ratio = 0

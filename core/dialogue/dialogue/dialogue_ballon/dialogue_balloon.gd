@@ -56,7 +56,7 @@ func dialogue_finished():
 func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:DialogueLine):
 	if !talker_name.has(current_talker):
 		return
-	Dialogue.current_talker = talker_name
+	#Dialogue.current_talker = talker_name
 	Dialogue.current_dialogue_balloon = self
 	hide_balloon()
 	if back_color_tween:back_color_tween.kill()
@@ -218,7 +218,7 @@ func _on_response_gui_input(event: InputEvent, item: Control) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == 1:
-				Dialogue.current_talker = DialogueState.player_name
+				#Dialogue.current_talker = DialogueState.player_name
 				DialogueState.add_dialogue_history(DialogueState.player_name[0],Dialogue.dialogue_line.responses[item.get_index()].text)
 				dialogue_finished()
 				Dialogue.next(Dialogue.dialogue_line.responses[item.get_index()].next_id)

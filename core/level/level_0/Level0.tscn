@@ -44,20 +44,22 @@
 [ext_resource type="Texture2D" uid="uid://nnflt7qjpe10" path="res://core/common/resource/texture/forest/树干.png" id="30_3d7fh"]
 [ext_resource type="Script" uid="uid://b4otcmujx4vs6" path="res://test/NpcPath/PatrolArea.gd" id="31_eldf7"]
 [ext_resource type="Resource" uid="uid://ww01r8pk0y5u" path="res://core/npc/blood_king/dilogues/bloodking2_dialogue.tres" id="31_i46tv"]
-[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="31_ly6y8"]
 [ext_resource type="PackedScene" uid="uid://dx4miwehgo47b" path="res://core/item/collectable_item/collectable_item.tscn" id="32_dirdt"]
 [ext_resource type="Resource" uid="uid://xfpvrn43qq55" path="res://core/item/resource/pickaxe.tres" id="32_dyqav"]
 [ext_resource type="Resource" uid="uid://bokwhaxx5h1ll" path="res://core/npc/blood_king/data/blooad2_king_sdc.tres" id="32_ekuu4"]
 [ext_resource type="Resource" uid="uid://dqcybmkayfdow" path="res://core/item/resource/tent.tres" id="32_fwoov"]
+[ext_resource type="Resource" uid="uid://bi52pxfibdl5r" path="res://core/npc/blood_king/resource/bloodking2_character_box_config.tres" id="33_gpcuc"]
 [ext_resource type="Resource" uid="uid://bxi5abugxwqv2" path="res://core/npc/blood_king/dilogues/bloodking1_dialogue.tres" id="33_hw0qa"]
 [ext_resource type="Script" uid="uid://dheawyf6jpi38" path="res://core/level/level_0/test/Test.gd" id="33_hxppo"]
 [ext_resource type="PackedScene" uid="uid://dr3sv5p0vd2na" path="res://core/autoload/EventData/events.tscn" id="33_uknva"]
 [ext_resource type="Script" uid="uid://dfuwy7thfv5dg" path="res://core/events/FlashlightCountEvent.gd" id="34_5wuja"]
 [ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="34_bx1e0"]
 [ext_resource type="PackedScene" uid="uid://lv1uokjjtteq" path="res://core/common/component/collect_hint/collect_hint.tscn" id="34_lsjjf"]
+[ext_resource type="Resource" uid="uid://c53hxlnm3yy0u" path="res://core/npc/blood_king/data/blooad1_king_sdc.tres" id="35_er4du"]
 [ext_resource type="PackedScene" uid="uid://dlacte5mobc5k" path="res://core/npc/it/it.tscn" id="35_hw0qa"]
 [ext_resource type="Resource" uid="uid://kb1ml1x6xud" path="res://core/events/FlashlightCountEvent.tres" id="35_mpohg"]
 [ext_resource type="Resource" uid="uid://cbxxkcbt002lv" path="res://core/item/resource/flashlight.tres" id="36_p80hx"]
+[ext_resource type="Resource" uid="uid://behwdfqux0bqr" path="res://core/npc/blood_king/resource/bloodking1_character_box_config.tres" id="36_yhjy5"]
 [ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="37_jie1n"]
 [ext_resource type="Material" uid="uid://b4ag5pa4kipx8" path="res://core/common/resource/material/transparent_tile.tres" id="37_o61b0"]
 [ext_resource type="Resource" uid="uid://c1b7bivetoi1j" path="res://core/item/resource/bandage.tres" id="37_ww2t1"]
@@ -76,10 +78,12 @@
 [ext_resource type="Script" uid="uid://c8ig3wyy7fbpe" path="res://core/common/ui/item_txt_box/ItemTxtBox.gd" id="48_n26n5"]
 [ext_resource type="PackedScene" uid="uid://cpebs4ek1lfvb" path="res://core/common/ui/state_box/state_box.tscn" id="50_kihhd"]
 [ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="56_3qr45"]
-[ext_resource type="Shader" uid="uid://csk6b8bfj3e8v" path="res://core/common/shader/chromatic.gdshader" id="59_vhhhn"]
 [ext_resource type="Script" uid="uid://bgnhte7evfn18" path="res://core/level/level_0/ScreenEffect.gd" id="61_xipq6"]
 [ext_resource type="Script" uid="uid://dquny67va6ekv" path="res://core/common/cutscene_fx/eyes.gd" id="63_102q4"]
+[ext_resource type="Script" uid="uid://dndomblipxr46" path="res://core/level/character_box_canvas.gd" id="71_3d7fh"]
+[ext_resource type="Shader" uid="uid://beth4v0fkqbsf" path="res://core/common/shader/screen ctr.gdshader" id="71_gpcuc"]
 [ext_resource type="FontFile" uid="uid://cgcv38l7xieq8" path="res://core/common/resource/font/凤凰点阵体 16px.ttf" id="75_ekuu4"]
+[ext_resource type="Texture2D" uid="uid://dwdj4u348kh38" path="res://core/player/resource/header_test.tres" id="79_2bf10"]
 
 [sub_resource type="Animation" id="Animation_i8m7f"]
 resource_name = "0_0_0"
@@ -1268,10 +1272,13 @@ sources/1 = SubResource("TileSetAtlasSource_2bf10")
 texture = ExtResource("23_xurqy")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 5:0/0 = 0
 5:0/0/custom_data_0 = true
 
@@ -1414,12 +1421,6 @@ script = ExtResource("25_tak07")
 [sub_resource type="Resource" id="Resource_xvoeb"]
 script = ExtResource("25_tak07")
 health = 100.0
-
-[sub_resource type="Resource" id="Resource_vp0qe"]
-script = ExtResource("31_ly6y8")
-group = 1
-key = "bloodking1"
-metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8m1d"]
 size = Vector2(84, 20)
@@ -2388,21 +2389,28 @@ height = 646
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
 
-[sub_resource type="Gradient" id="Gradient_tvktr"]
-offsets = PackedFloat32Array(0, 0.453659, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.125911, 0.125911, 0.125911, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kodbr"]
-gradient = SubResource("Gradient_tvktr")
-width = 240
-height = 135
-fill = 1
-fill_from = Vector2(0.486166, 0.509442)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
-shader = ExtResource("59_vhhhn")
-shader_parameter/offset_image = SubResource("GradientTexture2D_kodbr")
-shader_parameter/strength = 0.295
+shader = ExtResource("71_gpcuc")
+shader_parameter/scanlines_opacity = 0.0310000014725
+shader_parameter/scanlines_width = 0.2470000117325
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.145
+shader_parameter/roll_size = 5.03200023902
+shader_parameter/roll_variation = 1.50100006803762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0350000016625
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0410000019475
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.21200001007
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="Gradient" id="Gradient_her8m"]
 colors = PackedColorArray(0, 0, 0, 0.0941176, 0, 0, 0, 1)
@@ -2781,8 +2789,9 @@ modulate = Color(0, 0.243137, 0.286275, 1)
 position = Vector2(-160, -352)
 
 [node name="platform" type="TileMapLayer" parent="Parallax/ParallaxLayer_5/Tile" unique_id=1779094652]
+z_index = 12
 position = Vector2(-27, -15)
-tile_map_data = PackedByteArray("AAAcAB4AAQABAAEAAAAcAB8AAQABAAIAAAAcACAAAQABAAQAAAAcACEAAQABAAUAAAAdAB4AAQACAAEAAAAdAB8AAQACAAIAAAAdACAAAQACAAQAAAAdACEAAQAOAA4AAAAeAB4AAQADAAEAAAAeAB8AAQADAAIAAAAeACAAAQADAAQAAAAeACEAAQAPAA4AAAAfAB4AAQADAAEAAAAfAB8AAQADAAIAAAAfACAAAQADAAQAAAAfACEAAQAQAA4AAAAgAB4AAQADAAEAAAAgAB8AAQADAAIAAAAgACAAAQADAAQAAAAgACEAAQARAA4AAAAhAB4AAQADAAEAAAAhAB8AAQADAAIAAAAhACAAAQADAAQAAAAhACEAAQASAA4AAAAiAB4AAQADAAEAAAAiAB8AAQADAAIAAAAiACAAAQADAAQAAAAiACEAAQADAAUAAAAjAB4AAQADAAEAAAAjAB8AAQADAAIAAAAjACAAAQADAAQAAAAjACEAAQADAAUAAAAkAB4AAQADAAEAAAAkAB8AAQADAAIAAAAkACAAAQADAAQAAAAkACEAAQAOABQAAAAlAB4AAQADAAEAAAAlAB8AAQADAAIAAAAlACAAAQADAAQAAAAlACEAAQAPABQAAAAmAB4AAQADAAEAAAAmAB8AAQADAAIAAAAmACAAAQADAAQAAAAmACEAAQAQABQAAAAnAB4AAQADAAEAAAAnAB8AAQADAAIAAAAnACAAAQADAAQAAAAnACEAAQARABQAAAAoAB4AAQADAAEAAAAoAB8AAQADAAIAAAAoACAAAQADAAQAAAApAB4AAQAEAAEAAAApAB8AAQAEAAIAAAApACAAAQAEAAQAAAApACEAAQAEAAUAAAAqAB4AAQAFAAEAAAAqAB8AAQAFAAIAAAAqACAAAQAFAAQAAAAqACEAAQAFAAUAAAAkACIAAQAOABUAAAAlACIAAQAPABUAAAAlACMAAQAPABYAAAAdACIAAQAOAA8AAAAeACIAAQAPAA8AAAAeACMAAQAPABAAAAAgACIAAQARAA8AAAA=")
+tile_map_data = PackedByteArray("AAAcAB4AAQABAAEAAAAcAB8AAQABAAIAAAAcACAAAQABAAQAAAAcACEAAQABAAUAAAAdAB4AAQACAAEAAAAdAB8AAQACAAIAAAAdACAAAQACAAQAAAAdACEAAQAOAA4AAAAeAB4AAQADAAEAAAAeAB8AAQADAAIAAAAeACAAAQADAAQAAAAeACEAAQAPAA4AAAAfAB4AAQADAAEAAAAfAB8AAQADAAIAAAAfACAAAQADAAQAAAAfACEAAQAQAA4AAAAgAB4AAQADAAEAAAAgAB8AAQADAAIAAAAgACAAAQADAAQAAAAgACEAAQARAA4AAAAhAB4AAQADAAEAAAAhAB8AAQADAAIAAAAhACAAAQADAAQAAAAhACEAAQASAA4AAAAiAB4AAQADAAEAAAAiAB8AAQADAAIAAAAiACAAAQADAAQAAAAiACEAAQADAAUAAAAjAB4AAQADAAEAAAAjAB8AAQADAAIAAAAjACAAAQADAAQAAAAjACEAAQADAAUAAAAkAB4AAQADAAEAAAAkAB8AAQADAAIAAAAkACAAAQADAAQAAAAkACEAAQAOABQAAAAlAB4AAQADAAEAAAAlAB8AAQADAAIAAAAlACAAAQADAAQAAAAlACEAAQAPABQAAAAmAB4AAQADAAEAAAAmAB8AAQADAAIAAAAmACAAAQADAAQAAAAmACEAAQAQABQAAAAnAB4AAQADAAEAAAAnAB8AAQADAAIAAAAnACAAAQADAAQAAAAnACEAAQARABQAAAAoAB4AAQADAAEAAAAoAB8AAQADAAIAAAAoACAAAQADAAQAAAApAB4AAQADAAEAAAApAB8AAQADAAIAAAApACAAAQADAAQAAAApACEAAQAPAA4AAAAqAB4AAQADAAEAAAAqAB8AAQADAAIAAAAqACAAAQADAAQAAAAqACEAAQAQAA4AAAAkACIAAQAOABUAAAAlACIAAQAPABUAAAAlACMAAQAPABYAAAAdACIAAQAOAA8AAAAeACIAAQAPAA8AAAAeACMAAQAPABAAAAAgACIAAQARAA8AAAApACIAAQAPAA8AAAApACMAAQAPABAAAAArAB4AAQADAAEAAAArAB8AAQADAAIAAAArACAAAQADAAQAAAArACEAAQARAA4AAAArACIAAQARAA8AAAAsAB4AAQADAAEAAAAsAB8AAQADAAIAAAAsACAAAQADAAQAAAAsACEAAQASAA4AAAAtAB4AAQADAAEAAAAtAB8AAQADAAIAAAAtACAAAQADAAQAAAAtACEAAQADAAUAAAAuAB4AAQADAAEAAAAuAB8AAQADAAIAAAAuACAAAQADAAQAAAAuACEAAQADAAUAAAAvAB4AAQADAAEAAAAvAB8AAQADAAIAAAAvACAAAQADAAQAAAAvACEAAQAOABQAAAAvACIAAQAOABUAAAAwAB4AAQADAAEAAAAwAB8AAQADAAIAAAAwACAAAQADAAQAAAAwACEAAQAPABQAAAAwACIAAQAPABUAAAAwACMAAQAPABYAAAAxAB4AAQADAAEAAAAxAB8AAQADAAIAAAAxACAAAQADAAQAAAAxACEAAQAQABQAAAAyAB4AAQADAAEAAAAyAB8AAQADAAIAAAAyACAAAQADAAQAAAAyACEAAQARABQAAAAzAB4AAQAEAAEAAAAzAB8AAQAEAAIAAAAzACAAAQAEAAQAAAAzACEAAQAEAAUAAAA0ACAAAQAFAAQAAAA0ACEAAQAFAAUAAAA0AB4AAQAFAAEAAAA0AB8AAQAFAAIAAAA9AB4AAQABAAEAAAA9AB8AAQABAAIAAAA9ACAAAQABAAQAAAA9ACEAAQABAAUAAAA+AB4AAQACAAEAAAA+AB8AAQACAAIAAAA+ACAAAQACAAQAAAA+ACEAAQAOAA4AAAA+ACIAAQAOAA8AAAA/AB4AAQADAAEAAAA/AB8AAQADAAIAAAA/ACAAAQADAAQAAAA/ACEAAQAPAA4AAAA/ACIAAQAPAA8AAAA/ACMAAQAPABAAAABAAB4AAQADAAEAAABAAB8AAQADAAIAAABAACAAAQADAAQAAABAACEAAQAQAA4AAABBAB4AAQADAAEAAABBAB8AAQADAAIAAABBACAAAQADAAQAAABBACEAAQARAA4AAABBACIAAQARAA8AAABCAB4AAQADAAEAAABCAB8AAQADAAIAAABCACAAAQADAAQAAABCACEAAQASAA4AAABDAB4AAQADAAEAAABDAB8AAQADAAIAAABDACAAAQADAAQAAABDACEAAQADAAUAAABEAB4AAQADAAEAAABEAB8AAQADAAIAAABEACAAAQADAAQAAABEACEAAQADAAUAAABFAB4AAQADAAEAAABFAB8AAQADAAIAAABFACAAAQADAAQAAABFACEAAQAOABQAAABFACIAAQAOABUAAABGAB4AAQADAAEAAABGAB8AAQADAAIAAABGACAAAQADAAQAAABGACEAAQAPABQAAABGACIAAQAPABUAAABGACMAAQAPABYAAABHAB4AAQADAAEAAABHAB8AAQADAAIAAABHACAAAQADAAQAAABHACEAAQAQABQAAABIAB4AAQADAAEAAABIAB8AAQADAAIAAABIACAAAQADAAQAAABIACEAAQARABQAAABJAB4AAQADAAEAAABJAB8AAQADAAIAAABJACAAAQADAAQAAABKAB4AAQADAAEAAABKAB8AAQADAAIAAABKACAAAQADAAQAAABKACEAAQAPAA4AAABKACIAAQAPAA8AAABKACMAAQAPABAAAABLAB4AAQADAAEAAABLAB8AAQADAAIAAABLACAAAQADAAQAAABLACEAAQAQAA4AAABMAB4AAQADAAEAAABMAB8AAQADAAIAAABMACAAAQADAAQAAABMACEAAQARAA4AAABMACIAAQARAA8AAABNAB4AAQADAAEAAABNAB8AAQADAAIAAABNACAAAQADAAQAAABNACEAAQASAA4AAABOAB4AAQADAAEAAABOAB8AAQADAAIAAABOACAAAQADAAQAAABOACEAAQADAAUAAABPAB4AAQADAAEAAABPAB8AAQADAAIAAABPACAAAQADAAQAAABPACEAAQADAAUAAABQAB4AAQADAAEAAABQAB8AAQADAAIAAABQACAAAQADAAQAAABQACEAAQAOABQAAABQACIAAQAOABUAAABRAB4AAQADAAEAAABRAB8AAQADAAIAAABRACAAAQADAAQAAABRACEAAQAPABQAAABRACIAAQAPABUAAABRACMAAQAPABYAAABSAB4AAQADAAEAAABSAB8AAQADAAIAAABSACAAAQADAAQAAABSACEAAQAQABQAAABTAB4AAQADAAEAAABTAB8AAQADAAIAAABTACAAAQADAAQAAABTACEAAQARABQAAABUAB4AAQAEAAEAAABUAB8AAQAEAAIAAABUACAAAQAEAAQAAABUACEAAQAEAAUAAABVAB4AAQAFAAEAAABVAB8AAQAFAAIAAABVACAAAQAFAAQAAABVACEAAQAFAAUAAAD7/yIAAQABAAEAAAD7/yMAAQABAAIAAAD7/yQAAQABAAQAAAD7/yUAAQABAAUAAAD8/yIAAQACAAEAAAD8/yMAAQACAAIAAAD8/yQAAQACAAQAAAD8/yUAAQAOAA4AAAD8/yYAAQAOAA8AAAD9/yIAAQADAAEAAAD9/yMAAQADAAIAAAD9/yQAAQADAAQAAAD9/yUAAQAPAA4AAAD9/yYAAQAPAA8AAAD9/ycAAQAPABAAAAD+/yIAAQADAAEAAAD+/yMAAQADAAIAAAD+/yQAAQADAAQAAAD+/yUAAQAQAA4AAAD//yIAAQADAAEAAAD//yMAAQADAAIAAAD//yQAAQADAAQAAAD//yUAAQARAA4AAAD//yYAAQARAA8AAAAAACIAAQAUAA4AAAAAACMAAQAHAAAAAAAAACQAAQADAAQAAAAAACUAAQASAA4AAAABACIAAQAEAAgAAAABACMAAQADAAMAAAABACQAAQADAAQAAAABACUAAQADAAUAAAACACIAAQACAAgAAAACACMAAQADAAMAAAACACQAAQADAAQAAAACACUAAQADAAUAAAADACIAAQAWAA4AAAADACMAAQADAAIAAAADACQAAQADAAQAAAADACUAAQAOABQAAAADACYAAQAOABUAAAAEACIAAQADAAEAAAAEACMAAQADAAIAAAAEACQAAQADAAQAAAAEACUAAQAPABQAAAAEACYAAQAPABUAAAAEACcAAQAPABYAAAAFACIAAQADAAEAAAAFACMAAQADAAIAAAAFACQAAQADAAQAAAAFACUAAQAQABQAAAAGACIAAQADAAEAAAAGACMAAQADAAIAAAAGACQAAQADAAQAAAAGACUAAQARABQAAAAHACIAAQADAAEAAAAHACMAAQADAAIAAAAHACQAAQADAAQAAAAIACIAAQADAAEAAAAIACMAAQADAAIAAAAIACQAAQADAAQAAAAIACUAAQAPAA4AAAAIACYAAQAPAA8AAAAIACcAAQAPABAAAAAJACIAAQADAAEAAAAJACMAAQADAAIAAAAJACQAAQADAAQAAAAJACUAAQAQAA4AAAAKACIAAQADAAEAAAAKACMAAQADAAIAAAAKACQAAQADAAQAAAAKACUAAQARAA4AAAAKACYAAQARAA8AAAALACIAAQADAAEAAAALACMAAQADAAIAAAALACQAAQADAAQAAAALACUAAQASAA4AAAAMACIAAQADAAEAAAAMACMAAQADAAIAAAAMACQAAQADAAQAAAAMACUAAQADAAUAAAANACIAAQAOAAoAAAANACMAAQADAAIAAAANACQAAQADAAQAAAANACUAAQADAAUAAAAOACIAAQAPAAoAAAAOACMAAQADAAIAAAAOACQAAQADAAQAAAAOACUAAQAOABQAAAAOACYAAQAOABUAAAAPACMAAQADAAIAAAAPACQAAQADAAQAAAAPACUAAQAPABQAAAAPACYAAQAPABUAAAAPACcAAQAPABYAAAAQACMAAQADAAIAAAAQACQAAQADAAQAAAAQACUAAQAQABQAAAARACMAAQADAAIAAAARACQAAQADAAQAAAARACUAAQARABQAAAASACMAAQAEAAIAAAASACQAAQAEAAQAAAASACUAAQAEAAUAAAATACMAAQAFAAIAAAATACQAAQAFAAQAAAATACUAAQAFAAUAAAABACAAAQAEAAYAAAABACEAAQAEAAcAAAABAB0AAQAGAAYAAAABAB4AAQAGAAcAAAABAB8AAQAGAAgAAAABABoAAQAGAAYAAAABABsAAQAGAAcAAAABABwAAQAGAAgAAAACACAAAQACAAYAAAACACEAAQACAAcAAAACAB0AAQAAAAYAAAACAB4AAQAAAAcAAAACAB8AAQAAAAgAAAACABoAAQAAAAYAAAACABsAAQAAAAcAAAACABwAAQAAAAgAAAAIABwAAQADAAEAAAAIAB0AAQADAAIAAAAIAB4AAQADAAQAAAAIAB8AAQAPAA4AAAAJABwAAQADAAEAAAAJAB0AAQADAAIAAAAJAB4AAQADAAQAAAAJAB8AAQAQAA4AAAAKABwAAQADAAEAAAAKAB0AAQADAAIAAAAKAB4AAQADAAQAAAAKAB8AAQARAA4AAAALABwAAQADAAEAAAALAB0AAQADAAIAAAALAB4AAQADAAQAAAALAB8AAQASAA4AAAAMABwAAQADAAEAAAAMAB0AAQADAAIAAAAMAB4AAQADAAQAAAAMAB8AAQADAAUAAAANABwAAQADAAEAAAANAB0AAQADAAIAAAANAB4AAQADAAQAAAANAB8AAQADAAUAAAAOABwAAQADAAEAAAAOAB0AAQADAAIAAAAOAB4AAQADAAQAAAAOAB8AAQAOABQAAAAPABwAAQADAAEAAAAPAB0AAQADAAIAAAAPAB4AAQADAAQAAAAPAB8AAQAPAAwAAAAQABwAAQADAAEAAAAQAB0AAQADAAIAAAAQAB4AAQADAAQAAAARABwAAQAGAAgAAAARAB0AAQADAAMAAAARAB4AAQADAAMAAAASABwAAQAAAAgAAAASAB0AAQAAAAYAAAASAB4AAQAAAAcAAAATABwAAQAWAA0AAAATAB0AAQAWAA4AAAATAB4AAQAWAAoAAAAAAB4AAQAUAAoAAAAAAB8AAQAUAAsAAAAAACAAAQAUAAwAAAAAACEAAQAUAA0AAAAAABkAAQAUAAoAAAAAABoAAQAUAAsAAAAAABsAAQAUAAwAAAAAABwAAQAUAA0AAAAAAB0AAQAUAA4AAAADAB4AAQAWAAoAAAADAB8AAQAWAAsAAAADACAAAQAWAAwAAAADACEAAQAWAA0AAAADABkAAQAWAAoAAAADABoAAQAWAAsAAAADABsAAQAWAAwAAAADABwAAQAWAA0AAAADAB0AAQAWAA4AAAAGAB4AAQABAAQAAAAGAB8AAQABAAUAAAAHAB4AAQACAAQAAAAHAB8AAQACAAUAAAAGABwAAQABAAEAAAAGAB0AAQABAAIAAAAHABwAAQACAAEAAAAHAB0AAQACAAIAAAAQABkAAQAUAAoAAAAQABoAAQAUAAsAAAAQABsAAQAUAAwAAAARABoAAQAGAAYAAAARABsAAQAGAAcAAAASABoAAQAAAAYAAAASABsAAQAAAAcAAAATABkAAQAWAAoAAAATABoAAQAWAAsAAAATABsAAQAWAAwAAAASACIAAQAEAAEAAAATACIAAQAFAAEAAAAPACIAAQAQAAoAAAAQACIAAQARAAoAAAARACIAAQASAAoAAAAQAB8AAQAQAAwAAAARAB8AAQARAAwAAAASAB8AAQASAAwAAAA=")
 tile_set = SubResource("TileSet_07drm")
 
 [node name="ParallaxLayer_6" parent="Parallax" unique_id=1687417604 instance=ExtResource("5_rj5dp")]
@@ -2798,7 +2807,7 @@ position = Vector2(16, -108)
 tile_set = SubResource("TileSet_q2v8u")
 format = 2
 layer_0/navigation_enabled = false
-layer_0/tile_data = PackedInt32Array(327686, 65537, 0, 327687, 65537, 0, 327688, 65537, 0, 327689, 65537, 0)
+layer_0/tile_data = PackedInt32Array(327686, 327681, 0, 327687, 327681, 0, 327688, 327681, 0, 327689, 327681, 0, 327697, 327681, 0, 327698, 327681, 0, 327699, 327681, 0, 327700, 327681, 0, 327701, 327681, 0, 327702, 327681, 0, 327703, 327681, 0, 327690, 327681, 0, 327691, 327681, 0, 327692, 327681, 0, 458747, 327681, 0, 458748, 327681, 0, 393212, 327681, 0, 327676, 327681, 0, 262140, 327681, 0, 196604, 327681, 0, 327678, 327681, 0, 327679, 327681, 0, 262144, 327681, 0, 262145, 327681, 0, 196609, 327681, 0, 131073, 327681, 0, 458749, 327681, 0, 458750, 327681, 0, 458751, 327681, 0, 393216, 327681, 0, 393217, 327681, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ParallaxLayer_6/astar/BloodKingAstarMap" unique_id=1745701597]
 z_index = -1
@@ -2876,6 +2885,7 @@ offset_scale = 0.5
 
 [node name="ground_floor" type="TileMapLayer" parent="Parallax/ParallaxLayer_6/Tile" unique_id=1121493303]
 visible = false
+modulate = Color(1, 1, 1, 0.3254902)
 light_mask = 33
 z_index = 5
 position = Vector2(210, -1774.74)
@@ -2914,11 +2924,12 @@ debug_color = Color(0.909804, 1, 0.0901961, 0.168627)
 [node name="Npcs" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=1145705739]
 
 [node name="BloodKing2" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1130788761 node_paths=PackedStringArray("astar") instance=ExtResource("24_vkc5v")]
-position = Vector2(-270, 243)
+position = Vector2(1266, 262)
 npc_name = "bloodking2"
 data = SubResource("Resource_nkocd")
 dialogue_config = ExtResource("31_i46tv")
 save_data_config = ExtResource("32_ekuu4")
+character_box_config = ExtResource("33_gpcuc")
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar2")
 max_chase_speed = 200.0
@@ -2935,11 +2946,12 @@ jump_force_min_force_mid = 200.0
 jump_force_min_cell_dis_x = 1
 
 [node name="BloodKing1" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1157398745 node_paths=PackedStringArray("astar") instance=ExtResource("24_vkc5v")]
-position = Vector2(-112.00001, 281)
+position = Vector2(1386, 271)
 npc_name = "bloodking1"
 data = SubResource("Resource_xvoeb")
 dialogue_config = ExtResource("33_hw0qa")
-save_data_config = SubResource("Resource_vp0qe")
+save_data_config = ExtResource("35_er4du")
+character_box_config = ExtResource("36_yhjy5")
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar")
 max_chase_speed = 300.0
@@ -2956,7 +2968,7 @@ jump_force_min_force_mid = 200.0
 jump_force_min_cell_dis_x = 2
 
 [node name="it" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1077960373 node_paths=PackedStringArray("astar") instance=ExtResource("35_hw0qa")]
-position = Vector2(-399, 253)
+position = Vector2(-102, 176.00002)
 starting_state = "lock"
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar3")
@@ -2972,13 +2984,13 @@ jump_force_max_force_mid = 100.0
 jump_force_max_cell_dis_x = 5
 jump_force_min_force_mid = 200.0
 jump_force_min_cell_dis_x = 2
-dialogue_debug = true
 
 [node name="Player" parent="Parallax/ParallaxLayer_6" unique_id=1540481417 node_paths=PackedStringArray("astar") instance=ExtResource("6_d8c2x")]
 unique_name_in_owner = true
 position = Vector2(-541, 257)
 talker_name = Array[String](["我", "P"])
 astar = NodePath("../astar/PlayerAstarMap/AStar")
+stamina_recovered_speed = 200.0
 
 [node name="CameraMark" type="Node2D" parent="Parallax/ParallaxLayer_6/Player" unique_id=1277233864]
 
@@ -3119,6 +3131,7 @@ light_mask = 33
 position = Vector2(231, -126)
 tile_map_data = PackedByteArray("AADV/wUAAQALAAYAAADV/wYAAQAFAAcAAADV/wcAAQAFAAcAAADW/wUAAQACAAYAAADW/wYAAQAFAAcAAADW/wcAAQAFAAcAAADX/wUAAQAFAAcAAADX/wYAAQAFAAcAAADX/wcAAQAFAAcAAADY/wYAAQAFAAcAAADY/wcAAQAFAAcAAADZ/wYAAQAFAAcAAADZ/wcAAQAFAAcAAADa/wYAAQAFAAcAAADa/wcAAQAFAAcAAADb/wYAAQAFAAcAAADb/wcAAQAFAAcAAADc/wYAAQAFAAcAAADc/wcAAQAFAAcAAADd/wYAAQAFAAcAAADd/wcAAQAFAAcAAADe/wYAAQAFAAcAAADe/wcAAQAFAAcAAADf/wYAAQAFAAcAAADf/wcAAQAFAAcAAADg/wYAAQAFAAcAAADg/wcAAQAFAAcAAADh/wYAAQAFAAcAAADh/wcAAQAFAAcAAADi/wUAAQAEAAYAAADi/wYAAQAFAAcAAADi/wcAAQAFAAcAAADj/wUAAQAFAAYAAADj/wYAAQAFAAcAAADj/wcAAQAFAAcAAADk/wUAAQAGAAYAAADk/wYAAQAFAAcAAADk/wcAAQAFAAcAAADl/wUAAQAFAAcAAADl/wYAAQAFAAcAAADl/wcAAQAFAAcAAADm/wUAAQAIAAYAAADm/wYAAQAFAAcAAADm/wcAAQAFAAcAAADn/wUAAQAJAAYAAADn/wYAAQAFAAcAAADn/wcAAQAFAAcAAADo/wUAAQAKAAYAAADo/wYAAQAFAAcAAADo/wcAAQAFAAcAAADp/wUAAQALAAYAAADp/wYAAQAFAAcAAADp/wcAAQAFAAcAAADq/wUAAQACAAYAAADq/wYAAQAFAAcAAADq/wcAAQAFAAcAAADr/wUAAQADAAYAAADr/wYAAQAFAAcAAADr/wcAAQAFAAcAAADs/wUAAQAEAAYAAADs/wYAAQAFAAcAAADs/wcAAQAFAAcAAADt/wUAAQAFAAYAAADt/wYAAQAFAAcAAADt/wcAAQAFAAcAAADu/wUAAQAGAAYAAADu/wYAAQAFAAcAAADu/wcAAQAFAAcAAADv/wUAAQAHAAYAAADv/wYAAQAFAAcAAADv/wcAAQAFAAcAAADw/wUAAQAIAAYAAADw/wYAAQAFAAcAAADw/wcAAQAFAAcAAADx/wUAAQAJAAYAAADx/wYAAQAFAAcAAADx/wcAAQAFAAcAAADy/wUAAQAKAAYAAADy/wYAAQAFAAcAAADy/wcAAQAFAAcAAADz/wUAAQALAAYAAADz/wYAAQAFAAcAAADz/wcAAQAFAAcAAAD0/wUAAQACAAYAAAD0/wYAAQAFAAcAAAD0/wcAAQAFAAcAAAD1/wUAAQADAAYAAAD1/wYAAQAFAAcAAAD1/wcAAQAFAAcAAAD2/wUAAQAEAAYAAAD2/wYAAQAFAAcAAAD2/wcAAQAFAAcAAAD3/wUAAQAFAAYAAAD3/wYAAQAFAAcAAAD3/wcAAQAFAAcAAAD4/wUAAQAGAAYAAAD4/wYAAQAFAAcAAAD4/wcAAQAFAAcAAAD5/wUAAQAHAAYAAAD5/wYAAQAFAAcAAAD5/wcAAQAFAAcAAAD6/wUAAQAIAAYAAAD6/wYAAQAFAAcAAAD6/wcAAQAFAAcAAAD7/wUAAQAJAAYAAAD7/wYAAQAFAAcAAAD7/wcAAQAFAAcAAAD8/wUAAQAKAAYAAAD8/wYAAQAFAAcAAAD8/wcAAQAFAAcAAAD9/wUAAQALAAYAAAD9/wYAAQAFAAcAAAD9/wcAAQAFAAcAAAD+/wUAAQACAAYAAAD+/wYAAQAFAAcAAAD+/wcAAQAFAAcAAAD//wUAAQADAAYAAAD//wYAAQAFAAcAAAD//wcAAQAFAAcAAAAAAAUAAQAEAAYAAAAAAAYAAQAFAAcAAAAAAAcAAQAFAAcAAAABAAUAAQAFAAYAAAABAAYAAQAFAAcAAAABAAcAAQAFAAcAAAACAAUAAQAGAAYAAAACAAYAAQAFAAcAAAACAAcAAQAFAAcAAAADAAUAAQAHAAYAAAADAAYAAQAFAAcAAAADAAcAAQAFAAcAAAAEAAUAAQAIAAYAAAAEAAYAAQAFAAcAAAAEAAcAAQAFAAcAAAAFAAUAAQAJAAYAAAAFAAYAAQAFAAcAAAAFAAcAAQAFAAcAAAAGAAUAAQAKAAYAAAAGAAYAAQAFAAcAAAAGAAcAAQAFAAcAAAAHAAUAAQALAAYAAAAHAAYAAQAFAAcAAAAHAAcAAQAFAAcAAAAIAAUAAQACAAYAAAAIAAYAAQAFAAcAAAAIAAcAAQAFAAcAAAAJAAUAAQADAAYAAAAJAAYAAQAFAAcAAAAJAAcAAQAFAAcAAAAKAAUAAQAEAAYAAAAKAAYAAQAFAAcAAAAKAAcAAQAFAAcAAAALAAUAAQAFAAYAAAALAAYAAQAFAAcAAAALAAcAAQAFAAcAAAAMAAUAAQAGAAYAAAAMAAYAAQAFAAcAAAAMAAcAAQAFAAcAAAANAAUAAQAHAAYAAAANAAYAAQAFAAcAAAANAAcAAQAFAAcAAAAOAAUAAQAIAAYAAAAOAAYAAQAFAAcAAAAOAAcAAQAFAAcAAAAPAAUAAQAJAAYAAAAPAAYAAQAFAAcAAAAPAAcAAQAFAAcAAAAQAAUAAQAKAAYAAAAQAAYAAQAFAAcAAAAQAAcAAQAFAAcAAAARAAUAAQALAAYAAAARAAYAAQAFAAcAAAARAAcAAQAFAAcAAAASAAUAAQACAAYAAAASAAYAAQAFAAcAAAASAAcAAQAFAAcAAAATAAUAAQADAAYAAAATAAYAAQAFAAcAAAATAAcAAQAFAAcAAAAUAAUAAQAEAAYAAAAUAAYAAQAFAAcAAAAUAAcAAQAFAAcAAAAVAAUAAQAFAAYAAAAVAAYAAQAFAAcAAAAVAAcAAQAFAAcAAAAWAAUAAQAGAAYAAAAWAAYAAQAFAAcAAAAWAAcAAQAFAAcAAAAXAAUAAQAHAAYAAAAXAAYAAQAFAAcAAAAXAAcAAQAFAAcAAAAYAAUAAQAIAAYAAAAYAAYAAQAFAAcAAAAYAAcAAQAFAAcAAAAZAAUAAQAJAAYAAAAZAAYAAQAFAAcAAAAZAAcAAQAFAAcAAAAaAAUAAQAKAAYAAAAaAAYAAQAFAAcAAAAaAAcAAQAFAAcAAAAbAAUAAQALAAYAAAAbAAYAAQAFAAcAAAAbAAcAAQAFAAcAAAAcAAUAAQACAAYAAAAcAAYAAQAFAAcAAAAcAAcAAQAFAAcAAAAdAAUAAQADAAYAAAAdAAYAAQAFAAcAAAAdAAcAAQAFAAcAAAAeAAUAAQAEAAYAAAAeAAYAAQAFAAcAAAAeAAcAAQAFAAcAAAAfAAUAAQAFAAYAAAAfAAYAAQAFAAcAAAAfAAcAAQAFAAcAAAAgAAUAAQAGAAYAAAAgAAYAAQAFAAcAAAAgAAcAAQAFAAcAAAAhAAUAAQAHAAYAAAAhAAYAAQAFAAcAAAAhAAcAAQAFAAcAAAAiAAUAAQAIAAYAAAAiAAYAAQAFAAcAAAAiAAcAAQAFAAcAAAAjAAUAAQAJAAYAAAAjAAYAAQAFAAcAAAAjAAcAAQAFAAcAAAAkAAYAAQAFAAcAAAAkAAcAAQAFAAcAAAAlAAYAAQAFAAcAAAAlAAcAAQAFAAcAAAAmAAYAAQAFAAcAAAAmAAcAAQAFAAcAAAAnAAUAAQADAAYAAAAnAAYAAQAFAAcAAAAnAAcAAQAFAAcAAAAoAAYAAQAFAAcAAAAoAAcAAQAFAAcAAAApAAYAAQAFAAcAAAApAAcAAQAFAAcAAAAqAAYAAQAFAAcAAAAqAAcAAQAFAAcAAAArAAYAAQAFAAcAAAArAAcAAQAFAAcAAAAsAAYAAQAFAAcAAAAsAAcAAQAFAAcAAAAtAAUAAQAEAAYAAAAtAAYAAQAFAAcAAAAtAAcAAQAFAAcAAAAuAAUAAQAEAAYAAAAuAAYAAQAFAAcAAAAuAAcAAQAFAAcAAAAvAAUAAQAFAAYAAAAvAAYAAQAFAAcAAAAvAAcAAQAFAAcAAAAwAAUAAQAGAAYAAAAwAAYAAQAFAAcAAAAwAAcAAQAFAAcAAAAxAAUAAQAHAAYAAAAxAAYAAQAFAAcAAAAxAAcAAQAFAAcAAAAyAAUAAQAIAAYAAAAyAAYAAQALAAkAAAAyAAcAAQAFAAcAAAAzAAUAAQALAAYAAAAzAAYAAQALAAcAAAAzAAcAAQAFAAcAAAA0AAUAAQAMAAYAAAA0AAYAAQAMAAcAAAA1AAUAAQAOAAgAAAA1AAYAAQANAAcAAABUAAUAAQAIAAYAAABUAAYAAQAFAAcAAABUAAcAAQAFAAcAAABVAAUAAQAJAAYAAABVAAYAAQAFAAcAAABVAAcAAQAFAAcAAABWAAUAAQAKAAYAAABWAAYAAQAFAAcAAABWAAcAAQAFAAcAAADM/wUAAQACAAYAAADN/wUAAQADAAYAAADO/wUAAQAEAAYAAADP/wUAAQAFAAYAAADQ/wUAAQAGAAYAAADR/wUAAQAHAAYAAADS/wUAAQAFAAcAAADT/wUAAQAJAAYAAADU/wUAAQAKAAYAAABXAAUAAQALAAYAAABYAAUAAQACAAYAAABZAAUAAQADAAYAAABaAAUAAQAEAAYAAABbAAUAAQAFAAYAAABcAAUAAQAGAAYAAABdAAUAAQAHAAYAAABeAAUAAQAIAAYAAABfAAUAAQAJAAYAAABgAAUAAQAKAAYAAABhAAUAAQALAAYAAADM/wYAAQAFAAcAAADM/wcAAQAFAAcAAADN/wYAAQAFAAcAAADN/wcAAQAFAAcAAADO/wYAAQAFAAcAAADO/wcAAQAFAAcAAADP/wYAAQAFAAcAAADP/wcAAQAFAAcAAADQ/wYAAQAFAAcAAADQ/wcAAQAFAAcAAADR/wYAAQAFAAcAAADR/wcAAQAFAAcAAADS/wYAAQAFAAcAAADS/wcAAQAFAAcAAADT/wYAAQAFAAcAAADT/wcAAQAFAAcAAADU/wYAAQAFAAcAAADU/wcAAQAFAAcAAABXAAYAAQAFAAcAAABXAAcAAQAFAAcAAABYAAYAAQAFAAcAAABYAAcAAQAFAAcAAABZAAYAAQAFAAcAAABZAAcAAQAFAAcAAABaAAYAAQAFAAcAAABaAAcAAQAFAAcAAABbAAYAAQAFAAcAAABbAAcAAQAFAAcAAABcAAYAAQAFAAcAAABcAAcAAQAFAAcAAABdAAYAAQAFAAcAAABdAAcAAQAFAAcAAABeAAYAAQAFAAcAAABeAAcAAQAFAAcAAABfAAYAAQAFAAcAAABfAAcAAQAFAAcAAABgAAYAAQAFAAcAAABgAAcAAQAFAAcAAABhAAYAAQAFAAcAAABhAAcAAQAFAAcAAADS/wQAAQAFAAcAAADS/wIAAQAFAAcAAADS/wEAAQAFAAcAAADl/wQAAQAFAAcAAADl/wMAAQAFAAcAAABAAAQAAQAFAAcAAABAAAMAAQAFAAcAAADY/wQAAQAFAAcAAADX/wQAAQAFAAcAAADY/wUAAQAFAAcAAADZ/wUAAQAFAAYAAADa/wUAAQAGAAYAAADb/wUAAQAHAAYAAADc/wUAAQAIAAYAAADd/wUAAQAJAAYAAADe/wUAAQAKAAYAAADf/wUAAQALAAYAAADg/wUAAQACAAYAAADh/wUAAQADAAYAAAAkAAUAAQAKAAYAAAAlAAUAAQALAAYAAAAmAAUAAQACAAYAAAAoAAUAAQADAAgAAAApAAUAAQAEAAgAAAAqAAUAAQAFAAgAAAArAAUAAQAEAAYAAAAsAAUAAQAFAAYAAAA=")
 tile_set = ExtResource("5_5u8fu")
+metadata/_edit_lock_ = true
 
 [node name="ground" type="TileMap" parent="Parallax/ParallaxLayer_7/Tile2" unique_id=1694903386]
 visible = false
@@ -3175,6 +3188,7 @@ modulate = Color(0, 0.807843, 0.952941, 1)
 position = Vector2(789, 45.9999)
 scale = Vector2(6.92941, 2.25)
 texture = ExtResource("10_x2xsq")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
 modulate = Color(3.465414e-06, 0.52631897, 0.6127784, 1)
@@ -3426,7 +3440,7 @@ mouse_filter = 2
 [node name="MarginContainer" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=577191233]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.7
+size_flags_stretch_ratio = 1.75
 mouse_filter = 2
 
 [node name="MarginContainer3" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=1461420513]
@@ -3452,7 +3466,7 @@ one_shot = true
 [node name="MarginContainer4" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=1118141144]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.17
+size_flags_stretch_ratio = 1.75
 mouse_filter = 2
 
 [node name="StateBox" parent="MainCanvas" unique_id=1721225745 instance=ExtResource("50_kihhd")]
@@ -3476,7 +3490,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_lock_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScreenEffect" unique_id=464848443]
 visible = false
@@ -3513,10 +3526,14 @@ metadata/_edit_lock_ = true
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_oekpy")
 
-[node name="CharacterCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
-layer = 3
+[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
+layer = 6
+script = ExtResource("71_3d7fh")
 
-[node name="CharacterDialogueBox" type="MarginContainer" parent="CharacterCanvas" unique_id=27117377]
+[node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("39_8hfjh")]
+
+[node name="CharacterDialogueBox" type="MarginContainer" parent="CharacterBoxCanvas" unique_id=27117377]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -3526,52 +3543,46 @@ mouse_filter = 2
 theme = ExtResource("37_jie1n")
 script = ExtResource("38_ojgy4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterCanvas/CharacterDialogueBox" unique_id=520605068]
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterBoxCanvas/CharacterDialogueBox" unique_id=520605068]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer" unique_id=1144078633]
+[node name="MarginContainer3" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=1144078633]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 9.03
+size_flags_stretch_ratio = 20.0
 mouse_filter = 2
 
-[node name="callPlayer" type="Button" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3" unique_id=1260254178]
+[node name="callPlayer" type="Button" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3" unique_id=1260254178]
 visible = false
 layout_mode = 2
 mouse_filter = 2
 text = "展开"
 
-[node name="MarginContainer" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer" unique_id=2147012840]
+[node name="MarginContainer" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=2147012840]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.88
+size_flags_stretch_ratio = 16.91
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer" unique_id=1289908402]
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer" unique_id=1289908402]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 15
 
-[node name="MarginContainer3" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=872044987]
+[node name="MarginContainer3" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=872044987]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.08
+size_flags_stretch_ratio = 0.0
 mouse_filter = 2
 
-[node name="CharacterBox" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1194901040 instance=ExtResource("39_8hfjh")]
+[node name="MarginContainer2" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1315556821]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.4
-is_player = true
-
-[node name="MarginContainer2" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1315556821]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 4.25
+size_flags_stretch_ratio = 17.96
 mouse_filter = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="CharacterCanvas/CharacterDialogueBox/VBoxContainer" unique_id=564318789]
+[node name="MarginContainer2" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=564318789]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
@@ -3670,6 +3681,7 @@ icon_alignment = 1
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 theme = SubResource("Theme_6glt8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
@@ -3726,6 +3738,12 @@ label_settings = SubResource("LabelSettings_c1b8j")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="TestCanvas/MarginContainer" unique_id=1750584281]
+visible = false
+position = Vector2(507, 640.99994)
+scale = Vector2(0.27783203, 0.29248047)
+texture = ExtResource("79_2bf10")
+
 [node name="Cutscene" type="Node2D" parent="." unique_id=166570779]
 
 [node name="CutscenerRunner" parent="Cutscene" unique_id=1522200819 instance=ExtResource("56_3qr45")]
@@ -3762,7 +3780,7 @@ shape = SubResource("RectangleShape2D_wces5")
 [connection signal="body_exited" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_exited"]
 [connection signal="timeout" from="Parallax/ParallaxLayer_6/Test/FallenFromTop/FallenLeave" to="Parallax/ParallaxLayer_6/Test/FallenFromTop/FallenLeave" method="_on_timeout"]
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
-[connection signal="pressed" from="CharacterCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
+[connection signal="pressed" from="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterBoxCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" to="TestCanvas/MarginContainer/Test" method="_on_enemy_pressed"]
 [connection signal="toggled" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" to="TestCanvas/MarginContainer/Test" method="_on_enemy_toggled"]

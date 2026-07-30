@@ -25,7 +25,7 @@ func on_talker_end():
 func on_talker_start(current_talker:String,dialogue_config:DialogueConfig,dialogue_line:DialogueLine):
 	if !talker_name.has(current_talker):
 		return
-	Dialogue.current_talker = talker_name
+	#Dialogue.current_talker = talker_name
 	Dialogue.current_dialogue_balloon = self
 	nextable=false
 	enable = true

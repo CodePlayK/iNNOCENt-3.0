@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://2eq6j7q8hcxf" path="res://core/npc/it/dilogues/it_dialogue.tres" id="3_w7q8t"]
 [ext_resource type="PackedScene" uid="uid://3i4kn3fitpbl" path="res://core/common/component/health/health.tscn" id="4_m7dko"]
 [ext_resource type="PackedScene" uid="uid://b5tj5di0fre4c" path="res://core/common/component/obj_2_player_side/obj_2_player_side.tscn" id="5_3blux"]
+[ext_resource type="Resource" uid="uid://vakpb1vhs5xd" path="res://core/npc/it/resource/it_character_box_config.tres" id="5_iic6y"]
 [ext_resource type="PackedScene" uid="uid://prs7nqmh6hre" path="res://core/common/component/npc_screen_vec_2/npc_screen_vec_2.tscn" id="6_klsp5"]
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="7_5rc01"]
 [ext_resource type="Script" uid="uid://bib2ufevv8jl" path="res://core/npc/prototype/UIs.gd" id="8_pd6sk"]
@@ -30,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://ckuax7vqmwe5p" path="res://core/common/component/Move2Vec2/move_2_vec_2.tscn" id="27_cep4c"]
 [ext_resource type="PackedScene" uid="uid://bdqr3adxbpd27" path="res://core/common/component/Animations/animations.tscn" id="28_dpg8q"]
 [ext_resource type="PackedScene" uid="uid://bewwlmeborpfh" path="res://core/common/anime/anime.tscn" id="29_tr4ch"]
+[ext_resource type="PackedScene" uid="uid://cr3ih2htn1qcl" path="res://core/common/component/CreateCharacterBox/CreateCharacterBox.tscn" id="30_ol5xp"]
 [ext_resource type="Material" uid="uid://dlaxfldby4o5j" path="res://core/npc/it/resource/it_body_clolor.tres" id="30_sab2m"]
 [ext_resource type="Shader" uid="uid://cettmulqp7ipp" path="res://core/common/shader/color_sprit.gdshader" id="30_ujeq4"]
 [ext_resource type="Texture2D" uid="uid://cwxl7u8yohf75" path="res://core/npc/it/resource/base.png" id="31_cqnks"]
@@ -108,6 +110,21 @@ script = ExtResource("2_h1ng1")
 [sub_resource type="LabelSettings" id="LabelSettings_wlnom"]
 font = ExtResource("11_dj06t")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7q8t"]
+size = Vector2(260, 72.9167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2sd1"]
+size = Vector2(145.00003, 72.9167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24s10"]
+size = Vector2(330, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c80rw"]
+size = Vector2(119.167, 43.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_750g1"]
+size = Vector2(28.3333, 56.6667)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmb8x"]
 size = Vector2(156, 34)
 
@@ -134,21 +151,6 @@ size = Vector2(34, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u86bx"]
 size = Vector2(94, 55)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7q8t"]
-size = Vector2(260, 72.9167)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2sd1"]
-size = Vector2(145.00003, 72.9167)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_24s10"]
-size = Vector2(330, 59)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c80rw"]
-size = Vector2(119.167, 43.3333)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_750g1"]
-size = Vector2(28.3333, 56.6667)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovt2n"]
 resource_local_to_scene = true
@@ -552,7 +554,7 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_xwtaj"]
-length = 1.4000000000000001
+length = 1.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -904,7 +906,7 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_8oqni"]
-length = 0.48000000000000004
+length = 0.48
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -6728,6 +6730,7 @@ npc_name = "it"
 data = SubResource("Resource_six7i")
 dialogue_config = ExtResource("3_w7q8t")
 save_data_config = ExtResource("97_sxw3c")
+character_box_config = ExtResource("5_iic6y")
 starting1_state = "birth"
 running_state = "patrol"
 following_offset_vec2i = Vector2i(1, 0)
@@ -6736,7 +6739,7 @@ air_fric2acc_scale = 7.0
 [node name="Master" parent="." unique_id=760131985 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("3_gfoj1")]
 unique_name_in_owner = true
 obj = NodePath("..")
-connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../FollowAnimations/HurtFX"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector")]
+connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../FollowAnimations/HurtFX"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox")]
 metadata/_edit_pinned_properties_ = [&"connects"]
 
 [node name="Config" type="Node2D" parent="." unique_id=491672595]
@@ -6829,6 +6832,68 @@ weight_machine_ui = NodePath("../WeightMachineUi")
 
 [node name="Components" parent="." unique_id=943967071 instance=ExtResource("14_a1bll")]
 
+[node name="Areas" type="Node2D" parent="Components" unique_id=1757821694]
+
+[node name="FollwingIdelRange" type="Area2D" parent="Components/Areas" unique_id=1673386299]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/FollwingIdelRange" unique_id=1387926539]
+position = Vector2(-3.8494663e-06, -35.833332)
+shape = SubResource("RectangleShape2D_w7q8t")
+
+[node name="ChaseRange" type="Area2D" parent="Components/Areas" unique_id=976945710]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/ChaseRange" unique_id=1590849605]
+position = Vector2(0, -35.833332)
+shape = SubResource("RectangleShape2D_o2sd1")
+
+[node name="PlayerDetection" type="Area2D" parent="Components/Areas" unique_id=2078433877]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="PlayerDetectionRect" parent="Components/Areas/PlayerDetection" unique_id=591433884 instance=ExtResource("20_u6h05")]
+modulate = Color(0.192157, 0.764706, 0.74902, 1)
+light_mask = 0
+z_index = 99
+mouse_filter = 2
+color_normal = Color(0.192157, 0.764706, 0.74902, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/PlayerDetection" unique_id=1604002057]
+visible = false
+position = Vector2(113, -29.5)
+shape = SubResource("RectangleShape2D_24s10")
+
+[node name="Interaction" parent="Components/Areas" unique_id=1518206042 instance=ExtResource("21_l5ofr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/Interaction" unique_id=343351574]
+position = Vector2(-0.416665, -21.6667)
+shape = SubResource("RectangleShape2D_c80rw")
+debug_color = Color(0.313726, 0.701961, 0, 0.419608)
+
+[node name="JumpPathObj" parent="Components/Areas" unique_id=1164304308 instance=ExtResource("22_op4pq")]
+position = Vector2(-0.833333, 0)
+collision_layer = 4096
+collision_mask = 0
+monitoring = false
+script = ExtResource("23_nmkwj")
+
+[node name="BloodSurface" type="Area2D" parent="Components/Areas" unique_id=1473381424]
+position = Vector2(0, -45.8333)
+collision_layer = 0
+collision_mask = 131072
+script = ExtResource("24_h8uxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/BloodSurface" unique_id=589298954]
+position = Vector2(-0.833333, 16.6667)
+shape = SubResource("RectangleShape2D_750g1")
+debug_color = Color(0.901961, 0.243137, 0.478431, 0.419608)
+
 [node name="HitBox" parent="Components" unique_id=1659159738 instance=ExtResource("15_utwrp")]
 visible = false
 collision_layer = 16
@@ -6906,74 +6971,14 @@ map_max = 1.2
 map_min = 0.4
 print_debug = null
 
-[node name="Areas" type="Node2D" parent="Components" unique_id=1757821694]
-
-[node name="FollwingIdelRange" type="Area2D" parent="Components/Areas" unique_id=1673386299]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/FollwingIdelRange" unique_id=1387926539]
-position = Vector2(-3.8494663e-06, -35.833332)
-shape = SubResource("RectangleShape2D_w7q8t")
-
-[node name="ChaseRange" type="Area2D" parent="Components/Areas" unique_id=976945710]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/ChaseRange" unique_id=1590849605]
-position = Vector2(0, -35.833332)
-shape = SubResource("RectangleShape2D_o2sd1")
-
-[node name="PlayerDetection" type="Area2D" parent="Components/Areas" unique_id=2078433877]
-visible = false
-collision_layer = 0
-collision_mask = 2
-
-[node name="PlayerDetectionRect" parent="Components/Areas/PlayerDetection" unique_id=591433884 instance=ExtResource("20_u6h05")]
-modulate = Color(0.192157, 0.764706, 0.74902, 1)
-light_mask = 0
-z_index = 99
-mouse_filter = 2
-color_normal = Color(0.192157, 0.764706, 0.74902, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/PlayerDetection" unique_id=1604002057]
-visible = false
-position = Vector2(113, -29.5)
-shape = SubResource("RectangleShape2D_24s10")
-
-[node name="Interaction" parent="Components/Areas" unique_id=1518206042 instance=ExtResource("21_l5ofr")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/Interaction" unique_id=343351574]
-position = Vector2(-0.416665, -21.6667)
-shape = SubResource("RectangleShape2D_c80rw")
-debug_color = Color(0.313726, 0.701961, 0, 0.419608)
-
-[node name="JumpPathObj" parent="Components/Areas" unique_id=1164304308 instance=ExtResource("22_op4pq")]
-position = Vector2(-0.833333, 0)
-collision_layer = 4096
-collision_mask = 0
-monitoring = false
-script = ExtResource("23_nmkwj")
-
-[node name="BloodSurface" type="Area2D" parent="Components/Areas" unique_id=1473381424]
-position = Vector2(0, -45.8333)
-collision_layer = 0
-collision_mask = 131072
-script = ExtResource("24_h8uxy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/BloodSurface" unique_id=589298954]
-position = Vector2(-0.833333, 16.6667)
-shape = SubResource("RectangleShape2D_750g1")
-debug_color = Color(0.901961, 0.243137, 0.478431, 0.419608)
-
 [node name="SoundEffect" parent="Components" unique_id=1499579501 instance=ExtResource("25_eajjn")]
 
 [node name="AStarMove" parent="Components" unique_id=1720097465 instance=ExtResource("26_dvsg6")]
 position = Vector2(0, -21.6667)
 
 [node name="Move2Vec2" parent="Components" unique_id=804782041 instance=ExtResource("27_cep4c")]
+
+[node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_ol5xp")]
 
 [node name="Animations" parent="." unique_id=667369830 instance=ExtResource("28_dpg8q")]
 
@@ -7569,6 +7574,7 @@ shape = SubResource("RectangleShape2D_b8y3r")
 [node name="Dialogue" parent="Interactions" unique_id=1132349855 instance=ExtResource("94_35ooo")]
 z_index = 107
 position = Vector2(10.8333, -59.1667)
+dialogue_config = ExtResource("3_w7q8t")
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 

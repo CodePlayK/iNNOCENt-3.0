@@ -15,7 +15,12 @@ var dialogue_checker_path:String
 @export var title:String:
 	set(r):
 		title=r.strip_edges()
-
+#当前表情
+@export var current_expression:String="NA":
+	set(ce):
+		current_expression=ce
+		on_update_current_expression(ce)
+		
 @export_multiline var title_list:String
 @export var import:bool = false:
 	set(f):
@@ -34,5 +39,9 @@ func on_update_dialogue_res(dialogue_res:DialogueResource):
 		var p= dialogue_res.resource_path.get_file().get_basename()
 		current_res = p
 	return
+	
+func on_update_current_expression(ce:String):
+	return
+
 func update():
 	on_update_dialogue_res(dialogue_res)

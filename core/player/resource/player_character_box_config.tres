@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CharacterBoxConfig" format=3 uid="uid://iihe10frsv1g"]
+
+[ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="1_12i0t"]
+[ext_resource type="Script" uid="uid://by8uti5xwqq2u" path="res://core/common/ui/character_dialogue_box/CharacterBoxConfig.gd" id="1_jxy5a"]
+[ext_resource type="Texture2D" uid="uid://dcpegds0x4k4g" path="res://core/player/resource/女主p.png" id="2_22jcy"]
+
+[resource]
+script = ExtResource("1_jxy5a")
+character_names = Array[String](["我", "M"])
+image = ExtResource("2_22jcy")
+unselect_modulate = Color(0.5556203, 0.55561984, 0.5556201, 1)
+img_box_top_marg_hide = 20.0
+is_player = true
+health_config = ExtResource("1_12i0t")
+metadata/_custom_type_script = "uid://by8uti5xwqq2u"

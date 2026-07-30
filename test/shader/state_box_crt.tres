@@ -1,14 +1,12 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bli7y1u5kjxe4"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bli7y1u5kjxe4"]
 
-[ext_resource type="Shader" path="res://test/shader/ctr.gdshader" id="1_1mmfc"]
+[ext_resource type="Shader" uid="uid://diavocfm1kv22" path="res://test/shader/ctr.gdshader" id="1_1mmfc"]
 
 [resource]
 shader = ExtResource("1_1mmfc")
-shader_parameter/enable = true
-shader_parameter/overlay = true
 shader_parameter/scanlines_opacity = 0.408
 shader_parameter/scanlines_width = 0.139
-shader_parameter/grille_opacity = 0.0
+shader_parameter/grille_opacity = 0.0350000016625
 shader_parameter/resolution = Vector2(320, 240)
 shader_parameter/pixelate = false
 shader_parameter/roll = true

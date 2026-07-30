@@ -35,11 +35,12 @@ func _body_entered() -> void:
 	var d:DialogueResource= DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
 	#判断当前cutscene state下是否有台词更新
 	if !d.get_titles().has(dialogue_config.title):
-		Debug.dprintinfo(DebugCT.dp("[%s]在当前场景[%s]中无台词更新" %[dialogue_config.title,CutsceneState.current_cutscene],self))
+		#Debug.dprintinfo(DebugCT.dp("[%s]在当前场景[%s]中无台词更新" %[dialogue_config.title,CutsceneState.current_cutscene],self))
+		pass
 	elif dialogue_config.current_res!=CutsceneState.current_cutscene:
 		dialogue_config.dialogue_res=DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
 		dialogue_config.current_res=CutsceneState.current_cutscene
-	Dialogue.current_talker=obj.talker_name
+	#Dialogue.current_talker=obj.talker_name
 	Dialogue.start(dialogue_config)
 	
 func _body_exited() -> void:

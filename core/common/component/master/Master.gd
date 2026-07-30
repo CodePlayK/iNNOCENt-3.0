@@ -14,9 +14,13 @@ func on_obj_ready():
 	init_node()
 	
 func init_node():
+	on_master_ready()
 	for node in connects:
 		if node.has_method("on_master_ready"):
 			node.on_master_ready(self)
 
 func _on_timer_timeout() -> void:
 	init_node()
+
+func on_master_ready():
+	return

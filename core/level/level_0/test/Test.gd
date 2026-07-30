@@ -111,6 +111,7 @@ func _on_show_mind_box_pressed() -> void:
 func _on_cutscene_runner_pressed() -> void:
 	cutscener_trigger.enable=true
 	CutscenerGlobal.cutscener_run.emit("NA")
+	cutscener_trigger
 
 @onready var eyes: TextureRect = $"../../ScreenEffect/Eyes"
 var flag:bool = true

@@ -12,8 +12,14 @@ var type: String = DMConstants.TYPE_DIALOGUE
 var next_id: String = ""
 
 ## The character name that is saying this line.
-var character: String = ""
-
+var character:String ="":
+	set(c):
+		var cs = c.split("|",false,2)
+		if cs.size()>1:
+			expression=cs[1]
+		character=cs[0]
+var expression: String = ""
+		
 ## A dictionary of variable replacements fo the character name. Generally for internal use only.
 var character_replacements: Array[Dictionary] = []
 

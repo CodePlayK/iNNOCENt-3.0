@@ -2,7 +2,14 @@
 class_name Player extends CharacterBody2D
 var obj_name:String = "player"
 @export_category("配置")
+@export_group("基础")
 @export var talker_name:Array[String]
+@export var character_box_config:CharacterBoxConfig:
+	set(cb):
+		character_box_config=cb
+		if !cb.character_names:character_box_config.append(obj_name)
+@export var create_character_box: bool=true
+
 @export_group("运动")
 @export var dead_switch: bool=true
 ##重力
@@ -46,10 +53,7 @@ var obj_name:String = "player"
 @export var jump_force_min_cell_dis_x:int = 4
 @export var dialogue_config:DialogueConfig
 @export_group("战斗")
-@export var stamina_recovered_speed:float = 20:
-	set(f):
-		stamina_recovered_speed = f
-		PlayerState.on_player_ready(self)
+@export var stamina_recovered_speed:float = 20
 var on_ready:bool=false
 var face_left:bool=true:
 	set(f):

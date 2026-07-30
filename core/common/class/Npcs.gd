@@ -49,7 +49,9 @@ var current_patrol_left:Marker
 var current_patrol_right:Marker
 var current_bot_y:float
 @export_group("基础配置")
-@export var npc_name:String
+@export var npc_name:String:
+	set(nn):
+		npc_name=nn
 var talker_name:Array[String]
 @export var data:NpcsDataResource
 @export var dialogue_config:DialogueConfig:
@@ -59,7 +61,10 @@ var talker_name:Array[String]
 			talker_name=dialogue_config.talkers
 
 @export var save_data_config:SaveDataConfig
-
+@export var character_box_config:CharacterBoxConfig:
+	set(cb):
+		character_box_config=cb
+		if !cb.character_names:character_box_config.append(obj_name)
 @export_group("状态机配置")
 ##初始化时进入的首个节点(并不会运行)
 @export var starting_state:String

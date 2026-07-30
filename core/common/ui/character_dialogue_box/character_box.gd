@@ -1,108 +1,80 @@
 extends MarginContainer
-class_name CharacterBox
+class_name CharacterBoxs
+@onready var margin_side: MarginContainer = $VBoxContainer/HBoxContainer/MarginSide
+@onready var margin_mid: MarginContainer = $VBoxContainer/HBoxContainer/MarginMid
 
-@onready var img_box_top_marg: MarginContainer = $VBoxContainer/ImgBoxTopMarg
-@onready var img_box: MarginContainer = $VBoxContainer/ImgBox
-@onready var timer: Timer = $Timer
-@onready var ui_bar: UIbar = $VBoxContainer/ImgBoxTopMarg2/UIBar
-@export var unselect_modulate:Color = Color("727272")
-@export var selected_modulate:Color = Color("ffffff")
-@export var img_box_top_marg_hide:float = 20
-@export var img_box_top_marg_show:float = 0
-@export var time:float = .5
-@export var is_player:bool = false
-@export var health_config:HealthConfig
-@onready var shader_crt: ColorRect = %ShaderCRT
+@onready var wide_marg:CharacterBox = $VBoxContainer/HBoxContainer/WideMarg
+@onready var boxs: HBoxContainer = $VBoxContainer/HBoxContainer
+var current_index:int=1
+var left_index_max:int=1
+var margin_mid_index:int=0
+var left_index_max_node:int=0
+var left_box_max:CharacterBox
+var character_box_config:CharacterBoxConfig
+var left_ct:int=0
+var right_ct:int=0
 
-var box_selected:bool = false
-var on_changing:bool = false
 
-func _ready() -> void:
-	modulate = unselect_modulate
-	ui_bar.bar_max_value = health_config.max_health
-	EventBus.player_health_damaged.connect(on_player_health_damaged)
-	EventBus.player_health_healed.connect(on_player_health_healed)
-	if is_player:
-		UiState.player_character_box = self
+func _init() -> void:
+	EventBus.create_character_box.connect(on_create_character_box)
 
-func _on_call_player_pressed() -> void:
-	if on_changing:return
-	on_changing = true
-	var real_ratio
-	if box_selected:
-		real_ratio = img_box_top_marg_hide
+func on_create_character_box(character_box_config:CharacterBoxConfig):
+	if !character_box_config:
+		return
+	character_box_config = character_box_config
+	if !wide_marg or !margin_mid:
+		await ready
+	get_margin_mid_index()
+	if character_box_config.is_player:
+		var new_box = wide_marg.duplicate()
+		var margin_side = margin_side.duplicate()
+		new_box.name = "box|-999" 
+		boxs.add_child(new_box)
+		boxs.move_child(new_box,1)
+		new_box.character_box_config=character_box_config
+		new_box.show()
+		new_box.anime_born()
 	else:
-		real_ratio = img_box_top_marg_show
-	var twn = img_box_top_marg.create_tween()
-	twn.set_trans(Tween.TRANS_CUBIC)
-	twn.set_ease(Tween.EASE_OUT)
-	twn.tween_property(img_box_top_marg,"size_flags_stretch_ratio",real_ratio,time)
-	await twn.finished
-	twn.kill()
-	box_selected = !box_selected
-	on_changing = false
-
-func _on_mouse_entered() -> void:
-	box_select()
-
-func _on_mouse_exited() -> void:
-	box_deselect()
-	
-func box_select():
-	if on_changing or box_selected:return
-	on_changing = true
-	var twn = img_box_top_marg.create_tween()
-	twn.set_trans(Tween.TRANS_CUBIC)
-	twn.set_ease(Tween.EASE_OUT)
-	twn.tween_property(img_box_top_marg,"size_flags_stretch_ratio",img_box_top_marg_show,time)
-	twn.parallel().tween_property(self,"modulate",selected_modulate,time)
-	await twn.finished
-	twn.kill()
-	timer.start()
-	box_selected = true
-	on_changing = false
-
-func box_deselect():
-	if on_changing or !box_selected:return
-	#timer.stop()
-	on_changing = true
-	var twn = img_box_top_marg.create_tween()
-	twn.set_trans(Tween.TRANS_CUBIC)
-	twn.set_ease(Tween.EASE_OUT)
-	twn.tween_property(img_box_top_marg,"size_flags_stretch_ratio",img_box_top_marg_hide,time)
-	twn.parallel().tween_property(self,"modulate",unselect_modulate,time)
-	await twn.finished
-	twn.kill()
-	box_selected = false
-	on_changing = false
-
-func _on_timer_timeout() -> void:
-	if !box_selected:return
-	if !check_has_mouse():
-		_on_mouse_exited()
-	else :
-		pass
-		
-func check_has_mouse():
-	return Rect2(position, size).has_point(get_local_mouse_position())
-
-
-func _on_img_box_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("uiselect"):
-		if !UiState.state_box.showing:
-			UiState.state_box.show_box()
+		if character_box_config.on_screen_left:	
+			get_left_index_max()
+			var new_box = wide_marg.duplicate()
+			var margin_side = margin_side.duplicate()
+			new_box.name = "box|%s" %current_index
+			boxs.add_child(margin_side)
+			boxs.move_child(margin_side,left_index_max_node+1)
+			boxs.add_child(new_box)
+			boxs.move_child(new_box,left_index_max_node+2)
+			new_box.character_box_config=character_box_config
+			current_index+=1
+			new_box.show()
+			new_box.anime_born()
 		else :
-			UiState.state_box.hide_box()
-func on_player_health_damaged():
-	ui_bar.bar_decrease(health_config.current_health)
+			var new_box = wide_marg.duplicate()
+			var margin_side = margin_side.duplicate()
+			new_box.name = "rbox"
+			boxs.add_child(margin_side)
+			boxs.move_child(margin_side,margin_mid_index+1)
+			boxs.add_child(new_box)
+			boxs.move_child(new_box,margin_mid_index+2)
+			new_box.character_box_config=character_box_config
+			new_box.show()
+			new_box.anime_born()		
+	get_left_index_max()
 	
-func on_player_health_healed():
-	ui_bar.bar_grow(health_config.current_health)
-
-
-func _on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("uiselect"):
-		if !UiState.state_box.showing:
-			UiState.state_box.show_box()
-		else :
-			UiState.state_box.hide_box()
+func get_left_index_max():
+	var has_player_box:bool=false
+	for c in boxs.get_children():
+		if c.name.begins_with("box"):
+			if left_index_max < int(c.name.split("|",false,2)[1]):
+				left_index_max = int(c.name.split("|",false,2)[1])
+				left_box_max = c
+			elif c.name.begins_with("box|-999"):
+				has_player_box = true
+	if !left_box_max :
+		if has_player_box:
+			left_index_max_node = 1
+		return
+	left_index_max_node = left_box_max.get_index()
+	
+func get_margin_mid_index():
+	margin_mid_index=margin_mid.get_index()

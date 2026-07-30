@@ -2,10 +2,17 @@
 extends Node
 signal talk_start
 signal end_dialogue
+
 ##全局单例台词
 var dialogue_resource: DialogueResource
 var temporary_game_states: Array = []
-var dialogue_config:DialogueConfig
+#台词配置
+var dialogue_config:DialogueConfig:
+	set(dc):
+		dialogue_config=dc
+		current_title=dc.title
+		current_talker=dc.talkers
+		
 var current_talker:Array[String]
 		
 var current_dialogue_balloon
@@ -37,6 +44,8 @@ var dialogue_line: DialogueLine:
 			return
 	
 		dialogue_line = next_dialogue_line
+		if dialogue_line.expression:
+			dialogue_config.current_expression=dialogue_line.expression
 		if !current_talker.has(dialogue_line.character):
 			if current_dialogue_balloon:current_dialogue_balloon.dialogue_finished()
 		talk_start.emit(dialogue_line.character,dialogue_config,dialogue_line)

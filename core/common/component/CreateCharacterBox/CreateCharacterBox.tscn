@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cr3ih2htn1qcl"]
+
+[ext_resource type="Script" uid="uid://cg3jxs4ukil45" path="res://core/common/component/CreateCharacterBox/CreateCharacterBox.gd" id="1_1fwql"]
+
+[node name="CreateCharacterBox" type="Node" unique_id=45981142]
+script = ExtResource("1_1fwql")
+
+[node name="Timer" type="Timer" parent="." unique_id=1568096555]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

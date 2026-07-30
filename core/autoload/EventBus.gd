@@ -22,7 +22,7 @@ signal camera_shake
 signal change_level
 signal level_tree_exited
 signal transition_show
-#对白历史载入完毕
+##对白历史载入完毕
 signal txt_his_load_fin
 ##player
 signal player_health_update
@@ -39,7 +39,8 @@ signal player_stamina_damaged
 signal player_stamina_recovered
 signal player_face_changed
 signal player_running_changed
-
+##ui
+signal create_character_box
 ##sound
 signal play_SE_LOOP
 signal play_SE
@@ -108,3 +109,5 @@ func _txt_his_load_fin():
 	txt_his_load_fin.emit()
 func _player_running_changed():
 	player_running_changed.emit()
+func _create_character_box(character_box_config:CharacterBoxConfig):
+	create_character_box.emit(character_box_config)

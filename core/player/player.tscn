@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bexl0n2d2g3fm" path="res://core/player/player.gd" id="1_yb16c"]
 [ext_resource type="Script" uid="uid://d4j3h4thcdhwi" path="res://core/common/attributes/Health.gd" id="2_3w4m5"]
 [ext_resource type="PackedScene" uid="uid://r17fxu1au77o" path="res://core/common/component/master/Master.tscn" id="2_ame18"]
+[ext_resource type="Resource" uid="uid://iihe10frsv1g" path="res://core/player/resource/player_character_box_config.tres" id="2_yurw6"]
 [ext_resource type="PackedScene" uid="uid://bdqr3adxbpd27" path="res://core/common/component/Animations/animations.tscn" id="3_bleph"]
 [ext_resource type="PackedScene" uid="uid://rlg71e2bhkct" path="res://core/common/component/UIs/ui_s.tscn" id="3_gyqt3"]
 [ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="3_qy2x3"]
@@ -51,6 +52,7 @@
 [ext_resource type="Resource" uid="uid://bs3k3i3q70w6f" path="res://core/player/anime config/idle.tres" id="28_rwfym"]
 [ext_resource type="Script" uid="uid://dn0s4d8cx2nev" path="res://core/player/states/dash.gd" id="29_un8va"]
 [ext_resource type="Script" uid="uid://5qyb2gac4wwm" path="res://core/player/states/landing.gd" id="30_3nh5l"]
+[ext_resource type="PackedScene" uid="uid://cr3ih2htn1qcl" path="res://core/common/component/CreateCharacterBox/CreateCharacterBox.tscn" id="30_yurw6"]
 [ext_resource type="Script" uid="uid://wpke2shio83d" path="res://core/player/states/air.gd" id="31_l2iuv"]
 [ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="31_o2ap2"]
 [ext_resource type="Resource" uid="uid://c28g03pbf0u1k" path="res://core/player/anime config/walk.tres" id="31_y8bkq"]
@@ -104,13 +106,12 @@
 [ext_resource type="Resource" uid="uid://ckdoxt3m3a82" path="res://core/player/attributes/ABT_light_config.tres" id="75_j1i1n"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="82_su2cd"]
 [ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContect.tscn" id="83_iu40y"]
-[ext_resource type="Resource" uid="uid://onb8u2j1uao2" path="res://test/dialogue/test1.dialogue" id="84_ptnat"]
-[ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="85_wauv8"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="88_4rcxe"]
 [ext_resource type="Script" uid="uid://ml8bwptatkw5" path="res://core/player/save/PlayerDataController.gd" id="89_ebgrc"]
 [ext_resource type="Resource" uid="uid://c5v11f8kqncd4" path="res://core/player/save/PlayerSaveDataConfig.tres" id="90_6tssb"]
 [ext_resource type="PackedScene" uid="uid://djbfh382ba1m5" path="res://core/events/player_attack_time_event.tscn" id="97_yvey3"]
 [ext_resource type="PackedScene" uid="uid://b3x7wqm5yy5eg" path="res://core/events/player_dense_suc_time_event.tscn" id="98_blh6t"]
+[ext_resource type="Resource" uid="uid://dlci62k7ghc80" path="res://core/player/resource/player_dialogue_config.tres" id="108_4t8e8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phghf"]
 size = Vector2(19, 52)
@@ -1973,19 +1974,14 @@ backward = true
 script = ExtResource("31_o2ap2")
 animation_name = "onfloor"
 
-[sub_resource type="Resource" id="Resource_0uuym"]
-script = ExtResource("85_wauv8")
-dialogue_res = ExtResource("84_ptnat")
-current_res = "test1"
-title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
-balloon_color = Color(0.49, 0.343, 0, 1)
-
 [node name="PlayerPlayer" type="CharacterBody2D" unique_id=1119101225]
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_yb16c")
+character_box_config = ExtResource("2_yurw6")
 acceleration_dash = 14000
 max_speed_dash = 800
+dialogue_config = ExtResource("108_4t8e8")
 
 [node name="Attributes" type="Node2D" parent="." unique_id=285534102]
 
@@ -2025,6 +2021,7 @@ target_position = Vector2(0, 1000)
 collide_with_areas = true
 
 [node name="Marks" parent="Config" unique_id=1587374708 instance=ExtResource("20_57tia")]
+visible = false
 position = Vector2(0, -35)
 
 [node name="DialoguePosition" parent="Config/Marks" unique_id=269893161 instance=ExtResource("21_ykyob")]
@@ -2040,7 +2037,7 @@ position = Vector2(0.235703, 34.784)
 [node name="Master" parent="." unique_id=863019983 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("2_ame18")]
 unique_name_in_owner = true
 obj = NodePath("..")
-connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"), NodePath("../Components/Light"), NodePath("../Animations/FXs/SwordWind/SwordWind"), NodePath("../Interactions/Dialogue"), NodePath("../Saves/DataCollector"), NodePath("../Components/AStarMove"), NodePath("../Components/FaceDirection"), NodePath("../Components/Move2Vec2")]
+connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"), NodePath("../Components/Light"), NodePath("../Animations/FXs/SwordWind/SwordWind"), NodePath("../Interactions/Dialogue"), NodePath("../Saves/DataCollector"), NodePath("../Components/AStarMove"), NodePath("../Components/FaceDirection"), NodePath("../Components/Move2Vec2"), NodePath("../Components/CreateCharacterBox")]
 
 [node name="UIs" parent="." unique_id=303088328 instance=ExtResource("3_gyqt3")]
 position = Vector2(0, -35)
@@ -2229,6 +2226,9 @@ autostart = true
 
 [node name="FaceDirection" parent="Components" unique_id=1749619904 node_paths=PackedStringArray("direction_objs") instance=ExtResource("27_keddt")]
 direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx")]
+
+[node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_yurw6")]
+time_rand_range = Vector2(0, 0)
 
 [node name="Animations" parent="." unique_id=508010457 instance=ExtResource("3_bleph")]
 position = Vector2(0, -35)
@@ -2420,7 +2420,6 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
-changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
@@ -2669,7 +2668,7 @@ save_faced = false
 
 [node name="Dialogue" parent="Interactions" unique_id=1747775360 instance=ExtResource("83_iu40y")]
 position = Vector2(17, -57)
-dialogue_config = SubResource("Resource_0uuym")
+dialogue_config = ExtResource("108_4t8e8")
 
 [node name="PlayerAttackTimeEvent" parent="Interactions" unique_id=1259941547 instance=ExtResource("97_yvey3")]
 unique_name_in_owner = true

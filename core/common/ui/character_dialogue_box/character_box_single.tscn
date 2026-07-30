@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://wwx01uocm6vs"]
+
+[ext_resource type="Script" uid="uid://bgtsusp4gowle" path="res://core/common/ui/character_dialogue_box/character_box_sigle.gd" id="1_02r1p"]
+[ext_resource type="Resource" uid="uid://behwdfqux0bqr" path="res://core/npc/blood_king/resource/bloodking1_character_box_config.tres" id="2_02r1p"]
+[ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="3_dtj3b"]
+[ext_resource type="Script" uid="uid://5xj7spu46f11" path="res://core/common/component/ui bar/ui bar.gd" id="4_ntfng"]
+[ext_resource type="Shader" uid="uid://w1l31200ap47" path="res://core/common/ui/character_dialogue_box/character_box_ctr.gdshader" id="5_a2nql"]
+[ext_resource type="Texture2D" uid="uid://0pvqic15b4y5" path="res://core/player/resource/header.tres" id="5_cojnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lx3nq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxxn1"]
+bg_color = Color(1, 0.34902, 0.34902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_xmfd2"]
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_lx3nq")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_xxxn1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngx7a"]
+bg_color = Color(0, 0, 0, 0.435294)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 6.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23hh6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 6.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svija"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 6.0
+anti_aliasing = false
+
+[sub_resource type="Gradient" id="Gradient_upb8q"]
+offsets = PackedFloat32Array(0, 0.374384, 0.997537)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.729412, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dqp7l"]
+gradient = SubResource("Gradient_upb8q")
+fill = 1
+fill_from = Vector2(0.470085, 0.481481)
+fill_to = Vector2(0.777778, 0.0797721)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_02r1p"]
+shader = ExtResource("5_a2nql")
+shader_parameter/scanlines_opacity = 0.278000013205
+shader_parameter/scanlines_width = 0.16800000798
+shader_parameter/grille_opacity = 0.4800000228
+shader_parameter/resolution = Vector2(64, 128)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 23.002001092595
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.1030000048925
+shader_parameter/noise_opacity = 0.838000039805
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.15600000741
+shader_parameter/aberration = 0.09100005182250004
+shader_parameter/brightness = 2.66
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.2770000131575
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 0.54
+shader_parameter/vignette_opacity = 0.162000007695
+
+[sub_resource type="Gradient" id="Gradient_02r1p"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.99832773, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.5915749, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a2nql"]
+gradient = SubResource("Gradient_02r1p")
+width = 60
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1kjn"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+anti_aliasing = false
+
+[node name="WideMarg" type="VBoxContainer" unique_id=923313209]
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.82
+mouse_filter = 0
+alignment = 1
+script = ExtResource("1_02r1p")
+character_box_config = ExtResource("2_02r1p")
+is_player = true
+health_config = ExtResource("3_dtj3b")
+
+[node name="ImgBoxTopMarg" type="MarginContainer" parent="." unique_id=757325421]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 13.7
+mouse_filter = 2
+
+[node name="ImgBoxTopMarg2" type="HBoxContainer" parent="." unique_id=313439773]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ImgBoxTopMarg2" unique_id=1752779343]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+
+[node name="UIBar" type="MarginContainer" parent="ImgBoxTopMarg2" unique_id=1466152870]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.854902)
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+mouse_filter = 2
+script = ExtResource("4_ntfng")
+back_bar_color = Color(1, 0, 0, 0.960784)
+
+[node name="UIBarBack" type="ProgressBar" parent="ImgBoxTopMarg2/UIBar" unique_id=722011821]
+modulate = Color(1, 0, 0, 0.960784)
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme = SubResource("Theme_xmfd2")
+theme_override_styles/background = SubResource("StyleBoxFlat_ngx7a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_23hh6")
+show_percentage = false
+
+[node name="UIBar" type="ProgressBar" parent="ImgBoxTopMarg2/UIBar" unique_id=347227212]
+modulate = Color(0, 1, 0, 0.9372549)
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme = SubResource("Theme_xmfd2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_svija")
+value = 50.0
+show_percentage = false
+
+[node name="BackBarTimer" type="Timer" parent="ImgBoxTopMarg2/UIBar" unique_id=632749042]
+one_shot = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="ImgBoxTopMarg2" unique_id=1711459576]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+
+[node name="ImgBox" type="MarginContainer" parent="." unique_id=1760044621]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="TextureRect2" type="TextureRect" parent="ImgBox" unique_id=1169385853]
+visible = false
+layout_mode = 2
+size_flags_stretch_ratio = 5.27
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_dqp7l")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ImgBox" unique_id=199429455]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="ImgBox/HBoxContainer" unique_id=839248763]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ImgBox/HBoxContainer" unique_id=340249629]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 14.96
+mouse_filter = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ImgBox/HBoxContainer/VBoxContainer" unique_id=1678523637]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="ImgBox/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1717817080]
+material = SubResource("ShaderMaterial_02r1p")
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("5_cojnu")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="ImgBox/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1574837389]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_a2nql")
+expand_mode = 5
+
+[node name="Panel" type="PanelContainer" parent="ImgBox/HBoxContainer/VBoxContainer/MarginContainer" unique_id=2060300751]
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d1kjn")
+
+[node name="MarginContainer" type="MarginContainer" parent="ImgBox/HBoxContainer" unique_id=1601886277]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ImgBox" unique_id=499073728]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 0
+
+[node name="Timer" type="Timer" parent="." unique_id=1294564623]
+wait_time = 0.5
+
+[connection signal="timeout" from="ImgBoxTopMarg2/UIBar/BackBarTimer" to="ImgBoxTopMarg2/UIBar" method="_on_back_bar_timer_timeout"]

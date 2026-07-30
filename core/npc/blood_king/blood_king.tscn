@@ -32,6 +32,7 @@
 [ext_resource type="Shader" uid="uid://cettmulqp7ipp" path="res://core/common/shader/color_sprit.gdshader" id="26_ulcw5"]
 [ext_resource type="Texture2D" uid="uid://b5c7wrftgmnd7" path="res://core/common/resource/texture/bloodking/base.png" id="27_jmqci"]
 [ext_resource type="Texture2D" uid="uid://cdntw5od5p7nc" path="res://core/common/resource/texture/bloodking/baseFX.png" id="28_wj8cm"]
+[ext_resource type="PackedScene" uid="uid://cr3ih2htn1qcl" path="res://core/common/component/CreateCharacterBox/CreateCharacterBox.tscn" id="28_ywt4o"]
 [ext_resource type="Script" uid="uid://bke1mqqlq15ph" path="res://test/aniplayer.gd" id="29_qb26e"]
 [ext_resource type="Script" uid="uid://dweef2di1c1ym" path="res://core/npc/prototype/HurtFX.gd" id="30_0qrsd"]
 [ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/attackfxs/blood_gift.gd" id="32_0nv6h"]
@@ -7433,7 +7434,7 @@ air_fric2acc_scale = 7.0
 [node name="Master" parent="." unique_id=760131985 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("2_ppyg5")]
 unique_name_in_owner = true
 obj = NodePath("..")
-connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../FollowAnimations/HurtFX"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector")]
+connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../FollowAnimations/HurtFX"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox")]
 metadata/_edit_pinned_properties_ = [&"connects"]
 
 [node name="Config" type="Node2D" parent="." unique_id=491672595]
@@ -7663,6 +7664,8 @@ debug_color = Color(0.901961, 0.243137, 0.478431, 0.419608)
 position = Vector2(0, -21.6667)
 
 [node name="Move2Vec2" parent="Components" unique_id=804782041 instance=ExtResource("26_rb8mq")]
+
+[node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("28_ywt4o")]
 
 [node name="Animations" parent="." unique_id=667369830 instance=ExtResource("24_foeik")]
 
