@@ -108,10 +108,10 @@
 [ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="83_iu40y"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="88_4rcxe"]
 [ext_resource type="Script" uid="uid://ml8bwptatkw5" path="res://core/player/save/PlayerDataController.gd" id="89_ebgrc"]
-[ext_resource type="Resource" uid="uid://c5v11f8kqncd4" path="res://core/player/save/PlayerSaveDataConfig.tres" id="90_6tssb"]
 [ext_resource type="PackedScene" uid="uid://djbfh382ba1m5" path="res://core/events/player_attack_time_event.tscn" id="97_yvey3"]
 [ext_resource type="PackedScene" uid="uid://b3x7wqm5yy5eg" path="res://core/events/player_dense_suc_time_event.tscn" id="98_blh6t"]
 [ext_resource type="Resource" uid="uid://dlci62k7ghc80" path="res://core/player/resource/player_dialogue_config.tres" id="108_4t8e8"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="108_dq6eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phghf"]
 size = Vector2(19, 52)
@@ -1974,6 +1974,11 @@ backward = true
 script = ExtResource("31_o2ap2")
 animation_name = "onfloor"
 
+[sub_resource type="Resource" id="Resource_kaqeq"]
+resource_local_to_scene = true
+script = ExtResource("108_dq6eo")
+key = "base"
+
 [node name="PlayerPlayer" type="CharacterBody2D" unique_id=1119101225]
 z_index = 1
 collision_layer = 2
@@ -2171,9 +2176,9 @@ collision_mask = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/LightScale" unique_id=834587047]
+visible = false
 
 [node name="HurtBox" parent="Components" unique_id=948620807 node_paths=PackedStringArray("signal_node_list", "shape_list") instance=ExtResource("6_1sm34")]
-visible = false
 collision_layer = 32
 collision_mask = 16
 signal_node_list = [NodePath("../../StateManager"), NodePath("../../StateManager/base/combat/dense")]
@@ -2184,6 +2189,7 @@ position = Vector2(-0.25, 35.5)
 shape = SubResource("RectangleShape2D_fwrjn")
 
 [node name="HitBox" parent="Components" unique_id=1536420097 instance=ExtResource("8_sjgq1")]
+visible = false
 collision_layer = 8
 collision_mask = 0
 
@@ -2420,6 +2426,7 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
+changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
@@ -2660,7 +2667,7 @@ one_shot = true
 
 [node name="DataCollector" parent="Saves" unique_id=1896791768 instance=ExtResource("88_4rcxe")]
 script = ExtResource("89_ebgrc")
-save_data_config = ExtResource("90_6tssb")
+save_data_config = SubResource("Resource_kaqeq")
 save_obj_id = false
 save_faced = false
 

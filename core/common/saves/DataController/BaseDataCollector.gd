@@ -30,8 +30,8 @@ func on_master_ready(master:Node = null):
 		obj=get_parent().get_parent()
 	custom_key()
 	saver=get_children()[0]
-	if save_data_config.level_id == LevelState.LEVELS.LEVEL_CURRENT:
-		save_data_config.level_id = LevelState.current_level
+	#if save_data_config.level_id == LevelState.LEVELS.LEVEL_CURRENT:
+		#save_data_config.level_id = LevelState.current_level
 	saver.save_data_config=save_data_config
 	saver.load_save.connect(_load_save)
 	EventBus.save_game.connect(_pre_save_game)

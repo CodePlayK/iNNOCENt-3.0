@@ -139,6 +139,7 @@ func _enter_tree() -> void:
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
+	EventBus.test_layer_visiable.connect(test_layer_visiable)
 	
 func _ready() -> void:
 	self.tree_exiting.connect(_tree_exiting)
@@ -170,4 +171,6 @@ func reset_npc():
 func init_config(config:NpcInitConfig):
 	patrol_left = config.patrol_left
 	patrol_right = config.patrol_right
-	
+
+func test_layer_visiable(flag:bool):
+	test_can.visible=flag

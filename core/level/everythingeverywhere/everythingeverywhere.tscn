@@ -150,14 +150,14 @@ shader_parameter/roll_variation = 1.50100006803762
 shader_parameter/distort_intensity = 0.0
 shader_parameter/noise_opacity = 0.0350000016625
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.0410000019475
+shader_parameter/static_noise_intensity = 0.0370000017575
 shader_parameter/aberration = 4.7499999933364734e-08
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = false
 shader_parameter/warp_amount = 0.21200001007
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_opacity = 0.41200001957
 
 [sub_resource type="Gradient" id="Gradient_her8m"]
 colors = PackedColorArray(0, 0, 0, 0.0941176, 0, 0, 0, 1)
@@ -335,8 +335,8 @@ environment = ExtResource("6_7ue4y")
 [node name="CanvasBackground" type="CanvasLayer" parent="." unique_id=970486849]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
-modulate = Color(3.465414e-06, 0.52631897, 0.6127784, 1)
+[node name="BackGroundColor" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
+modulate = Color(0.022723755, 0.3412129, 0.17533419, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -353,7 +353,6 @@ metadata/_edit_lock_ = true
 
 [node name="MainCanvas" type="CanvasLayer" parent="." unique_id=1075155551 node_paths=PackedStringArray("fight_dely_time", "stamina_bar")]
 layer = 10
-visible = false
 follow_viewport_scale = 0.001
 script = ExtResource("7_egao5")
 fight_dely_time = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime")
@@ -625,7 +624,6 @@ metadata/_edit_lock_ = true
 
 [node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
 layer = 6
-visible = false
 script = ExtResource("21_lj80u")
 
 [node name="ColorRect" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
@@ -738,7 +736,6 @@ metadata/_edit_lock_ = true
 
 [node name="TestCanvas" type="CanvasLayer" parent="." unique_id=470471263]
 layer = 21
-visible = false
 script = ExtResource("28_ghsbg")
 
 [node name="MarginContainer" type="MarginContainer" parent="TestCanvas" unique_id=1862374113]

@@ -8,5 +8,11 @@ class_name SaveDataConfig
 @export var save_id:int = 0
 ##所属的关卡
 @export var level_id:LevelState.LEVELS = LevelState.LEVELS.LEVEL_CURRENT
+var inited:bool=false
 ##数据
 @export var data:Dictionary
+
+func _init() -> void:
+	if level_id!= LevelState.LEVELS.LEVEL_ALL:
+		level_id=LevelState.current_level
+	resource_local_to_scene=true

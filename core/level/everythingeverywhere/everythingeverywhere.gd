@@ -9,7 +9,7 @@ const save_path = "user://data"
 @export var obj_name:String
 @onready var player_camera: Camera2DPlus = %PlayerCamera
 @onready var player_camera_aniplayer: AnimationPlayer = $Setting/PlayerCamera/PlayerCameraAniplayer
-
+@onready var back_ground_color: TextureRect = $CanvasBackground/BackGroundColor
 
 func _init() -> void:
 	EventBus.change_level.connect(_on_change_level)
@@ -30,22 +30,40 @@ func load_level(level_path:String):
 	await level.tree_entered
 	move_child(level,0)
 	await level.ready
+	LevelState.level_dic[level.level_id]=level
 	#设置玩家相机
 	player_camera.node_to_follow = level.player
 	player_camera_aniplayer.play("RESET")
 	LevelState.current_level_node = level
+	back_ground_color.modulate=level.level_background_color
+	await level.resume()
+	
+func resume_level(level_id:LevelState.LEVELS):
+	#设置玩家相机
+	player_camera.node_to_follow = LevelState.level_dic[level_id].player
+	player_camera_aniplayer.play("RESET")
+	LevelState.current_level_node = LevelState.level_dic[level_id]
+	back_ground_color.modulate=LevelState.level_dic[level_id].level_background_color
+	LevelState.level_dic[level_id].resume()
+
 	
 func _on_change_level(level_id):
+	Debug.dprintinfo(DebugCT.dp("切换房间:[%s]" %level_id,self))
 	if !dic_level_path.has(level_id) or LevelState.current_level==level_id:
 		Debug.dprintinfo(DebugCT.dp("当前房间已载入:[%s]" %level_id,self))
 		return
-	if LevelState.current_level_node:
-		LevelState.current_level_node.hide()
-		LevelState.current_level_node.queue_free()
 	LevelState.last_level=LevelState.current_level
 	LevelState.current_level=level_id
+
+	EventBus._test_layer_visiable(false)
+	if LevelState.current_level_node:
+		await LevelState.current_level_node.pause()
+		#LevelState.current_level_node.queue_free()
+	if LevelState.level_dic.has(level_id):
+		await resume_level(level_id)
+	else :
+		load_level(dic_level_path[level_id])
 	Debug.dprintinfo(DebugCT.dp("房间切换:["+str(LevelState.last_level)+"]-->["+str(LevelState.current_level)+"]",self))
-	load_level(dic_level_path[level_id])
 	PlayerState.preset_player()
 		
 #检查否有存档，没有则新建默认存档		

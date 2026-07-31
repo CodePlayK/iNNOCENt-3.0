@@ -5,12 +5,16 @@ const LEVEL_1_PATH="res://core/level/level1/level_1.tscn"
 ##当前关卡
 var current_level:int=LEVELS.LEVEL_CURRENT
 var current_level_node:Levels
+var level_dic:Dictionary
+
 ##上一关卡
 var last_level:int=LEVELS.LEVEL_1
 ##当前的主视差层,即该层的视差速度为0
 var current_main_layer:Node2D
 var level_transition:Dictionary={}
 var playing_transition:bool=false
+var waiting_2_load_save:bool=true
+
 ##关卡
 enum LEVELS
 {	
@@ -20,3 +24,8 @@ enum LEVELS
 	LEVEL_1=1,
 	LEVEL_2=2,
 }
+
+func loading_save():
+	waiting_2_load_save=true
+	for k in level_dic.keys():
+		level_dic[k].waiting_2_load_save = true

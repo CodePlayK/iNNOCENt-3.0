@@ -1,11 +1,8 @@
-[gd_resource type="Resource" script_class="SaveDataConfig" load_steps=2 format=3 uid="uid://c5v11f8kqncd4"]
+[gd_resource type="Resource" script_class="SaveDataConfig" format=3 uid="uid://c5v11f8kqncd4"]
 
-[ext_resource type="Script" path="res://core/common/saves/SaveDataConfig.gd" id="1_j2cf3"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="1_j2cf3"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_j2cf3")
-group = 0
 key = "base"
-save_id = 0
-level_id = -1
-data = {}

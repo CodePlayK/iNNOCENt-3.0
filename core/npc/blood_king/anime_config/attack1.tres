@@ -1,40 +1,62 @@
-[gd_resource type="Resource" script_class="AnimeConfig" load_steps=8 format=3 uid="uid://xeoy2j56hu7j"]
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://xeoy2j56hu7j"]
 
-[ext_resource type="Script" path="res://core/common/anime/AnimeBatiConfig.gd" id="1_uq4oj"]
-[ext_resource type="Script" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="2_env2b"]
-[ext_resource type="Script" path="res://core/common/anime/AnimeConfig.gd" id="3_5w3xe"]
-[ext_resource type="Script" path="res://core/common/anime/AnimeSoundConfig.gd" id="4_ifkq8"]
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_sy4vh"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="1_uq4oj"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="2_env2b"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="3_5w3xe"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="3_fhjwn"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="4_ifkq8"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_y723b"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_yo1fa"]
 
-[sub_resource type="Resource" id="Resource_vucc5"]
-script = ExtResource("1_uq4oj")
-bati_start_frame = 5
-bati_end_frame = 7
+[sub_resource type="Resource" id="Resource_tvx2t"]
+script = ExtResource("1_sy4vh")
+start_frame = 2
+end_frame = 4
+target_vec2 = Vector2(-78, 0)
 
-[sub_resource type="Resource" id="Resource_d8jip"]
+[sub_resource type="Resource" id="Resource_lk6l6"]
+script = ExtResource("1_sy4vh")
+start_frame = 7
+end_frame = 9
+target_vec2 = Vector2(79, 0)
+
+[sub_resource type="Resource" id="Resource_w3xrq"]
+script = ExtResource("1_sy4vh")
+start_frame = 9
+end_frame = 10
+target_vec2 = Vector2(79, 0)
+
+[sub_resource type="Resource" id="Resource_l8cnl"]
 script = ExtResource("2_env2b")
-collision_index = 2
-damage = 1.0
-hit_start_frame = 5
-hit_end_frame = 7
+collision_index = 3
+hit_start_frame = 7
+hit_end_frame = 13
 
-[sub_resource type="Resource" id="Resource_7nluu"]
+[sub_resource type="Resource" id="Resource_7epbh"]
+script = ExtResource("2_env2b")
+collision_index = 4
+hit_start_frame = 20
+hit_end_frame = 20
+
+[sub_resource type="Resource" id="Resource_6jnyt"]
+script = ExtResource("6_yo1fa")
+end_frame = 9
+
+[sub_resource type="Resource" id="Resource_r0stm"]
 script = ExtResource("4_ifkq8")
 se_name = "slash5"
-start_frame = 4
-end_frame = 0
-se_speed = 1.0
-se_pitch = 1.0
-stop_on_exit_state = false
+start_frame = 7
+
+[sub_resource type="Resource" id="Resource_o8cku"]
+script = ExtResource("4_ifkq8")
+se_name = "slash6"
+start_frame = 13
 
 [resource]
 script = ExtResource("3_5w3xe")
-state_name = "NA"
-animation_name = "NA"
-speed_scale = 2.0
-backward = false
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[ExtResource("4_ifkq8")]([SubResource("Resource_7nluu")])
-hitbox_config = Array[ExtResource("2_env2b")]([SubResource("Resource_d8jip")])
-bati_config = Array[ExtResource("1_uq4oj")]([SubResource("Resource_vucc5")])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
+speed_scale = 1.5
+anime_offset = Array[ExtResource("1_sy4vh")]([SubResource("Resource_tvx2t"), SubResource("Resource_lk6l6"), SubResource("Resource_w3xrq")])
+sound_config = Array[ExtResource("4_ifkq8")]([SubResource("Resource_r0stm"), SubResource("Resource_o8cku")])
+hitbox_config = Array[ExtResource("2_env2b")]([SubResource("Resource_l8cnl"), SubResource("Resource_7epbh")])
+invincible_config = Array[ExtResource("6_yo1fa")]([SubResource("Resource_6jnyt")])

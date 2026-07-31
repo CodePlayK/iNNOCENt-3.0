@@ -17,7 +17,8 @@ func _ready():
 ##保存数据到数据库
 func _save():
 	DataState.add2cache(save_data_config)
-	if save_data_collector.debug:Debug.dprint(DebugCT.dp("「保存」存档|%s" %[get_instance_id()],self))
+	#if save_data_collector.debug:
+	Debug.dprint(DebugCT.dp("「保存」存档|[%s]%s" %[save_data_config.level_id,save_data_config.data],self))
 	DataState.obj_save_state_ready(save_data_collector.state_key)
 		
 ##载入数据	

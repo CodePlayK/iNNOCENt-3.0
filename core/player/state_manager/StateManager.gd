@@ -90,6 +90,8 @@ func change_state(new_state: BaseState) -> void:
 			change_state(temp_state)
 
 func physics_process(delta: float) -> void:
+	if not is_instance_valid(player):
+		return
 	var new_state = current_state.pre_physics_process(delta)
 	if !new_state and !is_changing_state:
 		new_state = current_state.physics_process(delta)

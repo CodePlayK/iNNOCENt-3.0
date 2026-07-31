@@ -98,7 +98,7 @@ func input(event: InputEvent) -> void:
 
 func change_state(new_state: NpcsBaseState) -> void:
 	if null!=current_state and null!=new_state and (current_state!=new_state or new_state is NpcsStackingState) and new_state.common_pre_enter() and new_state.pre_enter():
-		print_state_change(current_state.name,new_state.name)
+		#print_state_change(current_state.name,new_state.name)
 		if !new_state is NpcsStackingState:
 			is_changing_state = true
 			current_state.exit(new_state)

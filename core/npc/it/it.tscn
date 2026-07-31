@@ -6818,6 +6818,7 @@ label_settings = SubResource("LabelSettings_wlnom")
 horizontal_alignment = 1
 
 [node name="TestCan" type="CanvasLayer" parent="UIs/Test" unique_id=1337946644]
+process_mode = 3
 
 [node name="WeightMachineUi" parent="UIs/Test/TestCan" unique_id=2140615047 instance=ExtResource("12_oyaf4")]
 visible = false
@@ -7545,6 +7546,7 @@ dialogue_config = ExtResource("3_w7q8t")
 cutscener_debug = null
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
+process_mode = 3
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("95_25bfe")]
 script = ExtResource("96_ubvsk")

@@ -1,8 +1,11 @@
 extends BaseState
+signal into_indel_state
 
 func enter():
 	super.enter()
 	PlayerState.double_jump_able=true
+	Debug.dprintinfo(DebugCT.dp("Playeridle信号发出",self))
+	into_indel_state.emit()
 	return null
 func input(event: InputEvent) -> BaseState:
 	if event.is_action_pressed("jump") or event.is_action_pressed("light"):

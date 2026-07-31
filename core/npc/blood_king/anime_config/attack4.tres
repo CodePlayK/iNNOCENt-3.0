@@ -48,7 +48,6 @@ start_frame = 6
 
 [resource]
 script = ExtResource("3_npoeg")
-speed_scale = 1.5
 anime_offset = Array[ExtResource("1_ls1gt")]([SubResource("Resource_getoi"), SubResource("Resource_i647k")])
 sound_config = Array[ExtResource("4_lgl2v")]([SubResource("Resource_537nx"), SubResource("Resource_y0y2r")])
 hitbox_config = Array[ExtResource("2_xsf66")]([SubResource("Resource_m0w7a")])

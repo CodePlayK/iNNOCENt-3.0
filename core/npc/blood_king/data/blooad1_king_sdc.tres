@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="1_yg1n8"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_yg1n8")
 group = 1
 key = "bloodking1"

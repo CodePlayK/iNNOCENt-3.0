@@ -10,8 +10,10 @@ func custom_data():
 	
 #载入存档数据
 func load_custom_data(data:Dictionary):
+	if !LevelState.waiting_2_load_save:return
 	if data and data["current_level"]:
 		EventBus._change_level(data["current_level"])
 	else:
 		EventBus._change_level(LevelState.LEVELS.LEVEL_0)
 	CutsceneState.current_cutscene= data["current_cutscene"]
+	LevelState.waiting_2_load_save=false

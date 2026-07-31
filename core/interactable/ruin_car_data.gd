@@ -1,6 +1,7 @@
 extends BaseDataCollector
 #自定义在[LEVEL_ID][GROUP][KEY]唯一键key	
 func custom_key():
+	obj.save_data_config.level_id=LevelState.current_level
 	save_data_config.key = obj.obj_name
 	
 #配置要写入存档的数据

@@ -45,7 +45,7 @@ void fragment() {
 		COLOR = color*mix_modulate_strength;
 		COLOR.a=old_color.a*modulate.a;	
 	}else{
-		COLOR = swap_color(texture(TEXTURE, UV));
+		COLOR = swap_color(texture(TEXTURE, UV))*modulate;
 	};
 		
 	if (mix_modulate){

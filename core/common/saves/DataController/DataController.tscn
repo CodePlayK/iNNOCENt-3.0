@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://ccpiw4b0ok83j" path="res://core/common/saves/DataController/BaseSaver.gd" id="2_7sr5g"]
 
 [node name="DataCollector" type="Node" unique_id=1848048086]
+process_mode = 3
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 2
 
 [node name="Saver" type="Node" parent="." unique_id=226244484]
+process_mode = 3
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 2
 script = ExtResource("2_7sr5g")

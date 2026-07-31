@@ -82,7 +82,10 @@ func obj_save_state_ready(K):
 	save_all()
 ##将存档数据配置添加到缓存中,唯一键约束为[save_id][group][level_id][key]:data	
 func add2cache(sc1:SaveDataConfig):
+	if sc1.key=="bloodking1":
+		pass
 	var sc = sc1.duplicate()
+	sc.level_id=sc1.level_id
 	if save_cache.has(sc.save_id):
 		if save_cache[sc.save_id].has(sc.group):
 			if save_cache[sc.save_id][sc.group].has(sc.level_id):

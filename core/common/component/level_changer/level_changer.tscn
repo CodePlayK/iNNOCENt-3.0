@@ -15,3 +15,9 @@ target_level = 1
 position = Vector2(5, -62.5)
 shape = SubResource("RectangleShape2D_07drm")
 debug_color = Color(0.92941177, 0.21960784, 0.4, 0.50980395)
+
+[node name="Timer" type="Timer" parent="." unique_id=1035070245]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

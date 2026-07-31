@@ -1,16 +1,17 @@
 ## 关卡的根节点.
 ##
 ## 每一关的基础场景,负责统一的环境与每关的变量初始化;
-extends Node
+extends Node2D
 class_name Levels
 const clazz_name = "Levels"
+signal paused
 ##房间唯一id,level准备完毕后配置于[method _ready]
 @export var level_id:LevelState.LEVELS
 ##@experimental
 ##房间默认播放的环境音[br][code]Array["音效名",音量][/code]
 var atmosphere_se_dic:Array[Array]
 ##房间中的[Player][Player]对象
-@onready var player = %Player
+@onready var player:Player = %Player
 ##@experimental
 ##Player在当前房间的默认[code]z index[/code][br]
 ##配置于[method load_player_position]
@@ -19,6 +20,8 @@ var atmosphere_se_dic:Array[Array]
 @onready var player_camera = %PlayerCamera
 ##当前房间当前时刻的平均颜色,详见[ScreenColor]
 var level_color:Color
+@export var level_background_color:Color=Color("00869c")
+var waiting_2_load_save:bool=true
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
@@ -78,3 +81,26 @@ func play_atmosphere_se():
 ##房间tree exited时执行的方法	
 func _tree_exited():
 	EventBus._level_tree_exited()
+
+func pause():
+	hide()
+	position=Vector2i(10000,10000)
+	player.velocity=Vector2.ZERO
+	player.position=PlayerState.current_player_born_position
+	if !player.state_manager.current_state == player.state_manager.get_state_by_name("idle"):
+		player.state_manager.change_state(player.state_manager.get_state_by_name("idle"))
+		await player.state_manager.get_state_by_name("idle").into_indel_state
+		Debug.dprintinfo(DebugCT.dp("收到idle信号",self))
+
+	call_deferred("set_process_mode",Node.PROCESS_MODE_DISABLED)
+	Debug.dprintinfo(DebugCT.dp("level的暂停完成信号发出",self))
+	paused.emit()
+	
+func resume():
+	call_deferred("set_process_mode",Node.PROCESS_MODE_INHERIT)
+	if waiting_2_load_save:
+		EventBus._load_game()
+		waiting_2_load_save=false
+	EventBus._test_layer_visiable(true)
+	position=Vector2i.ZERO
+	show()

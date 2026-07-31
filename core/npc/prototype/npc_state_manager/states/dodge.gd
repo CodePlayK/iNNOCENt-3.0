@@ -18,6 +18,8 @@ func enter():
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(npc,"global_position",Vector2(npc.global_position.x-side*dodge_distance,npc.global_position.y),dodge_time)
+	tween.parallel().tween_property(npc,"modulate",Color("ffffff2a"),dodge_time*0.3)
+	tween.tween_property(npc,"modulate",Color("ffffffff"),dodge_time*0.7)
 	await tween.finished
 	timer.start(cooldown-dodge_time)
 	return chase_state
