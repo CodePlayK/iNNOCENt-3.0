@@ -109,9 +109,7 @@ func _on_show_mind_box_pressed() -> void:
 @export_category("过场设置")
 @export var cutscener_trigger: Area2D = $"../../Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger"
 func _on_cutscene_runner_pressed() -> void:
-	cutscener_trigger.enable=true
 	CutscenerGlobal.cutscener_run.emit("NA")
-	cutscener_trigger
 
 @onready var eyes: TextureRect = $"../../ScreenEffect/Eyes"
 var flag:bool = true

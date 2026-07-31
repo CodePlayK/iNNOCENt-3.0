@@ -41,6 +41,7 @@ signal player_face_changed
 signal player_running_changed
 ##ui
 signal create_character_box
+signal remove_character_box
 ##sound
 signal play_SE_LOOP
 signal play_SE
@@ -49,6 +50,9 @@ signal play_BGM
 signal obj_set_face_left
 signal npc_behithard
 signal move_2_vec2
+
+func _change_level(level_id:LevelState.LEVELS):
+	change_level.emit(level_id)
 
 func _player_on_fighting_changed(flag:bool=false):
 	player_on_fighting_changed.emit(flag)
@@ -111,3 +115,5 @@ func _player_running_changed():
 	player_running_changed.emit()
 func _create_character_box(character_box_config:CharacterBoxConfig):
 	create_character_box.emit(character_box_config)
+func _remove_character_box(character_box_config:CharacterBoxConfig,exist_level:LevelState.LEVELS):
+	remove_character_box.emit(character_box_config,exist_level)

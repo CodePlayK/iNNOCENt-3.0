@@ -11,13 +11,14 @@ class_name CharacterBox
 		character_box_config=cbc
 @export var is_player:bool = false
 @export var health_config:HealthConfig
-@onready var shader_crt: ColorRect = %ShaderCRT
 
 var box_selected:bool = false
 var on_changing:bool = false
 var on_showing:bool = false
+var exist_level:LevelState.LEVELS
 
 func _ready() -> void:
+	exist_level = LevelState.current_level
 	img_box.size_flags_stretch_ratio=0
 	size_flags_stretch_ratio=0
 	timer.wait_time = character_box_config.drag_time
@@ -26,6 +27,7 @@ func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
 	EventBus.player_health_damaged.connect(on_player_health_damaged)
 	EventBus.player_health_healed.connect(on_player_health_healed)
+	EventBus.remove_character_box.connect(on_remove_character_box)
 	Dialogue.end_dialogue.connect(on_end_dialogue)
 	Dialogue.talk_start.connect(on_talk_start)
 	mouse_entered.connect(_on_mouse_entered)
@@ -33,6 +35,12 @@ func _ready() -> void:
 	gui_input.connect(_on_gui_input)
 	if is_player:
 		UiState.player_character_box = self
+		
+#卸载角色box事件
+func on_remove_character_box(cbc:CharacterBoxConfig,el:LevelState.LEVELS):
+	if !cbc==character_box_config or el!=exist_level:return
+	anime_dead()
+
 		
 #出生动画
 func anime_born():
@@ -45,6 +53,18 @@ func anime_born():
 	twn.parallel().tween_property(img_box_top_marg,"size_flags_stretch_ratio",character_box_config.img_box_top_marg_hide,0.5)
 	await twn.finished
 	twn.kill()	
+	return
+
+func anime_dead():
+	var twn = create_tween()
+	twn.set_trans(Tween.TRANS_CUBIC)
+	twn.set_ease(Tween.EASE_IN)
+	twn.tween_property(self,"size_flags_stretch_ratio",0,0.5)
+	twn.parallel().tween_property(img_box,"size_flags_stretch_ratio",0,0.5)
+	twn.parallel().tween_property(img_box_top_marg,"size_flags_stretch_ratio",20,0.5)
+	await twn.finished
+	twn.kill()
+	queue_free()	
 	return
 		
 #台词事件

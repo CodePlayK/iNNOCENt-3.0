@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dtohg4g1fxwh5"]
 
-[ext_resource type="PackedScene" uid="uid://cnvk27yipehtt" path="res://core/level/level0/level_0.tscn" id="1_10cao"]
 [ext_resource type="Script" uid="uid://80wlds422nju" path="res://core/level/everythingeverywhere/everythingeverywhere.gd" id="1_celhk"]
 [ext_resource type="Script" uid="uid://cixr4woh11vxn" path="res://addons/camera_2d_plus/objects/camera_2d_plus/camera_2d_plus_script.gd" id="2_celhk"]
 [ext_resource type="PackedScene" uid="uid://crnojtb7i7g1d" path="res://core/common/component/cutscene_camera/cutscene_camera.tscn" id="3_ydae1"]
@@ -38,33 +37,36 @@
 [ext_resource type="Texture2D" uid="uid://dwdj4u348kh38" path="res://core/player/resource/header_test.tres" id="35_l7ngx"]
 [ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="36_2ea2m"]
 [ext_resource type="Script" uid="uid://b4otcmujx4vs6" path="res://test/NpcPath/PatrolArea.gd" id="37_as7kb"]
+[ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="38_jtj5p"]
+[ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/WorldDataController.gd" id="39_i74u8"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="40_7ue4y"]
 
 [sub_resource type="Animation" id="Animation_i8m7f"]
 resource_name = "0_0_0"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Level0/Parallax/ParallaxLayer_6/Player/CameraMark:position")
+tracks/0/enabled = false
+tracks/0/path = NodePath("Setting/PlayerCamera:limit_top")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -800), Vector2(0, 0)]
+"values": [-99999999, -165]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Setting/PlayerCamera:limit_top")
+tracks/1/path = NodePath("Setting/PlayerCamera:limit_bottom")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [-99999999, -165]
+"update": 0,
+"values": [-249, 417]
 }
 
 [sub_resource type="Animation" id="Animation_55ti7"]
@@ -72,26 +74,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Level0/Parallax/ParallaxLayer_6/Player/CameraMark:position")
+tracks/0/path = NodePath("Setting/PlayerCamera:limit_top")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [-165]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Setting/PlayerCamera:limit_top")
+tracks/1/path = NodePath("Setting/PlayerCamera:limit_bottom")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-165]
+"values": [417]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_onngr"]
@@ -280,34 +282,35 @@ font_size = 12
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wces5"]
 size = Vector2(3915, 81.5)
 
-[node name="everythingeverywhere" type="Node2D" unique_id=1354952185]
-position = Vector2(0, -4)
-script = ExtResource("1_celhk")
+[sub_resource type="Resource" id="Resource_egao5"]
+script = ExtResource("40_7ue4y")
+group = -1
+key = "world"
+level_id = -2
+metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
-[node name="Level0" parent="." unique_id=1086752988 instance=ExtResource("1_10cao")]
-visible = false
+[node name="everythingeverywhere42" type="Node2D" unique_id=1354952185]
+script = ExtResource("1_celhk")
 
 [node name="Setting" type="Node2D" parent="." unique_id=226376598]
 
 [node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
 unique_name_in_owner = true
-position = Vector2(-312, -457)
 zoom = Vector2(3, 3)
 process_callback = 0
 limit_left = -940
 limit_top = -165
 limit_right = 2555
-limit_bottom = 380
+limit_bottom = 417
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 drag_horizontal_offset = 0.5
 drag_left_margin = 0.5
-drag_right_margin = 0.5
+drag_right_margin = 0.54
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("2_celhk")
-NODE_TO_FOLLOW_PATH = NodePath("../../Level0/Parallax/ParallaxLayer_6/Player/CameraMark")
 SHAKE_DECAY = 0.118
 FLASH_LAYER = 2
 
@@ -744,19 +747,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Test" type="HBoxContainer" parent="TestCanvas/MarginContainer" unique_id=393386273 node_paths=PackedStringArray("astar", "cutscener_trigger")]
+[node name="Test" type="HBoxContainer" parent="TestCanvas/MarginContainer" unique_id=393386273]
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("29_imah0")
 dialogue_mind_config = SubResource("Resource_m1fas")
-astar = NodePath("")
 enemy_max_count = 1
 camera_shake_add = 10.0
 range_r = 500.0
 test_vec2 = Vector2(1978, 95)
 chase_speed = 100.0
 npc_name = "BloodKing"
-cutscener_trigger = NodePath("")
 
 [node name="MarginContainer" type="MarginContainer" parent="TestCanvas/MarginContainer/Test" unique_id=25995065]
 layout_mode = 2
@@ -919,6 +920,17 @@ script = ExtResource("37_as7kb")
 visible = false
 position = Vector2(63.5, 238)
 shape = SubResource("RectangleShape2D_wces5")
+
+[node name="Data" type="Node" parent="." unique_id=475305390]
+
+[node name="DataCollector" parent="Data" unique_id=1848048086 instance=ExtResource("38_jtj5p")]
+script = ExtResource("39_i74u8")
+save_data_config = SubResource("Resource_egao5")
+has_master = false
+debug = true
+load_on_ready = true
+save_position = false
+save_faced = false
 
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
 [connection signal="pressed" from="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterBoxCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]

@@ -26,7 +26,7 @@ class_name Camera2DPlus
 @export_range(-99, 99) var CINEMATIC_LAYER: int = 2 ## The layer of the CanvasLayer that the cinematic effects will be at.
 
 # Nodes:
-@onready var node_to_follow: Node = get_node(NODE_TO_FOLLOW_PATH)
+@export var node_to_follow: Node
 
 # Variables:
 var flash_layer: CanvasLayer ## This variable is going to store the CanvasLayer that is going to store the flash related stuff.

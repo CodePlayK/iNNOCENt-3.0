@@ -1,6 +1,10 @@
 extends Node
+const LEVEL_0_PATH="res://core/level/level0/level_0.tscn"
+const LEVEL_1_PATH="res://core/level/level1/level_1.tscn"
+
 ##当前关卡
-var current_level:int=LEVELS.LEVEL_1
+var current_level:int=LEVELS.LEVEL_CURRENT
+var current_level_node:Levels
 ##上一关卡
 var last_level:int=LEVELS.LEVEL_1
 ##当前的主视差层,即该层的视差速度为0

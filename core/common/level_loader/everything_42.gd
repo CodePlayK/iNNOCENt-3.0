@@ -35,10 +35,10 @@ func resfile_2_userfile(src_path,des_path):
 	DirAccess.make_dir_absolute(save_path)
 	var src_file = FileAccess.open(src_path,FileAccess.READ)
 	if !src_file:
-		#Debug.dprinterr(DebugCT.dp("源文件打开失败！ ["+src_path+"]",self,))
+		Debug.dprinterr(DebugCT.dp("源文件打开失败！ ["+src_path+"]",self,))
 		return
 	if src_file.file_exists(des_path):
-		#Debug.dprintinfo(DebugCT.dp("目标文件已存在！["+des_path+"]",self))
+		Debug.dprintinfo(DebugCT.dp("目标文件已存在！["+des_path+"]",self))
 		return	
 	var des_file = FileAccess.open(des_path,FileAccess.WRITE)
 	var size = src_file.get_length()

@@ -12,6 +12,7 @@ key = "world"
 metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
 [node name="Everything42" type="Node2D" unique_id=238504665]
+visible = false
 script = ExtResource("1_i26mc")
 obj_name = "e42"
 
