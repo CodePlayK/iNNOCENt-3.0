@@ -131,6 +131,7 @@ func load_save(combine_node_name:String = "NA",dic_raw:Dictionary = {}):
 		props = node_save_data[combine_node_name+"_props"]
 		CutscenerGlobal.ACTION_LOG = "[%s]载入聚合node数据覆盖!" %self.name
 	new_param(props)
+	
 ##[当前条件的连接条件类型,变量名,变量类型,条件类型,判断目标值]	
 func new_param(p_list):
 	for p in p_list:
