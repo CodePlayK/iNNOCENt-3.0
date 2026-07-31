@@ -125,10 +125,10 @@ var face_left:bool:
 	set(f):
 		face_left = f
 		if f:
-			face_left_normalozed = -1
+			face_left_normalized = -1
 		else :
-			face_left_normalozed = 1
-var face_left_normalozed:int
+			face_left_normalized = 1
+var face_left_normalized:int
 @onready var dialogue_position: Marker = $UIs/DialoguePosition
 var obj_name:String:
 	set(s):

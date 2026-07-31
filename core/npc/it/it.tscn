@@ -97,7 +97,7 @@
 [ext_resource type="Script" uid="uid://be56auyp7pao1" path="res://core/npc/prototype/npc_state_manager/states/AttackListener.gd" id="91_35brk"]
 [ext_resource type="Script" uid="uid://bljkt4v4ao0md" path="res://core/npc/prototype/npc_state_manager/states/BehithardListener.gd" id="92_bjcev"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="93_q7his"]
-[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContect.tscn" id="94_35ooo"]
+[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="94_35ooo"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="95_25bfe"]
 [ext_resource type="Script" uid="uid://c0qc7n7xx1m7a" path="res://core/npc/it/data/it_data.gd" id="96_ubvsk"]
 [ext_resource type="Resource" uid="uid://clxhl3hhekbgt" path="res://core/npc/it/data/it_sdc.tres" id="97_sxw3c"]
@@ -6771,6 +6771,7 @@ position = Vector2(35, -89)
 [node name="HurtFX" type="Node2D" parent="UIs" unique_id=413746258]
 
 [node name="DamageNum" parent="UIs/HurtFX" unique_id=1574429031 instance=ExtResource("9_6yfy2")]
+z_index = 19
 position = Vector2(0, -67)
 metadata/_edit_lock_ = true
 
@@ -6980,6 +6981,7 @@ position = Vector2(0, -21.6667)
 [node name="Move2Vec2" parent="Components" unique_id=804782041 instance=ExtResource("27_cep4c")]
 
 [node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_ol5xp")]
+unique_name_in_owner = true
 
 [node name="Animations" parent="." unique_id=667369830 instance=ExtResource("28_dpg8q")]
 
@@ -7540,6 +7542,7 @@ shape = SubResource("RectangleShape2D_b8y3r")
 z_index = 107
 position = Vector2(10.8333, -59.1667)
 dialogue_config = ExtResource("3_w7q8t")
+cutscener_debug = null
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 

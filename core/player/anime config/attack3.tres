@@ -20,7 +20,7 @@ fx_node_name = "SwordWind"
 [sub_resource type="Resource" id="Resource_ve56s"]
 script = ExtResource("1_2cwox")
 collision_index = 3
-damage = 3.0
+damage = 30.0
 hit_start_frame = 1
 hit_end_frame = 2
 

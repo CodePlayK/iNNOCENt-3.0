@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cf1neckchry1q"]
 
-[ext_resource type="Script" uid="uid://cjbkc1ey0ajpv" path="res://core/dialogue/DialogueContect.gd" id="1_v3hue"]
+[ext_resource type="Script" uid="uid://cjbkc1ey0ajpv" path="res://core/dialogue/DialogueContext.gd" id="1_v3hue"]
 [ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="2_xfmas"]
 [ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="3_xh22i"]
 [ext_resource type="PackedScene" uid="uid://bq1w2fqfgdvt" path="res://core/dialogue/dialogue/dialogue_ballon/dialogue_balloon.tscn" id="4_iv2pr"]

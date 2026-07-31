@@ -5,9 +5,9 @@
 ~ it
 it: 需要我跟你一起走吗~
 - 我: 枪在手跟我走！
-	it: 好好好[do EventBus.npc_flollwing_player.emit("it",true)]
+	it: 好好好[do EventBus.npc_following_player.emit("it",true)]
 - 我:先等等
-	it: 好的~好好好[do EventBus.npc_flollwing_player.emit("it",false)]
+	it: 好的~好好好[do EventBus.npc_following_player.emit("it",false)]
 => END!
 
 ~ bloodking1

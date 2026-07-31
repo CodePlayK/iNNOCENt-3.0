@@ -2,5 +2,5 @@ extends InteractiveState
 
 func enter():
 	super.enter()
-	PlayerState.player_control_lcok=true
+	PlayerState.player_control_lock=true
 	return

@@ -26,7 +26,7 @@ func _ready():
 	godray.polygon[3].x+=pont_bot_right_offset
 	base_position_A=godray.polygon[1].x
 	base_position_B=godray.polygon[2].x	
-	parallax_move_data=preload(Global.parallax_move_data_source_path)
+	parallax_move_data=preload(DataState.parallax_move_data_source_path)
 	get_shape()
 
 func _physics_process(delta: float) -> void:

@@ -18,7 +18,7 @@ func emit_num(damage:float):
 	var d_num = damage_num.duplicate(8)
 	var lable_setting = damage_num.label_settings.duplicate()
 	d_num.label_settings=lable_setting
-	d_num.text = str(damage)
+	d_num.text = str(int(damage))
 	d_num.label_settings.font_size = num_size_px
 	d_num.label_settings.font_color = num_color
 	LevelState.current_main_layer.add_child(d_num)

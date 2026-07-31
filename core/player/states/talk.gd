@@ -5,7 +5,7 @@ func enter():
 	super.enter()
 	touched_floor=false
 	PlayerState.double_jump_able=true
-	PlayerState.player_control_lcok=true
+	PlayerState.player_control_lock=true
 	return null
 	
 func input(event: InputEvent) -> BaseState:
@@ -24,4 +24,4 @@ func physics_process(delta: float) -> BaseState:
 
 func exit(state:BaseState):
 	super.exit(state)
-	PlayerState.player_control_lcok=false
+	PlayerState.player_control_lock=false

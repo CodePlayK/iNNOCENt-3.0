@@ -96,7 +96,7 @@
 [ext_resource type="Script" uid="uid://dqmqxfw8v3qe" path="res://core/npc/prototype/npc_state_manager/states/fall.gd" id="81_vuxa1"]
 [ext_resource type="Texture2D" uid="uid://dtibm26d7r0xv" path="res://test/sprite spped curve/The Blood King.png" id="82_sll3h"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="83_e75wk"]
-[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContect.tscn" id="84_vaxnc"]
+[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="84_vaxnc"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="89_s1dc0"]
 [ext_resource type="Script" uid="uid://duojnvfx06qoe" path="res://core/npc/blood_king/data/blood_king_data.gd" id="90_f37dg"]
 [ext_resource type="Resource" uid="uid://c53hxlnm3yy0u" path="res://core/npc/blood_king/data/blooad1_king_sdc.tres" id="97_yowun"]
@@ -7441,7 +7441,7 @@ metadata/_edit_pinned_properties_ = [&"connects"]
 
 [node name="Health" parent="Config" unique_id=814573476 node_paths=PackedStringArray("tagets") instance=ExtResource("3_wa5ky")]
 tagets = [NodePath("../../UIs")]
-max_health = 100.0
+max_health = 9999.0
 min_health = null
 health_regeneration = 1.0
 print_health = null
@@ -7467,6 +7467,7 @@ position = Vector2(35, -89)
 
 [node name="DamageNum" parent="UIs/HurtFX" unique_id=1574429031 instance=ExtResource("8_1rf8v")]
 position = Vector2(0, -67)
+num_color = Color(1, 0.92050004, 0.47000003, 0.8392157)
 metadata/_edit_lock_ = true
 
 [node name="Marker" parent="UIs/HurtFX/DamageNum" unique_id=1340617557 instance=ExtResource("7_tfgkb")]
@@ -7666,6 +7667,7 @@ position = Vector2(0, -21.6667)
 [node name="Move2Vec2" parent="Components" unique_id=804782041 instance=ExtResource("26_rb8mq")]
 
 [node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("28_ywt4o")]
+unique_name_in_owner = true
 
 [node name="Animations" parent="." unique_id=667369830 instance=ExtResource("24_foeik")]
 
@@ -8210,6 +8212,7 @@ shape = SubResource("RectangleShape2D_b8y3r")
 [node name="Dialogue" parent="Interactions" unique_id=1132349855 instance=ExtResource("84_vaxnc")]
 z_index = 107
 position = Vector2(10.8333, -59.1667)
+cutscener_debug = null
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 

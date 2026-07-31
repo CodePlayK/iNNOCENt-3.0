@@ -105,7 +105,7 @@
 [ext_resource type="Script" uid="uid://c0dxbfgbfg2if" path="res://core/player/states/onfloor.gd" id="73_b43tn"]
 [ext_resource type="Resource" uid="uid://ckdoxt3m3a82" path="res://core/player/attributes/ABT_light_config.tres" id="75_j1i1n"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="82_su2cd"]
-[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContect.tscn" id="83_iu40y"]
+[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="83_iu40y"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="88_4rcxe"]
 [ext_resource type="Script" uid="uid://ml8bwptatkw5" path="res://core/player/save/PlayerDataController.gd" id="89_ebgrc"]
 [ext_resource type="Resource" uid="uid://c5v11f8kqncd4" path="res://core/player/save/PlayerSaveDataConfig.tres" id="90_6tssb"]
@@ -2101,7 +2101,6 @@ metadata/_edit_use_anchors_ = true
 [node name="HurtFX" type="Node2D" parent="UIs" unique_id=1840738073]
 
 [node name="DamageNum" parent="UIs/HurtFX" unique_id=632465112 instance=ExtResource("9_u8lqu")]
-num_color = Color(1, 0.866667, 0.560784, 1)
 
 [node name="Marker" parent="UIs/HurtFX/DamageNum" unique_id=1924115499 instance=ExtResource("21_ykyob")]
 visible = false
@@ -2229,6 +2228,7 @@ direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Anima
 
 [node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_yurw6")]
 time_rand_range = Vector2(0, 0)
+create_on_load = true
 
 [node name="Animations" parent="." unique_id=508010457 instance=ExtResource("3_bleph")]
 position = Vector2(0, -35)
@@ -2255,7 +2255,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 123
+frame = 113
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2588,7 +2588,7 @@ one_shot = true
 
 [node name="attack0" type="Node" parent="StateManager/base/_attack" unique_id=1664885964 node_paths=PackedStringArray("next_attack")]
 script = ExtResource("44_82lcl")
-damage = 2.0
+damage = 10.0
 next_attack = NodePath("../attack1")
 after_attack_stiff_time = 0.0
 is_normal_state = false
@@ -2601,7 +2601,7 @@ one_shot = true
 
 [node name="attack1" type="Node" parent="StateManager/base/_attack" unique_id=215728571 node_paths=PackedStringArray("next_attack")]
 script = ExtResource("45_scjvk")
-damage = 4.0
+damage = 15.0
 next_attack = NodePath("../attack2")
 after_attack_stiff_time = 0.1
 listen_next_attack_time = 0.5
@@ -2617,7 +2617,7 @@ one_shot = true
 
 [node name="attack2" type="Node" parent="StateManager/base/_attack" unique_id=1855411910 node_paths=PackedStringArray("next_attack")]
 script = ExtResource("46_a2y62")
-damage = 4.0
+damage = 20.0
 next_attack = NodePath("../attack3")
 to_next_attack_threshold = 0.18
 after_attack_stiff_time = 0.2
@@ -2633,7 +2633,7 @@ one_shot = true
 
 [node name="attack3" type="Node" parent="StateManager/base/_attack" unique_id=1618466329]
 script = ExtResource("47_pphep")
-damage = 5.0
+damage = 30.0
 after_attack_stiff_time = 0.3
 listen_next_attack_time = 0.0
 change_face_able = false
@@ -2669,6 +2669,7 @@ save_faced = false
 [node name="Dialogue" parent="Interactions" unique_id=1747775360 instance=ExtResource("83_iu40y")]
 position = Vector2(17, -57)
 dialogue_config = ExtResource("108_4t8e8")
+cutscener_debug = null
 
 [node name="PlayerAttackTimeEvent" parent="Interactions" unique_id=1259941547 instance=ExtResource("97_yvey3")]
 unique_name_in_owner = true

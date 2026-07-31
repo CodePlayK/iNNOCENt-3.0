@@ -85,7 +85,7 @@
 [ext_resource type="Texture2D" uid="uid://dtibm26d7r0xv" path="res://test/sprite spped curve/The Blood King.png" id="73_ed0tt"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="77_3b2bs"]
 [ext_resource type="Script" uid="uid://ccmnjmmgttt31" path="res://core/npc/prototype/npc_state_manager/states/air.gd" id="77_pscmt"]
-[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContect.tscn" id="78_bnqhe"]
+[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="78_bnqhe"]
 [ext_resource type="Script" uid="uid://b5hxh5sri45lm" path="res://core/npc/prototype/npc_state_manager/states/lift.gd" id="78_dq1ue"]
 [ext_resource type="Script" uid="uid://dqmqxfw8v3qe" path="res://core/npc/prototype/npc_state_manager/states/fall.gd" id="79_n4pa0"]
 [ext_resource type="Resource" uid="uid://va5higdagugc" path="res://core/npc/blood_king/dilogues/test.tres" id="80_fawsm"]

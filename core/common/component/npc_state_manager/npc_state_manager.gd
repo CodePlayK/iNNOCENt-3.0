@@ -55,7 +55,7 @@ func on_master_ready(master) -> void:
 	npc = master.obj
 	anime.animes.clear()
 	EventBus.player_control_lock.connect(_on_npc_control_lock)
-	EventBus.npc_flollwing_player.connect(on_npc_flollwing_player)
+	EventBus.npc_following_player.connect(on_npc_following_player)
 	Debug.dprintinfo(DebugCT.dp("[NpcStateManager][%s]载入所有state" %npc.name,self))
 	get_childen_node(self)
 	for state:NpcsBaseState in all_states:
@@ -199,7 +199,8 @@ func on_hurt(obj:HitBox):
 		for bati in current_state.anime_config.bati_config:
 			barting = bati.bating
 			if barting:
-				if on_hurt2state:Debug.dprintwarn(DebugCT.dp("[NpcsStateManager][input_common_state]切换到[behitDamaged_state]",self))
+				if on_hurt2state:
+					Debug.dprintwarn(DebugCT.dp("[NpcsStateManager][input_common_state]切换到[behitDamaged_state]",self))
 				state2state(base_state.behitbati_state,current_state)
 				return
 	if obj.enable and ![base_state.dodge_state,base_state.lock_state,base_state.birth_state,base_state.death_state,base_state.behithard_state].has(current_state) and current_state.on_combat:
@@ -220,7 +221,7 @@ func get_state_by_name(state_name):
 		if str(state.name).begins_with(state_name):
 			return state
 ##更新npc跟踪玩家状态
-func on_npc_flollwing_player(name:String,flag:bool):
+func on_npc_following_player(name:String,flag:bool):
 	if npc.npc_name!=name:return
 	#有等到对话结束信号才执行，否则会直接隐藏对话框
 	await Dialogue.end_dialogue

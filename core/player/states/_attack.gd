@@ -66,8 +66,8 @@ func pre_enter() -> bool:
 	
 func enter():
 	player_attack_time_event.add_time()
-	player.hit_box.disable_shape()
-	player.hit_box.damage = damage
+	#player.hit_box.disable_shape()
+	#player.hit_box.damage = damage
 	super.enter()
 	state_manager.listener.reset()
 	to_next_attack = false
@@ -99,8 +99,8 @@ func physics_process(delta: float) -> BaseState:
 	
 func exit(state:BaseState):
 	super.exit(state)
-	player.hit_box.disable_shape()
-	player.hit_box.damage = 0
+	#player.hit_box.disable_shape()
+	#player.hit_box.damage = 0
 	attack_timer.stop()
 	PlayerState.hitting=false
 	#当没有执行切换到下一段攻击,且有配置下一段攻击,或者退出的下一个状态不是攻击状态时

@@ -23,7 +23,7 @@ func  _physics_process(delta: float) -> void:
 	if null!=move and move.x == 0 and obj.velocity.x == 0:
 		if obj.astar.get_cell_data(obj.current_cell,"direction") in [Vector2i(0,1)]:
 			Debug.dprintwarn(DebugCT.dp("[%s][%s]进行边缘移动补偿" %[obj.current_cell,obj.astar.cell_data_vec2i_dic[obj.current_cell]],self))
-			move.x = -obj.face_left_normalozed
+			move.x = -obj.face_left_normalized
 	apply_gravity(delta)
 	if move:
 		if is_changing_direction(move):

@@ -109,8 +109,8 @@ func set_offset(anime:AnimeConfig):
 			var time:float
 			for i in offset_config.end_frame - offset_config.start_frame:
 				time+=base.sprite_frames.get_frame_duration(current_animation,offset_config.start_frame+i)/ (13 * abs(base.get_playing_speed()))
-			tween.tween_property(animations,"position",-master.obj.face_left_normalozed*offset_config.target_vec2,time)
-			tween.parallel().tween_property(master.obj,"position",master.obj.position+master.obj.face_left_normalozed*offset_config.target_vec2,time)		
+			tween.tween_property(animations,"position",-master.obj.face_left_normalized*offset_config.target_vec2,time)
+			tween.parallel().tween_property(master.obj,"position",master.obj.position+master.obj.face_left_normalized*offset_config.target_vec2,time)		
 			await tween.finished
 			tween.kill()
 			cache_on(anime.state_name+str(offset_config.start_frame))

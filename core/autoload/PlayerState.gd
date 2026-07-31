@@ -9,7 +9,7 @@ var player_stamina_config:StaminaConfig
 var current_player_born_position:Vector2 = Vector2(-551.0,255.0,)
 
 ##玩家操控锁
-var player_control_lcok:bool=false
+var player_control_lock:bool=false
 ##面朝左
 var face_left:bool=false:
 	set(f):
@@ -23,7 +23,7 @@ var face_left_normalize:int=1:
 	set(i):
 		face_left_normalize = i
 		if player:
-			player.face_left_normalozed = i
+			player.face_left_normalized = i
 ##面朝左
 var running_left:bool=false:
 	set(f):
@@ -131,11 +131,11 @@ func enable_player_interactive_only():
 func enable_mouse_interactable_only():
 	get_tree().call_group_flags(2,"mouse_interactable_only","enable_all_interact",true)	
 ##禁用所有交互物	
-func disable_all_ineractable():
+func disable_all_interactable():
 	disable_mouse_interactable_only()
 	disable_player_interactive_only()
 ##启用所有交互物
-func enable_all_ineractable():
+func enable_all_interactable():
 	enable_player_interactive_only()
 	enable_mouse_interactable_only()
 ##重置player	
@@ -146,7 +146,7 @@ func preset_player():
 	denseable_flag=true
 	lightable_flag=true
 	player_be_hitting=false
-	player_control_lcok=false
+	player_control_lock=false
 ##添加到玩家交互锁中	
 func add_player_lock_interact_obj(obj):
 	if player_lock_interact_obj.keys().has(obj.name):

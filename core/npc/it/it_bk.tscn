@@ -87,7 +87,7 @@
 [ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/Test.gd" id="85_b4bxs"]
 [ext_resource type="Texture2D" uid="uid://dtibm26d7r0xv" path="res://test/sprite spped curve/The Blood King.png" id="86_c33r8"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="87_iy74r"]
-[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContect.tscn" id="88_0i3yd"]
+[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="88_0i3yd"]
 [ext_resource type="Resource" uid="uid://cywmr3gegvv5n" path="res://core/npc/it/dilogues/test.tres" id="89_828se"]
 
 [sub_resource type="Resource" id="Resource_six7i"]

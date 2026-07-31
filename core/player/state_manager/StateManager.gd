@@ -133,7 +133,7 @@ func _on_player_control_lock(state):
 		change_state(base_state.idle_state)
 		
 func input_common_state(event:InputEvent):
-	if PlayerState.player_control_lcok:return null
+	if PlayerState.player_control_lock:return null
 	if attack_reset and event.is_action_pressed("attack") and ![base_state.behitDamaged_state].has(current_state):
 		if stamina_config.current_stamina - base_state.attack0_state.stamina_cost>0:
 			if common_inputing:Debug.dprintwarn(DebugCT.dp("[StateManager][input_common_state]切换到[attack0]",self))

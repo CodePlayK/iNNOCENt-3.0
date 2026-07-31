@@ -59,7 +59,7 @@ var face_left:bool=true:
 	set(f):
 		face_left = f
 		PlayerState.face_left = f
-var face_left_normalozed
+var face_left_normalized
 var start_position
 var current_cell
 var last_cell
@@ -96,7 +96,7 @@ var astar_mode:ASTAR_MODE = ASTAR_MODE.CHASE
 func _ready() -> void:
 	EventBus.get_player_position.connect(_on_get_player_position)
 	EventBus.change_player_position.connect(_on_change_player_position)
-	EventBus.change_player_visiable.connect(_on_change_player_visiable)
+	EventBus.change_player_visible.connect(_on_change_player_visible)
 	EventBus.player_face_left.connect(_on_player_face_left)
 	position=PlayerState.current_player_born_position
 	start_position=get_position()
@@ -130,7 +130,7 @@ func player_is_dead():
 	if dead_switch:
 		set_position(start_position)
 	
-func _on_change_player_visiable()->void:
+func _on_change_player_visible()->void:
 	self.hide()
 
 func _on_change_player_position(player_position) -> void:
@@ -160,11 +160,11 @@ func _on_update_timer_timeout():
 func is_player_interact_being_locked():
 	if PlayerState.player_lock_interact_obj.is_empty():
 		if PlayerState.player_interact_being_locked:
-			PlayerState.enable_all_ineractable()
+			PlayerState.enable_all_interactable()
 			PlayerState.player_interact_being_locked=false
 	else:
 		if !PlayerState.player_interact_being_locked:	
-			PlayerState.disable_all_ineractable()
+			PlayerState.disable_all_interactable()
 			PlayerState.player_interact_being_locked=true
 
 func is_player_on_fighting():

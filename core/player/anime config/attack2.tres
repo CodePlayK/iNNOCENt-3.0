@@ -16,7 +16,7 @@ bati_end_frame = 2
 [sub_resource type="Resource" id="Resource_i2mq3"]
 script = ExtResource("1_lms4s")
 collision_index = 2
-damage = 2.0
+damage = 20.0
 
 [sub_resource type="Resource" id="Resource_3cyvp"]
 script = ExtResource("3_y6rgq")

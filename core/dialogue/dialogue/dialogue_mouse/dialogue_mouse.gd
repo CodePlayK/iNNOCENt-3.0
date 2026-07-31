@@ -6,7 +6,7 @@ extends Node2D
 	set(f):
 		cutscener_debug = f
 		if cutscener_runner:cutscener_runner.print_debug = cutscener_debug
-@onready var dialogue_balloon: DialigueBalloon = $DialogueBalloon
+@onready var dialogue_balloon: DialogueBalloon = $DialogueBalloon
 @onready var cutscener_runner: Node2D = $CutscenerRunner
 var current_title
 var obj

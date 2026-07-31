@@ -1,5 +1,5 @@
 extends Node2D
-class_name DialigueBalloon
+class_name DialogueBalloon
 @export var talker_name:Array[String]
 #region onrady
 @onready var balloon: Control = $Balloon

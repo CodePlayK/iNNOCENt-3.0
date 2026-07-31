@@ -6,8 +6,16 @@ func custom_key():
 #配置要写入存档的数据
 func custom_data():
 	save_data_config.data["hp"] = obj.health.current_health
-	
+	if obj.state_manager.current_state == obj.state_manager.base_state.death_state:
+		save_data_config.data["state"] = obj.state_manager.base_state.death_state.name
+	else :
+		save_data_config.data["state"] = "idle"
 #载入存档数据
 func load_custom_data(data:Dictionary):
 	obj.health.current_health = data["hp"]
-	obj.state_manager.string2state("idle",self)
+	if data["state"]=="death":
+		obj.state_manager.string2state(data["state"],self)
+	else:
+		obj.state_manager.string2state("birth",self)
+		
+	

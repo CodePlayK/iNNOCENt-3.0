@@ -15,7 +15,7 @@ signal cutscene_finished
 signal cutscene_is_playing
 signal play_cutscene_aniplayer
 signal play_screen_effect
-signal player_waked
+signal player_woke
 ##camera
 signal camera_shake
 ##level
@@ -29,7 +29,7 @@ signal player_health_update
 signal player_stamina_update
 signal get_player_position
 signal change_player_position
-signal change_player_visiable
+signal change_player_visible
 signal player_face_left
 signal player_control_lock
 signal player_on_fighting_changed
@@ -48,9 +48,9 @@ signal play_SE
 signal play_BGM
 ##obj
 signal obj_set_face_left
-signal npc_behithard
+signal npc_behit_hard
 signal move_2_vec2
-signal npc_flollwing_player
+signal npc_following_player
 
 func _change_level(level_id:LevelState.LEVELS):
 	change_level.emit(level_id)
@@ -87,8 +87,8 @@ func _player_face_changed():
 	player_face_changed.emit()
 func _obj_set_face_left(name,left_flag:bool):
 	obj_set_face_left.emit(name,left_flag)
-func _npc_behithard(obj):
-	npc_behithard.emit(obj)
+func _npc_behit_hard(obj):
+	npc_behit_hard.emit(obj)
 func _move_2_vec2(name:String,pos:Vector2,time:float=1):
 	move_2_vec2.emit(name,pos,time)
 func _camera_shake(strength:float,SHAKE_DECAY:float):
@@ -108,8 +108,8 @@ func _play_cutscene_aniplayer(animation_name:String):
 	play_cutscene_aniplayer.emit(animation_name)
 func _play_screen_effect(e_name:String,args:Array = []):
 	play_screen_effect.emit(e_name,args)
-func _player_waked():
-	player_waked.emit()
+func _player_woke():
+	player_woke.emit()
 func _txt_his_load_fin():
 	txt_his_load_fin.emit()
 func _player_running_changed():
@@ -118,5 +118,5 @@ func _create_character_box(character_box_config:CharacterBoxConfig):
 	create_character_box.emit(character_box_config)
 func _remove_character_box(character_box_config:CharacterBoxConfig,exist_level:LevelState.LEVELS):
 	remove_character_box.emit(character_box_config,exist_level)
-func _npc_flollwing_player(npc_name:String,flag:bool):
-	npc_flollwing_player.emit(npc_name,flag)
+func _npc_following_player(npc_name:String,flag:bool):
+	npc_following_player.emit(npc_name,flag)

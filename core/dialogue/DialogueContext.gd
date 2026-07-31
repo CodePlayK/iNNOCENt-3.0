@@ -1,12 +1,12 @@
 @icon("res://core/common/resource/icon/dialogue.svg")
 extends Node2D
-class_name DialogueContect
+class_name DialogueContext
 @export var dialogue_config:DialogueConfig
 @export var cutscener_debug:bool = false:
 	set(f):
 		cutscener_debug = f
 		if cutscener_runner:cutscener_runner.print_debug = cutscener_debug
-@onready var dialogue_balloon: DialigueBalloon = $DialogueBalloon
+@onready var dialogue_balloon: DialogueBalloon = $DialogueBalloon
 @onready var cutscener_runner: Node2D = $CutscenerRunner
 var current_title
 var obj

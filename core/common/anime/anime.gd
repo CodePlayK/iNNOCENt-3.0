@@ -143,8 +143,8 @@ func set_offset(anime:AnimeConfig):
 			time = get_frame2frame_time(offset_config.start_frame,offset_config.end_frame)/aniplayer.speed_scale
 			var tween = animations.create_tween()
 			offset_tweens.append(tween)
-			tween.tween_property(animations,"position",animations.position-Vector2(master.obj.face_left_normalozed*offset_config.target_vec2.x,offset_config.target_vec2.y),time)
-			tween.parallel().tween_property(master.obj,"position",master.obj.position+Vector2(master.obj.face_left_normalozed*offset_config.target_vec2.x,offset_config.target_vec2.y),time)		
+			tween.tween_property(animations,"position",animations.position-Vector2(master.obj.face_left_normalized*offset_config.target_vec2.x,offset_config.target_vec2.y),time)
+			tween.parallel().tween_property(master.obj,"position",master.obj.position+Vector2(master.obj.face_left_normalized*offset_config.target_vec2.x,offset_config.target_vec2.y),time)		
 			await tween.finished
 			tween.kill()
 			cache_on(anime.state_name+str(offset_config.start_frame))

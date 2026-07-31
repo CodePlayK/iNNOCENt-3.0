@@ -45,7 +45,7 @@ func on_hurt(area:HitBox):
 		return
 	if area.blockable:
 		if area.damage_when_blocked:
-			EventBus._npc_behithard(area.obj)
+			EventBus._npc_behit_hard(area.obj)
 		EventBus._camera_shake(camera_shake_strength,camera_shake_decay)
 		state_manager.state2state(behitDenseSafed_state,self)
 	else :

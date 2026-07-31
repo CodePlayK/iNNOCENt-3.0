@@ -14,7 +14,7 @@ func _ready() -> void:
 	highlight_out_line.init(outline)
 	var dialogue
 	for n in get_children():
-		if n is DialogueContect or n is DialogueMouse:
+		if n is DialogueContext or n is DialogueMouse:
 			dialogue = n
 			break
 	if dialogue:dialogue.init(self)

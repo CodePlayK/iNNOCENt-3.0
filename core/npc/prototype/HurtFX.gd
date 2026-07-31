@@ -9,7 +9,7 @@ func on_master_ready(master):
 
 func play_fx(fx_name:String):
 	show()
-	#base.scale.x = -obj.obj_2_player_side.get_on_player_left_normalized()*abs(base.scale.x)*obj.face_left_normalozed
+	#base.scale.x = -obj.obj_2_player_side.get_on_player_left_normalized()*abs(base.scale.x)*obj.face_left_normalized
 	#base.frame = 0
 	aniplayer.play(fx_name)
 
