@@ -42,6 +42,7 @@ signal player_running_changed
 ##ui
 signal create_character_box
 signal remove_character_box
+signal remove_all_character_box
 signal test_layer_visiable
 ##sound
 signal play_SE_LOOP
@@ -123,3 +124,5 @@ func _npc_following_player(npc_name:String,flag:bool):
 	npc_following_player.emit(npc_name,flag)
 func _test_layer_visiable(flag:bool):
 	test_layer_visiable.emit()
+func _remove_all_character_box():
+	remove_all_character_box.emit()

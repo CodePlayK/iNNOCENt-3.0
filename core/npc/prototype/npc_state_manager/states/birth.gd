@@ -3,7 +3,6 @@ extends NpcsCombatState
 
 func enter():
 	npc.velocity=Vector2.ZERO
-	create_character_box.remove_character_box()
 	create_character_box.create_character_box()
 	npc.set_visible(true)
 	super.enter()

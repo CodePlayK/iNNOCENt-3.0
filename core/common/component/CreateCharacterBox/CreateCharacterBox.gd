@@ -7,11 +7,12 @@ var obj
 var exist_level:LevelState.LEVELS
 
 func on_master_ready(master:Master):
-	master.obj.tree_exiting.connect(remove_character_box)
+	EventBus.remove_all_character_box.connect(remove_all_character_box)
 	obj = master.obj
 	exist_level = LevelState.current_level
-	if create_on_load:
-		create_character_box()
+	#if create_on_load:
+		#create_character_box()
+		
 func _on_timer_timeout() -> void:
 	EventBus._create_character_box(obj.character_box_config)
 	
@@ -20,4 +21,9 @@ func create_character_box():
 
 func remove_character_box():
 	if !obj:return
+	EventBus._remove_character_box(obj.character_box_config,exist_level)
+func remove_all_character_box():
+	if !obj:return
+	if exist_level == LevelState.current_level:
+		return
 	EventBus._remove_character_box(obj.character_box_config,exist_level)

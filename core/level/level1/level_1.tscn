@@ -25,10 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://c5xaw4oi56wfr" path="res://core/npc/blood_king/blood_king.tscn" id="23_qw8pk"]
 [ext_resource type="Script" uid="uid://cd7hg22t3yjur" path="res://core/common/resource/npc/npc_data.gd" id="24_sl4an"]
 [ext_resource type="Resource" uid="uid://ww01r8pk0y5u" path="res://core/npc/blood_king/dilogues/bloodking2_dialogue.tres" id="25_bfyq3"]
-[ext_resource type="Resource" uid="uid://bokwhaxx5h1ll" path="res://core/npc/blood_king/data/blooad2_king_sdc.tres" id="26_wvoac"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="26_3nxjq"]
 [ext_resource type="Resource" uid="uid://bi52pxfibdl5r" path="res://core/npc/blood_king/resource/bloodking2_character_box_config.tres" id="27_msxcb"]
 [ext_resource type="Resource" uid="uid://bxi5abugxwqv2" path="res://core/npc/blood_king/dilogues/bloodking1_dialogue.tres" id="28_i3856"]
-[ext_resource type="Resource" uid="uid://c53hxlnm3yy0u" path="res://core/npc/blood_king/data/blooad1_king_sdc.tres" id="29_osb2u"]
 [ext_resource type="Resource" uid="uid://behwdfqux0bqr" path="res://core/npc/blood_king/resource/bloodking1_character_box_config.tres" id="30_rlavq"]
 [ext_resource type="PackedScene" uid="uid://dlacte5mobc5k" path="res://core/npc/it/it.tscn" id="31_4odf1"]
 [ext_resource type="PackedScene" uid="uid://dejs55bavqfkl" path="res://core/player/player.tscn" id="32_x1jmj"]
@@ -1324,9 +1323,23 @@ size = Vector2(80, 453)
 [sub_resource type="Resource" id="Resource_nkocd"]
 script = ExtResource("24_sl4an")
 
+[sub_resource type="Resource" id="Resource_mqnwf"]
+resource_local_to_scene = true
+script = ExtResource("26_3nxjq")
+group = 1
+key = "bloodking2"
+metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
+
 [sub_resource type="Resource" id="Resource_xvoeb"]
 script = ExtResource("24_sl4an")
 health = 100.0
+
+[sub_resource type="Resource" id="Resource_mmfhg"]
+resource_local_to_scene = true
+script = ExtResource("26_3nxjq")
+group = 1
+key = "bloodking1"
+metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8m1d"]
 size = Vector2(84, 20)
@@ -2572,6 +2585,7 @@ target_layer = "ParallaxLayer_6"
 offset_scale = 0.5
 
 [node name="ground_floor" type="TileMapLayer" parent="Parallax/ParallaxLayer_6/Tile" unique_id=417081642]
+visible = false
 modulate = Color(1, 1, 1, 0.3254902)
 light_mask = 33
 z_index = 5
@@ -2615,7 +2629,7 @@ position = Vector2(1266, 262)
 npc_name = "bloodking2"
 data = SubResource("Resource_nkocd")
 dialogue_config = ExtResource("25_bfyq3")
-save_data_config = ExtResource("26_wvoac")
+save_data_config = SubResource("Resource_mqnwf")
 character_box_config = ExtResource("27_msxcb")
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar2")
@@ -2637,7 +2651,7 @@ position = Vector2(1386, 271)
 npc_name = "bloodking1"
 data = SubResource("Resource_xvoeb")
 dialogue_config = ExtResource("28_i3856")
-save_data_config = ExtResource("29_osb2u")
+save_data_config = SubResource("Resource_mmfhg")
 character_box_config = ExtResource("30_rlavq")
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar")

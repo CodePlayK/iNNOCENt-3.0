@@ -109,6 +109,10 @@
 [sub_resource type="Resource" id="Resource_six7i"]
 script = ExtResource("2_ntogp")
 
+[sub_resource type="Resource" id="Resource_58l7j"]
+script = ExtResource("103_dmcg1")
+metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
+
 [sub_resource type="LabelSettings" id="LabelSettings_wlnom"]
 font = ExtResource("10_y6loe")
 
@@ -6704,6 +6708,7 @@ safe_margin = 1.0
 script = ExtResource("1_342ms")
 npc_name = "npc"
 data = SubResource("Resource_six7i")
+save_data_config = SubResource("Resource_58l7j")
 starting_state = "lock"
 starting1_state = "birth"
 running_state = "patrol"

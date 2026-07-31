@@ -54,7 +54,7 @@ func _on_change_level(level_id):
 		return
 	LevelState.last_level=LevelState.current_level
 	LevelState.current_level=level_id
-
+	EventBus._remove_all_character_box()
 	EventBus._test_layer_visiable(false)
 	if LevelState.current_level_node:
 		await LevelState.current_level_node.pause()

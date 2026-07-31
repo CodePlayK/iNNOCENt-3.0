@@ -17,6 +17,7 @@ var right_ct:int=0
 
 func _init() -> void:
 	EventBus.create_character_box.connect(on_create_character_box)
+	
 #创建角色box事件
 func on_create_character_box(character_box_config:CharacterBoxConfig):
 	if !character_box_config:
