@@ -18,7 +18,6 @@ func _ready():
 	resfile_2_userfile(src_path,des_path)
 	dic_level_path[LevelState.LEVELS.LEVEL_0]=LevelState.LEVEL_0_PATH
 	dic_level_path[LevelState.LEVELS.LEVEL_1]=LevelState.LEVEL_1_PATH
-	
 	#载入cutscener配置目录，判断当前运行是否为cutscener
 	return
 	var config = load_json(CutscenerGlobal.CONFIG_DATA_FILE_PATH)

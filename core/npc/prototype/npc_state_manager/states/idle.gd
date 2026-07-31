@@ -1,7 +1,6 @@
 extends NpcsBaseState
 @export_group("运动配置")
 @export var enable_physics:bool = true
-@export var follow_distance:int = 1
 @onready var follow_timer: Timer = $FollowTimer
 
 func enter():
@@ -25,6 +24,7 @@ func exit(next_state:NpcsBaseState):
 	follow_timer.stop()
 	
 func _on_follow_timer_timeout() -> void:
+	if !npc.on_following:return
 	npc.astar.target_offset_cell_vec2i = PlayerState.running_left_normalize*npc.following_offset_vec2i
 	if state_manager.current_state == self:
 		if npc.astar.only_update_on_floor and !PlayerState.is_player_on_floor():return

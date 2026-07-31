@@ -6,10 +6,6 @@ class_name Levels
 const clazz_name = "Levels"
 ##房间唯一id,level准备完毕后配置于[method _ready]
 @export var level_id:LevelState.LEVELS
-##房间右边界Door的[Player]出生点
-@export var marker_right_door:Marker2D
-##房间右边界Door的[Player]出生点
-@export var marker_left_door:Marker2D
 ##@experimental
 ##房间默认播放的环境音[br][code]Array["音效名",音量][/code]
 var atmosphere_se_dic:Array[Array]
@@ -18,7 +14,7 @@ var atmosphere_se_dic:Array[Array]
 ##@experimental
 ##Player在当前房间的默认[code]z index[/code][br]
 ##配置于[method load_player_position]
-var player_z_index_preset:int=0 
+@export var player_z_index_preset:int=0 
 ##[Player]的相机,兼为过场动画相机
 @onready var player_camera = %PlayerCamera
 ##当前房间当前时刻的平均颜色,详见[ScreenColor]

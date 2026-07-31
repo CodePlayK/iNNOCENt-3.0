@@ -51,8 +51,11 @@ func _ready() -> void:
 	margin.size = Vector2.ZERO
 	response_margin.size = Vector2.ZERO
 	DialogueManager.mutated.connect(_on_mutation)
+	
+	
 func dialogue_finished():
-	hide_balloon()
+	hide_balloon()	
+	
 func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:DialogueLine):
 	if !talker_name.has(current_talker):
 		return
@@ -205,7 +208,7 @@ func get_responses() -> Array:
 ### Signals
 func _on_mutation(mutation:Dictionary) -> void:
 	is_waiting_for_input = false
-	hide_balloon()
+	#hide_balloon()
 
 func _on_response_mouse_entered(item: Control) -> void:
 	if !enable:return

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c0hnf7o0i1a1"]
+
+[ext_resource type="Script" uid="uid://0k2187yraevn" path="res://core/common/component/level_changer/level_changer.gd" id="1_yc7fs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07drm"]
+size = Vector2(80, 271)
+
+[node name="Area2D" type="Area2D" unique_id=199191243]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_yc7fs")
+target_level = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=159780818]
+position = Vector2(5, -62.5)
+shape = SubResource("RectangleShape2D_07drm")
+debug_color = Color(0.92941177, 0.21960784, 0.4, 0.50980395)

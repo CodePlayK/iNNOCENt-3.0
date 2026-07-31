@@ -3044,7 +3044,7 @@ tracks/4/keys = {
 "values": [5, 35, 36, 37, 38, 39, 40, 41]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmyxg"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iic6y"]
 _data = {
 &"Hit 1": SubResource("Animation_o5pd2"),
 &"Hit 1 Blood": SubResource("Animation_eijvq"),
@@ -6739,7 +6739,7 @@ air_fric2acc_scale = 7.0
 [node name="Master" parent="." unique_id=760131985 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("3_gfoj1")]
 unique_name_in_owner = true
 obj = NodePath("..")
-connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../FollowAnimations/HurtFX"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox")]
+connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox")]
 metadata/_edit_pinned_properties_ = [&"connects"]
 
 [node name="Config" type="Node2D" parent="." unique_id=491672595]
@@ -6831,6 +6831,7 @@ target = NodePath("../../../..")
 weight_machine_ui = NodePath("../WeightMachineUi")
 
 [node name="Components" parent="." unique_id=943967071 instance=ExtResource("14_a1bll")]
+visible = false
 
 [node name="Areas" type="Node2D" parent="Components" unique_id=1757821694]
 
@@ -7131,23 +7132,20 @@ root_node = NodePath("../../../../../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/FXs/BloodFloor/HitBox" unique_id=304295484]
 
-[node name="FollowAnimations" parent="." unique_id=98368116 instance=ExtResource("28_dpg8q")]
-
-[node name="HurtFX" type="Node2D" parent="FollowAnimations" unique_id=1949519584]
+[node name="HurtFX" type="Node2D" parent="Animations/FXs" unique_id=788290771]
 light_mask = 0
 script = ExtResource("36_3rumx")
 
-[node name="aniplayer" type="AnimationPlayer" parent="FollowAnimations/HurtFX" unique_id=292021849]
+[node name="aniplayer" type="AnimationPlayer" parent="Animations/FXs/HurtFX" unique_id=332450370]
 root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_qmyxg")
+libraries/ = SubResource("AnimationLibrary_iic6y")
 
-[node name="HurtFX_base" type="Sprite2D" parent="FollowAnimations/HurtFX" unique_id=290337808]
+[node name="HurtFX_base" type="Sprite2D" parent="Animations/FXs/HurtFX" unique_id=211876820]
 texture_filter = 1
 position = Vector2(-12.5, -22.5)
 texture = ExtResource("37_ifdpf")
 hframes = 11
 vframes = 10
-frame = 49
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",
@@ -7302,21 +7300,8 @@ script = ExtResource("56_8c3ig")
 
 [node name="idle" type="Node" parent="NpcStateManager/base" unique_id=820482523]
 script = ExtResource("57_krdwa")
-enable_physics = null
-follow_distance = null
-is_normal_state = null
-on_combat = null
-on_fighting = null
-enable_player_detection = null
 enable_self = true
 interact2player = true
-player_interact_lock = null
-change_animation = null
-change_sprite_color = null
-pause_on_change_sprite_color = null
-sprite_color = null
-stamina_cost = null
-need_stamina = null
 anime_config = ExtResource("58_a3tr1")
 
 [node name="FollowTimer" type="Timer" parent="NpcStateManager/base/idle" unique_id=1847390560]
@@ -7511,19 +7496,9 @@ script = ExtResource("88_a4n65")
 
 [node name="lift" type="Node" parent="NpcStateManager/base/air" unique_id=833368194]
 script = ExtResource("89_abfot")
-is_normal_state = null
 on_combat = true
 on_fighting = true
 enable_player_detection = true
-enable_self = null
-interact2player = null
-player_interact_lock = null
-change_animation = null
-change_sprite_color = null
-pause_on_change_sprite_color = null
-sprite_color = null
-stamina_cost = null
-need_stamina = null
 anime_config = SubResource("Resource_fm88g")
 
 [node name="Timer" type="Timer" parent="NpcStateManager/base/air/lift" unique_id=1379339879]
@@ -7531,19 +7506,9 @@ wait_time = 0.2
 
 [node name="fall" type="Node" parent="NpcStateManager/base/air" unique_id=224754953]
 script = ExtResource("90_plgcc")
-is_normal_state = null
 on_combat = true
 on_fighting = true
 enable_player_detection = true
-enable_self = null
-interact2player = null
-player_interact_lock = null
-change_animation = null
-change_sprite_color = null
-pause_on_change_sprite_color = null
-sprite_color = null
-stamina_cost = null
-need_stamina = null
 anime_config = SubResource("Resource_nhkja")
 
 [node name="Timer" type="Timer" parent="NpcStateManager/base/air/fall" unique_id=773065845]
@@ -7652,7 +7617,7 @@ metadata/_aseprite_wizard_config_ = {
 [node name="Events" type="Node" parent="." unique_id=1119527216]
 
 [connection signal="frame_changed" from="Animations/Anime/base" to="Animations/Anime" method="_on_base_frame_changed"]
-[connection signal="animation_finished" from="FollowAnimations/HurtFX/aniplayer" to="FollowAnimations/HurtFX" method="_on_aniplayer_animation_finished"]
+[connection signal="animation_finished" from="Animations/FXs/HurtFX/aniplayer" to="Animations/FXs/HurtFX" method="_on_aniplayer_animation_finished"]
 [connection signal="timeout" from="NpcStateManager/stack/behitbati/Timer" to="NpcStateManager/stack/behitbati" method="_on_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/idle/FollowTimer" to="NpcStateManager/base/idle" method="_on_follow_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/patrol/PatrolTimer" to="NpcStateManager/base/combat/patrol" method="_on_patrol_timer_timeout"]

@@ -45,7 +45,9 @@
 [ext_resource type="Resource" uid="uid://c1b7bivetoi1j" path="res://core/item/resource/bandage.tres" id="43_3lv67"]
 [ext_resource type="Resource" uid="uid://6tce10o7nubg" path="res://core/item/resource/key.tres" id="44_wo8kj"]
 [ext_resource type="Resource" uid="uid://dgkty7bgtc2q" path="res://core/item/resource/blueprint2.tres" id="45_he3ck"]
+[ext_resource type="PackedScene" uid="uid://c0hnf7o0i1a1" path="res://core/common/component/level_changer/level_changer.tscn" id="46_3nxjq"]
 [ext_resource type="Material" uid="uid://b4ag5pa4kipx8" path="res://core/common/resource/material/transparent_tile.tres" id="46_aavif"]
+[ext_resource type="Script" uid="uid://cwoinddfmepd0" path="res://core/common/component/components/components.gd" id="46_mqnwf"]
 [ext_resource type="TileSet" uid="uid://b0sm4e25wo314" path="res://core/common/resource/texture/forest/dark-trees.tres" id="47_n7dr3"]
 [ext_resource type="PackedScene" uid="uid://ccwjpeftahknr" path="res://core/common/component/auto transparent/auto_transparent.tscn" id="48_jsuml"]
 [ext_resource type="Texture2D" uid="uid://bgw0iqqo0u0li" path="res://core/common/resource/texture/forest/tree top bot/tree top bot.png" id="49_abrdt"]
@@ -2261,6 +2263,7 @@ sources/0 = SubResource("TileSetAtlasSource_0xlwh")
 
 [node name="Level1" type="Node2D" unique_id=1086752988]
 script = ExtResource("1_8dbmb")
+level_id = 1
 
 [node name="Components" parent="." unique_id=1927653403 instance=ExtResource("2_8ahm1")]
 
@@ -2802,6 +2805,34 @@ item_config = ExtResource("45_he3ck")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ParallaxLayer_6/Items/CollectableItem8/CollectHint" unique_id=1819539476]
 position = Vector2(2.5, 9)
 shape = SubResource("RectangleShape2D_gfhxx")
+
+[node name="LevelChangers" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=196978350]
+script = ExtResource("46_mqnwf")
+metadata/_custom_type_script = "uid://cwoinddfmepd0"
+
+[node name="LeftDoor" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=199191243 instance=ExtResource("46_3nxjq")]
+position = Vector2(-894, 204)
+target_level = 0
+target_born_position = Vector2(1939, 259)
+target_born_position_name = "RightDoor"
+
+[node name="RightDoor" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=1614776636 instance=ExtResource("46_3nxjq")]
+position = Vector2(2077, 222)
+target_level = 0
+target_born_position = Vector2(-785, 259)
+target_born_position_name = "LeftDoor"
+
+[node name="BornMarks" type="Node2D" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=2068885130]
+script = ExtResource("17_n01hi")
+metadata/_custom_type_script = "uid://j151apq5fxj0"
+
+[node name="LeftDoor" type="Marker2D" parent="Parallax/ParallaxLayer_6/LevelChangers/BornMarks" unique_id=946061498]
+position = Vector2(-785, 259)
+gizmo_extents = 293.0
+
+[node name="RightDoor" type="Marker2D" parent="Parallax/ParallaxLayer_6/LevelChangers/BornMarks" unique_id=1287732551]
+position = Vector2(1939, 259)
+gizmo_extents = 293.0
 
 [node name="ParallaxLayer_7" parent="Parallax" unique_id=32424222 instance=ExtResource("5_bqdgw")]
 

@@ -50,6 +50,7 @@ signal play_BGM
 signal obj_set_face_left
 signal npc_behithard
 signal move_2_vec2
+signal npc_flollwing_player
 
 func _change_level(level_id:LevelState.LEVELS):
 	change_level.emit(level_id)
@@ -117,3 +118,5 @@ func _create_character_box(character_box_config:CharacterBoxConfig):
 	create_character_box.emit(character_box_config)
 func _remove_character_box(character_box_config:CharacterBoxConfig,exist_level:LevelState.LEVELS):
 	remove_character_box.emit(character_box_config,exist_level)
+func _npc_flollwing_player(npc_name:String,flag:bool):
+	npc_flollwing_player.emit(npc_name,flag)

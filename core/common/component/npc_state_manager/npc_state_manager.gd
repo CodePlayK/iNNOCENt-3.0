@@ -55,6 +55,7 @@ func on_master_ready(master) -> void:
 	npc = master.obj
 	anime.animes.clear()
 	EventBus.player_control_lock.connect(_on_npc_control_lock)
+	EventBus.npc_flollwing_player.connect(on_npc_flollwing_player)
 	Debug.dprintinfo(DebugCT.dp("[NpcStateManager][%s]载入所有state" %npc.name,self))
 	get_childen_node(self)
 	for state:NpcsBaseState in all_states:
@@ -218,3 +219,13 @@ func get_state_by_name(state_name):
 	for state in all_states:
 		if str(state.name).begins_with(state_name):
 			return state
+##更新npc跟踪玩家状态
+func on_npc_flollwing_player(name:String,flag:bool):
+	if npc.npc_name!=name:return
+	#有等到对话结束信号才执行，否则会直接隐藏对话框
+	await Dialogue.end_dialogue
+	if flag:
+		change_state(base_state.follow_state)
+	else :
+		npc.on_following=false
+		change_state(base_state.idle_state)

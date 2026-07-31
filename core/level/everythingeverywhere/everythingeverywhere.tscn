@@ -296,9 +296,9 @@ script = ExtResource("1_celhk")
 
 [node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
 unique_name_in_owner = true
+ignore_rotation = false
 zoom = Vector2(3, 3)
-process_callback = 0
-limit_left = -940
+limit_left = -891
 limit_top = -165
 limit_right = 2555
 limit_bottom = 417
@@ -307,11 +307,13 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 drag_horizontal_offset = 0.5
 drag_left_margin = 0.5
-drag_right_margin = 0.54
+drag_right_margin = 0.5
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("2_celhk")
-SHAKE_DECAY = 0.118
+SHAKE_DECAY = 0.07
+SHAKE_ANGLE_MULTIPLIER = 0.287
+SHAKE_POSITION_MULTIPLIER = 0.85
 FLASH_LAYER = 2
 
 [node name="CutsceneCamera" parent="Setting/PlayerCamera" unique_id=1018596231 instance=ExtResource("3_ydae1")]

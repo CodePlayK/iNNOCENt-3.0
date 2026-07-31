@@ -3,6 +3,7 @@ var following_offset_vec2i:Vector2i
 
 func enter():
 	super.enter()
+	npc.on_following=true
 	following_offset_vec2i=npc.following_offset_vec2i
 	npc.astar_mode = npc.ASTAR_MODE.FOLLOW
 	npc.speed_map_2_animation.set_enabel(self,true)

@@ -5,6 +5,9 @@ var player:Player
 var player_health_config:HealthConfig
 var player_stamina_config:StaminaConfig
 
+#位置
+var current_player_born_position:Vector2 = Vector2(-551.0,255.0,)
+
 ##玩家操控锁
 var player_control_lcok:bool=false
 ##面朝左
