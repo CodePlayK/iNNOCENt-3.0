@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="iNNOCENt 3.0"
-run/main_scene="uid://j145gtkvw2ri"
+run/main_scene="uid://dtohg4g1fxwh5"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -33,7 +33,6 @@ DataState="*res://core/autoload/DataState.gd"
 Global="*res://core/autoload/Global.gd"
 NpcState="*res://core/autoload/NpcState.gd"
 Debug="*res://core/autoload/debug/debug2.tscn"
-Everything42="res://core/common/level_loader/everything_42.tscn"
 Music="*res://core/common/component/music/music.tscn"
 CutscenerGlobal="*uid://dii6bn0hay6i8"
 UiState="*res://core/autoload/UIState.gd"

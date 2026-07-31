@@ -1,0 +1,934 @@
+[gd_scene format=3 uid="uid://dtohg4g1fxwh5"]
+
+[ext_resource type="PackedScene" uid="uid://cnvk27yipehtt" path="res://core/level/level0/level_0.tscn" id="1_10cao"]
+[ext_resource type="Script" uid="uid://80wlds422nju" path="res://core/level/everythingeverywhere/everythingeverywhere.gd" id="1_celhk"]
+[ext_resource type="Script" uid="uid://cixr4woh11vxn" path="res://addons/camera_2d_plus/objects/camera_2d_plus/camera_2d_plus_script.gd" id="2_celhk"]
+[ext_resource type="PackedScene" uid="uid://crnojtb7i7g1d" path="res://core/common/component/cutscene_camera/cutscene_camera.tscn" id="3_ydae1"]
+[ext_resource type="PackedScene" uid="uid://y5n6syvse4uy" path="res://core/common/component/camrea_chage_face/camrea_chage_face.tscn" id="4_jtj5p"]
+[ext_resource type="Script" uid="uid://b0kebmonpjnqj" path="res://core/level/everythingeverywhere/PlayerCameraAniplayer.gd" id="5_i74u8"]
+[ext_resource type="Environment" uid="uid://cec60t840ib8d" path="res://core/level/everythingeverywhere/setting/room_1_we.tres" id="6_7ue4y"]
+[ext_resource type="Script" uid="uid://bljurs1rdekui" path="res://core/common/component/level_ui/level_ui.gd" id="7_egao5"]
+[ext_resource type="Resource" uid="uid://cjos3jdrktjxn" path="res://core/player/attributes/player_stamina.tres" id="8_se05l"]
+[ext_resource type="Theme" uid="uid://caxybq53x37tw" path="res://core/common/ui/mind_txt_box/mind_txt_box.tres" id="9_fl6fi"]
+[ext_resource type="Script" uid="uid://bp7x1igcxd25c" path="res://core/common/ui/mind_txt_box/MindTxtBox.gd" id="10_bg25y"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_um3ab"]
+[ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="12_03555"]
+[ext_resource type="Theme" uid="uid://6qf0goyq51v6" path="res://core/common/ui/item_txt_box/item_txt_box.tres" id="13_iebd7"]
+[ext_resource type="Script" uid="uid://c8ig3wyy7fbpe" path="res://core/common/ui/item_txt_box/ItemTxtBox.gd" id="14_eynxe"]
+[ext_resource type="PackedScene" uid="uid://dr3sv5p0vd2na" path="res://core/autoload/EventData/events.tscn" id="15_0guur"]
+[ext_resource type="Script" uid="uid://dfuwy7thfv5dg" path="res://core/events/FlashlightCountEvent.gd" id="16_yvqr4"]
+[ext_resource type="Resource" uid="uid://kb1ml1x6xud" path="res://core/events/FlashlightCountEvent.tres" id="17_53xqx"]
+[ext_resource type="PackedScene" uid="uid://osw374to73sm" path="res://core/common/component/ui bar/ui_bar.tscn" id="18_b5c8y"]
+[ext_resource type="PackedScene" uid="uid://cpebs4ek1lfvb" path="res://core/common/ui/state_box/state_box.tscn" id="19_q484j"]
+[ext_resource type="PackedScene" uid="uid://dwrkrtl7ks4vh" path="res://core/common/ui/txt_history_box/txt_history_box.tscn" id="20_xtiwo"]
+[ext_resource type="Script" uid="uid://bgnhte7evfn18" path="res://core/level/everythingeverywhere/ScreenEffect.gd" id="21_lj80u"]
+[ext_resource type="Shader" uid="uid://beth4v0fkqbsf" path="res://core/common/shader/screen ctr.gdshader" id="22_b6isf"]
+[ext_resource type="Script" uid="uid://dquny67va6ekv" path="res://core/common/cutscene_fx/eyes.gd" id="23_8whex"]
+[ext_resource type="Script" uid="uid://dndomblipxr46" path="res://core/level/character_box_canvas.gd" id="24_3yn66"]
+[ext_resource type="PackedScene" uid="uid://dkgxdrht840tp" path="res://core/common/ui/character_dialogue_box/character_box.tscn" id="25_wck0l"]
+[ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="26_535gr"]
+[ext_resource type="Script" uid="uid://cipihu1s4ae6r" path="res://core/common/ui/character_dialogue_box/CharacterDialogueBox.gd" id="27_ttino"]
+[ext_resource type="Script" uid="uid://ci4y1snlap0ev" path="res://test/test_canvas.gd" id="28_ghsbg"]
+[ext_resource type="Script" uid="uid://dheawyf6jpi38" path="res://core/level/everythingeverywhere/test/Test.gd" id="29_imah0"]
+[ext_resource type="Resource" uid="uid://onb8u2j1uao2" path="res://test/dialogue/test1.dialogue" id="30_ylxf2"]
+[ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="31_1gr5e"]
+[ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="32_0sbtr"]
+[ext_resource type="FontFile" uid="uid://cgcv38l7xieq8" path="res://core/common/resource/font/凤凰点阵体 16px.ttf" id="33_0dkxc"]
+[ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="34_glnfy"]
+[ext_resource type="Texture2D" uid="uid://dwdj4u348kh38" path="res://core/player/resource/header_test.tres" id="35_l7ngx"]
+[ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="36_2ea2m"]
+[ext_resource type="Script" uid="uid://b4otcmujx4vs6" path="res://test/NpcPath/PatrolArea.gd" id="37_as7kb"]
+
+[sub_resource type="Animation" id="Animation_i8m7f"]
+resource_name = "0_0_0"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Level0/Parallax/ParallaxLayer_6/Player/CameraMark:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -800), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Setting/PlayerCamera:limit_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-99999999, -165]
+}
+
+[sub_resource type="Animation" id="Animation_55ti7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Level0/Parallax/ParallaxLayer_6/Player/CameraMark:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Setting/PlayerCamera:limit_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-165]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_onngr"]
+_data = {
+&"0_0_0": SubResource("Animation_i8m7f"),
+&"RESET": SubResource("Animation_55ti7")
+}
+
+[sub_resource type="Gradient" id="Gradient_my7k5"]
+colors = PackedColorArray(0.012617188, 0.012617188, 0.012617188, 1, 2.3133948, 2.3133948, 2.3133948, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b1qy0"]
+gradient = SubResource("Gradient_my7k5")
+width = 1920
+height = 1440
+use_hdr = true
+fill_from = Vector2(0.5106838, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_04lay"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.12713936, 0.6356968, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.71671146, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3g2uu"]
+gradient = SubResource("Gradient_04lay")
+width = 1920
+height = 400
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_8pgwe"]
+offsets = PackedFloat32Array(0, 0.46857142, 0.74285716)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.780392, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t3o0j"]
+gradient = SubResource("Gradient_8pgwe")
+width = 1920
+height = 646
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
+shader = ExtResource("22_b6isf")
+shader_parameter/scanlines_opacity = 0.0310000014725
+shader_parameter/scanlines_width = 0.2470000117325
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.145
+shader_parameter/roll_size = 5.03200023902
+shader_parameter/roll_variation = 1.50100006803762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0350000016625
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.0410000019475
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.21200001007
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="Gradient" id="Gradient_her8m"]
+colors = PackedColorArray(0, 0, 0, 0.0941176, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_usyv6"]
+gradient = SubResource("Gradient_her8m")
+width = 960
+height = 540
+fill = 1
+fill_from = Vector2(0.498246, 0.495906)
+
+[sub_resource type="Animation" id="Animation_u6mta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenEffect/Eyes:texture:gradient:offsets")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedFloat32Array(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScreenEffect/Eyes:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_564en"]
+resource_name = "blink"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenEffect/Eyes:texture:gradient:offsets")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 0.353554, 1.56917, 1, 1, 1),
+"update": 0,
+"values": [PackedFloat32Array(1, 1), PackedFloat32Array(0.120253, 0.7), PackedFloat32Array(0.120253, 0.5), PackedFloat32Array(0.120253, 0.805907), PackedFloat32Array(0, 0.263713), PackedFloat32Array(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScreenEffect/Eyes:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oekpy"]
+_data = {
+&"RESET": SubResource("Animation_u6mta"),
+&"blink": SubResource("Animation_564en")
+}
+
+[sub_resource type="Resource" id="Resource_m1fas"]
+script = ExtResource("31_1gr5e")
+dialogue_res = ExtResource("30_ylxf2")
+current_res = "test1"
+title = "_0_0_2"
+title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
+import = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymnf6"]
+bg_color = Color(0.458824, 0.247059, 0.215686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40ug3"]
+bg_color = Color(0.384314, 0.811765, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y56j"]
+bg_color = Color(1, 1, 1, 0.576471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qx6o7"]
+bg_color = Color(0.062570944, 0.0779372, 0.064875886, 0.7254902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47ow7"]
+bg_color = Color(0.454902, 0.627451, 0.713726, 1)
+
+[sub_resource type="Theme" id="Theme_6glt8"]
+default_font = ExtResource("33_0dkxc")
+default_font_size = 24
+Button/fonts/font = ExtResource("32_0sbtr")
+Button/styles/disabled = SubResource("StyleBoxFlat_ymnf6")
+Button/styles/focus = SubResource("StyleBoxFlat_40ug3")
+Button/styles/hover = SubResource("StyleBoxFlat_3y56j")
+Button/styles/normal = SubResource("StyleBoxFlat_qx6o7")
+Button/styles/pressed = SubResource("StyleBoxFlat_47ow7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0i1q"]
+bg_color = Color(0, 0, 0, 0.5803922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osd2x"]
+bg_color = Color(1, 1, 1, 0.72549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnew3"]
+bg_color = Color(0, 0.11764706, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y348u"]
+bg_color = Color(0, 0.894118, 0.827451, 0.576471)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1b8j"]
+font = ExtResource("34_glnfy")
+font_size = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wces5"]
+size = Vector2(3915, 81.5)
+
+[node name="everythingeverywhere" type="Node2D" unique_id=1354952185]
+position = Vector2(0, -4)
+script = ExtResource("1_celhk")
+
+[node name="Level0" parent="." unique_id=1086752988 instance=ExtResource("1_10cao")]
+visible = false
+
+[node name="Setting" type="Node2D" parent="." unique_id=226376598]
+
+[node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
+unique_name_in_owner = true
+position = Vector2(-312, -457)
+zoom = Vector2(3, 3)
+process_callback = 0
+limit_left = -940
+limit_top = -165
+limit_right = 2555
+limit_bottom = 380
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+drag_horizontal_offset = 0.5
+drag_left_margin = 0.5
+drag_right_margin = 0.5
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("2_celhk")
+NODE_TO_FOLLOW_PATH = NodePath("../../Level0/Parallax/ParallaxLayer_6/Player/CameraMark")
+SHAKE_DECAY = 0.118
+FLASH_LAYER = 2
+
+[node name="CutsceneCamera" parent="Setting/PlayerCamera" unique_id=1018596231 instance=ExtResource("3_ydae1")]
+
+[node name="CamreaChageFace" parent="Setting/PlayerCamera" unique_id=208228070 instance=ExtResource("4_jtj5p")]
+trans_time = 3.0
+base_drag_horizontal_offset = 0.3
+
+[node name="PlayerCameraAniplayer" type="AnimationPlayer" parent="Setting/PlayerCamera" unique_id=490699425]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_onngr")
+script = ExtResource("5_i74u8")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Setting" unique_id=206632273]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Setting" unique_id=238598588]
+environment = ExtResource("6_7ue4y")
+
+[node name="CanvasBackground" type="CanvasLayer" parent="." unique_id=970486849]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
+modulate = Color(3.465414e-06, 0.52631897, 0.6127784, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_b1qy0")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MainCanvas" type="CanvasLayer" parent="." unique_id=1075155551 node_paths=PackedStringArray("fight_dely_time", "stamina_bar")]
+layer = 10
+visible = false
+follow_viewport_scale = 0.001
+script = ExtResource("7_egao5")
+fight_dely_time = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime")
+stamina_bar = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/StaminaBar")
+stamina_config = ExtResource("8_se05l")
+
+[node name="MindTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1141188428]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.435
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 4.93
+mouse_filter = 2
+theme = ExtResource("9_fl6fi")
+script = ExtResource("10_bg25y")
+trans_time = 0.5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="MainCanvas/MindTxtBox" unique_id=443526565]
+z_index = -1
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_3g2uu")
+flip_v = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainCanvas/MindTxtBox" unique_id=337342315]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MC" type="MarginContainer" parent="MainCanvas/MindTxtBox/VBoxContainer" unique_id=351354006]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.73
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="HBoxContainer" parent="MainCanvas/MindTxtBox/VBoxContainer" unique_id=1808953185]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MC" type="MarginContainer" parent="MainCanvas/MindTxtBox/VBoxContainer/CenterContainer" unique_id=998835624]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="DialogueLabel" type="RichTextLabel" parent="MainCanvas/MindTxtBox/VBoxContainer/CenterContainer" unique_id=1037003372]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.5
+mouse_filter = 2
+bbcode_enabled = true
+text = "一朵黄色的花"
+fit_content = true
+scroll_active = false
+script = ExtResource("11_um3ab")
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+
+[node name="MC2" type="MarginContainer" parent="MainCanvas/MindTxtBox/VBoxContainer/CenterContainer" unique_id=1546487971]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainCanvas/MindTxtBox/VBoxContainer/CenterContainer" unique_id=1681887616]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MC2" type="MarginContainer" parent="MainCanvas/MindTxtBox/VBoxContainer" unique_id=1099150868]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="PlayerCollectMarker" parent="MainCanvas" unique_id=1980541122 instance=ExtResource("12_03555")]
+z_index = 2
+position = Vector2(89, 1025)
+
+[node name="ItemTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1058628516 node_paths=PackedStringArray("item_txt", "item_texture")]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.514
+mouse_filter = 2
+theme = ExtResource("13_iebd7")
+script = ExtResource("14_eynxe")
+item_txt = NodePath("VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2/ItemTxt")
+item_texture = NodePath("VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer/MarginContainer/ItemTexture")
+trans_time = 0.5
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="MainCanvas/ItemTxtBox" unique_id=537145012]
+layout_mode = 2
+size_flags_stretch_ratio = 5.46
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_t3o0j")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainCanvas/ItemTxtBox" unique_id=817577058]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer" unique_id=390773940]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.29
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer" unique_id=338476452]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer" unique_id=69202422]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=102770769]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1404113380]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=1871980706]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1097254611]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ItemTexture" type="TextureRect" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer/MarginContainer" unique_id=247628129]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer3" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1169958269]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer" unique_id=1950935178]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2" unique_id=499552567]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1840558527]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1634644079]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="ItemTxt" type="RichTextLabel" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer2" unique_id=1895640517]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center]测试一下的点点滴滴的等等多多多多多多"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=973749141]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="MainCanvas/ItemTxtBox/VBoxContainer" unique_id=13830209]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.81
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="FlashlightCountEvent" parent="MainCanvas/ItemTxtBox" unique_id=1875538207 instance=ExtResource("15_0guur")]
+script = ExtResource("16_yvqr4")
+event = ExtResource("17_53xqx")
+
+[node name="StateBar" type="VBoxContainer" parent="MainCanvas" unique_id=146361538]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/StateBar" unique_id=1309906642]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.2
+mouse_filter = 2
+
+[node name="HBC" type="HBoxContainer" parent="MainCanvas/StateBar" unique_id=290678535]
+custom_minimum_size = Vector2(0, 6.32)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=577191233]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.75
+mouse_filter = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=1461420513]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainCanvas/StateBar/HBC/MarginContainer3" unique_id=1230579486]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="StaminaBar" parent="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2" unique_id=1763954993 instance=ExtResource("18_b5c8y")]
+layout_mode = 2
+size_flags_stretch_ratio = 2.67
+mouse_filter = 2
+bar_color = Color(1, 1, 0, 0.811765)
+
+[node name="FightDelyTime" type="Timer" parent="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2" unique_id=692563253]
+one_shot = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=1118141144]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.75
+mouse_filter = 2
+
+[node name="StateBox" parent="MainCanvas" unique_id=1721225745 instance=ExtResource("19_q484j")]
+
+[node name="TxtHistoryBCanvas" type="CanvasLayer" parent="." unique_id=524535970]
+layer = 10
+
+[node name="TxtHistoryBox" parent="TxtHistoryBCanvas" unique_id=1847707320 instance=ExtResource("20_xtiwo")]
+metadata/_edit_lock_ = true
+
+[node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
+layer = 6
+visible = false
+script = ExtResource("21_lj80u")
+
+[node name="ColorRect" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
+light_mask = 0
+material = SubResource("ShaderMaterial_ky2o5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScreenEffect" unique_id=464848443]
+visible = false
+light_mask = 0
+offset_left = 1425.0
+offset_top = 790.0
+offset_right = 1987.0
+offset_bottom = 1084.0
+scale = Vector2(1.535, 1.535)
+mouse_filter = 2
+text = "用自己的过场插件做的事件驱动的对话选择:
+当前demo的事件:
+1.对话三次以上
+2.玩家攻击超过10次
+3.玩家格挡成功超过5次
+4.玩家拥有三支手电筒"
+
+[node name="Eyes" type="TextureRect" parent="ScreenEffect" unique_id=894097270]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.275, 1)
+pivot_offset = Vector2(917, 528)
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_usyv6")
+expand_mode = 3
+script = ExtResource("23_8whex")
+metadata/_edit_lock_ = true
+
+[node name="aniplayer" type="AnimationPlayer" parent="ScreenEffect/Eyes" unique_id=893686757]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_oekpy")
+
+[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
+layer = 6
+script = ExtResource("24_3yn66")
+
+[node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]
+
+[node name="CharacterDialogueBox" type="MarginContainer" parent="CharacterBoxCanvas" unique_id=27117377]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("26_535gr")
+script = ExtResource("27_ttino")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterBoxCanvas/CharacterDialogueBox" unique_id=520605068]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=1144078633]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+mouse_filter = 2
+
+[node name="callPlayer" type="Button" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3" unique_id=1260254178]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+text = "展开"
+
+[node name="MarginContainer" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=2147012840]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 16.91
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer" unique_id=1289908402]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="MarginContainer3" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=872044987]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1315556821]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 17.96
+mouse_filter = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=564318789]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="TestCanvas" type="CanvasLayer" parent="." unique_id=470471263]
+layer = 21
+visible = false
+script = ExtResource("28_ghsbg")
+
+[node name="MarginContainer" type="MarginContainer" parent="TestCanvas" unique_id=1862374113]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.074
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Test" type="HBoxContainer" parent="TestCanvas/MarginContainer" unique_id=393386273 node_paths=PackedStringArray("astar", "cutscener_trigger")]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("29_imah0")
+dialogue_mind_config = SubResource("Resource_m1fas")
+astar = NodePath("")
+enemy_max_count = 1
+camera_shake_add = 10.0
+range_r = 500.0
+test_vec2 = Vector2(1978, 95)
+chase_speed = 100.0
+npc_name = "BloodKing"
+cutscener_trigger = NodePath("")
+
+[node name="MarginContainer" type="MarginContainer" parent="TestCanvas/MarginContainer/Test" unique_id=25995065]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.79
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TestCanvas/MarginContainer/Test" unique_id=1986667250]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TestCanvas/MarginContainer/Test/VBoxContainer" unique_id=2044514100]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="enemy" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1096782124]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+toggle_mode = true
+text = "生成敌人"
+icon_alignment = 1
+
+[node name="enemyTimer" type="Timer" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" unique_id=1365363174]
+
+[node name="cam_shake" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1101864140]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "相机震动"
+icon_alignment = 1
+
+[node name="move_to_node" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=71489798]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "移动到"
+icon_alignment = 1
+
+[node name="showAstar" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1491569528]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "显示寻路ui"
+icon_alignment = 1
+
+[node name="CutsceneRunner" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1400360898]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "过场"
+icon_alignment = 1
+
+[node name="PlayCamera" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=293417076]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "相机运动"
+icon_alignment = 1
+
+[node name="Effect" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1588127649]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "眼睛运动"
+icon_alignment = 1
+
+[node name="PathFind" type="Node2D" parent="TestCanvas/MarginContainer/Test" unique_id=1532952576]
+visible = false
+
+[node name="TestMarker" parent="TestCanvas/MarginContainer/Test/PathFind" unique_id=998875516 instance=ExtResource("12_03555")]
+position = Vector2(378.286, 23.4286)
+
+[node name="Label" type="Label" parent="TestCanvas/MarginContainer/Test/PathFind/TestMarker" unique_id=185358709]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.7146
+offset_top = -7.4286
+offset_right = 28.2854
+offset_bottom = 15.5714
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.595, 0.595)
+text = "000"
+label_settings = SubResource("LabelSettings_c1b8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="TestCanvas/MarginContainer" unique_id=1750584281]
+visible = false
+position = Vector2(507, 640.99994)
+scale = Vector2(0.27783203, 0.29248047)
+texture = ExtResource("35_l7ngx")
+
+[node name="Cutscene" type="Node2D" parent="." unique_id=166570779]
+
+[node name="CutscenerRunner" parent="Cutscene" unique_id=1522200819 instance=ExtResource("36_2ea2m")]
+print_debug = true
+cutscener_data = "C:/Users/hakac/AppData/Roaming/Godot/app_userdata/iNNOCENt 2.0/Cutscener/Level0/0_0_0.crd"
+
+[node name="CutscenerRunner2" parent="Cutscene" unique_id=1350393568 instance=ExtResource("36_2ea2m")]
+position = Vector2(382, 227)
+print_debug = true
+cutscener_data = "C:/Users/hakace/AppData/Roaming/Godot/app_userdata/iNNOCENt 3.0/Cutscener/Level0/0_0_1.crd"
+cutscener_name = "0_0_1"
+
+[node name="Trash" type="Node2D" parent="." unique_id=790877502]
+visible = false
+
+[node name="NpcPathFind" type="Node2D" parent="Trash" unique_id=439683680]
+position = Vector2(510, 0)
+
+[node name="BloodKing" type="Node2D" parent="Trash/NpcPathFind" unique_id=272117893]
+
+[node name="PatrolArea" type="Area2D" parent="Trash/NpcPathFind/BloodKing" unique_id=1113371807]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("37_as7kb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Trash/NpcPathFind/BloodKing/PatrolArea" unique_id=692576029]
+visible = false
+position = Vector2(63.5, 238)
+shape = SubResource("RectangleShape2D_wces5")
+
+[connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
+[connection signal="pressed" from="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterBoxCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
+[connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" to="TestCanvas/MarginContainer/Test" method="_on_enemy_pressed"]
+[connection signal="toggled" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" to="TestCanvas/MarginContainer/Test" method="_on_enemy_toggled"]
+[connection signal="timeout" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy/enemyTimer" to="TestCanvas/MarginContainer/Test" method="_on_enemy_timer_timeout"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/cam_shake" to="TestCanvas/MarginContainer/Test" method="_on_cam_shake_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/move_to_node" to="TestCanvas/MarginContainer/Test" method="_on_move_to_node_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/showAstar" to="TestCanvas/MarginContainer/Test" method="_on_show_astar_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/CutsceneRunner" to="TestCanvas/MarginContainer/Test" method="_on_cutscene_runner_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/PlayCamera" to="TestCanvas/MarginContainer/Test" method="_on_show_mind_box_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/Effect" to="TestCanvas/MarginContainer/Test" method="_on_eyeseffect_pressed"]

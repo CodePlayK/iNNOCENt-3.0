@@ -1,6 +1,7 @@
 extends Node2D
+
 const EVERYTHINGEVERYWHERE_PATH="res://core/level/everythingeverywhere/everythingeverywhere.tscn"
-const LEVEL_0_PATH="res://core/level/level_0/Level0.tscn"
+const LEVEL_0_PATH="res://core/level/level0/level_0.tscn"
 const CUTSCENER_PATH="res://addons/Cutscener/main/main.tscn"
 var dic_room_path:Dictionary
 const src_path = "res://core/data/data.tres"
@@ -18,14 +19,12 @@ func _ready():
 	#_change_rooms(Global.rooms.ROOM_1)
 func load_room(room_path:String):
 	var room = load(room_path).instantiate()
-	get_tree().root.add_child(room)
-	get_tree().current_scene=room
+	add_child(room)
+	move_child(room,0)
 	
 func _on_change_level(level_id):
 	if dic_room_path.has(level_id):
 		LevelState.last_level=LevelState.current_level
-		get_tree().current_scene.queue_free()
-		await get_tree().current_scene.tree_exited
 		LevelState.current_level=level_id
 		Debug.dprintinfo(DebugCT.dp("房间切换:["+str(LevelState.last_level)+"]-->["+str(LevelState.current_level)+"]",self))
 		load_room(dic_room_path[level_id])
