@@ -64,7 +64,7 @@ var talker_name:Array[String]
 @export var character_box_config:CharacterBoxConfig:
 	set(cb):
 		character_box_config=cb
-		if !cb.character_names:character_box_config.append(obj_name)
+		if !cb.character_names:character_box_config.character_names.append(obj_name)
 @export_group("状态机配置")
 ##初始化时进入的首个节点(并不会运行)
 @export var starting_state:String
@@ -139,7 +139,6 @@ func _enter_tree() -> void:
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
-	EventBus.test_layer_visiable.connect(test_layer_visiable)
 	
 func _ready() -> void:
 	self.tree_exiting.connect(_tree_exiting)
@@ -171,6 +170,3 @@ func reset_npc():
 func init_config(config:NpcInitConfig):
 	patrol_left = config.patrol_left
 	patrol_right = config.patrol_right
-
-func test_layer_visiable(flag:bool):
-	test_can.visible=flag

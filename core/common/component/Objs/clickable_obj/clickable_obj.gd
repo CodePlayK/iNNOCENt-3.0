@@ -2,6 +2,8 @@ extends PlayerInteractiveObj
 var base_sprite:Sprite2D
 @onready var highlight_out_line: Node = $HighlightOutLine
 @export var dialogue_config:DialogueConfig
+@export var save_data_config:SaveDataConfig
+
 func _ready() -> void:
 	for node in get_children():
 		if node is Sprite2D:

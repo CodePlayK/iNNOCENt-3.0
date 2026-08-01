@@ -8,6 +8,7 @@ script = ExtResource("2_bnldw")
 dialogue_res = ExtResource("1_fnuyi")
 talkers = Array[String](["bloodking2"])
 current_res = "0_0_0"
+current_level = null
 title = "bloodking2"
 title_list = "bloodking1 | bloodking2 | 废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
 balloon_color = Color(0.39320296, 7.2196127e-07, 1.2032687e-07, 1)

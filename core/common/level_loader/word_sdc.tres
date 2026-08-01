@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SaveDataConfig" format=3 uid="uid://b3q2mjg6h15ph"]
+
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="1_fi3jm"]
+
+[resource]
+script = ExtResource("1_fi3jm")
+group = -1
+key = "world"
+level_id = -2
+metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"

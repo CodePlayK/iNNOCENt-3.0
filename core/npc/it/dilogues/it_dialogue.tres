@@ -4,12 +4,12 @@
 [ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="2_nc4a4"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_nc4a4")
 dialogue_res = ExtResource("1_as3yi")
 talkers = Array[String](["it"])
 current_res = "0_0_0"
 title = "it"
-current_expression = null
 title_list = "bloodking1 | bloodking2 | it | 废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
 balloon_color = Color(0, 0.39862674, 0, 1)
 metadata/_custom_type_script = "uid://b7htvwdj3cjtu"

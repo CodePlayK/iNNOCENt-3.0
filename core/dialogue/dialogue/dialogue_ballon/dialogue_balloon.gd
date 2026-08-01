@@ -45,19 +45,26 @@ var back_color_tween:Tween
 @export var p_talk_too_fast:bool = false
 var tween_killed:bool = false
 
+var current_level:LevelState.LEVELS
+
 func _ready() -> void:
 	Dialogue.talk_start.connect(on_talker_start)
 	hide_balloon()
 	margin.size = Vector2.ZERO
 	response_margin.size = Vector2.ZERO
 	DialogueManager.mutated.connect(_on_mutation)
-	
-	
+
+func set_level(dialogue_cinfig:DialogueConfig):
+	if dialogue_cinfig.current_level==LevelState.LEVELS.LEVEL_CURRENT:
+		current_level = LevelState.current_level
+		pass
 func dialogue_finished():
 	hide_balloon()	
 	
 func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:DialogueLine):
 	if !talker_name.has(current_talker):
+		return
+	if current_level!=LevelState.LEVELS.LEVEL_ALL and current_level!=LevelState.current_level:
 		return
 	#Dialogue.current_talker = talker_name
 	Dialogue.current_dialogue_balloon = self

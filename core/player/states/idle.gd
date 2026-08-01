@@ -4,7 +4,7 @@ signal into_indel_state
 func enter():
 	super.enter()
 	PlayerState.double_jump_able=true
-	Debug.dprintinfo(DebugCT.dp("Playeridle信号发出",self))
+	#Debug.dprintinfo(DebugCT.dp("Playeridle信号发出",self))
 	into_indel_state.emit()
 	return null
 func input(event: InputEvent) -> BaseState:

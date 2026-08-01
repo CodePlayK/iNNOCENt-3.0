@@ -8,8 +8,7 @@ func input(event: InputEvent) -> BaseState:
 	return null
 
 func physics_process(delta: float) -> BaseState:
-	if not is_instance_valid(player):
-		return
+
 	move=get_movement_input_x()
 	player_faced(move)
 	apply_gravity(delta)
@@ -22,6 +21,10 @@ func physics_process(delta: float) -> BaseState:
 			apply_acceleration_walk(move,delta)
 	player.set_velocity(player.velocity)
 	player.set_up_direction(Vector2.UP)
+	if not is_instance_valid(player):
+		return 
+	if player.get_world_2d() == null:   # 物理空间已经不存在
+		return 
 	player.move_and_slide()
 	player.velocity=min_jump_force(player.velocity,delta)
 	return null

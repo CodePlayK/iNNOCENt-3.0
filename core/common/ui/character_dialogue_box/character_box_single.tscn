@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://wwx01uocm6vs"]
 
 [ext_resource type="Script" uid="uid://bgtsusp4gowle" path="res://core/common/ui/character_dialogue_box/character_box_sigle.gd" id="1_02r1p"]
-[ext_resource type="Resource" uid="uid://behwdfqux0bqr" path="res://core/npc/blood_king/resource/bloodking1_character_box_config.tres" id="2_02r1p"]
+[ext_resource type="Script" uid="uid://by8uti5xwqq2u" path="res://core/common/ui/character_dialogue_box/CharacterBoxConfig.gd" id="2_02r1p"]
 [ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="3_dtj3b"]
 [ext_resource type="Script" uid="uid://5xj7spu46f11" path="res://core/common/component/ui bar/ui bar.gd" id="4_ntfng"]
 [ext_resource type="Shader" uid="uid://w1l31200ap47" path="res://core/common/ui/character_dialogue_box/character_box_ctr.gdshader" id="5_a2nql"]
 [ext_resource type="Texture2D" uid="uid://0pvqic15b4y5" path="res://core/player/resource/header.tres" id="5_cojnu"]
+
+[sub_resource type="Resource" id="Resource_02r1p"]
+script = ExtResource("2_02r1p")
+show = true
+metadata/_custom_type_script = "uid://by8uti5xwqq2u"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lx3nq"]
 
@@ -104,12 +109,12 @@ corner_radius_top_right = 20
 anti_aliasing = false
 
 [node name="WideMarg" type="VBoxContainer" unique_id=923313209]
+visible = false
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.82
 mouse_filter = 0
 alignment = 1
 script = ExtResource("1_02r1p")
-character_box_config = ExtResource("2_02r1p")
+character_box_config = SubResource("Resource_02r1p")
 is_player = true
 health_config = ExtResource("3_dtj3b")
 
@@ -215,6 +220,16 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
+[node name="TEST" type="Label" parent="ImgBox/HBoxContainer/VBoxContainer/MarginContainer" unique_id=10870415]
+unique_name_in_owner = true
+visible = false
+modulate = Color(8.567274e-06, 0.9841667, 0.14815015, 1)
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "ASDASDA"
+
 [node name="TextureRect" type="TextureRect" parent="ImgBox/HBoxContainer/VBoxContainer/MarginContainer" unique_id=1717817080]
 material = SubResource("ShaderMaterial_02r1p")
 layout_mode = 2
@@ -252,4 +267,8 @@ theme_override_constants/margin_top = 0
 [node name="Timer" type="Timer" parent="." unique_id=1294564623]
 wait_time = 0.5
 
+[node name="delay_timer" type="Timer" parent="." unique_id=968558235]
+one_shot = true
+
 [connection signal="timeout" from="ImgBoxTopMarg2/UIBar/BackBarTimer" to="ImgBoxTopMarg2/UIBar" method="_on_back_bar_timer_timeout"]
+[connection signal="timeout" from="delay_timer" to="." method="_on_delay_timer_timeout"]

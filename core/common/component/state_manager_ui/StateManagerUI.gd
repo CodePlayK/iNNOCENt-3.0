@@ -20,7 +20,7 @@ func init(sm:NpcStateManager):
 	for state in state_machine.all_states:
 		option_button.add_item(state.name)
 	if option_button.item_count>0:
-		option_button.select(0)
+		option_button.select(11)
 		
 func _process(delta: float) -> void:
 	if !npc:return

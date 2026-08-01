@@ -10,6 +10,7 @@ const save_path = "user://data"
 @onready var player_camera: Camera2DPlus = %PlayerCamera
 @onready var player_camera_aniplayer: AnimationPlayer = $Setting/PlayerCamera/PlayerCameraAniplayer
 @onready var back_ground_color: TextureRect = $CanvasBackground/BackGroundColor
+@onready var door_locked_time: Timer = $Setting/DoorLockedTime
 
 func _init() -> void:
 	EventBus.change_level.connect(_on_change_level)
@@ -22,7 +23,8 @@ func _ready():
 	return
 	var config = load_json(CutscenerGlobal.CONFIG_DATA_FILE_PATH)
 	if config["run_type"] == 0:
-		_on_change_level(LevelState.current_level)
+		EventBus._load_save_file()
+
 		
 func load_level(level_path:String):
 	var level:Levels = load(level_path).instantiate()
@@ -37,7 +39,9 @@ func load_level(level_path:String):
 	LevelState.current_level_node = level
 	back_ground_color.modulate=level.level_background_color
 	await level.resume()
-	
+	#存档载入状态
+	LevelState.level_waiting_2_load_dic[level.level_id]=false
+		
 func resume_level(level_id:LevelState.LEVELS):
 	#设置玩家相机
 	player_camera.node_to_follow = LevelState.level_dic[level_id].player
@@ -48,10 +52,11 @@ func resume_level(level_id:LevelState.LEVELS):
 
 	
 func _on_change_level(level_id):
+	LevelState.doors_locked=true
 	Debug.dprintinfo(DebugCT.dp("切换房间:[%s]" %level_id,self))
-	if !dic_level_path.has(level_id) or LevelState.current_level==level_id:
-		Debug.dprintinfo(DebugCT.dp("当前房间已载入:[%s]" %level_id,self))
-		return
+	#if !dic_level_path.has(level_id) or LevelState.current_level==level_id:
+		#Debug.dprintinfo(DebugCT.dp("当前房间已载入:[%s]" %level_id,self))
+		#return
 	LevelState.last_level=LevelState.current_level
 	LevelState.current_level=level_id
 	EventBus._remove_all_character_box()
@@ -62,9 +67,10 @@ func _on_change_level(level_id):
 	if LevelState.level_dic.has(level_id):
 		await resume_level(level_id)
 	else :
-		load_level(dic_level_path[level_id])
+		await load_level(dic_level_path[level_id])
 	Debug.dprintinfo(DebugCT.dp("房间切换:["+str(LevelState.last_level)+"]-->["+str(LevelState.current_level)+"]",self))
 	PlayerState.preset_player()
+	EventBus._level_changed(LevelState.last_level,LevelState.current_level)
 		
 #检查否有存档，没有则新建默认存档		
 func resfile_2_userfile(src_path,des_path):
@@ -92,3 +98,8 @@ func load_json(path):
 		Debug.dprinterr(DebugCT.dp("执行器载入json数据失败![%s]" %error,self,))
 	var data_received = json.data as Dictionary
 	return data_received
+
+
+func _on_door_locked_time_timeout() -> void:
+	LevelState.doors_locked=false
+	pass # Replace with function body.

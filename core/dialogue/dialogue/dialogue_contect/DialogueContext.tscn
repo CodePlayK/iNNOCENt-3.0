@@ -7,12 +7,13 @@
 
 [sub_resource type="Resource" id="Resource_628xn"]
 script = ExtResource("2_xfmas")
-talkers = null
+current_level = null
 
 [node name="DialogueContect" type="Node2D" unique_id=1536966825]
 z_index = 10
 script = ExtResource("1_v3hue")
 dialogue_config = SubResource("Resource_628xn")
+cutscener_debug = null
 
 [node name="CutscenerRunner" parent="." unique_id=112251515 instance=ExtResource("3_xh22i")]
 cutscener_name = "Dialogue"

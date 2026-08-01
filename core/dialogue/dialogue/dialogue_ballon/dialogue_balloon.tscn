@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bq1w2fqfgdvt"]
 
 [ext_resource type="Script" uid="uid://numw0soegfsk" path="res://core/dialogue/dialogue/dialogue_ballon/dialogue_balloon.gd" id="1_fane2"]
+[ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="2_ilh7g"]
 [ext_resource type="StyleBox" uid="uid://dnmoqh76xtff" path="res://core/dialogue/dialogue/dialogue_ballon/dialogue/response style box focus.tres" id="3_0f3ae"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="4_ak1da"]
 [ext_resource type="PackedScene" uid="uid://chsjmyajlpl3t" path="res://core/common/component/rect_debug/RectDebug.tscn" id="4_fycgq"]
@@ -8,6 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://denwrqgt8dihf" path="res://core/common/sound/SE/talking.mp3" id="5_6xaee"]
 [ext_resource type="Texture2D" uid="uid://d4maott1dwbor" path="res://core/dialogue/dialogue/dialogue_ballon/resource/dialogue.png" id="6_l5d13"]
 [ext_resource type="Texture2D" uid="uid://5v7rnqopp4u3" path="res://core/common/component/marker/mark.png" id="8_cn6xi"]
+
+[sub_resource type="Resource" id="Resource_qqffs"]
+script = ExtResource("2_ilh7g")
+current_level = null
+metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjpum"]
 content_margin_left = 3.0
@@ -48,6 +54,7 @@ light_mask = 0
 visibility_layer = 32
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fane2")
+dialogue_config = SubResource("Resource_qqffs")
 
 [node name="Balloon" type="Control" parent="." unique_id=1453483627]
 light_mask = 1024

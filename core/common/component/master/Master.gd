@@ -7,6 +7,9 @@ class_name Master
 
 signal master_ready
 
+func _init() -> void:
+	obj=get_parent()
+
 func _ready() -> void:
 	obj.ready.connect(on_obj_ready)
 	

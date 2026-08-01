@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cv0u5c8v7ulb5" path="res://core/common/level_loader/everything_42.gd" id="1_i26mc"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="2_uypkf"]
-[ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/WorldDataController.gd" id="3_uypkf"]
+[ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/SaveFileDataController/WorldDataController.gd" id="3_uypkf"]
 [ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="4_ocqr6"]
 
 [sub_resource type="Resource" id="Resource_07drm"]

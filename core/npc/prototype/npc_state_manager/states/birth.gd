@@ -10,3 +10,6 @@ func enter():
 	if state_manager.current_state==self:
 		return state_manager.running_state
 	return
+	
+func exit(state:NpcsBaseState):
+	return

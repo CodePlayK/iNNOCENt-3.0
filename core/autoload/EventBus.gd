@@ -2,6 +2,7 @@ extends Node
 ##game
 signal save_game
 signal load_game
+signal load_save_file
 signal delete_save
 signal save_id_update
 ##vfx
@@ -20,6 +21,7 @@ signal player_woke
 signal camera_shake
 ##level
 signal change_level
+signal level_changed
 signal level_tree_exited
 signal transition_show
 ##对白历史载入完毕
@@ -123,6 +125,10 @@ func _remove_character_box(character_box_config:CharacterBoxConfig,exist_level:L
 func _npc_following_player(npc_name:String,flag:bool):
 	npc_following_player.emit(npc_name,flag)
 func _test_layer_visiable(flag:bool):
-	test_layer_visiable.emit()
+	test_layer_visiable.emit(flag)
 func _remove_all_character_box():
 	remove_all_character_box.emit()
+func _level_changed(fl:LevelState.LEVELS,tl:LevelState.LEVELS):
+	level_changed.emit(fl,tl)
+func _load_save_file():
+	load_save_file.emit()

@@ -5,6 +5,8 @@ class_name CharacterBox
 @onready var timer: Timer = $Timer
 @onready var ui_bar: UIbar = %UIBar
 @onready var texture_rect: TextureRect = $ImgBox/HBoxContainer/VBoxContainer/MarginContainer/TextureRect
+@onready var test: Label = %TEST
+@onready var delay_timer: Timer = $delay_timer
 
 @export var character_box_config:CharacterBoxConfig:
 	set(cbc):
@@ -15,12 +17,14 @@ class_name CharacterBox
 var box_selected:bool = false
 var on_changing:bool = false
 var on_showing:bool = false
-var exist_level:LevelState.LEVELS
+@export var is_prototype:bool = true
+@export var delay_time:Vector2 = Vector2(0.5,1)
 
 func _ready() -> void:
-	exist_level = LevelState.current_level
+	hide()
 	img_box.size_flags_stretch_ratio=0
 	size_flags_stretch_ratio=0
+	img_box_top_marg.size_flags_stretch_ratio=20
 	timer.wait_time = character_box_config.drag_time
 	modulate = character_box_config.unselect_modulate
 	ui_bar.bar_max_value = health_config.max_health
@@ -35,34 +39,39 @@ func _ready() -> void:
 	gui_input.connect(_on_gui_input)
 	if is_player:
 		UiState.player_character_box = self
-		
+	EventBus.level_changed.connect(on_level_changed)
+	
+func on_level_changed(fl,tl):
+	if is_prototype:
+		return
+	on_remove_all_character_box(character_box_config,character_box_config.level_id)
+
 #卸载角色box事件
 func on_remove_character_box(cbc:CharacterBoxConfig,el:LevelState.LEVELS):
-	if !cbc==character_box_config or el!=exist_level:return
+	if cbc.character_box_id!=character_box_config.character_box_id or el!=character_box_config.level_id:return
+	UiState.character_box_dic[cbc.character_box_id].showing=false
+	delay_timer.stop()
 	anime_dead()
-
-		
+#卸载角色box事件
+func on_remove_all_character_box(cbc:CharacterBoxConfig,el:LevelState.LEVELS):
+	delay_timer.stop()
+	anime_dead()
+	
 #出生动画
 func anime_born():
-	texture_rect.texture = character_box_config.image
-	var twn = create_tween()
-	twn.set_trans(Tween.TRANS_CUBIC)
-	twn.set_ease(Tween.EASE_OUT)
-	twn.tween_property(self,"size_flags_stretch_ratio",character_box_config.wide_marg_hide,0.5)
-	twn.parallel().tween_property(img_box,"size_flags_stretch_ratio",20,0.5)
-	twn.parallel().tween_property(img_box_top_marg,"size_flags_stretch_ratio",character_box_config.img_box_top_marg_hide,0.5)
-	await twn.finished
-	twn.kill()	
+	if is_prototype:return
+	delay_timer.start(randf_range(delay_time.x,delay_time.y))
 	return
 
 func anime_dead():
 	var twn = create_tween()
 	twn.set_trans(Tween.TRANS_CUBIC)
 	twn.set_ease(Tween.EASE_IN)
-	twn.tween_property(self,"size_flags_stretch_ratio",0,0.5)
+	#twn.tween_property(self,"size_flags_stretch_ratio",0,0.5)
 	twn.parallel().tween_property(img_box,"size_flags_stretch_ratio",0,0.5)
 	twn.parallel().tween_property(img_box_top_marg,"size_flags_stretch_ratio",20,0.5)
 	await twn.finished
+	#UiState.character_box_dic[character_box_config.character_box_id].showing=false
 	twn.kill()
 	queue_free()	
 	return
@@ -167,3 +176,22 @@ func _on_gui_input(event: InputEvent) -> void:
 			UiState.state_box.show_box()
 		else :
 			UiState.state_box.hide_box()
+
+
+func _on_delay_timer_timeout() -> void:
+	test.text=character_box_config.character_box_id
+	texture_rect.texture = character_box_config.image
+	img_box.size_flags_stretch_ratio=0
+	size_flags_stretch_ratio=0
+	img_box_top_marg.size_flags_stretch_ratio=20
+	modulate=character_box_config.unselect_modulate
+	show()
+	var twn = create_tween()
+	twn.set_trans(Tween.TRANS_SPRING)
+	twn.set_ease(Tween.EASE_OUT)
+	twn.tween_property(self,"size_flags_stretch_ratio",character_box_config.wide_marg_hide,0.5)
+	twn.parallel().tween_property(img_box,"size_flags_stretch_ratio",20,0.3)
+	twn.parallel().tween_property(img_box_top_marg,"size_flags_stretch_ratio",character_box_config.img_box_top_marg_hide,0.5)
+	await twn.finished
+	UiState.character_box_dic[character_box_config.character_box_id].showing=true
+	twn.kill()	

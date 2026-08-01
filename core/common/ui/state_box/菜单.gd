@@ -33,7 +33,8 @@ func on_load():
 	DataState.current_save_id = DataState.current_save_file_dic[DataState.current_select_save_id].save_id
 	if debug:Debug.dprintinfo(DebugCT.dp("载入按钮按下",self))
 	LevelState.loading_save()
-	EventBus._load_game()
+	EventBus._load_save_file()
+	EventBus._level_changed(LevelState.last_level,LevelState.current_level)
 	move_selected2top()
 	
 func on_delete():

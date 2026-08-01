@@ -8,14 +8,36 @@ extends Node2D
 		if cutscener_runner:cutscener_runner.print_debug = cutscener_debug
 @onready var dialogue_balloon: DialogueBalloon = $DialogueBalloon
 @onready var cutscener_runner: Node2D = $CutscenerRunner
+
 var current_title
 var obj
 func init(obj1) -> void:
+	return
 	obj = obj1
 	dialogue_balloon.talker_name = obj.talker_name
 	self.scale = self.scale / obj.scale
 	Dialogue.end_dialogue.connect(end_dialogue)
 	if !obj is Player and obj.dialogue_config:
+		dialogue_config = obj.dialogue_config
+		dialogue_config.current_level=LevelState.cu
+	dialogue_balloon.dialogue_config = dialogue_config
+	if obj is Player:return
+	obj.mouse_entered.connect(_body_entered)
+	obj.mouse_exited.connect(_body_exited)
+	DialogueManager.dialogue_ended.connect(on_dialogue_ended)
+	current_title = dialogue_config.title
+	cutscener_runner.cutscener_data = dialogue_config.dialogue_checker_path
+	cutscener_runner.print_debug = cutscener_debug
+
+
+func on_master_ready(master) -> void:
+	obj = master.obj
+	dialogue_balloon.set_level(obj.dialogue_config)
+	dialogue_balloon.talker_name = obj.talker_name
+	self.scale = self.scale / obj.scale
+	Dialogue.end_dialogue.connect(end_dialogue)
+	if !obj is Player and obj.dialogue_config:
+		obj.dialogue_config.current_level = LevelState.current_level
 		dialogue_config = obj.dialogue_config
 	dialogue_balloon.dialogue_config = dialogue_config
 	if obj is Player:return
@@ -25,6 +47,7 @@ func init(obj1) -> void:
 	current_title = dialogue_config.title
 	cutscener_runner.cutscener_data = dialogue_config.dialogue_checker_path
 	cutscener_runner.print_debug = cutscener_debug
+
 	
 func _body_entered() -> void:
 	Dialogue.current_start_obj = obj

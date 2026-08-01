@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SaveDataConfig" format=3 uid="uid://jg7nsnmhiloi"]
+
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="1_fvu5t"]
+
+[resource]
+script = ExtResource("1_fvu5t")
+group = 3
+key = "ruincar"
+metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"

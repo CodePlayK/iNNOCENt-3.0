@@ -13,10 +13,12 @@ var obj
 
 func on_master_ready(master) -> void:
 	obj = master.obj
+	dialogue_balloon.set_level(dialogue_config)
 	dialogue_balloon.talker_name = obj.talker_name
 	self.scale = self.scale / obj.scale
 	Dialogue.end_dialogue.connect(end_dialogue)
 	if !obj is Player and obj.dialogue_config:
+		obj.dialogue_config.current_level = LevelState.current_level
 		dialogue_config = obj.dialogue_config
 	dialogue_balloon.dialogue_config = dialogue_config
 	if obj is Player:return

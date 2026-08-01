@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://duo6bfrwl5qvr"]
+
+[ext_resource type="Script" uid="uid://dj3gu61kn1gl6" path="res://core/common/saves/SaveFileDataController/BaseSaveFileSaver.gd" id="1_7rgby"]
+
+[node name="DataSaveFileCollector" type="Node" unique_id=1848048086]
+process_mode = 3
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 2
+
+[node name="Saver" type="Node" parent="." unique_id=226244484]
+process_mode = 3
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 2
+script = ExtResource("1_7rgby")

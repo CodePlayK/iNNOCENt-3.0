@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://c3csb1yyjxl7v" path="res://core/common/resource/texture/forest/forest-0.png" id="13_spq3s"]
 [ext_resource type="Script" uid="uid://d32ttg105vbxq" path="res://core/common/component/blood_splash/BloodSplash.gd" id="14_fdbpd"]
 [ext_resource type="PackedScene" uid="uid://b02hgnehx6i3m" path="res://core/common/component/blood_splash/blood.tscn" id="15_njvqd"]
-[ext_resource type="PackedScene" uid="uid://cvfffp6l2q1to" path="res://core/dialogue/dialogue/dialogue_mouse/dialogue_mouse.tscn" id="16_ms4mx"]
 [ext_resource type="Script" uid="uid://j151apq5fxj0" path="res://core/common/component/marks/marks.gd" id="17_n01hi"]
 [ext_resource type="Texture2D" uid="uid://n2x4w4s61bya" path="res://core/common/resource/texture/dark-tree root/Tileset Add on3.png" id="18_kqk4c"]
 [ext_resource type="Texture2D" uid="uid://c1ll1wmhyj0y1" path="res://core/common/AStar/tile.png" id="19_0i2vi"]
@@ -1323,7 +1322,7 @@ size = Vector2(80, 453)
 [sub_resource type="Resource" id="Resource_nkocd"]
 script = ExtResource("24_sl4an")
 
-[sub_resource type="Resource" id="Resource_mqnwf"]
+[sub_resource type="Resource" id="Resource_jvag7"]
 resource_local_to_scene = true
 script = ExtResource("26_3nxjq")
 group = 1
@@ -1334,12 +1333,23 @@ metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 script = ExtResource("24_sl4an")
 health = 100.0
 
-[sub_resource type="Resource" id="Resource_mmfhg"]
+[sub_resource type="Resource" id="Resource_3nxjq"]
 resource_local_to_scene = true
 script = ExtResource("26_3nxjq")
 group = 1
 key = "bloodking1"
 metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
+
+[sub_resource type="Resource" id="Resource_mqnwf"]
+resource_local_to_scene = true
+script = ExtResource("11_njv8g")
+dialogue_res = ExtResource("10_ypxmn")
+talkers = Array[String](["it"])
+current_res = "0_0_0"
+title = "it"
+title_list = "bloodking1 | bloodking2 | it | 废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
+balloon_color = Color(0, 0.39862674, 0, 1)
+metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8m1d"]
 size = Vector2(84, 20)
@@ -2463,10 +2473,6 @@ play_speed = 3.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ParallaxLayer_4/Tile/RuinCar/blood/base2/BloodSplash" unique_id=126688961]
 shape = SubResource("RectangleShape2D_g2g1m")
 
-[node name="DialogueMouse" parent="Parallax/ParallaxLayer_4/Tile/RuinCar" unique_id=806978562 instance=ExtResource("16_ms4mx")]
-position = Vector2(15.8333, -33.3333)
-cutscener_debug = null
-
 [node name="UIs" type="Node2D" parent="Parallax/ParallaxLayer_4/Tile/RuinCar" unique_id=1800857851]
 
 [node name="DialoguePosition" type="Marker2D" parent="Parallax/ParallaxLayer_4/Tile/RuinCar/UIs" unique_id=2038286068]
@@ -2629,21 +2635,18 @@ position = Vector2(1266, 262)
 npc_name = "bloodking2"
 data = SubResource("Resource_nkocd")
 dialogue_config = ExtResource("25_bfyq3")
-save_data_config = SubResource("Resource_mqnwf")
+save_data_config = SubResource("Resource_jvag7")
 character_box_config = ExtResource("27_msxcb")
-running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar2")
 max_chase_speed = 200.0
 accelerate = 300.0
 air_accelerate = 800.0
 max_velocity_y = 800.0
 jump_force_max_force = 700.0
-jump_force_max_cell_dis_y = 6
 jump_force_min_force = 200.0
 jump_force_min_cell_dis_y = 1
 jump_force_max_force_mid = 500.0
 jump_force_max_cell_dis_x = 4
-jump_force_min_force_mid = 200.0
 jump_force_min_cell_dis_x = 1
 
 [node name="BloodKing1" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1326597386 node_paths=PackedStringArray("astar") instance=ExtResource("23_qw8pk")]
@@ -2651,25 +2654,13 @@ position = Vector2(1386, 271)
 npc_name = "bloodking1"
 data = SubResource("Resource_xvoeb")
 dialogue_config = ExtResource("28_i3856")
-save_data_config = SubResource("Resource_mmfhg")
+save_data_config = SubResource("Resource_3nxjq")
 character_box_config = ExtResource("30_rlavq")
-running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar")
-max_chase_speed = 300.0
-accelerate = 500.0
-air_accelerate = 500.0
-max_velocity_y = 1000.0
-jump_force_max_force = 800.0
-jump_force_max_cell_dis_y = 6
-jump_force_min_force = 550.0
-jump_force_min_cell_dis_y = 3
-jump_force_max_force_mid = 100.0
-jump_force_max_cell_dis_x = 5
-jump_force_min_force_mid = 200.0
-jump_force_min_cell_dis_x = 2
 
 [node name="it" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=848998336 node_paths=PackedStringArray("astar") instance=ExtResource("31_4odf1")]
 position = Vector2(-102, 176.00002)
+dialogue_config = SubResource("Resource_mqnwf")
 starting_state = "lock"
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar3")
@@ -2829,13 +2820,13 @@ metadata/_custom_type_script = "uid://cwoinddfmepd0"
 [node name="LeftDoor" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=199191243 instance=ExtResource("46_3nxjq")]
 position = Vector2(-894, 204)
 target_level = 0
-target_born_position = Vector2(1940, 247)
+target_born_position = Vector2(1940, 194)
 target_born_position_name = "RightDoor"
 
 [node name="RightDoor" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=1614776636 instance=ExtResource("46_3nxjq")]
 position = Vector2(2077, 222)
 target_level = 0
-target_born_position = Vector2(-730, 238)
+target_born_position = Vector2(-730, 194)
 target_born_position_name = "LeftDoor"
 
 [node name="BornMarks" type="Node2D" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=2068885130]

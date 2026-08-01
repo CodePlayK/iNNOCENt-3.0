@@ -21,7 +21,7 @@ var atmosphere_se_dic:Array[Array]
 ##当前房间当前时刻的平均颜色,详见[ScreenColor]
 var level_color:Color
 @export var level_background_color:Color=Color("00869c")
-var waiting_2_load_save:bool=true
+var waiting_2_load_save:bool=false
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
@@ -85,7 +85,7 @@ func _tree_exited():
 func pause():
 	hide()
 	position=Vector2i(10000,10000)
-	player.velocity=Vector2.ZERO
+	player.velocity.x=0
 	player.position=PlayerState.current_player_born_position
 	if !player.state_manager.current_state == player.state_manager.get_state_by_name("idle"):
 		player.state_manager.change_state(player.state_manager.get_state_by_name("idle"))
@@ -98,9 +98,9 @@ func pause():
 	
 func resume():
 	call_deferred("set_process_mode",Node.PROCESS_MODE_INHERIT)
-	if waiting_2_load_save:
+	if !LevelState.level_waiting_2_load_dic.has(level_id) or LevelState.level_waiting_2_load_dic[level_id]:
+		LevelState.level_waiting_2_load_dic[level_id]=false
 		EventBus._load_game()
-		waiting_2_load_save=false
 	EventBus._test_layer_visiable(true)
 	position=Vector2i.ZERO
 	show()

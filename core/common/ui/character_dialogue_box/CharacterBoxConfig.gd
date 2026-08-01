@@ -1,6 +1,22 @@
 extends Resource
 class_name CharacterBoxConfig
+@export_group("基础配置")
+@export var obj_id:String:
+	set(oi):
+		obj_id = oi
+		character_box_id=str(level_id)+obj_id
+@export var level_id:LevelState.LEVELS:
+	set(oi):
+		level_id = oi
+		character_box_id=str(oi)+obj_id
+var character_box_id:String
+	
 @export var character_names:Array[String]
+@export var is_player:bool = false
+@export var health_config:HealthConfig
+
+@export_group("显示配置")
+var showing:bool=true
 @export var image:Texture2D
 @export var unselect_modulate:Color = Color("727272")
 @export var selected_modulate:Color = Color("ffffff")
@@ -10,6 +26,7 @@ class_name CharacterBoxConfig
 @export var wide_marg_hide:float = 1.82
 @export var animation_time:float = .2
 @export var drag_time:float = .5
-@export var is_player:bool = false
 @export var on_screen_left:bool = true
-@export var health_config:HealthConfig
+
+func _init() -> void:
+	set_local_to_scene(true)

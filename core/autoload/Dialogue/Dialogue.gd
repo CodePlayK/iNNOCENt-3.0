@@ -15,7 +15,10 @@ var dialogue_config:DialogueConfig:
 		
 var current_talker:Array[String]
 		
-var current_dialogue_balloon
+var current_dialogue_balloon:
+	set(cdb):
+		Debug.dprintwarn(DebugCT.dp("设置气球[%s]" %cdb.get_path(),self))
+		current_dialogue_balloon=cdb
 var current_title:String
 var current_start_obj
 var current_start_title:String
@@ -42,13 +45,16 @@ var dialogue_line: DialogueLine:
 				dialogue_title_dic[dialogue_config.current_res]={current_title:1}
 			end_dialogue.emit()
 			return
-	
 		dialogue_line = next_dialogue_line
 		if dialogue_line.expression:
 			dialogue_config.current_expression=dialogue_line.expression
 		if !current_talker.has(dialogue_line.character):
-			if current_dialogue_balloon:current_dialogue_balloon.dialogue_finished()
+			if current_dialogue_balloon:
+				current_dialogue_balloon.dialogue_finished()
+				Debug.dprintwarn(DebugCT.dp("当前气球[%s][%s]" %[current_dialogue_balloon.get_path(),current_dialogue_balloon.dialogue_label.dialogue_line.text],self))
+
 		talk_start.emit(dialogue_line.character,dialogue_config,dialogue_line)
+
 	get:
 		return dialogue_line
 

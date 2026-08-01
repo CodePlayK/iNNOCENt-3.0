@@ -10,7 +10,7 @@ func _ready() -> void:
 	body_entered.connect(on_player_enter)
 
 func on_player_enter(body):
-	if !enable:
+	if !enable and LevelState.doors_locked:
 		return
 	enable=false
 	PlayerState.current_player_born_position=target_born_position

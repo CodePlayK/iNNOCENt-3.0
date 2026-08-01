@@ -12,6 +12,8 @@ var mind_txt_box:MindTxtBox
 var item_txt_box:ItemTxtBox
 ##左下角玩家头像界面
 var player_character_box:CharacterBox
+##储存角色box状态
+var character_box_dic:Dictionary[String,CharacterBoxConfig]
 ##当前正在交互的物体
 var current_interact_item:CollectableItem
 #FIXME

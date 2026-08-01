@@ -1,7 +1,7 @@
 extends Node
 ##[必须为SaveDataCollector节点的唯一子节点] 用于对象的存档与读档案，不负责数据组装与赋值，只负责IO交互
-class_name BaseSaver
-@onready var save_data_collector:BaseDataCollector = $".."
+class_name BaseSaveFileSaver
+@onready var save_data_collector:BaseDataFileCollector = $".."
 signal load_save
 var CONDITION_SAVE
 var DB:SQLite
@@ -11,9 +11,8 @@ func _ready():
 	DB=SQLite.new()
 	DB.path=DataState.DB_NAME
 	DB.verbosity_level = save_data_collector.log_level
-	EventBus.load_game.connect(_load_game)
+	EventBus.load_save_file.connect(_load_save_file)
 	save_data_collector.save.connect(_save)
-	
 ##保存数据到数据库
 func _save():
 	DataState.add2cache(save_data_config)
@@ -24,8 +23,6 @@ func _save():
 ##载入数据	
 func _load():
 	if !save_data_collector.enable_load:return
-	if save_data_config.level_id!=LevelState.LEVELS.LEVEL_ALL and save_data_config.level_id!=LevelState.current_level:
-		return
 	DB.open_db()
 	CONDITION_SAVE = save_data_collector.get_condition_save()
 	var dic_list = DB.select_rows(DataState.TABLE,CONDITION_SAVE,[DataState.DATA])
@@ -35,5 +32,5 @@ func _load():
 		if save_data_collector.debug:Debug.dprint(DebugCT.dp("「载入」存档|[%s]%s" %[CONDITION_SAVE,JSON.stringify(data)],self))
 	load_save.emit(data)
 		
-func _load_game():
+func _load_save_file():
 	_load()

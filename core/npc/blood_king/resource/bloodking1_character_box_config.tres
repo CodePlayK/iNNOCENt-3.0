@@ -7,9 +7,9 @@
 [resource]
 script = ExtResource("2_euma6")
 character_names = Array[String](["bloodking1"])
+health_config = ExtResource("1_grwux")
 image = ExtResource("2_usqtl")
 unselect_modulate = Color(0.36157545, 0.36157548, 0.36157548, 1)
 img_box_top_marg_hide = 20.0
 on_screen_left = false
-health_config = ExtResource("1_grwux")
 metadata/_custom_type_script = "uid://by8uti5xwqq2u"

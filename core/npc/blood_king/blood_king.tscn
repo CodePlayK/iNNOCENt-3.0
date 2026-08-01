@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cd7hg22t3yjur" path="res://core/common/resource/npc/npc_data.gd" id="2_ntogp"]
 [ext_resource type="PackedScene" uid="uid://r17fxu1au77o" path="res://core/common/component/master/Master.tscn" id="2_ppyg5"]
 [ext_resource type="PackedScene" uid="uid://3i4kn3fitpbl" path="res://core/common/component/health/health.tscn" id="3_wa5ky"]
+[ext_resource type="Script" uid="uid://by8uti5xwqq2u" path="res://core/common/ui/character_dialogue_box/CharacterBoxConfig.gd" id="4_5mk6f"]
 [ext_resource type="PackedScene" uid="uid://b5tj5di0fre4c" path="res://core/common/component/obj_2_player_side/obj_2_player_side.tscn" id="4_gbfy1"]
 [ext_resource type="PackedScene" uid="uid://prs7nqmh6hre" path="res://core/common/component/npc_screen_vec_2/npc_screen_vec_2.tscn" id="5_lo3w8"]
 [ext_resource type="Script" uid="uid://bib2ufevv8jl" path="res://core/npc/prototype/UIs.gd" id="6_v887n"]
@@ -112,6 +113,10 @@ script = ExtResource("2_ntogp")
 [sub_resource type="Resource" id="Resource_58l7j"]
 script = ExtResource("103_dmcg1")
 metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
+
+[sub_resource type="Resource" id="Resource_jtj5p"]
+script = ExtResource("4_5mk6f")
+metadata/_custom_type_script = "uid://by8uti5xwqq2u"
 
 [sub_resource type="LabelSettings" id="LabelSettings_wlnom"]
 font = ExtResource("10_y6loe")
@@ -6709,15 +6714,29 @@ script = ExtResource("1_342ms")
 npc_name = "npc"
 data = SubResource("Resource_six7i")
 save_data_config = SubResource("Resource_58l7j")
+character_box_config = SubResource("Resource_jtj5p")
 starting_state = "lock"
-starting1_state = "birth"
-running_state = "patrol"
+starting1_state = "lock"
+running_state = "idle"
+following_offset_vec2i = Vector2i(1, 0)
+max_chase_speed = 300.0
+accelerate = 500.0
+air_accelerate = 500.0
 air_fric2acc_scale = 7.0
+max_velocity_y = 1000.0
+jump_force_max_force = 800.0
+jump_force_max_cell_dis_y = 6
+jump_force_min_force = 550.0
+jump_force_min_cell_dis_y = 3
+jump_force_max_force_mid = 100.0
+jump_force_max_cell_dis_x = 5
+jump_force_min_force_mid = 200.0
+jump_force_min_cell_dis_x = 2
 
 [node name="Master" parent="." unique_id=760131985 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("2_ppyg5")]
 unique_name_in_owner = true
 obj = NodePath("..")
-connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../Animations/FXs/HurtFX"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox")]
+connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../Animations/FXs/HurtFX"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox"), NodePath("../UIs/Test/TestCan")]
 metadata/_edit_pinned_properties_ = [&"connects"]
 
 [node name="Config" type="Node2D" parent="." unique_id=491672595]
@@ -7514,7 +7533,6 @@ shape = SubResource("RectangleShape2D_b8y3r")
 [node name="Dialogue" parent="Interactions" unique_id=1132349855 instance=ExtResource("84_vaxnc")]
 z_index = 107
 position = Vector2(10.8333, -59.1667)
-cutscener_debug = null
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 

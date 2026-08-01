@@ -147,6 +147,7 @@ func preset_player():
 	lightable_flag=true
 	player_be_hitting=false
 	player_control_lock=false
+	attacking=false
 ##添加到玩家交互锁中	
 func add_player_lock_interact_obj(obj):
 	if player_lock_interact_obj.keys().has(obj.name):

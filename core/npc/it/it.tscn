@@ -7543,7 +7543,6 @@ shape = SubResource("RectangleShape2D_b8y3r")
 z_index = 107
 position = Vector2(10.8333, -59.1667)
 dialogue_config = ExtResource("3_w7q8t")
-cutscener_debug = null
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 process_mode = 3

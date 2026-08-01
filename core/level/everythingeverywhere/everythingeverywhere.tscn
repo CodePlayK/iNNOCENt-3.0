@@ -26,7 +26,6 @@
 [ext_resource type="Script" uid="uid://dndomblipxr46" path="res://core/level/character_box_canvas.gd" id="24_3yn66"]
 [ext_resource type="PackedScene" uid="uid://dkgxdrht840tp" path="res://core/common/ui/character_dialogue_box/character_box.tscn" id="25_wck0l"]
 [ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="26_535gr"]
-[ext_resource type="Script" uid="uid://cipihu1s4ae6r" path="res://core/common/ui/character_dialogue_box/CharacterDialogueBox.gd" id="27_ttino"]
 [ext_resource type="Script" uid="uid://ci4y1snlap0ev" path="res://test/test_canvas.gd" id="28_ghsbg"]
 [ext_resource type="Script" uid="uid://dheawyf6jpi38" path="res://core/level/everythingeverywhere/test/Test.gd" id="29_imah0"]
 [ext_resource type="Resource" uid="uid://onb8u2j1uao2" path="res://test/dialogue/test1.dialogue" id="30_ylxf2"]
@@ -37,9 +36,9 @@
 [ext_resource type="Texture2D" uid="uid://dwdj4u348kh38" path="res://core/player/resource/header_test.tres" id="35_l7ngx"]
 [ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="36_2ea2m"]
 [ext_resource type="Script" uid="uid://b4otcmujx4vs6" path="res://test/NpcPath/PatrolArea.gd" id="37_as7kb"]
-[ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="38_jtj5p"]
-[ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/WorldDataController.gd" id="39_i74u8"]
-[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="40_7ue4y"]
+[ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/SaveFileDataController/WorldDataController.gd" id="39_i74u8"]
+[ext_resource type="Resource" uid="uid://b3q2mjg6h15ph" path="res://core/common/level_loader/word_sdc.tres" id="39_ydae1"]
+[ext_resource type="PackedScene" uid="uid://duo6bfrwl5qvr" path="res://core/common/saves/SaveFileDataController/BaseSaveFileController.tscn" id="40_i74u8"]
 
 [sub_resource type="Animation" id="Animation_i8m7f"]
 resource_name = "0_0_0"
@@ -282,13 +281,6 @@ font_size = 12
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wces5"]
 size = Vector2(3915, 81.5)
 
-[sub_resource type="Resource" id="Resource_egao5"]
-script = ExtResource("40_7ue4y")
-group = -1
-key = "world"
-level_id = -2
-metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
-
 [node name="everythingeverywhere42" type="Node2D" unique_id=1354952185]
 script = ExtResource("1_celhk")
 
@@ -300,7 +292,7 @@ ignore_rotation = false
 zoom = Vector2(3, 3)
 limit_left = -891
 limit_top = -165
-limit_right = 2555
+limit_right = 2316
 limit_bottom = 417
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -331,6 +323,10 @@ script = ExtResource("5_i74u8")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Setting" unique_id=238598588]
 environment = ExtResource("6_7ue4y")
+
+[node name="DoorLockedTime" type="Timer" parent="Setting" unique_id=2110892912]
+wait_time = 3.0
+one_shot = true
 
 [node name="CanvasBackground" type="CanvasLayer" parent="." unique_id=970486849]
 layer = -1
@@ -686,7 +682,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("26_535gr")
-script = ExtResource("27_ttino")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CharacterBoxCanvas/CharacterDialogueBox" unique_id=520605068]
 layout_mode = 2
@@ -922,15 +917,16 @@ shape = SubResource("RectangleShape2D_wces5")
 
 [node name="Data" type="Node" parent="." unique_id=475305390]
 
-[node name="DataCollector" parent="Data" unique_id=1848048086 instance=ExtResource("38_jtj5p")]
+[node name="DataSaveFileCollector" parent="Data" unique_id=894643364 instance=ExtResource("40_i74u8")]
 script = ExtResource("39_i74u8")
-save_data_config = SubResource("Resource_egao5")
+save_data_config = ExtResource("39_ydae1")
 has_master = false
 debug = true
 load_on_ready = true
 save_position = false
 save_faced = false
 
+[connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
 [connection signal="pressed" from="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterBoxCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]

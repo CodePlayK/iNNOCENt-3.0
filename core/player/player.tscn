@@ -1974,7 +1974,7 @@ backward = true
 script = ExtResource("31_o2ap2")
 animation_name = "onfloor"
 
-[sub_resource type="Resource" id="Resource_kaqeq"]
+[sub_resource type="Resource" id="Resource_dq6eo"]
 resource_local_to_scene = true
 script = ExtResource("108_dq6eo")
 key = "base"
@@ -2426,7 +2426,6 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
-changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
@@ -2667,16 +2666,15 @@ one_shot = true
 
 [node name="DataCollector" parent="Saves" unique_id=1896791768 instance=ExtResource("88_4rcxe")]
 script = ExtResource("89_ebgrc")
-save_data_config = SubResource("Resource_kaqeq")
+save_data_config = SubResource("Resource_dq6eo")
+debug = true
 save_obj_id = false
-save_faced = false
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 
 [node name="Dialogue" parent="Interactions" unique_id=1747775360 instance=ExtResource("83_iu40y")]
 position = Vector2(17, -57)
 dialogue_config = ExtResource("108_4t8e8")
-cutscener_debug = null
 
 [node name="PlayerAttackTimeEvent" parent="Interactions" unique_id=1259941547 instance=ExtResource("97_yvey3")]
 unique_name_in_owner = true
