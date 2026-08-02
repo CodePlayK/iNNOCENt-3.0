@@ -2,6 +2,7 @@ extends SubViewport
 class_name SyncSubViewport
 ## 将 SubViewport 与主窗口/主视口同步（尺寸 + 可选相机）
 
+@onready var texture_rect: TextureRect = $"../../TextureRect"
 
 @export_group("尺寸")
 ## 与主视口可见区域尺寸同步
@@ -44,7 +45,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if sync_camera:
 		_apply_camera()
-
+	texture_rect.texture=get_texture()
 
 func _apply_size() -> void:
 	if not sync_size:

@@ -320,6 +320,7 @@ libraries/ = SubResource("AnimationLibrary_onngr")
 script = ExtResource("5_i74u8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Setting" unique_id=206632273]
+color = Color(0, 0, 0, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Setting" unique_id=238598588]
 environment = ExtResource("6_7ue4y")
@@ -332,7 +333,6 @@ one_shot = true
 layer = -1
 
 [node name="BackGroundColor" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
-modulate = Color(0.022723755, 0.3412129, 0.17533419, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

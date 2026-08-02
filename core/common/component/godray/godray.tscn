@@ -1,6 +1,29 @@
 [gd_scene format=3 uid="uid://dmqmqrx5uo43d"]
 
+[ext_resource type="Shader" uid="uid://cfyodxgre1eb5" path="res://core/common/shader/godrays_masked.gdshader" id="1_2qxa5"]
 [ext_resource type="Script" uid="uid://1qw82yhpd3v" path="res://core/common/component/godray/godray.gd" id="1_x05xa"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_5wqkn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pmb80"]
+shader = ExtResource("1_2qxa5")
+shader_parameter/occlusion_mask = SubResource("ImageTexture_5wqkn")
+shader_parameter/use_occlusion = false
+shader_parameter/occlusion_strength = 1.0
+shader_parameter/occlusion_softness = 0.06800000323000001
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.5470000259825
+shader_parameter/cutoff = 0.006000047784999962
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.15
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 9.625
+shader_parameter/ray2_density = 35.91
+shader_parameter/ray2_intensity = 0.9650000458375
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [sub_resource type="Gradient" id="Gradient_j451u"]
 offsets = PackedFloat32Array(0, 0.377163, 0.6870416, 1)
@@ -11,12 +34,14 @@ gradient = SubResource("Gradient_j451u")
 
 [node name="Godyray" type="Polygon2D" unique_id=866348362]
 light_mask = 0
-position = Vector2(4.533333, 41.75148)
-scale = Vector2(0.76666665, 0.852071)
-polygon = PackedVector2Array(-8.521739, -47.826393, 28, -49, 7, 289, -62, 288)
+material = SubResource("ShaderMaterial_pmb80")
+position = Vector2(4.533333, 45.92663)
+scale = Vector2(0.76666665, 0.9372781)
+polygon = PackedVector2Array(-72.434784, -82.07451, 90.60871, -36.196976, 258.86957, 373.50003, -125.91305, 366.45834)
 script = ExtResource("1_x05xa")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=260596615]
+visible = false
 light_mask = 32
 position = Vector2(-16.999989, 181.75)
 scale = Vector2(1.0078125, 886.5)

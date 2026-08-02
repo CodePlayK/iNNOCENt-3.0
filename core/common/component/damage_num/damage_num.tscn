@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://buesm2hojnri5"]
+[gd_scene format=3 uid="uid://buesm2hojnri5"]
 
-[ext_resource type="Script" path="res://core/common/component/damage_num/damage_num.gd" id="1_2vv3y"]
+[ext_resource type="Script" uid="uid://bi6bf67bwm30r" path="res://core/common/component/damage_num/damage_num.gd" id="1_2vv3y"]
 [ext_resource type="LabelSettings" uid="uid://b0a4nstd7bp7r" path="res://core/common/component/damage_num/damage_num_setting.tres" id="2_lvhsh"]
 
-[node name="DamageNum" type="Node2D"]
+[node name="DamageNum" type="Node2D" unique_id=1595494793]
 script = ExtResource("1_2vv3y")
 
-[node name="damageNum" type="Label" parent="."]
+[node name="damageNum" type="Label" parent="." unique_id=1308843710]
+light_mask = 97
 offset_left = -19.0
 offset_top = -11.0
 offset_right = 21.0

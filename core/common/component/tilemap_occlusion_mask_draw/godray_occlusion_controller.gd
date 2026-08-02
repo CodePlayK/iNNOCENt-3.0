@@ -5,7 +5,7 @@ class_name GodrayOcclusionController
 
 @export var source_layer: TileMapLayer
 @export var occluder_viewport: SubViewport
-@export var occluder_camera: Camera2DPlus
+@export var occluder_camera: Camera2D
 @export var mask_draw: TileMapOcclusionMaskDraw
 @export var godray: CanvasItem
 
@@ -16,8 +16,6 @@ const MASKED_SHADER: Shader = preload("res://core/common/shader/godrays_masked.g
 
 
 func _ready() -> void:
-	if mask_draw and source_layer:
-		mask_draw.source_layer = source_layer
 	#occluder_camera = Global.player_camera
 	_sync_viewport_size()
 	_bind_mask_to_godray()
@@ -30,7 +28,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	_sync_camera()
-
+	rebuild_mask()
 
 func _sync_camera() -> void:
 	if occluder_camera == null:
