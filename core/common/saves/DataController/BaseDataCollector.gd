@@ -109,7 +109,7 @@ func _pre_save_game() -> void:
 
 ## 载入存档
 func _load_save(data: Dictionary) -> void:
-	if not enable_load or data.is_empty():
+	if not enable_load:
 		return
 	_apply_common_load_data(data)
 	load_custom_data(data)

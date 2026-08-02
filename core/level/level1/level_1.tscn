@@ -2784,7 +2784,6 @@ texture = ExtResource("49_abrdt")
 sources/0 = SubResource("TileSetAtlasSource_0xlwh")
 
 [node name="Level1" type="Node2D" unique_id=1086752988]
-visible = false
 script = ExtResource("1_mqnwf")
 level_id = 1
 level_background_color = Color(0.022723755, 0.3412129, 0.17533419, 1)
@@ -2827,7 +2826,6 @@ range_item_cull_mask = 0
 [node name="Parallax" type="Node2D" parent="." unique_id=503893040 node_paths=PackedStringArray("parallax_main_layer")]
 script = ExtResource("4_d3u72")
 parallax_main_layer = NodePath("ParallaxLayer_6")
-parallax_layer_speed_7 = 100
 
 [node name="ParallaxLayer_0" parent="Parallax" unique_id=195671949 instance=ExtResource("5_bqdgw")]
 

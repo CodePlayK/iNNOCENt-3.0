@@ -103,6 +103,7 @@
 [ext_resource type="Resource" uid="uid://clxhl3hhekbgt" path="res://core/npc/it/data/it_sdc.tres" id="97_sxw3c"]
 [ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/Test.gd" id="98_i5fdk"]
 [ext_resource type="Texture2D" uid="uid://dtibm26d7r0xv" path="res://test/sprite spped curve/The Blood King.png" id="99_pkrkq"]
+[ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="100_kll38"]
 
 [sub_resource type="Resource" id="Resource_six7i"]
 script = ExtResource("2_h1ng1")
@@ -3142,6 +3143,16 @@ loop = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
+
+[sub_resource type="Resource" id="Resource_l1873"]
+resource_local_to_scene = true
+script = ExtResource("100_kll38")
+talkers = Array[String](["it"])
+current_res = "0_0_0"
+title = "it"
+title_list = "bloodking1 | bloodking2 | it | 废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
+balloon_color = Color(0, 0.39862674, 0, 1)
+metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljb0i"]
 atlas = ExtResource("99_pkrkq")
@@ -7542,7 +7553,7 @@ shape = SubResource("RectangleShape2D_b8y3r")
 [node name="Dialogue" parent="Interactions" unique_id=1132349855 instance=ExtResource("94_35ooo")]
 z_index = 107
 position = Vector2(10.8333, -59.1667)
-dialogue_config = ExtResource("3_w7q8t")
+dialogue_config = SubResource("Resource_l1873")
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 process_mode = 3

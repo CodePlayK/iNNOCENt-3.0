@@ -7001,7 +7001,6 @@ texture = ExtResource("27_jmqci")
 offset = Vector2(30.159, -39.2862)
 hframes = 12
 vframes = 12
-frame = 65
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -7038,7 +7037,6 @@ texture = ExtResource("28_wj8cm")
 offset = Vector2(30.1905, -31.4524)
 hframes = 9
 vframes = 8
-frame = 42
 metadata/_aseprite_wizard_config_ = {
 "keep_anim_length": false,
 "layer": "",

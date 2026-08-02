@@ -22,7 +22,7 @@ func load_custom_data(data:Dictionary):
 		n.queue_free()
 	DataState.current_save_file_dic.clear()
 	for k in data.keys():
-		menu.new_save_file(k,data[k]["level_id"],data[k]["save_name"],data[k]["save_time"])
+		menu.new_save_file(int(k),data[k]["level_id"],data[k]["save_name"],data[k]["save_time"])
 	DataState.current_save_id = DataState.current_max_save_id
 	DataState.current_select_save_id = DataState.current_save_id
 	EventBus._load_game()

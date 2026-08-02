@@ -10,6 +10,7 @@ func custom_data():
 	
 #载入存档数据
 func load_custom_data(data:Dictionary):
+	if !data:return
 	obj.dialogue_config.current_res = data["cs"]
 	obj.dialogue_config.dialogue_res=DialogueState.dialogue_file_res[ data["cs"]]
 	
