@@ -3,7 +3,6 @@ class_name FaceDirection
 @export var direction_objs:Array[Node2D]
 var obj
 #控制对象的面朝方向
-#要求必须有dialogue_position节点
 
 func init_var():
 	clazz_name="FaceDirection"

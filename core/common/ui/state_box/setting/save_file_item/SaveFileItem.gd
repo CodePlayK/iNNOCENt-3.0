@@ -16,12 +16,12 @@ signal inited
 
 
 func _ready() -> void:
-	EventBus.save_id_update.connect(_on_save_id_update)
+	EventBus.save_file_id_update.connect(_on_save_file_id_update)
 	EventBus.save_game.connect(_on_save_game)
 	EventBus.delete_save.connect(_on_delete_save)
 	set_focus_mode(Control.FOCUS_CLICK)
 	background.hide()
-	_on_save_id_update()
+	_on_save_file_id_update()
 	
 func init(save_file_item_config:UISaveFileItemConfig):
 	self.save_file_item_config = save_file_item_config
@@ -53,7 +53,7 @@ func _on_focus_exited() -> void:
 	on_selected = false
 	background.hide()
 
-func _on_save_id_update():
+func _on_save_file_id_update():
 	if !check or !save_file_item_config:
 		return
 	if DataState.current_save_id == save_file_item_config.save_id:

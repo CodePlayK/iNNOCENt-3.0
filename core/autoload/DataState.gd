@@ -44,7 +44,7 @@ var current_screenshot: Texture2D
 var current_save_id: int = 0:
 	set(i):
 		current_save_id = i
-		EventBus._save_id_update()
+		EventBus._save_file_id_update()
 ## 当前的最大存档 id
 var current_max_save_id: int = 0
 ## 当前在界面中选中的存档 id

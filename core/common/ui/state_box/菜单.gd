@@ -32,7 +32,7 @@ func on_save() -> void:
 	_set_current_save_from_selection()
 	_debug_info("保存按钮按下")
 	EventBus._save_game()
-	EventBus._save_id_update()
+	EventBus._save_file_id_update()
 	move_selected2top()
 
 
@@ -79,7 +79,7 @@ func on_new_save_file() -> void:
 	)
 	current_selected_save_file_item = new_item
 	EventBus._save_game()
-	EventBus._save_id_update()
+	EventBus._save_file_id_update()
 	move_selected2top()
 #endregion
 
