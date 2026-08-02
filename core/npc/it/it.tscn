@@ -3144,7 +3144,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_l1873"]
+[sub_resource type="Resource" id="Resource_kll38"]
 resource_local_to_scene = true
 script = ExtResource("100_kll38")
 talkers = Array[String](["it"])
@@ -6745,7 +6745,6 @@ character_box_config = ExtResource("5_iic6y")
 starting1_state = "birth"
 running_state = "patrol"
 following_offset_vec2i = Vector2i(1, 0)
-air_fric2acc_scale = 7.0
 
 [node name="Master" parent="." unique_id=760131985 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("3_gfoj1")]
 unique_name_in_owner = true
@@ -7553,7 +7552,7 @@ shape = SubResource("RectangleShape2D_b8y3r")
 [node name="Dialogue" parent="Interactions" unique_id=1132349855 instance=ExtResource("94_35ooo")]
 z_index = 107
 position = Vector2(10.8333, -59.1667)
-dialogue_config = SubResource("Resource_l1873")
+dialogue_config = SubResource("Resource_kll38")
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 process_mode = 3

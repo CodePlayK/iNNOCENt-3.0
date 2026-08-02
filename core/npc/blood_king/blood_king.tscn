@@ -2135,7 +2135,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_51i8f"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2151,7 +2151,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_1jc16"]
-length = 0.42500000000000004
+length = 0.425
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2166,7 +2166,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_fatwr"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2213,7 +2213,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_hnhfq"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2354,7 +2354,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_1is4r"]
+[sub_resource type="Resource" id="Resource_5mk6f"]
 resource_local_to_scene = true
 script = ExtResource("103_dmcg1")
 group = 1
@@ -5952,19 +5952,6 @@ starting_state = "lock"
 starting1_state = "lock"
 running_state = "idle"
 following_offset_vec2i = Vector2i(1, 0)
-max_chase_speed = 300.0
-accelerate = 500.0
-air_accelerate = 500.0
-air_fric2acc_scale = 7.0
-max_velocity_y = 1000.0
-jump_force_max_force = 800.0
-jump_force_max_cell_dis_y = 6
-jump_force_min_force = 550.0
-jump_force_min_cell_dis_y = 3
-jump_force_max_force_mid = 100.0
-jump_force_max_cell_dis_x = 5
-jump_force_min_force_mid = 200.0
-jump_force_min_cell_dis_x = 2
 
 [node name="Master" parent="." unique_id=760131985 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("2_ppyg5")]
 unique_name_in_owner = true
@@ -6789,7 +6776,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("89_s1dc0")]
 script = ExtResource("90_f37dg")
-save_data_config = SubResource("Resource_1is4r")
+save_data_config = SubResource("Resource_5mk6f")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 script = ExtResource("81_d5aum")

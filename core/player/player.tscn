@@ -1983,10 +1983,10 @@ key = "base"
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_yb16c")
+dialogue_config = ExtResource("108_4t8e8")
 character_box_config = ExtResource("2_yurw6")
 acceleration_dash = 14000
 max_speed_dash = 800
-dialogue_config = ExtResource("108_4t8e8")
 
 [node name="Attributes" type="Node2D" parent="." unique_id=285534102]
 

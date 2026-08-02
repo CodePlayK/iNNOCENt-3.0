@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp13ghpmuqe81"]
+[gd_scene format=3 uid="uid://cp13ghpmuqe81"]
 
-[ext_resource type="Script" path="res://core/common/AStar/AStarMove/a_star_move.gd" id="1_y1w2p"]
+[ext_resource type="Script" uid="uid://mrwxy5oo1ycj" path="res://core/common/AStar/AStarMove/a_star_move.gd" id="1_y1w2p"]
 
-[node name="AStarMove" type="Node2D"]
+[node name="AStarMove" type="Node2D" unique_id=1502694821]
 script = ExtResource("1_y1w2p")

@@ -4,6 +4,7 @@ var obj_name:String = "player"
 @export_category("配置")
 @export_group("基础")
 @export var talker_name:Array[String]
+@export var dialogue_config:DialogueConfig
 @export var character_box_config:CharacterBoxConfig:
 	set(cb):
 		character_box_config=cb
@@ -43,15 +44,15 @@ var obj_name:String = "player"
 @export var fric2acc_scale:float = 10
 @export var air_accelerate:float = 2000
 @export var air_fric2acc_scale:float = 10
-@export var jump_force_max_force:float  = 1000
-@export var jump_force_max_cell_dis_y:int = 8
-@export var jump_force_min_force:float = 700
-@export var jump_force_min_cell_dis_y:int = 4
-@export var jump_force_max_force_mid:float  = 1000
-@export var jump_force_max_cell_dis_x:int = 8
-@export var jump_force_min_force_mid:float = 700
-@export var jump_force_min_cell_dis_x:int = 4
-@export var dialogue_config:DialogueConfig
+##
+@export var jump_force_max_y:float  = 1000
+@export var jump_force_max_cell_y:int = 8
+@export var jump_force_min_y:float = 700
+@export var jump_force_min_cell_y:int = 4
+@export var jump_force_max_mid:float  = 1000
+@export var jump_force_max_cell_x:int = 8
+@export var jump_force_min_mid:float = 700
+@export var jump_force_min_cell_x:int = 4
 @export_group("战斗")
 @export var stamina_recovered_speed:float = 20
 var on_ready:bool=false

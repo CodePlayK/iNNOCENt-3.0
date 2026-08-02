@@ -78,24 +78,63 @@ var patrol_right:Marker2D
 var patrol_left:Marker2D
 @onready var speed_map_2_animation: SpeedMap2Animation = $Components/SpeedMap2Animation
 @export_group("AStar配置")
-@export var astar:AStarMap
-@export var following_offset_vec2i:Vector2i
-@export var max_chase_speed:float = 600
-@export var accelerate:float = 2000
-@export var fric2acc_scale:float = 10
-@export var air_accelerate:float = 2000
-@export var air_fric2acc_scale:float = 10
-@export var gravity:float = 900
-@export var max_velocity_y:float = 2000
-@export var jump_force_max_force:float  = 1000
-@export var jump_force_max_cell_dis_y:int = 8
-@export var jump_force_min_force:float = 700
-@export var jump_force_min_cell_dis_y:int = 4
-@export var jump_force_max_force_mid:float  = 1000
-@export var jump_force_max_cell_dis_x:int = 8
-@export var jump_force_min_force_mid:float = 700
-@export var jump_force_min_cell_dis_x:int = 4
-@export var patrol_area:Area2D
+## A* 寻路地图（提供路径 direction / is_edge，以及 get_next_edge_cell）
+@export var astar: AStarMap
+
+## 追逐时目标格相对玩家的偏移（格坐标，交给 AStarMap.target_offset_cell_vec2i）
+@export var following_offset_vec2i: Vector2i
+
+## 地面追逐水平速度上限
+@export var max_chase_speed: float = 300.0
+
+## 地面水平加速度（沿路径 direction.x）
+@export var accelerate: float = 500.0
+
+## 地面转向时摩擦相对加速度的倍率（越大刹得越快）
+@export var fric2acc_scale: float = 10.0
+
+## 空中水平加速度
+@export var air_accelerate: float = 500.0
+
+## 空中转向时摩擦相对空中加速度的倍率
+@export var air_fric2acc_scale: float = 7.0
+
+## 重力加速度（每秒叠加到 velocity.y）
+@export var gravity: float = 900.0
+
+## 下落速度上限（防止重力无限加速）
+@export var max_velocity_y: float = 1000.0
+
+#region 竖直起跳力（按与目标边缘格的高度差 remap）
+## 高度差达到 [member jump_force_max_cell_y] 格时的起跳力
+@export var jump_force_max_y: float = 800.0
+
+## 竖直 remap 的最大高度差（格）；与 [member jump_force_max_y] 对应
+@export var jump_force_max_cell_y: int = 6
+
+## 高度差为 [member jump_force_min_cell_y] 格时的起跳力
+@export var jump_force_min_y: float = 550.0
+
+## 竖直 remap 的最小高度差（格）；与 [member jump_force_min_y] 对应
+@export var jump_force_min_cell_y: int = 3
+#endregion
+
+#region 边缘水平冲量（按与目标边缘格的水平距离 remap）
+## 水平距离达到 [member jump_force_max_cell_x] 格时的边缘前跳水平速度
+@export var jump_force_max_mid: float = 100.0
+
+## 水平 remap 的最大格距；与 [member jump_force_max_mid] 对应
+@export var jump_force_max_cell_x: int = 5
+
+## 水平距离为 [member jump_force_min_cell_x] 格时的边缘前跳水平速度
+@export var jump_force_min_mid: float = 200.0
+
+## 水平 remap 的最小格距；与 [member jump_force_min_mid] 对应
+@export var jump_force_min_cell_x: int = 2
+#endregion
+
+## 巡逻区域；不在追逐时在此 Area 内活动（与 A* 追逐互斥由状态机切换）
+@export var patrol_area: Area2D
 @export_group("DEBUG配置")
 @export var dialogue_debug:bool = false
 

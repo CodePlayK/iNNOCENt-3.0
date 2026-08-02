@@ -15,8 +15,9 @@ gradient = SubResource("Gradient_j451u")
 
 [node name="Godyray" type="Polygon2D" unique_id=866348362]
 light_mask = 0
-position = Vector2(19, -1)
-polygon = PackedVector2Array(-3, -45, -69, 287, -27, 287, 16, -46)
+position = Vector2(4.533333, 41.75148)
+scale = Vector2(0.76666665, 0.852071)
+polygon = PackedVector2Array(-8.521739, -47.826393, 28, -49, 7, 289, -62, 288)
 script = ExtResource("1_x05xa")
 
 [node name="LightArea" type="Area2D" parent="." unique_id=1777728055]

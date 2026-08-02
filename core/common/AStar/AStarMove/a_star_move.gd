@@ -93,8 +93,8 @@ func get_jump_force(current_cell,next_edge_cell):
 		dis = 0
 	else :
 		dis = abs(next_edge_cell.y-current_cell.y)
-	return remap(dis,obj.jump_force_min_cell_dis_y,obj.jump_force_max_cell_dis_y,obj.jump_force_min_force,obj.jump_force_max_force)
+	return remap(dis,obj.jump_force_min_cell_y,obj.jump_force_max_cell_y,obj.jump_force_min_y,obj.jump_force_max_y)
 		
 func get_edge_jump_force(current_cell,next_edge_cell):
 	var dis = abs(next_edge_cell.x-current_cell.x)
-	return remap(dis,obj.jump_force_min_cell_dis_x,obj.jump_force_max_cell_dis_x,obj.jump_force_min_force_mid,obj.jump_force_max_force_mid)
+	return remap(dis,obj.jump_force_min_cell_x,obj.jump_force_max_cell_x,obj.jump_force_min_mid,obj.jump_force_max_mid)

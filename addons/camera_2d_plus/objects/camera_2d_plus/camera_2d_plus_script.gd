@@ -47,6 +47,7 @@ var angle_tilt: float = 0.0 ## The camera's angle tilt offset.
 
 
 func _ready() -> void:
+	Global.player_camera = self
 	## Adding all the necessary CanvasLayers so the Camera2D+ can work properly.
 	flash_layer = CanvasLayer.new() # Creating a new CanvasLayer.
 	flash_layer.name = "FlashLayer" # Updating the name of the new CanvasLayer.
