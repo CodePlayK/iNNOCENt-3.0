@@ -5336,8 +5336,8 @@ range_item_cull_mask = 0
 [node name="Node" type="Node" parent="Components" unique_id=394506894 node_paths=PackedStringArray("source_layer", "occluder_viewport", "mask_draw", "godray")]
 script = ExtResource("4_ojqwt")
 source_layer = NodePath("../../Parallax/ParallaxLayer_6/Tile/DarkTree")
-occluder_viewport = NodePath("../../SubViewport")
-mask_draw = NodePath("../../SubViewport/Node2D")
+occluder_viewport = NodePath("../../OccluderViewport")
+mask_draw = NodePath("../../OccluderViewport/TileMapOcclusionMaskDraw")
 godray = NodePath("../../Parallax/ParallaxLayer_6/Godyray5")
 
 [node name="Parallax" type="Node2D" parent="." unique_id=503893040 node_paths=PackedStringArray("parallax_main_layer")]
@@ -5911,13 +5911,16 @@ layer_0/tile_data = PackedInt32Array(1245069, 0, 15, 1310605, 0, 16, 1376141, 0,
 
 [node name="AutoTransparent" parent="Parallax/ParallaxLayer_8/Tile/treeBot" unique_id=1913887094 instance=ExtResource("48_dmogs")]
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=43066926]
+[node name="OccluderViewport" type="SubViewport" parent="." unique_id=43066926]
 script = ExtResource("54_7rc24")
 use_window_size = true
+force_transparent_bg = true
 
-[node name="Node2D" type="Node2D" parent="SubViewport" unique_id=458315133 node_paths=PackedStringArray("source_layer")]
+[node name="TileMapOcclusionMaskDraw" type="Node2D" parent="OccluderViewport" unique_id=458315133 node_paths=PackedStringArray("source_layer")]
 script = ExtResource("53_v1l2d")
 source_layer = NodePath("../../Parallax/ParallaxLayer_6/Tile/DarkTree")
+
+[node name="Camera2D" type="Camera2D" parent="OccluderViewport" unique_id=1656754382]
 
 [connection signal="body_entered" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_exited"]

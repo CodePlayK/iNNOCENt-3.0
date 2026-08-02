@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://dmqmqrx5uo43d"]
 
 [ext_resource type="Script" uid="uid://1qw82yhpd3v" path="res://core/common/component/godray/godray.gd" id="1_x05xa"]
-[ext_resource type="Script" uid="uid://dxdstanpyarei" path="res://core/common/component/godray/LightArea.gd" id="2_lya7x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_54sdk"]
-size = Vector2(57.6, 378)
 
 [sub_resource type="Gradient" id="Gradient_j451u"]
 offsets = PackedFloat32Array(0, 0.377163, 0.6870416, 1)
@@ -19,17 +15,6 @@ position = Vector2(4.533333, 41.75148)
 scale = Vector2(0.76666665, 0.852071)
 polygon = PackedVector2Array(-8.521739, -47.826393, 28, -49, 7, 289, -62, 288)
 script = ExtResource("1_x05xa")
-
-[node name="LightArea" type="Area2D" parent="." unique_id=1777728055]
-collision_layer = 65536
-collision_mask = 0
-monitoring = false
-script = ExtResource("2_lya7x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea" unique_id=1799622621]
-visible = false
-position = Vector2(-26.5, 104)
-shape = SubResource("RectangleShape2D_54sdk")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=260596615]
 light_mask = 32
