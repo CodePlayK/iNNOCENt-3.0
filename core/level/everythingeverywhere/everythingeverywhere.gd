@@ -63,7 +63,7 @@ func load_level(level_path: String) -> void:
 	LevelState.level_dic[level.level_id] = level
 	_apply_level_view(level)
 	await level.resume()
-	LevelState.set_level_waiting_2_load_dic(level.level_id, false)
+	LevelState.set_level_waiting_to_load(level.level_id, false)
 
 
 ## 恢复已加载的关卡

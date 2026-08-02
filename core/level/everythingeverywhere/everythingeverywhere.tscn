@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="36_2ea2m"]
 [ext_resource type="Script" uid="uid://b4otcmujx4vs6" path="res://test/NpcPath/PatrolArea.gd" id="37_as7kb"]
 [ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/SaveFileDataController/WorldDataController.gd" id="39_i74u8"]
-[ext_resource type="Resource" uid="uid://b3q2mjg6h15ph" path="res://core/common/level_loader/word_sdc.tres" id="39_ydae1"]
+[ext_resource type="Resource" uid="uid://b3q2mjg6h15ph" path="res://core/level/everythingeverywhere/word_sdc.tres" id="39_ydae1"]
 [ext_resource type="PackedScene" uid="uid://duo6bfrwl5qvr" path="res://core/common/saves/SaveFileDataController/BaseSaveFileController.tscn" id="40_i74u8"]
 
 [sub_resource type="Animation" id="Animation_i8m7f"]

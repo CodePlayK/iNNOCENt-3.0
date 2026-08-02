@@ -22,9 +22,6 @@ var playing_transition:bool=false
 ##- false:不需要载入存档状态,代表该关卡已载入玩存档,只是处在[member Node.ProcessMode.PROCESS_MODE_DISABLED][br]
 var level_waiting_2_load_dic:Dictionary[LevelState.LEVELS,bool]
 
-##更新待载入存档状态
-func set_level_waiting_2_load_dic(k:LevelState.LEVELS,flag:bool):
-	level_waiting_2_load_dic[k]=true
 ## 获取指定关卡是否在等待加载
 func is_level_waiting_to_load(level: LevelState.LEVELS) -> bool:
 	return level_waiting_2_load_dic.get(level, false)
