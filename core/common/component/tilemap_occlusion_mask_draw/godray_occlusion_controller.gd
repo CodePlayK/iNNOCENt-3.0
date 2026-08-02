@@ -18,7 +18,7 @@ const MASKED_SHADER: Shader = preload("res://core/common/shader/godrays_masked.g
 func _ready() -> void:
 	if mask_draw and source_layer:
 		mask_draw.source_layer = source_layer
-	occluder_camera = Global.player_camera
+	#occluder_camera = Global.player_camera
 	_sync_viewport_size()
 	_bind_mask_to_godray()
 	rebuild_mask()
@@ -38,7 +38,7 @@ func _sync_camera() -> void:
 	var main_cam := get_viewport().get_camera_2d()
 	if main_cam == null:
 		return
-	occluder_camera.global_transform = main_cam.global_transform
+	#occluder_camera.global_transform = main_cam.global_transform
 
 
 func _sync_viewport_size() -> void:
