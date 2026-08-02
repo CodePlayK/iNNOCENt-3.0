@@ -6988,6 +6988,7 @@ print_debug = null
 
 [node name="AStarMove" parent="Components" unique_id=1720097465 instance=ExtResource("26_dvsg6")]
 position = Vector2(0, -21.6667)
+test_cell = Vector2i(28, 4)
 
 [node name="Move2Vec2" parent="Components" unique_id=804782041 instance=ExtResource("27_cep4c")]
 

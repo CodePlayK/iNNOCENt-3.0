@@ -4,7 +4,6 @@
 [ext_resource type="Theme" uid="uid://bpydhupj7vcjn" path="res://core/autoload/debug/debug.tres" id="2_aggdk"]
 
 [node name="Debug" type="CanvasLayer" unique_id=439546090]
-visible = false
 script = ExtResource("1_jq1f5")
 
 [node name="MC" type="MarginContainer" parent="." unique_id=1925302473]

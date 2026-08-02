@@ -8,6 +8,8 @@ var running:bool = false:
 		running = f
 		set_astar(f)
 @export var target_offset_cell_vec2i:Vector2i
+@export var test_cell:Vector2i
+var last_cell:Vector2i
 func on_master_ready(master):
 	obj = master.obj
 	on_ready = true
@@ -60,17 +62,10 @@ func apply_friction_air(move,delta):
 	obj.velocity.x+=obj.air_fric2acc_scale*obj.air_accelerate*delta*move.x
 	
 func jump(delta):
-	var d:bool = false
-	if obj.current_cell == Vector2i(40,4):
-		d= false
 	if obj.is_on_floor():obj.velocity.y = 0
 	var edge_jump_flag = obj.astar.get_cell_data(obj.current_cell,"is_edge") and obj.astar.get_cell_data(obj.current_cell,"direction")!=Vector2i(0,1) and obj.astar.is_blocked(obj.last_cell + Vector2i(0,1))
-	if d:
-		Debug.dprintinfo(DebugCT.dp("edge_jump_flag="+str(edge_jump_flag),self))
 	var next_edge_cell
 	if obj.is_on_floor() and obj.astar.get_cell_data(obj.current_cell,"direction") == Vector2i(0,-1) or edge_jump_flag :
-		if d:
-			Debug.dprintinfo(DebugCT.dp("起跳"+str(edge_jump_flag),self))
 		next_edge_cell = obj.astar.get_next_edge_cell()
 		if !next_edge_cell:return
 		var c = obj.astar.get_cell_vec2i_by_node(self)
@@ -82,8 +77,6 @@ func jump(delta):
 		if !next_edge_cell:return
 		var c = obj.astar.get_cell_vec2i_by_node(self)
 		var f = get_edge_jump_force(c,next_edge_cell)
-		if d:
-			Debug.dprintinfo(DebugCT.dp("前跳[%s]" %str(f),self))
 		obj.velocity.x=f*move.x
 
 func is_changing_direction(move):
@@ -96,7 +89,7 @@ func get_jump_force(current_cell,next_edge_cell):
 	else :
 		dis = abs(next_edge_cell.y-current_cell.y)
 	return remap(dis,obj.jump_force_min_cell_y,obj.jump_force_max_cell_y,obj.jump_force_min_y,obj.jump_force_max_y)
-		
+##最小跳一格
 func get_edge_jump_force(current_cell,next_edge_cell):
-	var dis = abs(next_edge_cell.x-current_cell.x)
+	var dis = maxi(1,abs(next_edge_cell.x-current_cell.x))
 	return remap(dis,obj.jump_force_min_cell_x,obj.jump_force_max_cell_x,obj.jump_force_min_mid,obj.jump_force_max_mid)

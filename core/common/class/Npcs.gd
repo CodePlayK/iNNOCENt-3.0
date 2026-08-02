@@ -140,7 +140,10 @@ var patrol_left:Marker2D
 
 
 var last_cell
-var current_cell
+var current_cell:
+	set(cc):
+		last_cell=current_cell
+		current_cell=cc
 var current_state
 var screen_position:Vector2
 var being_hit:bool = false

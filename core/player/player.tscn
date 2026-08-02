@@ -125,7 +125,7 @@ width = 512
 height = 512
 fill = 1
 fill_from = Vector2(0.4871795, 0.52991456)
-fill_to = Vector2(0.84056056, 0.22222222)
+fill_to = Vector2(0.7150997, 0.33903134)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwrjn"]
 size = Vector2(22.5, 51)
@@ -2051,7 +2051,6 @@ position = Vector2(0, 35)
 position = Vector2(0.235703, 34.784)
 
 [node name="PointLight2D" type="PointLight2D" parent="Config" unique_id=1015712511]
-energy = 1.37
 blend_mode = 2
 range_item_cull_mask = 32
 shadow_enabled = true

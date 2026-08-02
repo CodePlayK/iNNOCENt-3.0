@@ -27,7 +27,7 @@ frontier_color = Color(0.470588, 0.74902, 0.470588, 1)
 path_color = Color(1, 0.905882, 0.431373, 1)
 
 [node name="UpdataTimer" type="Timer" parent="." unique_id=1933714155]
-wait_time = 0.201
+wait_time = 0.05
 
 [node name="Prop" type="Node2D" parent="." unique_id=1233635298]
 show_behind_parent = true

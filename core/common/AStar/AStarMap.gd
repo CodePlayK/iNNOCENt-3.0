@@ -339,7 +339,6 @@ func npc_pos_update(pos:Vector2):
 	if cell_data_pos_dic.has(cell_pos):
 		last_npc_current_cell_pos = npc_current_cell_pos
 		last_npc_current_cell = npc_current_cell
-		npc.last_cell = last_npc_current_cell
 		var cell_vec2i = get_cell_vec2i_by_pos(pos)
 		var data = base_tile.get_cell_tile_data(0,cell_vec2i)
 		if data:
@@ -348,7 +347,8 @@ func npc_pos_update(pos:Vector2):
 		if enabel_ui:cell_prop_pos_dic[cell_pos][2].self_modulate = npc_on_cell_color
 		npc_current_cell = cell_vec2i
 		npc_current_cell_pos = pos
-		npc.current_cell = npc_current_cell
+		if 	npc.current_cell != npc_current_cell:
+			npc.current_cell = npc_current_cell
 		if jump_try_times>0 and npc_current_cell.y == current_jump_target.y:
 			jump_try_times = 0
 			air_cost = base_air_cost

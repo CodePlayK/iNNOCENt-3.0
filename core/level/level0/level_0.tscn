@@ -5494,7 +5494,7 @@ metadata/_edit_group_ = true
 [node name="BaseLight" type="PointLight2D" parent="Components/Lights" unique_id=781203225]
 position = Vector2(90, 183.97533)
 scale = Vector2(3.280046, 0.24626543)
-energy = 1.6
+energy = 1.85
 blend_mode = 2
 texture = SubResource("GradientTexture2D_2bf10")
 texture_scale = 50.0
@@ -5522,9 +5522,9 @@ range_item_cull_mask = 0
 
 [node name="BaseColoredController" parent="Components" unique_id=473114460 instance=ExtResource("4_v1l2d")]
 unique_name_in_owner = true
-base_color = Color(3.657937e-06, 0.75211513, 0.8709358, 1)
-brightness_falloff = 0.26
-min_brightness = 0.23
+base_color = Color(0, 0.8166666, 1, 1)
+brightness_falloff = 0.38
+min_brightness = 0.27
 
 [node name="Parallax" type="Node2D" parent="." unique_id=503893040 node_paths=PackedStringArray("parallax_main_layer")]
 script = ExtResource("4_xajoc")
@@ -5625,7 +5625,7 @@ position = Vector2(-160, -352)
 position = Vector2(1, 10)
 
 [node name="RuinCar" parent="Parallax/ParallaxLayer_4/BaseColoredLayer" unique_id=872968464 instance=ExtResource("9_m4kn4")]
-position = Vector2(-605, 239)
+position = Vector2(-606, 243)
 scale = Vector2(1.2, 1.2)
 collision_mask = 3
 dialogue_config = SubResource("Resource_0x72g")
@@ -5763,6 +5763,7 @@ jump_try_time_range = Vector2i(2, 4)
 target_on_cell_color = Color(1, 0.4720599, 0.4062736, 1)
 
 [node name="AStar2" parent="Parallax/ParallaxLayer_6/astar/BloodKingAstarMap" unique_id=1313840970 node_paths=PackedStringArray("astar_range", "base_tile", "npc", "target") instance=ExtResource("20_brjmk")]
+visible = false
 position = Vector2(-6, 34)
 astar_range = NodePath("../CollisionShape2D")
 enabel_ui = false
@@ -5772,6 +5773,7 @@ target = NodePath("../../../Player")
 jump_try_time_range = Vector2i(2, 4)
 
 [node name="AStar3" parent="Parallax/ParallaxLayer_6/astar/BloodKingAstarMap" unique_id=255028028 node_paths=PackedStringArray("astar_range", "base_tile", "npc", "target") instance=ExtResource("20_brjmk")]
+visible = false
 z_index = 1
 position = Vector2(-6, 34)
 astar_range = NodePath("../CollisionShape2D")
@@ -5860,7 +5862,7 @@ character_box_config = ExtResource("30_wgelj")
 astar = NodePath("../../astar/BloodKingAstarMap/AStar")
 
 [node name="it" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=848998336 node_paths=PackedStringArray("astar") instance=ExtResource("31_xwgqs")]
-position = Vector2(-375, 266)
+position = Vector2(1756.0001, 118)
 dialogue_config = SubResource("Resource_m4kn4")
 starting_state = "lock"
 running_state = "idle"
