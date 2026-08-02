@@ -368,7 +368,9 @@ func target_pos_update(pos:Vector2):
 			var block = data.get_custom_data(BLOACKED)
 			return
 		var cell_pos = get_cell_center_pos_by_pos(pos)
-		if enabel_ui:cell_prop_pos_dic[cell_pos][2].self_modulate = target_on_cell_color
+		if enabel_ui:
+			if cell_prop_pos_dic.has(cell_pos):
+				cell_prop_pos_dic[cell_pos][2].self_modulate = target_on_cell_color
 		target_current_cell = cell_vec2i
 		target_current_cell_pos = pos
 		if cell_prop_pos_dic.has(last_target_current_cell_pos):
