@@ -4,8 +4,11 @@ class_name BaseDataFileCollector
 var obj
 var saver:BaseSaveFileSaver
 signal save
+##存档模版配置
 @export var save_data_config:SaveDataConfig
+##是否有master类
 @export var has_master:bool = true
+
 @export var enable_save:bool = true
 @export var enable_load:bool = true
 @export var debug:bool = false

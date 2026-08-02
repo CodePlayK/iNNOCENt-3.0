@@ -1,5 +1,5 @@
 extends Node
-##[必须为SaveDataCollector节点的唯一子节点] 用于对象的存档与读档案，不负责数据组装与赋值，只负责IO交互
+##必须为[SaveDataCollector]节点的唯一子节点 用于对象的存档与读档案，不负责数据组装与赋值，只负责IO交互
 class_name BaseSaveFileSaver
 @onready var save_data_collector:BaseDataFileCollector = $".."
 signal load_save
@@ -16,8 +16,8 @@ func _ready():
 ##保存数据到数据库
 func _save():
 	DataState.add2cache(save_data_config)
-	#if save_data_collector.debug:
-	Debug.dprint(DebugCT.dp("「保存」存档|[%s]%s" %[save_data_config.level_id,save_data_config.data],self))
+	if save_data_collector.debug:
+		Debug.dprint(DebugCT.dp("「保存」存档|[%s]%s" %[save_data_config.level_id,save_data_config.data],self))
 	DataState.obj_save_state_ready(save_data_collector.state_key)
 		
 ##载入数据	
@@ -29,7 +29,8 @@ func _load():
 	var data:Dictionary = {}
 	if dic_list :
 		data=JSON.parse_string(dic_list[0][DataState.DATA])[save_data_config.key]
-		if save_data_collector.debug:Debug.dprint(DebugCT.dp("「载入」存档|[%s]%s" %[CONDITION_SAVE,JSON.stringify(data)],self))
+		if save_data_collector.debug:
+			Debug.dprint(DebugCT.dp("「载入」存档|[%s]%s" %[CONDITION_SAVE,JSON.stringify(data)],self))
 	load_save.emit(data)
 		
 func _load_save_file():

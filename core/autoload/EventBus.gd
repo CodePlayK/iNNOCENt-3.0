@@ -1,7 +1,13 @@
 extends Node
 ##game
 signal save_game
+##通知所有saver载入存档中的数据[br]
+##saver包括:[br]
+##[BaseSaveFileSaver]
+##[BaseSaver]
+#TODO:给玩家单独的saver
 signal load_game
+##通知所有[BaseSaveFileSaver]只载入存档[br]
 signal load_save_file
 signal delete_save
 signal save_id_update

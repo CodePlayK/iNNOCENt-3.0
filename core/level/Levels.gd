@@ -21,7 +21,6 @@ var atmosphere_se_dic:Array[Array]
 ##当前房间当前时刻的平均颜色,详见[ScreenColor]
 var level_color:Color
 @export var level_background_color:Color=Color("00869c")
-var waiting_2_load_save:bool=false
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
@@ -95,11 +94,11 @@ func pause():
 	call_deferred("set_process_mode",Node.PROCESS_MODE_DISABLED)
 	Debug.dprintinfo(DebugCT.dp("level的暂停完成信号发出",self))
 	paused.emit()
-	
+##关卡恢复执行,判断当前关卡是否需要载入存档,需要则[signal EventBus.load_game]通知所有saver加载数据库,否则只是将关卡恢复	
 func resume():
 	call_deferred("set_process_mode",Node.PROCESS_MODE_INHERIT)
-	if !LevelState.level_waiting_2_load_dic.has(level_id) or LevelState.level_waiting_2_load_dic[level_id]:
-		LevelState.level_waiting_2_load_dic[level_id]=false
+	if !LevelState.is_level_waiting_to_load(level_id):
+		LevelState.set_level_waiting_2_load_dic(level_id,false)
 		EventBus._load_game()
 	EventBus._test_layer_visiable(true)
 	position=Vector2i.ZERO
