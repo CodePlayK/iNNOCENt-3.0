@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bey15txjsdrr8"]
+
+[ext_resource type="Script" uid="uid://drv6egaidyelf" path="res://core/common/component/base_colored_layer/base_colored_layer.gd" id="1_7mi17"]
+
+[node name="BaseColoredLayer" type="Node2D" unique_id=263052640]
+script = ExtResource("1_7mi17")

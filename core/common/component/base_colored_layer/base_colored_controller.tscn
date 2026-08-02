@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bk5hfe60hmdv0"]
+
+[ext_resource type="Script" uid="uid://brekr1htgco14" path="res://core/common/component/base_colored_layer/base_colored_Controller.gd" id="1_ktvof"]
+
+[node name="BaseColoredController" type="Node" unique_id=473114460]
+script = ExtResource("1_ktvof")
+base_color = Color(0, 0.73763317, 0.8490728, 1)

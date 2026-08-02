@@ -1985,7 +1985,7 @@ backward = true
 script = ExtResource("31_o2ap2")
 animation_name = "onfloor"
 
-[sub_resource type="Resource" id="Resource_kaqeq"]
+[sub_resource type="Resource" id="Resource_dq6eo"]
 resource_local_to_scene = true
 script = ExtResource("108_dq6eo")
 key = "base"
@@ -2051,7 +2051,7 @@ position = Vector2(0, 35)
 position = Vector2(0.235703, 34.784)
 
 [node name="PointLight2D" type="PointLight2D" parent="Config" unique_id=1015712511]
-energy = 2.26
+energy = 1.37
 blend_mode = 2
 range_item_cull_mask = 32
 shadow_enabled = true
@@ -2691,7 +2691,7 @@ one_shot = true
 
 [node name="DataCollector" parent="Saves" unique_id=1896791768 instance=ExtResource("88_4rcxe")]
 script = ExtResource("89_ebgrc")
-save_data_config = SubResource("Resource_kaqeq")
+save_data_config = SubResource("Resource_dq6eo")
 debug = true
 save_obj_id = false
 

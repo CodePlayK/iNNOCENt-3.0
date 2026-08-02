@@ -432,6 +432,7 @@ mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="PlayerCollectMarker" parent="MainCanvas" unique_id=1980541122 instance=ExtResource("12_03555")]
+visible = false
 z_index = 2
 position = Vector2(89, 1025)
 
