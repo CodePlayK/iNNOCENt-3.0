@@ -99,7 +99,7 @@ func _ready() -> void:
 	EventBus.change_player_position.connect(_on_change_player_position)
 	EventBus.change_player_visible.connect(_on_change_player_visible)
 	EventBus.player_face_left.connect(_on_player_face_left)
-	position=PlayerState.current_player_born_position
+	#position=PlayerState.current_player_born_position
 	start_position=get_position()
 	state_manager.init(self)
 	on_ready=true

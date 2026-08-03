@@ -283,6 +283,7 @@ size = Vector2(3915, 81.5)
 
 [node name="everythingeverywhere42" type="Node2D" unique_id=1354952185]
 script = ExtResource("1_celhk")
+obj_name = null
 
 [node name="Setting" type="Node2D" parent="." unique_id=226376598]
 

@@ -47,7 +47,6 @@ func _apply_level_view(level: Levels) -> void:
 	#player_camera.node_to_follow = level.player
 	#player_camera_aniplayer.play("RESET")
 	LevelState.current_level_node = level
-	back_ground_color.modulate = level.level_background_color
 
 
 ## 载入关卡
@@ -93,6 +92,8 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 		await load_level(dic_level_path[level_id])
 	if LevelState.level_dic.has(LevelState.last_level) and LevelState.level_dic.has(level_id):
 		await trans_play(LevelState.last_level,LevelState.current_level)
+	else :
+		back_ground_color.modulate = LevelState.level_dic[level_id].level_background_color
 	Debug.dprintinfo(DebugCT.dp(
 		"房间切换:[%s]-->[%s]" % [str(LevelState.last_level), str(LevelState.current_level)],
 		self
@@ -135,6 +136,7 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		Global.player_camera.position_smoothing_enabled = true
 		tw.tween_property(old_level,"global_position",Vector2(old_level.global_position.x,old_level_end_y),1)	
 		tw.parallel().tween_property(new_level,"global_position",Vector2(0,0),1)	
+		tw.parallel().tween_property(back_ground_color,"modulate",new_level.level_background_color,1)
 		await tw.finished
 		tw.kill()
 		LevelState.level_dic[LevelState.last_level].position=Vector2i(99999,99999)
