@@ -1758,7 +1758,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_x7ir2"]
-length = 1.0999999999999999
+length = 1.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2035,7 +2035,7 @@ backward = true
 script = ExtResource("31_o2ap2")
 animation_name = "onfloor"
 
-[sub_resource type="Resource" id="Resource_dq6eo"]
+[sub_resource type="Resource" id="Resource_kaqeq"]
 resource_local_to_scene = true
 script = ExtResource("108_dq6eo")
 key = "base"
@@ -2784,7 +2784,7 @@ one_shot = true
 
 [node name="DataCollector" parent="Saves" unique_id=1896791768 instance=ExtResource("88_4rcxe")]
 script = ExtResource("89_ebgrc")
-save_data_config = SubResource("Resource_dq6eo")
+save_data_config = SubResource("Resource_kaqeq")
 debug = true
 save_obj_id = false
 

@@ -10,7 +10,8 @@ class_name UIMenuTab
 @onready var screenshot: TextureRect = %Screenshot
 @onready var scroll_container: ScrollContainer = $HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer
 #endregion
-
+@onready var timer: Timer = %Timer
+var save_locker:bool = false
 @export var debug: bool = false
 
 var current_selected_save_file_item: UISaveFileItem
@@ -37,17 +38,17 @@ func on_save() -> void:
 
 
 func on_load() -> void:
+	if save_locker:return
 	if not _has_valid_selection():
 		_debug_err("未选中存档!")
 		return
-
 	_set_current_save_from_selection()
 	_debug_info("载入按钮按下")
 	EventBus._load_save_file()
-	EventBus._level_changed(LevelState.last_level, LevelState.current_level)
+	#EventBus._level_changed(LevelState.last_level, LevelState.current_level)
 	move_selected2top()
-
-
+	timer.start()
+	save_locker=true
 func on_delete() -> void:
 	if not _has_valid_selection():
 		_debug_err("未选中存档!")
@@ -69,6 +70,7 @@ func on_delete() -> void:
 
 
 func on_new_save_file() -> void:
+	if save_locker:return
 	_debug_info("新建存档按下")
 	DataState.current_save_id = DataState.current_max_save_id + 1
 	var new_item := new_save_file(
@@ -81,6 +83,9 @@ func on_new_save_file() -> void:
 	EventBus._save_game()
 	EventBus._save_file_id_update()
 	move_selected2top()
+	timer.start()
+	save_locker=true
+
 #endregion
 
 
@@ -163,3 +168,8 @@ func _debug_err(msg: String) -> void:
 	if debug:
 		Debug.dprinterr(DebugCT.dp(msg, self))
 #endregion
+
+
+func _on_timer_timeout() -> void:
+	save_locker=false
+	pass # Replace with function body.

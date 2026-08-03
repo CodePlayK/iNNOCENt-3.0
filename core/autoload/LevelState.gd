@@ -4,9 +4,14 @@ const LEVEL_1_PATH="res://core/level/level1/level_1.tscn"
 
 ##当前关卡
 var current_save_id:int=-99999
-var current_level:int=LEVELS.LEVEL_CURRENT
+var current_level:LEVELS=LEVELS.LEVEL_CURRENT
 var current_level_node:Levels
-
+##目标关卡所在方向
+enum TRANS_DIRCTS {
+	UP=0,
+	DOWN=1
+}
+var current_trans_direct:TRANS_DIRCTS
 var level_dic:Dictionary
 
 var doors_locked:bool=false

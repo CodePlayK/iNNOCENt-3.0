@@ -5481,6 +5481,9 @@ texture = ExtResource("49_146mj")
 [sub_resource type="TileSet" id="TileSet_ykd2g"]
 sources/0 = SubResource("TileSetAtlasSource_0xlwh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07drm"]
+size = Vector2(3584, 1439)
+
 [node name="Level0" type="Node2D" unique_id=1086752988]
 script = ExtResource("1_rqpfh")
 level_background_color = Color(3.3691526e-07, 0.33053187, 0.3864851, 1)
@@ -6108,6 +6111,12 @@ layer_0/tile_data = PackedInt32Array(1245069, 0, 15, 1310605, 0, 16, 1376141, 0,
 [node name="AutoTransparent" parent="Parallax/ParallaxLayer_8/BaseColoredLayer/treeBot" unique_id=1913887094 instance=ExtResource("48_dmogs")]
 
 [node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_8" unique_id=1045974992]
+
+[node name="LeveBound" type="CollisionShape2D" parent="." unique_id=644941246]
+visible = false
+position = Vector2(914, 255.5)
+shape = SubResource("RectangleShape2D_07drm")
+debug_color = Color(0, 0.97, 0.3071666, 0.83137256)
 
 [connection signal="body_entered" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_exited"]

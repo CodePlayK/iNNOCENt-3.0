@@ -22,6 +22,7 @@ var atmosphere_se_dic:Array[Array]
 var level_color:Color
 @export var level_background_color:Color=Color("00869c")
 var waiting_2_load_save:bool=false
+@onready var leve_bound: CollisionShape2D = $LeveBound
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
@@ -29,7 +30,6 @@ func _init() -> void:
 	
 ##就绪
 func _ready() -> void:
-	LevelState.current_level=level_id
 	load_vars()
 	player_position()
 	load_player_position()
@@ -84,10 +84,7 @@ func _tree_exited():
 
 func pause():
 	PlayerState.player_control_lock = true
-	hide()
-	position=Vector2i(10000,10000)
 	player.velocity.x=0
-	player.position=PlayerState.current_player_born_position
 	if !player.state_manager.current_state == player.state_manager.get_state_by_name("idle"):
 		player.state_manager.change_state(player.state_manager.get_state_by_name("idle"))
 		await player.state_manager.get_state_by_name("idle").into_indel_state
@@ -103,7 +100,16 @@ func resume():
 	if !LevelState.level_waiting_2_load_dic.has(level_id) or LevelState.is_level_waiting_to_load(level_id):
 		LevelState.set_level_waiting_to_load(level_id,false)
 		EventBus._load_game()
+	else :
+		player.position=PlayerState.current_player_born_position
+
 	EventBus._test_layer_visiable(true)
-	position=Vector2i.ZERO
 	show()
 	PlayerState.player_control_lock = false
+
+func get_level_shape_size()->Vector2:
+	var shape = leve_bound.shape as RectangleShape2D
+	return shape.size
+	
+func get_level_shape_pos()->Vector2:
+	return leve_bound.position

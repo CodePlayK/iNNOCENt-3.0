@@ -12,7 +12,7 @@ func custom_data():
 	
 ##载入存档文件数据,假如数据中缺失current_level时,默认载入[member levelState.LEVELS.LEVEL_0]
 func load_custom_data(data:Dictionary):
-	if data and data["current_level"]:
+	if data and data.has("current_level"):
 		LevelState.clear_level_waiting_to_load()	
 		EventBus._change_level(data["current_level"])
 	else:

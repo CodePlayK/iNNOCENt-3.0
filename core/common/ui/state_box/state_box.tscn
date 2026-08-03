@@ -626,6 +626,12 @@ save_obj_id = false
 save_position = false
 save_faced = false
 
+[node name="Timer" type="Timer" parent="." unique_id=901065132]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer/MCLeft" to="." method="_on_mc_left_gui_input"]
 [connection signal="focus_exited" from="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" to="." method="_on_state_tabs_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer/MarginContainer3/CloseBoxBut" to="." method="_on_close_box_but_pressed"]
+[connection signal="timeout" from="Timer" to="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单" method="_on_timer_timeout"]

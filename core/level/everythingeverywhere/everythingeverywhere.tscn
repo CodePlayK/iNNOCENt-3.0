@@ -288,6 +288,7 @@ script = ExtResource("1_celhk")
 
 [node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
 unique_name_in_owner = true
+visible = false
 ignore_rotation = false
 zoom = Vector2(3, 3)
 limit_left = -891
@@ -926,6 +927,10 @@ debug = true
 load_on_ready = true
 save_position = false
 save_faced = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=537120733]
+enabled = false
+zoom = Vector2(0.305, 0.305)
 
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]

@@ -44,8 +44,8 @@ func _init_level_paths() -> void:
 
 ## 统一应用关卡视图（相机跟随、当前关卡节点、背景色）
 func _apply_level_view(level: Levels) -> void:
-	player_camera.node_to_follow = level.player
-	player_camera_aniplayer.play("RESET")
+	#player_camera.node_to_follow = level.player
+	#player_camera_aniplayer.play("RESET")
 	LevelState.current_level_node = level
 	back_ground_color.modulate = level.level_background_color
 
@@ -65,7 +65,7 @@ func load_level(level_path: String) -> void:
 	await level.resume()
 	LevelState.set_level_waiting_to_load(level.level_id, false)
 
-
+	
 ## 恢复已加载的关卡
 func resume_level(level_id: LevelState.LEVELS) -> void:
 	var level: Levels = LevelState.level_dic[level_id]
@@ -75,6 +75,7 @@ func resume_level(level_id: LevelState.LEVELS) -> void:
 
 func _on_change_level(level_id: LevelState.LEVELS) -> void:
 	LevelState.doors_locked = true
+	
 	Debug.dprintinfo(DebugCT.dp("切换房间:[%s]" % level_id, self))
 
 	LevelState.last_level = LevelState.current_level
@@ -85,18 +86,58 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 
 	if LevelState.current_level_node:
 		await LevelState.current_level_node.pause()
-
+	var trans:bool = false
 	if LevelState.level_dic.has(level_id):
 		await resume_level(level_id)
 	else:
 		await load_level(dic_level_path[level_id])
-
+	if LevelState.level_dic.has(LevelState.last_level) and LevelState.level_dic.has(level_id):
+		await trans_play(LevelState.last_level,LevelState.current_level)
 	Debug.dprintinfo(DebugCT.dp(
 		"房间切换:[%s]-->[%s]" % [str(LevelState.last_level), str(LevelState.current_level)],
 		self
 	))
 	PlayerState.preset_player()
 	EventBus._level_changed(LevelState.last_level, LevelState.current_level)
+	Global.player_camera.node_to_follow = LevelState.level_dic[LevelState.current_level].player
+	LevelState.level_dic[LevelState.current_level].position.y=0
+
+	door_locked_time.start()
+	
+func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
+	if old_level_id==new_level_id:return
+	var old_level:Levels = LevelState.level_dic[old_level_id]
+	var new_level:Levels = LevelState.level_dic[new_level_id]
+	var old_level_size =  old_level.get_level_shape_size()
+	var old_level_pos =  old_level.get_level_shape_pos()
+	var new_level_pos =  new_level.get_level_shape_pos()
+	var new_level_size =  new_level.get_level_shape_size()
+	var tw=create_tween()
+	tw.set_trans(Tween.TRANS_CUBIC)
+	tw.set_ease(Tween.EASE_OUT)
+	if LevelState.current_trans_direct==LevelState.TRANS_DIRCTS.UP:
+		var new_level_start_x = old_level.player.global_position.x-PlayerState.current_player_born_position.x 
+		var new_level_start_y = old_level_pos.y-old_level_size.y*0.5-(new_level_pos.y-old_level.global_position.y+new_level_size.y*0.5)
+		var new_level_end_x = new_level_start_x
+		var new_level_end_y = 0
+		
+		var old_level_start_x = old_level.global_position.x
+		var old_level_start_y = old_level.global_position.y
+		var old_level_end_x = old_level.global_position.x
+		var old_level_end_y = abs(new_level_end_y-new_level_start_y)
+		Global.player_camera.position_smoothing_enabled = false
+		var camera_last_pos = Global.player_camera.global_position
+
+		new_level.global_position = Vector2(0,new_level_start_y)
+		old_level.global_position.x =  -new_level_start_x
+		Global.player_camera.global_position = camera_last_pos-Vector2(new_level_start_x,0)
+		await get_tree().process_frame
+		Global.player_camera.position_smoothing_enabled = true
+		tw.tween_property(old_level,"global_position",Vector2(old_level.global_position.x,old_level_end_y),1)	
+		tw.parallel().tween_property(new_level,"global_position",Vector2(0,0),1)	
+		await tw.finished
+		tw.kill()
+		LevelState.level_dic[LevelState.last_level].position=Vector2i(99999,99999)
 
 
 ## 检查是否有存档，没有则从默认资源复制一份到 user 目录
