@@ -8,7 +8,6 @@ func input(event: InputEvent) -> BaseState:
 	return null
 
 func physics_process(delta: float) -> BaseState:
-
 	move=get_movement_input_x()
 	player_faced(move)
 	apply_gravity(delta)

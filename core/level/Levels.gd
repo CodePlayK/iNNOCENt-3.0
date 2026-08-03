@@ -83,6 +83,7 @@ func _tree_exited():
 	EventBus._level_tree_exited()
 
 func pause():
+	PlayerState.player_control_lock = true
 	hide()
 	position=Vector2i(10000,10000)
 	player.velocity.x=0
@@ -105,3 +106,4 @@ func resume():
 	EventBus._test_layer_visiable(true)
 	position=Vector2i.ZERO
 	show()
+	PlayerState.player_control_lock = false

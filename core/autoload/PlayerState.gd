@@ -146,7 +146,6 @@ func preset_player():
 	denseable_flag=true
 	lightable_flag=true
 	player_be_hitting=false
-	player_control_lock=false
 	attacking=false
 ##添加到玩家交互锁中	
 func add_player_lock_interact_obj(obj):

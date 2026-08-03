@@ -66,6 +66,7 @@
 [ext_resource type="Script" uid="uid://i1efccr8yuad" path="res://core/player/ground.gd" id="35_20iv7"]
 [ext_resource type="Script" uid="uid://ddrlvr4fm28sw" path="res://core/player/states/interactive.gd" id="35_eavra"]
 [ext_resource type="Resource" uid="uid://dfmy5uuibdlh4" path="res://core/player/anime config/fastrun.tres" id="35_ouo11"]
+[ext_resource type="Texture2D" uid="uid://cgq3c2ousre8k" path="res://test/texture/base2.png" id="36_kaqeq"]
 [ext_resource type="Script" uid="uid://ncct3dwkvkmh" path="res://core/player/states/talk.gd" id="36_sqf10"]
 [ext_resource type="Script" uid="uid://48y3khe2x5ln" path="res://core/player/fx/DashPartical.gd" id="37_e1hln"]
 [ext_resource type="Resource" uid="uid://dtbqgw4un2v8c" path="res://core/player/anime config/dash.tres" id="37_m08ca"]
@@ -1395,7 +1396,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_y6mvg"]
-length = 0.7999999999999999
+length = 1.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1444,6 +1445,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [11, 12, 13, 14, 15, 16, 17, 18]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("test:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 }
 
 [sub_resource type="Animation" id="Animation_r5r04"]
@@ -1728,6 +1741,43 @@ shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8i7n7"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("test:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_x7ir2"]
+length = 1.0999999999999999
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("test:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vp6bf"]
+_data = {
+&"idle->walk": SubResource("Animation_8i7n7"),
+&"walk": SubResource("Animation_x7ir2")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rfhci"]
 shader = ExtResource("12_d6pte")
@@ -2271,7 +2321,47 @@ mix_modulate_scale = 2.221
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_g4fry")
 
+[node name="test" type="Sprite2D" parent="Animations/Anime" unique_id=789461373]
+visible = false
+light_mask = 0
+texture_filter = 1
+material = SubResource("ShaderMaterial_iop30")
+position = Vector2(-10.608589, -2.6590843)
+scale = Vector2(0.61425054, 0.61425054)
+texture = ExtResource("36_kaqeq")
+offset = Vector2(17.143, -7.143)
+hframes = 5
+vframes = 4
+frame = 6
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://test/texture",
+"o_name": "base2",
+"only_visible": true,
+"player": "Animations/Anime/AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://test/texture/player walking.aseprite",
+"source_uid": 2714675207039013877
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "d74dc88d11237e01c371cceed16ffeea"
+
 [node name="base" type="Sprite2D" parent="Animations/Anime" unique_id=1766364568]
+visible = false
 light_mask = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_iop30")
@@ -2281,7 +2371,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 113
+frame = 11
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2310,6 +2400,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "877d54aaac106339f1bf5c078221efeb"
 
 [node name="baseFX" type="Sprite2D" parent="Animations/Anime" unique_id=1664924147]
+visible = false
 light_mask = 65
 texture_filter = 1
 material = SubResource("ShaderMaterial_igalw")
@@ -2345,6 +2436,9 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": true
 }
 metadata/_aseprite_wizard_source_file_hash_ = "1c2370d7319a45aca3681647ba35cca3"
+
+[node name="AnimationPlayerTest" type="AnimationPlayer" parent="Animations/Anime" unique_id=1356915211]
+libraries/ = SubResource("AnimationLibrary_vp6bf")
 
 [node name="base" type="AnimatedSprite2D" parent="Animations" unique_id=1967807603]
 visible = false

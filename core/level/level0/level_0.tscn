@@ -6021,7 +6021,7 @@ script = ExtResource("19_vexjk")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
 [node name="LeftDoor" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=199191243 instance=ExtResource("46_ef5t1")]
-position = Vector2(-894, 204)
+position = Vector2(-876, 231)
 target_born_position = Vector2(1940, 194)
 target_born_position_name = "RightDoor"
 
