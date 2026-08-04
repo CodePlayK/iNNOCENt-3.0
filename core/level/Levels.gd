@@ -97,6 +97,7 @@ func resume():
 	#假如当前关卡需要加载数据
 	if !LevelState.level_waiting_2_load_dic.has(level_id) or LevelState.is_level_waiting_to_load(level_id):
 		LevelState.set_level_waiting_to_load(level_id,false)
+		PlayerState.player_player.position=PlayerState.current_player_born_position
 		EventBus._load_game()
 	else :
 		PlayerState.player_player.position=PlayerState.current_player_born_position

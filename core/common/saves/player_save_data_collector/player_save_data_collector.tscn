@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://wnma64238otk"]
+[gd_scene format=3 uid="uid://wnma64238otk"]
 
-[ext_resource type="Script" path="res://core/common/saves/player_save_data_collector/save_controller.gd" id="1_wcw32"]
-[ext_resource type="Script" path="res://core/common/saves/player_save_data_collector/Saver.gd" id="2_4rd20"]
+[ext_resource type="Script" uid="uid://pf30yiyy0xc3" path="res://core/common/saves/player_save_data_collector/save_controller.gd" id="1_wcw32"]
+[ext_resource type="Script" uid="uid://bvtn75sxm4krh" path="res://core/common/saves/player_save_data_collector/Saver.gd" id="2_4rd20"]
+[ext_resource type="Resource" uid="uid://c5v11f8kqncd4" path="res://core/player/save/PlayerSaveDataConfig.tres" id="2_iimb4"]
 
-[node name="DataCollector" type="Node"]
+[node name="DataCollector" type="Node" unique_id=1706702443]
 script = ExtResource("1_wcw32")
+save_data_config = ExtResource("2_iimb4")
+debug = true
 
-[node name="Saver" type="Node" parent="."]
+[node name="Saver" type="Node" parent="." unique_id=42374576]
 script = ExtResource("2_4rd20")

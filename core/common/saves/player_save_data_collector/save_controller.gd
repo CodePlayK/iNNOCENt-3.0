@@ -1,16 +1,20 @@
-extends PlayerSaveDataCollector
-@onready var test_label: Label = %TestLabel
-
+extends PlayerDataCollector
+var load_target_level:LevelState.LEVELS
+## 子类重写：初始化完成后的额外逻辑
+func on_ready() -> void:
+	pass
+#自定义在[LEVEL_ID][GROUP][KEY]唯一键key	
+func custom_key():
+	pass
 #配置要写入存档的数据
 func custom_data():
-	if test_label.text.is_empty():test_label.text = "0"
-	dic_save_data["test"]=test_label.text
-	pass
+	save_data_config.data["current_level"] = LevelState.current_level
 	
-func custom_column_data(c_data:Dictionary):
-	pass
-		
 #载入存档数据
-func load_custom_data():
-	test_label.text=dic_save_data["test"]
+func load_custom_data(data:Dictionary):
 	pass
+func load_load_save_file_custom_data(data:Dictionary):
+	if !data.has("current_level"):return
+	if data["current_level"] == load_target_level:
+		PlayerState.player_exit_level_pos = PlayerState.player_player.global_position
+		PlayerState.set_current_player_born_position(Vector2(data["position_x"], data["position_y"]),self)

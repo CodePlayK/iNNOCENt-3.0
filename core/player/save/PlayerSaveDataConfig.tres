@@ -6,3 +6,4 @@
 resource_local_to_scene = true
 script = ExtResource("1_j2cf3")
 key = "base"
+level_id = -2

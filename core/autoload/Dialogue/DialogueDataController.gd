@@ -13,6 +13,7 @@ func custom_data():
 	
 ##载入存档数据
 func load_custom_data(data:Dictionary):
+	if  !data:return
 	Dialogue.dialogue_title_dic = data["dialogue_title_dic"]
 	Dialogue.dialogue_title_dic_tmp = data["dialogue_title_dic_tmp"]
 	

@@ -9,15 +9,23 @@ func custom_key():
 	pass
 #配置要写入存档的数据
 func custom_data():
-	save_data_config["current_level"] = LevelState.current_level
+	save_data_config.data["current_level"] = LevelState.current_level
 	
 #载入存档数据
 func load_custom_data(data:Dictionary):
 	if !data:return
-	if data and  data.has("position_x") and data.has("position_y"):
-		if data.has("current_level"):
-			if data["current_level"] == load_target_level:
-				PlayerState.set_current_player_born_position(Vector2(data["position_x"], data["position_y"]),self)
+	save_data_config.data = data
+	#if data and  data.has("position_x") and data.has("position_y"):
+		#if data.has("current_level"):
+			#if data["current_level"] == LevelState.current_level:
+				#PlayerState.player_exit_level_pos.x = PlayerState.player_player.global_position.x
+				#PlayerState.set_current_player_born_position(Vector2(data["position_x"], data["position_y"]),self)
 
 func on_load_save_file(level_id):
 	load_target_level = level_id
+	saver._load_game()
+	if !save_data_config.data.has("current_level"):return
+	if save_data_config.data["current_level"] == load_target_level:
+		PlayerState.player_exit_level_pos.x = PlayerState.player_player.global_position.x
+		PlayerState.set_current_player_born_position(Vector2(save_data_config.data["position_x"], save_data_config.data["position_y"]),self)
+		

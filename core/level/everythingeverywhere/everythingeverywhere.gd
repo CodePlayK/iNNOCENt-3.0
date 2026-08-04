@@ -159,6 +159,7 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		Global.player_camera.position_smoothing_enabled = true
 		tw.kill()
 		LevelState.level_dic[LevelState.last_level].position=Vector2i(99999,99999)
+		LevelState.level_dic[LevelState.last_level].hide()
 
 
 ## 检查是否有存档，没有则从默认资源复制一份到 user 目录

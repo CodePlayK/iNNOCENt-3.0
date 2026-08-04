@@ -332,6 +332,19 @@ environment = ExtResource("6_7ue4y")
 wait_time = 3.0
 one_shot = true
 
+[node name="FXLight" type="DirectionalLight2D" parent="Setting" unique_id=1708598658]
+light_mask = 32
+range_item_cull_mask = 0
+
+[node name="UIBaseLight" type="DirectionalLight2D" parent="Setting" unique_id=337730710]
+light_mask = 0
+color = Color(0.545098, 1, 1, 1)
+energy = 0.3
+blend_mode = 2
+range_layer_min = 9
+range_layer_max = 10
+range_item_cull_mask = 0
+
 [node name="CanvasBackground" type="CanvasLayer" parent="." unique_id=970486849]
 layer = -1
 

@@ -5463,19 +5463,6 @@ blend_mode = 2
 range_layer_max = 1
 texture = SubResource("GradientTexture2D_00vot")
 
-[node name="FXLight" type="DirectionalLight2D" parent="Components/Lights" unique_id=1022383800]
-light_mask = 32
-range_item_cull_mask = 0
-
-[node name="UIBaseLight" type="DirectionalLight2D" parent="Components/Lights" unique_id=96484649]
-light_mask = 0
-color = Color(0.545098, 1, 1, 1)
-energy = 0.3
-blend_mode = 2
-range_layer_min = 9
-range_layer_max = 10
-range_item_cull_mask = 0
-
 [node name="BaseColoredController" parent="Components" unique_id=473114460 instance=ExtResource("4_v1l2d")]
 unique_name_in_owner = true
 brightness_falloff = 0.38
@@ -5921,7 +5908,6 @@ metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
 [node name="LeftDoor" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=199191243 instance=ExtResource("46_ef5t1")]
 position = Vector2(-1338, -47)
-target_level = 2
 target_born_position = Vector2(1490.0055, -26.074728)
 target_born_position_name = "RightDoor"
 
@@ -6001,7 +5987,6 @@ layer_0/tile_data = PackedInt32Array(1245069, 0, 15, 1310605, 0, 16, 1376141, 0,
 position = Vector2(-459, -293)
 
 [node name="LeveBound" type="CollisionShape2D" parent="." unique_id=644941246]
-visible = false
 position = Vector2(443, -91.25)
 shape = SubResource("RectangleShape2D_07drm")
 debug_color = Color(0, 0.97, 0.3071666, 0.83137256)

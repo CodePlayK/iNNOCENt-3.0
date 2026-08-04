@@ -135,7 +135,8 @@ func obj_save_state_ready(key: String) -> void:
 func add2cache(sc: SaveDataConfig) -> void:
 	if not sc:
 		return
-
+	if sc.group == GROUP.PLAYER:
+		pass
 	var entry: SaveDataConfig = sc.duplicate()
 	entry.level_id = sc.level_id
 
