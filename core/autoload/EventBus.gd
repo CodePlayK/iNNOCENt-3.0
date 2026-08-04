@@ -101,6 +101,7 @@ signal player_face_changed
 ## 玩家奔跑状态发生改变
 signal player_running_changed
 signal player_into_lock_state
+signal player_load_save_file_pos
 #endregion
 
 
@@ -427,3 +428,5 @@ func _npc_following_player(npc_name: String, flag: bool) -> void:
 
 func _player_into_lock_state():
 	player_into_lock_state.emit()
+func _player_load_save_file_pos(li:LevelState.LEVELS):
+	player_load_save_file_pos.emit(li)

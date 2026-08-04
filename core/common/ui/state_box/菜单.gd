@@ -49,6 +49,7 @@ func on_load() -> void:
 	move_selected2top()
 	timer.start()
 	save_locker=true
+	
 func on_delete() -> void:
 	if not _has_valid_selection():
 		_debug_err("未选中存档!")

@@ -44,6 +44,7 @@ func _ready() -> void:
 func _init_level_paths() -> void:
 	dic_level_path[LevelState.LEVELS.LEVEL_0] = LevelState.LEVEL_0_PATH
 	dic_level_path[LevelState.LEVELS.LEVEL_1] = LevelState.LEVEL_1_PATH
+	dic_level_path[LevelState.LEVELS.LEVEL_2] = LevelState.LEVEL_2_PATH
 
 
 ## 统一应用关卡视图（相机跟随、当前关卡节点、背景色）
@@ -131,8 +132,9 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		var old_level_start_y = old_level.global_position.y
 		var old_level_end_x = old_level.global_position.x
 		var old_level_end_y = abs(new_level_end_y-new_level_start_y)
-		Global.player_camera.node_to_follow = null
+		new_level.parallax.parallax_on = true		
 		Global.player_camera.position_smoothing_enabled = false
+		#Global.player_camera.node_to_follow = null
 		var camera_last_pos = Global.player_camera.global_position
 		#Debug.dprintwarn(DebugCT.dp("--------移动前新关卡位置:%s , 老关卡位置:%s ,老关卡玩家位置:%s" %[Vector2(new_level_start_x,new_level_start_y),old_level.global_position,old_level.player.global_position],self))
 		#Debug.dprintwarn(DebugCT.dp("出生位置的全局坐标:%s" %new_level.to_global(PlayerState.current_player_born_position),self))
@@ -142,13 +144,18 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		#Debug.dprintwarn(DebugCT.dp("--------对齐并归零的新关卡位置:%s , 老关卡位置:%s ,老关卡玩家位置:%s" %[new_level.global_position,old_level.global_position,old_level.player.global_position],self))
 		#Debug.dprintwarn(DebugCT.dp("出生位置的全局坐标:%s" %new_level.to_global(PlayerState.current_player_born_position),self))
 		Global.player_camera.global_position = camera_last_pos-Vector2(new_level_start_x,0)
+
 		#用一帧让相机和两个关卡按新关卡的坐标移动到零点
 		await get_tree().process_frame
+		#old_level.parallax._process()
+		#old_level.parallax.parallax_on = false
+		Global.player_camera.node_to_follow = null		
 		#Debug.dprintinfo(DebugCT.dp("--------开始播放切换关卡动画---------",self))
 		tw.tween_property(old_level,"global_position",Vector2(old_level.global_position.x,old_level_end_y),3)	
 		tw.parallel().tween_property(new_level,"global_position",Vector2(0,0),3)	
 		tw.parallel().tween_property(back_ground_color,"modulate",new_level.level_background_color,3)
 		await tw.finished
+		new_level.parallax.parallax_on = true		
 		#Debug.dprintinfo(DebugCT.dp("--------结束切换关卡动画---------",self))
 		#动画过程中必须关闭smooth否则会飘移
 		Global.player_camera.position_smoothing_enabled = true

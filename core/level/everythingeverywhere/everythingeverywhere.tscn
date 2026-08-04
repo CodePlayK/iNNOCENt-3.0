@@ -291,16 +291,17 @@ script = ExtResource("1_celhk")
 unique_name_in_owner = true
 ignore_rotation = false
 zoom = Vector2(3, 3)
-limit_left = -891
+limit_left = -1335
 limit_top = -165
-limit_right = 2316
+limit_right = 1889
 limit_bottom = 417
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
-drag_horizontal_offset = 0.5
+drag_horizontal_offset = 0.4
 drag_left_margin = 0.5
 drag_right_margin = 0.5
+drag_bottom_margin = 0.34
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("2_celhk")
@@ -335,6 +336,7 @@ layer = -1
 
 [node name="TestMark" parent="CanvasBackground" unique_id=1034310470 instance=ExtResource("7_jtj5p")]
 unique_name_in_owner = true
+visible = false
 
 [node name="BackGroundColor" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
 anchors_preset = 15
@@ -933,7 +935,9 @@ save_position = false
 save_faced = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=537120733]
+enabled = false
 zoom = Vector2(0.305, 0.305)
+limit_enabled = false
 
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]

@@ -11,7 +11,6 @@ const LEVEL_ID := "level_id"
 const SAVE_ID := "save_id"
 
 const parallax_move_data_source_path := "res://core/common/parallax/parallax_move_data.tres"
-const parallax_save_data_source_path := "res://core/common/parallax/parallax_save_data.tres"
 
 var ui_save_config = ResourceLoader.load(
 	"res://core/common/ui/state_box/setting/save_menu_ui_save_file_config.tres"

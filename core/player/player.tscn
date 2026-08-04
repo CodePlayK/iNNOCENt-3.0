@@ -2363,7 +2363,6 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "d74dc88d11237e01c371cceed16ffeea"
 
 [node name="base" type="Sprite2D" parent="Animations/Anime" unique_id=1766364568]
-visible = false
 light_mask = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_iop30")

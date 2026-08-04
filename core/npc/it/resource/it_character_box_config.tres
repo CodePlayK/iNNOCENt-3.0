@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_ohonw")
+level_id = 2
 character_names = Array[String](["it"])
 health_config = ExtResource("1_76qsy")
 image = ExtResource("2_66600")

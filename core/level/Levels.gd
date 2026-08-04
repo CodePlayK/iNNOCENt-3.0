@@ -23,6 +23,7 @@ var level_color:Color
 @export var level_background_color:Color=Color("00869c")
 var waiting_2_load_save:bool=false
 @onready var leve_bound: CollisionShape2D = $LeveBound
+@onready var parallax: Parallax = $Parallax
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
