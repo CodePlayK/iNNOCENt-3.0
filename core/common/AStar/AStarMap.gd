@@ -356,7 +356,8 @@ func npc_pos_update(pos:Vector2):
 			if enabel_ui:cell_prop_pos_dic[last_npc_current_cell_pos][2].self_modulate = Color.WHITE
 ##目标位置更新
 func target_pos_update(pos:Vector2):
-	if !PlayerState.current_player.is_on_floor() and only_update_on_floor:return
+	if !PlayerState.player_player:return
+	if !PlayerState.player_player.is_on_floor() and only_update_on_floor:return
 	if target_is_vec2:
 		pos = target_vec2
 	var cell_vec2i = get_cell_vec2i_by_pos(pos)

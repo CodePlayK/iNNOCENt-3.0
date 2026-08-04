@@ -14,10 +14,10 @@ var left_ct:int=0
 var right_ct:int=0
 func _init() -> void:
 	EventBus.create_character_box.connect(on_create_character_box)
-	EventBus.level_changed.connect(on_level_changed)
+	EventBus.create_all_character_box.connect(on_level_changed)
 	
-func on_level_changed(fl,tl):
-	#Debug.dprintwarn(DebugCT.dp("收到切换关卡指令",self))
+func on_level_changed():
+	Debug.dprintwarn(DebugCT.dp("收到切换关卡指令",self))
 	current_index=1
 	left_index_max=1
 	margin_mid_index=0
@@ -32,7 +32,7 @@ func on_create_character_box(cbc:CharacterBoxConfig):
 	#Debug.dprintinfo(DebugCT.dp("[%s]创建角色box:[%s][%s][%s]" %[LevelState.current_level,cbc.character_box_id,cbc.level_id,cbc.showing],self))
 	if !cbc:
 		return
-	if cbc.level_id!=LevelState.current_level:
+	if cbc.level_id!=LevelState.current_level and !cbc.is_player:
 		return
 	else :
 		pass

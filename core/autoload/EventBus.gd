@@ -112,6 +112,7 @@ signal create_character_box
 signal remove_character_box
 ## 移除全部角色 Box
 signal remove_all_character_box
+signal create_all_character_box
 ## 测试层显示/隐藏（调试用，参数：flag）
 signal test_layer_visiable
 #endregion
@@ -430,3 +431,6 @@ func _player_into_lock_state():
 	player_into_lock_state.emit()
 func _player_load_save_file_pos(li:LevelState.LEVELS):
 	player_load_save_file_pos.emit(li)
+
+func _create_all_character_box():
+	create_all_character_box.emit()

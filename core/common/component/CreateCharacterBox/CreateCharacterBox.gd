@@ -8,7 +8,6 @@ var character_box_config:CharacterBoxConfig
 var create_cache:bool=false
 
 func on_master_ready(master:Master):
-	EventBus.remove_all_character_box.connect(remove_all_character_box)
 	EventBus.level_changed.connect(on_level_changed)
 	obj = master.obj
 	obj.character_box_config.obj_id = obj.obj_name
@@ -18,10 +17,10 @@ func on_master_ready(master:Master):
 	if create_on_load:
 		EventBus._create_character_box(obj.character_box_config)
 		return
-	if create_cache:
-		create_character_box()
-		create_cache=false
-	
+	#if create_cache:
+		#create_character_box()
+		#create_cache=false
+	#
 func _on_timer_timeout() -> void:
 	EventBus._create_character_box(obj.character_box_config)
 	

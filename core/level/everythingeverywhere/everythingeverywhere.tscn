@@ -40,6 +40,7 @@
 [ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/SaveFileDataController/WorldDataController.gd" id="39_i74u8"]
 [ext_resource type="Resource" uid="uid://b3q2mjg6h15ph" path="res://core/level/everythingeverywhere/word_sdc.tres" id="39_ydae1"]
 [ext_resource type="PackedScene" uid="uid://duo6bfrwl5qvr" path="res://core/common/saves/SaveFileDataController/BaseSaveFileController.tscn" id="40_i74u8"]
+[ext_resource type="PackedScene" uid="uid://dejs55bavqfkl" path="res://core/player/player.tscn" id="41_i74u8"]
 
 [sub_resource type="Animation" id="Animation_i8m7f"]
 resource_name = "0_0_0"
@@ -938,6 +939,15 @@ save_faced = false
 enabled = false
 zoom = Vector2(0.305, 0.305)
 limit_enabled = false
+
+[node name="PlayerPlayer" parent="." unique_id=1119101225 instance=ExtResource("41_i74u8")]
+unique_name_in_owner = true
+talker_name = Array[String](["我", "P"])
+dialogue_config = null
+stamina_recovered_speed = 200.0
+
+[node name="CameraMark" type="Node2D" parent="PlayerPlayer" unique_id=767088440]
+position = Vector2(0, -800)
 
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]

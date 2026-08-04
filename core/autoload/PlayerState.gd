@@ -1,12 +1,14 @@
 @tool
 ##玩家状态
 extends Node
-var current_player:Player
+var player_player:Player
 var player_health_config:HealthConfig
 var player_stamina_config:StaminaConfig
 
 #位置
+var player_exit_level_pos:Vector2
 var current_player_born_position:Vector2 = Vector2(-551.0,255.0,)
+
 func set_current_player_born_position(pos:Vector2,source:Node):
 	current_player_born_position = pos
 	Debug.dprintinfo(DebugCT.dp("更新玩家出生点位置: [%s]为[%s]" %[source.get_path(),pos],self))
@@ -32,8 +34,8 @@ var face_left:bool=false:
 var face_left_normalize:int=1:
 	set(i):
 		face_left_normalize = i
-		if current_player:
-			current_player.face_left_normalized = i
+		if player_player:
+			player_player.face_left_normalized = i
 ##面朝左
 var running_left:bool=false:
 	set(f):
@@ -68,8 +70,8 @@ var player_z_index={
 var is_player_on_fighting:bool=false:
 	set(f):
 		is_player_on_fighting = f
-		if current_player:
-			current_player.ui.player_on_fighting_changed(f)
+		if player_player:
+			player_player.ui.player_on_fighting_changed(f)
 
 ##正在与玩家战斗的对象{对象名,对象}
 var player_on_fighting:Dictionary
@@ -168,6 +170,6 @@ func remove_player_lock_interact_obj(obj):
 		return
 	player_lock_interact_obj.erase(obj.name)
 func on_player_ready(player1:Player):
-	current_player = player1
+	player_player = player1
 func is_player_on_floor():
-	return current_player.is_on_floor()
+	return player_player.is_on_floor()

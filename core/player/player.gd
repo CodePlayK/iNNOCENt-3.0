@@ -114,6 +114,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if !on_ready:
 		return 
+	var level = get_parent()
 	is_player_interact_being_locked()
 	is_player_on_fighting()
 	state_manager.physics_process(delta)

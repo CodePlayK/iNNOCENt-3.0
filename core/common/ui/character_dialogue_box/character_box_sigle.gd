@@ -32,28 +32,32 @@ func _ready() -> void:
 	EventBus.player_health_damaged.connect(on_player_health_damaged)
 	EventBus.player_health_healed.connect(on_player_health_healed)
 	EventBus.remove_character_box.connect(on_remove_character_box)
+	EventBus.remove_all_character_box.connect(on_remove_all_character_box)
 	Dialogue.end_dialogue.connect(on_end_dialogue)
 	Dialogue.talk_start.connect(on_talk_start)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 	gui_input.connect(_on_gui_input)
-	if is_player:
+	if character_box_config.is_player:
 		UiState.player_character_box = self
-	EventBus.level_changed.connect(on_level_changed)
 	
 func on_level_changed(fl,tl):
+	#if character_box_config.is_player:return
 	if is_prototype:
 		return
-	on_remove_all_character_box(character_box_config,character_box_config.level_id)
+	on_remove_character_box(character_box_config,character_box_config.level_id)
 
 #卸载角色box事件
 func on_remove_character_box(cbc:CharacterBoxConfig,el:LevelState.LEVELS):
+	if is_prototype:
+		return
 	if cbc.character_box_id!=character_box_config.character_box_id or el!=character_box_config.level_id:return
 	UiState.character_box_dic[cbc.character_box_id].showing=false
-	delay_timer.stop()
-	anime_dead()
+	on_remove_all_character_box()
+	
 #卸载角色box事件
-func on_remove_all_character_box(cbc:CharacterBoxConfig,el:LevelState.LEVELS):
+func on_remove_all_character_box():
+	#if character_box_config.is_player:return
 	delay_timer.stop()
 	anime_dead()
 	
@@ -64,6 +68,7 @@ func anime_born():
 	return
 
 func anime_dead():
+	if is_prototype:return
 	var twn = create_tween()
 	twn.set_trans(Tween.TRANS_CUBIC)
 	twn.set_ease(Tween.EASE_IN)

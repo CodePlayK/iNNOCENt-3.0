@@ -7,11 +7,10 @@ const clazz_name = "Levels"
 signal paused
 ##房间唯一id,level准备完毕后配置于[method _ready]
 @export var level_id:LevelState.LEVELS
+@export var player_layer:Node2D
 ##@experimental
 ##房间默认播放的环境音[br][code]Array["音效名",音量][/code]
 var atmosphere_se_dic:Array[Array]
-##房间中的[Player][Player]对象
-@onready var player:Player = %Player
 ##@experimental
 ##Player在当前房间的默认[code]z index[/code][br]
 ##配置于[method load_player_position]
@@ -84,10 +83,11 @@ func _tree_exited():
 	EventBus._level_tree_exited()
 
 func pause():
-	player.velocity.x=0
-	if !player.state_manager.check_current_state_by_name("lock"):
+	PlayerState.player_player.velocity.x=0
+	if !PlayerState.player_player.state_manager.check_current_state_by_name("lock"):
 		await EventBus.player_into_lock_state
 	call_deferred("set_process_mode",Node.PROCESS_MODE_DISABLED)
+	EventBus._remove_all_character_box()
 	Debug.dprintinfo(DebugCT.dp("level的暂停完成信号发出",self))
 	paused.emit()
 	
@@ -99,9 +99,9 @@ func resume():
 		LevelState.set_level_waiting_to_load(level_id,false)
 		EventBus._load_game()
 	else :
-		player.position=PlayerState.current_player_born_position
+		PlayerState.player_player.position=PlayerState.current_player_born_position
 		Debug.dprintinfo(DebugCT.dp("设置玩家位置为出生点位置",self))
-
+	EventBus._create_all_character_box()
 	EventBus._test_layer_visiable(true)
 	show()
 

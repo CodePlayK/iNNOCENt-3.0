@@ -9,7 +9,6 @@
 
 [sub_resource type="Resource" id="Resource_02r1p"]
 script = ExtResource("2_02r1p")
-show = true
 metadata/_custom_type_script = "uid://by8uti5xwqq2u"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lx3nq"]
@@ -117,6 +116,7 @@ script = ExtResource("1_02r1p")
 character_box_config = SubResource("Resource_02r1p")
 is_player = true
 health_config = ExtResource("3_dtj3b")
+delay_time = Vector2(1, 3)
 
 [node name="ImgBoxTopMarg" type="MarginContainer" parent="." unique_id=757325421]
 unique_name_in_owner = true

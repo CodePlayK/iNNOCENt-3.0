@@ -63,8 +63,8 @@ func on_start() -> void:
 func _process(delta: float) -> void:
 	if !parallax_on:return
 	player_position_x = get_player_position_x()
-	if int(player_position_x)!=int(player_last_position_x):
-		Debug.dprint(DebugCT.dp("%s -> %s" %[player_last_position_x,player_position_x],self))
+	#if int(player_position_x)!=int(player_last_position_x):
+		#Debug.dprint(DebugCT.dp("%s -> %s" %[player_last_position_x,player_position_x],self))
 	var layer_count: int = mini(parallax_layers.size(), parallax_layers_speed.size())
 
 	for i in layer_count:
