@@ -21,7 +21,9 @@ func physics_process(delta: float) -> BaseState:
 	player.set_velocity(player.velocity)
 	player.set_up_direction(Vector2.UP)
 	if !is_instance_valid(player) or player.get_world_2d() == null:
-		return idle_state
+		return 
+	if not is_inside_tree():
+		return
 	player.move_and_slide()
 	player.velocity=min_jump_force(player.velocity,delta)
 	return null

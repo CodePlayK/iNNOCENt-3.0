@@ -1,6 +1,7 @@
 extends Node
 const LEVEL_0_PATH="res://core/level/level0/level_0.tscn"
 const LEVEL_1_PATH="res://core/level/level1/level_1.tscn"
+const LEVEL_2_PATH="res://core/level/level2/level_2.tscn"
 
 ##当前关卡
 var current_save_id:int=-99999

@@ -26,7 +26,11 @@ class_name Camera2DPlus
 @export_range(-99, 99) var CINEMATIC_LAYER: int = 2 ## The layer of the CanvasLayer that the cinematic effects will be at.
 
 # Nodes:
-@export var node_to_follow: Node
+@export var node_to_follow: Node:
+	set(ntf):
+		node_to_follow = ntf
+		limit_bottom = 126
+		limit_top = -348
 
 # Variables:
 var flash_layer: CanvasLayer ## This variable is going to store the CanvasLayer that is going to store the flash related stuff.
@@ -100,7 +104,7 @@ func _ready() -> void:
 	cinematic_layer.call_deferred("add_child", right_rect) # Adding the new ColorRect to the scene.
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	## Applying the camera shake.
 	rotation_degrees = randf_range(-shake_strength * SHAKE_ANGLE_MULTIPLIER, shake_strength * SHAKE_ANGLE_MULTIPLIER) + angle_tilt # Randomizing the camera angle.
 	offset = Vector2(randf_range(-shake_strength * SHAKE_POSITION_MULTIPLIER, shake_strength * SHAKE_POSITION_MULTIPLIER), # Randomizing the camera offset.

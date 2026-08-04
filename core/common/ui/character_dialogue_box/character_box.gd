@@ -17,7 +17,7 @@ func _init() -> void:
 	EventBus.level_changed.connect(on_level_changed)
 	
 func on_level_changed(fl,tl):
-	Debug.dprintwarn(DebugCT.dp("收到切换关卡指令",self))
+	#Debug.dprintwarn(DebugCT.dp("收到切换关卡指令",self))
 	current_index=1
 	left_index_max=1
 	margin_mid_index=0

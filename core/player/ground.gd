@@ -21,5 +21,3 @@ func input(event: InputEvent) -> BaseState:
 		else:
 			return null
 	return null
-
-

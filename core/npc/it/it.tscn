@@ -7287,7 +7287,6 @@ impossible_weight = -100.0
 
 [node name="NpcStateManager" parent="." unique_id=1990991516 node_paths=PackedStringArray("npcstatemachine_ui") instance=ExtResource("44_d3dm8")]
 npcstatemachine_ui = NodePath("../UIs/Test/TestCan/StateManagerUI")
-changing_state = true
 
 [node name="stack" type="Node" parent="NpcStateManager" unique_id=1365886926]
 script = ExtResource("45_4wgk8")

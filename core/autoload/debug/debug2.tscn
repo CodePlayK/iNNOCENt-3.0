@@ -4,9 +4,11 @@
 [ext_resource type="Theme" uid="uid://bpydhupj7vcjn" path="res://core/autoload/debug/debug.tres" id="2_aggdk"]
 
 [node name="Debug" type="CanvasLayer" unique_id=439546090]
+visible = false
 script = ExtResource("1_jq1f5")
 
 [node name="MC" type="MarginContainer" parent="." unique_id=1925302473]
+modulate = Color(0.7733397, 0.78987944, 0.97991437, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

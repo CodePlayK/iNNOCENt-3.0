@@ -23,6 +23,7 @@ var level_color:Color
 @export var level_background_color:Color=Color("00869c")
 var waiting_2_load_save:bool=false
 @onready var leve_bound: CollisionShape2D = $LeveBound
+@onready var parallax: Parallax = $Parallax
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
@@ -83,13 +84,9 @@ func _tree_exited():
 	EventBus._level_tree_exited()
 
 func pause():
-	PlayerState.player_control_lock = true
 	player.velocity.x=0
-	if !player.state_manager.current_state == player.state_manager.get_state_by_name("idle"):
-		player.state_manager.change_state(player.state_manager.get_state_by_name("idle"))
-		await player.state_manager.get_state_by_name("idle").into_indel_state
-		Debug.dprintinfo(DebugCT.dp("收到idle信号",self))
-
+	if !player.state_manager.check_current_state_by_name("lock"):
+		await EventBus.player_into_lock_state
 	call_deferred("set_process_mode",Node.PROCESS_MODE_DISABLED)
 	Debug.dprintinfo(DebugCT.dp("level的暂停完成信号发出",self))
 	paused.emit()
@@ -97,15 +94,16 @@ func pause():
 ##关卡恢复执行,判断当前关卡是否需要载入存档,需要则[signal EventBus.load_game]通知所有saver加载数据库,否则只是将关卡恢复	
 func resume():
 	call_deferred("set_process_mode",Node.PROCESS_MODE_INHERIT)
+	#假如当前关卡需要加载数据
 	if !LevelState.level_waiting_2_load_dic.has(level_id) or LevelState.is_level_waiting_to_load(level_id):
 		LevelState.set_level_waiting_to_load(level_id,false)
 		EventBus._load_game()
 	else :
 		player.position=PlayerState.current_player_born_position
+		Debug.dprintinfo(DebugCT.dp("设置玩家位置为出生点位置",self))
 
 	EventBus._test_layer_visiable(true)
 	show()
-	PlayerState.player_control_lock = false
 
 func get_level_shape_size()->Vector2:
 	var shape = leve_bound.shape as RectangleShape2D

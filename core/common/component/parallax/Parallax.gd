@@ -8,6 +8,9 @@ class_name Parallax
 extends Component
 
 #region Exports
+## 视差层累计位移，储存于 Resource，可供其他 node 使用
+@export var parallax_move_data: ParallaxMoveData
+@export var parallax_on:bool = true
 @export var parallax_main_layer: Node2D
 
 @export_category("视差层速度配置")
@@ -31,8 +34,7 @@ var parallax_layers_speed: Array[float] = []
 var player_last_position_x: float = 0.0
 var player_position_x: float = 0.0
 
-## 视差层累计位移，储存于 Resource，可供其他 node 使用
-var parallax_move_data: ParallaxMoveData
+
 #endregion
 
 
@@ -42,7 +44,6 @@ func init_var() -> void:
 
 func ready() -> void:
 	LevelState.current_main_layer = parallax_main_layer
-	parallax_move_data = preload(DataState.parallax_move_data_source_path)
 	_rebuild_speed_array()
 	get_parallax_layers()
 
@@ -59,8 +60,11 @@ func on_start() -> void:
 		cam.position_smoothing_enabled = true
 
 
-func physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+	if !parallax_on:return
 	player_position_x = get_player_position_x()
+	if int(player_position_x)!=int(player_last_position_x):
+		Debug.dprint(DebugCT.dp("%s -> %s" %[player_last_position_x,player_position_x],self))
 	var layer_count: int = mini(parallax_layers.size(), parallax_layers_speed.size())
 
 	for i in layer_count:
@@ -73,7 +77,7 @@ func get_player_position_x() -> float:
 	var cam := get_viewport().get_camera_2d()
 	if not cam:
 		return player_last_position_x
-	return cam.get_screen_center_position().x
+	return get_parent().to_local(cam.get_screen_center_position()).x
 
 
 ## 与原版公式数值完全等价：

@@ -14,30 +14,30 @@ func on_cutscener_log_change(s):
 func dprintcutscener(t):
 	if !print_cutscener:return
 	time = str(Time.get_ticks_msec())
-	var text = "[color=757575][%s][%s] \n[color=ffff00]%s" %[DebugCT.from_node,time,DebugCT.text]
+	var text = "[color=757575][%s][color=757575][%s][color=ffff00]%s \n[color=ffff00] - %s" %[time,DebugCT.from_node,DebugCT.from_node_name,DebugCT.text]
 	debug_printer.append_text("\n"+text)
 	
 func dprint(t):
 	time = str(Time.get_ticks_msec())
-	var text = "[color=757575][%s][%s] \n[color=ffffff] - %s" %[DebugCT.from_node,time,DebugCT.text]
+	var text = "[color=757575][%s][color=757575][%s][color=c5c9fa]%s \n[color=c5c9fa] - %s" %[time,DebugCT.from_node,DebugCT.from_node_name,DebugCT.text]
 	print_rich(text)
 	debug_printer.append_text("\n"+text)
 	
 func dprinterr(t):
 	time = str(Time.get_ticks_msec())
-	var text = "[color=757575][%s][%s] \n[color=ff241ae5] - %s" %[DebugCT.from_node,time,DebugCT.text]
+	var text = "[color=757575][%s][color=757575][%s][color=ff241ae5]%s \n[color=ff241ae5] - %s" %[time,DebugCT.from_node,DebugCT.from_node_name,DebugCT.text]
 	print_rich(text)
 	debug_printer.append_text("\n"+text)
 	
 func dprintwarn(t):
 	time = str(Time.get_ticks_msec())
-	var text = "[color=757575][%s][%s] \n[color=ffff19] - %s" %[DebugCT.from_node,time,DebugCT.text]
+	var text = "[color=757575][%s][color=757575][%s][color=ffff19]%s \n[color=ffff19] - %s" %[time,DebugCT.from_node,DebugCT.from_node_name,DebugCT.text]
 	print_rich(text)
 	debug_printer.append_text("\n"+text)
 		
 func dprintinfo(t):
 	time = str(Time.get_ticks_msec())
-	var text = "[color=757575][%s][%s] \n[color=1ee6d2] - %s" %[DebugCT.from_node,time,DebugCT.text]
+	var text = "[color=757575][%s][color=757575][%s][color=1ee6d2]%s \n[color=1ee6d2] - %s" %[time,DebugCT.from_node,DebugCT.from_node_name,DebugCT.text]
 	print_rich(text)
 	debug_printer.append_text("\n"+text)
 	

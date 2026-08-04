@@ -15,7 +15,7 @@ func custom_data():
 	
 #载入存档数据
 func load_custom_data(data:Dictionary):
-	parallax.enable = false
+	parallax.parallax_on = false
 	for layer in parallax.parallax_layers:
 		layer.position.x = data[layer.name]
 	parallax.parallax_move_data.dic_layers_move_data = data["pmd"]

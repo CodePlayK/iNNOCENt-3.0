@@ -69,7 +69,7 @@ func input(event: InputEvent) -> void:
 	if new_state:
 		change_state(new_state)
 
-func change_state(new_state: BaseState) -> void:
+func change_state(new_state: BaseState) -> BaseState:
 	if null!=current_state and null!=new_state and (current_state!=new_state or new_state is StackingState) and new_state.common_pre_enter() and new_state.pre_enter():
 		print_state_change(current_state.name,new_state.name)
 		if !new_state is StackingState:
@@ -88,7 +88,8 @@ func change_state(new_state: BaseState) -> void:
 		var temp_state= await new_state.enter()
 		if temp_state:
 			change_state(temp_state)
-
+			return temp_state
+	return null
 func physics_process(delta: float) -> void:
 	if not is_instance_valid(player):
 		return
@@ -130,9 +131,10 @@ func _on_player_tree_exiting():
 
 func _on_player_control_lock(state):
 	if state:
-		change_state(base_state.talk_state)
+		change_state(base_state.lock_state)
 	else :
 		change_state(base_state.idle_state)
+	
 		
 func input_common_state(event:InputEvent):
 	if PlayerState.player_control_lock:return null
@@ -171,6 +173,8 @@ func get_state_by_name(state_name):
 	for state in all_states:
 		if str(state.name).begins_with(state_name):
 			return state
+func check_current_state_by_name(state_name):
+	return current_state == get_state_by_name(state_name)
 				
 func on_hurt(obj:HitBox):
 	if !obj.enable:

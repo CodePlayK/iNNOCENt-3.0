@@ -6,9 +6,10 @@
 ## 使用方式：在场景中把本节点勾选「Unique Name in Owner」，
 ## 这样各 BaseColoredLayer 可通过 %BaseColoredController 直接访问。
 class_name BaseColoredController extends Component
+@onready var level: Levels = $"../.."
 
 @export_category("基础颜色配置")
-@export var base_color: Color = Color.WHITE:
+var base_color: Color = Color.WHITE:
 	set(value):
 		base_color = value
 		_on_param_changed()
@@ -32,6 +33,7 @@ func init_var() -> void:
 	clazz_name = "BaseColoredController"
 
 func ready() -> void:
+	base_color = level.level_background_color
 	call_deferred("_wait_and_apply")
 
 func _wait_and_apply() -> void:

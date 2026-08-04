@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_jxy5a")
+level_id = 2
 character_names = Array[String](["我", "M"])
 is_player = true
 health_config = ExtResource("1_12i0t")

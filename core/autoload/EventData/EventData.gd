@@ -13,9 +13,9 @@ enum EVENT_TYPR {
 
 func add_event(ec:EventConfig):
 	if !ec or null==ec.event_key:return
-	if event_data_dic.has(ec.event_key):
-		Debug.dprinterr(DebugCT.dp("[%s]事件key不唯一!,当前value为:\n%s" %[ec.event_key,event_data_dic[ec.event_key]],self))
-	event_data_dic[ec.event_key] = ec
+	#if event_data_dic.has(ec.event_key):
+		#Debug.dprinterr(DebugCT.dp("[%s]事件key不唯一!,当前value为:\n%s" %[ec.event_key,event_data_dic[ec.event_key]],self))
+	#event_data_dic[ec.event_key] = ec
 
 func get_event(k):
 	var v = event_data_dic[k]

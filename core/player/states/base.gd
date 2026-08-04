@@ -11,6 +11,7 @@ class_name BaseState
 @onready var fall_state: BaseState
 @onready var lift_state: BaseState
 @onready var idle_state: BaseState
+@onready var lock_state: BaseState
 @onready var double_jump_state: BaseState
 @onready var landing_state: BaseState
 @onready var ground_state: BaseState

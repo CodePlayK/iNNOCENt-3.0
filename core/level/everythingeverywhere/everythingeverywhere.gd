@@ -1,3 +1,5 @@
+@icon ("res://addons/at-icons/animation/institutional_building.svg")
+
 extends Node2D
 ## 简短概述：42 is here
 ##
@@ -20,18 +22,20 @@ var dic_level_path: Dictionary = {}
 @onready var player_camera_aniplayer: AnimationPlayer = $Setting/PlayerCamera/PlayerCameraAniplayer
 @onready var back_ground_color: TextureRect = $CanvasBackground/BackGroundColor
 @onready var door_locked_time: Timer = $Setting/DoorLockedTime
+@onready var test_mark: Node2D = %TestMark
 
 
 func _init() -> void:
 	EventBus.change_level.connect(_on_change_level)
-
+	
 
 ## 初始化
 ## 如果要运行 cutscener，则在这里修改：载入 cutscener 配置目录，判断当前运行是否为 cutscener
 func _ready() -> void:
+	Global.test_mark = test_mark
 	_ensure_default_save_file()
 	_init_level_paths()
-
+	
 	# 载入 cutscener 配置目录，判断当前运行是否为 cutscener
 	# var config = load_json(CutscenerGlobal.CONFIG_DATA_FILE_PATH)
 	# if config["run_type"] == 0:
@@ -40,6 +44,7 @@ func _ready() -> void:
 func _init_level_paths() -> void:
 	dic_level_path[LevelState.LEVELS.LEVEL_0] = LevelState.LEVEL_0_PATH
 	dic_level_path[LevelState.LEVELS.LEVEL_1] = LevelState.LEVEL_1_PATH
+	dic_level_path[LevelState.LEVELS.LEVEL_2] = LevelState.LEVEL_2_PATH
 
 
 ## 统一应用关卡视图（相机跟随、当前关卡节点、背景色）
@@ -74,9 +79,7 @@ func resume_level(level_id: LevelState.LEVELS) -> void:
 
 func _on_change_level(level_id: LevelState.LEVELS) -> void:
 	LevelState.doors_locked = true
-	
-	Debug.dprintinfo(DebugCT.dp("切换房间:[%s]" % level_id, self))
-
+	PlayerState.set_player_control_lock(true,self)
 	LevelState.last_level = LevelState.current_level
 	LevelState.current_level = level_id
 
@@ -98,11 +101,12 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 		"房间切换:[%s]-->[%s]" % [str(LevelState.last_level), str(LevelState.current_level)],
 		self
 	))
+	PlayerState.on_player_ready(LevelState.level_dic[LevelState.current_level].player)
 	PlayerState.preset_player()
 	EventBus._level_changed(LevelState.last_level, LevelState.current_level)
 	Global.player_camera.node_to_follow = LevelState.level_dic[LevelState.current_level].player
 	LevelState.level_dic[LevelState.current_level].position.y=0
-
+	PlayerState.set_player_control_lock(false,self)
 	door_locked_time.start()
 	
 func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
@@ -117,27 +121,49 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 	tw.set_trans(Tween.TRANS_CUBIC)
 	tw.set_ease(Tween.EASE_OUT)
 	if LevelState.current_trans_direct==LevelState.TRANS_DIRCTS.UP:
+		#Debug.dprintwarn(DebugCT.dp("--------开始计算关卡位置[老关卡玩家位置:%s],[出生位置:%s],[老关卡位置:%s],[相机位置:%s]" %[old_level.player.global_position,PlayerState.current_player_born_position,old_level.global_position,Global.player_camera.global_position],self))
+		#Debug.dprintwarn(DebugCT.dp("出生位置的全局坐标:%s" %new_level.to_global(PlayerState.current_player_born_position),self))
 		var new_level_start_x = old_level.player.global_position.x-PlayerState.current_player_born_position.x 
 		var new_level_start_y = old_level_pos.y-old_level_size.y*0.5-(new_level_pos.y-old_level.global_position.y+new_level_size.y*0.5)
 		var new_level_end_x = new_level_start_x
 		var new_level_end_y = 0
+		var limit_right = Global.player_camera.limit_right
+		var limit_left = abs(Global.player_camera.limit_left)
+		var view_size_x = get_viewport().get_visible_rect().size.x/Global.player_camera.zoom.x
+		var new_level_max_x = limit_right+limit_left-view_size_x
+		var new_level_min_x = -(new_level_max_x)
+		new_level_start_x = clamp(new_level_start_x,new_level_min_x,new_level_max_x)
 		
 		var old_level_start_x = old_level.global_position.x
 		var old_level_start_y = old_level.global_position.y
 		var old_level_end_x = old_level.global_position.x
 		var old_level_end_y = abs(new_level_end_y-new_level_start_y)
+		new_level.parallax.parallax_on = true		
 		Global.player_camera.position_smoothing_enabled = false
+		#Global.player_camera.node_to_follow = null
 		var camera_last_pos = Global.player_camera.global_position
-
+		#Debug.dprintwarn(DebugCT.dp("--------移动前新关卡位置:%s , 老关卡位置:%s ,老关卡玩家位置:%s" %[Vector2(new_level_start_x,new_level_start_y),old_level.global_position,old_level.player.global_position],self))
+		#Debug.dprintwarn(DebugCT.dp("出生位置的全局坐标:%s" %new_level.to_global(PlayerState.current_player_born_position),self))
+		new_level.player.position = PlayerState.current_player_born_position
 		new_level.global_position = Vector2(0,new_level_start_y)
 		old_level.global_position.x =  -new_level_start_x
+		#Debug.dprintwarn(DebugCT.dp("--------对齐并归零的新关卡位置:%s , 老关卡位置:%s ,老关卡玩家位置:%s" %[new_level.global_position,old_level.global_position,old_level.player.global_position],self))
+		#Debug.dprintwarn(DebugCT.dp("出生位置的全局坐标:%s" %new_level.to_global(PlayerState.current_player_born_position),self))
 		Global.player_camera.global_position = camera_last_pos-Vector2(new_level_start_x,0)
+		#用一帧让相机和两个关卡按新关卡的坐标移动到零点
 		await get_tree().process_frame
-		Global.player_camera.position_smoothing_enabled = true
-		tw.tween_property(old_level,"global_position",Vector2(old_level.global_position.x,old_level_end_y),1)	
-		tw.parallel().tween_property(new_level,"global_position",Vector2(0,0),1)	
-		tw.parallel().tween_property(back_ground_color,"modulate",new_level.level_background_color,1)
+		#old_level.parallax._process()
+		#old_level.parallax.parallax_on = false
+		Global.player_camera.node_to_follow = null		
+		#Debug.dprintinfo(DebugCT.dp("--------开始播放切换关卡动画---------",self))
+		tw.tween_property(old_level,"global_position",Vector2(old_level.global_position.x,old_level_end_y),3)	
+		tw.parallel().tween_property(new_level,"global_position",Vector2(0,0),3)	
+		tw.parallel().tween_property(back_ground_color,"modulate",new_level.level_background_color,3)
 		await tw.finished
+		new_level.parallax.parallax_on = true		
+		#Debug.dprintinfo(DebugCT.dp("--------结束切换关卡动画---------",self))
+		#动画过程中必须关闭smooth否则会飘移
+		Global.player_camera.position_smoothing_enabled = true
 		tw.kill()
 		LevelState.level_dic[LevelState.last_level].position=Vector2i(99999,99999)
 

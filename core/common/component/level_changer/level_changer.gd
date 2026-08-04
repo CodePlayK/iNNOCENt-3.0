@@ -16,8 +16,8 @@ func on_player_enter(body):
 	if !enable or LevelState.doors_locked or LevelState.current_level!=from_level:
 		return
 	enable=false
-	PlayerState.current_player_born_position=target_born_position
-	EventBus._change_level(target_level)
+	PlayerState.set_current_player_born_position(target_born_position,self)
+	EventBus._change_level(target_level,self)
 	timer.start()
 
 func _on_timer_timeout() -> void:
