@@ -1,18 +1,13 @@
-[gd_resource type="Resource" script_class="AnimeConfig" load_steps=2 format=3 uid="uid://c4ruomcquwmpt"]
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://c4ruomcquwmpt"]
 
-[ext_resource type="Script" path="res://core/common/anime/AnimeConfig.gd" id="1_v8dan"]
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_ekbnd"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="1_v8dan"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="2_g4fmd"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="3_geg1r"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_wn2d7"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="5_in6bo"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_464hs"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="8_y3ykn"]
 
 [resource]
 script = ExtResource("1_v8dan")
-state_name = "NA"
-animation_name = "NA"
-speed_scale = 1.0
-backward = false
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[Resource("res://core/common/anime/AnimeSoundConfig.gd")]([])
-hitbox_config = Array[Resource("res://core/common/anime/AnimeHitBoxConfig.gd")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[Resource("res://core/common/anime/AnimeBatiConfig.gd")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])

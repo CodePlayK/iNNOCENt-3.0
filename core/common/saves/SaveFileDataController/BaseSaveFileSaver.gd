@@ -60,8 +60,8 @@ func _load() -> void:
 	var data := _query_save_data(condition)
 
 	if save_data_collector.debug:
-		Debug.dprint(DebugCT.dp(
-			"「载入」存档|[%s]%s" % [condition, JSON.stringify(data)],
+		Debug.dprintwarn(DebugCT.dp(
+			"「存档管理器载入」存档文件|[%s]%s" % [condition, JSON.stringify(data)],
 			self
 		))
 

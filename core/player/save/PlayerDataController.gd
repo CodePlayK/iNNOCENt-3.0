@@ -10,5 +10,5 @@ func custom_data():
 #载入存档数据
 func load_custom_data(data:Dictionary):
 	if data and  data.has("position_x") and data.has("position_y"):
-		PlayerState.current_player_born_position =  Vector2(data["position_x"], data["position_y"])
+		PlayerState.set_current_player_born_position(Vector2(data["position_x"], data["position_y"]),self)
 	pass

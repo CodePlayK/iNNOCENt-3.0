@@ -100,7 +100,7 @@ func _ready() -> void:
 	cinematic_layer.call_deferred("add_child", right_rect) # Adding the new ColorRect to the scene.
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	## Applying the camera shake.
 	rotation_degrees = randf_range(-shake_strength * SHAKE_ANGLE_MULTIPLIER, shake_strength * SHAKE_ANGLE_MULTIPLIER) + angle_tilt # Randomizing the camera angle.
 	offset = Vector2(randf_range(-shake_strength * SHAKE_POSITION_MULTIPLIER, shake_strength * SHAKE_POSITION_MULTIPLIER), # Randomizing the camera offset.

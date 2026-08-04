@@ -1,15 +1,25 @@
 @tool
 ##玩家状态
 extends Node
-var player:Player
+var current_player:Player
 var player_health_config:HealthConfig
 var player_stamina_config:StaminaConfig
 
 #位置
 var current_player_born_position:Vector2 = Vector2(-551.0,255.0,)
+func set_current_player_born_position(pos:Vector2,source:Node):
+	current_player_born_position = pos
+	Debug.dprintinfo(DebugCT.dp("更新玩家出生点位置: [%s]为[%s]" %[source.get_path(),pos],self))
+	
 
 ##玩家操控锁
 var player_control_lock:bool=false
+
+func set_player_control_lock(flag:bool,source:Node):
+	player_control_lock = flag
+	Debug.dprintinfo(DebugCT.dp("[%s]更新[玩家控制状态]为[%s]" %[source.get_path(),flag],self))
+	EventBus._player_control_lock(flag)
+
 ##面朝左
 var face_left:bool=false:
 	set(f):
@@ -22,8 +32,8 @@ var face_left:bool=false:
 var face_left_normalize:int=1:
 	set(i):
 		face_left_normalize = i
-		if player:
-			player.face_left_normalized = i
+		if current_player:
+			current_player.face_left_normalized = i
 ##面朝左
 var running_left:bool=false:
 	set(f):
@@ -58,8 +68,8 @@ var player_z_index={
 var is_player_on_fighting:bool=false:
 	set(f):
 		is_player_on_fighting = f
-		if player:
-			player.ui.player_on_fighting_changed(f)
+		if current_player:
+			current_player.ui.player_on_fighting_changed(f)
 
 ##正在与玩家战斗的对象{对象名,对象}
 var player_on_fighting:Dictionary
@@ -158,6 +168,6 @@ func remove_player_lock_interact_obj(obj):
 		return
 	player_lock_interact_obj.erase(obj.name)
 func on_player_ready(player1:Player):
-	player = player1
+	current_player = player1
 func is_player_on_floor():
-	return player.is_on_floor()
+	return current_player.is_on_floor()

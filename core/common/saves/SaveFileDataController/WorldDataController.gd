@@ -14,9 +14,10 @@ func custom_data():
 func load_custom_data(data:Dictionary):
 	if data and data.has("current_level"):
 		LevelState.clear_level_waiting_to_load()	
-		EventBus._change_level(data["current_level"])
+		EventBus._change_level(data["current_level"],self)
+		
 	else:
 		LevelState.clear_level_waiting_to_load()
-		EventBus._change_level(LevelState.LEVELS.LEVEL_0)
+		EventBus._change_level(LevelState.LEVELS.LEVEL_0,self)
 	CutsceneState.current_cutscene= data["current_cutscene"]
 	LevelState.current_save_id = save_data_config.save_id

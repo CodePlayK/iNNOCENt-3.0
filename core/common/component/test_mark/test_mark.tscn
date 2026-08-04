@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dp7l0db2yj7tb"]
+
+[ext_resource type="Texture2D" uid="uid://cgt53h65keko5" path="res://core/common/AStar/arror.png" id="1_6j1v1"]
+
+[node name="TestMark" type="Node2D" unique_id=1034310470]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=236052639]
+z_index = 100
+position = Vector2(0, -52.000122)
+scale = Vector2(4.179, 500)
+texture = ExtResource("1_6j1v1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1674723555]
+z_index = 100
+position = Vector2(0, -52.000122)
+rotation = 1.5707964
+scale = Vector2(4.179, 500)
+texture = ExtResource("1_6j1v1")

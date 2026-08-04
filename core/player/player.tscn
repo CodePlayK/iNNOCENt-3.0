@@ -49,7 +49,6 @@
 [ext_resource type="PackedScene" uid="uid://d0xx28b7i01wl" path="res://core/common/component/face_direction/face_direction.tscn" id="27_keddt"]
 [ext_resource type="Script" uid="uid://dqyuh8k5h7pok" path="res://core/player/states/run.gd" id="27_lqjbr"]
 [ext_resource type="Script" uid="uid://c0pveoc2km727" path="res://core/player/states/fastrun.gd" id="28_ekilh"]
-[ext_resource type="Resource" uid="uid://bs3k3i3q70w6f" path="res://core/player/anime config/idle.tres" id="28_rwfym"]
 [ext_resource type="Script" uid="uid://dn0s4d8cx2nev" path="res://core/player/states/dash.gd" id="29_un8va"]
 [ext_resource type="Script" uid="uid://5qyb2gac4wwm" path="res://core/player/states/landing.gd" id="30_3nh5l"]
 [ext_resource type="PackedScene" uid="uid://cr3ih2htn1qcl" path="res://core/common/component/CreateCharacterBox/CreateCharacterBox.tscn" id="30_yurw6"]
@@ -96,7 +95,9 @@
 [ext_resource type="Resource" uid="uid://bn4ybygdwdj6g" path="res://core/player/anime config/behitDamaged.tres" id="54_1p1vi"]
 [ext_resource type="Resource" uid="uid://r4qhrf2xruyk" path="res://core/player/attributes/ABT_dash_config.tres" id="55_k70b2"]
 [ext_resource type="Resource" uid="uid://dpbk5awy5kwll" path="res://core/player/anime config/attack0.tres" id="58_m42ps"]
+[ext_resource type="Script" uid="uid://bcvuswovemkmk" path="res://core/player/states/lock.gd" id="60_8i7n7"]
 [ext_resource type="Resource" uid="uid://ctu1bxos34g5l" path="res://core/player/anime config/attack1.tres" id="60_jb8p8"]
+[ext_resource type="Resource" uid="uid://nf0254mhmqke" path="res://core/player/anime config/lock.tres" id="61_8i7n7"]
 [ext_resource type="Resource" uid="uid://cno2uyvhx1l6j" path="res://core/player/anime config/attack2.tres" id="62_jruxm"]
 [ext_resource type="Script" uid="uid://ii5p6kdg4qu3" path="res://core/player/states/move2vec2.gd" id="63_54ve7"]
 [ext_resource type="Resource" uid="uid://c4ruomcquwmpt" path="res://core/player/anime config/dense.tres" id="64_lxci8"]
@@ -2035,12 +2036,12 @@ backward = true
 script = ExtResource("31_o2ap2")
 animation_name = "onfloor"
 
-[sub_resource type="Resource" id="Resource_kaqeq"]
+[sub_resource type="Resource" id="Resource_x7ir2"]
 resource_local_to_scene = true
 script = ExtResource("108_dq6eo")
 key = "base"
 
-[node name="PlayerPlayer" type="CharacterBody2D" unique_id=1119101225]
+[node name="Player" type="CharacterBody2D" unique_id=1119101225]
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_yb16c")
@@ -2101,6 +2102,7 @@ position = Vector2(0, 35)
 position = Vector2(0.235703, 34.784)
 
 [node name="PointLight2D" type="PointLight2D" parent="Config" unique_id=1015712511]
+visible = false
 blend_mode = 2
 range_item_cull_mask = 32
 shadow_enabled = true
@@ -2544,6 +2546,7 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
+changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
@@ -2563,12 +2566,18 @@ script = ExtResource("25_dln3j")
 [node name="base" type="Node" parent="StateManager" unique_id=323860385]
 script = ExtResource("13_kkt5v")
 
+[node name="lock" type="Node" parent="StateManager/base" unique_id=1954143707]
+script = ExtResource("60_8i7n7")
+is_normal_state = false
+anime_config = ExtResource("61_8i7n7")
+
 [node name="idle" type="Node" parent="StateManager/base" unique_id=1272102842]
 script = ExtResource("21_gp4na")
-anime_config = ExtResource("28_rwfym")
+anime_config = ExtResource("61_8i7n7")
 
 [node name="jump" type="Node" parent="StateManager/base" unique_id=79949838]
 script = ExtResource("25_opvnn")
+is_normal_state = false
 
 [node name="ground" type="Node" parent="StateManager/base" unique_id=2131193349]
 script = ExtResource("35_20iv7")
@@ -2583,6 +2592,7 @@ anime_config = ExtResource("33_idsae")
 
 [node name="fastrun" type="Node" parent="StateManager/base/ground" unique_id=844084870]
 script = ExtResource("28_ekilh")
+is_normal_state = false
 anime_config = ExtResource("35_ouo11")
 
 [node name="dash" type="Node" parent="StateManager/base/ground" unique_id=2035338403]
@@ -2637,7 +2647,7 @@ anime_config = SubResource("Resource_5vbcn")
 [node name="talk" type="Node" parent="StateManager/base/interactive" unique_id=372021787]
 script = ExtResource("36_sqf10")
 is_normal_state = false
-anime_config = ExtResource("28_rwfym")
+anime_config = ExtResource("61_8i7n7")
 
 [node name="combat" type="Node" parent="StateManager/base" unique_id=482263818]
 script = ExtResource("37_twix3")
@@ -2784,8 +2794,7 @@ one_shot = true
 
 [node name="DataCollector" parent="Saves" unique_id=1896791768 instance=ExtResource("88_4rcxe")]
 script = ExtResource("89_ebgrc")
-save_data_config = SubResource("Resource_kaqeq")
-debug = true
+save_data_config = SubResource("Resource_x7ir2")
 save_obj_id = false
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]

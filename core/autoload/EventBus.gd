@@ -100,6 +100,7 @@ signal player_stamina_recovered
 signal player_face_changed
 ## 玩家奔跑状态发生改变
 signal player_running_changed
+signal player_into_lock_state
 #endregion
 
 
@@ -232,7 +233,8 @@ func _camera_shake(strength: float, SHAKE_DECAY: float) -> void:
 #region Emit Wrappers — Level
 ## 发射 [signal change_level]
 ## [param level_id] 目标关卡枚举
-func _change_level(level_id: LevelState.LEVELS) -> void:
+func _change_level(level_id: LevelState.LEVELS,source:Node) -> void:
+	Debug.dprintwarn(DebugCT.dp("开始切换Level - [%s] - [%s]" %[source.get_path(),level_id],self))
 	change_level.emit(level_id)
 
 
@@ -422,3 +424,6 @@ func _move_2_vec2(name: String, pos: Vector2, time: float = 1.0) -> void:
 func _npc_following_player(npc_name: String, flag: bool) -> void:
 	npc_following_player.emit(npc_name, flag)
 #endregion
+
+func _player_into_lock_state():
+	player_into_lock_state.emit()

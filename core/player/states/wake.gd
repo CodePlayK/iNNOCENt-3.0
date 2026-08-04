@@ -6,7 +6,6 @@ func enter():
 	super.enter()
 	touched_floor=false
 	PlayerState.double_jump_able=true
-	PlayerState.player_control_lock=true
 	return null
 func init_var():
 	player.anime.anime_finished.connect(on_anime_finished)
@@ -27,7 +26,6 @@ func physics_process(delta: float) -> BaseState:
 
 func exit(state:BaseState):
 	super.exit(state)
-	PlayerState.player_control_lock=false
 	
 func on_anime_finished():
 	if !state_manager.current_state == self:return

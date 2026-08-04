@@ -24,4 +24,3 @@ func physics_process(delta: float) -> BaseState:
 
 func exit(state:BaseState):
 	super.exit(state)
-	PlayerState.player_control_lock=false

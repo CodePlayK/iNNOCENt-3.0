@@ -5517,7 +5517,7 @@ range_item_cull_mask = 0
 [node name="UIBaseLight" type="DirectionalLight2D" parent="Components/Lights" unique_id=96484649]
 light_mask = 0
 color = Color(0.545098, 1, 1, 1)
-energy = 0.5
+energy = 0.3
 blend_mode = 2
 range_layer_min = 9
 range_layer_max = 10
@@ -6081,7 +6081,6 @@ position = Vector2(-160, -352)
 [node name="closeTree" type="TileMap" parent="Parallax/ParallaxLayer_8/BaseColoredLayer" unique_id=1784107869]
 modulate = Color(0, 0.0352941, 0.0313726, 1)
 z_index = 1
-material = ExtResource("46_5mvdg")
 tile_set = ExtResource("47_kwqlb")
 format = 2
 
@@ -6090,7 +6089,6 @@ format = 2
 [node name="treeTop" type="TileMap" parent="Parallax/ParallaxLayer_8/BaseColoredLayer" unique_id=240126707]
 modulate = Color(0, 0.0235294, 0.0392157, 1)
 z_index = 1
-material = ExtResource("46_5mvdg")
 position = Vector2(-15, 87)
 tile_set = SubResource("TileSet_ykd2g")
 format = 2

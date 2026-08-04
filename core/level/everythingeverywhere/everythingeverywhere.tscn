@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b0kebmonpjnqj" path="res://core/level/everythingeverywhere/PlayerCameraAniplayer.gd" id="5_i74u8"]
 [ext_resource type="Environment" uid="uid://cec60t840ib8d" path="res://core/level/everythingeverywhere/setting/room_1_we.tres" id="6_7ue4y"]
 [ext_resource type="Script" uid="uid://bljurs1rdekui" path="res://core/common/component/level_ui/level_ui.gd" id="7_egao5"]
+[ext_resource type="PackedScene" uid="uid://dp7l0db2yj7tb" path="res://core/common/component/test_mark/test_mark.tscn" id="7_jtj5p"]
 [ext_resource type="Resource" uid="uid://cjos3jdrktjxn" path="res://core/player/attributes/player_stamina.tres" id="8_se05l"]
 [ext_resource type="Theme" uid="uid://caxybq53x37tw" path="res://core/common/ui/mind_txt_box/mind_txt_box.tres" id="9_fl6fi"]
 [ext_resource type="Script" uid="uid://bp7x1igcxd25c" path="res://core/common/ui/mind_txt_box/MindTxtBox.gd" id="10_bg25y"]
@@ -283,13 +284,11 @@ size = Vector2(3915, 81.5)
 
 [node name="everythingeverywhere42" type="Node2D" unique_id=1354952185]
 script = ExtResource("1_celhk")
-obj_name = null
 
 [node name="Setting" type="Node2D" parent="." unique_id=226376598]
 
 [node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
 unique_name_in_owner = true
-visible = false
 ignore_rotation = false
 zoom = Vector2(3, 3)
 limit_left = -891
@@ -333,6 +332,9 @@ one_shot = true
 
 [node name="CanvasBackground" type="CanvasLayer" parent="." unique_id=970486849]
 layer = -1
+
+[node name="TestMark" parent="CanvasBackground" unique_id=1034310470 instance=ExtResource("7_jtj5p")]
+unique_name_in_owner = true
 
 [node name="BackGroundColor" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
 anchors_preset = 15
@@ -614,6 +616,7 @@ size_flags_stretch_ratio = 1.75
 mouse_filter = 2
 
 [node name="StateBox" parent="MainCanvas" unique_id=1721225745 instance=ExtResource("19_q484j")]
+modulate = Color(1, 1, 1, 0.5372549)
 
 [node name="TxtHistoryBCanvas" type="CanvasLayer" parent="." unique_id=524535970]
 layer = 10
@@ -930,7 +933,6 @@ save_position = false
 save_faced = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=537120733]
-enabled = false
 zoom = Vector2(0.305, 0.305)
 
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]

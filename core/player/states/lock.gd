@@ -1,2 +1,6 @@
-extends InteractiveState
-var touched_floor=false
+extends BaseState
+
+func enter():
+	super.enter()
+	EventBus._player_into_lock_state()
+	return

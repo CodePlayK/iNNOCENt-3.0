@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://sukyydolfg8x" path="res://core/interactable/ruin_car_data.gd" id="5_t13rw"]
 [ext_resource type="PackedScene" uid="uid://cvfffp6l2q1to" path="res://core/dialogue/dialogue/dialogue_mouse/dialogue_mouse.tscn" id="8_8uimu"]
 
-[sub_resource type="Resource" id="Resource_qi24t"]
+[sub_resource type="Resource" id="Resource_8uimu"]
 resource_local_to_scene = true
 script = ExtResource("5_23l2a")
 group = 3
@@ -29,8 +29,7 @@ connects = [NodePath("../Data/DataCollector"), NodePath("../DialogueMouse")]
 
 [node name="DataCollector" parent="Data" unique_id=1848048086 instance=ExtResource("3_khtn1")]
 script = ExtResource("5_t13rw")
-save_data_config = SubResource("Resource_qi24t")
-debug = true
+save_data_config = SubResource("Resource_8uimu")
 save_faced = false
 log_level = 1
 

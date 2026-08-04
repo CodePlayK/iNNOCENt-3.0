@@ -62,16 +62,16 @@ func hide_box():
 	on_hiding = false
 	
 func _on_state_tabs_focus_exited() -> void:
-	Debug.dprintinfo(DebugCT.dp("失去焦点",self))
-
+	#Debug.dprintinfo(DebugCT.dp("失去焦点",self))
+	pass
 func _on_close_box_but_pressed() -> void:
 	hide_box()
 	
 func on_show_tween_finished():
-	Debug.dprintinfo(DebugCT.dp("暂停界面转为显示状态",self))
-	
+	#Debug.dprintinfo(DebugCT.dp("暂停界面转为显示状态",self))
+	pass
 func on_hide_tween_finished():
-	Debug.dprintinfo(DebugCT.dp("暂停转为隐藏状态",self))
+	#Debug.dprintinfo(DebugCT.dp("暂停转为隐藏状态",self))
 	set_crt_shader(false)
 ##添加收集品
 func add_item(item1:ItemState.ITEMS):

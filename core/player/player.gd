@@ -103,7 +103,6 @@ func _ready() -> void:
 	start_position=get_position()
 	state_manager.init(self)
 	on_ready=true
-	PlayerState.on_player_ready(self)
 	PlayerState.player_health_config = health.health_config
 	PlayerState.player_stamina_config = stamina.stamina_config
 

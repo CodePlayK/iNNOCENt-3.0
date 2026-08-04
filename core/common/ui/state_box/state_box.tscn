@@ -628,7 +628,6 @@ save_faced = false
 
 [node name="Timer" type="Timer" parent="." unique_id=901065132]
 unique_name_in_owner = true
-wait_time = 5.0
 one_shot = true
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer/MCLeft" to="." method="_on_mc_left_gui_input"]
