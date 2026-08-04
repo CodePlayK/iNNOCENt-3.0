@@ -127,6 +127,12 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		var new_level_start_y = old_level_pos.y-old_level_size.y*0.5-(new_level_pos.y-old_level.global_position.y+new_level_size.y*0.5)
 		var new_level_end_x = new_level_start_x
 		var new_level_end_y = 0
+		var limit_right = Global.player_camera.limit_right
+		var limit_left = abs(Global.player_camera.limit_left)
+		var view_size_x = get_viewport().get_visible_rect().size.x/Global.player_camera.zoom.x
+		var new_level_max_x = limit_right+limit_left-view_size_x
+		var new_level_min_x = -(new_level_max_x)
+		new_level_start_x = clamp(new_level_start_x,new_level_min_x,new_level_max_x)
 		
 		var old_level_start_x = old_level.global_position.x
 		var old_level_start_y = old_level.global_position.y
@@ -144,7 +150,6 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		#Debug.dprintwarn(DebugCT.dp("--------对齐并归零的新关卡位置:%s , 老关卡位置:%s ,老关卡玩家位置:%s" %[new_level.global_position,old_level.global_position,old_level.player.global_position],self))
 		#Debug.dprintwarn(DebugCT.dp("出生位置的全局坐标:%s" %new_level.to_global(PlayerState.current_player_born_position),self))
 		Global.player_camera.global_position = camera_last_pos-Vector2(new_level_start_x,0)
-
 		#用一帧让相机和两个关卡按新关卡的坐标移动到零点
 		await get_tree().process_frame
 		#old_level.parallax._process()
