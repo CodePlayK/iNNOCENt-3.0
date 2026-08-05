@@ -6,6 +6,8 @@ const LEVEL_2_PATH="res://core/level/level2/level_2.tscn"
 ##当前关卡
 var current_save_id:int=-99999
 var current_level:LEVELS=LEVELS.LEVEL_CURRENT
+##储存当前载入过的所有关卡{ [enum LEVELS] : [Levels] }
+var level_dic:Dictionary
 var current_level_node:Levels
 ##目标关卡所在方向
 enum TRANS_DIRCTS {
@@ -13,9 +15,14 @@ enum TRANS_DIRCTS {
 	DOWN=1
 }
 var current_trans_direct:TRANS_DIRCTS
-var level_dic:Dictionary
+
 
 var doors_locked:bool=false
+func set_doors_locked(flag:bool,source):
+	doors_locked = flag
+	Debug.dprintinfo(DebugCT.dp("设置房间门锁定状态 - [%s]" %flag, source))
+
+	
 ##上一关卡
 var last_level:int=LEVELS.LEVEL_1
 ##当前的主视差层,即该层的视差速度为0

@@ -2371,7 +2371,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 11
+frame = 21
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2400,7 +2400,6 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "877d54aaac106339f1bf5c078221efeb"
 
 [node name="baseFX" type="Sprite2D" parent="Animations/Anime" unique_id=1664924147]
-visible = false
 light_mask = 65
 texture_filter = 1
 material = SubResource("ShaderMaterial_igalw")

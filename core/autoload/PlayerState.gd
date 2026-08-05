@@ -11,7 +11,7 @@ var current_player_born_position:Vector2 = Vector2(-551.0,255.0,)
 
 func set_current_player_born_position(pos:Vector2,source:Node):
 	current_player_born_position = pos
-	Debug.dprintinfo(DebugCT.dp("更新玩家出生点位置: [%s]为[%s]" %[source.get_path(),pos],self))
+	Debug.dprintinfo(DebugCT.dp("更新玩家出生点位置: [%s]" %[pos],source))
 	
 
 ##玩家操控锁
@@ -19,7 +19,7 @@ var player_control_lock:bool=false
 
 func set_player_control_lock(flag:bool,source:Node):
 	player_control_lock = flag
-	Debug.dprintinfo(DebugCT.dp("[%s]更新[玩家控制状态]为[%s]" %[source.get_path(),flag],self))
+	Debug.dprintinfo(DebugCT.dp("更新[玩家控制锁定状态]为[%s]" %[flag],source))
 	EventBus._player_control_lock(flag)
 
 ##面朝左
@@ -151,7 +151,7 @@ func enable_all_interactable():
 	enable_player_interactive_only()
 	enable_mouse_interactable_only()
 ##重置player	
-func preset_player():
+func preset_player(source):
 	ability_lock=false
 	dense_flag=false
 	dense_success_flag=false
@@ -159,6 +159,7 @@ func preset_player():
 	lightable_flag=true
 	player_be_hitting=false
 	attacking=false
+	Debug.dprintinfo(DebugCT.dp("重置玩家状态",source))
 ##添加到玩家交互锁中	
 func add_player_lock_interact_obj(obj):
 	if player_lock_interact_obj.keys().has(obj.name):

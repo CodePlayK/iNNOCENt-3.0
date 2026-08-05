@@ -31,7 +31,7 @@ var is_changing_state:bool = false
 func init(player: Player) -> void:
 	anime.animes.clear()
 	EventBus.player_control_lock.connect(_on_player_control_lock)
-	Debug.dprintinfo(DebugCT.dp("Player载入所有state",self))
+	#Debug.dprintinfo(DebugCT.dp("Player载入所有state",self))
 	get_childen_node(self)
 	for state:BaseState in all_states:
 		state.player = player

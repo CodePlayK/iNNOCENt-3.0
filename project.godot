@@ -59,6 +59,7 @@ window/size/viewport_height=1440
 window/size/initial_position_type=3
 window/size/always_on_top=true
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 window/per_pixel_transparency/allowed=true
 
 [editor]

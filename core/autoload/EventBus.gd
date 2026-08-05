@@ -236,14 +236,15 @@ func _camera_shake(strength: float, SHAKE_DECAY: float) -> void:
 ## 发射 [signal change_level]
 ## [param level_id] 目标关卡枚举
 func _change_level(level_id: LevelState.LEVELS,source:Node) -> void:
-	Debug.dprintwarn(DebugCT.dp("开始切换Level - [%s] - [%s]" %[source.get_path(),level_id],self))
+	Debug.dprintwarn(DebugCT.dp("信号: 开始切换Level - [%s]" %[level_id],source))
 	change_level.emit(level_id)
 
 
 ## 发射 [signal level_changed]
 ## [param fl] 切换前关卡
 ## [param tl] 切换后关卡
-func _level_changed(fl: LevelState.LEVELS, tl: LevelState.LEVELS) -> void:
+func _level_changed(fl: LevelState.LEVELS, tl: LevelState.LEVELS,source:Node2D) -> void:
+	Debug.dprintwarn(DebugCT.dp("信号: Level切换完成 [%s] - [%s]" %[fl,tl],source))
 	level_changed.emit(fl, tl)
 
 
@@ -357,7 +358,8 @@ func _remove_character_box(character_box_config: CharacterBoxConfig, exist_level
 
 
 ## 发射 [signal remove_all_character_box]
-func _remove_all_character_box() -> void:
+func _remove_all_character_box(source:Node) -> void:
+	Debug.dprintinfo(DebugCT.dp("信号: 移除所有角色box",source))
 	remove_all_character_box.emit()
 
 
@@ -429,8 +431,10 @@ func _npc_following_player(npc_name: String, flag: bool) -> void:
 
 func _player_into_lock_state():
 	player_into_lock_state.emit()
-func _player_load_save_file_pos(li:LevelState.LEVELS):
+	
+func _player_load_save_file_pos(li:LevelState.LEVELS,source:Node):
 	player_load_save_file_pos.emit(li)
+	Debug.dprintwarn(DebugCT.dp("信号: 收到关卡载入通知 -> level_%s" %li,source))
 
 func _create_all_character_box():
 	create_all_character_box.emit()

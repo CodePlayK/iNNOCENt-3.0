@@ -56,7 +56,7 @@ func on_master_ready(master) -> void:
 	anime.animes.clear()
 	EventBus.player_control_lock.connect(_on_npc_control_lock)
 	EventBus.npc_following_player.connect(on_npc_following_player)
-	Debug.dprintinfo(DebugCT.dp("[NpcStateManager][%s]载入所有state" %npc.name,self))
+	#Debug.dprintinfo(DebugCT.dp("[NpcStateManager][%s]载入所有state" %npc.name,self))
 	get_childen_node(self)
 	for state:NpcsBaseState in all_states:
 		state.npc = npc

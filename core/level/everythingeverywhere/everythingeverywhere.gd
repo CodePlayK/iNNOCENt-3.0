@@ -49,9 +49,6 @@ func _init_level_paths() -> void:
 	dic_level_path[LevelState.LEVELS.LEVEL_2] = LevelState.LEVEL_2_PATH
 
 
-## 统一应用关卡视图（相机跟随、当前关卡节点、背景色）
-func _apply_level_view(level: Levels) -> void:
-	LevelState.current_level_node = level
 
 
 ## 载入关卡
@@ -65,44 +62,43 @@ func load_level(level_path: String) -> void:
 	await level.ready
 	LevelState.level_dic[level.level_id] = level
 	level.player_layer.add_child(player_player)
-	_apply_level_view(level)
+	LevelState.current_level_node = level
 	await level.resume()
-	LevelState.set_level_waiting_to_load(level.level_id, false)
 
 	
 ## 恢复已加载的关卡
 func resume_level(level_id: LevelState.LEVELS) -> void:
 	var level: Levels = LevelState.level_dic[level_id]
 	player_player.reparent(level.player_layer)
-	_apply_level_view(level)
+	LevelState.current_level_node = level
 	level.resume()
 
 
 func _on_change_level(level_id: LevelState.LEVELS) -> void:
-	LevelState.doors_locked = true
+	LevelState.set_doors_locked(true,self)
 	PlayerState.set_player_control_lock(true,self)
 	LevelState.last_level = LevelState.current_level
 	LevelState.current_level = level_id
 
 	EventBus._test_layer_visiable(false)
-
+	#先暂停当前level
 	if LevelState.current_level_node:
 		await LevelState.current_level_node.pause()
-	var trans:bool = false
+	
 	if LevelState.level_dic.has(level_id):
+		#假如当前关卡已经载入过执行resume
 		await resume_level(level_id)
 	else:
+		#否则执行载入
 		await load_level(dic_level_path[level_id])
+	#检查关卡是否载入,载入了就执行关卡切换动画, 否[整个游戏的第一次载入]则直接把背景设置
 	if LevelState.level_dic.has(LevelState.last_level) and LevelState.level_dic.has(level_id):
 		await trans_play(LevelState.last_level,LevelState.current_level)
 	else :
 		back_ground_color.modulate = LevelState.level_dic[level_id].level_background_color
-	Debug.dprintinfo(DebugCT.dp(
-		"房间切换:[%s]-->[%s]" % [str(LevelState.last_level), str(LevelState.current_level)],
-		self
-	))
-	PlayerState.preset_player()
-	EventBus._level_changed(LevelState.last_level, LevelState.current_level)
+	Debug.dprintinfo(DebugCT.dp("房间切换:[%s]-->[%s]" % [str(LevelState.last_level), str(LevelState.current_level)],	self))
+	PlayerState.preset_player(self)
+	EventBus._level_changed(LevelState.last_level, LevelState.current_level,self)
 	Global.player_camera.node_to_follow = player_player
 	LevelState.level_dic[LevelState.current_level].position.y=0
 	PlayerState.set_player_control_lock(false,self)
@@ -120,8 +116,7 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 	tw.set_trans(Tween.TRANS_CUBIC)
 	tw.set_ease(Tween.EASE_OUT)
 	if LevelState.current_trans_direct==LevelState.TRANS_DIRCTS.UP:
-		#Debug.dprintwarn(DebugCT.dp("--------开始计算关卡位置[老关卡玩家位置:%s],[出生位置:%s],[老关卡位置:%s],[相机位置:%s]" %[old_level.player.global_position,PlayerState.current_player_born_position,old_level.global_position,Global.player_camera.global_position],self))
-		#Debug.dprintwarn(DebugCT.dp("出生位置的全局坐标:%s" %new_level.to_global(PlayerState.current_player_born_position),self))
+		Debug.dprintinfo(DebugCT.dp("******开始播放关卡切换动画[UP][老关卡玩家位置:%s],[老关卡位置:%s],[玩家出生位置:%s],[相机位置:%s]" %[PlayerState.player_exit_level_pos,old_level.global_position,PlayerState.current_player_born_position,Global.player_camera.global_position],self))
 		var new_level_start_x = PlayerState.player_exit_level_pos.x-PlayerState.current_player_born_position.x 
 		var new_level_start_y = old_level_pos.y-old_level_size.y*0.5-(new_level_pos.y-old_level.global_position.y+new_level_size.y*0.5)
 		var new_level_end_x = new_level_start_x
@@ -134,20 +129,14 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		new_level.parallax.parallax_on = true		
 		Global.player_camera.position_smoothing_enabled = false
 		var camera_last_pos = Global.player_camera.global_position
-		#Debug.dprintwarn(DebugCT.dp("--------移动前新关卡位置:%s , 老关卡位置:%s ,老关卡玩家位置:%s" %[Vector2(new_level_start_x,new_level_start_y),old_level.global_position,old_level.player.global_position],self))
-		#Debug.dprintwarn(DebugCT.dp("出生位置的全局坐标:%s" %new_level.to_global(PlayerState.current_player_born_position),self))
 		player_player.reparent(new_level.player_layer)
 		player_player.position = PlayerState.current_player_born_position
 		new_level.global_position = Vector2(0,new_level_start_y)
 		old_level.global_position.x =  -new_level_start_x
-		#Debug.dprintwarn(DebugCT.dp("--------对齐并归零的新关卡位置:%s , 老关卡位置:%s ,老关卡玩家位置:%s" %[new_level.global_position,old_level.global_position,old_level.player.global_position],self))
-		#Debug.dprintwarn(DebugCT.dp("出生位置的全局坐标:%s" %new_level.to_global(PlayerState.current_player_born_position),self))
 		Global.player_camera.global_position = camera_last_pos-Vector2(new_level_start_x,0)
 
 		#用一帧让相机和两个关卡按新关卡的坐标移动到零点
 		await get_tree().process_frame
-		#old_level.parallax._process()
-		#old_level.parallax.parallax_on = false
 		#Debug.dprintinfo(DebugCT.dp("--------开始播放切换关卡动画---------",self))
 		tw.tween_property(old_level,"global_position",Vector2(old_level.global_position.x,old_level_end_y),3)	
 		tw.parallel().tween_property(new_level,"global_position",Vector2(0,0),3)	
@@ -160,6 +149,7 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		tw.kill()
 		LevelState.level_dic[LevelState.last_level].position=Vector2i(99999,99999)
 		LevelState.level_dic[LevelState.last_level].hide()
+	Debug.dprintinfo(DebugCT.dp("******关卡切换动画结束[UP]",self))
 
 
 ## 检查是否有存档，没有则从默认资源复制一份到 user 目录
@@ -206,4 +196,4 @@ func load_json(path: String) -> Dictionary:
 
 
 func _on_door_locked_time_timeout() -> void:
-	LevelState.doors_locked = false
+	LevelState.set_doors_locked(false,self)

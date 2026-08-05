@@ -71,7 +71,7 @@ func load_player_position():
 	
 ##初始化[Player]			
 func preset_player():
-	PlayerState.preset_player()
+	PlayerState.preset_player(self)
 	
 ##播放[member atmosphere_se_dic]当前环境音	
 func play_atmosphere_se():
@@ -81,14 +81,18 @@ func play_atmosphere_se():
 ##房间tree exited时执行的方法	
 func _tree_exited():
 	EventBus._level_tree_exited()
-
+	
+##关卡暂停时的方法,在第一次载入时也会被调用
 func pause():
+	#重置玩家的X向位移
 	PlayerState.player_player.velocity.x=0
+	#假如当前玩家的state为lock,等待玩家进入idle的信号
 	if !PlayerState.player_player.state_manager.check_current_state_by_name("lock"):
 		await EventBus.player_into_lock_state
 	call_deferred("set_process_mode",Node.PROCESS_MODE_DISABLED)
-	EventBus._remove_all_character_box()
-	Debug.dprintinfo(DebugCT.dp("level的暂停完成信号发出",self))
+	#移除所有角色box
+	EventBus._remove_all_character_box(self)
+	Debug.dprintinfo(DebugCT.dp("level内的[pause]完成",self))
 	paused.emit()
 	
 ##关卡恢复执行,判断当前关卡是否需要载入存档,需要则[signal EventBus.load_game]通知所有saver加载数据库,否则只是将关卡恢复	
@@ -104,6 +108,7 @@ func resume():
 		Debug.dprintinfo(DebugCT.dp("设置玩家位置为出生点位置",self))
 	EventBus._create_all_character_box()
 	EventBus._test_layer_visiable(true)
+	Debug.dprintinfo(DebugCT.dp("level内的[resume]完成",self))
 	show()
 
 func get_level_shape_size()->Vector2:

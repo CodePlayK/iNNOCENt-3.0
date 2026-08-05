@@ -17,7 +17,7 @@ var current_talker:Array[String]
 		
 var current_dialogue_balloon:
 	set(cdb):
-		Debug.dprintwarn(DebugCT.dp("设置气球[%s]" %cdb.get_path(),self))
+		#Debug.dprintwarn(DebugCT.dp("设置气球[%s]" %cdb.get_path(),self))
 		current_dialogue_balloon=cdb
 var current_title:String
 var current_start_obj
