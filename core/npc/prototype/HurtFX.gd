@@ -1,4 +1,5 @@
 extends Node2D
+class_name HurtFX
 @onready var aniplayer: AnimationPlayer = $aniplayer
 
 var obj

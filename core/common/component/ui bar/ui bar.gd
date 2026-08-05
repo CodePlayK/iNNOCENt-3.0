@@ -42,7 +42,11 @@ var last_value:float
 func _ready() -> void:
 	preset_back_bar(back_bar_enable)
 	set_color()
-
+	
+##master初始化事件			
+func on_master_ready(m:Master) -> void:
+	bar_max_value = m.obj.data.health
+	current_value = m.obj.data.health
 	
 func bar_decrease(v):
 	current_value = v

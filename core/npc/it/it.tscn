@@ -156,14 +156,10 @@ size = Vector2(94, 55)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovt2n"]
 resource_local_to_scene = true
 shader = ExtResource("30_ujeq4")
-shader_parameter/color = Color(0, 0.72549, 0.631373, 1)
+shader_parameter/enable = true
+shader_parameter/precision = 2.2
 shader_parameter/from_color = Color(0.905882, 0.258824, 0.258824, 1)
 shader_parameter/to_color = Color(1, 0, 0, 1)
-shader_parameter/enable = true
-shader_parameter/colored = false
-shader_parameter/mix_modulate = true
-shader_parameter/precision = 2.2
-shader_parameter/mix_modulate_strength = 3.0
 shader_parameter/original_0 = Color(0.815686, 0.254902, 0.254902, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -174,6 +170,12 @@ shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 3.0
 
 [sub_resource type="Animation" id="Animation_glf64"]
 length = 0.001
@@ -1900,14 +1902,10 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_goi4h"]
 shader = ExtResource("30_ujeq4")
-shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/enable = true
+shader_parameter/precision = 0.185
 shader_parameter/from_color = Color(0.490196, 0.152941, 0.152941, 1)
 shader_parameter/to_color = Color(0, 0, 0, 1)
-shader_parameter/enable = true
-shader_parameter/colored = false
-shader_parameter/mix_modulate = true
-shader_parameter/precision = 0.185
-shader_parameter/mix_modulate_strength = 1.665
 shader_parameter/original_0 = Color(1, 0.576471, 0.576471, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -1918,6 +1916,12 @@ shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 1.665
 
 [sub_resource type="Animation" id="Animation_fmgbt"]
 length = 1.35

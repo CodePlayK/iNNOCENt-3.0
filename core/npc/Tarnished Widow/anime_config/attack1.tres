@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://ctirt4gyu5gve"]
+
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_jgn38"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="2_o3ug1"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="3_pu82n"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_bkyxh"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="5_0oa8w"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_xcnca"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="7_ibamj"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="8_np06x"]
+
+[sub_resource type="Resource" id="Resource_na17f"]
+script = ExtResource("2_o3ug1")
+metadata/_custom_type_script = "uid://ci5v274y2mbpg"
+
+[sub_resource type="Resource" id="Resource_60dqd"]
+script = ExtResource("5_0oa8w")
+collision_index = 1
+damage = 20.0
+hit_start_frame = 6
+hit_end_frame = 8
+metadata/_custom_type_script = "uid://be4do16qkly4o"
+
+[sub_resource type="Resource" id="Resource_k84ko"]
+script = ExtResource("6_xcnca")
+start_frame = 4
+end_frame = 18
+metadata/_custom_type_script = "uid://6w3snvye50sn"
+
+[sub_resource type="Resource" id="Resource_r0stm"]
+script = ExtResource("8_np06x")
+se_name = "slash5"
+start_frame = 7
+
+[sub_resource type="Resource" id="Resource_o8cku"]
+script = ExtResource("8_np06x")
+se_name = "slash6"
+start_frame = 13
+
+[resource]
+script = ExtResource("7_ibamj")
+sound_config = Array[ExtResource("8_np06x")]([SubResource("Resource_r0stm"), SubResource("Resource_o8cku")])
+hitbox_config = Array[ExtResource("5_0oa8w")]([SubResource("Resource_60dqd")])
+bati_config = Array[ExtResource("2_o3ug1")]([SubResource("Resource_na17f")])
+invincible_config = Array[ExtResource("6_xcnca")]([SubResource("Resource_k84ko")])

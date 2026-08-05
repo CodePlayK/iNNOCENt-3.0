@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://cjxdo785b2u7k"]
+
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_nh3b4"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="2_sm6o8"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="3_857el"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_r8pw2"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="5_s0poe"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_h8xrg"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="7_3pf06"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="8_3a3os"]
+
+[sub_resource type="Resource" id="Resource_tma76"]
+script = ExtResource("1_nh3b4")
+start_frame = 6
+end_frame = 16
+target_vec2 = Vector2(0, -200)
+metadata/_custom_type_script = "uid://brl66o65w1u3v"
+
+[sub_resource type="Resource" id="Resource_nh3b4"]
+script = ExtResource("1_nh3b4")
+start_frame = 16
+end_frame = 17
+target_vec2 = Vector2(0, 200)
+metadata/_custom_type_script = "uid://brl66o65w1u3v"
+
+[sub_resource type="Resource" id="Resource_olpii"]
+script = ExtResource("2_sm6o8")
+bati_end_frame = 26
+
+[sub_resource type="Resource" id="Resource_hl50o"]
+script = ExtResource("5_s0poe")
+collision_index = 3
+damage = 10.0
+hit_start_frame = 7
+hit_end_frame = 10
+metadata/_custom_type_script = "uid://be4do16qkly4o"
+
+[sub_resource type="Resource" id="Resource_cfeqs"]
+script = ExtResource("5_s0poe")
+collision_index = 4
+damage = 50.0
+hit_start_frame = 17
+hit_end_frame = 19
+metadata/_custom_type_script = "uid://be4do16qkly4o"
+
+[sub_resource type="Resource" id="Resource_537nx"]
+script = ExtResource("8_3a3os")
+se_name = "slash5"
+start_frame = 2
+
+[sub_resource type="Resource" id="Resource_y0y2r"]
+script = ExtResource("8_3a3os")
+se_name = "slash6"
+start_frame = 6
+
+[resource]
+script = ExtResource("7_3pf06")
+anime_offset = Array[ExtResource("1_nh3b4")]([SubResource("Resource_tma76"), SubResource("Resource_nh3b4")])
+sound_config = Array[ExtResource("8_3a3os")]([SubResource("Resource_537nx"), SubResource("Resource_y0y2r")])
+hitbox_config = Array[ExtResource("5_s0poe")]([SubResource("Resource_hl50o"), SubResource("Resource_cfeqs")])
+bati_config = Array[ExtResource("2_sm6o8")]([SubResource("Resource_olpii")])

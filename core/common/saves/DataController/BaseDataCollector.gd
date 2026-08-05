@@ -118,11 +118,26 @@ func _load_save(data: Dictionary) -> void:
 func _apply_common_load_data(data: Dictionary) -> void:
 	if not obj:
 		return
+	if !data:return
 	if save_position and data.has("position_x") and data.has("position_y"):
 		obj.position = Vector2(data["position_x"], data["position_y"])
 	if save_faced and data.has("face_left"):
 		obj.face_direction.set_faced(data["face_left"])
-
+	if !data.has("state"):return
+	if data["state"]=="death":
+		obj.state_manager.string2state(data["state"],self)
+		if UiState.character_box_dic.has(obj.obj_name):
+			UiState.set_character_box_showing(obj.character_box_config,false,self)
+		else :
+			UiState.set_character_box_dic(obj.character_box_config.character_box_id,obj.character_box_config,self)
+			UiState.set_character_box_showing(obj.character_box_config,false,self)
+	else:
+		obj.state_manager.string2state("birth",self)
+		if UiState.character_box_dic.has(obj.obj_name):
+			UiState.set_character_box_showing(obj.character_box_config,true,self)
+		else :
+			UiState.set_character_box_dic(obj.character_box_config.character_box_id,obj.character_box_config,self)
+			UiState.set_character_box_showing(obj.character_box_config,true,self)
 
 ## 子类重写：组装自定义存档数据
 func custom_data() -> void:

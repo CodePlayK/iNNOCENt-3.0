@@ -13,7 +13,8 @@ func on_master_ready(master:Master):
 	obj.character_box_config.obj_id = obj.obj_name
 	character_box_config=obj.character_box_config
 	character_box_config.level_id=LevelState.current_level
-	UiState.character_box_dic[character_box_config.character_box_id]=character_box_config
+	
+	UiState.set_character_box_dic(character_box_config.character_box_id,character_box_config,self)
 	if create_on_load:
 		EventBus._create_character_box(obj.character_box_config)
 		return
@@ -28,14 +29,13 @@ func create_character_box():
 	if !character_box_config:
 		create_cache=true
 		return 
-	if !UiState.character_box_dic.has(character_box_config.character_box_id):
-		UiState.character_box_dic[character_box_config.character_box_id]=character_box_config
-	UiState.character_box_dic[character_box_config.character_box_id].showing=true
+	UiState.set_character_box_dic(character_box_config.character_box_id,character_box_config,self)
+	UiState.set_character_box_showing(character_box_config,true,self)
 	timer.start(randf_range(time_rand_range.x,time_rand_range.y))
 
 func remove_character_box():
 	if !obj:return
-	UiState.character_box_dic[character_box_config.character_box_id].showing=false
+	UiState.set_character_box_showing(character_box_config,false,self)
 	EventBus._remove_character_box(character_box_config,character_box_config.level_id)
 	
 func remove_all_character_box():

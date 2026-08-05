@@ -66,6 +66,9 @@ func exit(state:NpcsBaseState):
 	npc.data.hitting=false
 	if tween:tween.kill()
 	npc.anime.stop_anime()
+	npc.be_hit_times = 0
+	npc.bating = false
+	
 	#当没有执行切换到下一段攻击,且有配置下一段攻击,或者退出的下一个状态不是攻击状态时
 	#开启监听
 	if !next_attack:

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://f574mq1ldcis"]
+
+[ext_resource type="Script" uid="uid://dorj70ub6sty1" path="res://core/common/component/weight_machine/weight/last_state_weight/last_state_weight.gd" id="1_brb4g"]
+
+[node name="LastStateWeight" type="Node" unique_id=905979523]
+script = ExtResource("1_brb4g")

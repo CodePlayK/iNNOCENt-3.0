@@ -29,7 +29,7 @@ func on_level_changed():
 			pass
 #创建角色box事件
 func on_create_character_box(cbc:CharacterBoxConfig):
-	#Debug.dprintinfo(DebugCT.dp("[%s]创建角色box:[%s][%s][%s]" %[LevelState.current_level,cbc.character_box_id,cbc.level_id,cbc.showing],self))
+	Debug.dprintinfo(DebugCT.dp("[%s]创建角色box:[%s][%s][%s]" %[LevelState.current_level,cbc.character_box_id,cbc.level_id,cbc.showing],self))
 	if !cbc:
 		return
 	if cbc.level_id!=LevelState.current_level and !cbc.is_player:
@@ -40,7 +40,7 @@ func on_create_character_box(cbc:CharacterBoxConfig):
 		await wide_marg.ready
 	elif !margin_mid:
 		await ready
-	#Debug.dprintwarn(DebugCT.dp("[%s]创建角色box:[%s][%s][%s]" %[LevelState.current_level,cbc.character_box_id,cbc.level_id,cbc.showing],self))
+	Debug.dprintwarn(DebugCT.dp("[%s]创建角色box:[%s][%s][%s]" %[LevelState.current_level,cbc.character_box_id,cbc.level_id,cbc.showing],self))
 	get_margin_mid_index()
 	if cbc.is_player:
 		var new_box:CharacterBox = wide_marg.duplicate()

@@ -39,7 +39,7 @@ func on_health_healed(health):
 		if node.has_method("on_health_healed"):
 			node.on_health_healed(health)
 ##master初始化事件			
-func on_master_ready(m) -> void:
+func on_master_ready(m:Master) -> void:
 	max_health = m.obj.data.health
 	current_health = max_health
 	for node in tagets:

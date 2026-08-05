@@ -27,7 +27,7 @@ func enter():
 func exit(state:NpcsBaseState):
 	npc.hurt_box.enable_hit()
 	tween.kill()
-
+	npc.modulate = Color("ffffffff")
 func _on_timer_timeout() -> void:
 	npc.dodgeable = true
 	

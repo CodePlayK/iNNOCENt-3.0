@@ -96,13 +96,14 @@ func preset_anime(anime):
 ##执行动画		
 func play_anime(anime_name:String):
 	play_lock = true
-	if anime_name == "attack2":
+	if anime_name == "attack0":
 		pass
 	if print_play_anime:Debug.dprintwarn(DebugCT.dp("[Anime]播放:%s" %[anime_name],self))
 	anime = anime_dic[anime_name]
 	preset_cache(anime)
 	preset_anime(anime)
 	if aniplayer.has_animation(current_animation):
+		#Debug.dprinterr(DebugCT.dp("在aniplayer中未找到当前状态动画:%s" %[anime_name],self))
 		aniplayer.stop()
 		animation = aniplayer.get_animation(current_animation)
 		aniplayer.speed_scale = anime.speed_scale

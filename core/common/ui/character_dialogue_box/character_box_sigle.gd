@@ -52,7 +52,7 @@ func on_remove_character_box(cbc:CharacterBoxConfig,el:LevelState.LEVELS):
 	if is_prototype:
 		return
 	if cbc.character_box_id!=character_box_config.character_box_id or el!=character_box_config.level_id:return
-	UiState.character_box_dic[cbc.character_box_id].showing=false
+	UiState.set_character_box_showing(character_box_config,false,self)
 	on_remove_all_character_box()
 	
 #卸载角色box事件
@@ -76,7 +76,6 @@ func anime_dead():
 	twn.parallel().tween_property(img_box,"size_flags_stretch_ratio",0,0.5)
 	twn.parallel().tween_property(img_box_top_marg,"size_flags_stretch_ratio",20,0.5)
 	await twn.finished
-	#UiState.character_box_dic[character_box_config.character_box_id].showing=false
 	twn.kill()
 	queue_free()	
 	return
@@ -198,5 +197,5 @@ func _on_delay_timer_timeout() -> void:
 	twn.parallel().tween_property(img_box,"size_flags_stretch_ratio",20,0.3)
 	twn.parallel().tween_property(img_box_top_marg,"size_flags_stretch_ratio",character_box_config.img_box_top_marg_hide,0.5)
 	await twn.finished
-	UiState.character_box_dic[character_box_config.character_box_id].showing=true
+	UiState.set_character_box_showing(character_box_config,true,self)
 	twn.kill()	

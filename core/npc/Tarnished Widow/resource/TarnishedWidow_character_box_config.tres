@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterBoxConfig" format=3 uid="uid://ds0ms1ipwegok"]
+
+[ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="1_mvpi1"]
+[ext_resource type="Texture2D" uid="uid://bh4sqa2wcoglw" path="res://core/npc/Tarnished Widow/resource/tmp.png" id="2_o6h47"]
+[ext_resource type="Script" uid="uid://by8uti5xwqq2u" path="res://core/common/ui/character_dialogue_box/CharacterBoxConfig.gd" id="3_8u3hq"]
+
+[resource]
+script = ExtResource("3_8u3hq")
+level_id = 2
+character_names = Array[String](["bloodking1"])
+health_config = ExtResource("1_mvpi1")
+image = ExtResource("2_o6h47")
+unselect_modulate = Color(0.36157545, 0.36157548, 0.36157548, 1)
+img_box_top_marg_hide = 20.0
+on_screen_left = false
+metadata/_custom_type_script = "uid://by8uti5xwqq2u"

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EventConfig" format=3 uid="uid://dysu7q87q40al"]
+
+[ext_resource type="Script" uid="uid://defepug3bumyc" path="res://core/autoload/EventData/Event.gd" id="1_qlli4"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_qlli4")

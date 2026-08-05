@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NpcsDataResource" format=3 uid="uid://bsqk5hmanu35f"]
+
+[ext_resource type="Script" uid="uid://cd7hg22t3yjur" path="res://core/common/resource/npc/npc_data.gd" id="1_clamc"]
+
+[resource]
+script = ExtResource("1_clamc")
+health = 999.0

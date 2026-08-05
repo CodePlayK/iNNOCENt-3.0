@@ -36,6 +36,8 @@ class_name NpcsBaseState
 @export_group("静态变量配置")
 ##当前state是否为普通state,即能够在hit或者dense等临时状态后切回
 @export var is_normal_state:bool=true
+##当前state是否为战斗状态
+@export var is_combat_state:bool=false
 @export_group("动态变量配置")
 ##当前state是否属于战斗状态(玩家不可与me交互)
 @export var on_combat:bool = false
@@ -56,6 +58,7 @@ class_name NpcsBaseState
 @export var pause_on_change_sprite_color:bool=true
 ##要覆盖sprite的颜色
 @export var sprite_color:Color
+@export_range(0,1,0.1) var mix_color_scale:float = 0.5
 @export_group("战斗")
 @export var stamina_cost:int
 @export var need_stamina:bool = false
@@ -158,8 +161,8 @@ func play_animation():
 		state_manager.anime.play_anime(anime_config.state_name)
 
 func change_animation_color(flag:bool=false,pause_on_change_sprite_color:bool = true):
-	npc.base.material.set_shader_parameter("color",sprite_color)
-	npc.base.material.set_shader_parameter("colored",flag)
+	npc.base.material.set_shader_parameter("overlay_color",sprite_color)
+	npc.base.material.set_shader_parameter("overlay_enable",flag)
 	if flag and pause_on_change_sprite_color:
 		npc.anime.stop_anime()
 		

@@ -14,6 +14,12 @@ var item_txt_box:ItemTxtBox
 var player_character_box:CharacterBox
 ##储存角色box状态
 var character_box_dic:Dictionary[String,CharacterBoxConfig]
+func set_character_box_dic(key:String,cbc:CharacterBoxConfig,source:Node):
+	character_box_dic[key]= cbc
+	Debug.dprintwarn(DebugCT.dp("正在设置[character_box_dic]",source))
+func set_character_box_showing(cbc:CharacterBoxConfig,flag:bool,source:Node):
+	character_box_dic[cbc.character_box_id].showing= flag
+	Debug.dprintwarn(DebugCT.dp("正在设置[%s]:showing状态为[%s]" %[cbc.character_box_id,flag],source))
 ##当前正在交互的物体
 var current_interact_item:CollectableItem
 #FIXME

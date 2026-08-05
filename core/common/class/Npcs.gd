@@ -147,6 +147,8 @@ var current_cell:
 var current_state
 var screen_position:Vector2
 var being_hit:bool = false
+var be_hit_times:int = 0
+var bating:int = 0
 var on_combat:bool=false
 var on_following:bool=false
 var on_moving:bool=false

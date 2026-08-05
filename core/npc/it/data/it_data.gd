@@ -10,15 +10,10 @@ func custom_data():
 		save_data_config.data["state"] = obj.state_manager.base_state.death_state.name
 	else :
 		save_data_config.data["state"] = "idle"
+		
 #载入存档数据
 func load_custom_data(data:Dictionary):
 	if !data:
 		obj.state_manager.string2state("birth",self)
 		return
 	obj.health.current_health = data["hp"]
-	if data["state"]=="death":
-		obj.state_manager.string2state(data["state"],self)
-	else:
-		obj.state_manager.string2state("birth",self)
-		
-	

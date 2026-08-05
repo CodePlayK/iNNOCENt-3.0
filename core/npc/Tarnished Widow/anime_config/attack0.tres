@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="AnimeConfig" format=3 uid="uid://dn2oapffu5d5p"]
+
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="1_wo8vv"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="2_u6gbq"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="3_k1u2v"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="4_qhuaf"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="5_3o5e1"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="6_54qiy"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="7_q6mrr"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="8_2cdaw"]
+
+[sub_resource type="Resource" id="Resource_qjkgv"]
+script = ExtResource("2_u6gbq")
+bati_end_frame = 16
+
+[sub_resource type="Resource" id="Resource_valb6"]
+script = ExtResource("5_3o5e1")
+damage = 10.0
+hit_start_frame = 7
+hit_end_frame = 10
+
+[sub_resource type="Resource" id="Resource_hgdjm"]
+script = ExtResource("8_2cdaw")
+se_name = "slash6"
+start_frame = 9
+
+[sub_resource type="Curve" id="Curve_t84jq"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0.19186, 0.60223), 0.0, -0.138625, 0, 0, Vector2(0.884817, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("7_q6mrr")
+speed_scale_curve = SubResource("Curve_t84jq")
+sound_config = Array[ExtResource("8_2cdaw")]([SubResource("Resource_hgdjm")])
+hitbox_config = Array[ExtResource("5_3o5e1")]([SubResource("Resource_valb6")])
+bati_config = Array[ExtResource("2_u6gbq")]([SubResource("Resource_qjkgv")])

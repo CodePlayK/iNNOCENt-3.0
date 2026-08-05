@@ -41,6 +41,11 @@ var current_state: NpcsBaseState:
 		npc_state_history.push_back(state)
 		if npc_state_history.size()>50:
 			npc_state_history.pop_front()
+		if !state.is_combat_state:return
+		if !npc_combat_state_history.is_empty() and state==npc_combat_state_history.back():return
+		npc_combat_state_history.push_back(state)
+		if npc_combat_state_history.size()>50:
+			npc_combat_state_history.pop_front()
 var current_damage: float = 0
 var animation_speed: float = 1
 var all_states: Array
@@ -48,8 +53,11 @@ var barting:bool = false
 var is_changing_state:bool = false
 ##玩家状态历史
 var npc_state_history:Array=[]
+##战斗状态历史
+var npc_combat_state_history:Array=[]
 ##不允许回退的状态list
 var npc_unnormal_state:Array=[]
+var npc_combat_state:Array=[]
 
 func on_master_ready(master) -> void:
 	npc = master.obj
@@ -78,9 +86,11 @@ func on_running_obj():
 	npc.show()
 	change_state(running_state)
 		
-func init_var(state):
+func init_var(state:NpcsBaseState):
 	if !state.is_normal_state:#将所有非正常状态缓存
 		npc_unnormal_state.push_back(state)
+	if state.is_combat_state:
+		npc_combat_state.push_back(state)
 	var a = state.get_anime_config()
 	if a:anime.animes.append(a)##将每个状态的anime配置注入到Anime中
 		
@@ -195,10 +205,13 @@ func on_hurt(obj:HitBox):
 		return
 	npc.data.npc_be_hitting=true
 	current_damage = obj.damage
+	if npc.bating :	
+		state2state(base_state.behitbati_state,current_state)
+		return
 	if current_state.anime_config:
 		for bati in current_state.anime_config.bati_config:
-			barting = bati.bating
-			if barting:
+			if bati.bating:
+				Debug.dprintwarn(DebugCT.dp("[%s][触发霸体保护]" %npc.obj_name,self))
 				if on_hurt2state:
 					Debug.dprintwarn(DebugCT.dp("[NpcsStateManager][input_common_state]切换到[behitDamaged_state]",self))
 				state2state(base_state.behitbati_state,current_state)

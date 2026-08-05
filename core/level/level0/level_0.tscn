@@ -5642,6 +5642,7 @@ visible = false
 z_index = 1
 position = Vector2(-6, 34)
 astar_range = NodePath("../CollisionShape2D")
+enabel_ui = false
 only_update_on_floor = true
 base_tile = NodePath("..")
 npc = NodePath("../../../Npcs/it")
