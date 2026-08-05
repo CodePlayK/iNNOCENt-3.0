@@ -956,6 +956,7 @@ limit_enabled = false
 
 [node name="PlayerPlayer" parent="." unique_id=1119101225 instance=ExtResource("41_i74u8")]
 unique_name_in_owner = true
+position = Vector2(88, -35)
 talker_name = Array[String](["我", "P"])
 dialogue_config = null
 stamina_recovered_speed = 200.0

@@ -17,7 +17,7 @@ func enter():
 	npc.astar_mode = npc.ASTAR_MODE.CHASE
 	timer.start()
 	chase_speed_r=chase_speed*randf_range(.8,1.2)
-	speed_map_2_animation.set_enabel(self,true)
+	speed_map_2_animation.is_enable = true
 	npc.astar_move.set_astar(true)
 	return
 	
@@ -46,4 +46,4 @@ func exit(next_state:NpcsBaseState):
 		npc.velocity = Vector2.ZERO
 	npc.astar_move.running = false
 	npc.chase_weight_machine.exit()
-	speed_map_2_animation.set_enabel(self,false)
+	speed_map_2_animation.is_enable =false

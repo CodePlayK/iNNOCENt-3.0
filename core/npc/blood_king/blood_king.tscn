@@ -5270,9 +5270,7 @@ metadata/_edit_pinned_properties_ = [&"connects"]
 [node name="Health" parent="Config" unique_id=814573476 node_paths=PackedStringArray("tagets") instance=ExtResource("3_wa5ky")]
 tagets = [NodePath("../../UIs")]
 max_health = 9999.0
-min_health = null
 health_regeneration = 1.0
-print_health = null
 
 [node name="Obj2PlayerSide" parent="Config" unique_id=2122604695 instance=ExtResource("4_gbfy1")]
 
@@ -5433,9 +5431,8 @@ position = Vector2(0, -27.5)
 shape = SubResource("RectangleShape2D_u86bx")
 
 [node name="SpeedMap2Animation" parent="Components" unique_id=807679046 instance=ExtResource("18_i0cpe")]
-map_max = 1.2
-map_min = 0.4
-print_debug = null
+speed_scale = 0.53
+reference_speed = 300.0
 
 [node name="Areas" type="Node2D" parent="Components" unique_id=1757821694]
 
@@ -5726,7 +5723,6 @@ confirmed_weight = 50.0
 
 [node name="attack1" parent="WeightMachines/ChaseWeightMachine" unique_id=704970666 instance=ExtResource("36_d7a3i")]
 modulate = Color(0.529412, 1, 0.239216, 1)
-confirm = true
 
 [node name="PlayerHitingWeight" parent="WeightMachines/ChaseWeightMachine/attack1" unique_id=1074453953 instance=ExtResource("38_2s4fh")]
 confirmed_weight = 200.0
@@ -5757,6 +5753,7 @@ confirmed_weight = 120.0
 
 [node name="attack4" parent="WeightMachines/ChaseWeightMachine" unique_id=410517874 instance=ExtResource("36_d7a3i")]
 modulate = Color(1, 0.239216, 0.25098, 1)
+confirm = true
 
 [node name="distance2Player" parent="WeightMachines/ChaseWeightMachine/attack4" unique_id=594763149 instance=ExtResource("37_fo7ej")]
 distance_max = 150.0

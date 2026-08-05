@@ -6,7 +6,7 @@ func enter():
 	npc.on_following=true
 	following_offset_vec2i=npc.following_offset_vec2i
 	npc.astar_mode = npc.ASTAR_MODE.FOLLOW
-	npc.speed_map_2_animation.set_enabel(self,true)
+	npc.speed_map_2_animation.is_enable = true
 	npc.astar_move.set_astar(true)
 	return
 	
@@ -30,6 +30,6 @@ func exit(next_state:NpcsBaseState):
 	if !next_state in [fall_state,lift_state]:
 		npc.velocity = Vector2.ZERO
 	npc.astar_move.running = false
-	npc.speed_map_2_animation.set_enabel(self,false)
+	npc.speed_map_2_animation.is_enable = false
 	npc.face_direction.set_faced(PlayerState.face_left)
 	

@@ -12,7 +12,7 @@ func init_var():
 func enter():
 	super.enter()
 	timer.start()
-	speed_map_2_animation.set_enabel(self,true)
+	npc.speed_map_2_animation.is_enable = true
 	npc.astar_move.running = true
 	return
 func physics_process(delta: float):
@@ -38,4 +38,4 @@ func exit(NpcsBaseState):
 	npc.astar_move.running = false
 	timer.stop()
 	npc.chase_weight_machine.exit()
-	speed_map_2_animation.set_enabel(self,false)
+	npc.speed_map_2_animation.is_enable = false

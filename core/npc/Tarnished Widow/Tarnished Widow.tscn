@@ -231,7 +231,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_tma76"]
-length = 1.9000000000000006
+length = 1.9000000000000008
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -259,7 +259,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_6b6fb"]
-length = 1.9000000000000006
+length = 1.9000000000000008
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -343,7 +343,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_yv4xl"]
-length = 0.9999999999999999
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -4482,9 +4481,9 @@ position = Vector2(-57, -61)
 
 [node name="HealthBar" parent="UIs" unique_id=982675793 instance=ExtResource("12_pbqsg")]
 anchors_preset = -1
-offset_left = -20.0
+offset_left = -40.0
 offset_top = -157.5
-offset_right = 20.0
+offset_right = 40.0
 offset_bottom = -42.5
 mouse_filter = 2
 bar_color = Color(1, 0, 0.016666412, 0.654902)
@@ -4606,9 +4605,6 @@ position = Vector2(0, -27.5)
 shape = SubResource("RectangleShape2D_u86bx")
 
 [node name="SpeedMap2Animation" parent="Components" unique_id=807679046 instance=ExtResource("22_riins")]
-map_max = 1.2
-map_min = 0.4
-print_debug = null
 
 [node name="Areas" type="Node2D" parent="Components" unique_id=1757821694]
 
@@ -4699,7 +4695,7 @@ texture = ExtResource("35_cfeqs")
 offset = Vector2(0, -31.12)
 hframes = 10
 vframes = 9
-frame = 61
+frame = 65
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -4736,6 +4732,7 @@ texture = ExtResource("36_cfeqs")
 offset = Vector2(0, -31.12)
 hframes = 7
 vframes = 7
+frame = 25
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -4920,6 +4917,7 @@ confirmed_weight = 100.0
 
 [node name="attack3" parent="WeightMachines/ChaseWeightMachine" unique_id=815444200 instance=ExtResource("44_hpk0s")]
 modulate = Color(1, 0.466667, 0.239216, 1)
+confirm = true
 
 [node name="distance2Player" parent="WeightMachines/ChaseWeightMachine/attack3" unique_id=1340950438 instance=ExtResource("45_m8pwf")]
 distance_max = 300.0

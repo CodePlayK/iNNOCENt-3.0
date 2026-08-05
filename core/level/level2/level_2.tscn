@@ -3912,7 +3912,7 @@ size = Vector2(80, 465)
 script = ExtResource("25_b82mj")
 health = 100.0
 
-[sub_resource type="Resource" id="Resource_yeuik"]
+[sub_resource type="Resource" id="Resource_xe73r"]
 resource_local_to_scene = true
 script = ExtResource("27_3vge2")
 group = 1
@@ -3923,14 +3923,14 @@ metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 script = ExtResource("25_b82mj")
 health = 500.0
 
-[sub_resource type="Resource" id="Resource_ejkdo"]
+[sub_resource type="Resource" id="Resource_yeuik"]
 resource_local_to_scene = true
 script = ExtResource("27_3vge2")
 group = 1
 key = "bloodking1"
 metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
-[sub_resource type="Resource" id="Resource_phav8"]
+[sub_resource type="Resource" id="Resource_ejkdo"]
 resource_local_to_scene = true
 script = ExtResource("32_jkb03")
 using_states = PackedStringArray()
@@ -4428,10 +4428,10 @@ bloodking1: 出发！
 => END!"
 metadata/dialogue_manager_version = "3.10.5"
 
-[sub_resource type="Resource" id="Resource_v4dih"]
+[sub_resource type="Resource" id="Resource_phav8"]
 resource_local_to_scene = true
 script = ExtResource("13_ftt0e")
-dialogue_res = SubResource("Resource_phav8")
+dialogue_res = SubResource("Resource_ejkdo")
 talkers = Array[String](["it"])
 current_res = "0_0_0"
 title = "it"
@@ -4439,7 +4439,7 @@ title_list = "bloodking1 | bloodking2 | it | 废弃汽车1 | 玩家醒来 | 玩�
 balloon_color = Color(0, 0.39862674, 0, 1)
 metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
-[sub_resource type="Resource" id="Resource_xav7g"]
+[sub_resource type="Resource" id="Resource_v4dih"]
 resource_local_to_scene = true
 script = ExtResource("27_3vge2")
 group = 1
@@ -5732,7 +5732,7 @@ position = Vector2(1266, 262)
 npc_name = "bloodking2"
 data = SubResource("Resource_ksxnh")
 dialogue_config = ExtResource("26_rl56b")
-save_data_config = SubResource("Resource_yeuik")
+save_data_config = SubResource("Resource_xe73r")
 character_box_config = ExtResource("28_6s06p")
 astar = NodePath("../../astar/BloodKingAstarMap/AStar2")
 max_chase_speed = 200.0
@@ -5745,20 +5745,20 @@ position = Vector2(1386, 271)
 npc_name = "bloodking1"
 data = SubResource("Resource_v6gb6")
 dialogue_config = ExtResource("29_u7grv")
-save_data_config = SubResource("Resource_ejkdo")
+save_data_config = SubResource("Resource_yeuik")
 character_box_config = ExtResource("30_w6dlt")
 astar = NodePath("../../astar/BloodKingAstarMap/AStar")
 
 [node name="it" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1847133321 node_paths=PackedStringArray("astar") instance=ExtResource("31_g0g5r")]
 position = Vector2(1756.0001, 118)
-dialogue_config = SubResource("Resource_v4dih")
+dialogue_config = SubResource("Resource_phav8")
 starting_state = "lock"
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar3")
 
 [node name="Tarnished Widow" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1375168033 node_paths=PackedStringArray("astar") instance=ExtResource("35_8sak0")]
-position = Vector2(755, 271)
-save_data_config = SubResource("Resource_xav7g")
+position = Vector2(-271, 175)
+save_data_config = SubResource("Resource_v4dih")
 character_box_config = ExtResource("36_xe73r")
 astar = NodePath("../../astar/BloodKingAstarMap/AStarTW")
 
@@ -5933,6 +5933,7 @@ tile_map_data = PackedByteArray("AADV/wUAAQAEAAYAAADV/wYAAQAFAAcAAADV/wcAAQAFAAc
 tile_set = ExtResource("10_lscok")
 
 [node name="ParallaxLayer_8" parent="Parallax" unique_id=1169756534 instance=ExtResource("6_ogf7p")]
+visible = false
 
 [node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_8" unique_id=654206940]
 position = Vector2(-459, -293)

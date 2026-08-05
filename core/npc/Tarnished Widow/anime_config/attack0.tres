@@ -19,11 +19,6 @@ damage = 10.0
 hit_start_frame = 7
 hit_end_frame = 10
 
-[sub_resource type="Resource" id="Resource_hgdjm"]
-script = ExtResource("8_2cdaw")
-se_name = "slash6"
-start_frame = 9
-
 [sub_resource type="Curve" id="Curve_t84jq"]
 _limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0.19186, 0.60223), 0.0, -0.138625, 0, 0, Vector2(0.884817, 2), 0.0, 0.0, 0, 0]
@@ -32,6 +27,5 @@ point_count = 2
 [resource]
 script = ExtResource("7_q6mrr")
 speed_scale_curve = SubResource("Curve_t84jq")
-sound_config = Array[ExtResource("8_2cdaw")]([SubResource("Resource_hgdjm")])
 hitbox_config = Array[ExtResource("5_3o5e1")]([SubResource("Resource_valb6")])
 bati_config = Array[ExtResource("2_u6gbq")]([SubResource("Resource_qjkgv")])

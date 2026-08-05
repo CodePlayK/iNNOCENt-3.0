@@ -38,7 +38,7 @@ func on_save() -> void:
 
 
 func on_load() -> void:
-	if save_locker:return
+	if save_locker or LevelState.playing_transition:return
 	if not _has_valid_selection():
 		_debug_err("未选中存档!")
 		return

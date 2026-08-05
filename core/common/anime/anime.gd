@@ -127,19 +127,21 @@ func process() -> void:
 	if current_animation!=aniplayer.current_animation:
 		return
 	if !anime_dic.has(current_animation):return
-	if offset_enable:
-		set_offset(anime)
+
 	if master.obj.hit_box:
 		set_hitbox(anime)	
 	if master.obj.hurt_box:
 		set_hurtbox(anime)	
 	set_bati(anime)
-	
+	if offset_enable:
+		set_offset(anime)
 ##设置偏移量
 func set_offset(anime:AnimeConfig):
 	for offset_config:AnimeOffsetConfig in anime.anime_offset:
-		if current_frame == offset_config.start_frame and aniplayer.current_animation == anime.animation_name:
-			cache_off(anime.state_name+str(offset_config.start_frame))
+		if current_frame == offset_config.start_frame and aniplayer.current_animation == anime.animation_name :
+			if check_cache(anime.state_name+"bati"+str(offset_config.start_frame)):
+				return
+			cache_on(anime.state_name+"bati"+str(offset_config.start_frame))
 			var time:float
 			time = get_frame2frame_time(offset_config.start_frame,offset_config.end_frame)/aniplayer.speed_scale
 			var tween = animations.create_tween()
@@ -147,8 +149,9 @@ func set_offset(anime:AnimeConfig):
 			tween.tween_property(animations,"position",animations.position-Vector2(master.obj.face_left_normalized*offset_config.target_vec2.x,offset_config.target_vec2.y),time)
 			tween.parallel().tween_property(master.obj,"position",master.obj.position+Vector2(master.obj.face_left_normalized*offset_config.target_vec2.x,offset_config.target_vec2.y),time)		
 			await tween.finished
+			cache_off(anime.state_name+"bati"+str(offset_config.start_frame))
+
 			tween.kill()
-			cache_on(anime.state_name+str(offset_config.start_frame))
 ##设置霸体帧			
 func set_bati(anime:AnimeConfig):
 	for bati_config:AnimeBatiConfig in anime.bati_config:
@@ -185,25 +188,29 @@ func set_hitbox(anime):
 		for hc:AnimeHitBoxConfig in anime.hitbox_config:
 			if !anime.backward:
 				if hc.hit_start_frame == current_frame:
-					if !check_cache(hc.collision_index+1):continue
+					if check_cache(hc.collision_index+1):
+						continue
 					if print_hitbox:Debug.dprinterr(DebugCT.dp("Anime设置hitbox[%s][%s]" %[current_animation,hc.collision_index],self))
 					master.obj.hit_box.damage = hc.damage
 					master.obj.hit_box.set_enable(true,hc.collision_index)
 					cache_off(hc.collision_index+1)
 				elif hc.hit_end_frame == current_frame:
-					if !check_cache(hc.collision_index-1):continue
+					if check_cache(hc.collision_index-1):
+						continue
 					if print_hitbox:Debug.dprinterr(DebugCT.dp("Anime取消hitbox[%s][%s]" %[current_animation,hc.collision_index],self))
 					master.obj.hit_box.damage = 0
 					master.obj.hit_box.set_enable(false,hc.collision_index)
 					cache_off(hc.collision_index-1)
 			else :
 				if hc.hit_start_frame == current_frame:
-					if !check_cache(hc.collision_index-1):continue
+					if check_cache(hc.collision_index-1):
+						continue
 					master.obj.hit_box.damage = 0
 					master.obj.hit_box.set_enable(false,hc.collision_index)
 					cache_off(hc.collision_index+1)
 				elif hc.hit_end_frame == current_frame:
-					if !check_cache(hc.collision_index-1):continue
+					if check_cache(hc.collision_index-1):
+						continue
 					master.obj.hit_box.damage = hc.damage
 					master.obj.hit_box.set_enable(true,hc.collision_index)
 					cache_off(hc.collision_index-1)
@@ -270,7 +277,7 @@ func cache_off(key):
 func check_cache(key):
 	if cache.has(key):return cache[key]
 	cache[key] = true
-	return cache[key]
+	return false
 #endregion
 ##停止动画
 func stop_anime():
@@ -302,7 +309,7 @@ func set_shader(base,color,mix_scale):
 		base.material.set_shader_parameter("to_color",fx_color)
 	base.material.set_shader_parameter("mix_modulate_strength",mix_scale)
 ##物理帧处理
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if play_lock:return
 	var a = aniplayer.current_animation
 	set_sound(anime)
@@ -310,7 +317,7 @@ func _physics_process(delta: float) -> void:
 		return
 	if last_base_frame!=base.frame:
 		last_base_frame = base.frame
-		process()
+		await process()
 		update_frame()
 ##更新帧
 func update_frame():

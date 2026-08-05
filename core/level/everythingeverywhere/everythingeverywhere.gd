@@ -75,7 +75,9 @@ func resume_level(level_id: LevelState.LEVELS) -> void:
 
 
 func _on_change_level(level_id: LevelState.LEVELS) -> void:
+	door_locked_time.stop()
 	LevelState.set_doors_locked(true,self)
+	LevelState.playing_transition = true
 	PlayerState.set_player_control_lock(true,self)
 	LevelState.last_level = LevelState.current_level
 	LevelState.current_level = level_id
@@ -103,6 +105,8 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 	LevelState.level_dic[LevelState.current_level].position.y=0
 	PlayerState.set_player_control_lock(false,self)
 	door_locked_time.start()
+	LevelState.playing_transition = false
+
 	
 func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 	if old_level_id==new_level_id:return
@@ -147,7 +151,7 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		#动画过程中必须关闭smooth否则会飘移
 		Global.player_camera.position_smoothing_enabled = true
 		tw.kill()
-		LevelState.level_dic[LevelState.last_level].position=Vector2i(99999,99999)
+		LevelState.level_dic[LevelState.last_level].position=Vector2i(0,9999)
 		LevelState.level_dic[LevelState.last_level].hide()
 	Debug.dprintinfo(DebugCT.dp("******关卡切换动画结束[UP]",self))
 

@@ -13,7 +13,7 @@
 script = ExtResource("1_sy4vh")
 start_frame = 2
 end_frame = 4
-target_vec2 = Vector2(-78, 0)
+target_vec2 = Vector2(-79, 0)
 
 [sub_resource type="Resource" id="Resource_lk6l6"]
 script = ExtResource("1_sy4vh")

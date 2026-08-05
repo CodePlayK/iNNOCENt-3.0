@@ -6761,9 +6761,7 @@ metadata/_edit_pinned_properties_ = [&"connects"]
 [node name="Health" parent="Config" unique_id=814573476 node_paths=PackedStringArray("tagets") instance=ExtResource("4_m7dko")]
 tagets = [NodePath("../../UIs")]
 max_health = 100.0
-min_health = null
 health_regeneration = 1.0
-print_health = null
 
 [node name="Obj2PlayerSide" parent="Config" unique_id=2122604695 instance=ExtResource("5_3blux")]
 
@@ -6984,9 +6982,8 @@ position = Vector2(0, -27.5)
 shape = SubResource("RectangleShape2D_u86bx")
 
 [node name="SpeedMap2Animation" parent="Components" unique_id=807679046 instance=ExtResource("19_kxs02")]
-map_max = 1.2
-map_min = 0.4
-print_debug = null
+speed_scale = 0.53
+reference_speed = 300.0
 
 [node name="SoundEffect" parent="Components" unique_id=1499579501 instance=ExtResource("25_eajjn")]
 

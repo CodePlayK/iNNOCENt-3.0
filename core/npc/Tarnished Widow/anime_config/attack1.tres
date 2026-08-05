@@ -27,19 +27,8 @@ start_frame = 4
 end_frame = 18
 metadata/_custom_type_script = "uid://6w3snvye50sn"
 
-[sub_resource type="Resource" id="Resource_r0stm"]
-script = ExtResource("8_np06x")
-se_name = "slash5"
-start_frame = 7
-
-[sub_resource type="Resource" id="Resource_o8cku"]
-script = ExtResource("8_np06x")
-se_name = "slash6"
-start_frame = 13
-
 [resource]
 script = ExtResource("7_ibamj")
-sound_config = Array[ExtResource("8_np06x")]([SubResource("Resource_r0stm"), SubResource("Resource_o8cku")])
 hitbox_config = Array[ExtResource("5_0oa8w")]([SubResource("Resource_60dqd")])
 bati_config = Array[ExtResource("2_o3ug1")]([SubResource("Resource_na17f")])
 invincible_config = Array[ExtResource("6_xcnca")]([SubResource("Resource_k84ko")])

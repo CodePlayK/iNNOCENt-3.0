@@ -12,11 +12,11 @@
 [sub_resource type="Resource" id="Resource_tma76"]
 script = ExtResource("1_nh3b4")
 start_frame = 6
-end_frame = 16
+end_frame = 8
 target_vec2 = Vector2(0, -200)
 metadata/_custom_type_script = "uid://brl66o65w1u3v"
 
-[sub_resource type="Resource" id="Resource_nh3b4"]
+[sub_resource type="Resource" id="Resource_xav7g"]
 script = ExtResource("1_nh3b4")
 start_frame = 16
 end_frame = 17
@@ -43,19 +43,8 @@ hit_start_frame = 17
 hit_end_frame = 19
 metadata/_custom_type_script = "uid://be4do16qkly4o"
 
-[sub_resource type="Resource" id="Resource_537nx"]
-script = ExtResource("8_3a3os")
-se_name = "slash5"
-start_frame = 2
-
-[sub_resource type="Resource" id="Resource_y0y2r"]
-script = ExtResource("8_3a3os")
-se_name = "slash6"
-start_frame = 6
-
 [resource]
 script = ExtResource("7_3pf06")
-anime_offset = Array[ExtResource("1_nh3b4")]([SubResource("Resource_tma76"), SubResource("Resource_nh3b4")])
-sound_config = Array[ExtResource("8_3a3os")]([SubResource("Resource_537nx"), SubResource("Resource_y0y2r")])
+anime_offset = Array[ExtResource("1_nh3b4")]([SubResource("Resource_tma76"), SubResource("Resource_xav7g")])
 hitbox_config = Array[ExtResource("5_s0poe")]([SubResource("Resource_hl50o"), SubResource("Resource_cfeqs")])
 bati_config = Array[ExtResource("2_sm6o8")]([SubResource("Resource_olpii")])

@@ -11,3 +11,7 @@ func enter():
 	await tween.finished
 	tween.kill()
 	return
+
+func exit(state:NpcsBaseState):
+	tween.kill()
+	npc.modulate = Color("ffffffff")
