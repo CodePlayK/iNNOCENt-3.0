@@ -4,7 +4,7 @@ extends Weight
 var distance
 
 func process(obj) -> void:
-	distance = abs(obj.global_position.x - PlayerState.player.global_position.x)
+	distance = abs(obj.global_position.x - PlayerState.player_player.global_position.x)
 	if distance < distance_min or distance > distance_max:
 		weight = impossible_weight
 	else :

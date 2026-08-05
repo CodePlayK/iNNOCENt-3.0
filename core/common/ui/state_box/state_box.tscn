@@ -30,16 +30,17 @@
 [ext_resource type="Material" uid="uid://bli7y1u5kjxe4" path="res://test/shader/state_box_crt.tres" id="27_6r5qt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g47y2"]
-bg_color = Color(0, 0.0901961, 0.101961, 0.964706)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 0.694118)
+bg_color = Color(0, 0, 0, 0.8235294)
+border_width_left = 1
+border_width_top = 3
+border_width_right = 1
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 24
 corner_radius_top_right = 24
 corner_radius_bottom_right = 24
 corner_radius_bottom_left = 24
-corner_detail = 16
+corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iimtv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -89,7 +90,7 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_0boyj")
 bg_color = Color(0, 0, 0, 0.298039)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3j16t"]
-bg_color = Color(0.00784314, 0.0784314, 0.0666667, 0.556863)
+bg_color = Color(0, 0, 0, 0.5568628)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -170,7 +171,8 @@ layout_mode = 2
 mouse_filter = 0
 theme = ExtResource("1_40a3c")
 theme_override_styles/panel = SubResource("StyleBoxFlat_g47y2")
-current_tab = 2
+tab_alignment = 1
+current_tab = 1
 tab_focus_mode = 1
 
 [node name="角色属性" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=242220930]
@@ -211,6 +213,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1394848090]
+visible = false
 layout_mode = 2
 size_flags_stretch_ratio = 2.71
 theme_override_styles/panel = SubResource("StyleBoxFlat_iimtv")
@@ -254,7 +257,7 @@ stamina_config = ExtResource("9_56dnf")
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-color = Color(0.0901961, 0.341176, 0.266667, 0.0941176)
+color = Color(0, 0, 0, 0.09411765)
 
 [node name="MC3" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/角色属性/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=365392079]
 layout_mode = 2
@@ -357,7 +360,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 
 [node name="收集品" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=569137082]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -447,6 +449,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.32
 
 [node name="菜单" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=1224675942]
+visible = false
 layout_mode = 2
 script = ExtResource("11_yaq3f")
 metadata/_tab_index = 2

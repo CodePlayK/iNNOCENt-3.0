@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c52c3aaunm282"]
+
+[ext_resource type="Script" uid="uid://5md2onh7aftx" path="res://core/common/component/GPUleaf/gp_uleaf.gd" id="1_c7n6o"]
+[ext_resource type="Texture2D" uid="uid://be1u2c5f50ogg" path="res://core/common/component/FallingLeaf/leave/leaves-sheet-row.png" id="2_3wtw2"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=514488223]
+script = ExtResource("1_c7n6o")
+leaf_sheet = ExtResource("2_3wtw2")
+h_frames = 7

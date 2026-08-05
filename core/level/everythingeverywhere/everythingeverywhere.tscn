@@ -291,7 +291,7 @@ script = ExtResource("1_celhk")
 [node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
 unique_name_in_owner = true
 ignore_rotation = false
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 limit_left = -1335
 limit_top = -165
 limit_right = 1889
@@ -353,6 +353,8 @@ unique_name_in_owner = true
 visible = false
 
 [node name="BackGroundColor" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
+light_mask = 32769
+visibility_layer = 32768
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -632,16 +634,15 @@ size_flags_stretch_ratio = 1.75
 mouse_filter = 2
 
 [node name="StateBox" parent="MainCanvas" unique_id=1721225745 instance=ExtResource("19_q484j")]
-modulate = Color(1, 1, 1, 0.5372549)
 
 [node name="TxtHistoryBCanvas" type="CanvasLayer" parent="." unique_id=524535970]
-layer = 10
+layer = 9
 
 [node name="TxtHistoryBox" parent="TxtHistoryBCanvas" unique_id=1847707320 instance=ExtResource("20_xtiwo")]
 metadata/_edit_lock_ = true
 
 [node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
-layer = 6
+layer = 7
 script = ExtResource("21_lj80u")
 
 [node name="ColorRect" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
@@ -690,7 +691,7 @@ root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_oekpy")
 
 [node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
-layer = 6
+layer = 8
 script = ExtResource("24_3yn66")
 
 [node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]

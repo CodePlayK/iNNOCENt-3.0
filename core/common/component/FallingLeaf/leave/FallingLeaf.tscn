@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dp1u334voc3of"]
+
+[ext_resource type="Script" uid="uid://drk4mtc0nr7fx" path="res://core/common/component/FallingLeaf/leave/FallingLeaf.gd" id="1_iasol"]
+[ext_resource type="Texture2D" uid="uid://buxljbrq7vyyy" path="res://core/common/component/FallingLeaf/leave/leaves.png" id="2_8aj2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beo5a"]
+atlas = ExtResource("2_8aj2i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ifxg"]
+atlas = ExtResource("2_8aj2i")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc05o"]
+atlas = ExtResource("2_8aj2i")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfpvr"]
+atlas = ExtResource("2_8aj2i")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bhhs"]
+atlas = ExtResource("2_8aj2i")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82b75"]
+atlas = ExtResource("2_8aj2i")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo4je"]
+atlas = ExtResource("2_8aj2i")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ewyol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beo5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ifxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc05o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfpvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bhhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82b75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo4je")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FallingLeaf" type="Node2D" unique_id=190516191]
+script = ExtResource("1_iasol")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=369246894]
+light_mask = 32
+sprite_frames = SubResource("SpriteFrames_ewyol")
+autoplay = "default"
+frame_progress = 0.08750819
+
+[node name="FloorRay" type="RayCast2D" parent="." unique_id=1505126241]
+target_position = Vector2(0, 7)

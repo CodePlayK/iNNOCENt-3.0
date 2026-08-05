@@ -64,7 +64,7 @@ fill_to = Vector2(0.777778, 0.0797721)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_02r1p"]
 shader = ExtResource("5_a2nql")
-shader_parameter/scanlines_opacity = 0.278000013205
+shader_parameter/scanlines_opacity = 0.07600000361
 shader_parameter/scanlines_width = 0.16800000798
 shader_parameter/grille_opacity = 0.4800000228
 shader_parameter/resolution = Vector2(64, 128)
@@ -98,14 +98,13 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d1kjn"]
 draw_center = false
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
 border_color = Color(1, 1, 1, 1)
 border_blend = true
 corner_radius_top_left = 20
 corner_radius_top_right = 20
-anti_aliasing = false
 
 [node name="WideMarg" type="VBoxContainer" unique_id=923313209]
 visible = false

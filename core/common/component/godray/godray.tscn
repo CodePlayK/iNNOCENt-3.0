@@ -14,7 +14,7 @@ shader_parameter/occlusion_softness = 0.06800000323000001
 shader_parameter/angle = -0.3
 shader_parameter/position = -0.2
 shader_parameter/spread = 0.5470000259825
-shader_parameter/cutoff = 0.006000047784999962
+shader_parameter/cutoff = 0.00600004778499996
 shader_parameter/falloff = 0.2
 shader_parameter/edge_fade = 0.15
 shader_parameter/speed = 1.0
@@ -41,7 +41,6 @@ polygon = PackedVector2Array(-72.434784, -82.07451, 90.60871, -36.196976, 258.86
 script = ExtResource("1_x05xa")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=260596615]
-visible = false
 light_mask = 32
 position = Vector2(-16.999989, 181.75)
 scale = Vector2(1.0078125, 886.5)

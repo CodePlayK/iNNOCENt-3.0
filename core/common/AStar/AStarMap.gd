@@ -23,7 +23,7 @@ class_name AStarMap
 ##寻路对象
 @export var npc:CharacterBody2D
 ##寻路跟随目标
-@export var target:Node2D
+@export var target:Node2D = PlayerState.player_player
 @export var target_offset_cell_vec2i:Vector2i
 ##当cell不在地面上时,额外的cost
 @export_range(0,10) var air_cost:float = 1
@@ -380,7 +380,7 @@ func target_pos_update(pos:Vector2):
 ##获取偏移后最近的可用cell
 func get_fin_cell(base_cell:Vector2i):
 	if target_offset_cell_vec2i == Vector2i.ZERO:return base_cell
-	if !PlayerState.player.is_on_floor():
+	if !PlayerState.player_player.is_on_floor():
 		return base_cell
 	var fin_cell:Vector2i = base_cell + target_offset_cell_vec2i
 	while cell_data_vec2i_dic.has(fin_cell)  and (is_blocked(fin_cell) or !is_blocked(fin_cell+Vector2i(0,1))) and abs(fin_cell.x - base_cell.x) <= abs(target_offset_cell_vec2i.x) :

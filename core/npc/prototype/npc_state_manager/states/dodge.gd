@@ -11,7 +11,7 @@ func pre_enter() -> bool:
 func enter():
 	super.enter()
 	npc.hurt_box.disable_hit()
-	var side = sign(PlayerState.player.global_position.x - npc.global_position.x)
+	var side = sign(PlayerState.player_player.global_position.x - npc.global_position.x)
 	npc.face_direction.set_faced(side==-1)
 	npc.dodgeable = false
 	tween = npc.create_tween()

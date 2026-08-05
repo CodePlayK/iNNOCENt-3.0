@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5xppvekrlro6"]
+
+[ext_resource type="Script" uid="uid://5uf5qr5iqn1a" path="res://core/common/component/FallingLeaf/LeafFallSpawner.gd" id="1_bk186"]
+[ext_resource type="PackedScene" uid="uid://dp1u334voc3of" path="res://core/common/component/FallingLeaf/leave/FallingLeaf.tscn" id="2_6jilm"]
+
+[node name="LeafFallSpawner" type="Node2D" unique_id=937574323]
+script = ExtResource("1_bk186")
+leaf_scene = ExtResource("2_6jilm")
+count_range = Vector2i(1, 5)
+max_alive = 20

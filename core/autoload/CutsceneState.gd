@@ -23,7 +23,7 @@ var test_var_Resource:Resource
 var player_position:Vector2
 ##修改玩家状态
 func change_player_state(state_name:String):
-	PlayerState.player.state_manager.string2state(state_name,self)
+	PlayerState.player_player.state_manager.string2state(state_name,self)
 ##播放过场动画	
 func play_cutscene_aniplayer(animation_name:String):
 	EventBus._play_cutscene_aniplayer(animation_name)
@@ -33,15 +33,15 @@ func talk(dialoge_config:DialogueConfig,title:String = ""):
 	await Dialogue.end_dialogue
 ##设置玩家位置
 func set_player_pos(pos:Vector2,face_left:int = 0):
-	PlayerState.player.global_position = pos
+	PlayerState.player_player.global_position = pos
 	match face_left:
 		1:
-			PlayerState.player.face_direction.set_faced(false)
+			PlayerState.player_player.face_direction.set_faced(false)
 		-1:
-			PlayerState.player.face_direction.set_faced(true)
+			PlayerState.player_player.face_direction.set_faced(true)
 ##设置玩家朝向
 func set_player_faced(face_left:bool = false):
-	PlayerState.player.face_direction.set_faced(face_left)
+	PlayerState.player_player.face_direction.set_faced(face_left)
 ##移动到位置				
 func move2pos(obj_name:String,pos:Vector2):
 	EventBus._move_2_vec2(obj_name,pos)
