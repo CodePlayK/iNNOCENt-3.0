@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_11"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://bxdsd0ha8rvyc"
 path="res://.godot/imported/0_0_bedroom.dialogue-b420a7f3fc6797229e08449fe6eb9cb6.tres"

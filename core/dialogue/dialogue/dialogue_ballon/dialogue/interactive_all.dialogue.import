@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_11"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://c6tvs4yj5xxy6"
 path="res://.godot/imported/interactive_all.dialogue-fca81ae03f4cc377a4539570cdc7b5b7.tres"
