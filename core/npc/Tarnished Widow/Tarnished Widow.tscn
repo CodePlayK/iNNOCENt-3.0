@@ -838,7 +838,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 89.16667)
 
-[sub_resource type="Resource" id="Resource_irqh8"]
+[sub_resource type="Resource" id="Resource_7cfw8"]
 resource_local_to_scene = true
 script = ExtResource("3_1jmvl")
 group = 1
@@ -1668,7 +1668,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("103_5edpy")]
 script = ExtResource("104_65ev0")
-save_data_config = SubResource("Resource_irqh8")
+save_data_config = SubResource("Resource_7cfw8")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 visible = false

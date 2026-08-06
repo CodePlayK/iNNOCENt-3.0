@@ -8,7 +8,7 @@ extends Node2D
 ## CUTSCENER主场景路径
 const CUTSCENER_PATH := "res://addons/Cutscener/main/main.tscn"
 ## 默认的存档资源路径
-const SRC_PATH := "res://core/data/data.tres"
+const SRC_PATH := "res://core/data/data.db"
 ## sqlite数据库位置
 const DES_PATH := "user://data/data.db"
 ## 存档目录
