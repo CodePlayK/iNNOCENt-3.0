@@ -8,7 +8,7 @@ extends Node2D
 ## CUTSCENER主场景路径
 const CUTSCENER_PATH := "res://addons/Cutscener/main/main.tscn"
 ## 默认的存档资源路径
-const SRC_PATH := "res://core/data/data.db"
+const SRC_PATH := "res://core/data/save_data.db"
 ## sqlite数据库位置
 const DES_PATH := "user://data/save_data.db"
 ## 存档目录
@@ -162,6 +162,7 @@ func _ensure_default_save_file() -> void:
 
 	if FileAccess.file_exists(DES_PATH) and !FileAccess.open(DES_PATH, FileAccess.READ).get_length() == 0:
 		Debug.dprintinfo(DebugCT.dp("目标文件已存在！[%s]" % DES_PATH, self))
+		DataState.init_db(DES_PATH)
 		return
 
 	var src_file := FileAccess.open(SRC_PATH, FileAccess.READ)
