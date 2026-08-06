@@ -179,8 +179,7 @@ func _ensure_default_save_file() -> void:
 	src_file.close()
 	des_file.close()
 	Debug.dprintinfo(DebugCT.dp("存档数据不存在，新建数据库在User目录下！[%s]" % DES_PATH, self))
-	DataState.db.path = DES_PATH
-	DataState.init_db()
+	DataState.init_db(DES_PATH)
 
 
 

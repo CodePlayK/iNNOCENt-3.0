@@ -52,8 +52,9 @@ var current_select_save_id: int = 0
 var current_save_file_dic: Dictionary = {}
 
 
-func init_db() -> void:
+func init_db(path) -> void:
 	db = SQLite.new()
+	DataState.db.path = path
 	db.path = DB_NAME
 	db.verbosity_level = SQLite.QUIET
 	db.open_db()
