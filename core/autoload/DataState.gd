@@ -1,7 +1,7 @@
 extends Node
 ## 存档中枢：缓存组装、就绪统计、SQLite 落库与存档元数据管理
 
-const DB_NAME := "user://data/data"
+const DB_NAME := "user://data/save_data"
 const SAVE_SCREENSHOT_PATH := "user://data/screen shot/"
 const TABLE := "save"
 const TRASH_TABLE := "trash"
@@ -52,7 +52,7 @@ var current_select_save_id: int = 0
 var current_save_file_dic: Dictionary = {}
 
 
-func _ready() -> void:
+func init_db() -> void:
 	db = SQLite.new()
 	db.path = DB_NAME
 	db.verbosity_level = SQLite.QUIET

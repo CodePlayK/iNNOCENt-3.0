@@ -10,7 +10,7 @@ const CUTSCENER_PATH := "res://addons/Cutscener/main/main.tscn"
 ## 默认的存档资源路径
 const SRC_PATH := "res://core/data/data.db"
 ## sqlite数据库位置
-const DES_PATH := "user://data/data.db"
+const DES_PATH := "user://data/save_data.db"
 ## 存档目录
 const SAVE_PATH := "user://data"
 
@@ -160,7 +160,7 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 func _ensure_default_save_file() -> void:
 	DirAccess.make_dir_absolute(SAVE_PATH)
 
-	if FileAccess.file_exists(DES_PATH):
+	if FileAccess.file_exists(DES_PATH) and !FileAccess.open(DES_PATH, FileAccess.READ).get_length() == 0:
 		Debug.dprintinfo(DebugCT.dp("目标文件已存在！[%s]" % DES_PATH, self))
 		return
 
@@ -179,6 +179,9 @@ func _ensure_default_save_file() -> void:
 	src_file.close()
 	des_file.close()
 	Debug.dprintinfo(DebugCT.dp("存档数据不存在，新建数据库在User目录下！[%s]" % DES_PATH, self))
+	DataState.db.path = DES_PATH
+	DataState.init_db()
+
 
 
 ## 读取并解析 JSON 文件，失败返回空字典
