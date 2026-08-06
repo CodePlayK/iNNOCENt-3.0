@@ -127,13 +127,13 @@ font = ExtResource("13_wagqj")
 size = Vector2(164.99998, 122.33333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_neci4"]
-size = Vector2(110.83334, 34)
+size = Vector2(175.83334, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_laixw"]
 size = Vector2(112.00001, 63.666664)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3yjq"]
-size = Vector2(331.66666, 31.6667)
+size = Vector2(331.66666, 1.6666851)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsvwk"]
 size = Vector2(86, 59)
@@ -173,11 +173,11 @@ shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
 shader_parameter/overlay_enable = false
-shader_parameter/overlay_color = Color(1, 1, 1, 1)
-shader_parameter/overlay_strength = 0.566000026885
+shader_parameter/overlay_color = Color(1, 0.14999998, 0.14999998, 1)
+shader_parameter/overlay_strength = 0.098000004655
 shader_parameter/overlay_mode = 2
-shader_parameter/mix_modulate = false
-shader_parameter/mix_modulate_strength = 1.0
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 0.4890000232275
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ovt2n"]
 resource_local_to_scene = true
@@ -966,13 +966,12 @@ collision_mask = 32
 damage = 2.0
 
 [node name="attack0" type="CollisionShape2D" parent="Components/HitBox" unique_id=944897674]
-visible = false
 position = Vector2(-10.833336, -62.166664)
 shape = SubResource("RectangleShape2D_hmb8x")
 
 [node name="attack1" type="CollisionShape2D" parent="Components/HitBox" unique_id=1456828047]
 visible = false
-position = Vector2(119.58333, -17)
+position = Vector2(87.08333, -7.5000005)
 shape = SubResource("RectangleShape2D_neci4")
 
 [node name="attack2" type="CollisionShape2D" parent="Components/HitBox" unique_id=1131564850]
@@ -986,7 +985,8 @@ position = Vector2(-11.666666, -16.666666)
 shape = SubResource("RectangleShape2D_c3yjq")
 
 [node name="attack3|2" type="CollisionShape2D" parent="Components/HitBox" unique_id=589769495]
-position = Vector2(-7.5000024, -16.666666)
+visible = false
+position = Vector2(-7.5000024, -1.6666586)
 shape = SubResource("RectangleShape2D_c3yjq")
 
 [node name="AttackRange" type="Area2D" parent="Components/HitBox" unique_id=1486990697]
@@ -1410,7 +1410,8 @@ player_interact_lock = true
 change_animation = false
 change_sprite_color = true
 pause_on_change_sprite_color = false
-sprite_color = Color(0.878431, 0.537255, 0, 1)
+sprite_color = Color(0.82, 0.7926667, 0, 1)
+overlay_strength = 0.2
 anime_config = SubResource("Resource_f3f78")
 
 [node name="Timer" type="Timer" parent="NpcStateManager/stack/behitbati" unique_id=1895561665]
@@ -1464,7 +1465,8 @@ enable_player_detection = true
 player_interact_lock = true
 change_animation = false
 change_sprite_color = true
-sprite_color = Color(0.411765, 0, 0, 1)
+sprite_color = Color(0.8912494, 0.00035575844, 0.00019512206, 1)
+overlay_strength = 0.3
 anime_config = ExtResource("71_7xtyn")
 
 [node name="BatiProtectTimer" type="Timer" parent="NpcStateManager/base/combat/behit" unique_id=133733436]

@@ -58,7 +58,16 @@ class_name NpcsBaseState
 @export var pause_on_change_sprite_color:bool=true
 ##要覆盖sprite的颜色
 @export var sprite_color:Color
-@export_range(0,1,0.1) var mix_color_scale:float = 0.5
+##0 = 不叠，1 = 完全按 overlay 方式混合
+@export_range(0,1,0.1) var overlay_strength:float = 0.1
+enum OVERLAYER_MODES{MULTIPLY = 0,MIX= 1 ,SOFT = 2}
+##0 multiply  1 mix插值  2 soft 偏亮叠加
+@export var overlay_mode:OVERLAYER_MODES = OVERLAYER_MODES.SOFT
+##混合原modulate
+@export var mix_modulate:bool = true;
+@export_range(0,1,0.1) var mix_modulate_strength:float = 0.5
+
+
 @export_group("战斗")
 @export var stamina_cost:int
 @export var need_stamina:bool = false
@@ -162,6 +171,10 @@ func play_animation():
 
 func change_animation_color(flag:bool=false,pause_on_change_sprite_color:bool = true):
 	npc.base.material.set_shader_parameter("overlay_color",sprite_color)
+	npc.base.material.set_shader_parameter("overlay_strength",overlay_strength)
+	npc.base.material.set_shader_parameter("overlay_mode",overlay_mode)
+	npc.base.material.set_shader_parameter("mix_modulate",mix_modulate)
+	npc.base.material.set_shader_parameter("mix_modulate_strength",mix_modulate_strength)
 	npc.base.material.set_shader_parameter("overlay_enable",flag)
 	if flag and pause_on_change_sprite_color:
 		npc.anime.stop_anime()
