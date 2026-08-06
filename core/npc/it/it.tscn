@@ -7148,6 +7148,7 @@ root_node = NodePath("../../../../../..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/FXs/BloodFloor/HitBox" unique_id=304295484]
 
 [node name="HurtFX" type="Node2D" parent="Animations/FXs" unique_id=788290771]
+visible = false
 light_mask = 0
 script = ExtResource("36_3rumx")
 
@@ -7203,6 +7204,7 @@ total_weight_min = 0.0
 weight_machine_ui = NodePath("../../UIs/Test/TestCan/WeightMachineUi")
 
 [node name="attack0" parent="WeightMachines/ChaseWeightMachine" unique_id=873061840 instance=ExtResource("40_q0ui4")]
+confirm = true
 
 [node name="Distance2Player2" parent="WeightMachines/ChaseWeightMachine/attack0" unique_id=976566356 instance=ExtResource("41_jdwps")]
 distance_max = 200.0
@@ -7360,6 +7362,10 @@ sprite_color = Color(0.411765, 0, 0, 1)
 anime_config = ExtResource("67_t17tr")
 
 [node name="ProtectTimer" type="Timer" parent="NpcStateManager/base/combat/behit" unique_id=1750859248]
+
+[node name="BatiProtectTimer" type="Timer" parent="NpcStateManager/base/combat/behit" unique_id=1184133090]
+wait_time = 5.0
+one_shot = true
 
 [node name="behithard" type="Node" parent="NpcStateManager/base/combat" unique_id=1936642427]
 script = ExtResource("68_acy3s")
@@ -7637,6 +7643,7 @@ metadata/_aseprite_wizard_config_ = {
 [connection signal="timeout" from="NpcStateManager/base/idle/FollowTimer" to="NpcStateManager/base/idle" method="_on_follow_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/patrol/PatrolTimer" to="NpcStateManager/base/combat/patrol" method="_on_patrol_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/behit/ProtectTimer" to="NpcStateManager/base/combat/behit" method="_on_protect_timer_timeout"]
+[connection signal="timeout" from="NpcStateManager/base/combat/behit/BatiProtectTimer" to="NpcStateManager/base/combat/behit" method="_on_bati_protect_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/behithard/ProtectTimer" to="NpcStateManager/base/combat/behithard" method="_on_protect_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/dodge/Timer" to="NpcStateManager/base/combat/dodge" method="_on_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/chase/Timer" to="NpcStateManager/base/combat/chase" method="_on_timer_timeout"]

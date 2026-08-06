@@ -11,6 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_ebfti"]
 script = ExtResource("1_vg4wf")
+anime_following_obj = true
 frame = 3
 start_frame = 3
 end_frame = 4
@@ -18,6 +19,7 @@ target_vec2 = Vector2(80, 0)
 
 [sub_resource type="Resource" id="Resource_5d357"]
 script = ExtResource("1_vg4wf")
+anime_following_obj = true
 frame = 8
 start_frame = 7
 end_frame = 9

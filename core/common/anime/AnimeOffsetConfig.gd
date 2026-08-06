@@ -1,6 +1,7 @@
 extends Resource
 class_name AnimeOffsetConfig
 @export var import:bool
+@export var anime_following_obj:bool = false
 @export var frame:int = 0
 @export var start_frame:int = 0
 @export var end_frame:int = 0

@@ -139,19 +139,19 @@ fill_to = Vector2(0.5, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
 shader = ExtResource("22_b6isf")
-shader_parameter/scanlines_opacity = 0.0310000014725
-shader_parameter/scanlines_width = 0.2470000117325
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
 shader_parameter/grille_opacity = 0.0
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
-shader_parameter/roll = true
+shader_parameter/roll = false
 shader_parameter/roll_speed = 1.145
 shader_parameter/roll_size = 5.03200023902
 shader_parameter/roll_variation = 1.50100006803762
 shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.0350000016625
+shader_parameter/noise_opacity = 0.0
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.0370000017575
+shader_parameter/static_noise_intensity = 0.010000000475
 shader_parameter/aberration = 4.7499999933364734e-08
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = false

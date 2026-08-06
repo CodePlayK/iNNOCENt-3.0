@@ -3886,7 +3886,7 @@ size = Vector2(80, 465)
 script = ExtResource("24_sl4an")
 health = 100.0
 
-[sub_resource type="Resource" id="Resource_s5qjb"]
+[sub_resource type="Resource" id="Resource_mqnwf"]
 resource_local_to_scene = true
 script = ExtResource("26_3nxjq")
 group = 1
@@ -3897,14 +3897,14 @@ metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 script = ExtResource("24_sl4an")
 health = 500.0
 
-[sub_resource type="Resource" id="Resource_r7wkp"]
+[sub_resource type="Resource" id="Resource_mmfhg"]
 resource_local_to_scene = true
 script = ExtResource("26_3nxjq")
 group = 1
 key = "bloodking1"
 metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
-[sub_resource type="Resource" id="Resource_ubp7o"]
+[sub_resource type="Resource" id="Resource_dbutr"]
 resource_local_to_scene = true
 script = ExtResource("30_3nxjq")
 using_states = PackedStringArray()
@@ -4402,10 +4402,10 @@ bloodking1: 出发！
 => END!"
 metadata/dialogue_manager_version = "3.10.5"
 
-[sub_resource type="Resource" id="Resource_irtia"]
+[sub_resource type="Resource" id="Resource_s5ahl"]
 resource_local_to_scene = true
 script = ExtResource("11_njv8g")
-dialogue_res = SubResource("Resource_ubp7o")
+dialogue_res = SubResource("Resource_dbutr")
 talkers = Array[String](["it"])
 current_res = "0_0_0"
 title = "it"
@@ -5683,7 +5683,7 @@ position = Vector2(1266, 262)
 npc_name = "bloodking2"
 data = SubResource("Resource_ax2la")
 dialogue_config = ExtResource("25_bfyq3")
-save_data_config = SubResource("Resource_s5qjb")
+save_data_config = SubResource("Resource_mqnwf")
 character_box_config = ExtResource("27_msxcb")
 astar = NodePath("../../astar/BloodKingAstarMap/AStar2")
 max_chase_speed = 200.0
@@ -5696,13 +5696,13 @@ position = Vector2(1386, 271)
 npc_name = "bloodking1"
 data = SubResource("Resource_25vif")
 dialogue_config = ExtResource("28_i3856")
-save_data_config = SubResource("Resource_r7wkp")
+save_data_config = SubResource("Resource_mmfhg")
 character_box_config = ExtResource("30_rlavq")
 astar = NodePath("../../astar/BloodKingAstarMap/AStar")
 
 [node name="it" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=17790728 node_paths=PackedStringArray("astar") instance=ExtResource("31_4odf1")]
 position = Vector2(1756.0001, 118)
-dialogue_config = SubResource("Resource_irtia")
+dialogue_config = SubResource("Resource_s5ahl")
 starting_state = "lock"
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar3")

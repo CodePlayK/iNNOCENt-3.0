@@ -3848,6 +3848,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_ufwbg")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jybyy"]
+polygon = PackedVector2Array(74, 9, 419, 8, 418, -109, 74, -108)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5f6jy"]
 texture = ExtResource("21_di7i2")
 texture_region_size = Vector2i(48, 48)
@@ -3875,9 +3878,6 @@ sources/1 = SubResource("TileSetAtlasSource_5f6jy")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58yf6"]
 size = Vector2(3186, 487)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jybyy"]
-polygon = PackedVector2Array(74, 9, 419, 8, 418, -109, 74, -108)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rtet"]
 texture = ExtResource("21_di7i2")
@@ -5629,6 +5629,12 @@ visible = false
 position = Vector2(601.5, 170.5)
 shape = SubResource("RectangleShape2D_xe73r")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Parallax/ParallaxLayer_6" unique_id=1067263291]
+position = Vector2(-6459.0005, 94.00001)
+scale = Vector2(37.684, 0.855748)
+occluder = SubResource("OccluderPolygon2D_jybyy")
+occluder_light_mask = 0
+
 [node name="astar" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=297797297]
 visible = false
 z_index = -2
@@ -5691,12 +5697,6 @@ base_tile = NodePath("..")
 npc = NodePath("../../../Npcs/Tarnished Widow")
 jump_try_time_range = Vector2i(2, 6)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Parallax/ParallaxLayer_6/astar" unique_id=1067263291]
-position = Vector2(-5999, 372)
-scale = Vector2(37.684, 0.855748)
-occluder = SubResource("OccluderPolygon2D_jybyy")
-occluder_light_mask = 0
-
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax/ParallaxLayer_6/astar" unique_id=1258687929]
 tile_set = SubResource("TileSet_2sxt8")
 
@@ -5741,7 +5741,7 @@ air_accelerate = 800.0
 max_velocity_y = 800.0
 
 [node name="BloodKing1" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=2000289657 node_paths=PackedStringArray("astar") instance=ExtResource("24_morbp")]
-position = Vector2(1386, 271)
+position = Vector2(1388, 276)
 npc_name = "bloodking1"
 data = SubResource("Resource_v6gb6")
 dialogue_config = ExtResource("29_u7grv")

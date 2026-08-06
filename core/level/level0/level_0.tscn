@@ -5361,6 +5361,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="BaseLight" type="PointLight2D" parent="Components/Lights" unique_id=781203225]
+visible = false
 position = Vector2(90, -100.50001)
 scale = Vector2(3.280046, 0.4140625)
 energy = 1.85
