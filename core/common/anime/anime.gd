@@ -2,8 +2,9 @@
 extends Node2D
 class_name Anime
 signal anime_finished
-@onready var master: Node = %Master
+@onready var master: Master = %Master
 @onready var animations: Animations = $".."
+@onready var offset_process: Node2D = $OffsetProcess
 
 @export_group("Anime基础设置")
 ##基础精灵图
@@ -26,6 +27,7 @@ signal anime_finished
 @export var animes:Array[AnimeConfig]
 ##动画长度
 @export var current_animation_length:float
+@onready var timer: Timer = $Timer
 ##fx颜色
 @export var fx_color:Color ="ffffff":
 	set(c):
@@ -69,11 +71,16 @@ var last_base_frame:int
 ##当前animeConfig
 var anime:AnimeConfig
 var play_lock:bool = true
+var current_bati_cach_id:String
+## animation_name -> 该动画中路径以 ":frame" 结尾且 key 数量最多的轨道下标
+var frame_track_dic: Dictionary = {}
+
 ##初始化
 func import():
 	if animes:##获取anime字典
 		for anime_config in animes:
 			anime_dic[anime_config.state_name] = anime_config
+	build_frame_track_dic(aniplayer)
 	for ani_name in aniplayer.get_animation_list():
 		var ani:Animation = aniplayer.get_animation(ani_name)
 		var np = NodePath(str(aniplayer.get_node(aniplayer.root_node).get_path_to(base))+":frame")
@@ -81,8 +88,70 @@ func import():
 		if track<0:continue
 		ani_frame_dic[ani_name] = {}
 		ani_frame_dic[ani_name]["tk"]= track
+		var t = ani.track_get_key_count(track)
 		for ti in ani.track_get_key_count(track):##获取base的frame在各自动画中映射的帧数
 			ani_frame_dic[ani_name][ani.track_get_key_value(track,ti)] = ti
+
+
+func build_frame_track_dic(player: AnimationPlayer) -> void:
+	frame_track_dic.clear()
+	if player == null:
+		return
+
+	for anim_name in player.get_animation_list():
+		var ani: Animation = player.get_animation(anim_name)
+		if ani == null:
+			continue
+
+		var best_track: int = -1
+		var best_count: int = -1
+
+		for track_i in ani.get_track_count():
+			var path := String(ani.track_get_path(track_i))
+			# 匹配属性名为 frame 的轨道（如 "Sprite2D:frame" / ".:frame"）
+			if not path.ends_with(":frame"):
+				continue
+			# 只要值轨道（Sprite frame 一般是 TYPE_VALUE）
+			if ani.track_get_type(track_i) != Animation.TYPE_VALUE:
+				continue
+
+			var key_count: int = ani.track_get_key_count(track_i)
+			if key_count > best_count:
+				best_count = key_count
+				best_track = track_i
+
+		if best_track >= 0:
+			frame_track_dic[anim_name] = best_track
+
+
+			
+## 返回指定轨道上，当前时间对应的 key 下标（最后一个 time <= 当前时间的 key）
+func get_current_key_index(anim_player: AnimationPlayer, track: int) -> int:
+	
+	if !anim_player.has_animation(current_animation) or track < 0:
+		return -1
+
+	var ani: Animation = anim_player.get_animation(current_animation)
+	if ani == null:
+		return -1
+
+	var t: float = anim_player.current_animation_position
+	var count := ani.track_get_key_count(track)
+	if count <= 0:
+		return -1
+
+	# 已过的最后一个 key
+	var key_idx := -1
+	for i in count:
+		if ani.track_get_key_time(track, i) <= t + 0.0001:
+			key_idx = i
+		else:
+			break
+	return key_idx
+
+
+
+
 ##播放初始化
 func preset_anime(anime):
 	master.obj.hurt_box.enable_hit()
@@ -95,8 +164,8 @@ func preset_anime(anime):
 
 ##执行动画		
 func play_anime(anime_name:String):
-	play_lock = true
-	if anime_name == "attack0":
+	#play_lock = true
+	if anime_name == "attack3":
 		pass
 	if print_play_anime:Debug.dprintwarn(DebugCT.dp("[Anime]播放:%s" %[anime_name],self))
 	anime = anime_dic[anime_name]
@@ -123,35 +192,38 @@ func play_anime(anime_name:String):
 	play_lock = false
 ##处理帧			
 func process() -> void:
-	set_fx(anime)
 	if current_animation!=aniplayer.current_animation:
 		return
+	if current_animation == "attack3":
+		pass
 	if !anime_dic.has(current_animation):return
-
+	set_fx(anime)
 	if master.obj.hit_box:
 		set_hitbox(anime)	
 	if master.obj.hurt_box:
 		set_hurtbox(anime)	
 	set_bati(anime)
-	if offset_enable:
-		set_offset(anime)
+	if offset_process:
+		if offset_enable :
+			offset_process.enable = true
+		else:
+			offset_process.enable = false
+	
 ##设置偏移量
 func set_offset(anime:AnimeConfig):
 	for offset_config:AnimeOffsetConfig in anime.anime_offset:
 		if current_frame == offset_config.start_frame and aniplayer.current_animation == anime.animation_name :
-			if check_cache(anime.state_name+"bati"+str(offset_config.start_frame)):
+			if check_cache(anime.state_name+"offset"+str(offset_config.start_frame)):
 				return
-			cache_on(anime.state_name+"bati"+str(offset_config.start_frame))
+			current_bati_cach_id = anime.state_name+"offset"+str(offset_config.start_frame)
+			cache_on(anime.state_name+"offset"+str(offset_config.start_frame))
 			var time:float
 			time = get_frame2frame_time(offset_config.start_frame,offset_config.end_frame)/aniplayer.speed_scale
 			var tween = animations.create_tween()
 			offset_tweens.append(tween)
 			tween.tween_property(animations,"position",animations.position-Vector2(master.obj.face_left_normalized*offset_config.target_vec2.x,offset_config.target_vec2.y),time)
 			tween.parallel().tween_property(master.obj,"position",master.obj.position+Vector2(master.obj.face_left_normalized*offset_config.target_vec2.x,offset_config.target_vec2.y),time)		
-			await tween.finished
-			cache_off(anime.state_name+"bati"+str(offset_config.start_frame))
-
-			tween.kill()
+			timer.start(time)
 ##设置霸体帧			
 func set_bati(anime:AnimeConfig):
 	for bati_config:AnimeBatiConfig in anime.bati_config:
@@ -188,14 +260,15 @@ func set_hitbox(anime):
 		for hc:AnimeHitBoxConfig in anime.hitbox_config:
 			if !anime.backward:
 				if hc.hit_start_frame == current_frame:
-					if check_cache(hc.collision_index+1):
+					if !check_cache(hc.collision_index+1):
 						continue
+					cache_on(hc.collision_index+1)
 					if print_hitbox:Debug.dprinterr(DebugCT.dp("Anime设置hitbox[%s][%s]" %[current_animation,hc.collision_index],self))
 					master.obj.hit_box.damage = hc.damage
 					master.obj.hit_box.set_enable(true,hc.collision_index)
 					cache_off(hc.collision_index+1)
 				elif hc.hit_end_frame == current_frame:
-					if check_cache(hc.collision_index-1):
+					if !check_cache(hc.collision_index-1):
 						continue
 					if print_hitbox:Debug.dprinterr(DebugCT.dp("Anime取消hitbox[%s][%s]" %[current_animation,hc.collision_index],self))
 					master.obj.hit_box.damage = 0
@@ -203,13 +276,13 @@ func set_hitbox(anime):
 					cache_off(hc.collision_index-1)
 			else :
 				if hc.hit_start_frame == current_frame:
-					if check_cache(hc.collision_index-1):
+					if !check_cache(hc.collision_index-1):
 						continue
 					master.obj.hit_box.damage = 0
 					master.obj.hit_box.set_enable(false,hc.collision_index)
 					cache_off(hc.collision_index+1)
 				elif hc.hit_end_frame == current_frame:
-					if check_cache(hc.collision_index-1):
+					if !check_cache(hc.collision_index-1):
 						continue
 					master.obj.hit_box.damage = hc.damage
 					master.obj.hit_box.set_enable(true,hc.collision_index)
@@ -262,8 +335,8 @@ func preset_cache(anime:AnimeConfig):
 		cache[ht.collision_index+1] = true	
 		cache[ht.collision_index-1] = true	
 	for oc in anime.anime_offset:
-		cache[anime.state_name+str(oc.start_frame)] = true
-		cache[anime.state_name+"cv"+str(oc.start_frame)] = true
+		cache[anime.state_name+"offset"+str(oc.start_frame)] = false
+		#cache[anime.state_name+"cv"+str(oc.start_frame)] = false
 	for ic in anime.invincible_config:
 		cache["icf"+str(ic.start_frame)] = true
 		cache["ic"+str(ic.start_frame)] = true
@@ -308,31 +381,42 @@ func set_shader(base,color,mix_scale):
 	else :
 		base.material.set_shader_parameter("to_color",fx_color)
 	base.material.set_shader_parameter("mix_modulate_strength",mix_scale)
+
 ##物理帧处理
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if play_lock:return
-	var a = aniplayer.current_animation
-	set_sound(anime)
 	if !anime_dic.has(current_animation):
 		return
-	if last_base_frame!=base.frame:
-		last_base_frame = base.frame
-		await process()
-		update_frame()
+	#if last_base_frame!=base.frame:
+		#last_base_frame = base.frame
+	update_frame()
+	set_sound(anime)
+	process()
+	update_frame()
+
 ##更新帧
 func update_frame():
+	if !frame_track_dic.has(current_animation):
+		return
+	current_frame = get_current_key_index(aniplayer,frame_track_dic[current_animation])
+	return
 	if ani_frame_dic.has(current_animation):
 		if ani_frame_dic[current_animation].has(last_base_frame):
 			current_frame = ani_frame_dic[current_animation][last_base_frame]
 	else :
 		current_frame = -1
+		
 ##获取两帧之间的时长		
 func get_frame2frame_time(start_frame:int,end_frame:int):
-	var s_time =aniplayer.get_animation(current_animation).track_get_key_time(ani_frame_dic[current_animation]["tk"],start_frame)
-	var e_time = aniplayer.get_animation(current_animation).track_get_key_time(ani_frame_dic[current_animation]["tk"],end_frame)
+	var s_time =aniplayer.get_animation(current_animation).track_get_key_time(0,start_frame)
+	var e_time = aniplayer.get_animation(current_animation).track_get_key_time(0,end_frame)
 	return e_time - s_time
 func set_speed_scale(s:float=1):
 	aniplayer.speed_scale = s
 
 func _on_aniplayer_animation_finished(anim_name: StringName) -> void:
 	anime_finished.emit()
+
+
+func _on_timer_timeout() -> void:
+	cache_off(current_bati_cach_id)

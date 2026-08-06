@@ -16,6 +16,7 @@ bati_end_frame = 4
 [sub_resource type="Resource" id="Resource_qaqme"]
 script = ExtResource("2_2rfg2")
 fx_node_name = "SwordWind"
+start_frame = 2
 
 [sub_resource type="Resource" id="Resource_ve56s"]
 script = ExtResource("1_2cwox")

@@ -7,6 +7,7 @@ var tween:Tween
 @export var protect_time:float = .2
 @export var hurt_fx_name:String
 @onready var protect_timer: Timer = $ProtectTimer
+@onready var bati_protect_timer: Timer = $BatiProtectTimer
 @export var be_hit_time_max_2_bati: int = 0
 var enable:bool = true
 		
@@ -16,7 +17,8 @@ func pre_enter() -> bool:
 func enter():
 	super.enter()
 	npc.being_hit = false
-	npc.be_hit_times+=1
+	if !npc.bating :
+		npc.be_hit_times+=1
 	npc.blood_surface.blood_splash()
 	enable = false
 	npc.health.damage(state_manager.current_damage)
@@ -34,8 +36,9 @@ func enter():
 	tween.chain().tween_interval(froze_time)
 	await tween.finished
 	tween.kill()
-	if npc.be_hit_times >= be_hit_time_max_2_bati:
-		npc.state_manager.barting = true
+	if !npc.bating and npc.be_hit_times >= be_hit_time_max_2_bati:
+		npc.bating = true
+		bati_protect_timer.start()
 	return chase_state
 	
 func exit(state:NpcsBaseState):
@@ -45,3 +48,9 @@ func exit(state:NpcsBaseState):
 
 func _on_protect_timer_timeout() -> void:
 	enable = true
+
+
+func _on_bati_protect_timer_timeout() -> void:
+	if state_manager.current_state.anime_config:
+		for bati in state_manager.current_state.anime_config.bati_config:
+			npc.bating = bati.bating

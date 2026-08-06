@@ -408,7 +408,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_31yl5"]
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1702,14 +1701,10 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iop30"]
 shader = ExtResource("12_d6pte")
-shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/enable = true
+shader_parameter/precision = 0.1
 shader_parameter/from_color = Color(0, 0, 0, 1)
 shader_parameter/to_color = Color(0, 0, 0, 1)
-shader_parameter/enable = true
-shader_parameter/colored = false
-shader_parameter/mix_modulate = false
-shader_parameter/precision = 0.1
-shader_parameter/mix_modulate_strength = 1.922000186295
 shader_parameter/original_0 = Color(1, 1, 1, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -1720,17 +1715,19 @@ shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = false
+shader_parameter/mix_modulate_strength = 1.922000186295
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igalw"]
 shader = ExtResource("12_d6pte")
-shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/enable = true
+shader_parameter/precision = 0.1
 shader_parameter/from_color = Color(1, 1, 1, 1)
 shader_parameter/to_color = Color(0, 0.866667, 0.588235, 1)
-shader_parameter/enable = true
-shader_parameter/colored = false
-shader_parameter/mix_modulate = true
-shader_parameter/precision = 0.1
-shader_parameter/mix_modulate_strength = 1.456
 shader_parameter/original_0 = Color(0, 0, 0, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -1741,6 +1738,12 @@ shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 1.456
 
 [sub_resource type="Animation" id="Animation_8i7n7"]
 length = 0.6
@@ -1781,14 +1784,10 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rfhci"]
 shader = ExtResource("12_d6pte")
-shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/enable = true
+shader_parameter/precision = 0.1
 shader_parameter/from_color = Color(0, 0, 0, 1)
 shader_parameter/to_color = Color(0, 0, 0, 1)
-shader_parameter/enable = true
-shader_parameter/colored = false
-shader_parameter/mix_modulate = true
-shader_parameter/precision = 0.1
-shader_parameter/mix_modulate_strength = 3.0
 shader_parameter/original_0 = Color(0, 0, 0, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -1799,17 +1798,19 @@ shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yfqrn"]
 shader = ExtResource("12_d6pte")
-shader_parameter/color = Color(1, 1, 0, 1)
+shader_parameter/enable = true
+shader_parameter/precision = 0.1
 shader_parameter/from_color = Color(0, 0, 0, 1)
 shader_parameter/to_color = Color(0, 0, 0, 1)
-shader_parameter/enable = true
-shader_parameter/colored = true
-shader_parameter/mix_modulate = true
-shader_parameter/precision = 0.1
-shader_parameter/mix_modulate_strength = 3.0
 shader_parameter/original_0 = Color(0, 0, 0, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -1820,17 +1821,19 @@ shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6o1ot"]
 shader = ExtResource("12_d6pte")
-shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/enable = true
+shader_parameter/precision = 0.1
 shader_parameter/from_color = Color(1, 1, 1, 1)
 shader_parameter/to_color = Color(0, 0, 0, 1)
-shader_parameter/enable = true
-shader_parameter/colored = false
-shader_parameter/mix_modulate = true
-shader_parameter/precision = 0.1
-shader_parameter/mix_modulate_strength = 3.0
 shader_parameter/original_0 = Color(0, 0, 0, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -1841,6 +1844,12 @@ shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 3.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmv1b"]
 atlas = ExtResource("19_brn72")
@@ -1883,14 +1892,10 @@ size = Vector2(121, 82)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gqtqi"]
 shader = ExtResource("12_d6pte")
-shader_parameter/color = Color(0.839216, 0.713726, 0, 1)
+shader_parameter/enable = true
+shader_parameter/precision = 0.13
 shader_parameter/from_color = Color(0.678431, 0.847059, 0.843137, 1)
 shader_parameter/to_color = Color(0.839216, 0.713726, 0, 1)
-shader_parameter/enable = true
-shader_parameter/colored = false
-shader_parameter/mix_modulate = true
-shader_parameter/precision = 0.13
-shader_parameter/mix_modulate_strength = 2.022
 shader_parameter/original_0 = Color(0.678431, 0.847059, 0.843137, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -1901,6 +1906,12 @@ shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
 shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 2.022
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_htwg4"]
 atlas = ExtResource("25_k2b2e")
@@ -2250,6 +2261,7 @@ monitorable = false
 visible = false
 
 [node name="HurtBox" parent="Components" unique_id=948620807 node_paths=PackedStringArray("signal_node_list", "shape_list") instance=ExtResource("6_1sm34")]
+visible = false
 collision_layer = 32
 collision_mask = 16
 signal_node_list = [NodePath("../../StateManager"), NodePath("../../StateManager/base/combat/dense")]
@@ -2260,7 +2272,6 @@ position = Vector2(-0.25, 35.5)
 shape = SubResource("RectangleShape2D_fwrjn")
 
 [node name="HitBox" parent="Components" unique_id=1536420097 instance=ExtResource("8_sjgq1")]
-visible = false
 collision_layer = 8
 collision_mask = 0
 
@@ -2371,7 +2382,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 17
+frame = 61
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2400,6 +2411,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "877d54aaac106339f1bf5c078221efeb"
 
 [node name="baseFX" type="Sprite2D" parent="Animations/Anime" unique_id=1664924147]
+visible = false
 light_mask = 65
 texture_filter = 1
 material = SubResource("ShaderMaterial_igalw")
@@ -2721,6 +2733,7 @@ script = ExtResource("44_82lcl")
 damage = 10.0
 next_attack = NodePath("../attack1")
 after_attack_stiff_time = 0.0
+change_face_able = false
 is_normal_state = false
 stamina_cost = 15
 need_stamina = true
@@ -2736,6 +2749,7 @@ next_attack = NodePath("../attack2")
 after_attack_stiff_time = 0.1
 listen_next_attack_time = 0.5
 sound_name = "slash1"
+change_face_able = false
 move_speed_scale_to_walk = 0.64
 is_normal_state = false
 stamina_cost = 15
@@ -2752,6 +2766,7 @@ next_attack = NodePath("../attack3")
 to_next_attack_threshold = 0.18
 after_attack_stiff_time = 0.2
 listen_next_attack_time = 1.5
+change_face_able = false
 move_speed_scale_to_walk = 0.392
 is_normal_state = false
 stamina_cost = 20

@@ -49,7 +49,6 @@ var current_state: NpcsBaseState:
 var current_damage: float = 0
 var animation_speed: float = 1
 var all_states: Array
-var barting:bool = false
 var is_changing_state:bool = false
 ##玩家状态历史
 var npc_state_history:Array=[]
@@ -206,6 +205,7 @@ func on_hurt(obj:HitBox):
 	npc.data.npc_be_hitting=true
 	current_damage = obj.damage
 	if npc.bating :	
+		Debug.dprintwarn(DebugCT.dp("[%s][触发霸体保护时间]" %npc.obj_name,self))
 		state2state(base_state.behitbati_state,current_state)
 		return
 	if current_state.anime_config:

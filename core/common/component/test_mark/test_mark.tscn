@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dp7l0db2yj7tb"]
 
 [ext_resource type="Texture2D" uid="uid://cgt53h65keko5" path="res://core/common/AStar/arror.png" id="1_6j1v1"]
+[ext_resource type="Script" uid="uid://cjmy8erfpw3k" path="res://core/common/component/test_mark/test_mark.gd" id="1_12d50"]
 
 [node name="TestMark" type="Node2D" unique_id=1034310470]
+script = ExtResource("1_12d50")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=236052639]
 z_index = 100

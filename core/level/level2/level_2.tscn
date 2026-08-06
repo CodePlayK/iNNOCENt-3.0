@@ -5728,7 +5728,7 @@ script = ExtResource("20_gs1bp")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
 [node name="BloodKing2" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1077960373 node_paths=PackedStringArray("astar") instance=ExtResource("24_morbp")]
-position = Vector2(1266, 262)
+position = Vector2(1229, 279)
 npc_name = "bloodking2"
 data = SubResource("Resource_ksxnh")
 dialogue_config = ExtResource("26_rl56b")
@@ -5757,7 +5757,7 @@ running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/AStar3")
 
 [node name="Tarnished Widow" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1375168033 node_paths=PackedStringArray("astar") instance=ExtResource("35_8sak0")]
-position = Vector2(-271, 175)
+position = Vector2(-253, 43)
 save_data_config = SubResource("Resource_v4dih")
 character_box_config = ExtResource("36_xe73r")
 astar = NodePath("../../astar/BloodKingAstarMap/AStarTW")
@@ -5903,6 +5903,7 @@ position = Vector2(1894, 269)
 gizmo_extents = 293.0
 
 [node name="PlayerLayer" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=1162357529]
+metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer_7" parent="Parallax" unique_id=185490272 instance=ExtResource("6_ogf7p")]
 
@@ -5933,13 +5934,13 @@ tile_map_data = PackedByteArray("AADV/wUAAQAEAAYAAADV/wYAAQAFAAcAAADV/wcAAQAFAAc
 tile_set = ExtResource("10_lscok")
 
 [node name="ParallaxLayer_8" parent="Parallax" unique_id=1169756534 instance=ExtResource("6_ogf7p")]
-visible = false
 
 [node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_8" unique_id=654206940]
 position = Vector2(-459, -293)
 
 [node name="BaseColoredLayer" parent="Parallax/ParallaxLayer_8" unique_id=1965852183 instance=ExtResource("7_30eei")]
 position = Vector2(-459, -293)
+metadata/_edit_lock_ = true
 
 [node name="closeTree" type="TileMap" parent="Parallax/ParallaxLayer_8/BaseColoredLayer" unique_id=1740056607]
 modulate = Color(0, 0.0352941, 0.0313726, 1)

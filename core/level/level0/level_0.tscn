@@ -5852,7 +5852,7 @@ position = Vector2(1894, 269)
 gizmo_extents = 293.0
 
 [node name="PlayerLayer" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=128700418]
-position = Vector2(-56, -119)
+metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer_7" parent="Parallax" unique_id=1073312815 instance=ExtResource("5_ojqwt")]
 
