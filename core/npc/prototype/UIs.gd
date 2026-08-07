@@ -1,6 +1,6 @@
 extends Node2D
 @onready var health_bar: UIbar = $HealthBar
-@onready var damage_num: Node2D = $HurtFX/DamageNum
+@onready var damage_num: Node2D = $HurtUI/DamageNum
 
 func on_health_init(health:Health) -> void:
 	health_bar.bar_max_value = health.max_health

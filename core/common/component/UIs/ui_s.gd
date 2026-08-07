@@ -9,7 +9,7 @@ extends Node
 @onready var light_cooldown_timer: Timer = %lightCooldownTimer
 @onready var stiff_timer=%StiffTimer
 @onready var stiff_bar=$StiffBar
-@onready var damage_num: Node2D = $HurtFX/DamageNum
+@onready var damage_num: Node2D = $HurtUI/DamageNum
 @onready var health_bar: UIbar = $HealthBar
 @onready var fighting_delay_timer: Timer = $Timer/FightingDelayTimer
 @export var fighting_off_delay_time:float

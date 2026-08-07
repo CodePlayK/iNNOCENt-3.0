@@ -15,8 +15,6 @@ var atmosphere_se_dic:Array[Array]
 ##Player在当前房间的默认[code]z index[/code][br]
 ##配置于[method load_player_position]
 @export var player_z_index_preset:int=0 
-##[Player]的相机,兼为过场动画相机
-@onready var player_camera = %PlayerCamera
 ##当前房间当前时刻的平均颜色,详见[ScreenColor]
 var level_color:Color
 @export var level_background_color:Color=Color("00869c")

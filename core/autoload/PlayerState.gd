@@ -123,6 +123,10 @@ var light_flag:bool=false
 var player_be_hitting:bool=false
 var double_jump_able:bool=false
 var on_collection_hint:bool = false
+var bating:bool = false
+func set_player_bating(b:bool,source:Node):
+	bating = b
+	Debug.dprintinfo(DebugCT.dp("设置玩家霸体状态 - [b]",source))
 
 ##获取上一个可切换状态
 func get_last_normal_state():

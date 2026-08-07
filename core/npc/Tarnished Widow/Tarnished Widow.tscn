@@ -541,10 +541,11 @@ size = Vector2(5, 4.16665)
 
 [sub_resource type="Animation" id="Animation_5mk6f"]
 length = 0.595
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -560,7 +561,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -576,7 +577,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -592,7 +593,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -608,7 +609,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -624,7 +625,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -636,10 +637,11 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_1jc16"]
 length = 0.425
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -651,10 +653,11 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fatwr"]
 length = 1.1899999999999995
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -670,7 +673,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -686,7 +689,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -698,10 +701,11 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_hnhfq"]
 length = 1.1899999999999995
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -717,7 +721,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -733,7 +737,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -749,7 +753,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -765,7 +769,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -781,7 +785,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Animations/FXs/HurtFX/HurtFX_base:frame")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -791,7 +795,7 @@ tracks/0/keys = {
 "values": [5, 35, 36, 37, 38, 39, 40, 41]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2rsy2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7cfw8"]
 _data = {
 &"Hit 1": SubResource("Animation_5mk6f"),
 &"Hit 1 Blood": SubResource("Animation_ee7q0"),
@@ -838,7 +842,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 89.16667)
 
-[sub_resource type="Resource" id="Resource_7cfw8"]
+[sub_resource type="Resource" id="Resource_irqh8"]
 resource_local_to_scene = true
 script = ExtResource("3_1jmvl")
 group = 1
@@ -863,7 +867,7 @@ accelerate = 100.0
 [node name="Master" parent="." unique_id=760131985 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("5_a47gn")]
 unique_name_in_owner = true
 obj = NodePath("..")
-connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../Animations/FXs/HurtFX"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox"), NodePath("../UIs/Test/TestCan"), NodePath("../UIs/HealthBar")]
+connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../UnfollowedAnimation/HurtFX"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox"), NodePath("../UIs/Test/TestCan"), NodePath("../UIs/HealthBar")]
 metadata/_edit_pinned_properties_ = [&"connects"]
 
 [node name="Config" type="Node2D" parent="." unique_id=491672595]
@@ -891,14 +895,14 @@ script = ExtResource("10_460cu")
 visible = false
 position = Vector2(35, -104.166664)
 
-[node name="HurtFX" type="Node2D" parent="UIs" unique_id=413746258]
+[node name="HurtUI" type="Node2D" parent="UIs" unique_id=413746258]
 
-[node name="DamageNum" parent="UIs/HurtFX" unique_id=1574429031 instance=ExtResource("11_ha3ge")]
+[node name="DamageNum" parent="UIs/HurtUI" unique_id=1574429031 instance=ExtResource("11_ha3ge")]
 position = Vector2(0, -67)
 num_color = Color(1, 0.92050004, 0.47000003, 0.8392157)
 metadata/_edit_lock_ = true
 
-[node name="Marker" parent="UIs/HurtFX/DamageNum" unique_id=1340617557 instance=ExtResource("9_jjh18")]
+[node name="Marker" parent="UIs/HurtUI/DamageNum" unique_id=1340617557 instance=ExtResource("9_jjh18")]
 visible = false
 position = Vector2(-57, -61)
 
@@ -1012,7 +1016,7 @@ position = Vector2(-0.4166663, -43.750004)
 shape = SubResource("RectangleShape2D_ukrp4")
 
 [node name="FaceDirection" parent="Components" unique_id=390660390 node_paths=PackedStringArray("direction_objs") instance=ExtResource("20_0k33x")]
-direction_objs = [NodePath("../HitBox"), NodePath("../HurtBox"), NodePath("../../UIs/DialoguePosition"), NodePath("../Areas/PlayerDetection"), NodePath("../HitBox/AttackRange"), NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../Areas/ChaseRange"), NodePath("../../Animations/FXs/HurtFX"), NodePath("../../UIs/HurtFX")]
+direction_objs = [NodePath("../HitBox"), NodePath("../HurtBox"), NodePath("../../UIs/DialoguePosition"), NodePath("../Areas/PlayerDetection"), NodePath("../HitBox/AttackRange"), NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../Areas/ChaseRange"), NodePath(""), NodePath("../../UIs/HurtUI")]
 
 [node name="Light" parent="Components" unique_id=1579849258 instance=ExtResource("21_vsxf6")]
 visible = false
@@ -1257,17 +1261,18 @@ root_node = NodePath("../../../../../..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/FXs/BloodFloor/HitBox" unique_id=304295484]
 visible = false
 
-[node name="HurtFX" type="Node2D" parent="Animations/FXs" unique_id=1949519584]
+[node name="UnfollowedAnimation" parent="." unique_id=394786432 instance=ExtResource("32_gjiym")]
+
+[node name="HurtFX" type="Node2D" parent="UnfollowedAnimation" unique_id=712982707]
 light_mask = 0
 script = ExtResource("40_7mrck")
 
-[node name="aniplayer" type="AnimationPlayer" parent="Animations/FXs/HurtFX" unique_id=292021849]
-root_node = NodePath("../../../..")
-libraries/ = SubResource("AnimationLibrary_2rsy2")
+[node name="aniplayer" type="AnimationPlayer" parent="UnfollowedAnimation/HurtFX" unique_id=319186237]
+root_node = NodePath("../../../Animations")
+libraries/ = SubResource("AnimationLibrary_7cfw8")
 playback_auto_capture = false
 
-[node name="HurtFX_base" type="Sprite2D" parent="Animations/FXs/HurtFX" unique_id=290337808]
-visible = false
+[node name="HurtFX_base" type="Sprite2D" parent="UnfollowedAnimation/HurtFX" unique_id=167034539]
 texture_filter = 1
 position = Vector2(-12.5, -22.5)
 texture = ExtResource("41_g0oxc")
@@ -1285,7 +1290,7 @@ metadata/_aseprite_wizard_config_ = {
 "o_folder": "res://core/common/resource/texture/combat fx",
 "o_name": "",
 "only_visible": true,
-"player": "Animations/FXs/HurtFX/aniplayer",
+"player": "UnfollowedAnimation/HurtFX/aniplayer",
 "scale": "1.0",
 "slice": "",
 "source": "res://core/common/anime/hurtFx/FX Pack.aseprite",
@@ -1348,6 +1353,7 @@ confirmed_weight = 100.0
 
 [node name="attack3" parent="WeightMachines/ChaseWeightMachine" unique_id=815444200 instance=ExtResource("44_hpk0s")]
 modulate = Color(1, 0.466667, 0.239216, 1)
+confirm = true
 
 [node name="distance2Player" parent="WeightMachines/ChaseWeightMachine/attack3" unique_id=1340950438 instance=ExtResource("45_m8pwf")]
 distance_max = 300.0
@@ -1670,7 +1676,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("103_5edpy")]
 script = ExtResource("104_65ev0")
-save_data_config = SubResource("Resource_7cfw8")
+save_data_config = SubResource("Resource_irqh8")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 visible = false
@@ -1684,7 +1690,7 @@ scale = Vector2(0.095, 0.095)
 
 [connection signal="frame_changed" from="Animations/Anime/base" to="Animations/Anime" method="_on_base_frame_changed"]
 [connection signal="timeout" from="Animations/Anime/Timer" to="Animations/Anime" method="_on_timer_timeout"]
-[connection signal="animation_finished" from="Animations/FXs/HurtFX/aniplayer" to="Animations/FXs/HurtFX" method="_on_aniplayer_animation_finished"]
+[connection signal="animation_finished" from="UnfollowedAnimation/HurtFX/aniplayer" to="UnfollowedAnimation/HurtFX" method="_on_aniplayer_animation_finished"]
 [connection signal="timeout" from="NpcStateManager/stack/behitbati/Timer" to="NpcStateManager/stack/behitbati" method="_on_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/idle/FollowTimer" to="NpcStateManager/base/idle" method="_on_follow_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/patrol/PatrolTimer" to="NpcStateManager/base/combat/patrol" method="_on_patrol_timer_timeout"]

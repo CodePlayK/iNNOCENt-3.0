@@ -35,22 +35,32 @@ class_name BaseState
 @onready var wake_state: BaseState
 @onready var onfloor_state: BaseState
 #endregion
-
-##当前状态是否要转换sprite
-@export var change_animation:bool=true
 ##当前state是否为普通state,即能够在hit或者dense等临时状态后切回
 @export var is_normal_state:bool=true
+@export_group("动画")
+##当前状态是否要转换sprite
+@export var change_animation:bool=true
+##当前状态是否要转换sprite
 ##当前状态是否要颜色覆盖sprite
 @export var change_sprite_color:bool=false
 @export var pause_on_change_sprite_color:bool=true
 ##要覆盖sprite的颜色
 @export var sprite_color:Color
+##0 = 不叠，1 = 完全按 overlay 方式混合
+@export_range(0,1,0.1) var overlay_strength:float = 0.1
+enum OVERLAYER_MODES{MULTIPLY = 0,MIX= 1 ,SOFT = 2}
+##0 multiply  1 mix插值  2 soft 偏亮叠加
+@export var overlay_mode:OVERLAYER_MODES = OVERLAYER_MODES.SOFT
+##混合原modulate
+@export var mix_modulate:bool = true;
+@export_range(0,1,0.1) var mix_modulate_strength:float = 1
 @export_group("战斗")
 var health_config:HealthConfig
 var stamina_config:StaminaConfig
 @export var stamina_cost:int
 @export var need_stamina:bool = false
 @export_category("Anime")
+
 @export var anime_config:AnimeConfig
 ##将要赋予的角色
 var player: Player
@@ -204,10 +214,14 @@ func play_animation():
 		player.anime.play_anime(anime_config.state_name)
 
 func change_animation_color(flag:bool=false,pause_on_change_sprite_color:bool = true):
-	player.base.material.set_shader_parameter("color",sprite_color)
-	player.base.material.set_shader_parameter("colored",flag)
+	player.base.material.set_shader_parameter("overlay_color",sprite_color)
+	player.base.material.set_shader_parameter("overlay_strength",overlay_strength)
+	player.base.material.set_shader_parameter("overlay_mode",overlay_mode)
+	player.base.material.set_shader_parameter("mix_modulate",mix_modulate)
+	player.base.material.set_shader_parameter("mix_modulate_strength",mix_modulate_strength)
+	player.base.material.set_shader_parameter("overlay_enable",flag)
 	if flag and pause_on_change_sprite_color:
-		player.aniplayer.pause()
+		player.anime.stop_anime()
 
 func is_animation_play()-> bool:
 	return change_animation

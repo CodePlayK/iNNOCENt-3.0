@@ -25,7 +25,6 @@ var attack_reset:bool = true
 var current_state: BaseState
 var current_damage: float = 0
 var all_states: Array
-var barting:bool = false
 var is_changing_state:bool = false
 
 func init(player: Player) -> void:
@@ -181,17 +180,13 @@ func on_hurt(obj:HitBox):
 		return
 	PlayerState.player_be_hitting=true
 	current_damage = obj.damage
-	if barting:
-		state2state(base_state.behitbati_state,current_state)
-		return
-	else:
-		if current_state.anime_config:
-			for bati in current_state.anime_config.bati_config:
-				barting = bati.bating
-				if barting:
-					if on_hurt2state:Debug.dprintwarn(DebugCT.dp("[StateManager][input_common_state]切换到[behitDamaged_state]",self))
-					state2state(base_state.behitbati_state,current_state)
-					return
+	if current_state.anime_config:
+		for bati in current_state.anime_config.bati_config:
+			PlayerState.set_player_bating(bati.bating,self)
+			if bati.bating:
+				if on_hurt2state:Debug.dprintwarn(DebugCT.dp("[StateManager][input_common_state]切换到[behitDamaged_state]",self))
+				state2state(base_state.behitbati_state,current_state)
+				return
 	if !PlayerState.dense_flag and !PlayerState.dense_success_flag:
 		if on_hurt2state:Debug.dprintwarn(DebugCT.dp("[StateManager][input_common_state]切换到[behitDamaged_state]",self))
 		change_state(base_state.behitDamaged_state)

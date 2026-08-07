@@ -1703,14 +1703,14 @@ _data = {
 shader = ExtResource("12_d6pte")
 shader_parameter/enable = true
 shader_parameter/precision = 0.1
-shader_parameter/from_color = Color(0, 0, 0, 1)
-shader_parameter/to_color = Color(0, 0, 0, 1)
-shader_parameter/original_0 = Color(1, 1, 1, 1)
-shader_parameter/original_1 = Color(0, 0, 0, 1)
-shader_parameter/original_2 = Color(0, 0, 0, 1)
-shader_parameter/original_3 = Color(0, 0, 0, 1)
-shader_parameter/original_4 = Color(0, 0, 0, 1)
-shader_parameter/replace_0 = Color(1, 1, 1, 1)
+shader_parameter/from_color = Color(0, 1, 0, 1)
+shader_parameter/to_color = Color(0, 1, 1, 1)
+shader_parameter/original_0 = Color(0, 1, 0, 1)
+shader_parameter/original_1 = Color(0, 1, 0, 1)
+shader_parameter/original_2 = Color(0, 1, 0, 1)
+shader_parameter/original_3 = Color(0, 1, 0, 1)
+shader_parameter/original_4 = Color(0, 1, 0, 1)
+shader_parameter/replace_0 = Color(0, 0, 0, 1)
 shader_parameter/replace_1 = Color(0, 0, 0, 1)
 shader_parameter/replace_2 = Color(0, 0, 0, 1)
 shader_parameter/replace_3 = Color(0, 0, 0, 1)
@@ -1719,8 +1719,8 @@ shader_parameter/overlay_enable = false
 shader_parameter/overlay_color = Color(1, 1, 1, 1)
 shader_parameter/overlay_strength = 0.5
 shader_parameter/overlay_mode = 1
-shader_parameter/mix_modulate = false
-shader_parameter/mix_modulate_strength = 1.922000186295
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igalw"]
 shader = ExtResource("12_d6pte")
@@ -2185,11 +2185,11 @@ bar_color = Color(16.898285, 16.630459, 0, 1)
 back_bar_color = Color(0, 0, 0, 0.8666667)
 metadata/_edit_use_anchors_ = true
 
-[node name="HurtFX" type="Node2D" parent="UIs" unique_id=1840738073]
+[node name="HurtUI" type="Node2D" parent="UIs" unique_id=1840738073]
 
-[node name="DamageNum" parent="UIs/HurtFX" unique_id=632465112 instance=ExtResource("9_u8lqu")]
+[node name="DamageNum" parent="UIs/HurtUI" unique_id=632465112 instance=ExtResource("9_u8lqu")]
 
-[node name="Marker" parent="UIs/HurtFX/DamageNum" unique_id=1924115499 instance=ExtResource("21_ykyob")]
+[node name="Marker" parent="UIs/HurtUI/DamageNum" unique_id=1924115499 instance=ExtResource("21_ykyob")]
 visible = false
 position = Vector2(-42, -70)
 
@@ -2318,16 +2318,15 @@ direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Anima
 time_rand_range = Vector2(0, 0)
 
 [node name="Animations" parent="." unique_id=508010457 instance=ExtResource("3_bleph")]
-position = Vector2(0, -35)
 
 [node name="Anime" parent="Animations" unique_id=992174785 node_paths=PackedStringArray("base", "aniplayer", "sprite_list", "colored_node_list", "anime_fx") instance=ExtResource("4_q023i")]
+position = Vector2(0, -35.255905)
 base = NodePath("base")
 aniplayer = NodePath("aniplayer")
 sprite_list = [NodePath("baseFX")]
-colored_node_list = [NodePath("baseFX"), NodePath("../FXs/SwordWind/SwordWind/base")]
+colored_node_list = [NodePath("baseFX")]
 anime_fx = NodePath("../FXs")
 fx_color = Color(0.792157, 0.792157, 0, 1)
-mix_modulate_scale = 2.221
 
 [node name="aniplayer" type="AnimationPlayer" parent="Animations/Anime" unique_id=1905527059]
 callback_mode_process = 0
@@ -2373,6 +2372,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "d74dc88d11237e01c371cceed16ffeea"
 
 [node name="base" type="Sprite2D" parent="Animations/Anime" unique_id=1766364568]
+visible = false
 light_mask = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_iop30")
@@ -2411,7 +2411,6 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "877d54aaac106339f1bf5c078221efeb"
 
 [node name="baseFX" type="Sprite2D" parent="Animations/Anime" unique_id=1664924147]
-visible = false
 light_mask = 65
 texture_filter = 1
 material = SubResource("ShaderMaterial_igalw")
@@ -2478,6 +2477,7 @@ offset = Vector2(17.143, -7.143)
 metadata/_edit_lock_ = true
 
 [node name="FXs" type="Node2D" parent="Animations" unique_id=1968253838]
+position = Vector2(0, -51.940796)
 
 [node name="SwordWind" type="Node2D" parent="Animations/FXs" unique_id=2116639196]
 script = ExtResource("12_wc3p3")
@@ -2521,12 +2521,12 @@ offset = Vector2(-4.5, -6.5)
 script = ExtResource("27_5kkgk")
 
 [node name="DashPartical" type="Node2D" parent="Animations/FXs" unique_id=571263580]
-position = Vector2(0, 35)
 script = ExtResource("37_e1hln")
 
 [node name="DashPartical" type="GPUParticles2D" parent="Animations/FXs/DashPartical" unique_id=1176915470]
 light_mask = 97
 z_index = -1
+position = Vector2(0, 51.193336)
 emitting = false
 lifetime = 2.0
 one_shot = true
@@ -2539,7 +2539,7 @@ process_material = SubResource("ParticleProcessMaterial_um3k5")
 [node name="DashTrailPartical" type="GPUParticles2D" parent="Animations/FXs/DashPartical" unique_id=1509761217]
 light_mask = 97
 z_index = -1
-position = Vector2(-0.118286, 0)
+position = Vector2(-0.118286, 51.618187)
 emitting = false
 amount = 5
 texture = ExtResource("38_m5lf2")
@@ -2555,14 +2555,15 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
+changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
 
 [node name="behitbati" type="Node" parent="StateManager/stack" unique_id=1920827082]
 script = ExtResource("24_ugr5b")
-change_animation = false
 is_normal_state = false
+change_animation = false
 anime_config = SubResource("Resource_8lwtu")
 
 [node name="Timer" type="Timer" parent="StateManager/stack/behitbati" unique_id=458552935]
@@ -2683,6 +2684,10 @@ script = ExtResource("39_7ni88")
 script = ExtResource("40_2jtbn")
 stiff_time = 0.5
 is_normal_state = false
+change_sprite_color = true
+sprite_color = Color(0.95, 0.93638337, 0.13299999, 1)
+overlay_strength = 0.6
+mix_modulate_strength = 0.7
 stamina_cost = -100
 anime_config = ExtResource("52_5bpgj")
 
@@ -2695,10 +2700,12 @@ one_shot = true
 script = ExtResource("41_2gdef")
 stiff_time = 0.1
 protect_time = 1.0
-change_animation = false
 is_normal_state = false
+change_animation = false
 change_sprite_color = true
 sprite_color = Color(0.976471, 0, 0, 1)
+overlay_strength = 0.6
+mix_modulate_strength = 0.8
 anime_config = ExtResource("54_1p1vi")
 
 [node name="ProtectTimer" type="Timer" parent="StateManager/base/combat/behit/behitDamaged" unique_id=1718181767]
@@ -2708,8 +2715,8 @@ one_shot = true
 [node name="light" type="Node" parent="StateManager/base/combat" unique_id=333498431]
 script = ExtResource("42_5qc2j")
 ABT_light_config = ExtResource("75_j1i1n")
-change_animation = false
 is_normal_state = false
+change_animation = false
 
 [node name="lightTimer" type="Timer" parent="StateManager/base/combat/light" unique_id=352609181]
 unique_name_in_owner = true

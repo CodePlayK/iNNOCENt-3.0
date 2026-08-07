@@ -91,6 +91,7 @@ var astar_mode:ASTAR_MODE = ASTAR_MODE.CHASE
 @onready var astar_move: Node2D = $Components/AStarMove
 @onready var face_direction: FaceDirection = $Components/FaceDirection
 @onready var astar_marker: Marker = $Config/Marks/AstarMarker
+@onready var animations: Animations = $Animations
 
 #endregion
 

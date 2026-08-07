@@ -1,8 +1,9 @@
+@icon("res://addons/at-icons/animation/video_player.svg")
 extends Node2D
 class_name OffsetProcess
 @onready var anime_controller: Anime = $".."
+##需要跟随动画的节点,
 @export var nodes_following_anime:Array[Node2D]
-@export var anime_following_node:Array[Node2D]
 var enable:bool = false:
 	set(e):
 		enable = e

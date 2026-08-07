@@ -1442,7 +1442,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_51i8f"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1458,7 +1458,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_1jc16"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1474,7 +1474,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_fatwr"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1522,7 +1522,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_hnhfq"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1664,7 +1664,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_7sgdu"]
+[sub_resource type="Resource" id="Resource_5mk6f"]
 resource_local_to_scene = true
 script = ExtResource("103_dmcg1")
 group = 1
@@ -1715,14 +1715,14 @@ script = ExtResource("6_v887n")
 visible = false
 position = Vector2(35, -89)
 
-[node name="HurtFX" type="Node2D" parent="UIs" unique_id=413746258]
+[node name="HurtUI" type="Node2D" parent="UIs" unique_id=413746258]
 
-[node name="DamageNum" parent="UIs/HurtFX" unique_id=1574429031 instance=ExtResource("8_1rf8v")]
+[node name="DamageNum" parent="UIs/HurtUI" unique_id=1574429031 instance=ExtResource("8_1rf8v")]
 position = Vector2(0, -67)
 num_color = Color(1, 0.92050004, 0.47000003, 0.8392157)
 metadata/_edit_lock_ = true
 
-[node name="Marker" parent="UIs/HurtFX/DamageNum" unique_id=1340617557 instance=ExtResource("7_tfgkb")]
+[node name="Marker" parent="UIs/HurtUI/DamageNum" unique_id=1340617557 instance=ExtResource("7_tfgkb")]
 visible = false
 position = Vector2(-57, -61)
 
@@ -1840,7 +1840,7 @@ position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_ukrp4")
 
 [node name="FaceDirection" parent="Components" unique_id=390660390 node_paths=PackedStringArray("direction_objs") instance=ExtResource("16_xn6gd")]
-direction_objs = [NodePath("../HitBox"), NodePath("../HurtBox"), NodePath("../../UIs/DialoguePosition"), NodePath("../Areas/PlayerDetection"), NodePath("../HitBox/AttackRange"), NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../Areas/ChaseRange"), NodePath("../../UnfollowedAnimation/HurtFX"), NodePath("../../UIs/HurtFX")]
+direction_objs = [NodePath("../HitBox"), NodePath("../HurtBox"), NodePath("../../UIs/DialoguePosition"), NodePath("../Areas/PlayerDetection"), NodePath("../HitBox/AttackRange"), NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../Areas/ChaseRange"), NodePath("../../UnfollowedAnimation/HurtFX"), NodePath("../../UIs/HurtUI")]
 
 [node name="Light" parent="Components" unique_id=1579849258 instance=ExtResource("17_wc1ga")]
 visible = false
@@ -2513,7 +2513,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("89_s1dc0")]
 script = ExtResource("90_f37dg")
-save_data_config = SubResource("Resource_7sgdu")
+save_data_config = SubResource("Resource_5mk6f")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 script = ExtResource("81_d5aum")

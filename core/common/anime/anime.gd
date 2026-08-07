@@ -27,7 +27,6 @@ signal anime_finished
 @export var animes:Array[AnimeConfig]
 ##动画长度
 @export var current_animation_length:float
-@onready var timer: Timer = $Timer
 ##fx颜色
 @export var fx_color:Color ="ffffff":
 	set(c):
@@ -134,7 +133,8 @@ func get_current_key_index(anim_player: AnimationPlayer, track: int) -> int:
 	var ani: Animation = anim_player.get_animation(current_animation)
 	if ani == null:
 		return -1
-
+	if !anim_player.current_animation:
+		return current_frame
 	var t: float = anim_player.current_animation_position
 	var count := ani.track_get_key_count(track)
 	if count <= 0:
@@ -209,21 +209,6 @@ func process() -> void:
 		else:
 			offset_process.enable = false
 	
-##设置偏移量
-func set_offset(anime:AnimeConfig):
-	for offset_config:AnimeOffsetConfig in anime.anime_offset:
-		if current_frame == offset_config.start_frame and aniplayer.current_animation == anime.animation_name :
-			if check_cache(anime.state_name+"offset"+str(offset_config.start_frame)):
-				return
-			current_bati_cach_id = anime.state_name+"offset"+str(offset_config.start_frame)
-			cache_on(anime.state_name+"offset"+str(offset_config.start_frame))
-			var time:float
-			time = get_frame2frame_time(offset_config.start_frame,offset_config.end_frame)/aniplayer.speed_scale
-			var tween = animations.create_tween()
-			offset_tweens.append(tween)
-			tween.tween_property(animations,"position",animations.position-Vector2(master.obj.face_left_normalized*offset_config.target_vec2.x,offset_config.target_vec2.y),time)
-			tween.parallel().tween_property(master.obj,"position",master.obj.position+Vector2(master.obj.face_left_normalized*offset_config.target_vec2.x,offset_config.target_vec2.y),time)		
-			timer.start(time)
 ##设置霸体帧			
 func set_bati(anime:AnimeConfig):
 	for bati_config:AnimeBatiConfig in anime.bati_config:
@@ -373,14 +358,14 @@ func on_change_shader():
 	for sprite in colored_node_list:
 		set_shader(sprite,fx_color,mix_modulate_scale)
 ##设置shader
-func set_shader(base,color,mix_scale):
+func set_shader(sprite,color,mix_scale):
 	if is_rand_color:
 		randomize()
 		rand_color.shuffle()
-		base.material.set_shader_parameter("to_color",rand_color[0])
+		sprite.material.set_shader_parameter("to_color",rand_color[0])
 	else :
-		base.material.set_shader_parameter("to_color",fx_color)
-	base.material.set_shader_parameter("mix_modulate_strength",mix_scale)
+		sprite.material.set_shader_parameter("to_color",fx_color)
+	sprite.material.set_shader_parameter("mix_modulate_strength",mix_scale)
 
 ##物理帧处理
 func _physics_process(delta: float) -> void:
