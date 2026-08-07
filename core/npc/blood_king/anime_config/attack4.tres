@@ -12,14 +12,13 @@
 [sub_resource type="Resource" id="Resource_getoi"]
 script = ExtResource("1_ls1gt")
 start_frame = 1
-end_frame = 3
+end_frame = 2
 target_vec2 = Vector2(0, -130)
 
 [sub_resource type="Resource" id="Resource_i647k"]
 script = ExtResource("1_ls1gt")
-start_frame = 4
-end_frame = 6
-target_vec2 = Vector2(0, 130)
+start_frame = 6
+end_frame = 8
 
 [sub_resource type="Resource" id="Resource_olpii"]
 script = ExtResource("1_41xrd")
@@ -48,6 +47,7 @@ start_frame = 6
 
 [resource]
 script = ExtResource("3_npoeg")
+speed_scale = 1.5
 anime_offset = Array[ExtResource("1_ls1gt")]([SubResource("Resource_getoi"), SubResource("Resource_i647k")])
 sound_config = Array[ExtResource("4_lgl2v")]([SubResource("Resource_537nx"), SubResource("Resource_y0y2r")])
 hitbox_config = Array[ExtResource("2_xsf66")]([SubResource("Resource_m0w7a")])

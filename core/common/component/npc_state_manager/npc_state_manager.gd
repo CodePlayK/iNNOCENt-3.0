@@ -6,7 +6,7 @@ class_name NpcStateManager
 @export var starting_node:Node
 #region debug
 @export_group("Debug")
-@export var npcstatemachine_ui:Node2D
+@export var npcstatemachine_ui:Node
 @export var changing_state:bool
 @export var d_damage:bool
 @export var common_inputing:bool
@@ -177,7 +177,7 @@ func print_state_change(a,b):
 	var format_string1 = "[%s]->[%s]"
 	var actual_string = format_string % [a, b]
 	var actual_string1 = format_string1 % [a, b]
-	test_label.text=actual_string1
+	#test_label.text=actual_string1
 	if changing_state:Debug.dprintinfo(DebugCT.dp(actual_string,self))
 	return actual_string
 

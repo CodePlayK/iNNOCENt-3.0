@@ -1829,11 +1829,12 @@ shader_parameter/mix_modulate = true
 shader_parameter/mix_modulate_strength = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6o1ot"]
+resource_local_to_scene = true
 shader = ExtResource("12_d6pte")
 shader_parameter/enable = true
 shader_parameter/precision = 0.1
 shader_parameter/from_color = Color(1, 1, 1, 1)
-shader_parameter/to_color = Color(0, 0, 0, 1)
+shader_parameter/to_color = Color(1, 1, 0, 1)
 shader_parameter/original_0 = Color(0, 0, 0, 1)
 shader_parameter/original_1 = Color(0, 0, 0, 1)
 shader_parameter/original_2 = Color(0, 0, 0, 1)
@@ -2372,7 +2373,6 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "d74dc88d11237e01c371cceed16ffeea"
 
 [node name="base" type="Sprite2D" parent="Animations/Anime" unique_id=1766364568]
-visible = false
 light_mask = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_iop30")
@@ -2382,7 +2382,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 61
+frame = 65
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2420,6 +2420,7 @@ texture = ExtResource("34_kaqeq")
 offset = Vector2(17.143, -7.143)
 hframes = 7
 vframes = 7
+frame = 17
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2472,7 +2473,7 @@ position = Vector2(0, 43)
 scale = Vector2(2.1, 2.1)
 sprite_frames = ExtResource("13_b6fc3")
 animation = &"idle"
-frame = 8
+frame_progress = 0.0895136
 offset = Vector2(17.143, -7.143)
 metadata/_edit_lock_ = true
 
@@ -2687,7 +2688,8 @@ is_normal_state = false
 change_sprite_color = true
 sprite_color = Color(0.95, 0.93638337, 0.13299999, 1)
 overlay_strength = 0.6
-mix_modulate_strength = 0.7
+overlay_mode = 1
+mix_modulate_strength = 0.5
 stamina_cost = -100
 anime_config = ExtResource("52_5bpgj")
 

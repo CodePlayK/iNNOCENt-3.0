@@ -1,7 +1,111 @@
-[gd_scene load_steps=5 format=3 uid="uid://bca1pi8w2jduv"]
+[gd_scene format=3 uid="uid://bca1pi8w2jduv"]
 
-[ext_resource type="Script" path="res://core/common/component/state_manager_ui/StateManagerUI.gd" id="1_a4w2w"]
-[ext_resource type="Theme" uid="uid://bpydhupj7vcjn" path="res://core/autoload/debug/debug.tres" id="2_eepus"]
+[ext_resource type="Script" uid="uid://cyb0qxkfbf2cj" path="res://core/common/component/state_manager_ui/StateManagerUI.gd" id="1_a4w2w"]
+[ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="2_qxkoa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lwfk"]
+bg_color = Color(0, 0, 0, 0.34902)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hndqh"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 0.34902)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oebuf"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 0.34902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ommk0"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 0.34902)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfy2r"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(1, 1, 1, 0.360784)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yphw"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 0.360784)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uul2h"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(1, 1, 1, 0.360784)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cao6h"]
+content_margin_left = 5.0
+content_margin_top = 0.0
+content_margin_right = 5.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.61960787)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7ybt"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0, 0, 0, 0.85882354)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wtgou"]
+bg_color = Color(1, 1, 1, 0.294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll4gv"]
+bg_color = Color(1, 1, 1, 0.509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_caypu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qd81"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0, 0, 0, 0.709804)
+
+[sub_resource type="Theme" id="Theme_sbfw4"]
+default_font = ExtResource("2_qxkoa")
+Button/styles/focus = SubResource("StyleBoxFlat_4lwfk")
+Button/styles/hover = SubResource("StyleBoxFlat_hndqh")
+Button/styles/normal = SubResource("StyleBoxFlat_oebuf")
+Button/styles/pressed = SubResource("StyleBoxFlat_ommk0")
+Label/colors/font_color = Color(0.117647, 0.901961, 0.823529, 1)
+Label/font_sizes/font_size = 20
+OptionButton/colors/font_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_disabled_color = Color(1, 1, 1, 0.796078)
+OptionButton/font_sizes/font_size = 14
+OptionButton/fonts/font = ExtResource("2_qxkoa")
+OptionButton/styles/focus = SubResource("StyleBoxFlat_vfy2r")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_0yphw")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_uul2h")
+RichTextLabel/font_sizes/normal_font_size = 20
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_cao6h")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_r7ybt")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_wtgou")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ll4gv")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_caypu")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_1qd81")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_1qd81")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibri7"]
 content_margin_left = 5.0
@@ -12,72 +116,81 @@ bg_color = Color(0, 0, 0, 0.568627)
 _data = [Vector2(0, 0.11744), 0.0, 0.0, 0, 0, Vector2(0.521886, 0.898556), 0.0, 0.0, 0, 0, Vector2(1, 0.0870074), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="StateManagerUI" type="Node2D"]
+[node name="StateManagerUI" type="MarginContainer" unique_id=1258350505]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.2, 1.2)
 script = ExtResource("1_a4w2w")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 328.0
-offset_top = 223.0
-offset_right = 767.0
-offset_bottom = 247.0
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=136225801]
+layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=801500923]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=48959611]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1813363442]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-theme = ExtResource("2_eepus")
+theme = SubResource("Theme_sbfw4")
 theme_override_constants/separation = 0
 
-[node name="ObjName" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="ObjName" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=972552861]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_styles/normal = SubResource("StyleBoxFlat_ibri7")
+text = "FSDFS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ObjName" unique_id=172983514]
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1184090965]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_ibri7")
+text = "FSDFS"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_ibri7")
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1215707587]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
-item_count = 1
 selected = 0
+item_count = 1
 popup/item_0/text = "asdasdasdad"
 popup/item_0/id = 0
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1342467735]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.63
 text = "切换状态"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=2008454691]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.63
 text = "开/关隐藏线"
 
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1475426517]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.63
 text = "开/关权重机"
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=2082091618]
 visible = false
 z_index = -2
 points = PackedVector2Array(605.833, 245, -144.167, 48.3333)

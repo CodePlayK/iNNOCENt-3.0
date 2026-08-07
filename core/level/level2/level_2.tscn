@@ -5741,7 +5741,7 @@ air_accelerate = 800.0
 max_velocity_y = 800.0
 
 [node name="BloodKing1" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=2000289657 node_paths=PackedStringArray("astar") instance=ExtResource("24_morbp")]
-position = Vector2(1388, 276)
+position = Vector2(1440, -15)
 npc_name = "bloodking1"
 data = SubResource("Resource_v6gb6")
 dialogue_config = ExtResource("29_u7grv")

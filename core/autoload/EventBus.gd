@@ -115,8 +115,11 @@ signal remove_all_character_box
 signal create_all_character_box
 ## 测试层显示/隐藏（调试用，参数：flag）
 signal test_layer_visiable
+##添加过场到debug层
+signal add_debug(d:Node,ysize:Vector2)
 #endregion
-
+func _add_debug(d:Node,size:Vector2,max_y:float):
+	add_debug.emit(d,size,max_y)
 
 #region Sound / 音频
 ## 播放循环音效（参数：SE_LOOP_name, state 开关, speed 速率, effect_volume 音量偏移）

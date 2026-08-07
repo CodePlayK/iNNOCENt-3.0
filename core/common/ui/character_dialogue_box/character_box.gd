@@ -5,6 +5,7 @@ class_name CharacterBoxs
 @onready var margin_mid: MarginContainer = $VBoxContainer/HBoxContainer/MarginMid
 @onready var wide_marg:CharacterBox = $VBoxContainer/HBoxContainer/WideMarg
 @onready var boxs: HBoxContainer = $VBoxContainer/HBoxContainer
+
 var current_index:int=1
 var left_index_max:int=1
 var margin_mid_index:int=0
@@ -15,7 +16,7 @@ var right_ct:int=0
 func _init() -> void:
 	EventBus.create_character_box.connect(on_create_character_box)
 	EventBus.create_all_character_box.connect(on_level_changed)
-	
+
 func on_level_changed():
 	Debug.dprintwarn(DebugCT.dp("收到切换关卡指令",self))
 	current_index=1
@@ -44,6 +45,7 @@ func on_create_character_box(cbc:CharacterBoxConfig):
 	get_margin_mid_index()
 	if cbc.is_player:
 		var new_box:CharacterBox = wide_marg.duplicate()
+		
 		new_box.is_prototype=false
 		var margin_side:MarginContainer = margin_side.duplicate()
 		new_box.tree_exited.connect(margin_side.on_box_removed)
@@ -51,6 +53,7 @@ func on_create_character_box(cbc:CharacterBoxConfig):
 		boxs.add_child(new_box)
 		boxs.move_child(new_box,1)
 		new_box.character_box_config=cbc
+		new_box.set_panel_out_line(LevelState.current_level_node.level_background_color)
 		new_box.anime_born()
 	else:
 		if cbc.on_screen_left:	
@@ -66,6 +69,7 @@ func on_create_character_box(cbc:CharacterBoxConfig):
 			boxs.move_child(new_box,left_index_max_node+2)
 			new_box.character_box_config=cbc
 			current_index+=1
+			new_box.set_panel_out_line(LevelState.current_level_node.level_background_color)
 			new_box.anime_born()
 		else :
 			var new_box = wide_marg.duplicate()
@@ -78,6 +82,7 @@ func on_create_character_box(cbc:CharacterBoxConfig):
 			boxs.add_child(new_box)
 			boxs.move_child(new_box,margin_mid_index+2)
 			new_box.character_box_config=cbc
+			new_box.set_panel_out_line(LevelState.current_level_node.level_background_color)
 			new_box.anime_born()		
 	get_left_index_max()
 	

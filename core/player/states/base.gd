@@ -43,6 +43,7 @@ class_name BaseState
 ##当前状态是否要转换sprite
 ##当前状态是否要颜色覆盖sprite
 @export var change_sprite_color:bool=false
+##在停止动画且更换颜色时,可能会导致颜色偏色,此时需要把[member overlay_mode]改成[member OVERLAYER_MODES.MIX]
 @export var pause_on_change_sprite_color:bool=true
 ##要覆盖sprite的颜色
 @export var sprite_color:Color
@@ -96,6 +97,8 @@ func enter() -> BaseState:
 	
 func common_enter():
 	player.stamina.damage_stamina(stamina_cost)
+	if change_sprite_color and pause_on_change_sprite_color:
+		player.anime.pause_anime()
 	
 #退出该状态的方法，每次进入都会执行，在physics_process之后进行
 func exit(state:BaseState):
@@ -220,9 +223,12 @@ func change_animation_color(flag:bool=false,pause_on_change_sprite_color:bool = 
 	player.base.material.set_shader_parameter("mix_modulate",mix_modulate)
 	player.base.material.set_shader_parameter("mix_modulate_strength",mix_modulate_strength)
 	player.base.material.set_shader_parameter("overlay_enable",flag)
-	if flag and pause_on_change_sprite_color:
-		player.anime.stop_anime()
 
+	print("=== after change_animation_color ===")
+	print("overlay_color = ", player.base.material.get_shader_parameter("overlay_color"))
+	print("overlay_enable = ", player.base.material.get_shader_parameter("overlay_enable"))
+	print("overlay_mode = ", player.base.material.get_shader_parameter("overlay_mode"))
+	print("sprite_color (state) = ", sprite_color)
 func is_animation_play()-> bool:
 	return change_animation
 	

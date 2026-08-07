@@ -70,7 +70,6 @@ var last_base_frame:int
 ##当前animeConfig
 var anime:AnimeConfig
 var play_lock:bool = true
-var current_bati_cach_id:String
 ## animation_name -> 该动画中路径以 ":frame" 结尾且 key 数量最多的轨道下标
 var frame_track_dic: Dictionary = {}
 
@@ -157,6 +156,7 @@ func preset_anime(anime):
 	master.obj.hurt_box.enable_hit()
 	offset_enable = true
 	current_animation = anime.animation_name
+	animations.position = Vector2.ZERO
 	on_change_shader()
 	for node in sprite_list:
 		node.visible = true
@@ -346,6 +346,7 @@ func stop_anime():
 	offset_tweens.clear()
 	offset_enable= false
 	master.obj.animations.position = Vector2.ZERO
+	pass
 ##暂停动画
 func pause_anime():
 	offset_enable= false
@@ -393,15 +394,11 @@ func update_frame():
 		
 ##获取两帧之间的时长		
 func get_frame2frame_time(start_frame:int,end_frame:int):
-	var s_time =aniplayer.get_animation(current_animation).track_get_key_time(0,start_frame)
-	var e_time = aniplayer.get_animation(current_animation).track_get_key_time(0,end_frame)
+	var s_time =aniplayer.get_animation(current_animation).track_get_key_time(frame_track_dic[current_animation],start_frame)
+	var e_time = aniplayer.get_animation(current_animation).track_get_key_time(frame_track_dic[current_animation],end_frame)
 	return e_time - s_time
 func set_speed_scale(s:float=1):
 	aniplayer.speed_scale = s
 
 func _on_aniplayer_animation_finished(anim_name: StringName) -> void:
 	anime_finished.emit()
-
-
-func _on_timer_timeout() -> void:
-	cache_off(current_bati_cach_id)

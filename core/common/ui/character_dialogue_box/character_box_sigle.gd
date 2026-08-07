@@ -7,6 +7,7 @@ class_name CharacterBox
 @onready var texture_rect: TextureRect = $ImgBox/HBoxContainer/VBoxContainer/MarginContainer/TextureRect
 @onready var test: Label = %TEST
 @onready var delay_timer: Timer = $delay_timer
+@onready var panel: PanelContainer = $ImgBox/HBoxContainer/VBoxContainer/MarginContainer/Panel
 
 @export var character_box_config:CharacterBoxConfig:
 	set(cbc):
@@ -40,7 +41,8 @@ func _ready() -> void:
 	gui_input.connect(_on_gui_input)
 	if character_box_config.is_player:
 		UiState.player_character_box = self
-	
+func set_panel_out_line(color:Color):
+	panel.get_theme_stylebox("panel").border_color = color	
 func on_level_changed(fl,tl):
 	#if character_box_config.is_player:return
 	if is_prototype:

@@ -6840,7 +6840,11 @@ detail_state_name_color = Color(0.301961, 0.301961, 0.301961, 1)
 detail_state_name_flash_color = Color(1, 1, 1, 0.905882)
 
 [node name="StateManagerUI" parent="UIs/Test/TestCan" unique_id=167030881 node_paths=PackedStringArray("target", "weight_machine_ui") instance=ExtResource("13_rnbi0")]
-position = Vector2(949, -226)
+offset_left = 949.0
+offset_top = -226.0
+offset_right = 1351.0
+offset_bottom = -202.0
+start_state_name = "follow"
 target = NodePath("../../../..")
 weight_machine_ui = NodePath("../WeightMachineUi")
 

@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="7_tfgkb"]
 [ext_resource type="PackedScene" uid="uid://buesm2hojnri5" path="res://core/common/component/damage_num/damage_num.tscn" id="8_1rf8v"]
 [ext_resource type="PackedScene" uid="uid://osw374to73sm" path="res://core/common/component/ui bar/ui_bar.tscn" id="9_esw4n"]
-[ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="10_y6loe"]
 [ext_resource type="Script" uid="uid://c7oowsbhe0k11" path="res://core/npc/blood_king/test_can.gd" id="12_dmcg1"]
 [ext_resource type="PackedScene" uid="uid://536neyrjw7ey" path="res://core/common/component/weight_machine_ui/weight_machine_ui.tscn" id="12_qsj6b"]
+[ext_resource type="Theme" uid="uid://bpydhupj7vcjn" path="res://core/autoload/debug/debug.tres" id="13_ee7q0"]
 [ext_resource type="PackedScene" uid="uid://b4fv2togjt0e8" path="res://core/common/component/components/components.tscn" id="13_nujp8"]
 [ext_resource type="PackedScene" uid="uid://bca1pi8w2jduv" path="res://core/common/component/state_manager_ui/state_manager_ui.tscn" id="13_xyn2s"]
 [ext_resource type="PackedScene" uid="uid://uo155ksresdt" path="res://core/common/component/hit_box/hit_box.tscn" id="14_pcn2x"]
@@ -106,6 +106,7 @@
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="89_s1dc0"]
 [ext_resource type="Script" uid="uid://duojnvfx06qoe" path="res://core/npc/blood_king/data/blood_king_data.gd" id="90_f37dg"]
 [ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="103_dmcg1"]
+[ext_resource type="PackedScene" uid="uid://dp7l0db2yj7tb" path="res://core/common/component/test_mark/test_mark.tscn" id="107_ee7q0"]
 
 [sub_resource type="Resource" id="Resource_six7i"]
 script = ExtResource("2_ntogp")
@@ -117,9 +118,6 @@ metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 [sub_resource type="Resource" id="Resource_jtj5p"]
 script = ExtResource("4_5mk6f")
 metadata/_custom_type_script = "uid://by8uti5xwqq2u"
-
-[sub_resource type="LabelSettings" id="LabelSettings_wlnom"]
-font = ExtResource("10_y6loe")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmb8x"]
 size = Vector2(156, 34)
@@ -1359,9 +1357,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yx5l"]
+resource_local_to_scene = true
 size = Vector2(325, 4.16665)
 
-[sub_resource type="Animation" id="Animation_5mk6f"]
+[sub_resource type="Animation" id="Animation_ee7q0"]
 length = 0.595
 loop_mode = 1
 tracks/0/type = "value"
@@ -1377,7 +1376,7 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 4, 4]
 }
 
-[sub_resource type="Animation" id="Animation_ee7q0"]
+[sub_resource type="Animation" id="Animation_58l7j"]
 length = 0.595
 loop_mode = 1
 tracks/0/type = "value"
@@ -1393,7 +1392,7 @@ tracks/0/keys = {
 "values": [0, 53, 54, 55, 56, 4, 4]
 }
 
-[sub_resource type="Animation" id="Animation_58l7j"]
+[sub_resource type="Animation" id="Animation_7sgdu"]
 length = 0.595
 loop_mode = 1
 tracks/0/type = "value"
@@ -1409,7 +1408,7 @@ tracks/0/keys = {
 "values": [0, 23, 24, 25, 4, 4, 4]
 }
 
-[sub_resource type="Animation" id="Animation_7sgdu"]
+[sub_resource type="Animation" id="Animation_lwqjs"]
 length = 0.51
 loop_mode = 1
 tracks/0/type = "value"
@@ -1425,7 +1424,7 @@ tracks/0/keys = {
 "values": [30, 31, 32, 3, 33, 34]
 }
 
-[sub_resource type="Animation" id="Animation_lwqjs"]
+[sub_resource type="Animation" id="Animation_51i8f"]
 length = 0.6799999999999999
 loop_mode = 1
 tracks/0/type = "value"
@@ -1441,8 +1440,8 @@ tracks/0/keys = {
 "values": [5, 4, 6, 7, 8, 9, 10, 11]
 }
 
-[sub_resource type="Animation" id="Animation_51i8f"]
-length = 0.425
+[sub_resource type="Animation" id="Animation_1jc16"]
+length = 0.42500000000000004
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1457,8 +1456,8 @@ tracks/0/keys = {
 "values": [57, 58, 59, 60, 4]
 }
 
-[sub_resource type="Animation" id="Animation_1jc16"]
-length = 0.425
+[sub_resource type="Animation" id="Animation_fatwr"]
+length = 0.42500000000000004
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1473,8 +1472,8 @@ tracks/0/keys = {
 "values": [12, 26, 27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_fatwr"]
-length = 1.1899999999999995
+[sub_resource type="Animation" id="Animation_rn4ja"]
+length = 1.1899999999999997
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1489,7 +1488,7 @@ tracks/0/keys = {
 "values": [69, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 4]
 }
 
-[sub_resource type="Animation" id="Animation_rn4ja"]
+[sub_resource type="Animation" id="Animation_pb2li"]
 length = 0.255
 loop_mode = 1
 tracks/0/type = "value"
@@ -1505,7 +1504,7 @@ tracks/0/keys = {
 "values": [12, 13, 14]
 }
 
-[sub_resource type="Animation" id="Animation_pb2li"]
+[sub_resource type="Animation" id="Animation_hnhfq"]
 length = 0.7649999999999999
 loop_mode = 1
 tracks/0/type = "value"
@@ -1521,8 +1520,8 @@ tracks/0/keys = {
 "values": [61, 62, 63, 64, 65, 66, 67, 68, 4]
 }
 
-[sub_resource type="Animation" id="Animation_hnhfq"]
-length = 1.1899999999999995
+[sub_resource type="Animation" id="Animation_5kxxd"]
+length = 1.1899999999999997
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1537,7 +1536,7 @@ tracks/0/keys = {
 "values": [90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103]
 }
 
-[sub_resource type="Animation" id="Animation_5kxxd"]
+[sub_resource type="Animation" id="Animation_l6kf5"]
 length = 0.255
 loop_mode = 1
 tracks/0/type = "value"
@@ -1553,7 +1552,7 @@ tracks/0/keys = {
 "values": [42, 43, 44]
 }
 
-[sub_resource type="Animation" id="Animation_l6kf5"]
+[sub_resource type="Animation" id="Animation_ty5xk"]
 length = 0.7649999999999999
 loop_mode = 1
 tracks/0/type = "value"
@@ -1569,7 +1568,7 @@ tracks/0/keys = {
 "values": [15, 16, 17, 18, 19, 20, 21, 22, 4]
 }
 
-[sub_resource type="Animation" id="Animation_ty5xk"]
+[sub_resource type="Animation" id="Animation_fa2gq"]
 length = 0.7649999999999999
 loop_mode = 1
 tracks/0/type = "value"
@@ -1585,7 +1584,7 @@ tracks/0/keys = {
 "values": [45, 46, 17, 47, 48, 49, 50, 51, 52]
 }
 
-[sub_resource type="Animation" id="Animation_fa2gq"]
+[sub_resource type="Animation" id="Animation_ld7xm"]
 length = 0.7649999999999999
 loop_mode = 1
 tracks/0/type = "value"
@@ -1601,7 +1600,7 @@ tracks/0/keys = {
 "values": [69, 70, 71, 72, 73, 74, 75, 76, 77]
 }
 
-[sub_resource type="Animation" id="Animation_ld7xm"]
+[sub_resource type="Animation" id="Animation_2rsy2"]
 length = 0.6799999999999999
 loop_mode = 1
 tracks/0/type = "value"
@@ -1617,24 +1616,24 @@ tracks/0/keys = {
 "values": [5, 35, 36, 37, 38, 39, 40, 41]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2rsy2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1is4r"]
 _data = {
-&"Hit 1": SubResource("Animation_5mk6f"),
-&"Hit 1 Blood": SubResource("Animation_ee7q0"),
-&"Hit 1 Sparks": SubResource("Animation_58l7j"),
-&"Hit 1 electric": SubResource("Animation_7sgdu"),
-&"Hit 2": SubResource("Animation_lwqjs"),
-&"Hit 2 Blood": SubResource("Animation_51i8f"),
-&"Hit 2 Sparks": SubResource("Animation_1jc16"),
-&"Hit 2 poison": SubResource("Animation_fatwr"),
-&"Hit 3": SubResource("Animation_rn4ja"),
-&"Hit 3 Blood": SubResource("Animation_pb2li"),
-&"Hit 3 Poison": SubResource("Animation_hnhfq"),
-&"Hit 3 eletric": SubResource("Animation_5kxxd"),
-&"Hit 4": SubResource("Animation_l6kf5"),
-&"Hit 4 Electric": SubResource("Animation_ty5xk"),
-&"Hit poison 1": SubResource("Animation_fa2gq"),
-&"hit 2 electric": SubResource("Animation_ld7xm")
+&"Hit 1": SubResource("Animation_ee7q0"),
+&"Hit 1 Blood": SubResource("Animation_58l7j"),
+&"Hit 1 Sparks": SubResource("Animation_7sgdu"),
+&"Hit 1 electric": SubResource("Animation_lwqjs"),
+&"Hit 2": SubResource("Animation_51i8f"),
+&"Hit 2 Blood": SubResource("Animation_1jc16"),
+&"Hit 2 Sparks": SubResource("Animation_fatwr"),
+&"Hit 2 poison": SubResource("Animation_rn4ja"),
+&"Hit 3": SubResource("Animation_pb2li"),
+&"Hit 3 Blood": SubResource("Animation_hnhfq"),
+&"Hit 3 Poison": SubResource("Animation_5kxxd"),
+&"Hit 3 eletric": SubResource("Animation_l6kf5"),
+&"Hit 4": SubResource("Animation_ty5xk"),
+&"Hit 4 Electric": SubResource("Animation_fa2gq"),
+&"Hit poison 1": SubResource("Animation_ld7xm"),
+&"hit 2 electric": SubResource("Animation_2rsy2")
 }
 
 [sub_resource type="Resource" id="Resource_cxhh4"]
@@ -1664,7 +1663,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_5mk6f"]
+[sub_resource type="Resource" id="Resource_ee7q0"]
 resource_local_to_scene = true
 script = ExtResource("103_dmcg1")
 group = 1
@@ -1704,6 +1703,7 @@ health_regeneration = 1.0
 position = Vector2(0, -60.8333)
 
 [node name="Marker" type="Node2D" parent="Config" unique_id=1141538935]
+visible = false
 
 [node name="AstarMarker" parent="Config/Marker" unique_id=505307897 instance=ExtResource("7_tfgkb")]
 position = Vector2(0, -21.6667)
@@ -1745,24 +1745,25 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TestLabel" type="Label" parent="UIs/Test" unique_id=1460675356]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -127.0
-offset_top = -117.0
+offset_top = -102.5
 offset_right = 208.0
-offset_bottom = -94.0
+offset_bottom = -79.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(49, 22)
-text = "asdasdhhhhhh888888nnn"
-label_settings = SubResource("LabelSettings_wlnom")
+theme = ExtResource("13_ee7q0")
+text = "ADASDSADSDAS"
 horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="TestCan" type="CanvasLayer" parent="UIs/Test" unique_id=1337946644]
 unique_name_in_owner = true
@@ -1777,7 +1778,11 @@ detail_state_name_color = Color(0.301961, 0.301961, 0.301961, 1)
 detail_state_name_flash_color = Color(1, 1, 1, 0.905882)
 
 [node name="StateManagerUI" parent="UIs/Test/TestCan" unique_id=167030881 node_paths=PackedStringArray("target", "weight_machine_ui") instance=ExtResource("13_xyn2s")]
-position = Vector2(949, -226)
+offset_left = 965.0
+offset_top = -252.0
+offset_right = 965.0
+offset_bottom = -252.0
+start_state_name = "chase"
 target = NodePath("../../../..")
 weight_machine_ui = NodePath("../WeightMachineUi")
 
@@ -1805,6 +1810,7 @@ position = Vector2(13, -27)
 shape = SubResource("RectangleShape2D_laixw")
 
 [node name="_attack1|0" type="CollisionShape2D" parent="Components/HitBox" unique_id=1596831968]
+visible = false
 position = Vector2(42.916668, -15.8333)
 shape = SubResource("RectangleShape2D_c3yjq")
 
@@ -1942,18 +1948,18 @@ metadata/_edit_lock_ = true
 
 [node name="OffsetProcess" type="Node2D" parent="Animations/Anime" unique_id=1914404532 node_paths=PackedStringArray("nodes_following_anime")]
 script = ExtResource("34_ee7q0")
-nodes_following_anime = [NodePath("../../../UIs"), NodePath("../../../Components"), null]
+nodes_following_anime = [NodePath("../../../UIs"), NodePath("../../../Components"), NodePath("../../FXs")]
 
 [node name="base" type="Sprite2D" parent="Animations/Anime" unique_id=957510044]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_3kd28")
-position = Vector2(0, -0.833333)
 scale = Vector2(2.1, 2.1)
 texture = ExtResource("27_jmqci")
 offset = Vector2(30.159, -39.2862)
 hframes = 12
 vframes = 12
-frame = 74
+frame = 57
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2028,11 +2034,11 @@ script = ExtResource("29_qb26e")
 [node name="LauncheFX" type="Node2D" parent="Animations/FXs" unique_id=1300674752]
 
 [node name="BloodGift" type="Node2D" parent="Animations/FXs" unique_id=1720899656]
-visible = false
 position = Vector2(0, 2.5)
 script = ExtResource("32_0nv6h")
 
 [node name="HitBox" parent="Animations/FXs/BloodGift" unique_id=1600428925 instance=ExtResource("14_pcn2x")]
+visible = false
 collision_layer = 16
 collision_mask = 0
 damage = 9.0
@@ -2066,7 +2072,6 @@ libraries/ = SubResource("AnimationLibrary_lkrk6")
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/FXs/BloodGift/HitBox" unique_id=1472833598]
-visible = false
 position = Vector2(26, -2.08334)
 shape = SubResource("RectangleShape2D_0yx5l")
 disabled = true
@@ -2074,6 +2079,7 @@ disabled = true
 [node name="BloodFloor" type="Node2D" parent="Animations/FXs" unique_id=332782595]
 
 [node name="HitBox" parent="Animations/FXs/BloodFloor" unique_id=133036276 instance=ExtResource("14_pcn2x")]
+visible = false
 damage_when_blocked = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Animations/FXs/BloodFloor/HitBox" unique_id=1650462300]
@@ -2082,17 +2088,17 @@ root_node = NodePath("../../../../../..")
 [node name="Sprite2D" type="Sprite2D" parent="Animations/FXs/BloodFloor/HitBox" unique_id=350342697]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/FXs/BloodFloor/HitBox" unique_id=304295484]
-visible = false
 
 [node name="UnfollowedAnimation" parent="." unique_id=393234373 instance=ExtResource("24_foeik")]
 
 [node name="HurtFX" type="Node2D" parent="UnfollowedAnimation" unique_id=1635992084]
+visible = false
 light_mask = 0
 script = ExtResource("30_0qrsd")
 
 [node name="aniplayer" type="AnimationPlayer" parent="UnfollowedAnimation/HurtFX" unique_id=112134622]
 root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_2rsy2")
+libraries/ = SubResource("AnimationLibrary_1is4r")
 playback_auto_capture = false
 
 [node name="HurtFX_base" type="Sprite2D" parent="UnfollowedAnimation/HurtFX" unique_id=1158287506]
@@ -2128,6 +2134,9 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "f5b6743451848d73c9efe060b96ac8bf"
 
+[node name="TestMark" parent="UnfollowedAnimation/HurtFX" unique_id=1034310470 instance=ExtResource("107_ee7q0")]
+scale = Vector2(0.025, 0.025)
+
 [node name="Timer" type="Node" parent="." unique_id=683351968]
 
 [node name="time2LastAttackTimer" type="Timer" parent="Timer" unique_id=850185469]
@@ -2145,7 +2154,6 @@ total_weight_min = 0.0
 weight_machine_ui = NodePath("../../UIs/Test/TestCan/WeightMachineUi")
 
 [node name="attack0" parent="WeightMachines/ChaseWeightMachine" unique_id=873061840 instance=ExtResource("36_d7a3i")]
-confirm = true
 
 [node name="Distance2Player2" parent="WeightMachines/ChaseWeightMachine/attack0" unique_id=976566356 instance=ExtResource("37_fo7ej")]
 distance_max = 200.0
@@ -2154,6 +2162,7 @@ confirmed_weight = 50.0
 
 [node name="attack1" parent="WeightMachines/ChaseWeightMachine" unique_id=704970666 instance=ExtResource("36_d7a3i")]
 modulate = Color(0.529412, 1, 0.239216, 1)
+confirm = true
 
 [node name="PlayerHitingWeight" parent="WeightMachines/ChaseWeightMachine/attack1" unique_id=1074453953 instance=ExtResource("38_2s4fh")]
 confirmed_weight = 200.0
@@ -2184,7 +2193,6 @@ confirmed_weight = 120.0
 
 [node name="attack4" parent="WeightMachines/ChaseWeightMachine" unique_id=410517874 instance=ExtResource("36_d7a3i")]
 modulate = Color(1, 0.239216, 0.25098, 1)
-confirm = true
 
 [node name="distance2Player" parent="WeightMachines/ChaseWeightMachine/attack4" unique_id=594763149 instance=ExtResource("37_fo7ej")]
 distance_max = 150.0
@@ -2513,7 +2521,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("89_s1dc0")]
 script = ExtResource("90_f37dg")
-save_data_config = SubResource("Resource_5mk6f")
+save_data_config = SubResource("Resource_ee7q0")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 script = ExtResource("81_d5aum")

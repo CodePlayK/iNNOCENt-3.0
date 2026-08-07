@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://dndomblipxr46" path="res://core/level/character_box_canvas.gd" id="24_3yn66"]
 [ext_resource type="PackedScene" uid="uid://dkgxdrht840tp" path="res://core/common/ui/character_dialogue_box/character_box.tscn" id="25_wck0l"]
 [ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="26_535gr"]
+[ext_resource type="Script" uid="uid://co5k7q4j1q0c4" path="res://core/level/everythingeverywhere/in_game_debug_layer.gd" id="28_7ue4y"]
 [ext_resource type="Script" uid="uid://ci4y1snlap0ev" path="res://test/test_canvas.gd" id="28_ghsbg"]
 [ext_resource type="Script" uid="uid://dheawyf6jpi38" path="res://core/level/everythingeverywhere/test/Test.gd" id="29_imah0"]
 [ext_resource type="Resource" uid="uid://onb8u2j1uao2" path="res://test/dialogue/test1.dialogue" id="30_ylxf2"]
@@ -905,6 +906,49 @@ visible = false
 position = Vector2(507, 640.99994)
 scale = Vector2(0.27783203, 0.29248047)
 texture = ExtResource("35_l7ngx")
+
+[node name="InGameDebugLayer" type="CanvasLayer" parent="." unique_id=1350922194]
+layer = 10
+script = ExtResource("28_7ue4y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InGameDebugLayer" unique_id=1473784054]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="debug" type="HBoxContainer" parent="InGameDebugLayer/VBoxContainer" unique_id=1439708387]
+custom_minimum_size = Vector2(0, 30)
+custom_maximum_size = Vector2(-1, 30)
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="marginL" type="MarginContainer" parent="InGameDebugLayer/VBoxContainer/debug" unique_id=280613044]
+custom_maximum_size = Vector2(-1, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+mouse_filter = 2
+
+[node name="main" type="MarginContainer" parent="InGameDebugLayer/VBoxContainer/debug" unique_id=1454292917]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+mouse_filter = 2
+
+[node name="marginR" type="MarginContainer" parent="InGameDebugLayer/VBoxContainer/debug" unique_id=1725970660]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+mouse_filter = 2
 
 [node name="Cutscene" type="Node2D" parent="." unique_id=166570779]
 

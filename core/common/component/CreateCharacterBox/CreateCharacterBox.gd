@@ -18,10 +18,6 @@ func on_master_ready(master:Master):
 	if create_on_load:
 		EventBus._create_character_box(obj.character_box_config)
 		return
-	#if create_cache:
-		#create_character_box()
-		#create_cache=false
-	#
 func _on_timer_timeout() -> void:
 	EventBus._create_character_box(obj.character_box_config)
 	

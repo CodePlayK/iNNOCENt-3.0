@@ -170,14 +170,15 @@ func play_animation():
 		state_manager.anime.play_anime(anime_config.state_name)
 
 func change_animation_color(flag:bool=false,pause_on_change_sprite_color:bool = true):
+	if flag and pause_on_change_sprite_color:
+		npc.anime.stop_anime()
 	npc.base.material.set_shader_parameter("overlay_color",sprite_color)
 	npc.base.material.set_shader_parameter("overlay_strength",overlay_strength)
 	npc.base.material.set_shader_parameter("overlay_mode",overlay_mode)
 	npc.base.material.set_shader_parameter("mix_modulate",mix_modulate)
 	npc.base.material.set_shader_parameter("mix_modulate_strength",mix_modulate_strength)
 	npc.base.material.set_shader_parameter("overlay_enable",flag)
-	if flag and pause_on_change_sprite_color:
-		npc.anime.stop_anime()
+
 		
 func is_animation_play()-> bool:
 	return change_animation
