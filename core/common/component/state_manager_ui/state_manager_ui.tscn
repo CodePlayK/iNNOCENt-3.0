@@ -151,9 +151,7 @@ text = "FSDFS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Node2D" type="Node2D" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/ObjName" unique_id=172983514]
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1184090965]
+[node name="StateLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1184090965]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -163,7 +161,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1215707587]
+[node name="StateOption" type="OptionButton" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1215707587]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
@@ -172,19 +170,19 @@ item_count = 1
 popup/item_0/text = "asdasdasdad"
 popup/item_0/id = 0
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1342467735]
+[node name="StateSwitch" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1342467735]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.63
 text = "切换状态"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=2008454691]
+[node name="LineSwitch" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=2008454691]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.63
 text = "开/关隐藏线"
 
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1475426517]
+[node name="StateMachine" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1475426517]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.63
@@ -195,8 +193,9 @@ visible = false
 z_index = -2
 points = PackedVector2Array(605.833, 245, -144.167, 48.3333)
 width_curve = SubResource("Curve_yneqg")
+default_color = Color(0, 1, 1, 1)
 
 [connection signal="gui_input" from="MarginContainer" to="." method="_on_margin_container_gui_input"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/StateSwitch" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/LineSwitch" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/StateMachine" to="." method="_on_button_3_pressed"]
