@@ -5416,11 +5416,11 @@ unique_name_in_owner = true
 brightness_falloff = 0.38
 min_brightness = 0.27
 
-[node name="Parallax" type="Node2D" parent="." unique_id=265892665 node_paths=PackedStringArray("parallax_main_layer")]
+[node name="Parallax" type="Node2D" parent="." unique_id=265892665 node_paths=PackedStringArray("parallax_main_layer", "parallax_origin")]
 script = ExtResource("5_hvoay")
 parallax_move_data = SubResource("Resource_8sak0")
 parallax_main_layer = NodePath("ParallaxLayer_6")
-speed_scale = 2.0
+parallax_origin = NodePath("..")
 
 [node name="ParallaxLayer_0" parent="Parallax" unique_id=1635100528 instance=ExtResource("6_ogf7p")]
 
