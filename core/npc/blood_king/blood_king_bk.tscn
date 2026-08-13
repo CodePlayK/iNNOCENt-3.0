@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://cdntw5od5p7nc" path="res://core/common/resource/texture/bloodking/baseFX.png" id="25_cvugp"]
 [ext_resource type="Script" uid="uid://dweef2di1c1ym" path="res://core/npc/prototype/HurtFX.gd" id="26_myuku"]
 [ext_resource type="SpriteFrames" uid="uid://bdpibeuscklvl" path="res://core/npc/prototype/resource/hurtfx.tres" id="27_nuulq"]
-[ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/attackfxs/blood_gift.gd" id="28_2j2c5"]
+[ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/anime/StandAloneFX/StandAloneFX.gd" id="28_2j2c5"]
 [ext_resource type="PackedScene" uid="uid://cj536dsd57up0" path="res://core/common/component/weight_machines/weight_machines.tscn" id="28_hf14j"]
 [ext_resource type="Script" uid="uid://bke1mqqlq15ph" path="res://test/aniplayer.gd" id="28_qo42a"]
 [ext_resource type="Texture2D" uid="uid://ch5g0qgu7wg22" path="res://core/common/attackfxs/blood_gift/base.png" id="29_ejhot"]

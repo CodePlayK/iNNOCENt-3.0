@@ -32,7 +32,7 @@
 [ext_resource type="Script" uid="uid://bke1mqqlq15ph" path="res://test/aniplayer.gd" id="30_o22t5"]
 [ext_resource type="Script" uid="uid://dweef2di1c1ym" path="res://core/npc/prototype/HurtFX.gd" id="31_jyx84"]
 [ext_resource type="SpriteFrames" uid="uid://bdpibeuscklvl" path="res://core/npc/prototype/resource/hurtfx.tres" id="32_lvjoe"]
-[ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/attackfxs/blood_gift.gd" id="33_bbafw"]
+[ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/anime/StandAloneFX/StandAloneFX.gd" id="33_bbafw"]
 [ext_resource type="Texture2D" uid="uid://ch5g0qgu7wg22" path="res://core/common/attackfxs/blood_gift/base.png" id="34_0n2y3"]
 [ext_resource type="PackedScene" uid="uid://cj536dsd57up0" path="res://core/common/component/weight_machines/weight_machines.tscn" id="35_7t6pn"]
 [ext_resource type="PackedScene" uid="uid://bhk18ifcm4qlm" path="res://core/common/component/weight_machine/weight_machine.tscn" id="36_nrax1"]

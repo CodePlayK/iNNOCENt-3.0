@@ -26,6 +26,12 @@ metadata/_custom_type_script = "uid://brl66o65w1u3v"
 script = ExtResource("2_sm6o8")
 bati_end_frame = 26
 
+[sub_resource type="Resource" id="Resource_j1i2c"]
+script = ExtResource("3_857el")
+fx_node_name = "attack3"
+start_frame = 0
+metadata/_custom_type_script = "uid://cswt0oq5xu6e"
+
 [sub_resource type="Resource" id="Resource_hl50o"]
 script = ExtResource("5_s0poe")
 collision_index = 3
@@ -34,16 +40,9 @@ hit_start_frame = 7
 hit_end_frame = 10
 metadata/_custom_type_script = "uid://be4do16qkly4o"
 
-[sub_resource type="Resource" id="Resource_cfeqs"]
-script = ExtResource("5_s0poe")
-collision_index = 4
-damage = 50.0
-hit_start_frame = 17
-hit_end_frame = 19
-metadata/_custom_type_script = "uid://be4do16qkly4o"
-
 [resource]
 script = ExtResource("7_3pf06")
 anime_offset = Array[ExtResource("1_nh3b4")]([SubResource("Resource_tma76"), SubResource("Resource_xav7g")])
-hitbox_config = Array[ExtResource("5_s0poe")]([SubResource("Resource_hl50o"), SubResource("Resource_cfeqs")])
+hitbox_config = Array[ExtResource("5_s0poe")]([SubResource("Resource_hl50o")])
 bati_config = Array[ExtResource("2_sm6o8")]([SubResource("Resource_olpii")])
+fx_config = Array[ExtResource("3_857el")]([SubResource("Resource_j1i2c")])

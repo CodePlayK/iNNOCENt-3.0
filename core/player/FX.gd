@@ -9,7 +9,7 @@ var obj
 func _ready() -> void:
 	area = get_child(0)
 	
-func playAFX():
+func playAFX(anime:Anime):
 	var side:int=1
 	if PlayerState.face_left:
 		side=-1

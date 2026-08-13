@@ -2,6 +2,8 @@
 extends Node
 const marker = preload("res://core/common/component/marker/marker.tscn")
 var player_camera:Camera2DPlus
+var back_ground_color: TextureRect
+
 var test_mark:Node2D
 enum transition_type {
 	RIGHT_ENTER,

@@ -157,6 +157,7 @@ func preset_anime(anime):
 	offset_enable = true
 	current_animation = anime.animation_name
 	animations.position = Vector2.ZERO
+	if offset_process:offset_process.reset()
 	on_change_shader()
 	for node in sprite_list:
 		node.visible = true
@@ -296,7 +297,7 @@ func set_fx(anime:AnimeConfig):
 		if fx.start_frame == current_frame:
 			if !check_cache(fx.fx_node_name):continue
 			if print_fx:Debug.dprinterr(DebugCT.dp("Anime发射FX[%s][%s]" %[current_animation,fx.fx_node_name],self))
-			anime_fx.get_node(fx.fx_node_name).playAFX()
+			anime_fx.get_node(fx.fx_node_name).playAFX(self)
 			cache[fx.fx_node_name] = false
 ##播放声音			
 func play_se(sound_config:AnimeSoundConfig):

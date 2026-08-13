@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://cr3ih2htn1qcl" path="res://core/common/component/CreateCharacterBox/CreateCharacterBox.tscn" id="28_ywt4o"]
 [ext_resource type="Script" uid="uid://bke1mqqlq15ph" path="res://test/aniplayer.gd" id="29_qb26e"]
 [ext_resource type="Script" uid="uid://dweef2di1c1ym" path="res://core/npc/prototype/HurtFX.gd" id="30_0qrsd"]
-[ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/attackfxs/blood_gift.gd" id="32_0nv6h"]
+[ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/anime/StandAloneFX/StandAloneFX.gd" id="32_0nv6h"]
 [ext_resource type="Texture2D" uid="uid://ch5g0qgu7wg22" path="res://core/common/attackfxs/blood_gift/base.png" id="33_ctkug"]
 [ext_resource type="Texture2D" uid="uid://ghubk6bmajx6" path="res://core/common/resource/texture/combat fx/FX Pack.png" id="34_65ele"]
 [ext_resource type="Script" uid="uid://cw24mjwekive" path="res://core/common/anime/offset_process.gd" id="34_ee7q0"]
@@ -1441,7 +1441,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_1jc16"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1457,7 +1457,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_fatwr"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1473,7 +1473,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_rn4ja"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1521,7 +1521,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_5kxxd"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1777,13 +1777,11 @@ scale = Vector2(2, 2)
 detail_state_name_color = Color(0.301961, 0.301961, 0.301961, 1)
 detail_state_name_flash_color = Color(1, 1, 1, 0.905882)
 
-[node name="StateManagerUI" parent="UIs/Test/TestCan" unique_id=167030881 node_paths=PackedStringArray("target", "weight_machine_ui") instance=ExtResource("13_xyn2s")]
+[node name="StateManagerUI" parent="UIs/Test/TestCan" unique_id=167030881 node_paths=PackedStringArray("weight_machine_ui") instance=ExtResource("13_xyn2s")]
 offset_left = 965.0
 offset_top = -252.0
 offset_right = 965.0
 offset_bottom = -252.0
-start_state_name = "chase"
-target = NodePath("../../../..")
 weight_machine_ui = NodePath("../WeightMachineUi")
 
 [node name="Components" parent="." unique_id=943967071 instance=ExtResource("13_nujp8")]

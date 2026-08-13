@@ -37,7 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cwxl7u8yohf75" path="res://core/npc/it/resource/base.png" id="31_cqnks"]
 [ext_resource type="Texture2D" uid="uid://cdntw5od5p7nc" path="res://core/common/resource/texture/bloodking/baseFX.png" id="32_w6rre"]
 [ext_resource type="Script" uid="uid://bke1mqqlq15ph" path="res://test/aniplayer.gd" id="33_doxy1"]
-[ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/attackfxs/blood_gift.gd" id="34_uhq7q"]
+[ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/anime/StandAloneFX/StandAloneFX.gd" id="34_uhq7q"]
 [ext_resource type="Texture2D" uid="uid://ch5g0qgu7wg22" path="res://core/common/attackfxs/blood_gift/base.png" id="35_tg8rn"]
 [ext_resource type="Script" uid="uid://dweef2di1c1ym" path="res://core/npc/prototype/HurtFX.gd" id="36_3rumx"]
 [ext_resource type="Texture2D" uid="uid://ghubk6bmajx6" path="res://core/common/resource/texture/combat fx/FX Pack.png" id="37_ifdpf"]
@@ -6839,13 +6839,12 @@ scale = Vector2(2, 2)
 detail_state_name_color = Color(0.301961, 0.301961, 0.301961, 1)
 detail_state_name_flash_color = Color(1, 1, 1, 0.905882)
 
-[node name="StateManagerUI" parent="UIs/Test/TestCan" unique_id=167030881 node_paths=PackedStringArray("target", "weight_machine_ui") instance=ExtResource("13_rnbi0")]
+[node name="StateManagerUI" parent="UIs/Test/TestCan" unique_id=167030881 node_paths=PackedStringArray("weight_machine_ui") instance=ExtResource("13_rnbi0")]
 offset_left = 949.0
 offset_top = -226.0
 offset_right = 1351.0
 offset_bottom = -202.0
 start_state_name = "follow"
-target = NodePath("../../../..")
 weight_machine_ui = NodePath("../WeightMachineUi")
 
 [node name="Components" parent="." unique_id=943967071 instance=ExtResource("14_a1bll")]

@@ -8,7 +8,9 @@ var enable:bool = false:
 	set(e):
 		enable = e
 		set_physics_process(e)
-
+func reset():
+	for n in nodes_following_anime:
+		n.position = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	for offset_config:AnimeOffsetConfig in anime_controller.anime.anime_offset:

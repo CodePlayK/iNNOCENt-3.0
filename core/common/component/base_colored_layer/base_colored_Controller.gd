@@ -12,7 +12,6 @@ class_name BaseColoredController extends Component
 var base_color: Color = Color.WHITE:
 	set(value):
 		base_color = value
-		_on_param_changed()
 
 @export_range(0.0, 1.0, 0.01) var brightness_falloff: float = 0.12:
 	set(value):
@@ -67,7 +66,9 @@ func _on_param_changed() -> void:
 func apply_colors() -> void:
 	if colored_layers.is_empty():
 		return
-
+	base_color =level.level_background_color
+	if Global.back_ground_color:
+		Global.back_ground_color.modulate = base_color
 	var count := colored_layers.size()
 	for i in range(count):
 		var layer := colored_layers[i]

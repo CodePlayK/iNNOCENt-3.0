@@ -37,7 +37,8 @@ func _ready() -> void:
 	PlayerState.player_player = player_player
 	_ensure_default_save_file()
 	_init_level_paths()
-	
+	Global.back_ground_color = back_ground_color
+
 	# 载入 cutscener 配置目录，判断当前运行是否为 cutscener
 	# var config = load_json(CutscenerGlobal.CONFIG_DATA_FILE_PATH)
 	# if config["run_type"] == 0:
