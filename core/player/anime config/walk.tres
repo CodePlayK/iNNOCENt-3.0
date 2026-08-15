@@ -14,5 +14,6 @@ script = ExtResource("2_4u8xp")
 
 [resource]
 script = ExtResource("1_kjduu")
+speed_scale = 2.0
 loop = true
 sound_config = Array[ExtResource("2_4u8xp")]([SubResource("Resource_stsjb")])

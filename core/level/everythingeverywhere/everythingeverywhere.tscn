@@ -335,6 +335,8 @@ one_shot = true
 
 [node name="FXLight" type="DirectionalLight2D" parent="Setting" unique_id=1708598658]
 light_mask = 32
+energy = 0.55
+blend_mode = 2
 range_item_cull_mask = 0
 
 [node name="UIBaseLight" type="DirectionalLight2D" parent="Setting" unique_id=337730710]
@@ -643,6 +645,7 @@ metadata/_edit_lock_ = true
 
 [node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
 layer = 7
+visible = false
 script = ExtResource("21_lj80u")
 
 [node name="ColorRect" type="ColorRect" parent="ScreenEffect" unique_id=776308278]

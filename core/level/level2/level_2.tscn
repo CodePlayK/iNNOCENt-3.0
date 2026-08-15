@@ -5885,7 +5885,7 @@ metadata/_custom_type_script = "uid://cwoinddfmepd0"
 [node name="LeftDoor" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=199191243 instance=ExtResource("47_0nnb2")]
 position = Vector2(-876, 231)
 from_level = 2
-target_level = 0
+target_level = 999
 target_born_position = Vector2(1490.0055, -26.074728)
 target_born_position_name = "RightDoor"
 

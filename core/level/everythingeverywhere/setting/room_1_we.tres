@@ -3,8 +3,6 @@
 [resource]
 background_mode = 3
 background_canvas_max_layer = 10
-ambient_light_source = 2
-ambient_light_color = Color(0.69965345, 0.69965345, 0.69965345, 1)
 tonemap_mode = 2
 glow_enabled = true
 glow_levels/1 = 16.0

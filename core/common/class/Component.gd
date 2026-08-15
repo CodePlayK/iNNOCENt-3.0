@@ -6,7 +6,7 @@ class_name Component
 var clazz_name = "Component"
 ##父类的类型限定配置
 var FATHER_CLASS_NAME:String
-var enable:bool=false
+@export var enable:bool=false
 var is_ready:bool=false
 
 func _init() -> void:
