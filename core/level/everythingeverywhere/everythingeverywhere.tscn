@@ -293,7 +293,7 @@ script = ExtResource("1_celhk")
 unique_name_in_owner = true
 ignore_rotation = false
 zoom = Vector2(2, 2)
-limit_left = -1335
+limit_left = -389
 limit_top = -165
 limit_right = 1889
 limit_bottom = 417
@@ -334,6 +334,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="FXLight" type="DirectionalLight2D" parent="Setting" unique_id=1708598658]
+visible = false
 light_mask = 32
 energy = 0.55
 blend_mode = 2

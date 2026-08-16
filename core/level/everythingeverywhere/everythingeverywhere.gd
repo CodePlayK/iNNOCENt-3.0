@@ -63,7 +63,7 @@ func load_level(level_path: String) -> void:
 	move_child(level, 0)
 	await level.ready
 	LevelState.level_dic[level.level_id] = level
-	level.player_layer.add_child(player_player)
+	player_player.reparent(level.player_layer)
 	LevelState.current_level_node = level
 	await level.resume()
 
@@ -127,6 +127,9 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		var new_level_start_y = old_level_pos.y-old_level_size.y*0.5-(new_level_pos.y-old_level.global_position.y+new_level_size.y*0.5)
 		var new_level_end_x = new_level_start_x
 		var new_level_end_y = 0
+		
+		Global.player_camera.limit_left = min(Global.player_camera.limit_left,new_level_pos.x-new_level_size.x*0.5)
+		Global.player_camera.limit_right = max(Global.player_camera.limit_right,new_level_pos.x+new_level_size.x*0.5)
 		Global.player_camera.node_to_follow = null		
 		var old_level_start_x = old_level.global_position.x
 		var old_level_start_y = old_level.global_position.y
@@ -154,6 +157,8 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		Global.player_camera.position_smoothing_enabled = true
 		tw.kill()
 		LevelState.level_dic[LevelState.last_level].position=Vector2i(0,9999)
+		Global.player_camera.limit_left = new_level_pos.x-new_level_size.x*0.5
+		Global.player_camera.limit_right = new_level_pos.x+new_level_size.x*0.5
 		LevelState.level_dic[LevelState.last_level].hide()
 	Debug.dprintinfo(DebugCT.dp("******关卡切换动画结束[UP]",self))
 

@@ -5380,7 +5380,7 @@ texture = ExtResource("51_kp81y")
 sources/0 = SubResource("TileSetAtlasSource_ril24")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07drm"]
-size = Vector2(3584, 1206)
+size = Vector2(2970, 1206)
 
 [node name="Level2" type="Node2D" unique_id=1086752988 node_paths=PackedStringArray("player_layer")]
 script = ExtResource("1_471l3")
@@ -5977,8 +5977,7 @@ layer_0/tile_data = PackedInt32Array(1245069, 0, 15, 1310605, 0, 16, 1376141, 0,
 [node name="AutoTransparent" parent="Parallax/ParallaxLayer_8/BaseColoredLayer/treeBot" unique_id=1764756245 instance=ExtResource("50_hbvn8")]
 
 [node name="LeveBound" type="CollisionShape2D" parent="." unique_id=644941246]
-visible = false
-position = Vector2(-89, -121)
+position = Vector2(137, -121)
 shape = SubResource("RectangleShape2D_07drm")
 debug_color = Color(0, 0.97, 0.3071666, 0.83137256)
 
