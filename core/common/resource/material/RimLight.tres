@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ciynhtd1ml3ic"]
+
+[ext_resource type="Shader" uid="uid://cyr0w13jexgj8" path="res://core/common/shader/RimLight.gdshader" id="1_b3ehd"]
+
+[resource]
+shader = ExtResource("1_b3ehd")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 15.500000223518
+shader_parameter/rim_intensity = 4.99999988824
+shader_parameter/rim_softness = 0.53999999165524
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(1.88, -3.475)
+shader_parameter/distance_strength = 0.5499999877064

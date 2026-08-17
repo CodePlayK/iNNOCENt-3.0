@@ -350,6 +350,7 @@ range_item_cull_mask = 0
 
 [node name="CanvasBackground" type="CanvasLayer" parent="." unique_id=970486849]
 layer = -1
+visible = false
 
 [node name="TestMark" parent="CanvasBackground" unique_id=1034310470 instance=ExtResource("7_jtj5p")]
 unique_name_in_owner = true
@@ -640,13 +641,13 @@ mouse_filter = 2
 
 [node name="TxtHistoryBCanvas" type="CanvasLayer" parent="." unique_id=524535970]
 layer = 9
+visible = false
 
 [node name="TxtHistoryBox" parent="TxtHistoryBCanvas" unique_id=1847707320 instance=ExtResource("20_xtiwo")]
 metadata/_edit_lock_ = true
 
 [node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
 layer = 7
-visible = false
 script = ExtResource("21_lj80u")
 
 [node name="ColorRect" type="ColorRect" parent="ScreenEffect" unique_id=776308278]

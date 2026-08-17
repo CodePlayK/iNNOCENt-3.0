@@ -3,26 +3,32 @@
 [ext_resource type="Script" uid="uid://1w0ta58lwl7d" path="res://core/level/everythingeverywhere/Level0.gd" id="1_40gd8"]
 [ext_resource type="PackedScene" uid="uid://b4fv2togjt0e8" path="res://core/common/component/components/components.tscn" id="2_ehwki"]
 [ext_resource type="PackedScene" uid="uid://ckgfvvyxg67gh" path="res://core/common/component/lights/lights.tscn" id="3_iv2g0"]
+[ext_resource type="PackedScene" uid="uid://d3665apiof8ij" path="res://core/common/component/UnstableLightFlicker/UnstableLightFlicker2.tscn" id="3_j8r4a"]
 [ext_resource type="PackedScene" uid="uid://bk5hfe60hmdv0" path="res://core/common/component/base_colored_layer/base_colored_controller.tscn" id="4_v2xsn"]
 [ext_resource type="Script" uid="uid://bgx1m14860spo" path="res://core/common/component/parallax/Parallax.gd" id="5_dp3ts"]
 [ext_resource type="Script" uid="uid://dlfh2lyflqjgp" path="res://core/common/parallax/Parallax_move_data.gd" id="6_3u0dw"]
 [ext_resource type="PackedScene" uid="uid://dms0hgb7d75ij" path="res://core/common/component/parallax/parallax_layer.tscn" id="7_egd71"]
 [ext_resource type="PackedScene" uid="uid://bey15txjsdrr8" path="res://core/common/component/base_colored_layer/base_colored_layer.tscn" id="8_lbiga"]
-[ext_resource type="PackedScene" uid="uid://c5xppvekrlro6" path="res://core/common/component/FallingLeaf/LeafFallSpawner.tscn" id="9_5uvpi"]
+[ext_resource type="PackedScene" uid="uid://blqf17nu62ghq" path="res://core/common/component/floating dust/FloatingDust.tscn" id="8_ppjcc"]
 [ext_resource type="Texture2D" uid="uid://d4it6h67ejicc" path="res://test/测试场景.png" id="9_i36np"]
-[ext_resource type="Texture2D" uid="uid://0dkogsrbn6a8" path="res://core/level/resource/sprite/light mask/三角灯光.png" id="10_ia1kq"]
-[ext_resource type="Texture2D" uid="uid://d2t0blgbpcmam" path="res://core/level/resource/sprite/light1.png" id="10_pa13h"]
+[ext_resource type="PackedScene" uid="uid://yeu3b2fqv6xa" path="res://core/common/class/BaseLight.tscn" id="12_g0alj"]
 [ext_resource type="Texture2D" uid="uid://bvgmmi2meqtv5" path="res://core/level/resource/sprite/武器架.png" id="12_ia1kq"]
 [ext_resource type="Texture2D" uid="uid://bomkda2ky1rs6" path="res://core/level/resource/sprite/天使塑像.png" id="13_lkwk6"]
-[ext_resource type="Texture2D" uid="uid://b8ouxssim4ytl" path="res://core/level/resource/sprite/床-法向.png" id="15_lkwk6"]
+[ext_resource type="Shader" uid="uid://cyr0w13jexgj8" path="res://core/common/shader/RimLight.gdshader" id="15_j8r4a"]
+[ext_resource type="Texture2D" uid="uid://b3tc3lnt8crrw" path="res://core/level/resource/sprite/天使塑像-法线.png" id="15_lkwk6"]
 [ext_resource type="Texture2D" uid="uid://ddeqt6g75xu0u" path="res://core/level/resource/sprite/金属架.png" id="15_ppjcc"]
+[ext_resource type="Material" uid="uid://ciynhtd1ml3ic" path="res://core/common/resource/material/RimLight.tres" id="15_xid8k"]
+[ext_resource type="Texture2D" uid="uid://bue0d2ufm02eo" path="res://core/level/resource/sprite/急救包.png" id="17_g0alj"]
 [ext_resource type="Texture2D" uid="uid://bwexyjyf7vwed" path="res://test/未命名.png" id="17_urgo4"]
 [ext_resource type="Script" uid="uid://j151apq5fxj0" path="res://core/common/component/marks/marks.gd" id="19_7hu0q"]
 [ext_resource type="Texture2D" uid="uid://dhrj7bxf6hqni" path="res://core/common/resource/texture/marks.png" id="20_u7t5c"]
+[ext_resource type="Texture2D" uid="uid://cgraaklpfyp3w" path="res://core/level/resource/sprite/狮头雕塑.png" id="21_4434d"]
 [ext_resource type="Script" uid="uid://cwoinddfmepd0" path="res://core/common/component/components/components.gd" id="22_5unon"]
 [ext_resource type="Texture2D" uid="uid://bgbnj7r31gu2r" path="res://core/level/resource/sprite/床.png" id="23_ppjcc"]
 [ext_resource type="Script" uid="uid://bhvv1pyit6a0n" path="res://core/common/CutscenerTrigger/CutscenerTrigger.gd" id="25_duxfq"]
 [ext_resource type="Texture2D" uid="uid://cc7to42jykc78" path="res://core/level/resource/sprite/金属推车.png" id="25_ia1kq"]
+[ext_resource type="Texture2D" uid="uid://bwrli74ey6cbj" path="res://core/level/resource/sprite/垃圾堆.png" id="31_13l3c"]
+[ext_resource type="Texture2D" uid="uid://dy7dsty8jhgps" path="res://core/level/resource/sprite/木梯子.png" id="32_13l3c"]
 [ext_resource type="PackedScene" uid="uid://c56xbxh2my7gr" path="res://core/common/component/marks/marks.tscn" id="37_xy24n"]
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="38_lqpy8"]
 [ext_resource type="PackedScene" uid="uid://c0hnf7o0i1a1" path="res://core/common/component/level_changer/level_changer.tscn" id="48_dkmg4"]
@@ -37,30 +43,276 @@ gradient = SubResource("Gradient_m0sas")
 fill_from = Vector2(0.54131055, 0.8717949)
 fill_to = Vector2(0.5470086, 0)
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4434d"]
+gradient = SubResource("Gradient_m0sas")
+fill_from = Vector2(0.54131055, 0.8717949)
+fill_to = Vector2(0.5470086, 0)
+
+[sub_resource type="Gradient" id="Gradient_lkwk6"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ppjcc"]
+gradient = SubResource("Gradient_lkwk6")
+fill_from = Vector2(0.45868945, 1)
+fill_to = Vector2(0.5555556, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ia1kq"]
+gradient = SubResource("Gradient_lkwk6")
+fill_from = Vector2(0.45868945, 1)
+fill_to = Vector2(0.5555556, 0)
+
 [sub_resource type="Gradient" id="Gradient_8sak0"]
-offsets = PackedFloat32Array(0, 0.520362)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.050403226, 0.4717742)
+colors = PackedColorArray(1, 1, 1, 0.53333336, 1, 1, 1, 0.22866167, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_00vot"]
 gradient = SubResource("Gradient_8sak0")
-width = 5000
+width = 1080
 height = 1080
-fill_from = Vector2(0.5009901, 1)
-fill_to = Vector2(0.5, 0)
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5009901, 1)
 
 [sub_resource type="Resource" id="Resource_8sak0"]
 resource_local_to_scene = true
 script = ExtResource("6_3u0dw")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_ia1kq"]
-diffuse_texture = ExtResource("23_ppjcc")
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_4434d"]
+_data = PackedByteArray("AAADAAUAAAABAAAAfAAAAFQAAABmBAAAUklGRl4EAABXRUJQVlA4TFIEAAAve8AUEF9AkG1T+TMeZxoE2Tb1BzzARWYgbZtM7y3fS+c/4PtKUMJ+mEQkAnRlbZvbNp/8S1fgvRWydp/w/N94mJUzP5Wlg+Yns9yBe1esU6nMaP3t0pWvIJPbE4HvE4mkj+i/A7eRFCnH7IG9R8j0tEwSnPKIcTCWQhCkg7KopEBpHJKlUAnGhLlMIpZGLL2AtdtToxySRcnmTqGyqkDIkojlNAA+y+ARLFLI8lSFntPkqXJH1x+MRS6UyjQtZLJxKBYGQDetMjr1U+WerCW57Dqa7t5CBp7KY1kasSorgJqmQywZwA7EKplarIwZiK7A1uSRUpMsI5ZELGXDGoDdqlqiWjGAXRtilkasevXnGJWSUjLWxihVgVXMSjHr5nJRO0Toy1ntbdPusT6Jdjzj8/pYFlOW0hZ1k0RMk0hNXDU2JjIkRNSU1kLWwmWJtsaxeKcHVknuYXzVyOKdaM1nyc3rKm5DOzsRn7UNWW/Md2hNfoLJvqwk/73TMkXlqBKx9DhCQjAGSHuxziOWUgMHGPuwNGQBlYCFpYgVMTBXeQFrt6dGsXQ4FiUbuLerCodjDYC5SoOH5FCsgULPqZOSO7reud2XRS6UilMhkw1H+UhWmqoMgC65EwQ8cScI6CRkubfA0XQQhQw8dW4jliwD1sAKoDpDLBnAOcBDlkSsTC1WsJFwdGzYmjzalJpENGKJBiw2rAFIIoMlqVZs5Hhog0jIkoA18O8YkZJSctL67cihKrBCdLMASBOWDNZGrjGr2mWrHUnoy1ntTzZX9816knY84/Mq9lf71MGUJVy19z1MWEprddOJmCaRmpS23dgTGRIiajvlP5suTVkPbT9Yn6YsvWqL7B+3rf2Ke9zW1ha+4zxy2PZTEq/h6u6979B3n5rv4O/37cgfFeKf1CJHJXLcgOx1OpGgIUUOfdylhLbjg7KGDD7qHIJ3ZdJeLKh+gLlMPQCLmoKwA7K4gDWe8qlRLEWsFLH8SjZcFqsKh2MNgJ/BfiyNWBR6Tt0x5o7uiafcl5ULpeK0JJMteUUsiVgKQCeRwxtUyJKIlcuuI39M8NTb3yFLI9aKaB/laB8tQ5YGLK3FypjB+OBek0dKHVGHEWsX43YspizWAKQH38i2tJHjoc2IGbIkYnG1AFJSSk4jRwNUYIWMHQsYsyaONzBh6dWnLUBfzmp/snO8v1tAxzM+r7s+btvCY4nc3LWFw+L6n/Y1yTSJ1CSy5EO7oyZE1EbL0bYNhyW6aXfNYQ25tcviH/etvV35juvL24XrKO1t8xxPP7bXuOlNe4PbcLVdBK6rO98xXsnAcRI56nHkOPcHgYjs5ZAUupLEpyJznmomzZhCZcYAapqxC1jPWcnGnMGcaaHnVOasVGb9Lujmq+y6+L9us2IF28UsDQA8NFia551t+5BS8iwN71pb0Jez2p/M0s22LUyTSJ3nQb68bbP+rWwbcybUY5kzlZlOAg==")
+size_override = Vector2(124, 84)
+
+[sub_resource type="Animation" id="Animation_13l3c"]
+length = 11.299999999999992
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7, 10.8, 10.9, 11, 11.1, 11.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../监控镜头:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7, 10.8, 10.9, 11, 11.1, 11.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xgs88"]
+_data = {
+&"default": SubResource("Animation_13l3c")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqffs"]
+shader = ExtResource("15_j8r4a")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 7.30000010132816
+shader_parameter/rim_intensity = 9.99999977648
+shader_parameter/rim_softness = 1.7599999643858002
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(1, 0)
+shader_parameter/distance_strength = 2.999999932944
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_13l3c"]
+_data = PackedByteArray("AAADAAUAAAABAAAAfAAAAD8AAAD2AAAAUklGRu4AAABXRUJQVlA4TOEAAAAve4APEDcgEEhhW06QbdP585zvAoEUttvzH/DuVEQggBtJkuRmgGGczMeBn/Lc1WFlPC7AAESs/25s8ZVOiei/wrZtG2a0Rj6JzaRKpUpTNm8pWES9mVpSXNQqT10wqwgQhUWYBF3JU2ARi2CxhxST6Xpou9ha6/jzcugZU5giDWMXUqzsBE+GuQ0Vn4K+mE/EbUFYLCwWFgvuht2f7NDmlH7Sw8wU36l9WBFWxCZYKEzlGOiYogtoQ/fdVCPHbpBjDYae6SloorqpxjhyOVi4Wrwc5FBXo1FX6Io2DlHxTwsA")
+size_override = Vector2(124, 63)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_xgs88"]
+_data = PackedByteArray("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")
+size_override = Vector2(675, 240)
+
+[sub_resource type="Animation" id="Animation_qgh0b"]
+length = 2.500000000000001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("吊扇-灯:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_guq5h"]
+_data = {
+&"default": SubResource("Animation_qgh0b")
+}
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_qgh0b"]
+_data = PackedByteArray("AAADAAUAAAABAAAAhwAAADAAAABgAAAAUklGRlgAAABXRUJQVlA4TEwAAAAvhsALEC8gEEjyN5tqDYFAkr/ZVAsEkvxtJ3j+A6rsYQ8YJAIU5sEGYoMvoJ5BdOsfaBhgEf2fgPgbuL1SYirXBFZ7J8TFfTHULPEx")
+size_override = Vector2(135, 48)
+
+[sub_resource type="Shader" id="Shader_xid8k"]
+code = "shader_type canvas_item;
+
+// ====================== 动态目标驱动的轮廓背光 ======================
+
+uniform bool enable_rim = true;
+
+uniform float rim_width_px : hint_range(0.5, 20.0, 0.1) = 4.0;
+uniform float rim_intensity : hint_range(0.0, 10.0, 0.01) = 5;
+uniform float rim_softness : hint_range(0.1, 3.0, 0.01) = 1.2;
+uniform int sample_count : hint_range(2, 8) = 5;
+
+uniform vec2 light_dir = vec2(1.0, 0.0);
+uniform float distance_strength : hint_range(0.0, 3.0, 0.01) = 1.0;
+
+void fragment() {
+	// COLOR 进入时已经包含了 Sprite 的 modulate
+	vec4 modulate = COLOR;
+	vec4 tex = texture(TEXTURE, UV);
+	
+	vec3 result = tex.rgb;
+	float final_alpha = tex.a;
+	
+	// 只有在条件满足时才计算边缘光
+	if (enable_rim && tex.a > 0.01 && distance_strength > 0.001 && modulate.a > 0.001) {
+		vec2 ps = 1.0 / vec2(textureSize(TEXTURE, 0));
+		vec2 dir = normalize(light_dir);
+		
+		float accum = 0.0;
+		for (int i = 1; i <= sample_count; i++) {
+			float t = float(i) / float(sample_count);
+			vec2 offset = dir * t * rim_width_px * ps * rim_softness;
+			accum += (1.0 - texture(TEXTURE, UV + offset).a);
+		}
+		
+		float rim = accum / float(sample_count);
+		rim = clamp(rim, 0.0, 1.0);
+		rim = pow(rim, 1.2);
+		
+		// 使用自带的 modulate 计算衰减
+		float modulate_luma = dot(modulate.rgb, vec3(0.299, 0.587, 0.114));
+		float modulate_factor = modulate.a * clamp(modulate_luma, 0.15, 1.0);
+		
+		rim *= rim_intensity * distance_strength * modulate_factor;
+		
+		result = tex.rgb * (1.0 + rim);
+	}
+	
+	// 最后统一乘上 modulate
+	COLOR = vec4(result, final_alpha) * modulate;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13l3c"]
+shader = SubResource("Shader_xid8k")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.0000000223518
+shader_parameter/rim_intensity = 9.99999977648
+shader_parameter/rim_softness = 1.0599999800322
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(0.01, -0.26)
+shader_parameter/distance_strength = 0.05999999865888
+
+[sub_resource type="Shader" id="Shader_13l3c"]
+code = "shader_type canvas_item;
+
+// ====================== 动态目标驱动的轮廓背光 ======================
+
+uniform bool enable_rim = true;
+
+uniform float rim_width_px : hint_range(0.5, 20.0, 0.1) = 4.0;
+uniform float rim_intensity : hint_range(0.0, 10.0, 0.01) = 5;
+uniform float rim_softness : hint_range(0.1, 3.0, 0.01) = 1.2;
+uniform int sample_count : hint_range(2, 8) = 5;
+
+uniform vec2 light_dir = vec2(1.0, 0.0);
+uniform float distance_strength : hint_range(0.0, 3.0, 0.01) = 1.0;
+
+void fragment() {
+	// COLOR 进入时已经包含了 Sprite 的 modulate
+	vec4 modulate = COLOR;
+	vec4 tex = texture(TEXTURE, UV);
+	
+	vec3 result = tex.rgb;
+	float final_alpha = tex.a;
+	
+	// 只有在条件满足时才计算边缘光
+	if (enable_rim && tex.a > 0.01 && distance_strength > 0.001 && modulate.a > 0.001) {
+		vec2 ps = 1.0 / vec2(textureSize(TEXTURE, 0));
+		vec2 dir = normalize(light_dir);
+		
+		float accum = 0.0;
+		for (int i = 1; i <= sample_count; i++) {
+			float t = float(i) / float(sample_count);
+			vec2 offset = dir * t * rim_width_px * ps * rim_softness;
+			accum += (1.0 - texture(TEXTURE, UV + offset).a);
+		}
+		
+		float rim = accum / float(sample_count);
+		rim = clamp(rim, 0.0, 1.0);
+		rim = pow(rim, 1.2);
+		
+		// 使用自带的 modulate 计算衰减
+		float modulate_luma = dot(modulate.rgb, vec3(0.299, 0.587, 0.114));
+		float modulate_factor = modulate.a * clamp(modulate_luma, 0.15, 1.0);
+		
+		rim *= rim_intensity * distance_strength * modulate_factor;
+		
+		result = tex.rgb * (1.0 + rim);
+	}
+	
+	// 最后统一乘上 modulate
+	COLOR = vec4(result, final_alpha) * modulate;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4434d"]
+shader = SubResource("Shader_13l3c")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 20.0
+shader_parameter/rim_intensity = 9.99999977648
+shader_parameter/rim_softness = 0.27999999746675996
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(2.965, -3.475)
+shader_parameter/distance_strength = 1.92999995686064
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qgh0b"]
+shader = ExtResource("15_j8r4a")
+shader_parameter/enable_rim = false
+shader_parameter/rim_width_px = 5.70000007748624
+shader_parameter/rim_intensity = 2.98999993316752
+shader_parameter/rim_softness = 0.53999999165524
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(1.88, -3.475)
+shader_parameter/distance_strength = 0.5999999865888
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lkwk6"]
+diffuse_texture = ExtResource("13_lkwk6")
 normal_texture = ExtResource("15_lkwk6")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xe73r"]
-size = Vector2(2957, 445)
+[sub_resource type="CanvasTexture" id="CanvasTexture_ia1kq"]
+diffuse_texture = ExtResource("23_ppjcc")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jybyy"]
-polygon = PackedVector2Array(74, 9, 419, 8, 418, -109, 74, -108)
+polygon = PackedVector2Array(81, -100, 164, -101, 167, -105, 75, -105)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ufwbg"]
 texture = ExtResource("20_u7t5c")
@@ -180,6 +432,16 @@ sources/0 = SubResource("TileSetAtlasSource_ufwbg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7upp4"]
 size = Vector2(80, 465)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgs88"]
+shader = ExtResource("15_j8r4a")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 12.40000017732428
+shader_parameter/rim_intensity = 9.99999977648
+shader_parameter/rim_softness = 0.26999999769028
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-3.37, -11.775)
+shader_parameter/distance_strength = 2.999999932944
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ril24"]
 texture = ExtResource("52_uu0l1")
@@ -1109,43 +1371,60 @@ metadata/_edit_lock_ = true
 [node name="Components" parent="." unique_id=1927653403 instance=ExtResource("2_ehwki")]
 metadata/_edit_lock_ = true
 
+[node name="UnstableLightFlicker2" parent="Components" unique_id=220190805 node_paths=PackedStringArray("target_lights") instance=ExtResource("3_j8r4a")]
+target_lights = [NodePath("../Lights/灯条")]
+
+[node name="UnstableLightFlicker3" parent="Components" unique_id=252046204 node_paths=PackedStringArray("target_lights") instance=ExtResource("3_j8r4a")]
+target_lights = [NodePath("../../Parallax/ParallaxLayer_2/BaseLayer/lightFront"), NodePath("../../Parallax/ParallaxLayer_2/BaseLayer/lightFront/lightFront2")]
+
 [node name="Lights" parent="Components" unique_id=1573464873 instance=ExtResource("3_iv2g0")]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="BaseLight" type="PointLight2D" parent="Components/Lights" unique_id=781203225]
-visible = false
 position = Vector2(90, -92.500015)
 scale = Vector2(3.280046, 0.4190625)
-energy = 1.85
+energy = 0.11
 blend_mode = 2
+range_item_cull_mask = 16
 texture = SubResource("GradientTexture2D_2bf10")
 texture_scale = 50.0
 
-[node name="FadeLight" type="PointLight2D" parent="Components/Lights" unique_id=1397850878]
-visible = false
-position = Vector2(805, -106.00003)
-scale = Vector2(1, 1.2240741)
-energy = 0.77
-blend_mode = 2
-texture = SubResource("GradientTexture2D_00vot")
-height = 787.0
+[node name="红色高光" type="PointLight2D" parent="Components/Lights" unique_id=220004005]
+position = Vector2(90, -92.500015)
+scale = Vector2(3.280046, 0.4190625)
+color = Color(1, 0, 0, 1)
+energy = 7.99
+range_item_cull_mask = 1024
+texture = SubResource("GradientTexture2D_4434d")
+texture_scale = 50.0
 
-[node name="FadeLight2" type="PointLight2D" parent="Components/Lights" unique_id=529416082]
-visible = false
-position = Vector2(153.99998, -118.99999)
-scale = Vector2(0.0651, 0.57037044)
-energy = 1.26
-blend_mode = 2
-range_layer_max = 1
+[node name="主要灯光" type="PointLight2D" parent="Components/Lights" unique_id=352980115]
+position = Vector2(19.249802, -228)
+scale = Vector2(23.703127, 5.0625)
+color = Color(1, 0.6509804, 0, 1)
+energy = 0.45
+texture = SubResource("GradientTexture2D_ppjcc")
+offset = Vector2(4.0606575, 14.419752)
+
+[node name="阴影层负光照" type="PointLight2D" parent="Components/Lights" unique_id=902095198]
+position = Vector2(168, -228)
+scale = Vector2(19.578127, 5.0625)
+color = Color(0.44806695, 0.44806695, 0.44806695, 1)
+energy = 0.37
+blend_mode = 1
+range_item_cull_mask = 4
+texture = SubResource("GradientTexture2D_ia1kq")
+offset = Vector2(4.0606575, 14.419752)
+
+[node name="灯条" type="PointLight2D" parent="Components/Lights" unique_id=529416082]
+position = Vector2(322.74997, -157.50002)
+scale = Vector2(1.7060184, 0.2861111)
+color = Color(0.8110551, 0.5362906, 0, 1)
+energy = 5.22
+range_item_cull_mask = 8
 texture = SubResource("GradientTexture2D_00vot")
 height = 265.0
-
-[node name="FXLight" type="DirectionalLight2D" parent="Components/Lights" unique_id=1909916128]
-light_mask = 32
-energy = 0.3
-blend_mode = 2
-range_item_cull_mask = 0
 
 [node name="BaseColoredController" parent="Components" unique_id=473114460 instance=ExtResource("4_v2xsn")]
 unique_name_in_owner = true
@@ -1161,124 +1440,311 @@ metadata/_edit_lock_ = true
 [node name="ParallaxLayer_0" parent="Parallax" unique_id=1635100528 instance=ExtResource("7_egd71")]
 metadata/_edit_lock_ = true
 
+[node name="FloatingDust4" parent="Parallax/ParallaxLayer_0" unique_id=1055521426 instance=ExtResource("8_ppjcc")]
+light_mask = 0
+visibility_layer = 1
+offset_left = -417.0
+offset_top = -307.0
+offset_right = 876.0
+offset_bottom = 0.0
+lifetime = 5.1
+scale_max = 1.0
+metadata/_edit_lock_ = true
+
 [node name="BaseColoredLayer" parent="Parallax/ParallaxLayer_0" unique_id=263052640 instance=ExtResource("8_lbiga")]
 position = Vector2(-447, -299)
 
-[node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_0" unique_id=1347613124]
-modulate = Color(0, 0.73763317, 0.8490728, 1)
-position = Vector2(-160, -352)
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
+[node name="BaseLayer" type="Node2D" parent="Parallax/ParallaxLayer_0" unique_id=277840771]
 
 [node name="ParallaxLayer_1" parent="Parallax" unique_id=2030072729 instance=ExtResource("7_egd71")]
 metadata/_edit_lock_ = true
 
-[node name="测试场景" type="Sprite2D" parent="Parallax/ParallaxLayer_1" unique_id=1254567472]
-position = Vector2(135, -174)
-scale = Vector2(2.3296876, 1)
+[node name="BaseLayer" type="Node2D" parent="Parallax/ParallaxLayer_1" unique_id=677449555]
+
+[node name="测试场景" type="Sprite2D" parent="Parallax/ParallaxLayer_1/BaseLayer" unique_id=1254567472]
+light_mask = 13
+visibility_layer = 13
+position = Vector2(33.000008, -170.5)
+scale = Vector2(2.3296876, 1.0194443)
 texture = ExtResource("9_i36np")
+metadata/_edit_lock_ = true
 
 [node name="BaseColoredLayer" parent="Parallax/ParallaxLayer_1" unique_id=2109737051 instance=ExtResource("8_lbiga")]
 position = Vector2(-447, -299)
 
-[node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_1" unique_id=677449555]
-modulate = Color(0, 0.6879404, 0.80108476, 1)
-position = Vector2(-608, -641)
+[node name="监控" type="Sprite2D" parent="Parallax/ParallaxLayer_1/BaseColoredLayer" unique_id=1194710529]
+self_modulate = Color(0.5877509, 0.58775043, 0.5877507, 1)
+light_mask = 9
+texture_filter = 1
+position = Vector2(531, 58)
+texture = SubResource("PortableCompressedTexture2D_4434d")
+hframes = 4
+vframes = 4
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": false,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "Parallax/ParallaxLayer_1/Sprite2D/AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://core/level/resource/sprite/监控.ase",
+"source_uid": 3477829492934154036
+}
+metadata/_aseprite_wizard_source_file_hash_ = "8a5385ed95e7eb64a724b2dd423c2c60"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Parallax/ParallaxLayer_1/BaseColoredLayer/监控" unique_id=1524452181]
+libraries/ = SubResource("AnimationLibrary_xgs88")
+autoplay = &"default"
+
+[node name="监控镜头" type="Sprite2D" parent="Parallax/ParallaxLayer_1/BaseColoredLayer" unique_id=560472492]
+light_mask = 1024
+texture_filter = 1
+material = SubResource("ShaderMaterial_qqffs")
+position = Vector2(531, 58)
+texture = SubResource("PortableCompressedTexture2D_13l3c")
+hframes = 4
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Parallax/ParallaxLayer_1/BaseColoredLayer/监控/AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://core/level/resource/sprite/监控-镜头.ase",
+"source_uid": 1976477544644933481
+}
+metadata/_aseprite_wizard_source_file_hash_ = "90bdc549eaa233d27775d99860e0279e"
 
 [node name="ParallaxLayer_2" parent="Parallax" unique_id=582895134 instance=ExtResource("7_egd71")]
 metadata/_edit_lock_ = true
 
-[node name="PointLight2D" type="PointLight2D" parent="Parallax/ParallaxLayer_2" unique_id=1267882992]
-position = Vector2(-134, -32)
-color = Color(1, 0.78, 0.78, 1)
-blend_mode = 2
-texture = ExtResource("10_ia1kq")
-height = 456.0
-
-[node name="吊灯" type="Sprite2D" parent="Parallax/ParallaxLayer_2" unique_id=481258487]
+[node name="FloatingDust3" parent="Parallax/ParallaxLayer_2" unique_id=133175914 instance=ExtResource("8_ppjcc")]
 light_mask = 0
-position = Vector2(-130, -159)
-texture = ExtResource("10_pa13h")
+visibility_layer = 1
+offset_left = -417.0
+offset_top = -307.0
+offset_right = 876.0
+offset_bottom = 0.0
+lifetime = 3.8
+scale_max = 1.0
+metadata/_edit_lock_ = true
 
 [node name="BaseColoredLayer" parent="Parallax/ParallaxLayer_2" unique_id=1987093889 instance=ExtResource("8_lbiga")]
 position = Vector2(-447, -299)
 
-[node name="吊灯2" type="Sprite2D" parent="Parallax/ParallaxLayer_2/BaseColoredLayer" unique_id=1080483161]
-light_mask = 0
-position = Vector2(319, 140)
-texture = ExtResource("10_pa13h")
+[node name="BaseLayer" type="Node2D" parent="Parallax/ParallaxLayer_2" unique_id=1011938049]
 
-[node name="VFX" type="Node2D" parent="Parallax/ParallaxLayer_2" unique_id=1284265550]
-position = Vector2(-448, -289)
+[node name="lightFront" parent="Parallax/ParallaxLayer_2/BaseLayer" unique_id=712471150 instance=ExtResource("12_g0alj")]
+position = Vector2(-130, -256.59827)
+color = Color(0.9999997, 0.81626946, 0.5964196, 1)
+energy = 0.77
+blend_mode = 0
+range_item_cull_mask = 4
+shadow_item_cull_mask = 4
+metadata/_edit_lock_ = true
 
-[node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_2" unique_id=1011938049]
-modulate = Color(0, 0.521569, 0.607843, 1)
-position = Vector2(-448, -289)
+[node name="lightFront2" parent="Parallax/ParallaxLayer_2/BaseLayer/lightFront" unique_id=352266773 instance=ExtResource("12_g0alj")]
+position = Vector2(-115.00003, -42.97024)
+scale = Vector2(0.95872414, 0.8809525)
+color = Color(0.9999998, 0.7181312, 0.34388703, 1)
+energy = 0.57281446
+range_item_cull_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="吊扇" type="Sprite2D" parent="Parallax/ParallaxLayer_2/BaseLayer" unique_id=269260455]
+texture_filter = 1
+position = Vector2(-131, -280.5)
+scale = Vector2(1.2708337, 1.2708337)
+texture = SubResource("PortableCompressedTexture2D_xgs88")
+hframes = 5
+vframes = 5
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Parallax/ParallaxLayer_2/BaseLayer/吊扇/AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://core/level/resource/sprite/风扇-旋转.ase",
+"source_uid": 3403937412806141036
+}
+metadata/_aseprite_wizard_source_file_hash_ = "705f4816a1cf32f656f33dda75ea7215"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Parallax/ParallaxLayer_2/BaseLayer/吊扇" unique_id=338458741]
+libraries/ = SubResource("AnimationLibrary_guq5h")
+autoplay = &"default"
+
+[node name="吊扇-灯" type="Sprite2D" parent="Parallax/ParallaxLayer_2/BaseLayer/吊扇" unique_id=2137767808]
+light_mask = 5
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_qgh0b")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Parallax/ParallaxLayer_2/BaseLayer/吊扇/AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://core/level/resource/sprite/风扇-旋转-灯.ase",
+"source_uid": 4801296656143151129
+}
+metadata/_aseprite_wizard_source_file_hash_ = "866155270924161950c6b17a2fd6c622"
 
 [node name="ParallaxLayer_3" parent="Parallax" unique_id=2131371219 instance=ExtResource("7_egd71")]
 metadata/_edit_lock_ = true
-
-[node name="武器架2" type="Sprite2D" parent="Parallax/ParallaxLayer_3" unique_id=731167334]
-position = Vector2(-47.165092, -68.00001)
-scale = Vector2(0.6320755, 0.6320755)
-texture = ExtResource("12_ia1kq")
 
 [node name="BaseColoredLayer" parent="Parallax/ParallaxLayer_3" unique_id=2115062005 instance=ExtResource("8_lbiga")]
 position = Vector2(-447, -299)
 
 [node name="武器架3" type="Sprite2D" parent="Parallax/ParallaxLayer_3/BaseColoredLayer" unique_id=366863169]
+light_mask = 5
+material = ExtResource("15_xid8k")
 position = Vector2(401.6698, 232)
 scale = Vector2(0.6320755, 0.6320755)
 texture = ExtResource("12_ia1kq")
 
-[node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_3" unique_id=1402335836]
-modulate = Color(4.6205523e-06, 0.6256621, 0.72689676, 1)
-position = Vector2(-608, -641)
+[node name="BaseLayer" type="Node2D" parent="Parallax/ParallaxLayer_3" unique_id=1402335836]
 
 [node name="ParallaxLayer_4" parent="Parallax" unique_id=1879754793 instance=ExtResource("7_egd71")]
 metadata/_edit_lock_ = true
 
 [node name="BaseColoredLayer" parent="Parallax/ParallaxLayer_4" unique_id=1893264578 instance=ExtResource("8_lbiga")]
-position = Vector2(-447, -299)
 
-[node name="VFX2" type="Node2D" parent="Parallax/ParallaxLayer_4" unique_id=1023656966]
-position = Vector2(-448, -289)
-
-[node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_4" unique_id=1492264549]
-position = Vector2(-608, -641)
+[node name="BaseLayer" type="Node2D" parent="Parallax/ParallaxLayer_4" unique_id=1492264549]
 
 [node name="ParallaxLayer_5" parent="Parallax" unique_id=246245231 instance=ExtResource("7_egd71")]
 metadata/_edit_lock_ = true
 
-[node name="金属架2" type="Sprite2D" parent="Parallax/ParallaxLayer_5" unique_id=1466532091]
-position = Vector2(-147, -65.59)
-scale = Vector2(0.5133333, 0.5933333)
-texture = ExtResource("15_ppjcc")
+[node name="FloatingDust2" parent="Parallax/ParallaxLayer_5" unique_id=1893705140 instance=ExtResource("8_ppjcc")]
+light_mask = 0
+visibility_layer = 1
+offset_left = -417.0
+offset_top = -307.0
+offset_right = 876.0
+offset_bottom = 0.0
+lifetime = 3.8
+scale_max = 1.0
+metadata/_edit_lock_ = true
+
+[node name="急救包" type="Sprite2D" parent="Parallax/ParallaxLayer_5" unique_id=2021469925]
+light_mask = 5
+material = SubResource("ShaderMaterial_13l3c")
+position = Vector2(-135, -133)
+scale = Vector2(0.99999976, 0.9999999)
+texture = ExtResource("17_g0alj")
 
 [node name="BaseColoredLayer" parent="Parallax/ParallaxLayer_5" unique_id=1324855461 instance=ExtResource("8_lbiga")]
 position = Vector2(-447, -317)
 
 [node name="金属架" type="Sprite2D" parent="Parallax/ParallaxLayer_5/BaseColoredLayer" unique_id=1167870240]
+light_mask = 5
+material = SubResource("ShaderMaterial_4434d")
 position = Vector2(299.5, 252.91)
 scale = Vector2(0.5133333, 0.5933333)
 texture = ExtResource("15_ppjcc")
 
-[node name="天使塑像2" type="Sprite2D" parent="Parallax/ParallaxLayer_5/BaseColoredLayer" unique_id=1850244488]
-position = Vector2(184, 180)
+[node name="金属架2" type="Sprite2D" parent="Parallax/ParallaxLayer_5/BaseColoredLayer" unique_id=1466532091]
+visible = false
+light_mask = 5
+position = Vector2(300, 251.41)
+scale = Vector2(0.5133333, 0.5933333)
+texture = ExtResource("15_ppjcc")
+
+[node name="BaseLayer" type="Node2D" parent="Parallax/ParallaxLayer_5" unique_id=455972845]
+
+[node name="雕塑" type="Node2D" parent="Parallax/ParallaxLayer_5/BaseLayer" unique_id=1218510382]
+
+[node name="天使塑像3" type="Sprite2D" parent="Parallax/ParallaxLayer_5/BaseLayer/雕塑" unique_id=941095019]
+light_mask = 13
+position = Vector2(-261, -147)
 texture = ExtResource("13_lkwk6")
 
-[node name="天使塑像" type="Sprite2D" parent="Parallax/ParallaxLayer_5" unique_id=6241689]
+[node name="天使塑像2" type="Sprite2D" parent="Parallax/ParallaxLayer_5/BaseLayer/雕塑" unique_id=1850244488]
+light_mask = 5
+material = SubResource("ShaderMaterial_qgh0b")
 position = Vector2(-260, -144)
 texture = ExtResource("13_lkwk6")
 
-[node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_5" unique_id=556416199]
-modulate = Color(0, 0.243137, 0.286275, 1)
-position = Vector2(-608, -641)
+[node name="天使塑像" type="Sprite2D" parent="Parallax/ParallaxLayer_5/BaseLayer/雕塑" unique_id=6241689]
+self_modulate = Color(1, 1, 1, 0.105882354)
+light_mask = 5
+position = Vector2(-260, -143)
+texture = SubResource("CanvasTexture_lkwk6")
+
+[node name="狮头雕塑" type="Sprite2D" parent="Parallax/ParallaxLayer_5/BaseLayer/雕塑" unique_id=437056202]
+self_modulate = Color(0.74418133, 0.7441813, 0.74418133, 1)
+light_mask = 5
+position = Vector2(-114, -148)
+texture = ExtResource("21_4434d")
 
 [node name="ParallaxLayer_6" parent="Parallax" unique_id=1232825231 instance=ExtResource("7_egd71")]
 metadata/_edit_lock_ = true
 
-[node name="床" type="Sprite2D" parent="Parallax/ParallaxLayer_6" unique_id=936455309]
+[node name="BaseLayer" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=2127016825]
+
+[node name="床" type="Sprite2D" parent="Parallax/ParallaxLayer_6/BaseLayer" unique_id=936455309]
+light_mask = 5
 position = Vector2(-127, -36.5)
 texture = ExtResource("23_ppjcc")
 
@@ -1286,8 +1752,14 @@ texture = ExtResource("23_ppjcc")
 position = Vector2(-447, -317)
 
 [node name="床2" type="Sprite2D" parent="Parallax/ParallaxLayer_6/BaseColoredLayer" unique_id=1295674965]
+light_mask = 5
 position = Vector2(321, 282.5)
 texture = SubResource("CanvasTexture_ia1kq")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Parallax/ParallaxLayer_6/BaseColoredLayer/床2" unique_id=1062400039]
+position = Vector2(-121, 112.5)
+occluder = SubResource("OccluderPolygon2D_jybyy")
+occluder_light_mask = 4
 
 [node name="未命名2" type="Sprite2D" parent="Parallax/ParallaxLayer_6/BaseColoredLayer" unique_id=1085571267]
 visible = false
@@ -1296,34 +1768,31 @@ texture = ExtResource("17_urgo4")
 region_enabled = true
 region_rect = Rect2(269, 219, 100.66, 132)
 
-[node name="LeafFallSpawner" parent="Parallax/ParallaxLayer_6/BaseColoredLayer" unique_id=1167310958 instance=ExtResource("9_5uvpi")]
-position = Vector2(-1, 8)
-enable_collision = true
+[node name="PlayerLayer" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=1162357529]
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
+metadata/_edit_lock_ = true
 
-[node name="SpawnArea" type="CollisionShape2D" parent="Parallax/ParallaxLayer_6/BaseColoredLayer/LeafFallSpawner" unique_id=386481715]
-visible = false
-position = Vector2(601.5, 170.5)
-shape = SubResource("RectangleShape2D_xe73r")
+[node name="Main" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=1487122942]
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Parallax/ParallaxLayer_6" unique_id=1067263291]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Parallax/ParallaxLayer_6/Main" unique_id=1067263291]
 position = Vector2(-6459.0005, 94.00001)
 scale = Vector2(37.684, 0.855748)
 occluder = SubResource("OccluderPolygon2D_jybyy")
 occluder_light_mask = 0
 
-[node name="astar" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=297797297]
+[node name="astar" type="Node2D" parent="Parallax/ParallaxLayer_6/Main" unique_id=297797297]
 visible = false
 z_index = -2
 position = Vector2(-459, -293)
 script = ExtResource("22_5unon")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
-[node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=863168673]
+[node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_6/Main" unique_id=863168673]
 position = Vector2(-618, -652)
 script = ExtResource("22_5unon")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
-[node name="ground_floor" type="TileMapLayer" parent="Parallax/ParallaxLayer_6/Tile" unique_id=959031133]
+[node name="ground_floor" type="TileMapLayer" parent="Parallax/ParallaxLayer_6/Main/Tile" unique_id=959031133]
 visible = false
 modulate = Color(1, 1, 1, 0.3254902)
 light_mask = 33
@@ -1333,90 +1802,97 @@ tile_map_data = PackedByteArray("AAAT/5cAAAAMAAAAAAAU/5cAAAANAAAAAAAV/5cAAAAOAAA
 tile_set = SubResource("TileSet_0gprp")
 metadata/_edit_lock_ = true
 
-[node name="CutsceneTrigger" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=2058188421]
+[node name="CutsceneTrigger" type="Node2D" parent="Parallax/ParallaxLayer_6/Main" unique_id=2058188421]
+visible = false
 position = Vector2(-448, -289)
 script = ExtResource("22_5unon")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
-[node name="CutscenerTrigger" type="Area2D" parent="Parallax/ParallaxLayer_6/CutsceneTrigger" unique_id=560958487]
+[node name="CutscenerTrigger" type="Area2D" parent="Parallax/ParallaxLayer_6/Main/CutsceneTrigger" unique_id=560958487]
 position = Vector2(215, 200)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("25_duxfq")
 enable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" unique_id=1074325947]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ParallaxLayer_6/Main/CutsceneTrigger/CutscenerTrigger" unique_id=1074325947]
 position = Vector2(-141, -114.5)
 shape = SubResource("RectangleShape2D_7upp4")
 debug_color = Color(0.909804, 1, 0.0901961, 0.168627)
 
-[node name="Npcs" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=635639898]
+[node name="Npcs" type="Node2D" parent="Parallax/ParallaxLayer_6/Main" unique_id=635639898]
 position = Vector2(-448, -289)
 script = ExtResource("22_5unon")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
-[node name="Marks" parent="Parallax/ParallaxLayer_6" unique_id=498738836 instance=ExtResource("37_xy24n")]
+[node name="Marks" parent="Parallax/ParallaxLayer_6/Main" unique_id=498738836 instance=ExtResource("37_xy24n")]
 visible = false
 
-[node name="ParallaxStart" parent="Parallax/ParallaxLayer_6/Marks" unique_id=2066289438 instance=ExtResource("38_lqpy8")]
+[node name="ParallaxStart" parent="Parallax/ParallaxLayer_6/Main/Marks" unique_id=2066289438 instance=ExtResource("38_lqpy8")]
 unique_name_in_owner = true
 position = Vector2(502, 582)
 
-[node name="PatrolLeft" parent="Parallax/ParallaxLayer_6/Marks" unique_id=2095527232 instance=ExtResource("38_lqpy8")]
+[node name="PatrolLeft" parent="Parallax/ParallaxLayer_6/Main/Marks" unique_id=2095527232 instance=ExtResource("38_lqpy8")]
 position = Vector2(-447, 283)
 
-[node name="PatrolRight" parent="Parallax/ParallaxLayer_6/Marks" unique_id=1301300226 instance=ExtResource("38_lqpy8")]
+[node name="PatrolRight" parent="Parallax/ParallaxLayer_6/Main/Marks" unique_id=1301300226 instance=ExtResource("38_lqpy8")]
 position = Vector2(251, 249)
 
-[node name="Test" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=2116883081]
+[node name="Test" type="Node2D" parent="Parallax/ParallaxLayer_6/Main" unique_id=2116883081]
 position = Vector2(-448, -289)
 
-[node name="LevelChangers" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=320020238]
+[node name="LevelChangers" type="Node2D" parent="Parallax/ParallaxLayer_6/Main" unique_id=320020238]
 position = Vector2(-448, -289)
 script = ExtResource("22_5unon")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
-[node name="LeftDoor" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=199191243 instance=ExtResource("48_dkmg4")]
+[node name="LeftDoor" parent="Parallax/ParallaxLayer_6/Main/LevelChangers" unique_id=199191243 instance=ExtResource("48_dkmg4")]
 position = Vector2(-876, 231)
 from_level = 999
 target_level = 2
 target_born_position = Vector2(1490.0055, -26.074728)
 target_born_position_name = "RightDoor"
 
-[node name="RightDoor" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=842708417 instance=ExtResource("48_dkmg4")]
+[node name="RightDoor" parent="Parallax/ParallaxLayer_6/Main/LevelChangers" unique_id=842708417 instance=ExtResource("48_dkmg4")]
 position = Vector2(2084, 214)
 from_level = 2
 target_born_position = Vector2(-873, -26.076)
 target_born_position_name = "LeftDoor"
 
-[node name="BornMarks" type="Node2D" parent="Parallax/ParallaxLayer_6/LevelChangers" unique_id=678027832]
+[node name="BornMarks" type="Node2D" parent="Parallax/ParallaxLayer_6/Main/LevelChangers" unique_id=678027832]
 script = ExtResource("19_7hu0q")
 metadata/_custom_type_script = "uid://j151apq5fxj0"
 
-[node name="LeftDoor" type="Marker2D" parent="Parallax/ParallaxLayer_6/LevelChangers/BornMarks" unique_id=929151901]
+[node name="LeftDoor" type="Marker2D" parent="Parallax/ParallaxLayer_6/Main/LevelChangers/BornMarks" unique_id=929151901]
 position = Vector2(-551, 255)
 gizmo_extents = 293.0
 
-[node name="RightDoor" type="Marker2D" parent="Parallax/ParallaxLayer_6/LevelChangers/BornMarks" unique_id=1503334087]
+[node name="RightDoor" type="Marker2D" parent="Parallax/ParallaxLayer_6/Main/LevelChangers/BornMarks" unique_id=1503334087]
 position = Vector2(1894, 269)
 gizmo_extents = 293.0
-
-[node name="PlayerLayer" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=1162357529]
-modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
-metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer_7" parent="Parallax" unique_id=185490272 instance=ExtResource("7_egd71")]
 position = Vector2(11, 4)
 
-[node name="金属推车2" type="Sprite2D" parent="Parallax/ParallaxLayer_7" unique_id=961713302]
-position = Vector2(87, -45.34996)
+[node name="BaseLayer" type="Node2D" parent="Parallax/ParallaxLayer_7" unique_id=396921083]
+
+[node name="金属推车2" type="Sprite2D" parent="Parallax/ParallaxLayer_7/BaseLayer" unique_id=961713302]
+position = Vector2(89, -45.34996)
 scale = Vector2(0.6022228, 0.6022228)
 texture = ExtResource("25_ia1kq")
 
 [node name="BaseColoredLayer" parent="Parallax/ParallaxLayer_7" unique_id=407551521 instance=ExtResource("8_lbiga")]
 position = Vector2(-459, -313)
 
+[node name="垃圾堆" type="Sprite2D" parent="Parallax/ParallaxLayer_7/BaseColoredLayer" unique_id=480349316]
+light_mask = 21
+position = Vector2(112, 279)
+texture = ExtResource("31_13l3c")
+
 [node name="金属推车" type="Sprite2D" parent="Parallax/ParallaxLayer_7/BaseColoredLayer" unique_id=895823145]
+self_modulate = Color(0.61474454, 0.6147446, 0.61474454, 1)
+light_mask = 5
+material = SubResource("ShaderMaterial_xgs88")
 position = Vector2(549, 267.65002)
 scale = Vector2(0.6022222, 0.6022222)
 texture = ExtResource("25_ia1kq")
@@ -1424,12 +1900,16 @@ texture = ExtResource("25_ia1kq")
 [node name="ParallaxLayer_8" parent="Parallax" unique_id=1169756534 instance=ExtResource("7_egd71")]
 position = Vector2(11, 4)
 
-[node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_8" unique_id=654206940]
-position = Vector2(-459, -293)
+[node name="BaseLayer" type="Node2D" parent="Parallax/ParallaxLayer_8" unique_id=708785588]
 
 [node name="BaseColoredLayer" parent="Parallax/ParallaxLayer_8" unique_id=1965852183 instance=ExtResource("8_lbiga")]
 position = Vector2(-459, -293)
 metadata/_edit_lock_ = true
+
+[node name="木梯子" type="Sprite2D" parent="Parallax/ParallaxLayer_8/BaseColoredLayer" unique_id=1875616354]
+light_mask = 5
+position = Vector2(139, 175)
+texture = ExtResource("32_13l3c")
 
 [node name="treeTop" type="TileMap" parent="Parallax/ParallaxLayer_8/BaseColoredLayer" unique_id=467165128]
 modulate = Color(0, 0.0235294, 0.0392157, 1)
@@ -1453,6 +1933,12 @@ layer_0/tile_data = PackedInt32Array(1245069, 0, 15, 1310605, 0, 16, 1376141, 0,
 
 [node name="AutoTransparent" parent="Parallax/ParallaxLayer_8/BaseColoredLayer/treeBot" unique_id=1764756245 instance=ExtResource("51_xfkqh")]
 
+[node name="FloatingDust" parent="Parallax/ParallaxLayer_8" unique_id=2118770191 instance=ExtResource("8_ppjcc")]
+light_mask = 0
+visibility_layer = 1
+lifetime = 3.8
+metadata/_edit_lock_ = true
+
 [node name="LeveBound" type="CollisionShape2D" parent="." unique_id=644941246]
 visible = false
 position = Vector2(549.5, -121)
@@ -1461,5 +1947,5 @@ debug_color = Color(0, 0.97, 0.3071666, 0.83137256)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[connection signal="body_entered" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_entered"]
-[connection signal="body_exited" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_exited"]
+[connection signal="body_entered" from="Parallax/ParallaxLayer_6/Main/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/Main/CutsceneTrigger/CutscenerTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="Parallax/ParallaxLayer_6/Main/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/Main/CutsceneTrigger/CutscenerTrigger" method="_on_body_exited"]

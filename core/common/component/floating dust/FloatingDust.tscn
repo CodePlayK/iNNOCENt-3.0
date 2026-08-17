@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://blqf17nu62ghq"]
+
+[ext_resource type="Script" uid="uid://e14qudf728bd" path="res://core/common/component/floating dust/FloatingDust.gd" id="1_a57ac"]
+[ext_resource type="Shader" uid="uid://csxs4goynhtq7" path="res://test/shader/FloatingDust.gdshader" id="1_d6vbl"]
+
+[sub_resource type="Gradient" id="Gradient_ppjcc"]
+offsets = PackedFloat32Array(0, 0.38075313, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.8912134, 0.8912134, 0.8912134, 0.8912134, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qqffs"]
+gradient = SubResource("Gradient_ppjcc")
+width = 4
+height = 4
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.4900285, 0.50427353)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a57ac"]
+resource_local_to_scene = true
+shader = ExtResource("1_d6vbl")
+
+[node name="Container" type="Container" unique_id=1055521426]
+light_mask = 16
+visibility_layer = 16
+offset_left = -428.0
+offset_top = -311.0
+offset_right = 865.0
+offset_bottom = -4.0
+mouse_filter = 2
+script = ExtResource("1_a57ac")
+particle_texture = SubResource("GradientTexture2D_qqffs")
+base_alpha = 1.0
+particle_color = Color(1, 1, 1, 1)
+flicker_intensity = 1.0
+hue_variation = 0.0
+amount = 10
+turbulence_scale = 19.3
+angular_velocity = 0.0
+scale_min = 0.5
+scale_max = 1.8
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=685176837]
+light_mask = 17
+material = SubResource("ShaderMaterial_a57ac")

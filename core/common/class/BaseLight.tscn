@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://yeu3b2fqv6xa"]
+
+[ext_resource type="Script" uid="uid://b60amwx2giakf" path="res://core/common/class/BaseLight.gd" id="1_hhq51"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ppjcc"]
+load_path = "res://.godot/imported/三角灯光.png-82d10821883f30996eb146087cf61e59.ctex"
+
+[node name="BaseLight" type="PointLight2D" unique_id=352266773]
+scale = Vector2(1, 0.73362446)
+color = Color(1, 0.83096904, 0.6293223, 1)
+energy = 0.83
+blend_mode = 2
+range_item_cull_mask = 5
+shadow_enabled = true
+texture = SubResource("CompressedTexture2D_ppjcc")
+offset = Vector2(0, 223)
+height = 72.0
+script = ExtResource("1_hhq51")

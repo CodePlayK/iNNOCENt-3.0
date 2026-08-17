@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://boq5l702eg01e"
+path="res://.godot/imported/风扇-旋转.ase-5b8f499a48151d448da5cf1abe1780ad.res"
+
+[deps]
+
+source_file="res://core/level/resource/sprite/风扇-旋转.ase"
+dest_files=["res://.godot/imported/风扇-旋转.ase-5b8f499a48151d448da5cf1abe1780ad.res"]
+
+[params]
+
