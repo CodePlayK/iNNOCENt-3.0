@@ -57,14 +57,14 @@ func _ready() -> void:
 func set_level(dialogue_cinfig:DialogueConfig):
 	if dialogue_cinfig.current_level==LevelState.LEVELS.LEVEL_CURRENT:
 		current_level = LevelState.current_level
-		pass
+
 func dialogue_finished():
 	hide_balloon()	
 	
 func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:DialogueLine):
 	if !talker_name.has(current_talker):
 		return
-	if current_level!=LevelState.LEVELS.LEVEL_ALL and current_level!=LevelState.current_level:
+	if dialogue_config.current_level!=LevelState.LEVELS.LEVEL_ALL and current_level!=LevelState.current_level:
 		return
 	#Dialogue.current_talker = talker_name
 	Dialogue.current_dialogue_balloon = self

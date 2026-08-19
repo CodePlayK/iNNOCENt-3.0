@@ -236,6 +236,7 @@ _data = {
 script = ExtResource("31_1gr5e")
 dialogue_res = ExtResource("30_ylxf2")
 current_res = "test1"
+use_local_res = null
 title = "_0_0_2"
 title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
 import = true
@@ -336,17 +337,14 @@ one_shot = true
 [node name="FXLight" type="DirectionalLight2D" parent="Setting" unique_id=1708598658]
 visible = false
 light_mask = 32
-energy = 0.55
 blend_mode = 2
 range_item_cull_mask = 0
 
 [node name="UIBaseLight" type="DirectionalLight2D" parent="Setting" unique_id=337730710]
 light_mask = 0
-energy = 0.3
 blend_mode = 2
 range_layer_min = 9
 range_layer_max = 10
-range_item_cull_mask = 0
 
 [node name="CanvasBackground" type="CanvasLayer" parent="." unique_id=970486849]
 layer = -1

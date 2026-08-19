@@ -12,7 +12,7 @@
 
 [sub_resource type="Resource" id="Resource_qqffs"]
 script = ExtResource("2_ilh7g")
-current_level = null
+use_local_res = null
 metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjpum"]
@@ -50,14 +50,13 @@ animations = [{
 }]
 
 [node name="DialogueBalloon" type="Node2D" unique_id=1422607112]
-light_mask = 0
 visibility_layer = 32
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fane2")
 dialogue_config = SubResource("Resource_qqffs")
 
 [node name="Balloon" type="Control" parent="." unique_id=1453483627]
-light_mask = 1024
+visibility_layer = 32
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +66,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="VB" type="VBoxContainer" parent="Balloon" unique_id=1353594614]
+visibility_layer = 32
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -80,14 +80,14 @@ alignment = 1
 
 [node name="responseMargin" type="MarginContainer" parent="Balloon/VB" unique_id=1963756787]
 unique_name_in_owner = true
-light_mask = 1024
+visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_bottom = 1
 
 [node name="Responses" type="VBoxContainer" parent="Balloon/VB/responseMargin" unique_id=1568745890]
 unique_name_in_owner = true
-light_mask = 1024
+visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
@@ -96,18 +96,18 @@ theme_override_constants/separation = 1
 
 [node name="Response" type="MarginContainer" parent="Balloon/VB/responseMargin" unique_id=1056824676]
 visible = false
+visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 
 [node name="ResponseBackground" type="ColorRect" parent="Balloon/VB/responseMargin/Response" unique_id=1421325741]
-light_mask = 0
 visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 
 [node name="ResponseTemplate" type="RichTextLabel" parent="Balloon/VB/responseMargin/Response" unique_id=1934360578]
 unique_name_in_owner = true
-light_mask = 1024
+visibility_layer = 32
 custom_minimum_size = Vector2(0, 9)
 clip_contents = false
 layout_mode = 2
@@ -128,19 +128,20 @@ hint_underlined = false
 visible_characters_behavior = 1
 
 [node name="background" type="MarginContainer" parent="Balloon/VB" unique_id=1545693893]
-light_mask = 1024
+visibility_layer = 32
 layout_mode = 2
 
 [node name="Panel" parent="Balloon/VB/background" unique_id=461365575 instance=ExtResource("4_fycgq")]
 visible = false
+visibility_layer = 32
 z_index = 1
 layout_mode = 2
 
 [node name="BackgroundMC" type="MarginContainer" parent="Balloon/VB/background" unique_id=1520187682]
+visibility_layer = 32
 layout_mode = 2
 
 [node name="BackgroundColor" type="ColorRect" parent="Balloon/VB/background/BackgroundMC" unique_id=1132543284]
-light_mask = 0
 visibility_layer = 32
 clip_contents = true
 layout_mode = 2
@@ -148,7 +149,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.6)
 
 [node name="Margin" type="MarginContainer" parent="Balloon/VB/background" unique_id=1791214817]
-light_mask = 1024
+visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 3
@@ -157,17 +158,19 @@ theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 1
 
 [node name="HB" type="HBoxContainer" parent="Balloon/VB/background/Margin" unique_id=1288139970]
+visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="VB" type="VBoxContainer" parent="Balloon/VB/background/Margin/HB" unique_id=1213149475]
+visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/VB/background/Margin/HB/VB" unique_id=516950036]
-light_mask = 1024
+visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("4_lqgeo")
@@ -180,13 +183,14 @@ autowrap_mode = 0
 visible_characters_behavior = 3
 
 [node name="HB" type="HBoxContainer" parent="Balloon/VB/background/Margin/HB/VB" unique_id=1629489186]
+visibility_layer = 32
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="DialogueLabel" type="RichTextLabel" parent="Balloon/VB/background/Margin/HB/VB/HB" unique_id=456421539]
-light_mask = 0
+light_mask = 37
 visibility_layer = 32
 clip_contents = false
 layout_mode = 2
@@ -208,6 +212,7 @@ skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", 
 stream = ExtResource("5_6xaee")
 
 [node name="MC" type="MarginContainer" parent="Balloon/VB/background/Margin/HB/VB/HB" unique_id=507127930]
+visibility_layer = 32
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -215,7 +220,6 @@ mouse_filter = 2
 theme_override_constants/margin_left = 6
 
 [node name="Hint" type="AnimatedSprite2D" parent="Balloon/VB/background/Margin/HB/VB/HB/MC" unique_id=1183698938]
-light_mask = 0
 visibility_layer = 32
 position = Vector2(0, -4.31965)
 scale = Vector2(0.5, 0.5)
@@ -225,59 +229,69 @@ frame_progress = 0.312957
 offset = Vector2(8.13031, 10.3891)
 
 [node name="MC" type="MarginContainer" parent="Balloon/VB" unique_id=732543043]
+visibility_layer = 32
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="HB" type="HBoxContainer" parent="Balloon/VB/MC" unique_id=1105376742]
+visibility_layer = 32
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="MC" type="MarginContainer" parent="Balloon/VB/MC/HB" unique_id=64303244]
+visibility_layer = 32
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="PointerLeft" type="Polygon2D" parent="Balloon/VB/MC/HB/MC" unique_id=902121860]
-light_mask = 0
+visibility_layer = 32
 position = Vector2(-0.0111607, 0.0107138)
 polygon = PackedVector2Array(0, -0.0339293, 0, 7.10893, 7.14286, -0.0339293)
 
 [node name="ScreenCheckerL" type="VisibleOnScreenNotifier2D" parent="Balloon/VB/MC/HB/MC/PointerLeft" unique_id=1265586255]
 unique_name_in_owner = true
+visibility_layer = 32
 position = Vector2(-26, 0.0339293)
 scale = Vector2(0.465, 0.465)
 
 [node name="Sprite2D" type="Sprite2D" parent="Balloon/VB/MC/HB/MC/PointerLeft/ScreenCheckerL" unique_id=1357590785]
 visible = false
+visibility_layer = 32
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("8_cn6xi")
 
 [node name="MC2" type="MarginContainer" parent="Balloon/VB/MC/HB" unique_id=1739567181]
+visibility_layer = 32
 layout_mode = 2
 size_flags_horizontal = 10
 mouse_filter = 2
 theme_override_constants/margin_right = 0
 
 [node name="PointerRight" type="Polygon2D" parent="Balloon/VB/MC/HB/MC2" unique_id=1160139346]
-light_mask = 0
+visibility_layer = 32
 position = Vector2(-0.0401808, 0.122321)
 offset = Vector2(0.301346, -0.078125)
 polygon = PackedVector2Array(-0.285706, -0.0339289, -0.285706, 7.10893, -7.42856, -0.0339289)
 
 [node name="ScreenCheckerR" type="VisibleOnScreenNotifier2D" parent="Balloon/VB/MC/HB/MC2/PointerRight" unique_id=1659454911]
 unique_name_in_owner = true
+visibility_layer = 32
 position = Vector2(27, 0)
 scale = Vector2(0.465, 0.465)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Balloon/VB/MC/HB/MC2/PointerRight/ScreenCheckerR" unique_id=1288186288]
 visible = false
+visibility_layer = 32
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("8_cn6xi")
 
 [node name="Button" type="Button" parent="." unique_id=828946858]
 visible = false
+light_mask = 32
+visibility_layer = 32
 offset_left = -11.3764
 offset_top = -12.8976
 offset_right = -3.37638

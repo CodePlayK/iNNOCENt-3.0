@@ -26,6 +26,7 @@ signal save_file_id_update
 signal fallen_from_top
 ## 屏幕震动（过场用，与 [signal camera_shake] 区分）
 signal screen_shake
+
 #endregion
 
 

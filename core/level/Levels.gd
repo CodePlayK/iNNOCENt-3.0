@@ -22,7 +22,7 @@ var level_color:Color
 		level_background_color= lbc
 		if base_colored_controller:base_colored_controller._on_param_changed()
 var waiting_2_load_save:bool=false
-@onready var leve_bound: CollisionShape2D = $LeveBound
+@onready var leve_bound: CollisionShape2D = %LeveBound
 @onready var parallax: Parallax = $Parallax
 @onready var base_colored_controller: BaseColoredController = %BaseColoredController
 

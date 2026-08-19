@@ -19,6 +19,12 @@ extends Component
 ## 未指定时退化为使用相机/玩家当前位置作为相对参考。
 @export var parallax_origin: Node2D = $".."
 @export_category("视差层速度配置")
+@export var parallax_layer_speed_m6: float = -320.0
+@export var parallax_layer_speed_m5: float = -280.0
+@export var parallax_layer_speed_m4: float = -240.0
+@export var parallax_layer_speed_m3: float = -200.0
+@export var parallax_layer_speed_m2: float = -190.0
+@export var parallax_layer_speed_m1: float = -150.0
 @export var parallax_layer_speed_0: float = -110.0
 @export var parallax_layer_speed_1: float = -80.0
 @export var parallax_layer_speed_2: float = -60.0
@@ -124,6 +130,12 @@ func get_parallax_layers() -> void:
 
 func _rebuild_speed_array() -> void:
 	parallax_layers_speed = [
+		parallax_layer_speed_m6,
+		parallax_layer_speed_m5,
+		parallax_layer_speed_m4,
+		parallax_layer_speed_m3,
+		parallax_layer_speed_m2,
+		parallax_layer_speed_m1,
 		parallax_layer_speed_0,
 		parallax_layer_speed_1,
 		parallax_layer_speed_2,

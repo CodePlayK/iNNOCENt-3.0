@@ -73,10 +73,9 @@
 [ext_resource type="Script" uid="uid://dqesqd38gkjj2" path="res://core/player/states/combat.gd" id="37_twix3"]
 [ext_resource type="Texture2D" uid="uid://cybmne8yk0yrn" path="res://core/player/animation/dash-frame-o.png" id="38_m5lf2"]
 [ext_resource type="Script" uid="uid://cbqf4s680nghe" path="res://core/player/states/dense.gd" id="38_tkue4"]
-[ext_resource type="Texture2D" uid="uid://cefmxm6oe8ba1" path="res://test/texture/base3-B.png" id="38_x7ir2"]
 [ext_resource type="Script" uid="uid://cdvohjklu0wmo" path="res://core/player/states/behit.gd" id="39_7ni88"]
-[ext_resource type="Texture2D" uid="uid://cgq3c2ousre8k" path="res://test/texture/base2.png" id="39_x7ir2"]
 [ext_resource type="Script" uid="uid://dhwbxsnluxsc3" path="res://core/player/states/behitDenseSafed.gd" id="40_2jtbn"]
+[ext_resource type="Texture2D" uid="uid://cefmxm6oe8ba1" path="res://test/texture/base3-B.png" id="40_05xf3"]
 [ext_resource type="Script" uid="uid://dkc8guimyw23i" path="res://core/player/states/behitDamaged.gd" id="41_2gdef"]
 [ext_resource type="Resource" uid="uid://cy0f0aqmerss5" path="res://core/player/anime config/lift.tres" id="41_orpom"]
 [ext_resource type="Script" uid="uid://cbyveabf3ebne" path="res://core/player/states/light.gd" id="42_5qc2j"]
@@ -1131,22 +1130,10 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("test2:frame")
+tracks/0/path = NodePath("test3:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 11]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("test3:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -1308,18 +1295,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [19, 20, 21, 22, 23, 24, 25, 26]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("test:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-}
 
 [sub_resource type="Animation" id="Animation_fjaki"]
 length = 0.1
@@ -1426,7 +1401,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_y6mvg"]
-length = 1.1
+length = 1.0999999999999999
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1467,22 +1442,10 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("test2:frame")
+tracks/3/path = NodePath("test3:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("test3:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -1734,12 +1697,12 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iop30"]
 shader = ExtResource("35_x7ir2")
 shader_parameter/enable_rim = true
-shader_parameter/rim_width_px = 2.70000003278264
-shader_parameter/rim_intensity = 0.749999983236
+shader_parameter/rim_width_px = 1.10000000894072
+shader_parameter/rim_intensity = 2.3499999474728
 shader_parameter/rim_softness = 1.2
 shader_parameter/sample_count = 5
-shader_parameter/light_dir = Vector2(2.595, -1.93)
-shader_parameter/distance_strength = 1.17999997362464
+shader_parameter/light_dir = Vector2(2.505, -1.8)
+shader_parameter/distance_strength = 0.50999998860048
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igalw"]
 shader = ExtResource("12_d6pte")
@@ -1767,50 +1730,14 @@ shader_parameter/mix_modulate_strength = 1.456
 [sub_resource type="Animation" id="Animation_x7ir2"]
 length = 1.2
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("test2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-}
 
 [sub_resource type="Animation" id="Animation_vp6bf"]
 length = 2.400000000000001
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("test:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 11]
-}
 
 [sub_resource type="Animation" id="Animation_05xf3"]
 length = 1.1
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("test:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vp6bf"]
 _data = {
@@ -2074,6 +2001,10 @@ se_name = "knife-stab"
 script = ExtResource("31_o2ap2")
 sound_config = Array[ExtResource("32_likyd")]([SubResource("Resource_6buv0")])
 
+[sub_resource type="Resource" id="Resource_x7ir2"]
+script = ExtResource("31_o2ap2")
+loop = true
+
 [sub_resource type="Resource" id="Resource_4q060"]
 script = ExtResource("31_o2ap2")
 animation_name = "death"
@@ -2084,7 +2015,7 @@ backward = true
 script = ExtResource("31_o2ap2")
 animation_name = "onfloor"
 
-[sub_resource type="Resource" id="Resource_8i7n7"]
+[sub_resource type="Resource" id="Resource_w65vx"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
@@ -2094,6 +2025,7 @@ level_id = -2
 light_mask = 2
 collision_layer = 2
 script = ExtResource("1_yb16c")
+talker_name = Array[String](["我"])
 dialogue_config = ExtResource("108_4t8e8")
 character_box_config = ExtResource("2_yurw6")
 acceleration_dash = 14000
@@ -2352,7 +2284,7 @@ autostart = true
 [node name="Move2Vec2" parent="Components" unique_id=1304076567 instance=ExtResource("26_q60xe")]
 
 [node name="FaceDirection" parent="Components" unique_id=1749619904 node_paths=PackedStringArray("direction_objs") instance=ExtResource("27_keddt")]
-direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx"), NodePath("../../Animations/Anime/test"), NodePath("../../Animations/Anime/test2"), NodePath("../../Animations/Anime/test3")]
+direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx"), NodePath(""), NodePath(""), NodePath("../../Animations/Anime/test3")]
 
 [node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_yurw6")]
 time_rand_range = Vector2(0, 0)
@@ -2386,7 +2318,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 35
+frame = 113
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2451,56 +2383,17 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "1c2370d7319a45aca3681647ba35cca3"
 
-[node name="test2" type="Sprite2D" parent="Animations/Anime" unique_id=888510140]
-visible = false
-texture_filter = 1
-material = SubResource("ShaderMaterial_iop30")
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("38_x7ir2")
-offset = Vector2(1.218, -13.483)
-hframes = 6
-vframes = 6
-frame = 4
-metadata/_aseprite_wizard_config_ = {
-"convert_fps_field": 60.0,
-"convert_ms_field": 16.0,
-"convert_to_fps": false,
-"embed_tex": false,
-"i_mode": 0,
-"keep_anim_length": false,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "res://test/texture",
-"o_name": "base3-B",
-"only_visible": true,
-"player": "Animations/Anime/aniplayer",
-"scale": "1.0",
-"slice": "",
-"source": "res://test/新女主/二头身.ase",
-"source_uid": 4273518169077934602
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": true,
-"layer_section": true,
-"output_section": true,
-"pending_changes": {
-"o_name": "base3"
-},
-"slice_section": true
-}
-metadata/_aseprite_wizard_source_file_hash_ = "160014f077133ce4e20647529a71400b"
-
 [node name="test3" type="Sprite2D" parent="Animations/Anime" unique_id=1405751503]
 light_mask = 3
 texture_filter = 1
 material = SubResource("ShaderMaterial_iop30")
 position = Vector2(-1.0853271, 0.109004974)
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("38_x7ir2")
+texture = ExtResource("40_05xf3")
 offset = Vector2(1.893, -13.483)
 hframes = 6
 vframes = 6
-frame = 4
+frame = 11
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2514,44 +2407,6 @@ metadata/_aseprite_wizard_config_ = {
 "o_name": "base3-B",
 "only_visible": true,
 "player": "Animations/Anime/aniplayer",
-"scale": "1.0",
-"slice": "",
-"source": "res://test/新女主/二头身.ase",
-"source_uid": 4273518169077934602
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": true,
-"layer_section": true,
-"output_section": true,
-"pending_changes": {},
-"slice_section": true
-}
-metadata/_aseprite_wizard_source_file_hash_ = "160014f077133ce4e20647529a71400b"
-
-[node name="test" type="Sprite2D" parent="Animations/Anime" unique_id=789461373]
-visible = false
-texture_filter = 1
-material = SubResource("ShaderMaterial_iop30")
-position = Vector2(-4.0126114, -4.317827)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("39_x7ir2")
-offset = Vector2(17.143, -7.143)
-hframes = 6
-vframes = 6
-frame = 25
-metadata/_aseprite_wizard_config_ = {
-"convert_fps_field": 60.0,
-"convert_ms_field": 16.0,
-"convert_to_fps": false,
-"embed_tex": false,
-"i_mode": 0,
-"keep_anim_length": false,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "res://test/texture",
-"o_name": "base2",
-"only_visible": true,
-"player": "Animations/Anime/AnimationPlayerTest",
 "scale": "1.0",
 "slice": "",
 "source": "res://test/新女主/二头身.ase",
@@ -2675,7 +2530,6 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
-changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
@@ -2763,6 +2617,11 @@ anime_config = ExtResource("45_mb2n1")
 
 [node name="interactive" type="Node" parent="StateManager/base" unique_id=170160501]
 script = ExtResource("35_eavra")
+
+[node name="pray" type="Node" parent="StateManager/base/interactive" unique_id=411573926]
+script = ExtResource("36_sqf10")
+is_normal_state = false
+anime_config = SubResource("Resource_x7ir2")
 
 [node name="wake" type="Node" parent="StateManager/base/interactive" unique_id=1441156899]
 script = ExtResource("72_c6fmk")
@@ -2932,7 +2791,7 @@ one_shot = true
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_8i7n7")
+save_data_config = SubResource("Resource_w65vx")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 

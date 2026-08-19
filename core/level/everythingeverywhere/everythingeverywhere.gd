@@ -62,14 +62,21 @@ func load_level(level_path: String) -> void:
 	await level.tree_entered
 	move_child(level, 0)
 	await level.ready
+	LevelState.current_level = level.level_id
 	LevelState.level_dic[level.level_id] = level
 	player_player.reparent(level.player_layer)
 	LevelState.current_level_node = level
+	var new_level_pos =  level.get_level_shape_pos()
+	var new_level_size = level.get_level_shape_size()
+	Global.player_camera.limit_left = new_level_pos.x-new_level_size.x*0.5
+	Global.player_camera.limit_right =new_level_pos.x+new_level_size.x*0.5
+	
 	await level.resume()
 
 	
 ## 恢复已加载的关卡
 func resume_level(level_id: LevelState.LEVELS) -> void:
+
 	var level: Levels = LevelState.level_dic[level_id]
 	player_player.reparent(level.player_layer)
 	LevelState.current_level_node = level

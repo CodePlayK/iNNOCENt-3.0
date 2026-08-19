@@ -5977,6 +5977,7 @@ layer_0/tile_data = PackedInt32Array(1245069, 0, 15, 1310605, 0, 16, 1376141, 0,
 [node name="AutoTransparent" parent="Parallax/ParallaxLayer_8/BaseColoredLayer/treeBot" unique_id=1764756245 instance=ExtResource("50_hbvn8")]
 
 [node name="LeveBound" type="CollisionShape2D" parent="." unique_id=644941246]
+unique_name_in_owner = true
 position = Vector2(137, -121)
 shape = SubResource("RectangleShape2D_07drm")
 debug_color = Color(0, 0.97, 0.3071666, 0.83137256)
