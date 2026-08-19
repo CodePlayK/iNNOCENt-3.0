@@ -34,7 +34,6 @@ Global="*res://core/autoload/Global.gd"
 NpcState="*res://core/autoload/NpcState.gd"
 Debug="*res://core/autoload/debug/debug2.tscn"
 Music="*res://core/common/component/music/music.tscn"
-CutscenerGlobal="*uid://dii6bn0hay6i8"
 UiState="*res://core/autoload/UIState.gd"
 ItemState="*res://core/autoload/ItemState.gd"
 AbtState="*res://core/autoload/ABTState.gd"
@@ -42,6 +41,7 @@ EventData="*res://core/autoload/EventData/EventData.tscn"
 Dialogue="*res://core/autoload/Dialogue/Dialogue.tscn"
 DialogueState="*res://core/autoload/Dialogue/DialogueState.tscn"
 DialogueManager="*uid://c3rodes2l3gxb"
+CutscenerGlobal="*uid://dii6bn0hay6i8"
 
 [debug]
 
