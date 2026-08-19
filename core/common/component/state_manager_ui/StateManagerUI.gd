@@ -45,7 +45,7 @@ func init(sm:NpcStateManager):
 		else :
 			state_option.select(11)
 	EventBus._add_debug(self,x_stretch_ratio,30)
-		
+	show()	
 func _process(delta: float) -> void:
 	if !npc:return
 	if drag_on:

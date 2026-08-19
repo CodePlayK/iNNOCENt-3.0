@@ -3735,7 +3735,7 @@ sources/1 = SubResource("TileSetAtlasSource_1ssq3")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jybyy"]
 polygon = PackedVector2Array(74, 9, 419, 8, 418, -109, 74, -108)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5f6jy"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xe73r"]
 texture = ExtResource("21_di7i2")
 texture_region_size = Vector2i(48, 48)
 3:8/0 = 0
@@ -3758,10 +3758,10 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 4
 custom_data_layer_0/name = "blocked"
 custom_data_layer_0/type = 1
-sources/1 = SubResource("TileSetAtlasSource_5f6jy")
+sources/1 = SubResource("TileSetAtlasSource_xe73r")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58yf6"]
-size = Vector2(3186, 487)
+size = Vector2(3186, 354)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2rtet"]
 texture = ExtResource("21_di7i2")
@@ -3908,26 +3908,26 @@ sources/0 = SubResource("TileSetAtlasSource_ufwbg")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7upp4"]
 size = Vector2(80, 465)
 
-[sub_resource type="Resource" id="Resource_ksxnh"]
+[sub_resource type="Resource" id="Resource_v6gb6"]
 script = ExtResource("25_b82mj")
-health = 100.0
+health = 500.0
 
 [sub_resource type="Resource" id="Resource_xe73r"]
 resource_local_to_scene = true
 script = ExtResource("27_3vge2")
 group = 1
-key = "bloodking2"
+key = "bloodking1"
 metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
-[sub_resource type="Resource" id="Resource_v6gb6"]
+[sub_resource type="Resource" id="Resource_ksxnh"]
 script = ExtResource("25_b82mj")
-health = 500.0
+health = 100.0
 
 [sub_resource type="Resource" id="Resource_yeuik"]
 resource_local_to_scene = true
 script = ExtResource("27_3vge2")
 group = 1
-key = "bloodking1"
+key = "bloodking2"
 metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
 [sub_resource type="Resource" id="Resource_ejkdo"]
@@ -5413,7 +5413,6 @@ texture = SubResource("GradientTexture2D_00vot")
 
 [node name="BaseColoredController" parent="Components" unique_id=473114460 instance=ExtResource("4_6nb2f")]
 unique_name_in_owner = true
-brightness_falloff = 0.35
 
 [node name="Parallax" type="Node2D" parent="." unique_id=265892665 node_paths=PackedStringArray("parallax_main_layer", "parallax_origin")]
 script = ExtResource("5_hvoay")
@@ -5632,7 +5631,6 @@ occluder = SubResource("OccluderPolygon2D_jybyy")
 occluder_light_mask = 0
 
 [node name="astar" type="Node2D" parent="Parallax/ParallaxLayer_6" unique_id=297797297]
-visible = false
 z_index = -2
 position = Vector2(-459, -293)
 script = ExtResource("20_gs1bp")
@@ -5648,8 +5646,9 @@ layer_0/navigation_enabled = false
 layer_0/tile_data = PackedInt32Array(393231, 327681, 0, 393230, 327681, 0, 393229, 327681, 0, 393228, 327681, 0, 393227, 327681, 0, 393226, 327681, 0, 393223, 327681, 0, 393224, 327681, 0, 393225, 327681, 0, 327689, 327681, 0, 262153, 327681, 0, 196617, 327681, 0, 262155, 327681, 0, 262156, 327681, 0, 262157, 327681, 0, 262158, 327681, 0, 262159, 327681, 0, 196623, 327681, 0, 196622, 327681, 0, 327698, 327681, 0, 327699, 327681, 0, 327700, 327681, 0, 327701, 327681, 0, 327702, 327681, 0, 327703, 327681, 0, 327704, 327681, 0, 327705, 327681, 0, 327706, 327681, 0, 327709, 327681, 0, 327710, 327681, 0, 327711, 327681, 0, 327712, 327681, 0, 327713, 327681, 0, 327714, 327681, 0, 327715, 327681, 0, 327716, 327681, 0, 327717, 327681, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ParallaxLayer_6/astar/BloodKingAstarMap" unique_id=705785660]
+visible = false
 z_index = -1
-position = Vector2(667, 160.5)
+position = Vector2(667, 224)
 shape = SubResource("RectangleShape2D_58yf6")
 metadata/_edit_lock_ = true
 
@@ -5659,6 +5658,7 @@ z_index = 1
 position = Vector2(-6, 34)
 astar_range = NodePath("../CollisionShape2D")
 enabel_ui = false
+enable = true
 base_tile = NodePath("..")
 npc = NodePath("../../../Npcs/BloodKing1")
 jump_try_time_range = Vector2i(2, 4)
@@ -5669,15 +5669,18 @@ visible = false
 position = Vector2(-6, 34)
 astar_range = NodePath("../CollisionShape2D")
 enabel_ui = false
+enable = true
 base_tile = NodePath("..")
 npc = NodePath("../../../Npcs/BloodKing2")
 jump_try_time_range = Vector2i(2, 4)
 
 [node name="AStar3" parent="Parallax/ParallaxLayer_6/astar/BloodKingAstarMap" unique_id=717129496 node_paths=PackedStringArray("astar_range", "base_tile", "npc") instance=ExtResource("22_djm4q")]
+visible = false
 z_index = 1
 position = Vector2(-6, 34)
 astar_range = NodePath("../CollisionShape2D")
 enabel_ui = false
+enable = true
 only_update_on_floor = true
 base_tile = NodePath("..")
 npc = NodePath("../../../Npcs/it")
@@ -5687,7 +5690,6 @@ jump_try_time_range = Vector2i(2, 6)
 z_index = 1
 position = Vector2(-6, 34)
 astar_range = NodePath("../CollisionShape2D")
-enabel_ui = false
 only_update_on_floor = true
 base_tile = NodePath("..")
 npc = NodePath("../../../Npcs/Tarnished Widow")
@@ -5732,27 +5734,27 @@ position = Vector2(-459, -293)
 script = ExtResource("20_gs1bp")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
+[node name="BloodKing1" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=2000289657 node_paths=PackedStringArray("astar") instance=ExtResource("24_morbp")]
+position = Vector2(1440, -15)
+npc_name = "bloodking1"
+data = SubResource("Resource_v6gb6")
+dialogue_config = ExtResource("29_u7grv")
+save_data_config = SubResource("Resource_xe73r")
+character_box_config = ExtResource("30_w6dlt")
+astar = NodePath("../../astar/BloodKingAstarMap/AStar")
+
 [node name="BloodKing2" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1077960373 node_paths=PackedStringArray("astar") instance=ExtResource("24_morbp")]
 position = Vector2(1229, 279)
 npc_name = "bloodking2"
 data = SubResource("Resource_ksxnh")
 dialogue_config = ExtResource("26_rl56b")
-save_data_config = SubResource("Resource_xe73r")
+save_data_config = SubResource("Resource_yeuik")
 character_box_config = ExtResource("28_6s06p")
 astar = NodePath("../../astar/BloodKingAstarMap/AStar2")
 max_chase_speed = 200.0
 accelerate = 300.0
 air_accelerate = 800.0
 max_velocity_y = 800.0
-
-[node name="BloodKing1" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=2000289657 node_paths=PackedStringArray("astar") instance=ExtResource("24_morbp")]
-position = Vector2(1440, -15)
-npc_name = "bloodking1"
-data = SubResource("Resource_v6gb6")
-dialogue_config = ExtResource("29_u7grv")
-save_data_config = SubResource("Resource_yeuik")
-character_box_config = ExtResource("30_w6dlt")
-astar = NodePath("../../astar/BloodKingAstarMap/AStar")
 
 [node name="it" parent="Parallax/ParallaxLayer_6/Npcs" unique_id=1847133321 node_paths=PackedStringArray("astar") instance=ExtResource("31_g0g5r")]
 position = Vector2(1756.0001, 118)
@@ -5978,9 +5980,11 @@ layer_0/tile_data = PackedInt32Array(1245069, 0, 15, 1310605, 0, 16, 1376141, 0,
 
 [node name="LeveBound" type="CollisionShape2D" parent="." unique_id=644941246]
 unique_name_in_owner = true
+visible = false
 position = Vector2(137, -121)
 shape = SubResource("RectangleShape2D_07drm")
 debug_color = Color(0, 0.97, 0.3071666, 0.83137256)
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_6/CutsceneTrigger/CutscenerTrigger" method="_on_body_exited"]

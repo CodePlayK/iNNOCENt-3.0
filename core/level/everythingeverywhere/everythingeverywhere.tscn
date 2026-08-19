@@ -236,7 +236,6 @@ _data = {
 script = ExtResource("31_1gr5e")
 dialogue_res = ExtResource("30_ylxf2")
 current_res = "test1"
-use_local_res = null
 title = "_0_0_2"
 title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
 import = true
@@ -341,6 +340,7 @@ blend_mode = 2
 range_item_cull_mask = 0
 
 [node name="UIBaseLight" type="DirectionalLight2D" parent="Setting" unique_id=337730710]
+visible = false
 light_mask = 0
 blend_mode = 2
 range_layer_min = 9
@@ -348,7 +348,6 @@ range_layer_max = 10
 
 [node name="CanvasBackground" type="CanvasLayer" parent="." unique_id=970486849]
 layer = -1
-visible = false
 
 [node name="TestMark" parent="CanvasBackground" unique_id=1034310470 instance=ExtResource("7_jtj5p")]
 unique_name_in_owner = true
@@ -694,7 +693,7 @@ root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_oekpy")
 
 [node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
-layer = 8
+layer = 7
 script = ExtResource("24_3yn66")
 
 [node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]

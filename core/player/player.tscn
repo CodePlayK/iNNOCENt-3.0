@@ -1413,7 +1413,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_y6mvg"]
-length = 1.0999999999999999
+length = 1.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2808,7 +2808,7 @@ save_data_config = SubResource("Resource_vp6bf")
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 
 [node name="Dialogue" parent="Interactions" unique_id=1747775360 instance=ExtResource("83_iu40y")]
-position = Vector2(17, -57)
+position = Vector2(17, -95.4288)
 dialogue_config = ExtResource("108_4t8e8")
 
 [node name="PlayerAttackTimeEvent" parent="Interactions" unique_id=1259941547 instance=ExtResource("97_yvey3")]

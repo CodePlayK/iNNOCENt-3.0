@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="9_jjh18"]
 [ext_resource type="Script" uid="uid://bib2ufevv8jl" path="res://core/npc/prototype/UIs.gd" id="10_460cu"]
 [ext_resource type="PackedScene" uid="uid://buesm2hojnri5" path="res://core/common/component/damage_num/damage_num.tscn" id="11_ha3ge"]
+[ext_resource type="PackedScene" uid="uid://dp7l0db2yj7tb" path="res://core/common/component/test_mark/test_mark.tscn" id="11_tma76"]
 [ext_resource type="PackedScene" uid="uid://osw374to73sm" path="res://core/common/component/ui bar/ui_bar.tscn" id="12_pbqsg"]
-[ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="13_wagqj"]
-[ext_resource type="Script" uid="uid://dfqqqphjj3g7s" path="res://core/npc/Tarnished Widow/test_can.gd" id="14_by5ap"]
+[ext_resource type="Theme" uid="uid://bpydhupj7vcjn" path="res://core/autoload/debug/debug.tres" id="14_irqh8"]
 [ext_resource type="PackedScene" uid="uid://536neyrjw7ey" path="res://core/common/component/weight_machine_ui/weight_machine_ui.tscn" id="15_qlc2q"]
 [ext_resource type="PackedScene" uid="uid://bca1pi8w2jduv" path="res://core/common/component/state_manager_ui/state_manager_ui.tscn" id="16_dg6de"]
 [ext_resource type="PackedScene" uid="uid://b4fv2togjt0e8" path="res://core/common/component/components/components.tscn" id="17_aa76q"]
@@ -107,7 +107,7 @@
 [ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="102_agmbw"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="103_5edpy"]
 [ext_resource type="Script" uid="uid://mxvod6ov5gvy" path="res://core/npc/Tarnished Widow/data/TarnishedWidow_data.gd" id="104_65ev0"]
-[ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/Test.gd" id="105_bgtwd"]
+[ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/TestCan.gd" id="105_bgtwd"]
 
 [sub_resource type="Resource" id="Resource_aggdk"]
 script = ExtResource("4_irqh8")
@@ -120,9 +120,6 @@ script = ExtResource("4_0oi7j")
 health_config = SubResource("Resource_aggdk")
 on_screen_left = false
 metadata/_custom_type_script = "uid://by8uti5xwqq2u"
-
-[sub_resource type="LabelSettings" id="LabelSettings_wlnom"]
-font = ExtResource("13_wagqj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmb8x"]
 size = Vector2(164.99998, 122.33333)
@@ -1176,7 +1173,6 @@ health_regeneration = 1.0
 position = Vector2(0, -60.8333)
 
 [node name="Marker" type="Node2D" parent="Config" unique_id=1141538935]
-visible = false
 
 [node name="AstarMarker" parent="Config/Marker" unique_id=505307897 instance=ExtResource("9_jjh18")]
 position = Vector2(0, -21.6667)
@@ -1219,7 +1215,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TestLabel" type="Label" parent="UIs/Test" unique_id=1460675356]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -1227,21 +1222,21 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -127.0
-offset_top = -117.0
+offset_top = -130.0
 offset_right = 208.0
-offset_bottom = -94.0
+offset_bottom = -106.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(49, 22)
-text = "asdasdhhhhhh888888nnn"
-label_settings = SubResource("LabelSettings_wlnom")
+theme = ExtResource("14_irqh8")
+text = "asdasdhhADADASD"
 horizontal_alignment = 1
 
 [node name="TestCan" type="CanvasLayer" parent="UIs/Test" unique_id=1337946644]
 unique_name_in_owner = true
 process_mode = 3
-script = ExtResource("14_by5ap")
+script = ExtResource("105_bgtwd")
 
 [node name="WeightMachineUi" parent="UIs/Test/TestCan" unique_id=2140615047 instance=ExtResource("15_qlc2q")]
 visible = false
@@ -1985,7 +1980,9 @@ save_data_config = SubResource("Resource_irqh8")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 visible = false
-script = ExtResource("105_bgtwd")
+
+[node name="TestMark" parent="Test" unique_id=1034310470 instance=ExtResource("11_tma76")]
+scale = Vector2(0.025, 0.025)
 
 [node name="Events" type="Node" parent="." unique_id=1119527216]
 

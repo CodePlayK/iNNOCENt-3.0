@@ -16,6 +16,7 @@ extends Node
 @onready var state_tree_runner: Node = $StateTreeRunner
 ##是否打印日志到控制台
 @export var print_debug:bool = false
+@export var update_CutsceneState_current_cutscene:bool = false
 var Runners:Dictionary
 @export_global_file("*.crd") var cutscener_data
 @export var cutscener_name:String = "NA"
@@ -34,7 +35,7 @@ func run(c_name:String):
 	var dic
 	if cutscener_data and FileAccess.file_exists(cutscener_data):
 		CutscenerGlobal.ACTION_LOG = "[%s]开始运行,存档位置:[%s]" %[cutscener_name,cutscener_data]
-		CutsceneState.current_cutscene=cutscener_name
+		if update_CutsceneState_current_cutscene:CutsceneState.current_cutscene=cutscener_name
 		dic = load_json(cutscener_data)
 	else:
 		dic = load_json(config_file["save_file_config"])

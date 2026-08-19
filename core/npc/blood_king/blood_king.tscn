@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="7_tfgkb"]
 [ext_resource type="PackedScene" uid="uid://buesm2hojnri5" path="res://core/common/component/damage_num/damage_num.tscn" id="8_1rf8v"]
 [ext_resource type="PackedScene" uid="uid://osw374to73sm" path="res://core/common/component/ui bar/ui_bar.tscn" id="9_esw4n"]
-[ext_resource type="Script" uid="uid://c7oowsbhe0k11" path="res://core/npc/blood_king/test_can.gd" id="12_dmcg1"]
 [ext_resource type="PackedScene" uid="uid://536neyrjw7ey" path="res://core/common/component/weight_machine_ui/weight_machine_ui.tscn" id="12_qsj6b"]
 [ext_resource type="Theme" uid="uid://bpydhupj7vcjn" path="res://core/autoload/debug/debug.tres" id="13_ee7q0"]
 [ext_resource type="PackedScene" uid="uid://b4fv2togjt0e8" path="res://core/common/component/components/components.tscn" id="13_nujp8"]
@@ -95,7 +94,7 @@
 [ext_resource type="Script" uid="uid://bljkt4v4ao0md" path="res://core/npc/prototype/npc_state_manager/states/BehithardListener.gd" id="80_50pb4"]
 [ext_resource type="Script" uid="uid://b5hxh5sri45lm" path="res://core/npc/prototype/npc_state_manager/states/lift.gd" id="80_ggnou"]
 [ext_resource type="Resource" uid="uid://csvyky8nvlw57" path="res://core/events/BloodkingAttackTime.tres" id="80_hwa4n"]
-[ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/Test.gd" id="81_d5aum"]
+[ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/TestCan.gd" id="81_d5aum"]
 [ext_resource type="Script" uid="uid://dqmqxfw8v3qe" path="res://core/npc/prototype/npc_state_manager/states/fall.gd" id="81_vuxa1"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="83_e75wk"]
 [ext_resource type="Resource" uid="uid://xeoy2j56hu7j" path="res://core/npc/blood_king/anime_config/attack1.tres" id="84_jjpru"]
@@ -1663,7 +1662,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_ee7q0"]
+[sub_resource type="Resource" id="Resource_5mk6f"]
 resource_local_to_scene = true
 script = ExtResource("103_dmcg1")
 group = 1
@@ -1752,9 +1751,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -127.0
-offset_top = -102.5
+offset_top = -86.666664
 offset_right = 208.0
-offset_bottom = -79.5
+offset_bottom = -62.666664
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -1768,7 +1767,8 @@ uppercase = true
 [node name="TestCan" type="CanvasLayer" parent="UIs/Test" unique_id=1337946644]
 unique_name_in_owner = true
 process_mode = 3
-script = ExtResource("12_dmcg1")
+visible = false
+script = ExtResource("81_d5aum")
 
 [node name="WeightMachineUi" parent="UIs/Test/TestCan" unique_id=2140615047 instance=ExtResource("12_qsj6b")]
 visible = false
@@ -2131,9 +2131,6 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": true
 }
 metadata/_aseprite_wizard_source_file_hash_ = "f5b6743451848d73c9efe060b96ac8bf"
-
-[node name="TestMark" parent="UnfollowedAnimation/HurtFX" unique_id=1034310470 instance=ExtResource("107_ee7q0")]
-scale = Vector2(0.025, 0.025)
 
 [node name="Timer" type="Node" parent="." unique_id=683351968]
 
@@ -2519,10 +2516,13 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("89_s1dc0")]
 script = ExtResource("90_f37dg")
-save_data_config = SubResource("Resource_ee7q0")
+save_data_config = SubResource("Resource_5mk6f")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
-script = ExtResource("81_d5aum")
+visible = false
+
+[node name="TestMark" parent="Test" unique_id=1034310470 instance=ExtResource("107_ee7q0")]
+scale = Vector2(0.025, 0.025)
 
 [node name="Events" type="Node" parent="." unique_id=1119527216]
 

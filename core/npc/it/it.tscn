@@ -12,10 +12,10 @@
 [ext_resource type="Script" uid="uid://bib2ufevv8jl" path="res://core/npc/prototype/UIs.gd" id="8_pd6sk"]
 [ext_resource type="PackedScene" uid="uid://buesm2hojnri5" path="res://core/common/component/damage_num/damage_num.tscn" id="9_6yfy2"]
 [ext_resource type="PackedScene" uid="uid://osw374to73sm" path="res://core/common/component/ui bar/ui_bar.tscn" id="10_vcgfy"]
-[ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="11_dj06t"]
 [ext_resource type="PackedScene" uid="uid://536neyrjw7ey" path="res://core/common/component/weight_machine_ui/weight_machine_ui.tscn" id="12_oyaf4"]
 [ext_resource type="PackedScene" uid="uid://bca1pi8w2jduv" path="res://core/common/component/state_manager_ui/state_manager_ui.tscn" id="13_rnbi0"]
 [ext_resource type="PackedScene" uid="uid://b4fv2togjt0e8" path="res://core/common/component/components/components.tscn" id="14_a1bll"]
+[ext_resource type="Theme" uid="uid://bpydhupj7vcjn" path="res://core/autoload/debug/debug.tres" id="14_kll38"]
 [ext_resource type="PackedScene" uid="uid://uo155ksresdt" path="res://core/common/component/hit_box/hit_box.tscn" id="15_utwrp"]
 [ext_resource type="PackedScene" uid="uid://dr7a3uet3wu8s" path="res://core/common/component/hurt_box/hurt_box.tscn" id="16_5d8eg"]
 [ext_resource type="PackedScene" uid="uid://d0xx28b7i01wl" path="res://core/common/component/face_direction/face_direction.tscn" id="17_30uib"]
@@ -101,15 +101,12 @@
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="95_25bfe"]
 [ext_resource type="Script" uid="uid://c0qc7n7xx1m7a" path="res://core/npc/it/data/it_data.gd" id="96_ubvsk"]
 [ext_resource type="Resource" uid="uid://clxhl3hhekbgt" path="res://core/npc/it/data/it_sdc.tres" id="97_sxw3c"]
-[ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/Test.gd" id="98_i5fdk"]
+[ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/TestCan.gd" id="98_i5fdk"]
 [ext_resource type="Texture2D" uid="uid://dtibm26d7r0xv" path="res://test/sprite spped curve/The Blood King.png" id="99_pkrkq"]
 [ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="100_kll38"]
 
 [sub_resource type="Resource" id="Resource_six7i"]
 script = ExtResource("2_h1ng1")
-
-[sub_resource type="LabelSettings" id="LabelSettings_wlnom"]
-font = ExtResource("11_dj06t")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7q8t"]
 size = Vector2(260, 72.9167)
@@ -6753,7 +6750,7 @@ following_offset_vec2i = Vector2i(1, 0)
 [node name="Master" parent="." unique_id=760131985 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("3_gfoj1")]
 unique_name_in_owner = true
 obj = NodePath("..")
-connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox")]
+connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2"), NodePath("../Config/NpcScreenVec2"), NodePath("../Interactions/Dialogue"), NodePath("../Components/Areas/JumpPathObj"), NodePath("../Components/AStarMove"), NodePath("../Data/DataCollector"), NodePath("../Components/CreateCharacterBox"), NodePath("../UIs/Test/TestCan")]
 metadata/_edit_pinned_properties_ = [&"connects"]
 
 [node name="Config" type="Node2D" parent="." unique_id=491672595]
@@ -6810,7 +6807,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TestLabel" type="Label" parent="UIs/Test" unique_id=1460675356]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -6818,19 +6814,20 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -127.0
-offset_top = -117.0
+offset_top = -89.166664
 offset_right = 208.0
-offset_bottom = -94.0
+offset_bottom = -65.166664
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(49, 22)
+theme = ExtResource("14_kll38")
 text = "asdasdhhhhhh888888nnn"
-label_settings = SubResource("LabelSettings_wlnom")
 horizontal_alignment = 1
 
 [node name="TestCan" type="CanvasLayer" parent="UIs/Test" unique_id=1337946644]
 process_mode = 3
+script = ExtResource("98_i5fdk")
 
 [node name="WeightMachineUi" parent="UIs/Test/TestCan" unique_id=2140615047 instance=ExtResource("12_oyaf4")]
 visible = false
@@ -7572,7 +7569,6 @@ script = ExtResource("96_ubvsk")
 save_data_config = ExtResource("97_sxw3c")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
-script = ExtResource("98_i5fdk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Test" unique_id=1149539929]
 visible = false
