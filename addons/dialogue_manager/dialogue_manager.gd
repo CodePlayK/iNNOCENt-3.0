@@ -1,5 +1,8 @@
 extends Node
-
+## 待对话结束后执行的方法 mutation 队列
+var _pending_method_mutations: Array[Dictionary] = []
+## 对应的 extra_game_states（每条 mutation 可能不同）
+var _pending_method_states: Array[Array] = []
 const DialogueResource = preload("./dialogue_resource.gd")
 const DialogueLine = preload("./dialogue_line.gd")
 const DialogueResponse = preload("./dialogue_response.gd")
@@ -90,10 +93,39 @@ func _ready() -> void:
 func get_next_dialogue_line(resource: DialogueResource, key: String = "", extra_game_states: Array = [], mutation_behaviour: DMConstants.MutationBehaviour = DMConstants.MutationBehaviour.Wait) -> DialogueLine:
 	var line = await _get_next_dialogue_line(resource, key, extra_game_states, mutation_behaviour)
 	if line == null:
-		# End the conversation
+		# 整段对话结束：先执行排队的方法，再发结束信号
+		await _flush_pending_method_mutations()
 		dialogue_ended.emit(resource)
 	return line
+	
+## 判断是否是「方法调用」mutation（非赋值、非 wait/debug）
+func _is_method_call_mutation(mutation: Dictionary) -> bool:
+	if mutation == null or not mutation.has("expression"):
+		return false
+	var expression: Array = mutation.expression
+	if expression.is_empty():
+		return false
+	# 含赋值（set / =）的仍然立即执行，否则 if 条件会乱
+	if _mutation_contains_assignment(expression):
+		return false
+	# wait / debug 仍立即执行
+	if expression[0].type == DMConstants.TOKEN_FUNCTION \
+			and expression[0].function in [&"wait", &"Wait", &"debug", &"Debug"]:
+		return false
+	# 其余视为方法调用，延迟执行
+	return true
 
+
+## 对话结束后按顺序执行所有排队的方法
+func _flush_pending_method_mutations() -> void:
+	if _pending_method_mutations.is_empty():
+		return
+	var mutations := _pending_method_mutations.duplicate()
+	var states := _pending_method_states.duplicate()
+	_pending_method_mutations.clear()
+	_pending_method_states.clear()
+	for i in mutations.size():
+		await _mutate(mutations[i], states[i])
 
 # Internal line getter.
 func _get_next_dialogue_line(resource: DialogueResource, key: String = "", extra_game_states: Array = [], mutation_behaviour: DMConstants.MutationBehaviour = DMConstants.MutationBehaviour.Wait) -> DialogueLine:
@@ -122,13 +154,23 @@ func _get_next_dialogue_line(resource: DialogueResource, key: String = "", extra
 		return null
 
 	# Run the mutation if it is one
+# Run the mutation if it is one
 	if dialogue.type == DMConstants.TYPE_MUTATION:
 		var actual_next_id: String = dialogue.next_id.split("|")[0]
 		match mutation_behaviour:
-			DMConstants.MutationBehaviour.Wait:
-				await _mutate(dialogue.mutation, extra_game_states)
-			DMConstants.MutationBehaviour.DoNotWait:
-				_mutate(dialogue.mutation, extra_game_states)
+			DMConstants.MutationBehaviour.Wait, DMConstants.MutationBehaviour.DoNotWait:
+				# 方法调用延迟到对话结束；赋值 / wait / debug 仍立即执行
+				if _is_method_call_mutation(dialogue.mutation):
+					_pending_method_mutations.append(dialogue.mutation)
+					_pending_method_states.append(extra_game_states)
+					# 仍发出 mutated 信号，方便监听，但不真正执行
+					if not _mutation_contains_assignment(dialogue.mutation.expression):
+						mutated.emit(dialogue.mutation.merged({ is_inline = false, deferred = true }))
+				else:
+					if mutation_behaviour == DMConstants.MutationBehaviour.Wait:
+						await _mutate(dialogue.mutation, extra_game_states)
+					else:
+						_mutate(dialogue.mutation, extra_game_states)
 			DMConstants.MutationBehaviour.Skip:
 				pass
 		if actual_next_id in [DMConstants.ID_END_CONVERSATION, DMConstants.ID_NULL, null]:

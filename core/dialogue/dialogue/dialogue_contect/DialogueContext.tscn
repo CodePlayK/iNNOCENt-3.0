@@ -10,6 +10,7 @@
 script = ExtResource("2_xfmas")
 dialogue_res = ExtResource("2_bxsl3")
 current_res = "common"
+use_local_res = null
 title_list = "start | "
 
 [node name="DialogueContect" type="Node2D" unique_id=1536966825]

@@ -876,7 +876,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_j6v2a"]
-length = 1.1
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -913,6 +913,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 0, 0, 0, 0, 0, 0, 0, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("test3:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_scyt5"]
@@ -2015,7 +2027,7 @@ backward = true
 script = ExtResource("31_o2ap2")
 animation_name = "onfloor"
 
-[sub_resource type="Resource" id="Resource_w65vx"]
+[sub_resource type="Resource" id="Resource_vp6bf"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
@@ -2025,7 +2037,7 @@ level_id = -2
 light_mask = 2
 collision_layer = 2
 script = ExtResource("1_yb16c")
-talker_name = Array[String](["我"])
+talker_name = Array[String](["我", "玫", "P"])
 dialogue_config = ExtResource("108_4t8e8")
 character_box_config = ExtResource("2_yurw6")
 acceleration_dash = 14000
@@ -2284,7 +2296,7 @@ autostart = true
 [node name="Move2Vec2" parent="Components" unique_id=1304076567 instance=ExtResource("26_q60xe")]
 
 [node name="FaceDirection" parent="Components" unique_id=1749619904 node_paths=PackedStringArray("direction_objs") instance=ExtResource("27_keddt")]
-direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx"), NodePath(""), NodePath(""), NodePath("../../Animations/Anime/test3")]
+direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx"), null, null, NodePath("../../Animations/Anime/test3")]
 
 [node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_yurw6")]
 time_rand_range = Vector2(0, 0)
@@ -2419,7 +2431,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {},
 "slice_section": true
 }
-metadata/_aseprite_wizard_source_file_hash_ = "160014f077133ce4e20647529a71400b"
+metadata/_aseprite_wizard_source_file_hash_ = "197929a11e3319b8d4d07850029776f4"
 
 [node name="AnimationPlayerTest" type="AnimationPlayer" parent="Animations/Anime" unique_id=1356915211]
 libraries/ = SubResource("AnimationLibrary_vp6bf")
@@ -2791,7 +2803,7 @@ one_shot = true
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_w65vx")
+save_data_config = SubResource("Resource_vp6bf")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 

@@ -757,7 +757,6 @@ metadata/_edit_lock_ = true
 
 [node name="TestCanvas" type="CanvasLayer" parent="." unique_id=470471263]
 layer = 21
-visible = false
 script = ExtResource("28_ghsbg")
 
 [node name="MarginContainer" type="MarginContainer" parent="TestCanvas" unique_id=1862374113]

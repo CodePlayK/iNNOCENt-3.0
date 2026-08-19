@@ -62,6 +62,10 @@ func _on_next_dialogue() -> void:
 	next(dialogue_line.next_id)
 	
 func start(dialogue_config1:DialogueConfig,start_title:String = "",extra_game_states: Array = []) -> void:
+	# 防止上一次未正常结束的残留
+	if DialogueManager.has_method("_pending_method_mutations"):
+		DialogueManager._pending_method_mutations.clear()
+		DialogueManager._pending_method_states.clear()
 	if dialogue_config1:dialogue_config = dialogue_config1
 	temporary_game_states = extra_game_states
 	current_start_title = dialogue_config.title
