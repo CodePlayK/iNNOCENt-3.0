@@ -6,6 +6,7 @@ var last_state:bool=false
 var last_bright:float=0
 
 func _process(delta: float) -> void:
+	if !enable:return
 	if area.has_overlapping_areas() and (!last_state or area.get_overlapping_areas()[0].bright!=last_bright):
 		last_bright=area.get_overlapping_areas()[0].bright
 		last_state=true

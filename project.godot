@@ -34,7 +34,6 @@ Global="*res://core/autoload/Global.gd"
 NpcState="*res://core/autoload/NpcState.gd"
 Debug="*res://core/autoload/debug/debug2.tscn"
 Music="*res://core/common/component/music/music.tscn"
-CutscenerGlobal="*uid://dii6bn0hay6i8"
 UiState="*res://core/autoload/UIState.gd"
 ItemState="*res://core/autoload/ItemState.gd"
 AbtState="*res://core/autoload/ABTState.gd"
@@ -42,6 +41,7 @@ EventData="*res://core/autoload/EventData/EventData.tscn"
 Dialogue="*res://core/autoload/Dialogue/Dialogue.tscn"
 DialogueState="*res://core/autoload/Dialogue/DialogueState.tscn"
 DialogueManager="*uid://c3rodes2l3gxb"
+CutscenerGlobal="*uid://dii6bn0hay6i8"
 
 [debug]
 
@@ -60,7 +60,7 @@ window/size/initial_position_type=3
 window/size/always_on_top=true
 window/size/window_width_override=2560
 window/size/window_height_override=1440
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [editor]
 
@@ -68,7 +68,7 @@ script/templates_search_path="res://core/autoload/script_templates/"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/Cutscener/plugin.cfg", "res://addons/at-icons/plugin.cfg", "res://addons/camera_2d_plus/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/Cutscener/plugin.cfg", "res://addons/at-icons/plugin.cfg", "res://addons/camera_2d_plus/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [file_customization]
 
@@ -104,6 +104,7 @@ texture={
 "roughness/src_normal": "",
 "svg/scale": 1.0
 }
+base_sprite_importer={}
 
 [input]
 
@@ -171,14 +172,21 @@ uiselect={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://test/dialogue/test1.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/0_0_bedroom.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/interactive_all.dialogue", "res://core/dialogue/dialogues/0_0_0.dialogue", "res://core/dialogue/dialogues/0_0_1.dialogue")
+locale/translations_pot_files=PackedStringArray("res://test/dialogue/test1.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/0_0_bedroom.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/interactive_all.dialogue", "res://core/dialogue/dialogues/0_0_0.dialogue", "res://core/dialogue/dialogues/0_0_1.dialogue", "res://core/dialogue/dialogues/common.dialogue")
 
 [layer_names]
 
 2d_render/layer_1="基础光照-BaseLight"
+2d_render/layer_2="玩家光照-只照亮玩家"
+2d_render/layer_3="主光照层-会生阴影"
+2d_render/layer_4="墙面光照-只照亮背景墙面"
 2d_render/layer_5="环境光照 - godray"
-2d_render/layer_11="FX照明层"
-2d_render/layer_16="场景顶部漏光"
+2d_render/layer_11="红色高光"
+2d_render/layer_16="背景光1-会生阴影"
+2d_render/layer_17="背景光2-会生阴影"
+2d_render/layer_18="背景光3-会生阴影"
+2d_render/layer_19="背景光4-会生阴影"
+2d_render/layer_20="背景光5-会生阴影"
 2d_physics/layer_1="世界"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="NPC交互"

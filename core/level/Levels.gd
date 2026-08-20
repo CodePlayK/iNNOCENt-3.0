@@ -17,10 +17,14 @@ var atmosphere_se_dic:Array[Array]
 @export var player_z_index_preset:int=0 
 ##当前房间当前时刻的平均颜色,详见[ScreenColor]
 var level_color:Color
-@export var level_background_color:Color=Color("00869c")
+@export var level_background_color:Color=Color("00869c"):
+	set(lbc):
+		level_background_color= lbc
+		if base_colored_controller:base_colored_controller._on_param_changed()
 var waiting_2_load_save:bool=false
-@onready var leve_bound: CollisionShape2D = $LeveBound
+@onready var leve_bound: CollisionShape2D = %LeveBound
 @onready var parallax: Parallax = $Parallax
+@onready var base_colored_controller: BaseColoredController = %BaseColoredController
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)

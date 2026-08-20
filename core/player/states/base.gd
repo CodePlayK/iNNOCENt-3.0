@@ -224,11 +224,6 @@ func change_animation_color(flag:bool=false,pause_on_change_sprite_color:bool = 
 	player.base.material.set_shader_parameter("mix_modulate_strength",mix_modulate_strength)
 	player.base.material.set_shader_parameter("overlay_enable",flag)
 
-	print("=== after change_animation_color ===")
-	print("overlay_color = ", player.base.material.get_shader_parameter("overlay_color"))
-	print("overlay_enable = ", player.base.material.get_shader_parameter("overlay_enable"))
-	print("overlay_mode = ", player.base.material.get_shader_parameter("overlay_mode"))
-	print("sprite_color (state) = ", sprite_color)
 func is_animation_play()-> bool:
 	return change_animation
 	

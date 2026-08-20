@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d3665apiof8ij"]
+
+[ext_resource type="Script" uid="uid://bvjnfj8m6la4j" path="res://core/common/component/UnstableLightFlicker/UnstableLightFlicker.gd" id="1_ytndw"]
+
+[node name="UnstableLightFlicker2" type="Node" unique_id=220190805 node_paths=PackedStringArray("target_lights")]
+script = ExtResource("1_ytndw")
+target_lights = [NodePath("")]
+interval_min = 2.15
+interval_max = 10.8
+short_gap_time = 0.035
+recovery_time = 0.45

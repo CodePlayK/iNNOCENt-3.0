@@ -1,19 +1,22 @@
 [gd_scene format=3 uid="uid://cf1neckchry1q"]
 
 [ext_resource type="Script" uid="uid://cjbkc1ey0ajpv" path="res://core/dialogue/DialogueContext.gd" id="1_v3hue"]
+[ext_resource type="Resource" uid="uid://dv32tpip8g3i4" path="res://core/dialogue/dialogues/common.dialogue" id="2_bxsl3"]
 [ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="2_xfmas"]
 [ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="3_xh22i"]
 [ext_resource type="PackedScene" uid="uid://bq1w2fqfgdvt" path="res://core/dialogue/dialogue/dialogue_ballon/dialogue_balloon.tscn" id="4_iv2pr"]
 
 [sub_resource type="Resource" id="Resource_628xn"]
 script = ExtResource("2_xfmas")
-current_level = null
+dialogue_res = ExtResource("2_bxsl3")
+current_res = "common"
+use_local_res = null
+title_list = "start | "
 
 [node name="DialogueContect" type="Node2D" unique_id=1536966825]
 z_index = 10
 script = ExtResource("1_v3hue")
 dialogue_config = SubResource("Resource_628xn")
-cutscener_debug = null
 
 [node name="CutscenerRunner" parent="." unique_id=112251515 instance=ExtResource("3_xh22i")]
 cutscener_name = "Dialogue"

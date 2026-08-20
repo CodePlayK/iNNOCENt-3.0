@@ -57,6 +57,7 @@
 [ext_resource type="Resource" uid="uid://c28g03pbf0u1k" path="res://core/player/anime config/walk.tres" id="31_y8bkq"]
 [ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="32_likyd"]
 [ext_resource type="Script" uid="uid://ffsamgvv3i8n" path="res://core/player/states/lift.gd" id="32_ssiia"]
+[ext_resource type="Script" uid="uid://hg1fdxhfvgm1" path="res://core/common/component/RimLightController/RimLightController.gd" id="32_vp6bf"]
 [ext_resource type="Script" uid="uid://doa1oqnpnftrt" path="res://core/player/states/toptrans.gd" id="33_0so5l"]
 [ext_resource type="Resource" uid="uid://dpkv2ecdi42dm" path="res://core/player/anime config/run.tres" id="33_idsae"]
 [ext_resource type="Texture2D" uid="uid://b5juukyy77ote" path="res://core/player/animation/aniplayer/base.png" id="33_yurw6"]
@@ -65,7 +66,7 @@
 [ext_resource type="Script" uid="uid://i1efccr8yuad" path="res://core/player/ground.gd" id="35_20iv7"]
 [ext_resource type="Script" uid="uid://ddrlvr4fm28sw" path="res://core/player/states/interactive.gd" id="35_eavra"]
 [ext_resource type="Resource" uid="uid://dfmy5uuibdlh4" path="res://core/player/anime config/fastrun.tres" id="35_ouo11"]
-[ext_resource type="Texture2D" uid="uid://cgq3c2ousre8k" path="res://test/texture/base2.png" id="36_kaqeq"]
+[ext_resource type="Shader" uid="uid://cyr0w13jexgj8" path="res://core/common/shader/RimLight.gdshader" id="35_x7ir2"]
 [ext_resource type="Script" uid="uid://ncct3dwkvkmh" path="res://core/player/states/talk.gd" id="36_sqf10"]
 [ext_resource type="Script" uid="uid://48y3khe2x5ln" path="res://core/player/fx/DashPartical.gd" id="37_e1hln"]
 [ext_resource type="Resource" uid="uid://dtbqgw4un2v8c" path="res://core/player/anime config/dash.tres" id="37_m08ca"]
@@ -74,6 +75,7 @@
 [ext_resource type="Script" uid="uid://cbqf4s680nghe" path="res://core/player/states/dense.gd" id="38_tkue4"]
 [ext_resource type="Script" uid="uid://cdvohjklu0wmo" path="res://core/player/states/behit.gd" id="39_7ni88"]
 [ext_resource type="Script" uid="uid://dhwbxsnluxsc3" path="res://core/player/states/behitDenseSafed.gd" id="40_2jtbn"]
+[ext_resource type="Texture2D" uid="uid://cefmxm6oe8ba1" path="res://test/texture/base3-B.png" id="40_05xf3"]
 [ext_resource type="Script" uid="uid://dkc8guimyw23i" path="res://core/player/states/behitDamaged.gd" id="41_2gdef"]
 [ext_resource type="Resource" uid="uid://cy0f0aqmerss5" path="res://core/player/anime config/lift.tres" id="41_orpom"]
 [ext_resource type="Script" uid="uid://cbyveabf3ebne" path="res://core/player/states/light.gd" id="42_5qc2j"]
@@ -108,6 +110,7 @@
 [ext_resource type="Resource" uid="uid://ckdoxt3m3a82" path="res://core/player/attributes/ABT_light_config.tres" id="75_j1i1n"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="82_su2cd"]
 [ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="83_iu40y"]
+[ext_resource type="Script" uid="uid://bsftsgq0l1nkg" path="res://core/player/states/pray.gd" id="86_vp6bf"]
 [ext_resource type="PackedScene" uid="uid://djbfh382ba1m5" path="res://core/events/player_attack_time_event.tscn" id="97_yvey3"]
 [ext_resource type="PackedScene" uid="uid://b3x7wqm5yy5eg" path="res://core/events/player_dense_suc_time_event.tscn" id="98_blh6t"]
 [ext_resource type="Resource" uid="uid://dlci62k7ghc80" path="res://core/player/resource/player_dialogue_config.tres" id="108_4t8e8"]
@@ -874,7 +877,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_j6v2a"]
-length = 0.8999999999999999
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -915,14 +918,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("base:frame")
+tracks/3/path = NodePath("test3:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2, 3, 4, 5, 6, 7, 8, 9, 10]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_scyt5"]
@@ -1134,6 +1137,22 @@ tracks/3/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_8i7n7"]
+length = 2.400000000000001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("test3:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 11]
+}
+
 [sub_resource type="Animation" id="Animation_p127a"]
 length = 0.6
 loop_mode = 1
@@ -1239,7 +1258,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_frh15"]
-length = 0.7999999999999999
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1395,11 +1414,11 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_y6mvg"]
-length = 0.8333333
+length = 1.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("base:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
@@ -1436,26 +1455,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("base:frame")
+tracks/3/path = NodePath("test3:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [11, 12, 13, 14, 15, 16, 17, 18]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = false
-tracks/4/path = NodePath("test:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
 
 [sub_resource type="Animation" id="Animation_r5r04"]
@@ -1687,6 +1694,7 @@ _data = {
 &"landing": SubResource("Animation_r4dw0"),
 &"lift": SubResource("Animation_1kqd2"),
 &"onfloor": SubResource("Animation_fetig"),
+&"pray": SubResource("Animation_8i7n7"),
 &"roll": SubResource("Animation_p127a"),
 &"rollattack": SubResource("Animation_bp5tt"),
 &"run": SubResource("Animation_frh15"),
@@ -1700,27 +1708,14 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iop30"]
-shader = ExtResource("12_d6pte")
-shader_parameter/enable = true
-shader_parameter/precision = 0.1
-shader_parameter/from_color = Color(0, 1, 0, 1)
-shader_parameter/to_color = Color(0, 1, 1, 1)
-shader_parameter/original_0 = Color(0, 1, 0, 1)
-shader_parameter/original_1 = Color(0, 1, 0, 1)
-shader_parameter/original_2 = Color(0, 1, 0, 1)
-shader_parameter/original_3 = Color(0, 1, 0, 1)
-shader_parameter/original_4 = Color(0, 1, 0, 1)
-shader_parameter/replace_0 = Color(0, 0, 0, 1)
-shader_parameter/replace_1 = Color(0, 0, 0, 1)
-shader_parameter/replace_2 = Color(0, 0, 0, 1)
-shader_parameter/replace_3 = Color(0, 0, 0, 1)
-shader_parameter/replace_4 = Color(0, 0, 0, 1)
-shader_parameter/overlay_enable = false
-shader_parameter/overlay_color = Color(1, 1, 1, 1)
-shader_parameter/overlay_strength = 0.5
-shader_parameter/overlay_mode = 1
-shader_parameter/mix_modulate = true
-shader_parameter/mix_modulate_strength = 1.0
+shader = ExtResource("35_x7ir2")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 1.10000000894072
+shader_parameter/rim_intensity = 2.3499999474728
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(2.505, -1.8)
+shader_parameter/distance_strength = 0.50999998860048
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_igalw"]
 shader = ExtResource("12_d6pte")
@@ -1745,41 +1740,23 @@ shader_parameter/overlay_mode = 1
 shader_parameter/mix_modulate = true
 shader_parameter/mix_modulate_strength = 1.456
 
-[sub_resource type="Animation" id="Animation_8i7n7"]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("test:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
 [sub_resource type="Animation" id="Animation_x7ir2"]
+length = 1.2
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_vp6bf"]
+length = 2.400000000000001
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_05xf3"]
 length = 1.1
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("test:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vp6bf"]
 _data = {
-&"idle->walk": SubResource("Animation_8i7n7"),
-&"walk": SubResource("Animation_x7ir2")
+&"default": SubResource("Animation_x7ir2"),
+&"pray": SubResource("Animation_vp6bf"),
+&"walk": SubResource("Animation_05xf3")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rfhci"]
@@ -2037,6 +2014,10 @@ se_name = "knife-stab"
 script = ExtResource("31_o2ap2")
 sound_config = Array[ExtResource("32_likyd")]([SubResource("Resource_6buv0")])
 
+[sub_resource type="Resource" id="Resource_x7ir2"]
+script = ExtResource("31_o2ap2")
+loop = true
+
 [sub_resource type="Resource" id="Resource_4q060"]
 script = ExtResource("31_o2ap2")
 animation_name = "death"
@@ -2047,16 +2028,17 @@ backward = true
 script = ExtResource("31_o2ap2")
 animation_name = "onfloor"
 
-[sub_resource type="Resource" id="Resource_kaqeq"]
+[sub_resource type="Resource" id="Resource_vp6bf"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
 level_id = -2
 
 [node name="Player" type="CharacterBody2D" unique_id=1119101225]
-z_index = 1
+light_mask = 2
 collision_layer = 2
 script = ExtResource("1_yb16c")
+talker_name = Array[String](["我", "玫", "P"])
 dialogue_config = ExtResource("108_4t8e8")
 character_box_config = ExtResource("2_yurw6")
 acceleration_dash = 14000
@@ -2128,6 +2110,7 @@ obj = NodePath("..")
 connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"), NodePath("../Components/Light"), NodePath("../Animations/FXs/SwordWind/SwordWind"), NodePath("../Interactions/Dialogue"), NodePath("../Saves/DataCollector"), NodePath("../Components/AStarMove"), NodePath("../Components/FaceDirection"), NodePath("../Components/Move2Vec2"), NodePath("../Components/CreateCharacterBox")]
 
 [node name="UIs" parent="." unique_id=303088328 instance=ExtResource("3_gyqt3")]
+visible = false
 position = Vector2(0, -35)
 health_config = ExtResource("3_qy2x3")
 
@@ -2256,6 +2239,7 @@ position = Vector2(0, -35)
 visible = false
 collision_layer = 0
 collision_mask = 0
+monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/LightScale" unique_id=834587047]
@@ -2313,10 +2297,14 @@ autostart = true
 [node name="Move2Vec2" parent="Components" unique_id=1304076567 instance=ExtResource("26_q60xe")]
 
 [node name="FaceDirection" parent="Components" unique_id=1749619904 node_paths=PackedStringArray("direction_objs") instance=ExtResource("27_keddt")]
-direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx")]
+direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx"), null, null, NodePath("../../Animations/Anime/test3")]
 
 [node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_yurw6")]
 time_rand_range = Vector2(0, 0)
+
+[node name="RimLightController" type="Node" parent="Components" unique_id=1778994686 node_paths=PackedStringArray("sprite")]
+script = ExtResource("32_vp6bf")
+sprite = NodePath("../../Animations/Anime/test3")
 
 [node name="Animations" parent="." unique_id=508010457 instance=ExtResource("3_bleph")]
 
@@ -2333,56 +2321,17 @@ fx_color = Color(0.792157, 0.792157, 0, 1)
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_g4fry")
 
-[node name="test" type="Sprite2D" parent="Animations/Anime" unique_id=789461373]
-visible = false
-light_mask = 0
-texture_filter = 1
-material = SubResource("ShaderMaterial_iop30")
-position = Vector2(-10.608589, -2.6590843)
-scale = Vector2(0.61425054, 0.61425054)
-texture = ExtResource("36_kaqeq")
-offset = Vector2(17.143, -7.143)
-hframes = 5
-vframes = 4
-frame = 6
-metadata/_aseprite_wizard_config_ = {
-"convert_fps_field": 60.0,
-"convert_ms_field": 16.0,
-"convert_to_fps": false,
-"embed_tex": false,
-"i_mode": 0,
-"keep_anim_length": false,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "res://test/texture",
-"o_name": "base2",
-"only_visible": true,
-"player": "Animations/Anime/AnimationPlayer",
-"scale": "1.0",
-"slice": "",
-"source": "res://test/texture/player walking.aseprite",
-"source_uid": 2714675207039013877
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": true,
-"layer_section": true,
-"output_section": true,
-"pending_changes": {},
-"slice_section": true
-}
-metadata/_aseprite_wizard_source_file_hash_ = "d74dc88d11237e01c371cceed16ffeea"
-
 [node name="base" type="Sprite2D" parent="Animations/Anime" unique_id=1766364568]
 light_mask = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_iop30")
-position = Vector2(0, 43)
+position = Vector2(-8.411851, 256.33392)
 scale = Vector2(2.1, 2.1)
 texture = ExtResource("33_yurw6")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 65
+frame = 113
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2420,7 +2369,6 @@ texture = ExtResource("34_kaqeq")
 offset = Vector2(17.143, -7.143)
 hframes = 7
 vframes = 7
-frame = 17
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2448,8 +2396,47 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "1c2370d7319a45aca3681647ba35cca3"
 
+[node name="test3" type="Sprite2D" parent="Animations/Anime" unique_id=1405751503]
+light_mask = 3
+texture_filter = 1
+material = SubResource("ShaderMaterial_iop30")
+position = Vector2(-1.0853271, 0.109004974)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("40_05xf3")
+offset = Vector2(1.893, -13.483)
+hframes = 6
+vframes = 6
+frame = 11
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": false,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://test/texture",
+"o_name": "base3-B",
+"only_visible": true,
+"player": "Animations/Anime/aniplayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://test/新女主/二头身.ase",
+"source_uid": 4273518169077934602
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "197929a11e3319b8d4d07850029776f4"
+
 [node name="AnimationPlayerTest" type="AnimationPlayer" parent="Animations/Anime" unique_id=1356915211]
 libraries/ = SubResource("AnimationLibrary_vp6bf")
+autoplay = &"pray"
 
 [node name="base" type="AnimatedSprite2D" parent="Animations" unique_id=1967807603]
 visible = false
@@ -2556,7 +2543,6 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
-changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
@@ -2644,6 +2630,11 @@ anime_config = ExtResource("45_mb2n1")
 
 [node name="interactive" type="Node" parent="StateManager/base" unique_id=170160501]
 script = ExtResource("35_eavra")
+
+[node name="pray" type="Node" parent="StateManager/base/interactive" unique_id=411573926]
+script = ExtResource("86_vp6bf")
+is_normal_state = false
+anime_config = SubResource("Resource_x7ir2")
 
 [node name="wake" type="Node" parent="StateManager/base/interactive" unique_id=1441156899]
 script = ExtResource("72_c6fmk")
@@ -2813,12 +2804,12 @@ one_shot = true
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_kaqeq")
+save_data_config = SubResource("Resource_vp6bf")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 
 [node name="Dialogue" parent="Interactions" unique_id=1747775360 instance=ExtResource("83_iu40y")]
-position = Vector2(17, -57)
+position = Vector2(17, -95.4288)
 dialogue_config = ExtResource("108_4t8e8")
 
 [node name="PlayerAttackTimeEvent" parent="Interactions" unique_id=1259941547 instance=ExtResource("97_yvey3")]

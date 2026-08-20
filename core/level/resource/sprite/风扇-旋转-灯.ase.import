@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://can1wispbe1qb"
+path="res://.godot/imported/风扇-旋转-灯.ase-a553f4947b9071709b83256a09064831.res"
+
+[deps]
+
+source_file="res://core/level/resource/sprite/风扇-旋转-灯.ase"
+dest_files=["res://.godot/imported/风扇-旋转-灯.ase-a553f4947b9071709b83256a09064831.res"]
+
+[params]
+

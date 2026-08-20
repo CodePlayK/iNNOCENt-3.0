@@ -270,33 +270,244 @@ func popup(text,title:String = "请确认"):
 	await WORK_SPACE.popup_dialog.finished
 	return WORK_SPACE.popup_dialog.ok
 
+## 方法/变量是否已成功载入
+var methods_loaded: bool = false
+## 防止并发重复扫描
+var _loading_methods: bool = false
+
 func _ready() -> void:
-	if !FileAccess.file_exists(CONFIG_DATA_FILE_PATH):
-		DirAccess.make_dir_absolute(CutscenerGlobal.CONFIG_DATA_FILE_PATH.get_base_dir())#确保文件目录存在
-		var config = FileAccess.open(CutscenerGlobal.CONFIG_DATA_FILE_PATH, FileAccess.WRITE)
-		config.store_line(JSON.stringify(CutscenerGlobal.CONFIG_DATA_DIC,"\t"))
+	_ensure_config_file()
+	_load_config_into_memory()
+	# 编辑器：不在此处立刻扫方法/发 refresh（监听方可能未连接）
+	# 由 WorkSpace._ready / 打开面板 / Setting 确认 调用 request_reload_methods()
+	if not Engine.is_editor_hint():
+		request_reload_methods()
+
+
+func _ensure_config_file() -> void:
+	if FileAccess.file_exists(CONFIG_DATA_FILE_PATH):
+		return
+	DirAccess.make_dir_absolute(CONFIG_DATA_FILE_PATH.get_base_dir())
+	var config := FileAccess.open(CONFIG_DATA_FILE_PATH, FileAccess.WRITE)
+	config.store_line(JSON.stringify(CONFIG_DATA_DIC, "\t"))
+
+
+func _load_config_into_memory() -> void:
 	var dic = load_json(CONFIG_DATA_FILE_PATH)
-	if !dic:return
+	if not dic:
+		return
 	if dic.has("method_bus"):
 		CONFIG_DATA_DIC["method_bus"] = dic["method_bus"]
 	if dic.has("state_bus"):
 		CONFIG_DATA_DIC["state_bus"] = dic["state_bus"]
 	if dic.has("file_his"):
-		FILE_SYS_DIC["file_history"] =  dic["file_his"]
+		FILE_SYS_DIC["file_history"] = dic["file_his"]
 		FILE_HISTORY = dic["file_his"]
-	CutscenerGlobal.METHOD_BUSES = CutscenerGlobal.CONFIG_DATA_DIC["method_bus"]
-	CutscenerGlobal.STATE_BUSES = CutscenerGlobal.CONFIG_DATA_DIC["state_bus"]
-	if Engine.is_editor_hint():
-		refresh_setting_autoload_config.emit()
-	
+	METHOD_BUSES = CONFIG_DATA_DIC["method_bus"]
+	STATE_BUSES = CONFIG_DATA_DIC["state_bus"]
+
+
+## project.godot 中 autoload 名 -> 路径（带或不带 *）
+var _autoload_path_cache: Dictionary = {}
+
+## 统一入口：等就绪后扫描 Autoload 方法与变量
+func request_reload_methods() -> void:
+	call_deferred("_reload_methods_and_states")
+
+
+func _reload_methods_and_states() -> void:
+	if _loading_methods:
+		return
+	_loading_methods = true
+	_refresh_autoload_path_cache()
+	# 只短等几帧：编辑器里部分 Autoload 可能永远不在树中，不能死等
+	await _wait_buses_ready(12)
+	_scan_methods()
+	_scan_states()
+	methods_loaded = true
+	_loading_methods = false
+	load_global.emit()
+	ACTION_LOG = "METHOD/STATE 载入完成: methods=%s states=%s" % [
+		CUTSCENE_BUS_METHOD.size(), CUTSCENE_BUS_STATE.size()
+	]
+
+
+func _refresh_autoload_path_cache() -> void:
+	_autoload_path_cache.clear()
+	var project := ConfigFile.new()
+	if project.load("res://project.godot") != OK:
+		return
+	if not project.has_section("autoload"):
+		return
+	for key in project.get_section_keys("autoload"):
+		var path: String = str(project.get_value("autoload", key))
+		# 去掉 * 前缀（表示单例）
+		if path.begins_with("*"):
+			path = path.substr(1)
+		_autoload_path_cache[key] = path
+
+
+## 短等：有节点则用节点；没有也不报「超时失败」，后面走脚本回退
+func _wait_buses_ready(max_frames: int = 12) -> void:
+	var buses: Array = []
+	buses.append_array(METHOD_BUSES)
+	buses.append_array(STATE_BUSES)
+	if buses.is_empty():
+		await get_tree().process_frame
+		return
+	var frame := 0
+	while frame < max_frames:
+		var all_ok := true
+		for bus in buses:
+			if not get_tree().get_root().has_node(str(bus)):
+				all_ok = false
+				break
+		if all_ok:
+			await get_tree().process_frame
+			return
+		await get_tree().process_frame
+		frame += 1
+
+
+## 从场景树或脚本资源解析可调用方法列表
+func _collect_method_dicts(bus_name: String) -> Array:
+	var result: Array = []
+	# 1) 优先已在树中的实例（运行时 / 部分编辑器 Autoload）
+	if get_tree() and get_tree().get_root().has_node(bus_name):
+		var node: Node = get_tree().get_root().get_node(bus_name)
+		for method in node.get_method_list():
+			result.append(method)
+		return result
+	# 2) 编辑器回退：从 project.godot 路径加载脚本再扫
+	var script := _resolve_autoload_script(bus_name)
+	if script == null:
+		ACTION_LOG = "无法解析 Autoload 脚本: %s（树中无节点且路径无效）" % bus_name
+		return result
+	if script.has_method("get_script_method_list"):
+		for method in script.get_script_method_list():
+			result.append(method)
+	else:
+		ACTION_LOG = "脚本不支持 get_script_method_list: %s" % bus_name
+	return result
+
+
+func _resolve_autoload_script(bus_name: String) -> Script:
+	if not _autoload_path_cache.has(bus_name):
+		_refresh_autoload_path_cache()
+	if not _autoload_path_cache.has(bus_name):
+		return null
+	var path: String = str(_autoload_path_cache[bus_name])
+	if path.is_empty():
+		return null
+	# uid:// 需要用 ResourceLoader
+	if not ResourceLoader.exists(path) and not path.begins_with("uid://"):
+		ACTION_LOG = "Autoload 路径不存在: %s -> %s" % [bus_name, path]
+		return null
+	var res = load(path)
+	if res == null:
+		ACTION_LOG = "Autoload 资源加载失败: %s -> %s" % [bus_name, path]
+		return null
+	if res is Script:
+		return res as Script
+	if res is PackedScene:
+		var packed: PackedScene = res
+		var inst: Node = packed.instantiate()
+		var s: Script = inst.get_script()
+		inst.queue_free()
+		return s
+	return null
+
+
+func _scan_methods() -> void:
+	CUTSCENE_BUS_METHOD.clear()
+	if METHOD_BUSES.is_empty():
+		return
+	for bus in METHOD_BUSES:
+		var bus_name := str(bus)
+		var methods: Array = _collect_method_dicts(bus_name)
+		if methods.is_empty():
+			continue
+		var from_tree := get_tree() and get_tree().get_root().has_node(bus_name)
+		ACTION_LOG = "载入 METHOD_BUS [%s]（%s）" % [
+			bus_name, "场景树" if from_tree else "脚本回退"
+		]
+		for method in methods:
+			if not _is_callable_bus_method(method):
+				continue
+			var args_real: Array = []
+			var args = method.get("args", [])
+			for arg in args:
+				args_real.append({
+					"arg_name": arg.get("name", ""),
+					"arg_type": arg.get("type", TYPE_NIL),
+				})
+			var ret_type = 0
+			if method.has("return") and typeof(method["return"]) == TYPE_DICTIONARY:
+				ret_type = method["return"].get("type", 0)
+			CUTSCENE_BUS_METHOD.append([
+				"%s.%s" % [bus_name, method.get("name", "")],
+				args_real,
+				ret_type,
+			])
+
+
+func _is_callable_bus_method(method: Dictionary) -> bool:
+	var mname: String = str(method.get("name", ""))
+	if mname.is_empty() or mname == "free":
+		return false
+	if mname.begins_with("_"):
+		return false
+	# 脚本 get_script_method_list 可能没有完整 flags；有则过滤引擎/编辑器
+	if method.has("flags"):
+		var flags: int = int(method.flags)
+		if flags & METHOD_FLAG_OBJECT_CORE:
+			return false
+		if flags & METHOD_FLAG_EDITOR:
+			return false
+		# 实例 get_method_list：要求带 NORMAL；纯脚本列表往往 flags 为 1 或 0
+		if flags != 0 and not (flags & METHOD_FLAG_NORMAL):
+			return false
+	return true
+
+
+func _scan_states() -> void:
+	CUTSCENE_BUS_STATE.clear()
+	if STATE_BUSES.is_empty():
+		return
+	for bus in STATE_BUSES:
+		var bus_name := str(bus)
+		# 1) 树中实例
+		if get_tree() and get_tree().get_root().has_node(bus_name):
+			var node: Node = get_tree().get_root().get_node(bus_name)
+			for prop in node.get_property_list():
+				if prop.usage & PROPERTY_USAGE_SCRIPT_VARIABLE:
+					CUTSCENE_BUS_STATE["%s.%s" % [bus_name, prop.name]] = prop.type
+			ACTION_LOG = "载入 STATE_BUS [%s]（场景树）" % bus_name
+			continue
+		# 2) 脚本回退
+		var script := _resolve_autoload_script(bus_name)
+		if script == null:
+			ACTION_LOG = "STATE_BUS 无法解析: %s" % bus_name
+			continue
+		if script.has_method("get_script_property_list"):
+			for prop in script.get_script_property_list():
+				var usage: int = int(prop.get("usage", 0))
+				if usage & PROPERTY_USAGE_SCRIPT_VARIABLE:
+					CUTSCENE_BUS_STATE["%s.%s" % [bus_name, prop.get("name", "")]] = prop.get("type", TYPE_NIL)
+			ACTION_LOG = "载入 STATE_BUS [%s]（脚本回退）" % bus_name
+		else:
+			ACTION_LOG = "STATE_BUS 脚本无属性列表: %s" % bus_name
+
+
 func load_json(path):
-	if !FileAccess.file_exists(CutscenerGlobal.CONFIG_DATA_FILE_PATH):
+	if not FileAccess.file_exists(path):
 		return
 	var file = FileAccess.open(path, FileAccess.READ)
 	var json = JSON.new()
 	var error = json.parse(file.get_as_text())
-	if OK!=error:
-		CutscenerGlobal.ACTION_LOG = "执行器载入json数据失败![%s]" %error
+	if OK != error:
+		ACTION_LOG = "执行器载入json数据失败![%s]" % error
+		return
 	var data_received = json.data as Dictionary
 	return data_received
 var REPLACEMENTS_REGEX: RegEx = RegEx.create_from_string("{{(.*?)}}")

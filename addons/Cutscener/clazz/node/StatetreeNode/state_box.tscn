@@ -1,93 +1,93 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddeepduxu1ksu"]
+[gd_scene format=3 uid="uid://ddeepduxu1ksu"]
 
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/StatetreeNode/StateBox.gd" id="1_k4lm4"]
+[ext_resource type="Script" uid="uid://c1jmw0sdn0d2y" path="res://addons/Cutscener/clazz/node/StatetreeNode/StateBox.gd" id="1_k4lm4"]
 [ext_resource type="PackedScene" uid="uid://brijnx0ig81b1" path="res://addons/Cutscener/clazz/node/Conmmon/param_2.tscn" id="2_va60b"]
 [ext_resource type="PackedScene" uid="uid://biow5ccnofp2u" path="res://addons/Cutscener/clazz/node/Conmmon/index_op.tscn" id="3_fi8yq"]
 [ext_resource type="PackedScene" uid="uid://dobf7nc4fqttn" path="res://addons/Cutscener/clazz/node/Conmmon/delete_param_butt.tscn" id="4_slu1y"]
 [ext_resource type="PackedScene" uid="uid://us35lq4dhp2h" path="res://addons/Cutscener/clazz/node/Conmmon/export.tscn" id="5_5bp0e"]
 
-[node name="StateBox" type="MarginContainer"]
+[node name="StateBox" type="MarginContainer" unique_id=189243933]
 script = ExtResource("1_k4lm4")
 
-[node name="Box" type="VBoxContainer" parent="."]
+[node name="Box" type="VBoxContainer" parent="." unique_id=1991497291]
 layout_mode = 2
 
-[node name="BoxBar" type="MarginContainer" parent="Box"]
+[node name="BoxBar" type="MarginContainer" parent="Box" unique_id=1269433151]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Box/BoxBar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Box/BoxBar" unique_id=1877875131]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Box/BoxBar/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Box/BoxBar/HBoxContainer" unique_id=221297035]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_top = 7
 theme_override_constants/margin_bottom = 7
 
-[node name="Drag" type="ColorRect" parent="Box/BoxBar/HBoxContainer/MarginContainer"]
+[node name="Drag" type="ColorRect" parent="Box/BoxBar/HBoxContainer/MarginContainer" unique_id=1348529683]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 0.901961, 1, 0.67451)
 
-[node name="AddParam" type="Button" parent="Box/BoxBar/HBoxContainer"]
+[node name="AddParam" type="Button" parent="Box/BoxBar/HBoxContainer" unique_id=1917929289]
 layout_mode = 2
 tooltip_text = "添加参数"
 text = "Add"
 
-[node name="AddEvent" type="Button" parent="Box/BoxBar/HBoxContainer"]
+[node name="AddEvent" type="Button" parent="Box/BoxBar/HBoxContainer" unique_id=214644857]
 layout_mode = 2
 tooltip_text = "添加参数"
 text = "AddE"
 
-[node name="AddTree" type="Button" parent="Box/BoxBar/HBoxContainer"]
+[node name="AddTree" type="Button" parent="Box/BoxBar/HBoxContainer" unique_id=1103823786]
 layout_mode = 2
 tooltip_text = "添加参数"
 text = "AddT"
 
-[node name="Del" type="Button" parent="Box/BoxBar/HBoxContainer"]
+[node name="Del" type="Button" parent="Box/BoxBar/HBoxContainer" unique_id=2066016865]
 layout_mode = 2
 text = "X"
 
-[node name="NumBer" type="HBoxContainer" parent="Box"]
+[node name="NumBer" type="HBoxContainer" parent="Box" unique_id=1825864691]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Box/NumBer"]
+[node name="Label" type="Label" parent="Box/NumBer" unique_id=154301654]
 visible = false
 layout_mode = 2
 text = "参数.1"
 
-[node name="Min" parent="Box/NumBer" instance=ExtResource("2_va60b")]
+[node name="Min" parent="Box/NumBer" unique_id=939359505 instance=ExtResource("2_va60b")]
 layout_mode = 2
 size_flags_stretch_ratio = 10.0
 tooltip_text = "目标值"
 theme = null
 text = "0"
 
-[node name="IndexOp" parent="Box/NumBer" node_paths=PackedStringArray("target") instance=ExtResource("3_fi8yq")]
+[node name="IndexOp" parent="Box/NumBer" unique_id=1316945087 node_paths=PackedStringArray("target") instance=ExtResource("3_fi8yq")]
 layout_mode = 2
 size_flags_stretch_ratio = 3.15
 target = NodePath("../Min")
 
-[node name="Max" parent="Box/NumBer" instance=ExtResource("2_va60b")]
+[node name="Max" parent="Box/NumBer" unique_id=1194556334 instance=ExtResource("2_va60b")]
 layout_mode = 2
 size_flags_stretch_ratio = 10.0
 tooltip_text = "目标值"
 theme = null
 text = "0"
 
-[node name="IndexOp2" parent="Box/NumBer" node_paths=PackedStringArray("target") instance=ExtResource("3_fi8yq")]
+[node name="IndexOp2" parent="Box/NumBer" unique_id=1456388708 node_paths=PackedStringArray("target") instance=ExtResource("3_fi8yq")]
 layout_mode = 2
 size_flags_stretch_ratio = 3.15
 target = NodePath("../Max")
 
-[node name="DeleteParam" parent="Box/NumBer" instance=ExtResource("4_slu1y")]
+[node name="DeleteParam" parent="Box/NumBer" unique_id=2081348040 instance=ExtResource("4_slu1y")]
 layout_mode = 2
 
-[node name="CheckButton" parent="Box/NumBer" instance=ExtResource("5_5bp0e")]
+[node name="CheckButton" parent="Box/NumBer" unique_id=1798918265 instance=ExtResource("5_5bp0e")]
 visible = false
 layout_mode = 2
 
-[node name="BackColor" type="ColorRect" parent="."]
+[node name="BackColor" type="ColorRect" parent="." unique_id=1539333501]
 visible = false
 layout_mode = 2
 mouse_filter = 2

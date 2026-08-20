@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://7vqhxmvuauty"]
+
+[ext_resource type="Shader" uid="uid://cyr0w13jexgj8" path="res://core/common/shader/RimLight.gdshader" id="1_ujsqv"]
+[ext_resource type="Texture2D" uid="uid://4u64ucmw2upu" path="res://core/common/resource/texture/cross.png" id="2_ujsqv"]
+[ext_resource type="Script" uid="uid://dcb7utjuth6rh" path="res://core/common/class/BaseSprite.gd" id="3_c0qvg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5pho5"]
+resource_local_to_scene = true
+shader = ExtResource("1_ujsqv")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.6
+shader_parameter/rim_intensity = 5.8
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-2, -3.245)
+shader_parameter/distance_strength = 7.1
+
+[node name="BaseSprite" type="Sprite2D" unique_id=94096621]
+light_mask = 5
+material = SubResource("ShaderMaterial_5pho5")
+texture = ExtResource("2_ujsqv")
+script = ExtResource("3_c0qvg")
+rim_width_px = 2.6
+rim_intensity = 5.8
+light_dir = Vector2(-2, -3.245)
+distance_strength = 7.1

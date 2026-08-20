@@ -16,8 +16,8 @@ class_name Cutscener
 @onready var label_2: Button = $VBoxContainer/WorkSpace/SideBar/Label2
 
 func _ready() -> void:
-	if !Engine.is_editor_hint():return
-	CutscenerGlobal.refresh_setting_autoload_config.emit()
+	if not Engine.is_editor_hint():
+		return
 	save.icon = get_theme_icon("Save", "EditorIcons")
 	save_as.icon = get_theme_icon("FileAccess", "EditorIcons")
 	open.icon = get_theme_icon("Load", "EditorIcons")
@@ -31,15 +31,16 @@ func _ready() -> void:
 	label.icon = get_theme_icon("History", "EditorIcons")
 	label_2.icon = get_theme_icon("Variant", "EditorIcons")
 	save_config_file()
-	
+	# 仅刷新设置页 Autoload 勾选列表；方法扫描由 WorkSpace._ready 负责
+	CutscenerGlobal.call_deferred("emit_signal", "refresh_setting_autoload_config")
+
 func _on_tree_exited() -> void:
 	CutscenerGlobal.preset()
-	
 
 func save_config_file():
 	if FileAccess.file_exists(CutscenerGlobal.CONFIG_DATA_FILE_PATH):
 		return
 	CutscenerGlobal.ACTION_LOG = "config.data不存在,新建..."
-	DirAccess.make_dir_absolute(CutscenerGlobal.CONFIG_DATA_FILE_PATH.get_base_dir())#确保文件目录存在
+	DirAccess.make_dir_absolute(CutscenerGlobal.CONFIG_DATA_FILE_PATH.get_base_dir())
 	var config = FileAccess.open(CutscenerGlobal.CONFIG_DATA_FILE_PATH, FileAccess.WRITE)
-	config.store_line(JSON.stringify(CutscenerGlobal.CONFIG_DATA_DIC,"\t"))
+	config.store_line(JSON.stringify(CutscenerGlobal.CONFIG_DATA_DIC, "\t"))

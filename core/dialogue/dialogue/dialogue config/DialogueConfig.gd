@@ -11,6 +11,7 @@ var dialogue_checker_path:String
 @export var talkers:Array[String] 
 #当前的有效台词资源
 @export var current_res:String 
+@export var use_local_res:bool  = false
 @export var current_level:LevelState.LEVELS =LevelState.LEVELS.LEVEL_CURRENT
 #当前标题
 @export var title:String:

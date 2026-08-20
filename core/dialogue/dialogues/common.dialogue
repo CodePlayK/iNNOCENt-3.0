@@ -1,0 +1,4 @@
+~ 祈祷
+床: 要对天使祈祷吗?
+do CutscenerGlobal.cutscener_run.emit("0_0_0_pray")
+=> END!

@@ -37,7 +37,8 @@ func _ready() -> void:
 	PlayerState.player_player = player_player
 	_ensure_default_save_file()
 	_init_level_paths()
-	
+	Global.back_ground_color = back_ground_color
+
 	# 载入 cutscener 配置目录，判断当前运行是否为 cutscener
 	# var config = load_json(CutscenerGlobal.CONFIG_DATA_FILE_PATH)
 	# if config["run_type"] == 0:
@@ -47,6 +48,7 @@ func _init_level_paths() -> void:
 	dic_level_path[LevelState.LEVELS.LEVEL_0] = LevelState.LEVEL_0_PATH
 	dic_level_path[LevelState.LEVELS.LEVEL_1] = LevelState.LEVEL_1_PATH
 	dic_level_path[LevelState.LEVELS.LEVEL_2] = LevelState.LEVEL_2_PATH
+	dic_level_path[LevelState.LEVELS.LEVEL_TEST] = LevelState.LEVEL_0_PATH
 
 
 
@@ -60,14 +62,21 @@ func load_level(level_path: String) -> void:
 	await level.tree_entered
 	move_child(level, 0)
 	await level.ready
+	LevelState.current_level = level.level_id
 	LevelState.level_dic[level.level_id] = level
-	level.player_layer.add_child(player_player)
+	player_player.reparent(level.player_layer)
 	LevelState.current_level_node = level
+	var new_level_pos =  level.get_level_shape_pos()
+	var new_level_size = level.get_level_shape_size()
+	Global.player_camera.limit_left = new_level_pos.x-new_level_size.x*0.5
+	Global.player_camera.limit_right =new_level_pos.x+new_level_size.x*0.5
+	
 	await level.resume()
 
 	
 ## 恢复已加载的关卡
 func resume_level(level_id: LevelState.LEVELS) -> void:
+
 	var level: Levels = LevelState.level_dic[level_id]
 	player_player.reparent(level.player_layer)
 	LevelState.current_level_node = level
@@ -125,6 +134,9 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		var new_level_start_y = old_level_pos.y-old_level_size.y*0.5-(new_level_pos.y-old_level.global_position.y+new_level_size.y*0.5)
 		var new_level_end_x = new_level_start_x
 		var new_level_end_y = 0
+		
+		Global.player_camera.limit_left = min(Global.player_camera.limit_left,new_level_pos.x-new_level_size.x*0.5)
+		Global.player_camera.limit_right = max(Global.player_camera.limit_right,new_level_pos.x+new_level_size.x*0.5)
 		Global.player_camera.node_to_follow = null		
 		var old_level_start_x = old_level.global_position.x
 		var old_level_start_y = old_level.global_position.y
@@ -152,6 +164,8 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		Global.player_camera.position_smoothing_enabled = true
 		tw.kill()
 		LevelState.level_dic[LevelState.last_level].position=Vector2i(0,9999)
+		Global.player_camera.limit_left = new_level_pos.x-new_level_size.x*0.5
+		Global.player_camera.limit_right = new_level_pos.x+new_level_size.x*0.5
 		LevelState.level_dic[LevelState.last_level].hide()
 	Debug.dprintinfo(DebugCT.dp("******关卡切换动画结束[UP]",self))
 

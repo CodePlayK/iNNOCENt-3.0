@@ -1,6 +1,7 @@
 @icon("res://core/common/resource/icon/dialogue.svg")
 extends Node2D
 class_name DialogueContext
+@export_enum("BODY_ENTER","MOUSE_ENTER") var interact_type = "BODY_ENTER"
 @export var dialogue_config:DialogueConfig
 @export var cutscener_debug:bool = false:
 	set(f):
@@ -22,8 +23,13 @@ func on_master_ready(master) -> void:
 		dialogue_config = obj.dialogue_config
 	dialogue_balloon.dialogue_config = dialogue_config
 	if obj is Player:return
-	obj.interaction.body_entered.connect(_body_entered)
-	obj.interaction.body_exited.connect(_body_exited)
+	match interact_type:
+		"BODY_ENTER":
+			obj.interaction.body_entered.connect(_body_entered)
+			obj.interaction.body_exited.connect(_body_exited)
+		"MOUSE_ENTER":
+			obj.interaction.mouse_entered.connect(_body_entered)
+			obj.interaction.mouse_exited.connect(_body_exited)
 	DialogueManager.dialogue_ended.connect(on_dialogue_ended)
 	current_title = dialogue_config.title
 	cutscener_runner.cutscener_data = dialogue_config.dialogue_checker_path
@@ -31,12 +37,15 @@ func on_master_ready(master) -> void:
 	
 func _body_entered(body: Node2D) -> void:
 	if !obj.interaction.enable:return
-	var d:DialogueResource= DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
-	#判断当前cutscene state下是否有台词更新
-	if obj.dialogue_debug and !d.get_titles().has(dialogue_config.title):
-		Debug.dprintinfo(DebugCT.dp("[%s]在当前场景[%s]中无台词更新" %[dialogue_config.title,CutsceneState.current_cutscene],self))
-	elif dialogue_config.current_res!=CutsceneState.current_cutscene:
-		dialogue_config.dialogue_res=DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
+	if dialogue_config.use_local_res and dialogue_config.dialogue_res:
+		pass
+	else:
+		var d:DialogueResource= DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
+		#判断当前cutscene state下是否有台词更新
+		if obj.dialogue_debug and !d.get_titles().has(dialogue_config.title):
+			Debug.dprintinfo(DebugCT.dp("[%s]在当前场景[%s]中无台词更新" %[dialogue_config.title,CutsceneState.current_cutscene],self))
+		elif dialogue_config.current_res!=CutsceneState.current_cutscene:
+			dialogue_config.dialogue_res=DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
 		dialogue_config.current_res=CutsceneState.current_cutscene
 	#Dialogue.current_talker=obj.dialogue_config.talkers
 	Dialogue.current_start_obj = obj

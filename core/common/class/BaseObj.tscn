@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cuovqcybsfiuv"]
+
+[ext_resource type="Script" uid="uid://bj5trbyolfp3j" path="res://core/common/class/BaseObj.gd" id="1_ygay0"]
+[ext_resource type="Script" uid="uid://54mythirafvf" path="res://core/common/component/Graphic/StaticSprite.gd" id="2_fxk8h"]
+[ext_resource type="PackedScene" uid="uid://b4fv2togjt0e8" path="res://core/common/component/components/components.tscn" id="3_ve8dy"]
+[ext_resource type="Script" uid="uid://hg1fdxhfvgm1" path="res://core/common/component/RimLightController/RimLightController.gd" id="4_ve8dy"]
+
+[node name="BaseObj" type="Node2D" unique_id=1884058557]
+script = ExtResource("1_ygay0")
+
+[node name="Graphic" type="Node2D" parent="." unique_id=965218902]
+
+[node name="StaticSprite" type="Sprite2D" parent="Graphic" unique_id=834307657]
+script = ExtResource("2_fxk8h")
+
+[node name="Components" parent="." unique_id=646780483 instance=ExtResource("3_ve8dy")]
+
+[node name="RimLightController" type="Node" parent="Components" unique_id=777255987]
+script = ExtResource("4_ve8dy")

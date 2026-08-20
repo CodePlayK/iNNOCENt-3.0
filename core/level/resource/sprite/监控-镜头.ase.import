@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://3fokcvpcd36d"
+path="res://.godot/imported/监控-镜头.ase-9f9b57dd881cebe55b90903ae75e59a5.res"
+
+[deps]
+
+source_file="res://core/level/resource/sprite/监控-镜头.ase"
+dest_files=["res://.godot/imported/监控-镜头.ase-9f9b57dd881cebe55b90903ae75e59a5.res"]
+
+[params]
+

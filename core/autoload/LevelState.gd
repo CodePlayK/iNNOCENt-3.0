@@ -1,7 +1,8 @@
 extends Node
-const LEVEL_0_PATH="res://core/level/level0/level_0.tscn"
+const LEVEL_0_PATH="res://core/level/level_0_地下室/level_0_地下室.tscn"
 const LEVEL_1_PATH="res://core/level/level1/level_1.tscn"
 const LEVEL_2_PATH="res://core/level/level2/level_2.tscn"
+const LEVEL_TEST_PATH="res://core/level/level_Test/level_Test.tscn"
 
 ##当前关卡
 var current_save_id:int=-99999
@@ -55,4 +56,5 @@ enum LEVELS
 	LEVEL_0=0,
 	LEVEL_1=1,
 	LEVEL_2=2,
+	LEVEL_TEST=999,
 }
