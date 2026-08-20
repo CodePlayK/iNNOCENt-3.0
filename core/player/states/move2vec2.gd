@@ -1,4 +1,5 @@
 extends GroundState
+## 移动到目标时，目标格相对玩家的偏移（格坐标）
 @export var following_offset_vec2i:Vector2i
 
 func enter():

@@ -1,7 +1,10 @@
 extends AirState
+## 上升速度衰减到 max_velocity_y × 该比例时，切入顶点过渡（toptrans）
 @export var toptrans_threshold: float = .1
 @export_group("debug")
+## 打印从上升切入顶点过渡的日志
 @export var lift2toptrans: bool = false
+## 打印从上升切入下落的日志
 @export var lift2fall: bool = false
 
 

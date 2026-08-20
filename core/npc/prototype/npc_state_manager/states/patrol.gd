@@ -1,21 +1,22 @@
 extends NpcsCombatState
 @export_category("巡逻配置")
+## 巡逻位移方式：按速度（BY_SPEED）或按时间（BY_TIME）
 @export var move_mode:MoveMode
-##巡逻的范围,以左边为起点计算
+## 巡逻水平速度（仅 [member move_mode] 为 BY_SPEED 时使用）
 @export var patrol_speed:float=150
-##巡逻范围的随机系数
+## 巡逻速度随机倍率区间（x=最小，y=最大，实际速度 = 速度 × 随机值）
 @export var patrol_speed_rand:Vector2=Vector2(.8,1.2)
-##巡逻的范围,以左边为起点计算
+## 单次巡逻的水平跨度（以出生点为中心，左右各一半）
 @export var patrol_distance:float=150
-##巡逻范围的随机系数
+## 巡逻跨度随机倍率区间（x=最小，y=最大）
 @export var patrol_distance_rand:Vector2=Vector2(.8,1.2)
-##跑完一次巡逻距离的时间,以即单趟
+## 单趟走到目标点所用时间（仅 [member move_mode] 为 BY_TIME 时使用）
 @export var patrol_time:float=3
-##巡逻时间的随机系数
+## 巡逻时间随机倍率区间（x=最小，y=最大）
 @export var patrol_time_rand:Vector2=Vector2(.8,1.2)
-##巡逻单趟后原地停止的时间
+## 单趟到达后原地停留的时间（秒）
 @export var wait_time:float=3
-##巡逻单趟后原地停止时间的随机系数
+## 停留时间随机倍率区间（x=最小，y=最大）
 @export var wait_time_rand:Vector2=Vector2(.8,1.2)
 
 @onready var patrol_timer: Timer = $PatrolTimer
@@ -43,6 +44,8 @@ func enter():
 	super.enter()
 	npc.current_bot_y = npc.global_position.y
 	var patrol_config = get_node_in_patrol_area(npc.patrol_area.patrol_list,npc)
+	if patrol_config == null:
+		return
 	npc.current_patrol_right = patrol_config.patrol_right
 	npc.current_patrol_left = patrol_config.patrol_left
 	npc.current_bot_y = patrol_config.bot_y
@@ -56,7 +59,7 @@ func debug():
 func rand():
 	patrol_distance_t=patrol_distance*randf_range(patrol_distance_rand.x,patrol_distance_rand.y)
 	patrol_time_t=patrol_time*randf_range(patrol_time_rand.x,patrol_time_rand.y)
-	patrol_speed_t=patrol_time*randf_range(patrol_time_rand.x,patrol_time_rand.y)
+	patrol_speed_t=patrol_speed*randf_range(patrol_speed_rand.x,patrol_speed_rand.y)
 	wait_time_t=wait_time*randf_range(wait_time_rand.x,wait_time_rand.y)
 	
 func get_real_target():

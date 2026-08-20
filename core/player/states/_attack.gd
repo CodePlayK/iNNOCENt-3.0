@@ -2,32 +2,38 @@
 extends BaseState
 ##玩家攻击状态
 class_name PlayerAttackState
-##下一段攻击
 @export_category("配置")
 @export_group("伤害")
+## 本段攻击命中时造成的伤害
 @export var damage:float = 1.0
 @export_group("基础配置")
+## 连段成功后切入的下一段攻击状态；为空则连段结束
 @export var next_attack:PlayerAttackState
-#在经过攻击时长多少比例后,可以切换到下一攻击
+## 经过攻击时长该比例后，才允许切换到下一段攻击（0~1）
 @export_range(0,1.0) var to_next_attack_threshold:float = .2
-##攻击后的硬直时间
+## 攻击动画结束后的硬直时间（秒）
 @export_range(0,5.0) var after_attack_stiff_time:float = .5
-##攻击后可以切换到下一段攻击的时间
+## 攻击后监听下一段攻击输入的窗口时长（秒）
 @export_range(0,2.0) var listen_next_attack_time:float = 1
 ###攻击动画名,默认为状态名
 #@export var ani_name:String
-##声音
+## 攻击时播放的音效名
 @export var sound_name:String = "slash7"
 @export_group("运动配置")
-##攻击状态中是否允许移动
+## 攻击状态中是否允许水平移动
 @export var moveable:bool = true
+## 攻击状态中是否允许转身
 @export var change_face_able:bool = true
-##攻击状态中的移动速度比率:相对于行走速度
+## 攻击中移动速度相对行走速度的倍率
 @export_range(0,2.0) var move_speed_scale_to_walk:float = 1.0
 @export_group("Debug")
+## 打印收到攻击输入的日志
 @export var attack_input_receive:bool = false
+## 打印开始监听下一段攻击的日志
 @export var start_listener:bool = false
+## 打印“计时结束且切入下一段攻击”的日志
 @export var timeout2attack:bool = false
+## 打印“计时结束但未连段”的日志
 @export var timeout_not2attack:bool = false
 @onready var player_attack_time_event: BaseEvents = %PlayerAttackTimeEvent
 

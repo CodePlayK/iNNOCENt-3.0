@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1l8e1yomi4wq"]
 
-[ext_resource type="Script" uid="uid://dfkp17lcit34m" path="res://core/common/class/BodyInteractObj.gd" id="1_xd6s5"]
+[ext_resource type="Script" uid="uid://dfkp17lcit34m" path="res://core/common/class/InteractObj.gd" id="1_xd6s5"]
 [ext_resource type="Resource" uid="uid://dv32tpip8g3i4" path="res://core/dialogue/dialogues/common.dialogue" id="2_xc8h3"]
 [ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="3_cmx7l"]
 [ext_resource type="PackedScene" uid="uid://r17fxu1au77o" path="res://core/common/component/master/Master.tscn" id="4_wxap3"]

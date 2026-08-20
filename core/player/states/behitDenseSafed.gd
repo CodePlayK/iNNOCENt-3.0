@@ -1,4 +1,5 @@
 extends behit
+## 硬化格挡成功后的硬直时间（秒）
 @export var stiff_time=.3
 @onready var stiff_timer: Timer = $StiffTimer
 @onready var player_dense_suc_time_event: Node = %PlayerDenseSucTimeEvent

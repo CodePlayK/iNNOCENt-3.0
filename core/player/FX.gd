@@ -1,8 +1,12 @@
 extends Node2D
 var area
+## 剑风特效沿朝向飞出的距离
 @export_range(0,500) var length = 300.0
+## 剑风飞出到目标位置所用时间（秒）
 @export_range(0,5.0) var time = 1.0
+## 开始淡出的时间点，相对 [member time] 的比例（0~1）
 @export var fade_start_time:float = .3
+## 淡出至透明所用时间（秒）
 @export var fade_time:float = .3
 @onready var master: Master = %Master
 var obj

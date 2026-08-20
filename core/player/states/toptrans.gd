@@ -1,5 +1,6 @@
 extends AirState
 @export_group("debug")
+## 打印从顶点过渡切入下落的日志
 @export var toptrans2fall: bool = false
 
 

@@ -47,6 +47,7 @@ func run(c_name: String):
 
 	CutscenerGlobal.ACTION_LOG = "---------Cutscener[%s]开始运行---------" % cutscener_name
 	running = true
+	CutsceneState.cutscener_playing = true
 	current_save_raw_data = dic
 	await _run_graph(dic["base"])
 
@@ -55,8 +56,9 @@ func run(c_name: String):
 	else:
 		CutscenerGlobal.ACTION_LOG = "---------Cutscener[%s]运行结束---------" % cutscener_name
 		CutscenerGlobal.ACTION_LOG = "---------返回值: %s---------" % str(result)
+	CutsceneState.cutscener_playing = false
 	return result
-
+	
 
 ## 硬中断
 func stop() -> void:
@@ -117,6 +119,8 @@ func _do_hard_abort() -> void:
 	if CutscenerGlobal.has_signal("cutscener_stopped"):
 		CutscenerGlobal.cutscener_stopped.emit(cutscener_name)
 	CutscenerGlobal.cutscener_ended.emit()
+	CutsceneState.cutscener_playing = false
+
 
 # endregion
 

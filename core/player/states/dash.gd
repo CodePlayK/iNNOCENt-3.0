@@ -1,6 +1,7 @@
 extends GroundState
 
 @onready var timer: Timer = $Timer
+## 冲刺能力配置（持续时长、冷却）
 @export var dash_config: PlayerABTDashConfig
 
 var current_dash_time: float = 0

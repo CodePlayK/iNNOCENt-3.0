@@ -2030,6 +2030,7 @@ level_id = -2
 
 [node name="Player" type="CharacterBody2D" unique_id=1119101225]
 light_mask = 2
+z_index = 20
 collision_layer = 2
 script = ExtResource("1_yb16c")
 talker_name = Array[String](["我", "玫", "P"])
@@ -2663,6 +2664,7 @@ input_receive_call_func_fail = null
 one_shot = true
 
 [node name="UIs" parent="." unique_id=303088328 instance=ExtResource("3_gyqt3")]
+visible = false
 position = Vector2(0, -35)
 health_config = ExtResource("3_qy2x3")
 

@@ -4,16 +4,25 @@ extends Node
 ## 负责：收集所有状态、切换状态、转发输入/物理帧、处理受击
 class_name PlayerStateManager
 
+## 状态机启动时进入的起始状态节点
 @export var starting_node: Node
+## 玩家生命值配置
 @export var health_config: HealthConfig
+## 玩家耐力配置
 @export var stamina_config: StaminaConfig
 
 @export_group("Debug")
+## 打印状态切换日志
 @export var changing_state: bool
+## 打印通用输入转发日志
 @export var common_inputing: bool
+## 打印“输入交给当前状态”日志
 @export var input2current_state: bool
+## 打印受击后切状态日志
 @export var on_hurt2state: bool
+## 打印 state2state 调用日志
 @export var state2stating: bool
+## 打印攻击监听器收到输入的日志
 @export var listener_input: bool
 
 @onready var player: Player = $".."

@@ -2,7 +2,9 @@ extends behit
 class_name BehitDamagedState
 @onready var stiff_timer: Timer = $StiffTimer
 @onready var protect_timer: Timer = $ProtectTimer
+## 受伤硬直持续时间（秒），结束后切回上一状态
 @export var stiff_time=.3
+## 受伤无敌/保护时间（秒），期间不再进入本状态
 @export_range(0,5.0) var protect_time=.3
 var enable:bool = true
 

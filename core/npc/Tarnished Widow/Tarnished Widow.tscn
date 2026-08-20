@@ -97,8 +97,6 @@
 [ext_resource type="Resource" uid="uid://bm2nubm88ce4k" path="res://core/npc/Tarnished Widow/anime_config/attack2.tres" id="89_wbfe5"]
 [ext_resource type="Script" uid="uid://ciydllsoyq103" path="res://core/npc/prototype/npc_state_manager/states/attack3.gd" id="90_ogk8y"]
 [ext_resource type="Resource" uid="uid://cjxdo785b2u7k" path="res://core/npc/Tarnished Widow/anime_config/attack3.tres" id="91_oii8p"]
-[ext_resource type="Script" uid="uid://jhd1spy0p5ln" path="res://core/events/BloodKingAttackTimeEvent.gd" id="94_4fnaq"]
-[ext_resource type="Resource" uid="uid://csvyky8nvlw57" path="res://core/events/BloodkingAttackTime.tres" id="95_x8hpa"]
 [ext_resource type="Script" uid="uid://ccmnjmmgttt31" path="res://core/npc/prototype/npc_state_manager/states/air.gd" id="96_5frt1"]
 [ext_resource type="Script" uid="uid://b5hxh5sri45lm" path="res://core/npc/prototype/npc_state_manager/states/lift.gd" id="97_5vprk"]
 [ext_resource type="Script" uid="uid://dqmqxfw8v3qe" path="res://core/npc/prototype/npc_state_manager/states/fall.gd" id="98_u04v5"]
@@ -146,6 +144,9 @@ size = Vector2(100.833336, 87.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u86bx"]
 size = Vector2(94, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cfw8"]
+size = Vector2(260, 72.9167)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2sd1"]
 size = Vector2(181.667, 72.9167)
@@ -1137,7 +1138,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 89.16667)
 
-[sub_resource type="Resource" id="Resource_tma76"]
+[sub_resource type="Resource" id="Resource_irqh8"]
 resource_local_to_scene = true
 script = ExtResource("3_1jmvl")
 group = 1
@@ -1331,6 +1332,15 @@ shape = SubResource("RectangleShape2D_u86bx")
 [node name="SpeedMap2Animation" parent="Components" unique_id=807679046 instance=ExtResource("22_riins")]
 
 [node name="Areas" type="Node2D" parent="Components" unique_id=1757821694]
+
+[node name="FollwingIdelRange" type="Area2D" parent="Components/Areas" unique_id=256317463]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/FollwingIdelRange" unique_id=722989308]
+position = Vector2(0, -35.833332)
+shape = SubResource("RectangleShape2D_7cfw8")
 
 [node name="ChaseRange" type="Area2D" parent="Components/Areas" unique_id=976945710]
 collision_layer = 0
@@ -1659,7 +1669,6 @@ confirmed_weight = 100.0
 
 [node name="attack3" parent="WeightMachines/ChaseWeightMachine" unique_id=815444200 instance=ExtResource("44_hpk0s")]
 modulate = Color(1, 0.466667, 0.239216, 1)
-confirm = true
 
 [node name="distance2Player" parent="WeightMachines/ChaseWeightMachine/attack3" unique_id=1340950438 instance=ExtResource("45_m8pwf")]
 distance_max = 300.0
@@ -1710,6 +1719,7 @@ npcstatemachine_ui = NodePath("../UIs/Test/TestCan/StateManagerUI")
 
 [node name="stack" type="Node" parent="NpcStateManager" unique_id=1365886926]
 script = ExtResource("49_0bqpo")
+is_group = true
 
 [node name="behitbati" type="Node" parent="NpcStateManager/stack" unique_id=1052546581]
 script = ExtResource("50_8cfrw")
@@ -1731,6 +1741,7 @@ one_shot = true
 
 [node name="base" type="Node" parent="NpcStateManager" unique_id=1330743064]
 script = ExtResource("60_80cg6")
+is_group = true
 
 [node name="idle" type="Node" parent="NpcStateManager/base" unique_id=820482523]
 script = ExtResource("61_qle1s")
@@ -1754,6 +1765,7 @@ is_normal_state = false
 
 [node name="combat" type="Node" parent="NpcStateManager/base" unique_id=285284423]
 script = ExtResource("67_4xgqf")
+is_group = true
 
 [node name="patrol" type="Node" parent="NpcStateManager/base/combat" unique_id=1557052015]
 script = ExtResource("68_u4ura")
@@ -1852,6 +1864,7 @@ wait_time = 0.2
 [node name="_attack" type="Node" parent="NpcStateManager/base/combat" unique_id=366531985]
 script = ExtResource("83_n7ytm")
 is_normal_state = false
+is_group = true
 
 [node name="attack0" type="Node" parent="NpcStateManager/base/combat/_attack" unique_id=1230017214 node_paths=PackedStringArray("fallback_state")]
 script = ExtResource("84_dmym4")
@@ -1921,16 +1934,9 @@ anime_config = ExtResource("91_oii8p")
 [node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack/attack3" unique_id=1116784584]
 one_shot = true
 
-[node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack" unique_id=2845427]
-one_shot = true
-
-[node name="BloodkingAttackTime" type="Node" parent="NpcStateManager/base/combat/_attack" unique_id=846786530]
-unique_name_in_owner = true
-script = ExtResource("94_4fnaq")
-event = ExtResource("95_x8hpa")
-
 [node name="air" type="Node" parent="NpcStateManager/base" unique_id=817406872]
 script = ExtResource("96_5frt1")
+is_group = true
 
 [node name="lift" type="Node" parent="NpcStateManager/base/air" unique_id=833368194]
 script = ExtResource("97_5vprk")
@@ -1939,9 +1945,6 @@ on_fighting = true
 enable_player_detection = true
 anime_config = SubResource("Resource_fm88g")
 
-[node name="Timer" type="Timer" parent="NpcStateManager/base/air/lift" unique_id=1379339879]
-wait_time = 0.2
-
 [node name="fall" type="Node" parent="NpcStateManager/base/air" unique_id=224754953]
 script = ExtResource("98_u04v5")
 on_combat = true
@@ -1949,17 +1952,10 @@ on_fighting = true
 enable_player_detection = true
 anime_config = SubResource("Resource_nhkja")
 
-[node name="Timer" type="Timer" parent="NpcStateManager/base/air/fall" unique_id=773065845]
-wait_time = 0.2
-
 [node name="Listener" type="Node" parent="NpcStateManager" unique_id=2121281372]
 
 [node name="AttackListener" type="Node" parent="NpcStateManager/Listener" unique_id=1442744686]
 script = ExtResource("99_dhmvd")
-input_receive = null
-input_receive_but_disable = null
-input_receive_call_func_success = null
-input_receive_call_func_fail = null
 
 [node name="Timer" type="Timer" parent="NpcStateManager/Listener/AttackListener" unique_id=2033365622]
 
@@ -1982,7 +1978,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("103_5edpy")]
 script = ExtResource("104_65ev0")
-save_data_config = SubResource("Resource_tma76")
+save_data_config = SubResource("Resource_irqh8")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 visible = false
@@ -2002,5 +1998,3 @@ scale = Vector2(0.025, 0.025)
 [connection signal="timeout" from="NpcStateManager/base/combat/behithard/ProtectTimer" to="NpcStateManager/base/combat/behithard" method="_on_protect_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/dodge/Timer" to="NpcStateManager/base/combat/dodge" method="_on_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/chase/Timer" to="NpcStateManager/base/combat/chase" method="_on_timer_timeout"]
-[connection signal="timeout" from="NpcStateManager/base/air/lift/Timer" to="NpcStateManager/base/combat/chase" method="_on_timer_timeout"]
-[connection signal="timeout" from="NpcStateManager/base/air/fall/Timer" to="NpcStateManager/base/combat/chase" method="_on_timer_timeout"]

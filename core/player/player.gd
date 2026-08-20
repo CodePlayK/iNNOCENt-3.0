@@ -3,56 +3,80 @@ class_name Player extends CharacterBody2D
 var obj_name:String = "player"
 @export_category("配置")
 @export_group("基础")
+## 对话中本角色使用的说话人名称列表
 @export var talker_name:Array[String]
+## 本角色使用的对话资源配置
 @export var dialogue_config:DialogueConfig
+## 角色立绘/对话框配置；未填写角色名时会自动追加玩家名
 @export var character_box_config:CharacterBoxConfig:
 	set(cb):
 		character_box_config=cb
 		if !cb.character_names:character_box_config.append(obj_name)
+## 是否在场景中创建角色对话框
 @export var create_character_box: bool=true
 
 @export_group("运动")
+## 玩家死亡后是否传送回出生位置
 @export var dead_switch: bool=true
-##重力
+## 重力加速度（每秒叠加到 velocity.y）
 @export var gravity: int=800
-##最大y速度
+## 下落速度上限（防止重力无限加速）
 @export var max_velocity_y: int=800
-##run加速度
+## 奔跑时的水平加速度
 @export var acceleration_run: int=400
+## 冲刺时的水平加速度
 @export var acceleration_dash: int=700
+## 冲刺水平速度上限
 @export var max_speed_dash: int=700
-##摩擦力
+## 水平摩擦力（用于减速）
 @export var friction: int=800
-##最大run速度
+## 奔跑水平速度上限
 @export var max_speed_run: int=200
-##最大fastrun速度
+## 疾跑水平速度上限
 @export var max_speed_fast_run: int=300
-##最大walk速度
+## 行走水平速度上限
 @export var max_speed_walk: int=100
-##jump速度
+## 跳跃初速度（向上，赋值给 -velocity.y）
 @export var jump_speed: int=220
+## 攀爬竖直速度
 @export var climb_speed: int=120
+## 攀爬水平速度
 @export var climb_speed_x: int=80
+## 短按跳跃时，将上升速度削减为 jump_speed / 该值
 @export var click_jump_force_limit:=5
-##最低跳跃速度
+## 短按跳跃生效的最小上升速度阈值（未达此速度不削减）
 @export var min_jump_fource:=70
 @export_group("AStar配置")
+## A* 寻路地图（提供路径 direction / is_edge，以及 get_next_edge_cell）
 @export var astar:AStarMap
+## 地面追逐水平速度上限
 @export var max_chase_speed:float = 600
+## 地面水平加速度（沿路径 direction.x）
 @export var accelerate:float = 2000
+## 地面转向时摩擦相对加速度的倍率（越大刹得越快）
 @export var fric2acc_scale:float = 10
+## 空中水平加速度
 @export var air_accelerate:float = 2000
+## 空中转向时摩擦相对空中加速度的倍率
 @export var air_fric2acc_scale:float = 10
-##
+## 高度差达到 [member jump_force_max_cell_y] 格时的起跳力
 @export var jump_force_max_y:float  = 1000
+## 竖直 remap 的最大高度差（格）；与 [member jump_force_max_y] 对应
 @export var jump_force_max_cell_y:int = 8
+## 高度差为 [member jump_force_min_cell_y] 格时的起跳力
 @export var jump_force_min_y:float = 700
+## 竖直 remap 的最小高度差（格）；与 [member jump_force_min_y] 对应
 @export var jump_force_min_cell_y:int = 4
+## 水平距离达到 [member jump_force_max_cell_x] 格时的边缘前跳水平速度
 @export var jump_force_max_mid:float  = 1000
+## 水平 remap 的最大格距；与 [member jump_force_max_mid] 对应
 @export var jump_force_max_cell_x:int = 8
+## 水平距离为 [member jump_force_min_cell_x] 格时的边缘前跳水平速度
 @export var jump_force_min_mid:float = 700
+## 水平 remap 的最小格距；与 [member jump_force_min_mid] 对应
 @export var jump_force_min_cell_x:int = 4
 @export_group("战斗")
+## 耐力自然恢复速度（每秒）
 @export var stamina_recovered_speed:float = 20
 var on_ready:bool=false
 var face_left:bool=true:

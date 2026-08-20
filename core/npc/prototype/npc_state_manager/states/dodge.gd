@@ -1,6 +1,9 @@
 extends NpcsCombatState
+## 闪避位移距离（远离玩家方向）
 @export var dodge_distance:float
+## 闪避位移所用时间（秒）
 @export var dodge_time:float
+## 闪避冷却时间（秒），冷却结束前不能再次闪避
 @export var cooldown:float
 @onready var timer: Timer = $Timer
 var tween:Tween
