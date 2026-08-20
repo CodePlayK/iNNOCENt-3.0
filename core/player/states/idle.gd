@@ -8,6 +8,8 @@ func enter():
 	into_indel_state.emit()
 	return null
 func input(event: InputEvent) -> BaseState:
+	if not PlayerState.can_use_gameplay_input():
+		return null
 	if event.is_action_pressed("jump") or event.is_action_pressed("light"):
 		return jump_state
 	#elif event.is_action_pressed("dash"):
@@ -30,7 +32,7 @@ func physics_process(delta: float) -> BaseState:
 
 func after_physics_process(delta: float) -> BaseState:
 	if get_movement_input_x() and !is_player_blocked():
-		if Input.is_action_pressed("run"):
+		if Input.is_action_pressed("run") and PlayerState.can_run():
 			return run_state
 		return walk_state
 	return null

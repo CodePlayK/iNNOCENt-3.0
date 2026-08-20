@@ -8,6 +8,9 @@ func enter():
 
 func physics_process(delta: float) -> BaseState:
 	move = get_movement_input_x()
+	# 奔跑被全局禁止时退回 walk
+	if not PlayerState.can_run():
+		return walk_state
 	if !player.is_on_floor() and player.velocity.y<=0:
 		return lift_state
 	if player.velocity.y>0:
@@ -24,6 +27,9 @@ func physics_process(delta: float) -> BaseState:
 	min_jump_force(player.velocity,delta)
 	if player.velocity.x==0 and move==0:
 		return idle_state
+	# 松开 run 键退回 walk
+	if not Input.is_action_pressed("run"):
+		return walk_state
 	return null
 	
 func exit(state:BaseState):

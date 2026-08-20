@@ -9,7 +9,7 @@ func enter():
 func physics_process(delta: float) -> BaseState:
 	move = get_movement_input_x()
 	if player.is_on_floor() :
-		if Input.is_action_pressed("run"):
+		if Input.is_action_pressed("run") and PlayerState.can_run():
 			if PlayerState.is_player_on_fighting:
 				return fastrun_state
 			else :
