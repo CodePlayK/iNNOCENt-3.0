@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://bsqk5hmanu35f" path="res://core/npc/Tarnished Widow/data/TarnishedWidow_npc_data.tres" id="2_cfeqs"]
 [ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="3_1jmvl"]
 [ext_resource type="Resource" uid="uid://dexgwljjc7vhy" path="res://core/npc/Tarnished Widow/data/TarnishedWidow_sdc.tres" id="3_7cfw8"]
+[ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="3_tma76"]
 [ext_resource type="Script" uid="uid://by8uti5xwqq2u" path="res://core/common/ui/character_dialogue_box/CharacterBoxConfig.gd" id="4_0oi7j"]
 [ext_resource type="Script" uid="uid://se8hp5xmhbp2" path="res://core/common/attributes/HealthConfig.gd" id="4_irqh8"]
 [ext_resource type="PackedScene" uid="uid://r17fxu1au77o" path="res://core/common/component/master/Master.tscn" id="5_a47gn"]
@@ -108,6 +109,10 @@
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="103_5edpy"]
 [ext_resource type="Script" uid="uid://mxvod6ov5gvy" path="res://core/npc/Tarnished Widow/data/TarnishedWidow_data.gd" id="104_65ev0"]
 [ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/TestCan.gd" id="105_bgtwd"]
+
+[sub_resource type="Resource" id="Resource_gaamt"]
+script = ExtResource("3_tma76")
+metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="Resource" id="Resource_aggdk"]
 script = ExtResource("4_irqh8")
@@ -1132,7 +1137,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 89.16667)
 
-[sub_resource type="Resource" id="Resource_irqh8"]
+[sub_resource type="Resource" id="Resource_6b6fb"]
 resource_local_to_scene = true
 script = ExtResource("3_1jmvl")
 group = 1
@@ -1146,6 +1151,7 @@ safe_margin = 1.0
 script = ExtResource("1_d6kdm")
 npc_name = "TarnishedWidow"
 data = ExtResource("2_cfeqs")
+dialogue_config = SubResource("Resource_gaamt")
 save_data_config = ExtResource("3_7cfw8")
 character_box_config = SubResource("Resource_jtj5p")
 starting_state = "lock"
@@ -1976,7 +1982,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("103_5edpy")]
 script = ExtResource("104_65ev0")
-save_data_config = SubResource("Resource_irqh8")
+save_data_config = SubResource("Resource_6b6fb")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 visible = false

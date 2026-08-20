@@ -73,30 +73,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_55ti7"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Setting/PlayerCamera:limit_top")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-165]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Setting/PlayerCamera:limit_bottom")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [417]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_onngr"]
 _data = {
@@ -294,9 +270,8 @@ unique_name_in_owner = true
 ignore_rotation = false
 zoom = Vector2(2, 2)
 limit_left = -389
-limit_top = -165
-limit_right = 1889
-limit_bottom = 417
+limit_top = -25
+limit_bottom = -243
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
@@ -310,7 +285,6 @@ script = ExtResource("2_celhk")
 SHAKE_DECAY = 0.07
 SHAKE_ANGLE_MULTIPLIER = 0.287
 SHAKE_POSITION_MULTIPLIER = 0.85
-FLASH_LAYER = 2
 
 [node name="CutsceneCamera" parent="Setting/PlayerCamera" unique_id=1018596231 instance=ExtResource("3_ydae1")]
 
@@ -321,6 +295,7 @@ base_drag_horizontal_offset = 0.3
 [node name="PlayerCameraAniplayer" type="AnimationPlayer" parent="Setting/PlayerCamera" unique_id=490699425]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_onngr")
+playback_auto_capture = false
 script = ExtResource("5_i74u8")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Setting" unique_id=206632273]
@@ -910,6 +885,7 @@ texture = ExtResource("35_l7ngx")
 
 [node name="InGameDebugLayer" type="CanvasLayer" parent="." unique_id=1350922194]
 layer = 10
+visible = false
 script = ExtResource("28_7ue4y")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="InGameDebugLayer" unique_id=1473784054]
@@ -1001,6 +977,7 @@ limit_enabled = false
 
 [node name="PlayerPlayer" parent="." unique_id=1119101225 instance=ExtResource("41_i74u8")]
 unique_name_in_owner = true
+light_mask = 6
 position = Vector2(88, -35)
 talker_name = Array[String](["我", "P"])
 dialogue_config = null

@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7brne3blaru1"
-path="res://.godot/imported/垃圾堆.png-957fba92e24f228a71a357853915e30c.ctex"
+uid="uid://qfa2amssm713"
+path="res://.godot/imported/酒瓶.002.png-38383eb79eb5a5e5f592979df24fe600.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://core/level/resource/sprite/垃圾堆.png"
-dest_files=["res://.godot/imported/垃圾堆.png-957fba92e24f228a71a357853915e30c.ctex"]
+source_file="res://core/level/resource/sprite/酒瓶.002.png"
+dest_files=["res://.godot/imported/酒瓶.002.png-38383eb79eb5a5e5f592979df24fe600.ctex"]
 
 [params]
 

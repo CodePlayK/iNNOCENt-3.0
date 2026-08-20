@@ -29,8 +29,6 @@ class_name Camera2DPlus
 @export var node_to_follow: Node:
 	set(ntf):
 		node_to_follow = ntf
-		limit_bottom = 86
-		limit_top = -253
 
 # Variables:
 var flash_layer: CanvasLayer ## This variable is going to store the CanvasLayer that is going to store the flash related stuff.

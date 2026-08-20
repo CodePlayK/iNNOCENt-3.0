@@ -104,6 +104,7 @@ texture={
 "roughness/src_normal": "",
 "svg/scale": 1.0
 }
+base_sprite_importer={}
 
 [input]
 

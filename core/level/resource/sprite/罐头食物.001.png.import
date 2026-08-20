@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7brne3blaru1"
-path="res://.godot/imported/垃圾堆.png-957fba92e24f228a71a357853915e30c.ctex"
+uid="uid://caadq4hkgjby8"
+path="res://.godot/imported/罐头食物.001.png-86c8a078fdf307e74e4fe05e50460286.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://core/level/resource/sprite/垃圾堆.png"
-dest_files=["res://.godot/imported/垃圾堆.png-957fba92e24f228a71a357853915e30c.ctex"]
+source_file="res://core/level/resource/sprite/罐头食物.001.png"
+dest_files=["res://.godot/imported/罐头食物.001.png-86c8a078fdf307e74e4fe05e50460286.ctex"]
 
 [params]
 

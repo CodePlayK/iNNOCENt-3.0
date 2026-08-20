@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7brne3blaru1"
-path="res://.godot/imported/垃圾堆.png-957fba92e24f228a71a357853915e30c.ctex"
+uid="uid://h6v622djfq75"
+path="res://.godot/imported/落地钟表.001.png-2965300db90584d853acf3b4e318be84.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://core/level/resource/sprite/垃圾堆.png"
-dest_files=["res://.godot/imported/垃圾堆.png-957fba92e24f228a71a357853915e30c.ctex"]
+source_file="res://core/level/resource/sprite/落地钟表.001.png"
+dest_files=["res://.godot/imported/落地钟表.001.png-2965300db90584d853acf3b4e318be84.ctex"]
 
 [params]
 

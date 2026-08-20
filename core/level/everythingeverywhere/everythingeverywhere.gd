@@ -48,7 +48,7 @@ func _init_level_paths() -> void:
 	dic_level_path[LevelState.LEVELS.LEVEL_0] = LevelState.LEVEL_0_PATH
 	dic_level_path[LevelState.LEVELS.LEVEL_1] = LevelState.LEVEL_1_PATH
 	dic_level_path[LevelState.LEVELS.LEVEL_2] = LevelState.LEVEL_2_PATH
-	dic_level_path[LevelState.LEVELS.LEVEL_TEST] = LevelState.LEVEL_TEST_PATH
+	dic_level_path[LevelState.LEVELS.LEVEL_TEST] = LevelState.LEVEL_0_PATH
 
 
 

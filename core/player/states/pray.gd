@@ -3,6 +3,7 @@ var touched_floor=false
 
 func enter():
 	super.enter()
+	
 	return null
 	
 func input(event: InputEvent) -> BaseState:

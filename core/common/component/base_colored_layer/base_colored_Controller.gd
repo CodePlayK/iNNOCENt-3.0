@@ -64,6 +64,7 @@ func ready() -> void:
 
 func _wait_and_apply() -> void:
 	await get_tree().process_frame
+	main_light.color = base_color
 	if auto_apply:
 		apply_colors()
 

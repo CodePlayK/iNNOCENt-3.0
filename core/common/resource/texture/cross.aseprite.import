@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b7p5ifocmdtug"
+path="res://.godot/imported/cross.aseprite-86fe9a0138df9fde8e715a62ab23e6f3.res"
+
+[deps]
+
+source_file="res://core/common/resource/texture/cross.aseprite"
+dest_files=["res://.godot/imported/cross.aseprite-86fe9a0138df9fde8e715a62ab23e6f3.res"]
+
+[params]
+

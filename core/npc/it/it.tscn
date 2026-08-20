@@ -7446,6 +7446,7 @@ anime_config = ExtResource("81_dl7y8")
 one_shot = true
 
 [node name="Marker" parent="NpcStateManager/base/combat/_attack/attack0" unique_id=1037465921 instance=ExtResource("7_5rc01")]
+visible = false
 position = Vector2(0, -143)
 color = Color(0.109804, 0.729412, 0.666667, 1)
 

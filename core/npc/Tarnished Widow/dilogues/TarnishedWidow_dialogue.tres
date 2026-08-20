@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_tqank")
 dialogue_res = ExtResource("1_267g5")
-talkers = Array[String](["bloodking1"])
+talkers = Array[String](["TarnishedWidow"])
 current_res = "0_0_0"
-title = "bloodking1"
-title_list = "bloodking1 | bloodking2 | 废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
+title = "TarnishedWidow"
+title_list = "TarnishedWidow | bloodking1 | bloodking2 | it | 废弃汽车1 | 玩家醒来 | 玩家醒来1 | 祈祷 | 遇见队友 | 遇见队友1 | "
 balloon_color = Color(0, 0.39862674, 0, 1)
 metadata/_custom_type_script = "uid://b7htvwdj3cjtu"

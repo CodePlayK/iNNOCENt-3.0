@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7vqhxmvuauty"]
 
 [ext_resource type="Shader" uid="uid://cyr0w13jexgj8" path="res://core/common/shader/RimLight.gdshader" id="1_ujsqv"]
-[ext_resource type="Texture2D" uid="uid://c04cy4kap3d8f" path="res://core/level/resource/sprite/老衣柜.png" id="2_y8nrl"]
+[ext_resource type="Texture2D" uid="uid://4u64ucmw2upu" path="res://core/common/resource/texture/cross.png" id="2_ujsqv"]
 [ext_resource type="Script" uid="uid://dcb7utjuth6rh" path="res://core/common/class/BaseSprite.gd" id="3_c0qvg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5pho5"]
@@ -18,7 +18,7 @@ shader_parameter/distance_strength = 7.1
 [node name="BaseSprite" type="Sprite2D" unique_id=94096621]
 light_mask = 5
 material = SubResource("ShaderMaterial_5pho5")
-texture = ExtResource("2_y8nrl")
+texture = ExtResource("2_ujsqv")
 script = ExtResource("3_c0qvg")
 rim_width_px = 2.6
 rim_intensity = 5.8

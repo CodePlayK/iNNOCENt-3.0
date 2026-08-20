@@ -110,6 +110,7 @@
 [ext_resource type="Resource" uid="uid://ckdoxt3m3a82" path="res://core/player/attributes/ABT_light_config.tres" id="75_j1i1n"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="82_su2cd"]
 [ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="83_iu40y"]
+[ext_resource type="Script" uid="uid://bsftsgq0l1nkg" path="res://core/player/states/pray.gd" id="86_vp6bf"]
 [ext_resource type="PackedScene" uid="uid://djbfh382ba1m5" path="res://core/events/player_attack_time_event.tscn" id="97_yvey3"]
 [ext_resource type="PackedScene" uid="uid://b3x7wqm5yy5eg" path="res://core/events/player_dense_suc_time_event.tscn" id="98_blh6t"]
 [ext_resource type="Resource" uid="uid://dlci62k7ghc80" path="res://core/player/resource/player_dialogue_config.tres" id="108_4t8e8"]
@@ -2631,7 +2632,7 @@ anime_config = ExtResource("45_mb2n1")
 script = ExtResource("35_eavra")
 
 [node name="pray" type="Node" parent="StateManager/base/interactive" unique_id=411573926]
-script = ExtResource("36_sqf10")
+script = ExtResource("86_vp6bf")
 is_normal_state = false
 anime_config = SubResource("Resource_x7ir2")
 

@@ -24,6 +24,9 @@ var player_position:Vector2
 ##修改玩家状态
 func change_player_state(state_name:String):
 	PlayerState.player_player.state_manager.string2state(state_name,self)
+##修改玩家状态
+func set_player_control_lock(flag:bool):
+	PlayerState.set_player_control_lock(flag,self)
 ##播放过场动画	
 func play_cutscene_aniplayer(animation_name:String):
 	EventBus._play_cutscene_aniplayer(animation_name)
