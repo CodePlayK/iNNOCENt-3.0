@@ -79,12 +79,12 @@
 [ext_resource type="Resource" uid="uid://cdmof4sttwugr" path="res://core/npc/it/anime_config/birth.tres" id="73_iq3dp"]
 [ext_resource type="Script" uid="uid://dlqbna4lkm2xl" path="res://core/npc/prototype/npc_state_manager/states/dodge.gd" id="74_yic4q"]
 [ext_resource type="Resource" uid="uid://cq4s13vnjbwky" path="res://core/npc/it/anime_config/dodge.tres" id="75_at3co"]
-[ext_resource type="Script" uid="uid://bu1e7hpel2o8k" path="res://core/npc/it/states/jump.gd" id="76_y5iqo"]
 [ext_resource type="Script" uid="uid://c0fn718goy1wv" path="res://core/npc/prototype/npc_state_manager/states/chase.gd" id="77_iofog"]
 [ext_resource type="Resource" uid="uid://bpbl2jaxujatn" path="res://core/npc/it/anime_config/chase.tres" id="78_4jovu"]
 [ext_resource type="Script" uid="uid://b7wxk1c2fj11b" path="res://core/npc/prototype/npc_state_manager/states/_attack.gd" id="79_4ljbo"]
 [ext_resource type="Script" uid="uid://q0knawvfwgnj" path="res://core/npc/prototype/npc_state_manager/states/attack0.gd" id="80_411jk"]
 [ext_resource type="Resource" uid="uid://boriqsild1hsf" path="res://core/npc/it/anime_config/attack0.tres" id="81_dl7y8"]
+[ext_resource type="Script" uid="uid://nx3b0njps5ql" path="res://core/player/states/jump.gd" id="82_kll38"]
 [ext_resource type="Script" uid="uid://bnuh60joynv75" path="res://core/npc/prototype/npc_state_manager/states/attack1.gd" id="82_q5e8n"]
 [ext_resource type="Resource" uid="uid://mnr13x0ndyc2" path="res://core/npc/it/anime_config/attack2.tres" id="83_n05yu"]
 [ext_resource type="Resource" uid="uid://dqmbll2b5py7m" path="res://core/npc/it/anime_config/attack3.tres" id="84_5yqg1"]
@@ -3145,7 +3145,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_kll38"]
+[sub_resource type="Resource" id="Resource_l1873"]
 resource_local_to_scene = true
 script = ExtResource("100_kll38")
 talkers = Array[String](["it"])
@@ -7413,7 +7413,7 @@ anime_config = ExtResource("75_at3co")
 one_shot = true
 
 [node name="jump" type="Node" parent="NpcStateManager/base/combat" unique_id=1549176731]
-script = ExtResource("76_y5iqo")
+script = ExtResource("82_kll38")
 
 [node name="chase" type="Node" parent="NpcStateManager/base/combat" unique_id=1601700905]
 script = ExtResource("77_iofog")
@@ -7560,7 +7560,7 @@ shape = SubResource("RectangleShape2D_b8y3r")
 [node name="Dialogue" parent="Interactions" unique_id=1132349855 instance=ExtResource("94_35ooo")]
 z_index = 107
 position = Vector2(10.8333, -59.1667)
-dialogue_config = SubResource("Resource_kll38")
+dialogue_config = SubResource("Resource_l1873")
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 process_mode = 3

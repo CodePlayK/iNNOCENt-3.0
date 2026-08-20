@@ -85,7 +85,7 @@
 [ext_resource type="Resource" uid="uid://dmgcr8uvu3r72" path="res://core/npc/Tarnished Widow/anime_config/birth.tres" id="77_xjxel"]
 [ext_resource type="Script" uid="uid://dlqbna4lkm2xl" path="res://core/npc/prototype/npc_state_manager/states/dodge.gd" id="78_sa7fi"]
 [ext_resource type="Resource" uid="uid://d2g5mlcg4d68w" path="res://core/npc/Tarnished Widow/anime_config/dodge.tres" id="79_1gq11"]
-[ext_resource type="Script" uid="uid://df6aa25qa60t6" path="res://core/npc/Tarnished Widow/states/jump.gd" id="80_hpixl"]
+[ext_resource type="Script" uid="uid://df6aa25qa60t6" path="res://core/npc/prototype/npc_state_manager/states/jump.gd" id="80_hpixl"]
 [ext_resource type="Script" uid="uid://c0fn718goy1wv" path="res://core/npc/prototype/npc_state_manager/states/chase.gd" id="81_28ujr"]
 [ext_resource type="Resource" uid="uid://c2ubj5tgb4xcm" path="res://core/npc/Tarnished Widow/anime_config/chase.tres" id="82_30lbb"]
 [ext_resource type="Script" uid="uid://b7wxk1c2fj11b" path="res://core/npc/prototype/npc_state_manager/states/_attack.gd" id="83_n7ytm"]
@@ -1137,7 +1137,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 89.16667)
 
-[sub_resource type="Resource" id="Resource_6b6fb"]
+[sub_resource type="Resource" id="Resource_tma76"]
 resource_local_to_scene = true
 script = ExtResource("3_1jmvl")
 group = 1
@@ -1982,7 +1982,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("103_5edpy")]
 script = ExtResource("104_65ev0")
-save_data_config = SubResource("Resource_6b6fb")
+save_data_config = SubResource("Resource_tma76")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 visible = false

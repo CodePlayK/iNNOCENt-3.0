@@ -30,8 +30,6 @@
 [ext_resource type="Script" uid="uid://co5k7q4j1q0c4" path="res://core/level/everythingeverywhere/in_game_debug_layer.gd" id="28_7ue4y"]
 [ext_resource type="Script" uid="uid://ci4y1snlap0ev" path="res://test/test_canvas.gd" id="28_ghsbg"]
 [ext_resource type="Script" uid="uid://dheawyf6jpi38" path="res://core/level/everythingeverywhere/test/Test.gd" id="29_imah0"]
-[ext_resource type="Resource" uid="uid://onb8u2j1uao2" path="res://test/dialogue/test1.dialogue" id="30_ylxf2"]
-[ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="31_1gr5e"]
 [ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="32_0sbtr"]
 [ext_resource type="FontFile" uid="uid://cgcv38l7xieq8" path="res://core/common/resource/font/凤凰点阵体 16px.ttf" id="33_0dkxc"]
 [ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="34_glnfy"]
@@ -207,14 +205,6 @@ _data = {
 &"RESET": SubResource("Animation_u6mta"),
 &"blink": SubResource("Animation_564en")
 }
-
-[sub_resource type="Resource" id="Resource_m1fas"]
-script = ExtResource("31_1gr5e")
-dialogue_res = ExtResource("30_ylxf2")
-current_res = "test1"
-title = "_0_0_2"
-title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
-import = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymnf6"]
 bg_color = Color(0.458824, 0.247059, 0.215686, 1)
@@ -737,6 +727,7 @@ script = ExtResource("28_ghsbg")
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.074
+offset_bottom = -46.92
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -745,13 +736,6 @@ mouse_filter = 2
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("29_imah0")
-dialogue_mind_config = SubResource("Resource_m1fas")
-enemy_max_count = 1
-camera_shake_add = 10.0
-range_r = 500.0
-test_vec2 = Vector2(1978, 95)
-chase_speed = 100.0
-npc_name = "BloodKing"
 
 [node name="MarginContainer" type="MarginContainer" parent="TestCanvas/MarginContainer/Test" unique_id=25995065]
 layout_mode = 2
@@ -769,67 +753,7 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="enemy" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1096782124]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-toggle_mode = true
-text = "生成敌人"
-icon_alignment = 1
-
-[node name="enemyTimer" type="Timer" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" unique_id=1365363174]
-
-[node name="cam_shake" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1101864140]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "相机震动"
-icon_alignment = 1
-
-[node name="move_to_node" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=71489798]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "移动到"
-icon_alignment = 1
-
-[node name="showAstar" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1491569528]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "显示寻路ui"
-icon_alignment = 1
-
-[node name="CutsceneRunner" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1400360898]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 3
-focus_mode = 0
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "过场"
-icon_alignment = 1
-
-[node name="PlayCamera" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=293417076]
+[node name="BUT0" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1588127649]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -838,19 +762,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "相机运动"
-icon_alignment = 1
-
-[node name="Effect" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1588127649]
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "眼睛运动"
+text = "DEBUG层"
 icon_alignment = 1
 
 [node name="PathFind" type="Node2D" parent="TestCanvas/MarginContainer/Test" unique_id=1532952576]
@@ -987,12 +899,4 @@ position = Vector2(0, -800)
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
 [connection signal="pressed" from="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterBoxCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" to="TestCanvas/MarginContainer/Test" method="_on_enemy_pressed"]
-[connection signal="toggled" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" to="TestCanvas/MarginContainer/Test" method="_on_enemy_toggled"]
-[connection signal="timeout" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy/enemyTimer" to="TestCanvas/MarginContainer/Test" method="_on_enemy_timer_timeout"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/cam_shake" to="TestCanvas/MarginContainer/Test" method="_on_cam_shake_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/move_to_node" to="TestCanvas/MarginContainer/Test" method="_on_move_to_node_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/showAstar" to="TestCanvas/MarginContainer/Test" method="_on_show_astar_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/CutsceneRunner" to="TestCanvas/MarginContainer/Test" method="_on_cutscene_runner_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/PlayCamera" to="TestCanvas/MarginContainer/Test" method="_on_show_mind_box_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/Effect" to="TestCanvas/MarginContainer/Test" method="_on_eyeseffect_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT0" to="TestCanvas/MarginContainer/Test" method="_on_but_0_pressed"]

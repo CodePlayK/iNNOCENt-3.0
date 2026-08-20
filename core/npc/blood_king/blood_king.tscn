@@ -75,7 +75,6 @@
 [ext_resource type="Resource" uid="uid://xno6yhf454ky" path="res://core/npc/blood_king/anime_config/birth.tres" id="60_6idlr"]
 [ext_resource type="Script" uid="uid://dlqbna4lkm2xl" path="res://core/npc/prototype/npc_state_manager/states/dodge.gd" id="61_p7hhl"]
 [ext_resource type="Resource" uid="uid://b8ckry4t7dhdk" path="res://core/npc/blood_king/anime_config/dodge.tres" id="62_uurqo"]
-[ext_resource type="Script" uid="uid://uml0rosuj3vi" path="res://core/npc/blood_king/jump.gd" id="63_u1sbs"]
 [ext_resource type="Script" uid="uid://c0fn718goy1wv" path="res://core/npc/prototype/npc_state_manager/states/chase.gd" id="64_u07y3"]
 [ext_resource type="Resource" uid="uid://bgo2gb1yrxtck" path="res://core/npc/blood_king/anime_config/chase.tres" id="65_oshc4"]
 [ext_resource type="Script" uid="uid://b7wxk1c2fj11b" path="res://core/npc/prototype/npc_state_manager/states/_attack.gd" id="66_aue1o"]
@@ -94,6 +93,7 @@
 [ext_resource type="Script" uid="uid://bljkt4v4ao0md" path="res://core/npc/prototype/npc_state_manager/states/BehithardListener.gd" id="80_50pb4"]
 [ext_resource type="Script" uid="uid://b5hxh5sri45lm" path="res://core/npc/prototype/npc_state_manager/states/lift.gd" id="80_ggnou"]
 [ext_resource type="Resource" uid="uid://csvyky8nvlw57" path="res://core/events/BloodkingAttackTime.tres" id="80_hwa4n"]
+[ext_resource type="Script" uid="uid://df6aa25qa60t6" path="res://core/npc/prototype/npc_state_manager/states/jump.gd" id="81_5mk6f"]
 [ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/TestCan.gd" id="81_d5aum"]
 [ext_resource type="Script" uid="uid://dqmqxfw8v3qe" path="res://core/npc/prototype/npc_state_manager/states/fall.gd" id="81_vuxa1"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="83_e75wk"]
@@ -1662,7 +1662,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_5mk6f"]
+[sub_resource type="Resource" id="Resource_ee7q0"]
 resource_local_to_scene = true
 script = ExtResource("103_dmcg1")
 group = 1
@@ -2358,7 +2358,7 @@ anime_config = ExtResource("62_uurqo")
 one_shot = true
 
 [node name="jump" type="Node" parent="NpcStateManager/base/combat" unique_id=1549176731]
-script = ExtResource("63_u1sbs")
+script = ExtResource("81_5mk6f")
 
 [node name="chase" type="Node" parent="NpcStateManager/base/combat" unique_id=1601700905]
 script = ExtResource("64_u07y3")
@@ -2516,7 +2516,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("89_s1dc0")]
 script = ExtResource("90_f37dg")
-save_data_config = SubResource("Resource_5mk6f")
+save_data_config = SubResource("Resource_ee7q0")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 visible = false
