@@ -36,30 +36,8 @@ func _ready() -> void:
 	on_file_history_changed()
 	
 func on_load_all_method_state_from_global():
-	await get_tree().create_timer(.2).timeout##等待一秒,防止单例还未进入场景树
-	##载入指定的全局脚本方法数据
-	if CutscenerGlobal.METHOD_BUSES and !CutscenerGlobal.METHOD_BUSES.is_empty():
-		CutscenerGlobal.CUTSCENE_BUS_METHOD=[]
-		for bus in CutscenerGlobal.METHOD_BUSES:
-			CutscenerGlobal.ACTION_LOG = "载入METHOD_BUS [%s]" %bus
-			for method in get_tree().get_root().get_node(bus).get_method_list():
-				if method.flags == 1 and method.id ==0 and method.name !="free":
-					var args:Array = method["args"]
-					var args_real:Array= []
-					for arg in args:
-						args_real.append({"arg_name":arg["name"],"arg_type":arg["type"]})
-					CutscenerGlobal.CUTSCENE_BUS_METHOD.append([bus+"."+method["name"],args_real,method["return"]["type"]])
-	##载入指定的全局脚本变量数据
-	if CutscenerGlobal.STATE_BUSES and !CutscenerGlobal.STATE_BUSES.is_empty():
-		CutscenerGlobal.CUTSCENE_BUS_STATE = {}
-		for bus in CutscenerGlobal.STATE_BUSES:
-			#CutscenerGlobal.ACTION_LOG = "载入STATE_BUS [%s]" %bus
-			var prop_list:Array =get_tree().get_root().get_node(bus).get_property_list()
-			for i in prop_list.size():
-				if i > 18:
-					var prop = prop_list[i]
-					CutscenerGlobal.CUTSCENE_BUS_STATE[bus+"."+prop["name"]]=prop["type"]
-	CutscenerGlobal.load_global.emit()##载入完毕后通知节点配置数据
+	# 统一走 CutscenerGlobal：只扫 Autoload 脚本里写出的方法/变量，不含系统方法
+	CutscenerGlobal.request_reload_methods()
 	
 ##右键菜单弹出事件	
 func _on_graph_edit_popup_request(position: Vector2) -> void:
