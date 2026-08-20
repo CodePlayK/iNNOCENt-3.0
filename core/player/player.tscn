@@ -53,9 +53,7 @@
 [ext_resource type="Script" uid="uid://5qyb2gac4wwm" path="res://core/player/states/landing.gd" id="30_3nh5l"]
 [ext_resource type="PackedScene" uid="uid://cr3ih2htn1qcl" path="res://core/common/component/CreateCharacterBox/CreateCharacterBox.tscn" id="30_yurw6"]
 [ext_resource type="Script" uid="uid://wpke2shio83d" path="res://core/player/states/air.gd" id="31_l2iuv"]
-[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="31_o2ap2"]
 [ext_resource type="Resource" uid="uid://c28g03pbf0u1k" path="res://core/player/anime config/walk.tres" id="31_y8bkq"]
-[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="32_likyd"]
 [ext_resource type="Script" uid="uid://ffsamgvv3i8n" path="res://core/player/states/lift.gd" id="32_ssiia"]
 [ext_resource type="Script" uid="uid://hg1fdxhfvgm1" path="res://core/common/component/RimLightController/RimLightController.gd" id="32_vp6bf"]
 [ext_resource type="Script" uid="uid://doa1oqnpnftrt" path="res://core/player/states/toptrans.gd" id="33_0so5l"]
@@ -82,17 +80,12 @@
 [ext_resource type="Resource" uid="uid://xxrr8qopx0ba" path="res://core/player/anime config/toptrans.tres" id="43_8igox"]
 [ext_resource type="Script" uid="uid://dp4ycngfi5jnt" path="res://core/player/states/_attack.gd" id="43_twx36"]
 [ext_resource type="Script" uid="uid://dypwihm0hhhwe" path="res://core/player/states/attack0.gd" id="44_82lcl"]
-[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="45_4t8e8"]
 [ext_resource type="Resource" uid="uid://bkbvsm0b6dh32" path="res://core/player/anime config/fall.tres" id="45_mb2n1"]
 [ext_resource type="Script" uid="uid://85f3fia5b20h" path="res://core/player/states/attack1.gd" id="45_scjvk"]
+[ext_resource type="Resource" uid="uid://bs3k3i3q70w6f" path="res://core/player/anime config/idle.tres" id="46_453cj"]
 [ext_resource type="Script" uid="uid://dhrmmmvhvbrkc" path="res://core/player/states/attack2.gd" id="46_a2y62"]
-[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="46_yurw6"]
-[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="47_dq6eo"]
 [ext_resource type="Script" uid="uid://b7n7d3o5cig27" path="res://core/player/states/attack3.gd" id="47_pphep"]
-[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="48_kaqeq"]
-[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="49_8i7n7"]
 [ext_resource type="Script" uid="uid://cbi2bgem3vtas" path="res://core/player/states/AttackListener.gd" id="49_tphbn"]
-[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="50_x7ir2"]
 [ext_resource type="Resource" uid="uid://c7hpoxpyid22u" path="res://core/player/anime config/behitDenseSafed.tres" id="52_5bpgj"]
 [ext_resource type="Resource" uid="uid://bn4ybygdwdj6g" path="res://core/player/anime config/behitDamaged.tres" id="54_1p1vi"]
 [ext_resource type="Resource" uid="uid://r4qhrf2xruyk" path="res://core/player/attributes/ABT_dash_config.tres" id="55_k70b2"]
@@ -119,35 +112,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phghf"]
 size = Vector2(19, 52)
-
-[sub_resource type="Gradient" id="Gradient_ydae1"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dq6eo"]
-gradient = SubResource("Gradient_ydae1")
-width = 512
-height = 512
-fill = 1
-fill_from = Vector2(0.4871795, 0.52991456)
-fill_to = Vector2(0.7150997, 0.33903134)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwrjn"]
-size = Vector2(22.5, 51)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3h3tc"]
-size = Vector2(147, 27)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb62e"]
-size = Vector2(159, 38.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_18vrw"]
-size = Vector2(177, 28)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vothx"]
-size = Vector2(106, 38.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_blaqd"]
-size = Vector2(84, 71)
 
 [sub_resource type="Animation" id="Animation_tmipi"]
 length = 0.5
@@ -877,7 +841,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_j6v2a"]
-length = 0.1
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -926,6 +890,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("base:frame")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [113, 114, 115, 116, 113]
 }
 
 [sub_resource type="Animation" id="Animation_scyt5"]
@@ -982,7 +958,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_r4dw0"]
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1463,6 +1438,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("base:frame")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 }
 
 [sub_resource type="Animation" id="Animation_r5r04"]
@@ -2006,29 +1993,36 @@ scale_max = 2.1
 color_ramp = SubResource("GradientTexture1D_0r8lp")
 alpha_curve = SubResource("CurveTexture_3qk3c")
 
-[sub_resource type="Resource" id="Resource_6buv0"]
-script = ExtResource("32_likyd")
-se_name = "knife-stab"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwrjn"]
+size = Vector2(22.5, 51)
 
-[sub_resource type="Resource" id="Resource_8lwtu"]
-script = ExtResource("31_o2ap2")
-sound_config = Array[ExtResource("32_likyd")]([SubResource("Resource_6buv0")])
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3h3tc"]
+size = Vector2(147, 27)
 
-[sub_resource type="Resource" id="Resource_x7ir2"]
-script = ExtResource("31_o2ap2")
-loop = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb62e"]
+size = Vector2(159, 38.5)
 
-[sub_resource type="Resource" id="Resource_4q060"]
-script = ExtResource("31_o2ap2")
-animation_name = "death"
-speed_scale = 0.5
-backward = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18vrw"]
+size = Vector2(177, 28)
 
-[sub_resource type="Resource" id="Resource_5vbcn"]
-script = ExtResource("31_o2ap2")
-animation_name = "onfloor"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vothx"]
+size = Vector2(106, 38.5)
 
-[sub_resource type="Resource" id="Resource_vp6bf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blaqd"]
+size = Vector2(84, 71)
+
+[sub_resource type="Gradient" id="Gradient_ydae1"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dq6eo"]
+gradient = SubResource("Gradient_ydae1")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.4871795, 0.52991456)
+fill_to = Vector2(0.7150997, 0.33903134)
+
+[sub_resource type="Resource" id="Resource_453cj"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
@@ -2044,267 +2038,10 @@ character_box_config = ExtResource("2_yurw6")
 acceleration_dash = 14000
 max_speed_dash = 800
 
-[node name="Attributes" type="Node2D" parent="." unique_id=285534102]
-
-[node name="Health" type="Node2D" parent="Attributes" unique_id=883448739]
-script = ExtResource("2_3w4m5")
-health_config = ExtResource("3_qy2x3")
-
-[node name="Stamina" type="Node2D" parent="Attributes" unique_id=1626975924]
-script = ExtResource("4_27ick")
-stamina_config = ExtResource("5_h5dm1")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1621287960]
 visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_phghf")
-
-[node name="Config" type="Node2D" parent="." unique_id=647260447]
-
-[node name="Rays" parent="Config" unique_id=1126944550 instance=ExtResource("19_dcy0e")]
-position = Vector2(0, -35)
-
-[node name="blockCheckerLeft" type="RayCast2D" parent="Config/Rays" unique_id=1394586294]
-position = Vector2(0, 43)
-rotation = 1.5708
-target_position = Vector2(0, 13)
-collide_with_areas = true
-
-[node name="blockCheckerRight" type="RayCast2D" parent="Config/Rays" unique_id=1447918206]
-position = Vector2(0, 43)
-rotation = -1.5708
-target_position = Vector2(0, 13)
-collide_with_areas = true
-
-[node name="groundChecker" type="RayCast2D" parent="Config/Rays" unique_id=2031539436]
-position = Vector2(0, 43)
-target_position = Vector2(0, 1000)
-collide_with_areas = true
-
-[node name="Marks" parent="Config" unique_id=1587374708 instance=ExtResource("20_57tia")]
-visible = false
-position = Vector2(0, -35)
-
-[node name="DialoguePosition" parent="Config/Marks" unique_id=269893161 instance=ExtResource("21_ykyob")]
-visible = false
-position = Vector2(21, -20)
-
-[node name="ScreenVec2" parent="Config/Marks" unique_id=423733013 instance=ExtResource("27_awfha")]
-position = Vector2(0, 35)
-
-[node name="AstarMarker" parent="Config/Marks" unique_id=514497374 instance=ExtResource("21_ykyob")]
-position = Vector2(0.235703, 34.784)
-
-[node name="PointLight2D" type="PointLight2D" parent="Config" unique_id=1015712511]
-visible = false
-blend_mode = 2
-range_item_cull_mask = 32
-shadow_enabled = true
-shadow_filter = 1
-shadow_item_cull_mask = 32
-texture = SubResource("GradientTexture2D_dq6eo")
-
-[node name="Master" parent="." unique_id=863019983 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("2_ame18")]
-unique_name_in_owner = true
-obj = NodePath("..")
-connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"), NodePath("../Components/Light"), NodePath("../Animations/FXs/SwordWind/SwordWind"), NodePath("../Interactions/Dialogue"), NodePath("../Saves/DataCollector"), NodePath("../Components/AStarMove"), NodePath("../Components/FaceDirection"), NodePath("../Components/Move2Vec2"), NodePath("../Components/CreateCharacterBox")]
-
-[node name="UIs" parent="." unique_id=303088328 instance=ExtResource("3_gyqt3")]
-visible = false
-position = Vector2(0, -35)
-health_config = ExtResource("3_qy2x3")
-
-[node name="DenseCooldownBar" type="ProgressBar" parent="UIs" unique_id=1892214432]
-modulate = Color(1, 1, 1, 0.854902)
-offset_left = 29.0
-offset_top = 11.0
-offset_right = 31.0
-offset_bottom = 38.0
-theme = ExtResource("4_fbcfd")
-step = 0.1
-value = 50.0
-fill_mode = 3
-show_percentage = false
-metadata/_edit_use_anchors_ = true
-
-[node name="LightBar" type="ProgressBar" parent="UIs" unique_id=960689858]
-offset_left = -29.0
-offset_top = 11.0
-offset_right = -27.0
-offset_bottom = 38.0
-theme = ExtResource("5_6rmgu")
-step = 0.1
-value = 50.0
-fill_mode = 3
-show_percentage = false
-metadata/_edit_use_anchors_ = true
-
-[node name="LightCooldownBar" type="ProgressBar" parent="UIs/LightBar" unique_id=1675828900]
-show_behind_parent = true
-layout_mode = 0
-offset_right = 2.0
-offset_bottom = 27.0
-theme = ExtResource("6_2lsm4")
-step = 0.1
-value = 60.0
-fill_mode = 3
-show_percentage = false
-
-[node name="StiffBar" type="ProgressBar" parent="UIs" unique_id=1585204204]
-offset_left = -10.0
-offset_right = 10.0
-offset_bottom = 4.0
-theme = ExtResource("7_qreo2")
-value = 50.0
-show_percentage = false
-metadata/_edit_use_anchors_ = true
-
-[node name="HealthBar" parent="UIs" unique_id=1753141741 instance=ExtResource("4_lpne6")]
-anchors_preset = -1
-offset_left = -20.0
-offset_right = 20.0
-back_bar_delay_time = 1.0
-back_bar_animation_time = 0.5
-bar_color = Color(16.898285, 16.630459, 0, 1)
-back_bar_color = Color(0, 0, 0, 0.8666667)
-metadata/_edit_use_anchors_ = true
-
-[node name="HurtUI" type="Node2D" parent="UIs" unique_id=1840738073]
-
-[node name="DamageNum" parent="UIs/HurtUI" unique_id=632465112 instance=ExtResource("9_u8lqu")]
-
-[node name="Marker" parent="UIs/HurtUI/DamageNum" unique_id=1924115499 instance=ExtResource("21_ykyob")]
-visible = false
-position = Vector2(-42, -70)
-
-[node name="Timer" type="Node" parent="UIs" unique_id=1813876178]
-
-[node name="FightingDelayTimer" type="Timer" parent="UIs/Timer" unique_id=1584988411]
-one_shot = true
-
-[node name="PlayerStateUpdate0_1s" type="Timer" parent="UIs/Timer" unique_id=1207543485]
-wait_time = 0.1
-script = ExtResource("18_yurw6")
-
-[node name="PlayerStateUpdate1s" type="Timer" parent="UIs/Timer" unique_id=249843411]
-autostart = true
-script = ExtResource("18_yurw6")
-
-[node name="Test" type="Node2D" parent="UIs" unique_id=834096373]
-script = ExtResource("10_h2v12")
-
-[node name="TestLabel" type="Label" parent="UIs/Test" unique_id=1428733528]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.784314, 0.203922, 1)
-theme_override_fonts/font = ExtResource("11_l3n1r")
-theme_override_font_sizes/font_size = 10
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RunningTime" type="Label" parent="UIs/Test" unique_id=1901724232]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -27.0
-offset_right = 20.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Timer" type="Timer" parent="UIs/Test/RunningTime" unique_id=944893365]
-one_shot = true
-
-[node name="Components" parent="." unique_id=1495385215 instance=ExtResource("4_xqlbt")]
-position = Vector2(0, -35)
-
-[node name="LightScale" parent="Components" unique_id=1211288493 instance=ExtResource("5_585g5")]
-visible = false
-collision_layer = 0
-collision_mask = 0
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/LightScale" unique_id=834587047]
-visible = false
-
-[node name="HurtBox" parent="Components" unique_id=948620807 node_paths=PackedStringArray("signal_node_list", "shape_list") instance=ExtResource("6_1sm34")]
-visible = false
-collision_layer = 32
-collision_mask = 16
-signal_node_list = [NodePath("../../StateManager"), NodePath("../../StateManager/base/combat/dense")]
-shape_list = [NodePath("CollisionShape2D")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HurtBox" unique_id=108891522]
-position = Vector2(-0.25, 35.5)
-shape = SubResource("RectangleShape2D_fwrjn")
-
-[node name="HitBox" parent="Components" unique_id=1536420097 instance=ExtResource("8_sjgq1")]
-collision_layer = 8
-collision_mask = 0
-
-[node name="attack0" type="CollisionShape2D" parent="Components/HitBox" unique_id=1218217246]
-position = Vector2(44.5, 46.5)
-shape = SubResource("RectangleShape2D_3h3tc")
-
-[node name="attack1" type="CollisionShape2D" parent="Components/HitBox" unique_id=1023533133]
-position = Vector2(50.5, 40.75)
-shape = SubResource("RectangleShape2D_jb62e")
-
-[node name="attack2" type="CollisionShape2D" parent="Components/HitBox" unique_id=947145073]
-position = Vector2(33.5, 46)
-shape = SubResource("RectangleShape2D_18vrw")
-
-[node name="attack3" type="CollisionShape2D" parent="Components/HitBox" unique_id=725139202]
-position = Vector2(53, 40.75)
-shape = SubResource("RectangleShape2D_vothx")
-
-[node name="Light" parent="Components" unique_id=472331844 instance=ExtResource("10_iexi3")]
-visible = false
-max_bright = 1.2
-min_bright = 0.8
-trans_time = 0.5
-vfx_colored = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Light" unique_id=2024491071]
-visible = false
-position = Vector2(0, 25.5)
-shape = SubResource("RectangleShape2D_blaqd")
-
-[node name="UpdateTimer" type="Timer" parent="Components" unique_id=703982219]
-wait_time = 0.1
-autostart = true
-
-[node name="AStarMove" parent="Components" unique_id=228339423 instance=ExtResource("25_0v1fc")]
-
-[node name="Move2Vec2" parent="Components" unique_id=1304076567 instance=ExtResource("26_q60xe")]
-
-[node name="FaceDirection" parent="Components" unique_id=1749619904 node_paths=PackedStringArray("direction_objs") instance=ExtResource("27_keddt")]
-direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx"), null, null, NodePath("../../Animations/Anime/test3")]
-
-[node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_yurw6")]
-time_rand_range = Vector2(0, 0)
-
-[node name="RimLightController" type="Node" parent="Components" unique_id=1778994686 node_paths=PackedStringArray("sprite")]
-script = ExtResource("32_vp6bf")
-sprite = NodePath("../../Animations/Anime/test3")
 
 [node name="Animations" parent="." unique_id=508010457 instance=ExtResource("3_bleph")]
 
@@ -2331,7 +2068,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(17.143, -7.143)
 hframes = 12
 vframes = 11
-frame = 113
+frame = 112
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2406,7 +2143,6 @@ texture = ExtResource("40_05xf3")
 offset = Vector2(1.893, -13.483)
 hframes = 6
 vframes = 6
-frame = 11
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2538,20 +2274,150 @@ fract_delta = false
 trail_lifetime = 3.87
 process_material = SubResource("ParticleProcessMaterial_w77sq")
 
+[node name="Config" type="Node2D" parent="." unique_id=647260447]
+
+[node name="Rays" parent="Config" unique_id=1126944550 instance=ExtResource("19_dcy0e")]
+position = Vector2(0, -35)
+
+[node name="blockCheckerLeft" type="RayCast2D" parent="Config/Rays" unique_id=1394586294]
+position = Vector2(0, 43)
+rotation = 1.5708
+target_position = Vector2(0, 13)
+collide_with_areas = true
+
+[node name="blockCheckerRight" type="RayCast2D" parent="Config/Rays" unique_id=1447918206]
+position = Vector2(0, 43)
+rotation = -1.5708
+target_position = Vector2(0, 13)
+collide_with_areas = true
+
+[node name="groundChecker" type="RayCast2D" parent="Config/Rays" unique_id=2031539436]
+position = Vector2(0, 43)
+target_position = Vector2(0, 1000)
+collide_with_areas = true
+
+[node name="Marks" parent="Config" unique_id=1587374708 instance=ExtResource("20_57tia")]
+visible = false
+position = Vector2(0, -35)
+
+[node name="DialoguePosition" parent="Config/Marks" unique_id=269893161 instance=ExtResource("21_ykyob")]
+visible = false
+position = Vector2(21, -20)
+
+[node name="ScreenVec2" parent="Config/Marks" unique_id=423733013 instance=ExtResource("27_awfha")]
+position = Vector2(0, 35)
+
+[node name="AstarMarker" parent="Config/Marks" unique_id=514497374 instance=ExtResource("21_ykyob")]
+position = Vector2(0.235703, 34.784)
+
+[node name="Components" parent="." unique_id=1495385215 instance=ExtResource("4_xqlbt")]
+position = Vector2(0, -35)
+
+[node name="LightScale" parent="Components" unique_id=1211288493 instance=ExtResource("5_585g5")]
+visible = false
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/LightScale" unique_id=834587047]
+visible = false
+
+[node name="HurtBox" parent="Components" unique_id=948620807 node_paths=PackedStringArray("signal_node_list", "shape_list") instance=ExtResource("6_1sm34")]
+visible = false
+collision_layer = 32
+collision_mask = 16
+signal_node_list = [NodePath("../../StateManager"), NodePath("../../StateManager/base/combat/dense")]
+shape_list = [NodePath("CollisionShape2D")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HurtBox" unique_id=108891522]
+position = Vector2(-0.25, 35.5)
+shape = SubResource("RectangleShape2D_fwrjn")
+
+[node name="HitBox" parent="Components" unique_id=1536420097 instance=ExtResource("8_sjgq1")]
+collision_layer = 8
+collision_mask = 0
+
+[node name="attack0" type="CollisionShape2D" parent="Components/HitBox" unique_id=1218217246]
+position = Vector2(44.5, 46.5)
+shape = SubResource("RectangleShape2D_3h3tc")
+
+[node name="attack1" type="CollisionShape2D" parent="Components/HitBox" unique_id=1023533133]
+position = Vector2(50.5, 40.75)
+shape = SubResource("RectangleShape2D_jb62e")
+
+[node name="attack2" type="CollisionShape2D" parent="Components/HitBox" unique_id=947145073]
+position = Vector2(33.5, 46)
+shape = SubResource("RectangleShape2D_18vrw")
+
+[node name="attack3" type="CollisionShape2D" parent="Components/HitBox" unique_id=725139202]
+position = Vector2(53, 40.75)
+shape = SubResource("RectangleShape2D_vothx")
+
+[node name="Light" parent="Components" unique_id=472331844 instance=ExtResource("10_iexi3")]
+visible = false
+max_bright = 1.2
+min_bright = 0.8
+trans_time = 0.5
+vfx_colored = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Light" unique_id=2024491071]
+visible = false
+position = Vector2(0, 25.5)
+shape = SubResource("RectangleShape2D_blaqd")
+
+[node name="UpdateTimer" type="Timer" parent="Components" unique_id=703982219]
+wait_time = 0.1
+autostart = true
+
+[node name="AStarMove" parent="Components" unique_id=228339423 instance=ExtResource("25_0v1fc")]
+
+[node name="Move2Vec2" parent="Components" unique_id=1304076567 instance=ExtResource("26_q60xe")]
+
+[node name="FaceDirection" parent="Components" unique_id=1749619904 node_paths=PackedStringArray("direction_objs") instance=ExtResource("27_keddt")]
+direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx"), null, null, NodePath("../../Animations/Anime/test3")]
+
+[node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_yurw6")]
+time_rand_range = Vector2(0, 0)
+
+[node name="RimLightController" type="Node" parent="Components" unique_id=1778994686 node_paths=PackedStringArray("sprite")]
+script = ExtResource("32_vp6bf")
+sprite = NodePath("../../Animations/Anime/test3")
+
+[node name="PointLight2D" type="PointLight2D" parent="Components" unique_id=1015712511]
+visible = false
+blend_mode = 2
+range_item_cull_mask = 32
+shadow_enabled = true
+shadow_filter = 1
+shadow_item_cull_mask = 32
+texture = SubResource("GradientTexture2D_dq6eo")
+
+[node name="Attributes" type="Node2D" parent="." unique_id=285534102]
+
+[node name="Health" type="Node2D" parent="Attributes" unique_id=883448739]
+script = ExtResource("2_3w4m5")
+health_config = ExtResource("3_qy2x3")
+
+[node name="Stamina" type="Node2D" parent="Attributes" unique_id=1626975924]
+script = ExtResource("4_27ick")
+stamina_config = ExtResource("5_h5dm1")
+
 [node name="StateManager" type="Node" parent="." unique_id=763386492 node_paths=PackedStringArray("starting_node")]
 script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
+changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
+is_group = true
 
 [node name="behitbati" type="Node" parent="StateManager/stack" unique_id=1920827082]
 script = ExtResource("24_ugr5b")
 is_normal_state = false
 change_animation = false
-anime_config = SubResource("Resource_8lwtu")
 
 [node name="Timer" type="Timer" parent="StateManager/stack/behitbati" unique_id=458552935]
 one_shot = true
@@ -2561,6 +2427,7 @@ script = ExtResource("25_dln3j")
 
 [node name="base" type="Node" parent="StateManager" unique_id=323860385]
 script = ExtResource("13_kkt5v")
+is_group = true
 
 [node name="lock" type="Node" parent="StateManager/base" unique_id=1954143707]
 script = ExtResource("60_8i7n7")
@@ -2569,14 +2436,11 @@ anime_config = ExtResource("61_8i7n7")
 
 [node name="idle" type="Node" parent="StateManager/base" unique_id=1272102842]
 script = ExtResource("21_gp4na")
-anime_config = ExtResource("61_8i7n7")
-
-[node name="jump" type="Node" parent="StateManager/base" unique_id=79949838]
-script = ExtResource("25_opvnn")
-is_normal_state = false
+anime_config = ExtResource("46_453cj")
 
 [node name="ground" type="Node" parent="StateManager/base" unique_id=2131193349]
 script = ExtResource("35_20iv7")
+is_group = true
 
 [node name="walk" type="Node" parent="StateManager/base/ground" unique_id=86697432]
 script = ExtResource("26_75ljn")
@@ -2595,8 +2459,6 @@ anime_config = ExtResource("35_ouo11")
 script = ExtResource("29_un8va")
 dash_config = ExtResource("55_k70b2")
 is_normal_state = false
-pause_on_change_sprite_color = false
-sprite_color = Color(1, 1, 1, 1)
 stamina_cost = 30
 need_stamina = true
 anime_config = ExtResource("37_m08ca")
@@ -2614,6 +2476,7 @@ anime_config = ExtResource("33_idsae")
 
 [node name="air" type="Node" parent="StateManager/base" unique_id=180309926]
 script = ExtResource("31_l2iuv")
+is_group = true
 
 [node name="lift" type="Node" parent="StateManager/base/air" unique_id=273686356]
 script = ExtResource("32_ssiia")
@@ -2628,22 +2491,24 @@ anime_config = ExtResource("43_8igox")
 script = ExtResource("34_svukf")
 anime_config = ExtResource("45_mb2n1")
 
+[node name="jump" type="Node" parent="StateManager/base/air" unique_id=79949838]
+script = ExtResource("25_opvnn")
+is_normal_state = false
+
 [node name="interactive" type="Node" parent="StateManager/base" unique_id=170160501]
 script = ExtResource("35_eavra")
+is_group = true
 
 [node name="pray" type="Node" parent="StateManager/base/interactive" unique_id=411573926]
 script = ExtResource("86_vp6bf")
 is_normal_state = false
-anime_config = SubResource("Resource_x7ir2")
 
 [node name="wake" type="Node" parent="StateManager/base/interactive" unique_id=1441156899]
 script = ExtResource("72_c6fmk")
 is_normal_state = false
-anime_config = SubResource("Resource_4q060")
 
 [node name="onfloor" type="Node" parent="StateManager/base/interactive/wake" unique_id=1424831613]
 script = ExtResource("73_b43tn")
-anime_config = SubResource("Resource_5vbcn")
 
 [node name="talk" type="Node" parent="StateManager/base/interactive" unique_id=372021787]
 script = ExtResource("36_sqf10")
@@ -2652,6 +2517,7 @@ anime_config = ExtResource("61_8i7n7")
 
 [node name="combat" type="Node" parent="StateManager/base" unique_id=482263818]
 script = ExtResource("37_twix3")
+is_group = true
 
 [node name="dense" type="Node" parent="StateManager/base/combat" unique_id=420547067]
 script = ExtResource("38_tkue4")
@@ -2671,17 +2537,13 @@ one_shot = true
 
 [node name="behit" type="Node" parent="StateManager/base/combat" unique_id=601131362]
 script = ExtResource("39_7ni88")
+is_group = true
 
 [node name="behitDenseSafed" type="Node" parent="StateManager/base/combat/behit" unique_id=752201563]
 script = ExtResource("40_2jtbn")
 stiff_time = 0.5
 is_normal_state = false
 change_sprite_color = true
-sprite_color = Color(0.95, 0.93638337, 0.13299999, 1)
-overlay_strength = 0.6
-overlay_mode = 1
-mix_modulate_strength = 0.5
-stamina_cost = -100
 anime_config = ExtResource("52_5bpgj")
 
 [node name="StiffTimer" type="Timer" parent="StateManager/base/combat/behit/behitDenseSafed" unique_id=369141307]
@@ -2696,12 +2558,13 @@ protect_time = 1.0
 is_normal_state = false
 change_animation = false
 change_sprite_color = true
-sprite_color = Color(0.976471, 0, 0, 1)
-overlay_strength = 0.6
-mix_modulate_strength = 0.8
 anime_config = ExtResource("54_1p1vi")
 
 [node name="ProtectTimer" type="Timer" parent="StateManager/base/combat/behit/behitDamaged" unique_id=1718181767]
+wait_time = 0.3
+one_shot = true
+
+[node name="StiffTimer" type="Timer" parent="StateManager/base/combat/behit/behitDamaged" unique_id=1688241398]
 wait_time = 0.3
 one_shot = true
 
@@ -2724,9 +2587,7 @@ one_shot = true
 [node name="_attack" type="Node" parent="StateManager/base" unique_id=1464371129]
 script = ExtResource("43_twx36")
 is_normal_state = false
-
-[node name="attackTimer" type="Timer" parent="StateManager/base/_attack" unique_id=1160554474]
-one_shot = true
+is_group = true
 
 [node name="attack0" type="Node" parent="StateManager/base/_attack" unique_id=1664885964 node_paths=PackedStringArray("next_attack")]
 script = ExtResource("44_82lcl")
@@ -2801,10 +2662,137 @@ input_receive_call_func_fail = null
 [node name="Timer" type="Timer" parent="StateManager/AttackListener" unique_id=2033586965]
 one_shot = true
 
+[node name="UIs" parent="." unique_id=303088328 instance=ExtResource("3_gyqt3")]
+position = Vector2(0, -35)
+health_config = ExtResource("3_qy2x3")
+
+[node name="DenseCooldownBar" type="ProgressBar" parent="UIs" unique_id=1892214432]
+modulate = Color(1, 1, 1, 0.854902)
+offset_left = 29.0
+offset_top = 11.0
+offset_right = 31.0
+offset_bottom = 38.0
+theme = ExtResource("4_fbcfd")
+step = 0.1
+value = 50.0
+fill_mode = 3
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="LightBar" type="ProgressBar" parent="UIs" unique_id=960689858]
+offset_left = -29.0
+offset_top = 11.0
+offset_right = -27.0
+offset_bottom = 38.0
+theme = ExtResource("5_6rmgu")
+step = 0.1
+value = 50.0
+fill_mode = 3
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="LightCooldownBar" type="ProgressBar" parent="UIs/LightBar" unique_id=1675828900]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 2.0
+offset_bottom = 27.0
+theme = ExtResource("6_2lsm4")
+step = 0.1
+value = 60.0
+fill_mode = 3
+show_percentage = false
+
+[node name="StiffBar" type="ProgressBar" parent="UIs" unique_id=1585204204]
+offset_left = -10.0
+offset_right = 10.0
+offset_bottom = 4.0
+theme = ExtResource("7_qreo2")
+value = 50.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" parent="UIs" unique_id=1753141741 instance=ExtResource("4_lpne6")]
+anchors_preset = -1
+offset_left = -20.0
+offset_right = 20.0
+back_bar_delay_time = 1.0
+back_bar_animation_time = 0.5
+bar_color = Color(16.898285, 16.630459, 0, 1)
+back_bar_color = Color(0, 0, 0, 0.8666667)
+metadata/_edit_use_anchors_ = true
+
+[node name="HurtUI" type="Node2D" parent="UIs" unique_id=1840738073]
+
+[node name="DamageNum" parent="UIs/HurtUI" unique_id=632465112 instance=ExtResource("9_u8lqu")]
+
+[node name="Marker" parent="UIs/HurtUI/DamageNum" unique_id=1924115499 instance=ExtResource("21_ykyob")]
+visible = false
+position = Vector2(-42, -70)
+
+[node name="Timer" type="Node" parent="UIs" unique_id=1813876178]
+
+[node name="FightingDelayTimer" type="Timer" parent="UIs/Timer" unique_id=1584988411]
+one_shot = true
+
+[node name="PlayerStateUpdate0_1s" type="Timer" parent="UIs/Timer" unique_id=1207543485]
+wait_time = 0.1
+script = ExtResource("18_yurw6")
+
+[node name="PlayerStateUpdate1s" type="Timer" parent="UIs/Timer" unique_id=249843411]
+autostart = true
+script = ExtResource("18_yurw6")
+
+[node name="Test" type="Node2D" parent="UIs" unique_id=834096373]
+script = ExtResource("10_h2v12")
+
+[node name="TestLabel" type="Label" parent="UIs/Test" unique_id=1428733528]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.784314, 0.203922, 1)
+theme_override_fonts/font = ExtResource("11_l3n1r")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RunningTime" type="Label" parent="UIs/Test" unique_id=1901724232]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -27.0
+offset_right = 20.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="UIs/Test/RunningTime" unique_id=944893365]
+one_shot = true
+
+[node name="Master" parent="." unique_id=863019983 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("2_ame18")]
+unique_name_in_owner = true
+obj = NodePath("..")
+connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"), NodePath("../Components/Light"), NodePath("../Animations/FXs/SwordWind/SwordWind"), NodePath("../Interactions/Dialogue"), NodePath("../Saves/DataCollector"), NodePath("../Components/AStarMove"), NodePath("../Components/FaceDirection"), NodePath("../Components/Move2Vec2"), NodePath("../Components/CreateCharacterBox")]
+
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_vp6bf")
+save_data_config = SubResource("Resource_453cj")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 
@@ -2818,21 +2806,21 @@ unique_name_in_owner = true
 [node name="PlayerDenseSucTimeEvent" parent="Interactions" unique_id=2114609287 instance=ExtResource("98_blh6t")]
 unique_name_in_owner = true
 
-[connection signal="timeout" from="UIs/Timer/FightingDelayTimer" to="UIs" method="_on_fighting_delay_timer_timeout"]
-[connection signal="timeout" from="UIs/Timer/PlayerStateUpdate0_1s" to="UIs/Timer/PlayerStateUpdate0_1s" method="_on_timeout_0_1"]
-[connection signal="timeout" from="UIs/Timer/PlayerStateUpdate1s" to="UIs/Timer/PlayerStateUpdate1s" method="_on_timeout_1"]
-[connection signal="timeout" from="UIs/Test/RunningTime/Timer" to="UIs/Test" method="_on_timer_timeout"]
-[connection signal="timeout" from="Components/UpdateTimer" to="." method="_on_update_timer_timeout"]
-[connection signal="animation_finished" from="Animations/Anime/aniplayer" to="UIs/Test" method="_on_aniplayer_animation_finished"]
 [connection signal="animation_finished" from="Animations/Anime/aniplayer" to="Animations/Anime" method="_on_aniplayer_animation_finished"]
+[connection signal="animation_finished" from="Animations/Anime/aniplayer" to="UIs/Test" method="_on_aniplayer_animation_finished"]
 [connection signal="animation_started" from="Animations/Anime/aniplayer" to="UIs/Test" method="_on_aniplayer_animation_started"]
+[connection signal="timeout" from="Components/UpdateTimer" to="." method="_on_update_timer_timeout"]
 [connection signal="timeout" from="StateManager/stack/behitbati/Timer" to="StateManager/stack/behitbati" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/ground/dash/Timer" to="StateManager/base/ground/dash" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/combat/dense/DenseTimer" to="StateManager/base/combat/dense" method="_on_dense_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/combat/dense/DenseCooldownTimer" to="StateManager/base/combat/dense" method="_on_dense_cooldown_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/combat/behit/behitDenseSafed/StiffTimer" to="StateManager/base/combat/behit/behitDenseSafed" method="_on_stiff_timer_timeout"]
-[connection signal="timeout" from="StateManager/base/combat/behit/behitDenseSafed/StiffTimer" to="StateManager/base/combat/behit/behitDamaged" method="_on_stiff_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/combat/behit/behitDamaged/ProtectTimer" to="StateManager/base/combat/behit/behitDamaged" method="_on_protect_timer_timeout"]
+[connection signal="timeout" from="StateManager/base/combat/behit/behitDamaged/StiffTimer" to="StateManager/base/combat/behit/behitDamaged" method="_on_stiff_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/combat/light/lightTimer" to="StateManager/base/combat/light" method="_on_light_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/combat/light/lightCooldownTimer" to="StateManager/base/combat/light" method="_on_light_cooldown_timer_timeout"]
 [connection signal="timeout" from="StateManager/AttackListener/Timer" to="StateManager/AttackListener" method="_on_timer_timeout"]
+[connection signal="timeout" from="UIs/Timer/FightingDelayTimer" to="UIs" method="_on_fighting_delay_timer_timeout"]
+[connection signal="timeout" from="UIs/Timer/PlayerStateUpdate0_1s" to="UIs/Timer/PlayerStateUpdate0_1s" method="_on_timeout_0_1"]
+[connection signal="timeout" from="UIs/Timer/PlayerStateUpdate1s" to="UIs/Timer/PlayerStateUpdate1s" method="_on_timeout_1"]
+[connection signal="timeout" from="UIs/Test/RunningTime/Timer" to="UIs/Test" method="_on_timer_timeout"]

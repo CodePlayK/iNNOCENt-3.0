@@ -14,7 +14,6 @@ var obj_name:String = "player"
 @export_group("运动")
 @export var dead_switch: bool=true
 ##重力
-@export_group("运动")
 @export var gravity: int=800
 ##最大y速度
 @export var max_velocity_y: int=800
@@ -115,7 +114,6 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if !on_ready:
 		return 
-	var level = get_parent()
 	is_player_interact_being_locked()
 	is_player_on_fighting()
 	state_manager.physics_process(delta)

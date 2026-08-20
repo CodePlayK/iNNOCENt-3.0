@@ -1,6 +1,6 @@
 extends behit
 class_name BehitDamagedState
-@onready var stiff_timer: Timer = %StiffTimer
+@onready var stiff_timer: Timer = $StiffTimer
 @onready var protect_timer: Timer = $ProtectTimer
 @export var stiff_time=.3
 @export_range(0,5.0) var protect_time=.3

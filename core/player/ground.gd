@@ -1,23 +1,42 @@
-class_name GroundState
 extends BaseState
-var edge_jump_flag=true
+class_name GroundState
+
+var edge_jump_flag = true
+
 
 func enter():
 	super.enter()
-	PlayerState.double_jump_able=true
+	PlayerState.double_jump_able = true
 	return null
 
+
 func input(event: InputEvent) -> BaseState:
-	if event.is_action_pressed("jump") or event.is_action_pressed("light"):
+	if event.is_action_pressed("jump"):
 		return jump_state
-	if player.is_on_floor() :
-		if Input.is_action_pressed("run"):
-			if PlayerState.is_player_on_fighting:
-				return fastrun_state
-			else :
-				return run_state
-		if get_palyer_move_direction_x()!=0:
-			return walk_state
-		else:
-			return null
+	if not player.is_on_floor():
+		return null
+	if Input.is_action_pressed("run"):
+		return get_run_state()
+	if get_player_move_direction_x() != 0:
+		return walk_state
+	return null
+
+
+func get_run_state() -> BaseState:
+	return fastrun_state if PlayerState.is_player_on_fighting else run_state
+
+
+func process_ground_motion(delta: float, accel: Callable, to_idle_when_stopped: bool = true) -> BaseState:
+	move = get_movement_input_x()
+	var airborne := get_airborne_state()
+	if airborne:
+		return airborne
+	player_faced(move)
+	apply_gravity(delta)
+	apply_horizontal(delta, accel)
+	if not move_player():
+		return null
+	min_jump_force(player.velocity, delta)
+	if to_idle_when_stopped and player.velocity.x == 0 and move == 0:
+		return idle_state
 	return null

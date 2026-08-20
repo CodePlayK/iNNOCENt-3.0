@@ -8,13 +8,12 @@ func enter():
 	player.astar_move.set_astar(true)
 	return
 	
-func physics_process(delta: float):
+func physics_process(_delta: float):
 	if !player.astar.enable:return
 	player.astar_move.running = true
-	if player.velocity.y>0 and !player.is_on_floor():
-		return fall_state
-	if player.velocity.y<0 and !player.is_on_floor() :
-		return lift_state
+	var airborne := get_airborne_state()
+	if airborne:
+		return airborne
 	if player.velocity.x>0:
 		player.face_direction.set_faced(false)
 	elif player.velocity.x<0:

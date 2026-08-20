@@ -169,6 +169,9 @@ func play_anime(anime_name:String):
 	if anime_name == "attack3":
 		pass
 	if print_play_anime:Debug.dprintwarn(DebugCT.dp("[Anime]播放:%s" %[anime_name],self))
+	if not anime_dic.has(anime_name):
+		push_warning("[Anime] missing config for state '%s'" % anime_name)
+		return
 	anime = anime_dic[anime_name]
 	preset_cache(anime)
 	preset_anime(anime)
