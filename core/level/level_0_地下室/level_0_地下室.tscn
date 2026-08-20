@@ -118,6 +118,17 @@ fill_to = Vector2(0.5009901, 1)
 resource_local_to_scene = true
 script = ExtResource("6_3u0dw")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ph6oa"]
+resource_local_to_scene = true
+shader = ExtResource("15_j8r4a")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.6
+shader_parameter/rim_intensity = 5.8
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-2, -3.245)
+shader_parameter/distance_strength = 7.1
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_egk4i"]
 resource_local_to_scene = true
 shader = ExtResource("15_j8r4a")
@@ -272,21 +283,10 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_naju1"]
-resource_local_to_scene = true
-shader = ExtResource("15_j8r4a")
-shader_parameter/enable_rim = true
-shader_parameter/rim_width_px = 2.6
-shader_parameter/rim_intensity = 5.8
-shader_parameter/rim_softness = 1.2
-shader_parameter/sample_count = 5
-shader_parameter/light_dir = Vector2(-2, -3.245)
-shader_parameter/distance_strength = 7.1
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jybyy"]
 polygon = PackedVector2Array(81, -100, 164, -101, 167, -105, 75, -105)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sb8g1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_naju1"]
 resource_local_to_scene = true
 shader = ExtResource("15_j8r4a")
 shader_parameter/enable_rim = true
@@ -322,7 +322,7 @@ _data = {
 &"default": SubResource("Animation_qgh0b")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ujkc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sb8g1"]
 resource_local_to_scene = true
 shader = ExtResource("15_j8r4a")
 shader_parameter/enable_rim = true
@@ -336,6 +336,17 @@ shader_parameter/distance_strength = 7.1
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_qgh0b"]
 _data = PackedByteArray("AAADAAUAAAABAAAAhwAAADAAAABgAAAAUklGRlgAAABXRUJQVlA4TEwAAAAvhsALEC8gEEjyN5tqDYFAkr/ZVAsEkvxtJ3j+A6rsYQ8YJAIU5sEGYoMvoJ5BdOsfaBhgEf2fgPgbuL1SYirXBFZ7J8TFfTHULPEx")
 size_override = Vector2(135, 48)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ujkc"]
+resource_local_to_scene = true
+shader = ExtResource("15_j8r4a")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.6
+shader_parameter/rim_intensity = 5.8
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-2, -3.245)
+shader_parameter/distance_strength = 7.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_20qia"]
 resource_local_to_scene = true
@@ -381,6 +392,9 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_ia1kq"]
+diffuse_texture = ExtResource("23_ppjcc")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gce3l"]
 resource_local_to_scene = true
 shader = ExtResource("15_j8r4a")
@@ -391,9 +405,6 @@ shader_parameter/rim_softness = 1.2
 shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ia1kq"]
-diffuse_texture = ExtResource("23_ppjcc")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jtxjj"]
 resource_local_to_scene = true
@@ -407,17 +418,6 @@ shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bqhxv"]
-resource_local_to_scene = true
-shader = ExtResource("15_j8r4a")
-shader_parameter/enable_rim = true
-shader_parameter/rim_width_px = 2.6
-shader_parameter/rim_intensity = 5.8
-shader_parameter/rim_softness = 1.2
-shader_parameter/sample_count = 5
-shader_parameter/light_dir = Vector2(-2, -3.245)
-shader_parameter/distance_strength = 7.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1l0a"]
 resource_local_to_scene = true
 shader = ExtResource("15_j8r4a")
 shader_parameter/enable_rim = true
@@ -478,6 +478,17 @@ shader_parameter/distance_strength = 2.999999932944
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_4434d"]
 _data = PackedByteArray("AAADAAUAAAABAAAAfAAAAD8AAAD2AAAAUklGRu4AAABXRUJQVlA4TOEAAAAve4APEDcgEEhhW06QbdP585zvAoEUttvzH/DuVEQggBtJkuRmgGGczMeBn/Lc1WFlPC7AAESs/25s8ZVOiei/wrZtG2a0Rj6JzaRKpUpTNm8pWES9mVpSXNQqT10wqwgQhUWYBF3JU2ARi2CxhxST6Xpou9ha6/jzcugZU5giDWMXUqzsBE+GuQ0Vn4K+mE/EbUFYLCwWFgvuht2f7NDmlH7Sw8wU36l9WBFWxCZYKEzlGOiYogtoQ/fdVCPHbpBjDYae6SloorqpxjhyOVi4Wrwc5FBXo1FX6Io2DlHxTwsA")
 size_override = Vector2(124, 63)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1l0a"]
+resource_local_to_scene = true
+shader = ExtResource("15_j8r4a")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.6
+shader_parameter/rim_intensity = 5.8
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-2, -3.245)
+shader_parameter/distance_strength = 7.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wkdu7"]
 resource_local_to_scene = true
@@ -721,17 +732,6 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ritci"]
-resource_local_to_scene = true
-shader = ExtResource("15_j8r4a")
-shader_parameter/enable_rim = true
-shader_parameter/rim_width_px = 2.6
-shader_parameter/rim_intensity = 5.8
-shader_parameter/rim_softness = 1.2
-shader_parameter/sample_count = 5
-shader_parameter/light_dir = Vector2(-2, -3.245)
-shader_parameter/distance_strength = 7.1
-
 [sub_resource type="Resource" id="Resource_h27f5"]
 script = ExtResource("30_d6m5x")
 dialogue_res = ExtResource("29_e26tw")
@@ -899,7 +899,7 @@ sources/0 = SubResource("TileSetAtlasSource_ufwbg")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7upp4"]
 size = Vector2(80, 465)
 
-[sub_resource type="Resource" id="Resource_6uaw3"]
+[sub_resource type="Resource" id="Resource_ritci"]
 resource_local_to_scene = true
 script = ExtResource("40_dp3ts")
 group = 1
@@ -910,7 +910,7 @@ metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 script = ExtResource("42_pgyvf")
 health = 500.0
 
-[sub_resource type="Resource" id="Resource_632o5"]
+[sub_resource type="Resource" id="Resource_6uaw3"]
 resource_local_to_scene = true
 script = ExtResource("40_dp3ts")
 group = 1
@@ -921,14 +921,14 @@ metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 script = ExtResource("42_pgyvf")
 health = 100.0
 
-[sub_resource type="Resource" id="Resource_1dp3e"]
+[sub_resource type="Resource" id="Resource_632o5"]
 resource_local_to_scene = true
 script = ExtResource("40_dp3ts")
 group = 1
 key = "bloodking2"
 metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
-[sub_resource type="Resource" id="Resource_qjchf"]
+[sub_resource type="Resource" id="Resource_1dp3e"]
 resource_local_to_scene = true
 script = ExtResource("61_ph6oa")
 using_states = PackedStringArray()
@@ -1500,10 +1500,10 @@ bloodking1: 出发！
 => END!"
 metadata/dialogue_manager_version = "3.10.5"
 
-[sub_resource type="Resource" id="Resource_2fbjw"]
+[sub_resource type="Resource" id="Resource_qjchf"]
 resource_local_to_scene = true
 script = ExtResource("30_d6m5x")
-dialogue_res = SubResource("Resource_qjchf")
+dialogue_res = SubResource("Resource_1dp3e")
 talkers = Array[String](["it"])
 current_res = "0_0_0"
 title = "it"
@@ -1523,6 +1523,17 @@ shader_parameter/rim_softness = 1.2
 shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(2.505, -1.8)
 shader_parameter/distance_strength = 0.50999998860048
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2fbjw"]
+resource_local_to_scene = true
+shader = ExtResource("15_j8r4a")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.6
+shader_parameter/rim_intensity = 5.8
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-2, -3.245)
+shader_parameter/distance_strength = 7.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_afadh"]
 resource_local_to_scene = true
@@ -1580,17 +1591,6 @@ shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sqbua"]
-resource_local_to_scene = true
-shader = ExtResource("15_j8r4a")
-shader_parameter/enable_rim = true
-shader_parameter/rim_width_px = 2.6
-shader_parameter/rim_intensity = 5.8
-shader_parameter/rim_softness = 1.2
-shader_parameter/sample_count = 5
-shader_parameter/light_dir = Vector2(-2, -3.245)
-shader_parameter/distance_strength = 7.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ax7lf"]
 resource_local_to_scene = true
 shader = ExtResource("15_j8r4a")
 shader_parameter/enable_rim = true
@@ -2516,7 +2516,7 @@ texture = ExtResource("52_uu0l1")
 [sub_resource type="TileSet" id="TileSet_hehdm"]
 sources/0 = SubResource("TileSetAtlasSource_ril24")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5ewt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ax7lf"]
 resource_local_to_scene = true
 shader = ExtResource("15_j8r4a")
 shader_parameter/enable_rim = true
@@ -2649,7 +2649,7 @@ metadata/_edit_lock_ = true
 
 [node name="木梯" parent="Parallax/ParallaxLayer_-5" unique_id=2089022715 instance=ExtResource("14_qgh0b")]
 light_mask = 32769
-material = SubResource("ShaderMaterial_egk4i")
+material = SubResource("ShaderMaterial_ph6oa")
 position = Vector2(333.5, -88)
 scale = Vector2(0.7873563, 0.7873563)
 texture = ExtResource("12_4mg3w")
@@ -2661,7 +2661,7 @@ back_offset = false
 
 [node name="酒店吊灯2" parent="Parallax/ParallaxLayer_-5" unique_id=321600085 instance=ExtResource("14_qgh0b")]
 light_mask = 8
-material = SubResource("ShaderMaterial_s0etj")
+material = SubResource("ShaderMaterial_egk4i")
 position = Vector2(456, -275)
 texture = ExtResource("35_bavfi")
 base_color = Color(0.13077214, 0.13077214, 0.13077208, 1)
@@ -2678,7 +2678,7 @@ metadata/_edit_lock_ = true
 
 [node name="横梁4" parent="Parallax/ParallaxLayer_-5/建筑2" unique_id=1759806399 instance=ExtResource("14_qgh0b")]
 light_mask = 98309
-material = SubResource("ShaderMaterial_3f5c2")
+material = SubResource("ShaderMaterial_s0etj")
 position = Vector2(-34, -283)
 texture = ExtResource("14_aqb27")
 base_color = Color(0, 0, 0, 1)
@@ -2693,7 +2693,7 @@ back_offset_pixels = Vector2(0, -2)
 
 [node name="横梁2" parent="Parallax/ParallaxLayer_-5/建筑2" unique_id=1370405782 instance=ExtResource("14_qgh0b")]
 light_mask = 98309
-material = SubResource("ShaderMaterial_kt6dm")
+material = SubResource("ShaderMaterial_3f5c2")
 position = Vector2(-493, -283)
 texture = ExtResource("14_aqb27")
 base_color = Color(0, 0, 0, 1)
@@ -2707,7 +2707,7 @@ back_offset = false
 
 [node name="横梁" parent="Parallax/ParallaxLayer_-5/建筑2" unique_id=2097241474 instance=ExtResource("14_qgh0b")]
 light_mask = 98309
-material = SubResource("ShaderMaterial_eda8o")
+material = SubResource("ShaderMaterial_kt6dm")
 position = Vector2(-948, -280)
 texture = ExtResource("14_aqb27")
 base_color = Color(0, 0, 0, 1)
@@ -2721,7 +2721,7 @@ back_offset = false
 
 [node name="横梁5" parent="Parallax/ParallaxLayer_-5/建筑2" unique_id=1932086704 instance=ExtResource("14_qgh0b")]
 light_mask = 98309
-material = SubResource("ShaderMaterial_eq63f")
+material = SubResource("ShaderMaterial_eda8o")
 position = Vector2(882, -283)
 texture = ExtResource("14_aqb27")
 base_color = Color(0, 0, 0, 1)
@@ -2735,7 +2735,7 @@ back_offset = false
 
 [node name="横梁3" parent="Parallax/ParallaxLayer_-5/建筑2" unique_id=13876237 instance=ExtResource("14_qgh0b")]
 light_mask = 98309
-material = SubResource("ShaderMaterial_ucg2k")
+material = SubResource("ShaderMaterial_eq63f")
 position = Vector2(423, -283)
 texture = ExtResource("14_aqb27")
 base_color = Color(0, 0, 0, 1)
@@ -2749,7 +2749,7 @@ back_offset = false
 
 [node name="石柱2" parent="Parallax/ParallaxLayer_-5/建筑2" unique_id=281235661 instance=ExtResource("14_qgh0b")]
 light_mask = 98309
-material = SubResource("ShaderMaterial_4upw2")
+material = SubResource("ShaderMaterial_ucg2k")
 position = Vector2(-725, -123)
 texture = ExtResource("13_6om8c")
 base_color = Color(0, 0, 0, 1)
@@ -2760,7 +2760,7 @@ back_offset = false
 
 [node name="石柱3" parent="Parallax/ParallaxLayer_-5/建筑2" unique_id=26593092 instance=ExtResource("14_qgh0b")]
 light_mask = 98309
-material = SubResource("ShaderMaterial_2skhe")
+material = SubResource("ShaderMaterial_4upw2")
 position = Vector2(-265, -123)
 texture = ExtResource("13_6om8c")
 base_color = Color(0, 0, 0, 1)
@@ -2771,7 +2771,7 @@ back_offset = false
 
 [node name="石柱4" parent="Parallax/ParallaxLayer_-5/建筑2" unique_id=402209456 instance=ExtResource("14_qgh0b")]
 light_mask = 98309
-material = SubResource("ShaderMaterial_nqrdp")
+material = SubResource("ShaderMaterial_2skhe")
 position = Vector2(191, -123)
 texture = ExtResource("13_6om8c")
 base_color = Color(0, 0, 0, 1)
@@ -2782,7 +2782,7 @@ back_offset = false
 
 [node name="石柱5" parent="Parallax/ParallaxLayer_-5/建筑2" unique_id=1241831676 instance=ExtResource("14_qgh0b")]
 light_mask = 98309
-material = SubResource("ShaderMaterial_j2l50")
+material = SubResource("ShaderMaterial_nqrdp")
 position = Vector2(651, -123)
 texture = ExtResource("13_6om8c")
 base_color = Color(0, 0, 0, 1)
@@ -2793,7 +2793,7 @@ back_offset = false
 
 [node name="木柜" parent="Parallax/ParallaxLayer_-5" unique_id=2131510829 instance=ExtResource("14_qgh0b")]
 light_mask = 32769
-material = SubResource("ShaderMaterial_x1ohs")
+material = SubResource("ShaderMaterial_j2l50")
 position = Vector2(484, -71)
 scale = Vector2(0.7873563, 0.7873563)
 texture = ExtResource("16_7hu0q")
@@ -2809,7 +2809,7 @@ metadata/_edit_lock_ = true
 
 [node name="金属架" parent="Parallax/ParallaxLayer_-4" unique_id=1714765714 instance=ExtResource("14_qgh0b")]
 light_mask = 32769
-material = SubResource("ShaderMaterial_x3ces")
+material = SubResource("ShaderMaterial_x1ohs")
 position = Vector2(469, -60)
 texture = ExtResource("67_u7t5c")
 base_color = Color(0.18120003, 0.18120006, 0.18120003, 1)
@@ -2832,7 +2832,7 @@ texture = ExtResource("21_u7t5c")
 
 [node name="武器架2" parent="Parallax/ParallaxLayer_-4" unique_id=611850807 instance=ExtResource("14_qgh0b")]
 light_mask = 98305
-material = SubResource("ShaderMaterial_btlc4")
+material = SubResource("ShaderMaterial_x3ces")
 position = Vector2(616.5, -59.5)
 texture = ExtResource("16_llria")
 base_color = Color(0.18120003, 0.18120006, 0.18120003, 1)
@@ -2843,7 +2843,7 @@ back_offset = false
 
 [node name="床3" parent="Parallax/ParallaxLayer_-4" unique_id=2103093811 instance=ExtResource("14_qgh0b")]
 light_mask = 98305
-material = SubResource("ShaderMaterial_naju1")
+material = SubResource("ShaderMaterial_btlc4")
 position = Vector2(542.5, -32.5)
 texture = ExtResource("17_dd7mq")
 base_color = Color(0.16924512, 0.16924536, 0.16924521, 1)
@@ -2872,7 +2872,7 @@ metadata/_edit_lock_ = true
 [node name="吊扇2" parent="Parallax/ParallaxLayer_-4" unique_id=1670431430 instance=ExtResource("14_qgh0b")]
 light_mask = 9
 texture_filter = 1
-material = SubResource("ShaderMaterial_sb8g1")
+material = SubResource("ShaderMaterial_naju1")
 position = Vector2(586.00006, -280.5)
 scale = Vector2(1.2708337, 1.2708337)
 texture = SubResource("PortableCompressedTexture2D_u6ihl")
@@ -2916,7 +2916,7 @@ autoplay = &"default"
 
 [node name="吊扇-灯" parent="Parallax/ParallaxLayer_-4/吊扇2" unique_id=1046206306 instance=ExtResource("14_qgh0b")]
 light_mask = 13
-material = SubResource("ShaderMaterial_1ujkc")
+material = SubResource("ShaderMaterial_sb8g1")
 texture = SubResource("PortableCompressedTexture2D_qgh0b")
 base_color_override_scale = 0.349
 rim_light_enable = false
@@ -2932,7 +2932,7 @@ metadata/_edit_lock_ = true
 
 [node name="推车" parent="Parallax/ParallaxLayer_-3" unique_id=1567443714 instance=ExtResource("14_qgh0b")]
 light_mask = 32769
-material = SubResource("ShaderMaterial_20qia")
+material = SubResource("ShaderMaterial_1ujkc")
 position = Vector2(224, -42)
 texture = ExtResource("20_7hu0q")
 base_color = Color(0.18120003, 0.18120006, 0.18120003, 1)
@@ -2943,7 +2943,7 @@ back_offset = false
 
 [node name="酒瓶" parent="Parallax/ParallaxLayer_-3/推车" unique_id=118987858 instance=ExtResource("14_qgh0b")]
 light_mask = 32769
-material = SubResource("ShaderMaterial_i1vao")
+material = SubResource("ShaderMaterial_20qia")
 position = Vector2(-6, -21)
 texture = ExtResource("21_u7t5c")
 base_color = Color(0.18120003, 0.18120006, 0.18120003, 1)
@@ -2954,7 +2954,7 @@ back_offset = false
 
 [node name="酒瓶2" parent="Parallax/ParallaxLayer_-3/推车" unique_id=1620539368 instance=ExtResource("14_qgh0b")]
 light_mask = 32769
-material = SubResource("ShaderMaterial_n5wwt")
+material = SubResource("ShaderMaterial_i1vao")
 position = Vector2(-4, -56)
 texture = ExtResource("22_js6l0")
 base_color = Color(0.18120003, 0.18120006, 0.18120003, 1)
@@ -2965,7 +2965,7 @@ back_offset = false
 
 [node name="武器架" parent="Parallax/ParallaxLayer_-3" unique_id=881546791 instance=ExtResource("14_qgh0b")]
 light_mask = 32769
-material = SubResource("ShaderMaterial_5lie4")
+material = SubResource("ShaderMaterial_n5wwt")
 position = Vector2(381.5, -60)
 texture = ExtResource("12_ia1kq")
 base_color = Color(0.18120003, 0.18120006, 0.18120003, 1)
@@ -2976,7 +2976,7 @@ back_offset = false
 
 [node name="床2" parent="Parallax/ParallaxLayer_-3" unique_id=818454574 instance=ExtResource("14_qgh0b")]
 light_mask = 32769
-material = SubResource("ShaderMaterial_gce3l")
+material = SubResource("ShaderMaterial_5lie4")
 position = Vector2(307.5, -33)
 texture = SubResource("CanvasTexture_ia1kq")
 base_color = Color(0.16924512, 0.16924536, 0.16924521, 1)
@@ -3009,7 +3009,7 @@ metadata/_edit_lock_ = true
 [node name="吊扇" parent="Parallax/ParallaxLayer_-2" unique_id=1856201827 instance=ExtResource("14_qgh0b")]
 light_mask = 9
 texture_filter = 1
-material = SubResource("ShaderMaterial_jtxjj")
+material = SubResource("ShaderMaterial_gce3l")
 position = Vector2(319, -280.5)
 scale = Vector2(1.2708337, 1.2708337)
 texture = SubResource("PortableCompressedTexture2D_u6ihl")
@@ -3053,7 +3053,7 @@ autoplay = &"default"
 
 [node name="吊扇-灯" parent="Parallax/ParallaxLayer_-2/吊扇" unique_id=1181872666 instance=ExtResource("14_qgh0b")]
 light_mask = 13
-material = SubResource("ShaderMaterial_bqhxv")
+material = SubResource("ShaderMaterial_jtxjj")
 texture = SubResource("PortableCompressedTexture2D_qgh0b")
 base_color_override_scale = 1.0
 rim_light_enable = false
@@ -3068,7 +3068,7 @@ metadata/_edit_lock_ = true
 
 [node name="钟表" parent="Parallax/ParallaxLayer_-1" unique_id=524506837 instance=ExtResource("14_qgh0b")]
 light_mask = 4
-material = SubResource("ShaderMaterial_p1l0a")
+material = SubResource("ShaderMaterial_bqhxv")
 position = Vector2(-90, -86)
 texture = ExtResource("19_ld0jg")
 base_color_override_scale = 0.049
@@ -3185,7 +3185,7 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "90bdc549eaa233d27775d99860e0279e"
 
 [node name="横梁4" parent="Parallax/ParallaxLayer_1/建筑2" unique_id=539004115 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_wkdu7")
+material = SubResource("ShaderMaterial_p1l0a")
 position = Vector2(39, -283)
 texture = ExtResource("14_aqb27")
 base_color = Color(0.026721455, 0.026721513, 0.026721498, 1)
@@ -3199,7 +3199,7 @@ back_offset = false
 back_offset_pixels = Vector2(0, -2)
 
 [node name="横梁2" parent="Parallax/ParallaxLayer_1/建筑2" unique_id=1955748689 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_f0mp4")
+material = SubResource("ShaderMaterial_wkdu7")
 position = Vector2(-420, -283)
 texture = ExtResource("14_aqb27")
 base_color = Color(0.026721455, 0.026721513, 0.026721498, 1)
@@ -3212,7 +3212,7 @@ distance_strength = 10.0
 back_offset = false
 
 [node name="横梁" parent="Parallax/ParallaxLayer_1/建筑2" unique_id=739533992 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_t6drg")
+material = SubResource("ShaderMaterial_f0mp4")
 position = Vector2(-875, -280)
 texture = ExtResource("14_aqb27")
 base_color = Color(0.026721455, 0.026721513, 0.026721498, 1)
@@ -3225,7 +3225,7 @@ distance_strength = 10.0
 back_offset = false
 
 [node name="横梁5" parent="Parallax/ParallaxLayer_1/建筑2" unique_id=1495846813 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_235pl")
+material = SubResource("ShaderMaterial_t6drg")
 position = Vector2(955, -283)
 texture = ExtResource("14_aqb27")
 base_color = Color(0.026721455, 0.026721513, 0.026721498, 1)
@@ -3238,7 +3238,7 @@ distance_strength = 10.0
 back_offset = false
 
 [node name="横梁3" parent="Parallax/ParallaxLayer_1/建筑2" unique_id=428838292 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_6x0wu")
+material = SubResource("ShaderMaterial_235pl")
 position = Vector2(496, -283)
 texture = ExtResource("14_aqb27")
 base_color = Color(0.026721455, 0.026721513, 0.026721498, 1)
@@ -3251,7 +3251,7 @@ distance_strength = 10.0
 back_offset = false
 
 [node name="石柱2" parent="Parallax/ParallaxLayer_1/建筑2" unique_id=1379057708 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_jgmc3")
+material = SubResource("ShaderMaterial_6x0wu")
 position = Vector2(-652, -123)
 texture = ExtResource("13_6om8c")
 base_color = Color(0.27265528, 0.2726553, 0.2726553, 1)
@@ -3261,7 +3261,7 @@ distance_strength = 2.9
 back_offset = false
 
 [node name="石柱3" parent="Parallax/ParallaxLayer_1/建筑2" unique_id=748736988 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_ivkku")
+material = SubResource("ShaderMaterial_jgmc3")
 position = Vector2(-192, -123)
 texture = ExtResource("13_6om8c")
 base_color = Color(0.27265528, 0.2726553, 0.2726553, 1)
@@ -3271,7 +3271,7 @@ distance_strength = 2.9
 back_offset = false
 
 [node name="石柱4" parent="Parallax/ParallaxLayer_1/建筑2" unique_id=806301322 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_1jbka")
+material = SubResource("ShaderMaterial_ivkku")
 position = Vector2(264, -123)
 texture = ExtResource("13_6om8c")
 base_color = Color(0.27265528, 0.2726553, 0.2726553, 1)
@@ -3281,7 +3281,7 @@ distance_strength = 2.9
 back_offset = false
 
 [node name="石柱5" parent="Parallax/ParallaxLayer_1/建筑2" unique_id=118877590 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_25cp4")
+material = SubResource("ShaderMaterial_1jbka")
 position = Vector2(724, -123)
 texture = ExtResource("13_6om8c")
 base_color = Color(0.27265528, 0.2726553, 0.2726553, 1)
@@ -3295,7 +3295,7 @@ layer_id = 2
 metadata/_edit_lock_ = true
 
 [node name="鲨鱼小雕塑" parent="Parallax/ParallaxLayer_2" unique_id=1901319076 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_btshx")
+material = SubResource("ShaderMaterial_25cp4")
 position = Vector2(-203, -208)
 texture = ExtResource("14_xgs88")
 base_color = Color(0.15007517, 0.15007517, 0.15007511, 1)
@@ -3309,7 +3309,7 @@ back_offset = false
 
 [node name="落地钟表2" parent="Parallax/ParallaxLayer_2" unique_id=1442742071 instance=ExtResource("14_qgh0b")]
 light_mask = 4
-material = SubResource("ShaderMaterial_k7dsb")
+material = SubResource("ShaderMaterial_btshx")
 position = Vector2(-101, -95)
 texture = ExtResource("13_qgh0b")
 base_color_override_scale = 0.0
@@ -3320,7 +3320,7 @@ distance_strength = 4.8
 back_offset = false
 
 [node name="老衣柜" parent="Parallax/ParallaxLayer_2" unique_id=2037516627 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_7t172")
+material = SubResource("ShaderMaterial_k7dsb")
 position = Vector2(-208, -92)
 texture = ExtResource("24_mepfb")
 base_color = Color(0.3266795, 0.3266795, 0.32667947, 1)
@@ -3347,7 +3347,7 @@ layer_id = 3
 metadata/_edit_lock_ = true
 
 [node name="武器架" parent="Parallax/ParallaxLayer_3" unique_id=1820638399 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_kl3ua")
+material = SubResource("ShaderMaterial_7t172")
 position = Vector2(-45.3302, -60)
 texture = ExtResource("12_ia1kq")
 base_color_override_scale = 0.552
@@ -3358,7 +3358,7 @@ back_offset = false
 [node name="吊扇" parent="Parallax/ParallaxLayer_3" unique_id=668340865 instance=ExtResource("14_qgh0b")]
 light_mask = 8
 texture_filter = 1
-material = SubResource("ShaderMaterial_cpddc")
+material = SubResource("ShaderMaterial_kl3ua")
 position = Vector2(-131, -280.5)
 scale = Vector2(1.2708337, 1.2708337)
 texture = SubResource("PortableCompressedTexture2D_u6ihl")
@@ -3402,7 +3402,7 @@ autoplay = &"default"
 
 [node name="吊扇-灯" parent="Parallax/ParallaxLayer_3/吊扇" unique_id=930626989 instance=ExtResource("14_qgh0b")]
 light_mask = 13
-material = SubResource("ShaderMaterial_c2ipg")
+material = SubResource("ShaderMaterial_cpddc")
 texture = SubResource("PortableCompressedTexture2D_qgh0b")
 base_color_override_scale = 1.0
 rim_light_enable = false
@@ -3446,7 +3446,7 @@ scale_max = 1.0
 metadata/_edit_lock_ = true
 
 [node name="急救包" parent="Parallax/ParallaxLayer_4" unique_id=1970706719 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_62i64")
+material = SubResource("ShaderMaterial_c2ipg")
 position = Vector2(-135, -131)
 scale = Vector2(0.99999976, 0.9999999)
 texture = ExtResource("17_g0alj")
@@ -3459,7 +3459,7 @@ distance_strength = 0.7
 back_offset = false
 
 [node name="电视" parent="Parallax/ParallaxLayer_4" unique_id=1236639580 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_kgrje")
+material = SubResource("ShaderMaterial_62i64")
 position = Vector2(-172, -106)
 texture = ExtResource("17_13l3c")
 base_color_override_scale = 0.269
@@ -3470,7 +3470,7 @@ distance_strength = 0.9
 back_offset = false
 
 [node name="金属架" parent="Parallax/ParallaxLayer_4" unique_id=1079017642 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_0yltt")
+material = SubResource("ShaderMaterial_kgrje")
 position = Vector2(-147.5, -64.09)
 texture = ExtResource("15_ppjcc")
 base_color_override_scale = 0.366
@@ -3481,7 +3481,7 @@ back_offset = false
 
 [node name="天使雕塑" parent="Parallax/ParallaxLayer_4" unique_id=945036903 instance=ExtResource("14_qgh0b")]
 light_mask = 4
-material = SubResource("ShaderMaterial_gkwdj")
+material = SubResource("ShaderMaterial_0yltt")
 position = Vector2(-260, -143)
 texture = ExtResource("13_lkwk6")
 base_color_override_scale = 0.413
@@ -3493,7 +3493,7 @@ back_offset_pixels = Vector2(-1.115, -2)
 
 [node name="狮子头" parent="Parallax/ParallaxLayer_4" unique_id=1793121665 instance=ExtResource("14_qgh0b")]
 light_mask = 4
-material = SubResource("ShaderMaterial_6rekq")
+material = SubResource("ShaderMaterial_gkwdj")
 position = Vector2(-293, -51)
 texture = ExtResource("21_4434d")
 base_color_override_scale = 0.291
@@ -3507,7 +3507,7 @@ back_offset_pixels = Vector2(-2.315, 1.835)
 back_overlay_color = Color(0.29464075, 0.29464057, 0.29464066, 1)
 
 [node name="罐头食物" parent="Parallax/ParallaxLayer_4" unique_id=1871270347 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_msveq")
+material = SubResource("ShaderMaterial_6rekq")
 position = Vector2(-160, -69)
 texture = ExtResource("19_qgh0b")
 rim_intensity = 0.9
@@ -3520,7 +3520,7 @@ layer_id = 5
 metadata/_edit_lock_ = true
 
 [node name="楼梯" parent="Parallax/ParallaxLayer_5" unique_id=768559946 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_7r0mp")
+material = SubResource("ShaderMaterial_msveq")
 position = Vector2(981, -132)
 texture = ExtResource("27_aqb27")
 base_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
@@ -3533,7 +3533,7 @@ back_offset = false
 back_offset_pixels = Vector2(-1.575, -1.15)
 
 [node name="床" parent="Parallax/ParallaxLayer_5" unique_id=306872803 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_ritci")
+material = SubResource("ShaderMaterial_7r0mp")
 position = Vector2(-143, -33)
 texture = SubResource("CanvasTexture_ia1kq")
 base_color_override_scale = 0.732
@@ -3694,7 +3694,7 @@ metadata/_custom_type_script = "uid://cwoinddfmepd0"
 [node name="TarnishedWidow" parent="Parallax/ParallaxLayer_5/Main/Npcs" unique_id=1077960373 node_paths=PackedStringArray("astar") instance=ExtResource("39_v2xsn")]
 position = Vector2(904, 290)
 dialogue_config = ExtResource("52_m4xe4")
-save_data_config = SubResource("Resource_6uaw3")
+save_data_config = SubResource("Resource_ritci")
 astar = NodePath("../../astar/BloodKingAstarMap/TarnishedWidow")
 
 [node name="BloodKing1" parent="Parallax/ParallaxLayer_5/Main/Npcs" unique_id=775367354 node_paths=PackedStringArray("astar") instance=ExtResource("41_ssr58")]
@@ -3702,7 +3702,7 @@ position = Vector2(1064, 288)
 npc_name = "bloodking1"
 data = SubResource("Resource_aq5kf")
 dialogue_config = ExtResource("43_erjvb")
-save_data_config = SubResource("Resource_632o5")
+save_data_config = SubResource("Resource_6uaw3")
 character_box_config = ExtResource("44_4mg3w")
 astar = NodePath("../../astar/BloodKingAstarMap/BloodKing1")
 
@@ -3711,7 +3711,7 @@ position = Vector2(1129, 287)
 npc_name = "bloodking2"
 data = SubResource("Resource_i02hx")
 dialogue_config = ExtResource("45_llria")
-save_data_config = SubResource("Resource_1dp3e")
+save_data_config = SubResource("Resource_632o5")
 character_box_config = ExtResource("46_dd7mq")
 astar = NodePath("../../astar/BloodKingAstarMap/BloodKing2")
 max_chase_speed = 200.0
@@ -3721,7 +3721,7 @@ max_velocity_y = 800.0
 
 [node name="it" parent="Parallax/ParallaxLayer_5/Main/Npcs" unique_id=649049201 node_paths=PackedStringArray("astar") instance=ExtResource("47_mepfb")]
 position = Vector2(598, 284)
-dialogue_config = SubResource("Resource_2fbjw")
+dialogue_config = SubResource("Resource_qjchf")
 starting_state = "lock"
 running_state = "idle"
 astar = NodePath("../../astar/BloodKingAstarMap/it")
@@ -3826,7 +3826,7 @@ layer_id = 6
 metadata/_edit_lock_ = true
 
 [node name="金属推车" parent="Parallax/ParallaxLayer_6" unique_id=1669726964 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_afadh")
+material = SubResource("ShaderMaterial_2fbjw")
 position = Vector2(100, -41.34996)
 texture = ExtResource("25_ia1kq")
 base_color = Color(0, 0, 0, 1)
@@ -3837,7 +3837,7 @@ distance_strength = 5.2
 back_offset = false
 
 [node name="罐头食物" parent="Parallax/ParallaxLayer_6" unique_id=302510843 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_kcp8t")
+material = SubResource("ShaderMaterial_afadh")
 position = Vector2(78, -88)
 texture = ExtResource("19_qgh0b")
 base_color_override_scale = 0.0
@@ -3848,7 +3848,7 @@ distance_strength = 5.5
 back_offset = false
 
 [node name="酒瓶" parent="Parallax/ParallaxLayer_6" unique_id=343900477 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_skhy3")
+material = SubResource("ShaderMaterial_kcp8t")
 position = Vector2(84, -60)
 texture = ExtResource("33_guq5h")
 rim_intensity = 0.3
@@ -3856,7 +3856,7 @@ distance_strength = 4.9
 back_offset = false
 
 [node name="酒瓶1" parent="Parallax/ParallaxLayer_6" unique_id=1383303958 instance=ExtResource("14_qgh0b")]
-material = SubResource("ShaderMaterial_3vppf")
+material = SubResource("ShaderMaterial_skhy3")
 position = Vector2(104, -97)
 texture = ExtResource("34_5pho5")
 base_color_override_scale = 0.525
@@ -3886,7 +3886,7 @@ back_offset_pixels = Vector2(-2.04, -1.71)
 
 [node name="酒店吊灯2" parent="Parallax/ParallaxLayer_7" unique_id=1084242418 instance=ExtResource("14_qgh0b")]
 light_mask = 8
-material = SubResource("ShaderMaterial_egqps")
+material = SubResource("ShaderMaterial_3vppf")
 position = Vector2(896, -275)
 texture = ExtResource("35_bavfi")
 base_color = Color(0.40196836, 0.40196842, 0.40196836, 1)
@@ -3898,7 +3898,7 @@ back_offset = false
 
 [node name="武器架2" parent="Parallax/ParallaxLayer_7" unique_id=1058088700 instance=ExtResource("14_qgh0b")]
 light_mask = 98305
-material = SubResource("ShaderMaterial_sqbua")
+material = SubResource("ShaderMaterial_egqps")
 position = Vector2(383, -59.5)
 texture = ExtResource("12_ia1kq")
 base_color = Color(0, 0, 0, 1)
@@ -3914,7 +3914,7 @@ layer_id = 8
 
 [node name="塑料盒" parent="Parallax/ParallaxLayer_8" unique_id=505431929 instance=ExtResource("14_qgh0b")]
 show_behind_parent = true
-material = SubResource("ShaderMaterial_ax7lf")
+material = SubResource("ShaderMaterial_sqbua")
 position = Vector2(-300, -19)
 texture = ExtResource("20_4434d")
 base_color = Color(0.072842784, 0.07284256, 0.072842665, 1)
@@ -3970,7 +3970,7 @@ layer_0/tile_data = PackedInt32Array(1245069, 0, 15, 1310605, 0, 16, 1376141, 0,
 
 [node name="酒店吊灯2" parent="Parallax/ParallaxLayer_8" unique_id=1086394165 instance=ExtResource("14_qgh0b")]
 light_mask = 8
-material = SubResource("ShaderMaterial_o5ewt")
+material = SubResource("ShaderMaterial_ax7lf")
 position = Vector2(207, -275)
 texture = ExtResource("35_bavfi")
 base_color = Color(0.40196836, 0.40196842, 0.40196836, 1)

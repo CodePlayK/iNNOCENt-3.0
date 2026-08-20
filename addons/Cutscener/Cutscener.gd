@@ -8,20 +8,27 @@ func _enter_tree() -> void:
 	if Engine.is_editor_hint():
 		main_scene = preload("res://addons/Cutscener/main/main.tscn")
 		add_custom_type(
-			"CutscenerRunner","Node",preload("res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.gd"),
+			"CutscenerRunner", "Node", preload("res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.gd"),
 			preload("res://addons/Cutscener/resource/runner-logo.png")
 		)
 		main = main_scene.instantiate()
 		main.hide()
 		EditorInterface.get_editor_main_screen().add_child(main)
+
 func _exit_tree() -> void:
 	if main:
 		main.queue_free()
+
 func _has_main_screen():
 	return true
 
 func _make_visible(visible):
-	main.visible = visible
+	if main:
+		main.visible = visible
+	# 打开 Cutscener 主屏时再确保方法列表已加载
+	if visible and Engine.is_editor_hint() and CutscenerGlobal:
+		CutscenerGlobal.request_reload_methods()
+
 func _get_plugin_name():
 	return "Cutscener"
 
