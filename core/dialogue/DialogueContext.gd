@@ -28,15 +28,16 @@ func on_master_ready(master) -> void:
 			obj.interaction.body_entered.connect(_body_entered)
 			obj.interaction.body_exited.connect(_body_exited)
 		"MOUSE_ENTER":
-			obj.interaction.mouse_entered.connect(_body_entered)
-			obj.interaction.mouse_exited.connect(_body_exited)
+			obj.interaction.mouse_entered.connect(_mouse_entered)
+			obj.interaction.mouse_exited.connect(_mouse_exited)
 	DialogueManager.dialogue_ended.connect(on_dialogue_ended)
 	current_title = dialogue_config.title
 	cutscener_runner.cutscener_data = dialogue_config.dialogue_checker_path
 	cutscener_runner.print_debug = cutscener_debug
 	
 func _body_entered(body: Node2D) -> void:
-	if !obj.interaction.enable:return
+	if !obj.interaction.enable or PlayerState.get_player_control_lock(self):
+		return
 	if dialogue_config.use_local_res and dialogue_config.dialogue_res:
 		pass
 	else:
@@ -52,6 +53,32 @@ func _body_entered(body: Node2D) -> void:
 	Dialogue.start(dialogue_config)
 	
 func _body_exited(body: Node2D) -> void:
+	if Dialogue.current_start_obj == obj:
+		Dialogue.end_dialogue.emit()
+
+
+func _mouse_entered() -> void:
+	if !obj.interaction.enable or PlayerState.get_player_control_lock(self):
+		return
+	if FileAccess.file_exists(dialogue_config.dialogue_checker_path):
+		var c = await cutscener_runner.run("Dialogue")
+		if c and dialogue_config.dialogue_res.titles.has(c):
+			dialogue_config.title = c
+	if dialogue_config.use_local_res and dialogue_config.dialogue_res:
+		pass
+	else:
+		var d:DialogueResource= DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
+		#判断当前cutscene state下是否有台词更新
+		if !d.get_titles().has(dialogue_config.title):
+			#Debug.dprintinfo(DebugCT.dp("[%s]在当前场景[%s]中无台词更新" %[dialogue_config.title,CutsceneState.current_cutscene],self))
+			pass
+		elif dialogue_config.current_res!=CutsceneState.current_cutscene:
+			dialogue_config.dialogue_res=DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
+			dialogue_config.current_res=CutsceneState.current_cutscene
+	Dialogue.current_start_obj = obj
+	Dialogue.start(dialogue_config)
+	
+func _mouse_exited() -> void:
 	if Dialogue.current_start_obj == obj:
 		Dialogue.end_dialogue.emit()
 

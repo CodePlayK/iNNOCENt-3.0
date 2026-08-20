@@ -1,6 +1,15 @@
-class_name PlayerInteractiveObj extends Area2D
+extends Area2D
+class_name BodyInteractObj
 #@onready var dialogue_position: Marker = $UIs/DialoguePosition
-@export var talker_name:Array[String]
+@export var enable:bool = true
+@export var dialogue_debug:bool = false
+@export var dialogue_config:DialogueConfig:
+
+	set(dc):
+		dialogue_config = dc
+		talker_name = dialogue_config.talkers
+var talker_name:Array[String]
+var interaction:BodyInteractObj = self
 @export var obj_name:String:
 	set(s):
 		obj_name=str(s.replace("_","")).to_lower()

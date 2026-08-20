@@ -15,6 +15,7 @@ extends Node
 var Runners: Dictionary = {}
 
 @export_global_file("*.crd") var cutscener_data
+@export var change_CutsceneState_current_cutscene: bool = true
 @export var cutscener_name: String = "NA"
 
 var running: bool = false
@@ -38,7 +39,7 @@ func run(c_name: String):
 
 	if cutscener_data and FileAccess.file_exists(cutscener_data):
 		CutscenerGlobal.ACTION_LOG = "[%s]开始运行, 存档:[%s]" % [cutscener_name, cutscener_data]
-		CutsceneState.current_cutscene = cutscener_name
+		if change_CutsceneState_current_cutscene:CutsceneState.current_cutscene = cutscener_name
 		dic = load_json(cutscener_data)
 	else:
 		dic = load_json(config_file["save_file_config"])

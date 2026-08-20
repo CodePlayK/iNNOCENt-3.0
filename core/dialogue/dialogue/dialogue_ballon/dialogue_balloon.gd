@@ -1,6 +1,8 @@
 extends Node2D
 class_name DialogueBalloon
-@export var talker_name:Array[String]
+@export var talker_name:Array[String]:
+	set(tn):
+		talker_name = tn
 #region onrady
 @onready var balloon: Control = $Balloon
 @onready var margin: MarginContainer = $Balloon/VB/background/Margin

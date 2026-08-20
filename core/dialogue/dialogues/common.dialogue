@@ -2,3 +2,7 @@
 床: 要对天使祈祷吗?
 do CutscenerGlobal.cutscener_run.emit("0_0_0_pray")
 => END!
+~ 监控
+玫: 红色的镜头每次醒来都很扎眼
+玫: 不想面朝这边醒来...
+=> END!

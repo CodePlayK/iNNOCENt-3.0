@@ -1,5 +1,5 @@
 extends Area2D
-class_name BodyInteractObj
+class_name MouseInteractObj
 #@onready var dialogue_position: Marker = $UIs/DialoguePosition
 @export var enable:bool = true
 @export var dialogue_debug:bool = false
@@ -9,7 +9,7 @@ class_name BodyInteractObj
 		dialogue_config = dc
 		talker_name = dialogue_config.talkers
 var talker_name:Array[String]
-var interaction:BodyInteractObj = self
+var interaction:MouseInteractObj = self
 @export var obj_name:String:
 	set(s):
 		obj_name=str(s.replace("_","")).to_lower()

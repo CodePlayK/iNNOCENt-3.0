@@ -21,7 +21,10 @@ func set_player_control_lock(flag:bool,source:Node):
 	player_control_lock = flag
 	Debug.dprintinfo(DebugCT.dp("更新[玩家控制锁定状态]为[%s]" %[flag],source))
 	EventBus._player_control_lock(flag)
-
+	
+func get_player_control_lock(source:Node)->bool:
+	Debug.dprintinfo(DebugCT.dp("获取[玩家控制锁定状态]为[%s]" %player_control_lock,source))
+	return player_control_lock
 ##面朝左
 var face_left:bool=false:
 	set(f):

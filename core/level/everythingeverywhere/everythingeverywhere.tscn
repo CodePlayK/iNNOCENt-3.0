@@ -979,9 +979,6 @@ limit_enabled = false
 unique_name_in_owner = true
 light_mask = 6
 position = Vector2(88, -35)
-talker_name = Array[String](["我", "P"])
-dialogue_config = null
-stamina_recovered_speed = 200.0
 
 [node name="CameraMark" type="Node2D" parent="PlayerPlayer" unique_id=767088440]
 position = Vector2(0, -800)
