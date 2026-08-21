@@ -72,7 +72,7 @@ func pre_enter() -> bool:
 	
 func enter():
 	super.enter()
-	EventData.set_event_by_int(EventData.EVENT_KEY.玩家攻击次数,1,self)
+	EventData.events.玩家攻击次数+=1
 	state_manager.listener.reset()
 	to_next_attack = false
 	state_manager.attack_reset = false

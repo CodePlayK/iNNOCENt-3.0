@@ -1,5 +1,5 @@
 extends BaseDataCollector
-@onready var event_data: Node = $".."
+@onready var event_data: EventData = $".."
 
 ##初始化事件
 func on_ready():
@@ -11,11 +11,11 @@ func custom_key():
 	
 ##配置要写入存档的数据
 func custom_data():
-	save_data_config.data = event_data.event_data_dic
+	save_data_config.data["event"] = DataState.resource_to_json(event_data.events)
 	
 ##载入存档数据
 func load_custom_data(data:Dictionary):
-	event_data.event_data_dic = data
+	DataState.json_to_resource(data["event"],event_data.events)
 	
 ##删除存档事件
 func on_delete_save():
