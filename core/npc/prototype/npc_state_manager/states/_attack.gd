@@ -51,8 +51,6 @@ func _ready() -> void:
 
 
 func enter():
-	if attack_time_event:
-		attack_time_event.add_time()
 	npc.hit_box.disable_shape()
 	npc.hit_box.damage = damage
 	super.enter()

@@ -11,15 +11,11 @@ func custom_key():
 	
 ##配置要写入存档的数据
 func custom_data():
-	for k in event_data.event_data_dic.keys():
-		save_data_config.data[k] = event_data.event_data_dic[k].event_value
+	save_data_config.data = event_data.event_data_dic
 	
 ##载入存档数据
 func load_custom_data(data:Dictionary):
-	for k in data.keys():
-		var ec:EventConfig = event_data.get_event_config(int(k))
-		ec.event_value = data[k]
-		event_data.event_data_dic[int(k)] = ec
+	event_data.event_data_dic = data
 	
 ##删除存档事件
 func on_delete_save():

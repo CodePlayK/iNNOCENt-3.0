@@ -71,10 +71,8 @@ func pre_enter() -> bool:
 	return !PlayerState.is_player_attack_locked()
 	
 func enter():
-	player_attack_time_event.add_time()
-	#player.hit_box.disable_shape()
-	#player.hit_box.damage = damage
 	super.enter()
+	EventData.set_event_by_int(EventData.EVENT_KEY.玩家攻击次数,1,self)
 	state_manager.listener.reset()
 	to_next_attack = false
 	state_manager.attack_reset = false

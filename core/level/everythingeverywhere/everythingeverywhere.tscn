@@ -15,9 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="12_03555"]
 [ext_resource type="Theme" uid="uid://6qf0goyq51v6" path="res://core/common/ui/item_txt_box/item_txt_box.tres" id="13_iebd7"]
 [ext_resource type="Script" uid="uid://c8ig3wyy7fbpe" path="res://core/common/ui/item_txt_box/ItemTxtBox.gd" id="14_eynxe"]
-[ext_resource type="PackedScene" uid="uid://dr3sv5p0vd2na" path="res://core/autoload/EventData/events.tscn" id="15_0guur"]
-[ext_resource type="Script" uid="uid://dfuwy7thfv5dg" path="res://core/events/FlashlightCountEvent.gd" id="16_yvqr4"]
-[ext_resource type="Resource" uid="uid://kb1ml1x6xud" path="res://core/events/FlashlightCountEvent.tres" id="17_53xqx"]
 [ext_resource type="PackedScene" uid="uid://osw374to73sm" path="res://core/common/component/ui bar/ui_bar.tscn" id="18_b5c8y"]
 [ext_resource type="PackedScene" uid="uid://cpebs4ek1lfvb" path="res://core/common/ui/state_box/state_box.tscn" id="19_q484j"]
 [ext_resource type="PackedScene" uid="uid://dwrkrtl7ks4vh" path="res://core/common/ui/txt_history_box/txt_history_box.tscn" id="20_xtiwo"]
@@ -35,7 +32,6 @@
 [ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="34_glnfy"]
 [ext_resource type="Texture2D" uid="uid://dwdj4u348kh38" path="res://core/player/resource/header_test.tres" id="35_l7ngx"]
 [ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="36_2ea2m"]
-[ext_resource type="Script" uid="uid://b4otcmujx4vs6" path="res://test/NpcPath/PatrolArea.gd" id="37_as7kb"]
 [ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/SaveFileDataController/WorldDataController.gd" id="39_i74u8"]
 [ext_resource type="Resource" uid="uid://b3q2mjg6h15ph" path="res://core/level/everythingeverywhere/word_sdc.tres" id="39_ydae1"]
 [ext_resource type="PackedScene" uid="uid://duo6bfrwl5qvr" path="res://core/common/saves/SaveFileDataController/BaseSaveFileController.tscn" id="40_i74u8"]
@@ -246,9 +242,6 @@ bg_color = Color(0, 0.894118, 0.827451, 0.576471)
 [sub_resource type="LabelSettings" id="LabelSettings_c1b8j"]
 font = ExtResource("34_glnfy")
 font_size = 12
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wces5"]
-size = Vector2(3915, 81.5)
 
 [node name="everythingeverywhere42" type="Node2D" unique_id=1354952185]
 script = ExtResource("1_celhk")
@@ -539,10 +532,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.81
 mouse_filter = 2
 metadata/_edit_lock_ = true
-
-[node name="FlashlightCountEvent" parent="MainCanvas/ItemTxtBox" unique_id=1875538207 instance=ExtResource("15_0guur")]
-script = ExtResource("16_yvqr4")
-event = ExtResource("17_53xqx")
 
 [node name="StateBar" type="VBoxContainer" parent="MainCanvas" unique_id=146361538]
 anchors_preset = 15
@@ -854,23 +843,6 @@ cutscener_name = "0_0_1"
 [node name="Trash" type="Node2D" parent="." unique_id=790877502]
 visible = false
 
-[node name="NpcPathFind" type="Node2D" parent="Trash" unique_id=439683680]
-position = Vector2(510, 0)
-
-[node name="BloodKing" type="Node2D" parent="Trash/NpcPathFind" unique_id=272117893]
-
-[node name="PatrolArea" type="Area2D" parent="Trash/NpcPathFind/BloodKing" unique_id=1113371807]
-collision_layer = 0
-collision_mask = 0
-monitoring = false
-monitorable = false
-script = ExtResource("37_as7kb")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Trash/NpcPathFind/BloodKing/PatrolArea" unique_id=692576029]
-visible = false
-position = Vector2(63.5, 238)
-shape = SubResource("RectangleShape2D_wces5")
-
 [node name="Data" type="Node" parent="." unique_id=475305390]
 
 [node name="DataSaveFileCollector" parent="Data" unique_id=894643364 instance=ExtResource("40_i74u8")]
@@ -890,7 +862,7 @@ limit_enabled = false
 [node name="PlayerPlayer" parent="." unique_id=1119101225 instance=ExtResource("41_i74u8")]
 unique_name_in_owner = true
 light_mask = 6
-position = Vector2(88, -35)
+position = Vector2(81, -41)
 
 [node name="CameraMark" type="Node2D" parent="PlayerPlayer" unique_id=767088440]
 position = Vector2(0, -800)

@@ -1,3 +1,4 @@
+@icon("res://addons/at-icons/node3d/smiley_face.svg")
 extends Sprite2D
 class_name BaseSprite
 

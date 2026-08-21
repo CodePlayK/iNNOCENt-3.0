@@ -6,7 +6,6 @@ extends behit
 
 func enter():
 	super.enter()
-	player_dense_suc_time_event.add_time(1)
 	player.hit_fx.emit_fx()
 	PlayerState.dense_success_flag=true
 	stiff_timer.start(stiff_time)

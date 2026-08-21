@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/mesh/human.svg")
+
 ##玩家控制对象
 class_name Player extends CharacterBody2D
 var obj_name:String = "player"

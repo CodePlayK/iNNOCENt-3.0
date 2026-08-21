@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="SaveDataConfig" load_steps=2 format=3 uid="uid://prvms4x62jbm"]
+[gd_resource type="Resource" script_class="SaveDataConfig" format=3 uid="uid://prvms4x62jbm"]
 
-[ext_resource type="Script" path="res://core/common/saves/SaveDataConfig.gd" id="1_7n2ag"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="1_7n2ag"]
 
 [resource]
 script = ExtResource("1_7n2ag")
-group = 0
+group = -1
 key = "EventsData"
-save_id = 0
 level_id = -2
-data = {}

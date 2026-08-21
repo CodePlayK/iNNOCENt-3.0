@@ -89,10 +89,8 @@
 [ext_resource type="Resource" uid="uid://dw72xfytcxsgp" path="res://core/npc/blood_king/anime_config/attack4.tres" id="75_8yail"]
 [ext_resource type="Script" uid="uid://be56auyp7pao1" path="res://core/npc/prototype/npc_state_manager/states/AttackListener.gd" id="79_1pdnf"]
 [ext_resource type="Script" uid="uid://ccmnjmmgttt31" path="res://core/npc/prototype/npc_state_manager/states/air.gd" id="79_c151j"]
-[ext_resource type="Script" uid="uid://jhd1spy0p5ln" path="res://core/events/BloodKingAttackTimeEvent.gd" id="79_kmpo1"]
 [ext_resource type="Script" uid="uid://bljkt4v4ao0md" path="res://core/npc/prototype/npc_state_manager/states/BehithardListener.gd" id="80_50pb4"]
 [ext_resource type="Script" uid="uid://b5hxh5sri45lm" path="res://core/npc/prototype/npc_state_manager/states/lift.gd" id="80_ggnou"]
-[ext_resource type="Resource" uid="uid://csvyky8nvlw57" path="res://core/events/BloodkingAttackTime.tres" id="80_hwa4n"]
 [ext_resource type="Script" uid="uid://df6aa25qa60t6" path="res://core/npc/prototype/npc_state_manager/states/jump.gd" id="81_5mk6f"]
 [ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/TestCan.gd" id="81_d5aum"]
 [ext_resource type="Script" uid="uid://dqmqxfw8v3qe" path="res://core/npc/prototype/npc_state_manager/states/fall.gd" id="81_vuxa1"]
@@ -1662,7 +1660,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_ee7q0"]
+[sub_resource type="Resource" id="Resource_jjpru"]
 resource_local_to_scene = true
 script = ExtResource("103_dmcg1")
 group = 1
@@ -2457,11 +2455,6 @@ one_shot = true
 [node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack" unique_id=2845427]
 one_shot = true
 
-[node name="BloodkingAttackTime" type="Node" parent="NpcStateManager/base/combat/_attack" unique_id=846786530]
-unique_name_in_owner = true
-script = ExtResource("79_kmpo1")
-event = ExtResource("80_hwa4n")
-
 [node name="air" type="Node" parent="NpcStateManager/base" unique_id=817406872]
 script = ExtResource("79_c151j")
 
@@ -2516,7 +2509,7 @@ position = Vector2(10.8333, -59.1667)
 
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("89_s1dc0")]
 script = ExtResource("90_f37dg")
-save_data_config = SubResource("Resource_ee7q0")
+save_data_config = SubResource("Resource_jjpru")
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 visible = false

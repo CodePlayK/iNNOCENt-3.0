@@ -17,6 +17,10 @@ var dialogue_checker_path:String
 @export var title:String:
 	set(r):
 		title=r.strip_edges()
+		
+@export var event_key:String = "NA":
+	set(r):
+		event_key=r.strip_edges()
 #当前表情
 @export var current_expression:String="NA":
 	set(ce):
@@ -31,6 +35,8 @@ var dialogue_checker_path:String
 @export var auto_next:bool = true
 @export var balloon_color:Color
 @export var line_end_wait_time:float = 1
+
+	
 
 func on_update_dialogue_res(dialogue_res:DialogueResource):
 	if !dialogue_res:return

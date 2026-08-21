@@ -7,7 +7,6 @@
 [node name="DataCollector" type="Node" unique_id=1706702443]
 script = ExtResource("1_wcw32")
 save_data_config = ExtResource("2_iimb4")
-debug = true
 
 [node name="Saver" type="Node" parent="." unique_id=42374576]
 script = ExtResource("2_4rd20")

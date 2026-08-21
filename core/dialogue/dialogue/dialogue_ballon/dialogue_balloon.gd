@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/control/speech_bubble_ellipsis.svg")
+
 extends Node2D
 class_name DialogueBalloon
 @export var talker_name:Array[String]

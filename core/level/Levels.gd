@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/node2d/wave.svg")
+
 ## 关卡的根节点.
 ##
 ## 每一关的基础场景,负责统一的环境与每关的变量初始化;

@@ -1,4 +1,5 @@
-@icon("res://core/common/resource/icon/dialogue.svg")
+@icon("res://addons/at-icons/control/speech_bubble_ellipsis.svg")
+
 extends Node2D
 class_name DialogueContext
 @export_enum("BODY_ENTER","MOUSE_ENTER") var interact_type = "BODY_ENTER"

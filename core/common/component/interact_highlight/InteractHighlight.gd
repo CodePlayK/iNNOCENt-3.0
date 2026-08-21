@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/animation/eye.svg")
+
 extends ColorRect
 
 # ==============================================================================

@@ -14,7 +14,7 @@ signal save
 ## 是否启用载入
 @export var enable_load: bool = true
 ## 是否 debug
-@export var debug: bool = false
+@export var debug: bool = true
 ## 是否在 ready 自动载入
 @export var load_on_ready: bool = false
 ## 是否写入 save_id

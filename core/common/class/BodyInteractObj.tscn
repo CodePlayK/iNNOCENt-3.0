@@ -13,13 +13,15 @@ talkers = Array[String](["bed", "床"])
 current_res = "common"
 use_local_res = true
 current_level = -2
-title = "祈祷"
+title = "NA"
+event_key = null
 title_list = "祈祷 | "
 balloon_color = Color(0, 0, 0, 0.69803923)
 metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="Resource" id="Resource_2swkk"]
 script = ExtResource("3_cmx7l")
+event_key = null
 balloon_color = Color(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 

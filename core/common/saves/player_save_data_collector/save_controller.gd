@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/mesh/floppy_disk.svg")
+
 extends PlayerDataCollector
 var load_target_level:LevelState.LEVELS
 ## 子类重写：初始化完成后的额外逻辑

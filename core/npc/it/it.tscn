@@ -89,8 +89,6 @@
 [ext_resource type="Resource" uid="uid://mnr13x0ndyc2" path="res://core/npc/it/anime_config/attack2.tres" id="83_n05yu"]
 [ext_resource type="Resource" uid="uid://dqmbll2b5py7m" path="res://core/npc/it/anime_config/attack3.tres" id="84_5yqg1"]
 [ext_resource type="Resource" uid="uid://b3qkr156dvewp" path="res://core/npc/it/anime_config/attack4.tres" id="85_dcedk"]
-[ext_resource type="Script" uid="uid://jhd1spy0p5ln" path="res://core/events/BloodKingAttackTimeEvent.gd" id="86_uvsdt"]
-[ext_resource type="Resource" uid="uid://csvyky8nvlw57" path="res://core/events/BloodkingAttackTime.tres" id="87_3ysto"]
 [ext_resource type="Script" uid="uid://ccmnjmmgttt31" path="res://core/npc/prototype/npc_state_manager/states/air.gd" id="88_a4n65"]
 [ext_resource type="Script" uid="uid://b5hxh5sri45lm" path="res://core/npc/prototype/npc_state_manager/states/lift.gd" id="89_abfot"]
 [ext_resource type="Script" uid="uid://dqmqxfw8v3qe" path="res://core/npc/prototype/npc_state_manager/states/fall.gd" id="90_plgcc"]
@@ -3145,7 +3143,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_l1873"]
+[sub_resource type="Resource" id="Resource_ol5xp"]
 resource_local_to_scene = true
 script = ExtResource("100_kll38")
 talkers = Array[String](["it"])
@@ -7507,11 +7505,6 @@ one_shot = true
 [node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack" unique_id=2845427]
 one_shot = true
 
-[node name="BloodkingAttackTime" type="Node" parent="NpcStateManager/base/combat/_attack" unique_id=846786530]
-unique_name_in_owner = true
-script = ExtResource("86_uvsdt")
-event = ExtResource("87_3ysto")
-
 [node name="air" type="Node" parent="NpcStateManager/base" unique_id=817406872]
 script = ExtResource("88_a4n65")
 
@@ -7560,7 +7553,7 @@ shape = SubResource("RectangleShape2D_b8y3r")
 [node name="Dialogue" parent="Interactions" unique_id=1132349855 instance=ExtResource("94_35ooo")]
 z_index = 107
 position = Vector2(10.8333, -59.1667)
-dialogue_config = SubResource("Resource_l1873")
+dialogue_config = SubResource("Resource_ol5xp")
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 process_mode = 3

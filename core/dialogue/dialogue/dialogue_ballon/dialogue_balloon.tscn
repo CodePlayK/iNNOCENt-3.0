@@ -191,14 +191,13 @@ mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="DialogueLabel" type="RichTextLabel" parent="Balloon/VB/background/Margin/HB/VB/HB" unique_id=456421539]
-light_mask = 37
+light_mask = 2049
 visibility_layer = 32
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_lqgeo")
 bbcode_enabled = true
-text = "testdddddddddddddddddd"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
