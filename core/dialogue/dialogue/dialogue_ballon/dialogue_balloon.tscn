@@ -12,7 +12,6 @@
 
 [sub_resource type="Resource" id="Resource_qqffs"]
 script = ExtResource("2_ilh7g")
-use_local_res = null
 metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjpum"]
@@ -50,6 +49,7 @@ animations = [{
 }]
 
 [node name="DialogueBalloon" type="Node2D" unique_id=1422607112]
+light_mask = 2048
 visibility_layer = 32
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_fane2")
@@ -142,6 +142,7 @@ visibility_layer = 32
 layout_mode = 2
 
 [node name="BackgroundColor" type="ColorRect" parent="Balloon/VB/background/BackgroundMC" unique_id=1132543284]
+light_mask = 0
 visibility_layer = 32
 clip_contents = true
 layout_mode = 2

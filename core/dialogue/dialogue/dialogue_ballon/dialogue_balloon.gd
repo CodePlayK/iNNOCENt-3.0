@@ -1,8 +1,6 @@
 extends Node2D
 class_name DialogueBalloon
-@export var talker_name:Array[String]:
-	set(tn):
-		talker_name = tn
+@export var talker_name:Array[String]
 #region onrady
 @onready var balloon: Control = $Balloon
 @onready var margin: MarginContainer = $Balloon/VB/background/Margin
@@ -49,12 +47,37 @@ var tween_killed:bool = false
 
 var current_level:LevelState.LEVELS
 
+## 弹出与边框高亮
+var _pop_tween: Tween
+var _base_scale: Vector2 = Vector2(0.5, 0.5)
+var _border_mat: ShaderMaterial
+const BORDER_SHADER_PATH := "res://core/dialogue/dialogue/dialogue_ballon/resource/dialogue_balloon_border.gdshader"
+
 func _ready() -> void:
 	Dialogue.talk_start.connect(on_talker_start)
+	_base_scale = scale
+	_setup_border_shader()
 	hide_balloon()
 	margin.size = Vector2.ZERO
 	response_margin.size = Vector2.ZERO
 	DialogueManager.mutated.connect(_on_mutation)
+
+func _setup_border_shader() -> void:
+	## 为背景 ColorRect 添加动态高亮边框 shader，不覆盖原有颜色逻辑
+	if not background_color:
+		return
+	var sh: Shader = load(BORDER_SHADER_PATH) as Shader
+	if not sh:
+		Debug.dprintwarn(DebugCT.dp("DialogueBalloon border shader missing: %s" % BORDER_SHADER_PATH, self))
+		return
+	_border_mat = ShaderMaterial.new()
+	_border_mat.shader = sh
+	_border_mat.set_shader_parameter("border_color", Color(1.0, 1.0, 1.0, 0.95))
+	_border_mat.set_shader_parameter("border_width", 5)
+	_border_mat.set_shader_parameter("pulse_speed", 2.8)
+	_border_mat.set_shader_parameter("pulse_amount", 0.4)
+	_border_mat.set_shader_parameter("glow_strength", 10)
+	#background_color.material = _border_mat
 
 func set_level(dialogue_cinfig:DialogueConfig):
 	if dialogue_cinfig.current_level==LevelState.LEVELS.LEVEL_CURRENT:
@@ -72,6 +95,7 @@ func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:Dialog
 	Dialogue.current_dialogue_balloon = self
 	hide_balloon()
 	if back_color_tween:back_color_tween.kill()
+	if _pop_tween: _pop_tween.kill()
 	var last_backcolor_mc_size = background.size.x
 	for item in responses_menu.get_children():
 		item.get_child(1).text=""
@@ -85,6 +109,16 @@ func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:Dialog
 	pointer_right.color=dialogue_config.balloon_color
 	pointer_left.color=dialogue_config.balloon_color
 	response_background.color=dialogue_config.balloon_color
+	# 同步边框高亮色（略亮一点）
+	if _border_mat:
+		var bc: Color = dialogue_config.balloon_color
+		var highlight := Color(
+			clamp(bc.r * 1.35 + 0.25, 0.0, 1.0),
+			clamp(bc.g * 1.25 + 0.2, 0.0, 1.0),
+			clamp(bc.b * 0.9 + 0.15, 0.0, 1.0),
+			0.95
+		)
+		_border_mat.set_shader_parameter("border_color", highlight)
 	#pointer_right.material.set_shader_parameter("color",background_color.color)
 	#pointer_left.material.set_shader_parameter("color",background_color.color)
 	character_label.visible = not dialogue_line.character.is_empty()
@@ -278,10 +312,19 @@ func get_right_side_position() -> Vector2:
 	
 func hide_balloon():
 	enable = false
-	response_margin.modulate.a=0
-	background.modulate.a=0
-	pointer_left.self_modulate.a=.01
-	pointer_right.self_modulate.a=.01
+	if _pop_tween:
+		_pop_tween.kill()
+	# 快速收起动画（不阻塞后续逻辑）
+	_pop_tween = create_tween()
+	_pop_tween.set_parallel(true)
+	_pop_tween.set_trans(Tween.TRANS_LINEAR)
+	_pop_tween.set_ease(Tween.EASE_IN)
+	_pop_tween.tween_property(self, "scale", _base_scale * 0.75, 0.12)
+	_pop_tween.tween_property(background, "modulate:a", 0.0, 0.12)
+	_pop_tween.tween_property(response_margin, "modulate:a", 0.0, 0.12)
+	_pop_tween.tween_property(pointer_left, "self_modulate:a", 0.01, 0.1)
+	_pop_tween.tween_property(pointer_right, "self_modulate:a", 0.01, 0.1)
+	# 立即标记不可见，防止重复交互
 	balloon_visiable=false
 	for item in responses_menu.get_children():
 		item.get_child(1).text=""
@@ -292,14 +335,28 @@ func show_balloon():
 	if !nextable:
 		await dialogue_label.finished_typing
 		nextable=true
-	response_margin.modulate.a=.95
-	background.modulate.a=.95
+	if _pop_tween:
+		_pop_tween.kill()
+	# 弹出效果：从略小 + 透明 弹到正常尺寸
+	scale = _base_scale * 0.72
+	background.modulate.a = 0.0
+	response_margin.modulate.a = 0.0
+	pointer_left.self_modulate.a = 0.01
+	pointer_right.self_modulate.a = 0.01
+	_pop_tween = create_tween()
+	_pop_tween.set_parallel(true)
+	_pop_tween.set_trans(Tween.TRANS_BACK)
+	_pop_tween.set_ease(Tween.EASE_OUT)
+	_pop_tween.tween_property(self, "scale", _base_scale, 0.32)
+	_pop_tween.tween_property(background, "modulate:a", 0.95, 0.22)
+	_pop_tween.tween_property(response_margin, "modulate:a", 0.95, 0.22)
+	# 指针同步显现
 	if left_side_flag:
-		pointer_left.self_modulate.a=.01
-		pointer_right.self_modulate.a=.95
+		_pop_tween.tween_property(pointer_right, "self_modulate:a", 0.95, 0.2)
+		pointer_left.self_modulate.a = 0.01
 	else:
-		pointer_right.self_modulate.a=.01
-		pointer_left.self_modulate.a=.95
+		_pop_tween.tween_property(pointer_left, "self_modulate:a", 0.95, 0.2)
+		pointer_right.self_modulate.a = 0.01
 	vb.visible = true
 	balloon_visiable=true
 
@@ -335,3 +392,18 @@ func _on_screen_checker_r_screen_exited() -> void:
 		pointer_left.self_modulate.a=.01
 		pointer_right.self_modulate.a=.95
 	self.position=temp_position_l
+
+## 场景连接的缺失方法（防止信号报错，保留兼容）
+func _on_tree_exiting() -> void:
+	if back_color_tween:
+		back_color_tween.kill()
+	if _pop_tween:
+		_pop_tween.kill()
+
+func _on_timer_timeout() -> void:
+	## DialogueEndTimer 超时，安全收起
+	hide_balloon()
+
+func _on_button_button_down() -> void:
+	## 隐藏测试按钮，保留空实现避免连接报错
+	pass
