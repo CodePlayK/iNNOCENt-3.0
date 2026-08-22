@@ -76,7 +76,7 @@ func on_start() -> void:
 	if cam:
 		cam.position_smoothing_enabled = true
 
-func _process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not parallax_on:
 		return
 

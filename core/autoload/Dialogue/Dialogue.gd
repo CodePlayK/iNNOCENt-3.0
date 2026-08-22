@@ -51,7 +51,7 @@ var dialogue_line: DialogueLine:
 		if !current_talker.has(dialogue_line.character):
 			if current_dialogue_balloon:
 				current_dialogue_balloon.dialogue_finished()
-				Debug.dprintwarn(DebugCT.dp("当前气球[%s][%s]" %[current_dialogue_balloon.get_path(),current_dialogue_balloon.dialogue_label.dialogue_line.text],self))
+				#Debug.dprintwarn(DebugCT.dp("当前气球[%s][%s]" %[current_dialogue_balloon.get_path(),current_dialogue_balloon.dialogue_label.dialogue_line.text],self))
 
 		talk_start.emit(dialogue_line.character,dialogue_config,dialogue_line)
 

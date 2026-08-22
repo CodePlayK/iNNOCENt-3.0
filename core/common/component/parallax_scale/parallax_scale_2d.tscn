@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://parallax_scale_2d"]
+
+[ext_resource type="Script" path="res://core/common/component/parallax_scale/parallax_scale_2d.gd" id="1_scale"]
+
+[node name="ParallaxScale2D" type="Node"]
+script = ExtResource("1_scale")
+enable = true
+use_physics_process = true
+min_scale_x = 0.05

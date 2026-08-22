@@ -252,6 +252,7 @@ script = ExtResource("1_celhk")
 unique_name_in_owner = true
 ignore_rotation = false
 zoom = Vector2(2, 2)
+process_callback = 0
 limit_left = -389
 limit_top = -25
 limit_bottom = -243
@@ -312,6 +313,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="BackGroundColor" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
+visible = false
 light_mask = 32769
 visibility_layer = 32768
 anchors_preset = 15

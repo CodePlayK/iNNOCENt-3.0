@@ -17,6 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="iNNOCENt 3.0"
 run/main_scene="uid://dtohg4g1fxwh5"
 config/features=PackedStringArray("4.7", "Forward Plus")
+run/max_fps=90
 config/icon="res://icon.svg"
 
 [audio]

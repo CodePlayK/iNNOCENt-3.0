@@ -1,10 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://8k14b27rtgrk"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://8k14b27rtgrk"]
 
-[ext_resource type="Shader" path="res://test/shader/ctr.gdshader" id="1_v75fj"]
+[ext_resource type="Shader" uid="uid://diavocfm1kv22" path="res://test/shader/ctr.gdshader" id="1_v75fj"]
 
 [resource]
 shader = ExtResource("1_v75fj")
-shader_parameter/overlay = true
 shader_parameter/scanlines_opacity = 0.058
 shader_parameter/scanlines_width = 0.187
 shader_parameter/grille_opacity = 0.0

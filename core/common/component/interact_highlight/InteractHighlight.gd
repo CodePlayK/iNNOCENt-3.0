@@ -108,7 +108,7 @@ func _ready() -> void:
 	show()
 
 
-func _process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# 【全程实时计算】不论未激活（光点状态）还是已激活（方框状态），每帧彻底同步位置、大小与缩放变化
 	_update_shader_positions()
 
@@ -193,8 +193,6 @@ func activate() -> void:
 
 ## 退出交互：从方框重新物理缩回自定义起点光点位置
 func deactivate() -> void:
-	if PlayerState.get_player_control_lock(self):
-		return
 	if not _is_active: return
 	_is_active = false
 	_animate_progress(0.0)
