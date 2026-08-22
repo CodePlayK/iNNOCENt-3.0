@@ -16,6 +16,10 @@ const SAVE_PATH := "user://data"
 
 ## 关卡目录结构 [level_id] -> 场景路径
 var dic_level_path: Dictionary = {}
+## 已解析的 PackedScene 缓存 [path] -> PackedScene
+## 第一次切换卡顿主要来自同步 load().instantiate()；缓存 PackedScene 后只剩 instantiate
+var packed_level_cache: Dictionary = {}
+var _threaded_requested: Dictionary = {}
 
 @export var obj_name: String
 @onready var player_camera: Camera2DPlus = %PlayerCamera
@@ -38,6 +42,8 @@ func _ready() -> void:
 	_ensure_default_save_file()
 	_init_level_paths()
 	Global.back_ground_color = back_ground_color
+	# 后台线程预请求所有关卡 PackedScene，避免第一次过门时同步解析大 tscn
+	_request_all_levels_threaded()
 
 	# 载入 cutscener 配置目录，判断当前运行是否为 cutscener
 	# var config = load_json(CutscenerGlobal.CONFIG_DATA_FILE_PATH)
@@ -50,13 +56,54 @@ func _init_level_paths() -> void:
 	dic_level_path[LevelState.LEVELS.LEVEL_2] = LevelState.LEVEL_2_PATH
 
 
+func _request_all_levels_threaded() -> void:
+	for path in dic_level_path.values():
+		_request_level_threaded(path)
+
+
+func _request_level_threaded(path: String) -> void:
+	if path.is_empty() or packed_level_cache.has(path) or _threaded_requested.has(path):
+		return
+	if ResourceLoader.has_cached(path):
+		packed_level_cache[path] = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REUSE)
+		return
+	var err := ResourceLoader.load_threaded_request(path, "", true)
+	if err == OK:
+		_threaded_requested[path] = true
+	else:
+		Debug.dprintwarn(DebugCT.dp("线程预加载失败[%s] err=%s，后续同步回退" % [path, err], self))
+
+
+func _await_packed_scene(path: String) -> PackedScene:
+	if packed_level_cache.has(path) and packed_level_cache[path]:
+		return packed_level_cache[path]
+	if ResourceLoader.has_cached(path):
+		var cached := ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REUSE) as PackedScene
+		packed_level_cache[path] = cached
+		return cached
+	if not _threaded_requested.has(path):
+		_request_level_threaded(path)
+	var status := ResourceLoader.load_threaded_get_status(path)
+	while status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+		await get_tree().process_frame
+		status = ResourceLoader.load_threaded_get_status(path)
+	if status == ResourceLoader.THREAD_LOAD_LOADED:
+		var packed := ResourceLoader.load_threaded_get(path) as PackedScene
+		packed_level_cache[path] = packed
+		_threaded_requested.erase(path)
+		return packed
+	Debug.dprintwarn(DebugCT.dp("线程加载未就绪[%s] status=%s，改用同步 load" % [path, status], self))
+	var fallback := load(path) as PackedScene
+	packed_level_cache[path] = fallback
+	return fallback
 
 
 ## 载入关卡
 ## 第一次载入关卡时才要调用，[member LevelState.level_dic] 在此初始化，也会重置玩家相机[br]
 ## [member LevelState.level_waiting_2_load_dic] 载入后该关卡的待载入状态为 false
 func load_level(level_path: String) -> void:
-	var level: Levels = load(level_path).instantiate()
+	var packed: PackedScene = await _await_packed_scene(level_path)
+	var level: Levels = packed.instantiate()
 	add_child.call_deferred(level)
 	await level.tree_entered
 	move_child(level, 0)
@@ -71,6 +118,8 @@ func load_level(level_path: String) -> void:
 	Global.player_camera.limit_right =new_level_pos.x+new_level_size.x*0.5
 	
 	await level.resume()
+	# 当前关已就绪后继续吸收其他关的 PackedScene
+	_request_all_levels_threaded()
 
 	
 ## 恢复已加载的关卡
