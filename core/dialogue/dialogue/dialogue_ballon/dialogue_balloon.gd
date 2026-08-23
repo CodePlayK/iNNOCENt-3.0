@@ -72,6 +72,10 @@ func _ready() -> void:
 	margin.size = Vector2.ZERO
 	response_margin.size = Vector2.ZERO
 	DialogueManager.mutated.connect(_on_mutation)
+	EventBus.change_level.connect(_on_level_changed)
+
+func _on_level_changed(level_id):
+	hide_balloon(true)
 
 func _setup_border_shader() -> void:
 	## 为背景 ColorRect 添加动态高亮边框 shader，不覆盖原有颜色逻辑

@@ -863,6 +863,7 @@ limit_enabled = false
 
 [node name="PlayerPlayer" parent="." unique_id=1119101225 instance=ExtResource("41_i74u8")]
 unique_name_in_owner = true
+process_mode = 3
 light_mask = 6
 position = Vector2(81, -41)
 

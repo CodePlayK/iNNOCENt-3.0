@@ -35,7 +35,7 @@ var layer_color: Color = Color.WHITE
 		rim_intensity = value
 		_update_rim_shader()
 
-@export_range(0, 3, 0.1) var rim_softness: float = 1.2:
+@export_range(0, 10, 0.1) var rim_softness: float = 1.2:
 	set(value):
 		rim_softness = value
 		_update_rim_shader()

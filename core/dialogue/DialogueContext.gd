@@ -17,7 +17,6 @@ var obj
 func _ready() -> void:
 	if !has_master:
 		on_master_ready(get_parent())
-	EventBus.change_level.connect(_on_level_changed)
 
 func on_master_ready(master) -> void:
 	if has_master:
@@ -102,8 +101,6 @@ func end_dialogue():
 		pass
 	dialogue_balloon.end_talk()
 	
-func _on_level_changed(level_id):
-	end_dialogue()
 
 func on_dialogue_ended(res:Resource):
 	return

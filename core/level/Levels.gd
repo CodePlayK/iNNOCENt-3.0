@@ -27,6 +27,7 @@ var waiting_2_load_save:bool=false
 @onready var leve_bound: CollisionShape2D = %LeveBound
 @onready var parallax: Parallax = $Parallax
 @onready var base_colored_controller: BaseColoredController = %BaseColoredController
+@onready var level_transation: LevelTransation = %LevelTransation
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)

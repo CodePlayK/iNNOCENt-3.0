@@ -28,6 +28,7 @@ var _threaded_requested: Dictionary = {}
 @onready var door_locked_time: Timer = $Setting/DoorLockedTime
 @onready var test_mark: Node2D = %TestMark
 @onready var player_player: Player = %PlayerPlayer
+@onready var level_transation: LevelTransation = %LevelTransation
 
 
 func _init() -> void:
@@ -132,6 +133,7 @@ func resume_level(level_id: LevelState.LEVELS) -> void:
 
 
 func _on_change_level(level_id: LevelState.LEVELS) -> void:
+
 	LevelState.changing_level = true
 	door_locked_time.stop()
 	LevelState.set_doors_locked(true,self)
@@ -143,6 +145,7 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 	EventBus._test_layer_visiable(false)
 	#先暂停当前level
 	if LevelState.current_level_node:
+		await LevelState.current_level_node.level_transation.play_transition(LevelTransation.TRANSITION_NAME.FALLING_BOX,LevelTransation.TRANSITION_TYPE.IN,1)
 		await LevelState.current_level_node.pause()
 	
 	if LevelState.level_dic.has(level_id):
@@ -172,6 +175,8 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 	if old_level_id==new_level_id:return
 	var old_level:Levels = LevelState.level_dic[old_level_id]
 	var new_level:Levels = LevelState.level_dic[new_level_id]
+	new_level.level_transation.reset()
+
 	var old_level_size =  old_level.get_level_shape_size()
 	var old_level_pos =  old_level.get_level_shape_pos()
 	var new_level_pos =  new_level.get_level_shape_pos()

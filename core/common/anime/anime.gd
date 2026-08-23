@@ -173,9 +173,10 @@ func play_anime(anime_name:String):
 		push_warning("[Anime] missing config for state '%s'" % anime_name)
 		return
 	anime = anime_dic[anime_name]
+	var last_animation_name:String = current_animation
 	preset_cache(anime)
 	preset_anime(anime)
-	if aniplayer.has_animation(current_animation):
+	if aniplayer.has_animation(current_animation) and last_animation_name!=current_animation:
 		#Debug.dprinterr(DebugCT.dp("在aniplayer中未找到当前状态动画:%s" %[anime_name],self))
 		aniplayer.stop()
 		animation = aniplayer.get_animation(current_animation)
@@ -192,7 +193,7 @@ func play_anime(anime_name:String):
 		else :
 			aniplayer.play_backwards(current_animation)
 			aniplayer.advance(0)
-	current_frame = 0
+		current_frame = 0
 	play_lock = false
 ##处理帧			
 func process() -> void:
