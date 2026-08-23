@@ -62,6 +62,12 @@ var layer_color: Color = Color.WHITE
 	set(value):
 		back_offset_pixels = value
 		_update_back_sprite()
+		
+##同步主sprite的modulate
+@export var sync_modulate: bool = false:
+	set(value):
+		sync_modulate = value
+		_update_back_sprite()
 
 ## 叠加在背后 Sprite 上的颜色（默认白色，用于提亮）
 @export var back_overlay_color: Color = Color(1, 1, 1, 1):
@@ -157,6 +163,7 @@ func _sync_back_sprite_transform() -> void:
 	_back_sprite.global_position = global_position + back_offset_pixels
 	_back_sprite.rotation = rotation
 	_back_sprite.scale = scale
+	_back_sprite.light_mask = light_mask
 
 
 ## 创建 / 更新 / 销毁背后 Sprite（同级节点，用顺序控制前后）

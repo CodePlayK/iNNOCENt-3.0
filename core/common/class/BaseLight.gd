@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/mesh/balloon.svg")
+
 extends PointLight2D
 class_name BaseLight
 @export var level: Levels

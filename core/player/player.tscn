@@ -2808,8 +2808,7 @@ save_data_config = SubResource("Resource_tpvv3")
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 
 [node name="Dialogue" parent="Interactions" unique_id=1747775360 instance=ExtResource("83_iu40y")]
-light_mask = 3
-position = Vector2(17, -95.4288)
+position = Vector2(16.150314, -105.41257)
 dialogue_config = ExtResource("108_4t8e8")
 
 [connection signal="animation_finished" from="Animations/Anime/aniplayer" to="Animations/Anime" method="_on_aniplayer_animation_finished"]

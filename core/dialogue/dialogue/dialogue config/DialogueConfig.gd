@@ -33,7 +33,7 @@ var dialogue_checker_path:String
 		import = f
 		update()
 @export var auto_next:bool = true
-@export var balloon_color:Color
+@export var balloon_color:Color = Color("000000f0")
 @export var line_end_wait_time:float = 1
 
 	

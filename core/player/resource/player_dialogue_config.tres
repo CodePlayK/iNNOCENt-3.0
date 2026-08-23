@@ -8,4 +8,3 @@ talkers = Array[String](["我", "玫", "P"])
 current_res = "0_0_0"
 current_level = -2
 title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
-balloon_color = Color(0.19, 0.19, 0.19, 0.57254905)

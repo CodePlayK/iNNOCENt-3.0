@@ -75,7 +75,7 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_my7k5"]
-colors = PackedColorArray(0.012617188, 0.012617188, 0.012617188, 1, 2.3133948, 2.3133948, 2.3133948, 1)
+colors = PackedColorArray(0.012617188, 0.012617188, 0.012617188, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_b1qy0"]
 gradient = SubResource("Gradient_my7k5")
@@ -313,7 +313,6 @@ unique_name_in_owner = true
 visible = false
 
 [node name="BackGroundColor" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
-visible = false
 light_mask = 32769
 visibility_layer = 32768
 anchors_preset = 15
@@ -386,6 +385,7 @@ metadata/_edit_lock_ = true
 
 [node name="DialogueLabel" type="RichTextLabel" parent="MainCanvas/MindTxtBox/VBoxContainer/CenterContainer" unique_id=1037003372]
 unique_name_in_owner = true
+light_mask = 2048
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3

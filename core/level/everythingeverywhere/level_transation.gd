@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/control/doorway_entrance.svg")
+
 extends Node2D
 class_name LevelTransation
 
