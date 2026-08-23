@@ -2,6 +2,7 @@
 
 extends Node2D
 class_name DialogueContext
+@export var has_master:bool = true
 @export_enum("BODY_ENTER","MOUSE_ENTER") var interact_type = "BODY_ENTER"
 @export var dialogue_config:DialogueConfig
 @export var cutscener_debug:bool = false:
@@ -13,17 +14,27 @@ class_name DialogueContext
 var current_title
 var obj
 
+func _ready() -> void:
+	if !has_master:
+		on_master_ready(get_parent())
+	EventBus.change_level.connect(_on_level_changed)
+
 func on_master_ready(master) -> void:
-	obj = master.obj
+	if has_master:
+		obj = master.obj
+	else :
+		obj = master
 	dialogue_balloon.set_level(dialogue_config)
-	dialogue_balloon.talker_name = obj.talker_name
 	self.scale = self.scale / obj.scale
 	Dialogue.end_dialogue.connect(end_dialogue)
 	if !obj is Player and obj.dialogue_config:
 		obj.dialogue_config.current_level = LevelState.current_level
+		dialogue_balloon.talker_name = obj.dialogue_config.talkers
 		dialogue_config = obj.dialogue_config
 	dialogue_balloon.dialogue_config = dialogue_config
-	if obj is Player:return
+	if obj is Player:
+		dialogue_balloon.talker_name = obj.dialogue_config.talkers
+		return
 	match interact_type:
 		"BODY_ENTER":
 			obj.interaction.body_entered.connect(_body_entered)
@@ -87,7 +98,12 @@ func start_dialogue(dialogue_config1:DialogueConfig):
 	dialogue_balloon.start(obj,dialogue_config1)
 
 func end_dialogue():
+	if obj is Player:
+		pass
 	dialogue_balloon.end_talk()
+	
+func _on_level_changed(level_id):
+	end_dialogue()
 
 func on_dialogue_ended(res:Resource):
 	return

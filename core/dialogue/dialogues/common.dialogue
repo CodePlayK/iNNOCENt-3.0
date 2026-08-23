@@ -23,3 +23,11 @@ do EventData.events.祈祷次数+=1
 ~ 他人武器架
 玫: 我只会用球棒和盾牌...
 => END!
+~ 大堂到死斗场走廊
+走廊入口: 现在前往竞技场
+- 竞技场: 是
+	玫: 我...准备好了
+	do Dialogue.current_start_obj.change_level()
+- 竞技场: 否
+	玫: 再等一下...
+=> END!

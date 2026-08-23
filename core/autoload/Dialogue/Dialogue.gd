@@ -20,7 +20,10 @@ var current_dialogue_balloon:
 		#Debug.dprintwarn(DebugCT.dp("设置气球[%s]" %cdb.get_path(),self))
 		current_dialogue_balloon=cdb
 var current_title:String
-var current_start_obj
+var current_start_obj:
+	set(csb):
+		current_start_obj=csb
+		Debug.dprintwarn(DebugCT.dp("设置当前对白启动物体[%s]" %csb.get_path(),self))
 var current_start_title:String
 #记录每条对话的执行次数：{对白资源名+标题名+[talker]}
 var dialogue_title_dic:Dictionary

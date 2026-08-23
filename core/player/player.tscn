@@ -2042,7 +2042,6 @@ level_id = -2
 light_mask = 2
 collision_layer = 2
 script = ExtResource("1_yb16c")
-talker_name = Array[String](["我", "玫", "P"])
 dialogue_config = ExtResource("108_4t8e8")
 character_box_config = ExtResource("2_yurw6")
 acceleration_dash = 14000

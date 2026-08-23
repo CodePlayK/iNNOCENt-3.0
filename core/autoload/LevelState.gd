@@ -10,6 +10,8 @@ var current_level:LEVELS=LEVELS.LEVEL_CURRENT
 ##储存当前载入过的所有关卡{ [enum LEVELS] : [Levels] }
 var level_dic:Dictionary
 var current_level_node:Levels
+var changing_level:bool = false
+
 ##目标关卡所在方向
 enum TRANS_DIRCTS {
 	UP=0,

@@ -3,10 +3,9 @@
 ##玩家控制对象
 class_name Player extends CharacterBody2D
 var obj_name:String = "player"
-@export_category("配置")
 @export_group("基础")
-## 对话中本角色使用的说话人名称列表
-@export var talker_name:Array[String]
+### 对话中本角色使用的说话人名称列表
+#@export var talker_name:Array[String]
 ## 本角色使用的对话资源配置
 @export var dialogue_config:DialogueConfig
 ## 角色立绘/对话框配置；未填写角色名时会自动追加玩家名
@@ -89,6 +88,7 @@ var face_left_normalized
 var start_position
 var current_cell
 var last_cell
+var interaction = self
 ##当前Astar执行的模式,会影响其他状态执行选择
 enum ASTAR_MODE {
 	CHASE,##追赶,会持续执行,不启用偏移设定

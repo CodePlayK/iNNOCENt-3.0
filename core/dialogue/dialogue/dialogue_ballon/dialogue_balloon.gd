@@ -316,6 +316,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		Dialogue.next(Dialogue.dialogue_line.next_id)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if LevelState.changing_level:
+		return
 	if !enable:return
 	if UiState.item_txt_box.showing:return
 	if PlayerState.on_collection_hint:return

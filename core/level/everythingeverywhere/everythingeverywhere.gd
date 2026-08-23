@@ -132,6 +132,7 @@ func resume_level(level_id: LevelState.LEVELS) -> void:
 
 
 func _on_change_level(level_id: LevelState.LEVELS) -> void:
+	LevelState.changing_level = true
 	door_locked_time.stop()
 	LevelState.set_doors_locked(true,self)
 	LevelState.playing_transition = true
@@ -163,6 +164,8 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 	PlayerState.set_player_control_lock(false,self)
 	door_locked_time.start()
 	LevelState.playing_transition = false
+	LevelState.changing_level = false
+
 
 	
 func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
@@ -182,7 +185,8 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		var new_level_start_y = old_level_pos.y-old_level_size.y*0.5-(new_level_pos.y-old_level.global_position.y+new_level_size.y*0.5)
 		var new_level_end_x = new_level_start_x
 		var new_level_end_y = 0
-		
+		old_level.parallax.parallax_on = false		
+
 		Global.player_camera.limit_left = min(Global.player_camera.limit_left,new_level_pos.x-new_level_size.x*0.5)
 		Global.player_camera.limit_right = max(Global.player_camera.limit_right,new_level_pos.x+new_level_size.x*0.5)
 		Global.player_camera.node_to_follow = null		
@@ -190,17 +194,17 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		var old_level_start_y = old_level.global_position.y
 		var old_level_end_x = old_level.global_position.x
 		var old_level_end_y = abs(new_level_end_y-new_level_start_y)
-		new_level.parallax.parallax_on = true		
 		Global.player_camera.position_smoothing_enabled = false
+		PlayerState.player_player.face_direction.set_faced(PlayerState.player_born_facing_left)
 		var camera_last_pos = Global.player_camera.global_position
 		player_player.reparent(new_level.player_layer)
 		player_player.position = PlayerState.current_player_born_position
 		new_level.global_position = Vector2(0,new_level_start_y)
 		old_level.global_position.x =  -new_level_start_x
 		Global.player_camera.global_position = camera_last_pos-Vector2(new_level_start_x,0)
-
 		#用一帧让相机和两个关卡按新关卡的坐标移动到零点
 		await get_tree().process_frame
+		new_level.parallax.parallax_on = true		
 		#Debug.dprintinfo(DebugCT.dp("--------开始播放切换关卡动画---------",self))
 		tw.tween_property(old_level,"global_position",Vector2(old_level.global_position.x,old_level_end_y),3)	
 		tw.parallel().tween_property(new_level,"global_position",Vector2(0,0),3)	

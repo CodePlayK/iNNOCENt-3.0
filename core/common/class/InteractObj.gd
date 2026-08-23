@@ -5,7 +5,6 @@ class_name InteractObj
 @export var enable:bool = true
 @export var dialogue_debug:bool = false
 @export var dialogue_config:DialogueConfig:
-
 	set(dc):
 		dialogue_config = dc
 		talker_name = dialogue_config.talkers

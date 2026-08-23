@@ -6,6 +6,12 @@ var player_health_config:HealthConfig
 var player_stamina_config:StaminaConfig
 
 #位置
+var player_born_facing_left:bool = false
+
+func set_player_born_facing_left(fl:bool,source:Node):
+	player_born_facing_left = fl
+	Debug.dprintinfo(DebugCT.dp("更新玩家出生面朝向左: [%s]" %[fl],source))
+	
 var player_exit_level_pos:Vector2
 var current_player_born_position:Vector2 = Vector2(-551.0,255.0,)
 

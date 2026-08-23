@@ -3,5 +3,4 @@
 [ext_resource type="Script" uid="uid://dlfh2lyflqjgp" path="res://core/common/parallax/Parallax_move_data.gd" id="1_t0v3r"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("1_t0v3r")
