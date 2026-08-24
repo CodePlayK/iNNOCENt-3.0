@@ -21,10 +21,12 @@ hit_end_frame = 2
 [sub_resource type="Resource" id="Resource_ymink"]
 script = ExtResource("2_m28eq")
 se_name = "slash7"
+start_frame = 1
+se_speed = 0.8
 
 [resource]
 script = ExtResource("1_r1v08")
-speed_scale = 2.0
+speed_scale = 1.3
 sound_config = Array[ExtResource("2_m28eq")]([SubResource("Resource_ymink")])
 hitbox_config = Array[ExtResource("1_47fjp")]([SubResource("Resource_wufqq")])
 bati_config = Array[ExtResource("1_yoq8c")]([SubResource("Resource_wugt5")])

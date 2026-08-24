@@ -2699,7 +2699,6 @@ texture = SubResource("GradientTexture2D_4434d")
 texture_scale = 50.0
 
 [node name="白色高光" type="PointLight2D" parent="Components/Lights" unique_id=1120481193]
-visible = false
 position = Vector2(90, -92.500015)
 scale = Vector2(3.280046, 0.4190625)
 energy = 16.0
