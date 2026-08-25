@@ -68,6 +68,7 @@ func _on_save_game():
 		screen_shot.texture = DataState.current_screenshot
 		save_file_item_config.screen_shot = DataState.current_screenshot
 		selected.emit(self)
+		
 
 func _on_delete_save(save_id):
 	if save_id == save_file_item_config.save_id:

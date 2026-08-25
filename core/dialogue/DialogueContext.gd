@@ -49,6 +49,8 @@ func on_master_ready(master) -> void:
 func _body_entered(body: Node2D) -> void:
 	if !obj.interaction.enable or PlayerState.get_player_control_lock(self):
 		return
+	if dialogue_config.onece and Dialogue.get_dialogue_title_time(dialogue_config)>0:
+		return
 	if dialogue_config.use_local_res and dialogue_config.dialogue_res:
 		pass
 	else:
@@ -71,6 +73,8 @@ func _body_exited(body: Node2D) -> void:
 func _mouse_entered() -> void:
 	if !obj.interaction.enable or PlayerState.get_player_control_lock(self):
 		return
+		
+		
 	if FileAccess.file_exists(dialogue_config.dialogue_checker_path):
 		var c = await cutscener_runner.run("Dialogue")
 		if c and dialogue_config.dialogue_res.titles.has(c):

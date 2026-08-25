@@ -3,7 +3,7 @@ extends Node
 ## 负责对象存档与读档的 IO，不负责数据组装与属性赋值。
 class_name BaseSaveFileSaver
 
-signal load_save(data: Dictionary)
+signal load_save(data: Dictionary,update_current_save_id:bool)
 
 @onready var save_data_collector: BaseDataFileCollector = get_parent() as BaseDataFileCollector
 
@@ -41,7 +41,7 @@ func _save() -> void:
 
 	if save_data_collector.debug:
 		Debug.dprint(DebugCT.dp(
-			"「保存」存档|[%s]%s" % [save_data_config.level_id, save_data_config.data],
+			"「保存」存档|[level_id:%s]data:%s" % [save_data_config.level_id, save_data_config.data],
 			self
 		))
 
@@ -49,11 +49,11 @@ func _save() -> void:
 
 
 ## 从数据库读取当前条件对应的数据，并通过 [signal load_save] 发出
-func _load() -> void:
+func _load(update_current_save_id) -> void:
 	if not save_data_collector or not save_data_collector.enable_load:
 		return
 	if not save_data_config:
-		load_save.emit({})
+		load_save.emit({},update_current_save_id)
 		return
 
 	var condition := save_data_collector.get_condition_save()
@@ -65,7 +65,7 @@ func _load() -> void:
 			self
 		))
 
-	load_save.emit(data)
+	load_save.emit(data,update_current_save_id)
 
 
 ## 按条件查询并解析出当前 key 对应的数据字典
@@ -90,10 +90,10 @@ func _query_save_data(condition: String) -> Dictionary:
 
 
 ## 响应 [signal EventBus.load_save_file]
-func _load_save_file() -> void:
-	_load()
+func _load_save_file(update_current_save_id:bool = true) -> void:
+	_load(update_current_save_id)
 
 
 ## 供 Collector 在 master ready 后主动触发的载入入口
 func _load_game() -> void:
-	_load()
+	_load(true)

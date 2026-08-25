@@ -44,7 +44,7 @@ func on_load() -> void:
 		return
 	_set_current_save_from_selection()
 	_debug_info("载入按钮按下")
-	EventBus._load_save_file()
+	EventBus._load_save_file(false)
 	#EventBus._level_changed(LevelState.last_level, LevelState.current_level)
 	move_selected2top()
 	timer.start()

@@ -944,7 +944,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_y6mvg"]
-length = 1.0999999999999999
+length = 1.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1481,7 +1481,7 @@ fill = 1
 fill_from = Vector2(0.4871795, 0.52991456)
 fill_to = Vector2(0.7150997, 0.33903134)
 
-[sub_resource type="Resource" id="Resource_tpvv3"]
+[sub_resource type="Resource" id="Resource_mw8p0"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
@@ -1564,7 +1564,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(1.893, -13.483)
 hframes = 12
 vframes = 11
-frame = 57
+frame = 113
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -1867,7 +1867,6 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/idle")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
-changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
@@ -2254,7 +2253,7 @@ connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"),
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_tpvv3")
+save_data_config = SubResource("Resource_mw8p0")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 

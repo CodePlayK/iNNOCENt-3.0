@@ -14,6 +14,7 @@ signal save_game
 signal load_game
 ## 仅通知 [BaseSaveFileSaver] 载入存档文件本身（不触发完整关卡状态刷新）
 signal load_save_file
+signal load_level
 ## 删除指定存档（参数：save_id）
 signal delete_save
 ## 当前使用的存档 ID 发生变化（菜单选中 / 新建 / 删除后同步 UI）
@@ -156,8 +157,8 @@ func _load_game() -> void:
 
 
 ## 发射 [signal load_save_file]
-func _load_save_file() -> void:
-	load_save_file.emit()
+func _load_save_file(update_current_save_id:bool) -> void:
+	load_save_file.emit(update_current_save_id)
 
 
 ## 发射 [signal delete_save]

@@ -27,6 +27,13 @@ var current_start_obj:
 var current_start_title:String
 #记录每条对话的执行次数：{对白资源名+标题名+[talker]}
 var dialogue_title_dic:Dictionary
+func get_dialogue_title_time(config:DialogueConfig) -> int:
+	if dialogue_title_dic.has(config.dialogue_res):
+		if dialogue_title_dic[config.dialogue_res].has(config.title):
+			return dialogue_title_dic[config.dialogue_res][config.title]
+	return 0
+	
+	
 #记录每条对话的执行次数：{对白资源名+标题名+[talker]:次数}
 var dialogue_title_dic_tmp:Dictionary
 

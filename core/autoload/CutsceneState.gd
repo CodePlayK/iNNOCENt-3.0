@@ -21,6 +21,9 @@ var test_var_Array:Array
 var test_var_Dictionary:Dictionary
 var test_var_Resource:Resource
 var player_position:Vector2
+
+
+
 ##修改玩家状态
 func change_player_state(state_name:String):
 	PlayerState.player_player.state_manager.string2state(state_name,self)

@@ -1,7 +1,7 @@
 extends Node
 ## 配置单一对象存档数据的父类，只负责数据组装与属性赋值。[br]
-## [b]挂载要求：[/b] 必须挂在目标储存对象相关节点下，且有且仅有一个 [BaseSaveFileSaver] 子节点。
-class_name BaseDataFileCollector
+## [b]挂载要求：[/b] 必须挂在目标储存对象相关节点下，且有且仅有一个 [BaseLevelDataSaver] 子节点。
+class_name BaseLevelDataCollector
 
 signal save
 
@@ -30,7 +30,7 @@ signal save
 ## 被存档的目标对象
 var obj
 ## 子节点 Saver
-var saver: BaseSaveFileSaver
+var saver: BaseLevelDataSaver
 ## 在 DataState 中注册用的唯一键
 var state_key: String
 
@@ -39,7 +39,7 @@ func _ready() -> void:
 	if not has_master:
 		on_master_ready()
 	if load_on_ready and saver:
-		owner.ready.connect(saver._load_save_file)
+		owner.ready.connect(saver._load_level)
 
 
 ## Master 就绪后完成初始化（也可由外部 Master 调用）
@@ -73,16 +73,16 @@ func _resolve_obj(master: Node = null) -> void:
 func _setup_saver() -> void:
 	saver = _find_saver()
 	if not saver:
-		push_error("%s: 未找到 BaseSaveFileSaver 子节点" % name)
+		push_error("%s: 未找到 BaseLevelDataSaver 子节点" % name)
 		return
 	saver.save_data_config = save_data_config
 	saver.load_save.connect(_load_save)
 
 
 ## 在子节点中查找 Saver
-func _find_saver() -> BaseSaveFileSaver:
+func _find_saver() -> BaseLevelDataSaver:
 	for child in get_children():
-		if child is BaseSaveFileSaver:
+		if child is BaseLevelDataSaver:
 			return child
 	return null
 
@@ -113,11 +113,11 @@ func _pre_save_game() -> void:
 
 
 ## 载入存档
-func _load_save(data: Dictionary,update_current_save_id:bool) -> void:
+func _load_save(data: Dictionary) -> void:
 	if not enable_load:
 		return
 	_apply_common_load_data(data)
-	load_custom_data(data,update_current_save_id)
+	load_custom_data(data)
 
 
 ## 应用通用载入字段（位置、朝向）
@@ -141,7 +141,7 @@ func custom_key() -> void:
 
 
 ## 子类重写：载入自定义数据
-func load_custom_data(data: Dictionary,update_current_save_id:bool) -> void:
+func load_custom_data(data: Dictionary) -> void:
 	pass
 
 
@@ -182,7 +182,11 @@ func common_save_data() -> void:
 
 ## 存档查询条件（载入时使用）
 func get_condition_save() -> String:
-	return "group_id = %s and save_id = %s" % [
+	var level_id: int = save_data_config.level_id
+	if level_id == LevelState.LEVELS.LEVEL_CURRENT:
+		level_id = LevelState.current_level
+	return "level_id = %s and group_id = %s and save_id = %s" % [
+		level_id,
 		save_data_config.group,
-		save_data_config.save_id,
+		DataState.current_save_id,
 	]

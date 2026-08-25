@@ -1,4 +1,4 @@
-extends BaseDataFileCollector
+extends BaseLevelDataCollector
 class_name WorldDataController
 @onready var everythingeverywhere_42: Node2D = $"../.."
 
@@ -23,4 +23,3 @@ func load_custom_data(data:Dictionary):
 		EventBus._change_level(LevelState.LEVELS.LEVEL_0,self)
 	if data and data.has("current_cutscene"):
 		CutsceneState.current_cutscene= data["current_cutscene"]
-	LevelState.current_save_id = save_data_config.save_id

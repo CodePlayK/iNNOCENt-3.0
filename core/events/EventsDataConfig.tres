@@ -6,4 +6,5 @@
 script = ExtResource("1_7n2ag")
 group = -1
 key = "EventsData"
+save_id = -1
 level_id = -2

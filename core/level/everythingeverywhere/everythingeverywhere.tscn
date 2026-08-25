@@ -32,9 +32,9 @@
 [ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="34_glnfy"]
 [ext_resource type="Texture2D" uid="uid://dwdj4u348kh38" path="res://core/player/resource/header_test.tres" id="35_l7ngx"]
 [ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="36_2ea2m"]
-[ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/SaveFileDataController/WorldDataController.gd" id="39_i74u8"]
+[ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/LevelDataController/LevelDataController.gd" id="39_i74u8"]
 [ext_resource type="Resource" uid="uid://b3q2mjg6h15ph" path="res://core/level/everythingeverywhere/word_sdc.tres" id="39_ydae1"]
-[ext_resource type="PackedScene" uid="uid://duo6bfrwl5qvr" path="res://core/common/saves/SaveFileDataController/BaseSaveFileController.tscn" id="40_i74u8"]
+[ext_resource type="PackedScene" uid="uid://duo6bfrwl5qvr" path="res://core/common/saves/LevelDataController/BaseLevelDataController.tscn" id="40_i74u8"]
 [ext_resource type="PackedScene" uid="uid://dejs55bavqfkl" path="res://core/player/player.tscn" id="41_i74u8"]
 
 [sub_resource type="Animation" id="Animation_i8m7f"]
@@ -168,6 +168,9 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_1n72r"]
+resource_name = "black_screen"
+
 [sub_resource type="Animation" id="Animation_564en"]
 resource_name = "blink"
 length = 4.0
@@ -199,6 +202,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oekpy"]
 _data = {
 &"RESET": SubResource("Animation_u6mta"),
+&"black_screen": SubResource("Animation_1n72r"),
 &"blink": SubResource("Animation_564en")
 }
 
@@ -313,6 +317,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="BackGroundColor" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
+visible = false
 light_mask = 32769
 visibility_layer = 32768
 anchors_preset = 15
@@ -603,9 +608,19 @@ metadata/_edit_lock_ = true
 layer = 7
 script = ExtResource("21_lj80u")
 
-[node name="ColorRect" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
+[node name="VHS" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
 light_mask = 0
 material = SubResource("ShaderMaterial_ky2o5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FrontColor" type="ColorRect" parent="ScreenEffect" unique_id=1437392257]
+visible = false
+light_mask = 0
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -630,7 +645,6 @@ text = "用自己的过场插件做的事件驱动的对话选择:
 4.玩家拥有三支手电筒"
 
 [node name="Eyes" type="TextureRect" parent="ScreenEffect" unique_id=894097270]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -756,6 +770,18 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
 text = "DEBUG层"
 icon_alignment = 1
 
+[node name="BUT1" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1812113296]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "播放过场动画"
+icon_alignment = 1
+
 [node name="PathFind" type="Node2D" parent="TestCanvas/MarginContainer/Test" unique_id=1532952576]
 visible = false
 
@@ -847,7 +873,7 @@ visible = false
 
 [node name="Data" type="Node" parent="." unique_id=475305390]
 
-[node name="DataSaveFileCollector" parent="Data" unique_id=894643364 instance=ExtResource("40_i74u8")]
+[node name="LevelDataCollector" parent="Data" unique_id=894643364 instance=ExtResource("40_i74u8")]
 script = ExtResource("39_i74u8")
 save_data_config = ExtResource("39_ydae1")
 has_master = false
@@ -875,3 +901,4 @@ position = Vector2(0, -800)
 [connection signal="pressed" from="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterBoxCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT0" to="TestCanvas/MarginContainer/Test" method="_on_but_0_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT1" to="TestCanvas/MarginContainer/Test" method="_on_but_1_pressed"]

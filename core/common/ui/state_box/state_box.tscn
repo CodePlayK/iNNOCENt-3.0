@@ -25,8 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://dk2mepf1eu5ro" path="res://core/common/ui/state_box/setting/save_file_item/save_file_item.tscn" id="21_o8lit"]
 [ext_resource type="Resource" uid="uid://wk0jnm23w7xm" path="res://core/common/ui/state_box/setting/delete_game.tres" id="22_80r3y"]
 [ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="23_77qh7"]
-[ext_resource type="Script" uid="uid://ouhl12atvg6x" path="res://core/common/ui/state_box/setting/SaveFileDataController.gd" id="24_1qo2b"]
+[ext_resource type="Script" uid="uid://ouhl12atvg6x" path="res://core/common/saves/SaveFileDataController/SaveFileDataController.gd" id="24_1qo2b"]
 [ext_resource type="Resource" uid="uid://dortpr4kglj6k" path="res://core/common/ui/state_box/setting/save_menu_ui_save_file_config.tres" id="25_bhkcg"]
+[ext_resource type="PackedScene" uid="uid://ybef35mhdxtn" path="res://core/common/saves/SaveFileDataController/BaseSaveFileController.tscn" id="26_1m5ka"]
 [ext_resource type="Material" uid="uid://bli7y1u5kjxe4" path="res://test/shader/state_box_crt.tres" id="27_6r5qt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g47y2"]
@@ -528,10 +529,11 @@ bk_conf_color = Color(0.74902, 0.0117647, 0, 0.72549)
 setting_item = 3
 setting_item_config = ExtResource("22_80r3y")
 
-[node name="DataCollector" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单" unique_id=393713953 instance=ExtResource("15_f5qa1")]
+[node name="DataSaveFileCollector" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单" unique_id=1848048086 instance=ExtResource("26_1m5ka")]
 script = ExtResource("24_1qo2b")
 save_data_config = ExtResource("25_bhkcg")
 has_master = false
+debug = true
 load_on_ready = true
 save_id = false
 save_obj_id = false

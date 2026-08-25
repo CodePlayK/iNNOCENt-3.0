@@ -15,7 +15,8 @@ func custom_data():
 	
 ##载入存档数据
 func load_custom_data(data:Dictionary):
-	DataState.json_to_resource(data["event"],event_data.events)
+	if data.has("event"):
+		DataState.json_to_resource(data["event"],event_data.events)
 	
 ##删除存档事件
 func on_delete_save():

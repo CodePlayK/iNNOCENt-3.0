@@ -1,11 +1,11 @@
 extends Node
-## 必须为 [BaseDataCollector] 的唯一子节点。[br]
-## 负责普通对象存档与读档的 IO，不负责数据组装与属性赋值。
-class_name BaseSaver
+## 必须为 [BaseLevelDataCollector] 的唯一子节点。[br]
+## 负责对象存档与读档的 IO，不负责数据组装与属性赋值。
+class_name BaseLevelDataSaver
 
 signal load_save(data: Dictionary)
 
-@onready var save_data_collector: BaseDataCollector = get_parent() as BaseDataCollector
+@onready var save_data_collector: BaseLevelDataCollector = get_parent() as BaseLevelDataCollector
 
 var db: SQLite
 var save_data_config: SaveDataConfig
@@ -26,9 +26,8 @@ func _init_db() -> void:
 
 
 func _connect_signals() -> void:
-	# 普通 obj：响应 load_game（关卡 resume / 读档时通知所有 saver）
-	if not EventBus.load_game.is_connected(_load_game):
-		EventBus.load_game.connect(_load_game)
+	if not EventBus.load_level.is_connected(_load_level):
+		EventBus.load_level.connect(_load_level)
 	if save_data_collector and not save_data_collector.save.is_connected(_save):
 		save_data_collector.save.connect(_save)
 
@@ -57,29 +56,16 @@ func _load() -> void:
 		load_save.emit({})
 		return
 
-	# 仅加载「全局关卡」或「当前关卡」的数据
-	if not _should_load_for_current_level():
-		return
-
 	var condition := save_data_collector.get_condition_save()
 	var data := _query_save_data(condition)
 
 	if save_data_collector.debug:
-		Debug.dprint(DebugCT.dp(
-			"「载入」存档|[条件:%s]结果:%s" % [condition, JSON.stringify(data)],
+		Debug.dprintwarn(DebugCT.dp(
+			"「存档管理器载入」存档文件|[%s]%s" % [condition, JSON.stringify(data)],
 			self
 		))
 
 	load_save.emit(data)
-
-
-## 是否应在当前关卡执行载入
-func _should_load_for_current_level() -> bool:
-	var level_id: int = save_data_config.level_id
-	return (
-		level_id == LevelState.LEVELS.LEVEL_ALL
-		or level_id == LevelState.current_level
-	)
 
 
 ## 按条件查询并解析出当前 key 对应的数据字典
@@ -103,6 +89,11 @@ func _query_save_data(condition: String) -> Dictionary:
 	return value if typeof(value) == TYPE_DICTIONARY else {}
 
 
-## 响应 [signal EventBus.load_game] / Collector 主动调用
+## 响应 [signal EventBus.load_save_file]
+func _load_level() -> void:
+	_load()
+
+
+## 供 Collector 在 master ready 后主动触发的载入入口
 func _load_game() -> void:
 	_load()

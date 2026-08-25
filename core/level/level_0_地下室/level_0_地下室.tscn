@@ -4906,5 +4906,12 @@ rim_intensity = 6.6
 distance_strength = 3.1
 back_offset = false
 
+[node name="Cutscene" type="Node2D" parent="." unique_id=1171327615]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscene" unique_id=835462097]
+root_node = NodePath("../..")
+
+[node name="Vfx" type="Node2D" parent="Cutscene" unique_id=673856081]
+
 [connection signal="body_entered" from="Parallax/ParallaxLayer_5/Main/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_5/Main/CutsceneTrigger/CutscenerTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="Parallax/ParallaxLayer_5/Main/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_5/Main/CutsceneTrigger/CutscenerTrigger" method="_on_body_exited"]

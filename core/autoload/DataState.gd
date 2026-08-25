@@ -34,7 +34,7 @@ var save_cache: Dictionary = {}
 ## 要存档的物体注册字典 key -> 是否已就绪
 var save_obj_state: Dictionary = {}
 ## 存档菜单 Collector
-var ui_save_data_controller: BaseDataCollector
+var ui_save_data_controller: BaseDataFileCollector
 ## 存档配置类
 var save_file_config: SaveDataConfig
 ## 当前屏幕截图

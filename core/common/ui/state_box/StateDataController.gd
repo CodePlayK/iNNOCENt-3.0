@@ -15,4 +15,3 @@ func load_custom_data(data:Dictionary):
 		node.queue_free()
 	for k in data.keys():
 		state_box.load_item(int(k),data[k]["count"])
-

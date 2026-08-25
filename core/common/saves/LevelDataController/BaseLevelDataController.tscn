@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://ybef35mhdxtn"]
+[gd_scene format=3 uid="uid://duo6bfrwl5qvr"]
 
-[ext_resource type="Script" uid="uid://bmquo1m7eon7p" path="res://core/common/saves/SaveFileDataController/BaseSaveFileSaver.gd" id="1_7rgby"]
+[ext_resource type="Script" uid="uid://dj3gu61kn1gl6" path="res://core/common/saves/LevelDataController/BaseLevelDataSaver.gd" id="1_7rgby"]
 
 [node name="DataSaveFileCollector" type="Node" unique_id=1848048086]
 process_mode = 3

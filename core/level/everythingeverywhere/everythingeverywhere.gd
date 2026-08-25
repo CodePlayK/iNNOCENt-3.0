@@ -145,7 +145,8 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 	EventBus._test_layer_visiable(false)
 	#先暂停当前level
 	if LevelState.current_level_node:
-		await LevelState.current_level_node.level_transation.play_transition(LevelTransation.TRANSITION_NAME.FALLING_BOX,LevelTransation.TRANSITION_TYPE.IN,1)
+		if 	LevelState.last_level != LevelState.current_level:
+			await LevelState.current_level_node.level_transation.play_transition(LevelTransation.TRANSITION_NAME.FALLING_BOX,LevelTransation.TRANSITION_TYPE.IN,1)
 		await LevelState.current_level_node.pause()
 	
 	if LevelState.level_dic.has(level_id):
