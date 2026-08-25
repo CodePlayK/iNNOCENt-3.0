@@ -23,7 +23,7 @@ var current_title:String
 var current_start_obj:
 	set(csb):
 		current_start_obj=csb
-		Debug.dprintwarn(DebugCT.dp("设置当前对白启动物体[%s]" %csb.get_path(),self))
+		#Debug.dprintwarn(DebugCT.dp("设置当前对白启动物体[%s]" %csb.get_path(),self))
 var current_start_title:String
 #记录每条对话的执行次数：{对白资源名+标题名+[talker]}
 var dialogue_title_dic:Dictionary

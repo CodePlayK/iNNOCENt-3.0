@@ -21,7 +21,7 @@ hit_end_frame = 2
 [sub_resource type="Resource" id="Resource_ymink"]
 script = ExtResource("2_m28eq")
 se_name = "slash7"
-start_frame = 1
+start_frame = 2
 se_speed = 0.8
 
 [resource]

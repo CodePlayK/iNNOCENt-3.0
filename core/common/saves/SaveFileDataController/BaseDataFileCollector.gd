@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/mesh/floppy_disks.svg")
+
 extends Node
 ## 配置单一对象存档数据的父类，只负责数据组装与属性赋值。[br]
 ## [b]挂载要求：[/b] 必须挂在目标储存对象相关节点下，且有且仅有一个 [BaseSaveFileSaver] 子节点。

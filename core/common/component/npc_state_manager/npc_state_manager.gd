@@ -85,7 +85,6 @@ func _push_history(history: Array, state) -> void:
 func on_master_ready(master) -> void:
 	npc = master.obj
 	anime.animes.clear()
-	_connect_event(EventBus.player_control_lock, _on_npc_control_lock)
 	_connect_event(EventBus.npc_following_player, on_npc_following_player)
 	_collect_states(self)
 	for state: NpcsBaseState in all_states:

@@ -7561,6 +7561,7 @@ process_mode = 3
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("95_25bfe")]
 script = ExtResource("96_ubvsk")
 save_data_config = ExtResource("97_sxw3c")
+debug = false
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 

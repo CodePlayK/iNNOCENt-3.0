@@ -16,5 +16,5 @@ func on_play_screen_effect(e_name:String,args:Array) -> void:
 			front_color.color = Color.BLACK
 			front_color.show()
 		"眼睛":
-			front_color.hide()
 			eyes.play(args)
+			

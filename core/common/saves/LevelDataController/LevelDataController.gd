@@ -1,3 +1,4 @@
+##连接在Eventbus的load_level信号下,由存档管理器启动
 extends BaseLevelDataCollector
 class_name WorldDataController
 @onready var everythingeverywhere_42: Node2D = $"../.."

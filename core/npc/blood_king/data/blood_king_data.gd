@@ -6,6 +6,8 @@ func custom_key():
 	
 #配置要写入存档的数据
 func custom_data():
+	if obj.obj_name == "bloodking1":
+		pass
 	save_data_config.data["hp"] = obj.health.current_health
 	if obj.state_manager.current_state == obj.state_manager.base_state.death_state:
 		save_data_config.data["state"] = obj.state_manager.base_state.death_state.name

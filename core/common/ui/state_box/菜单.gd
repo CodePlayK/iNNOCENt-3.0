@@ -44,6 +44,7 @@ func on_load() -> void:
 		return
 	_set_current_save_from_selection()
 	_debug_info("载入按钮按下")
+	##通知存档持久化节点,但不要读取数据库里保存的current_save_id
 	EventBus._load_save_file(false)
 	#EventBus._level_changed(LevelState.last_level, LevelState.current_level)
 	move_selected2top()

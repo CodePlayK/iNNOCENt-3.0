@@ -1979,6 +1979,7 @@ position = Vector2(10.8333, -59.1667)
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("103_5edpy")]
 script = ExtResource("104_65ev0")
 save_data_config = SubResource("Resource_7cfw8")
+debug = false
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 visible = false

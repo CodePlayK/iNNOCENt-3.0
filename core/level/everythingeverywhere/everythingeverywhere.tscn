@@ -85,6 +85,14 @@ use_hdr = true
 fill_from = Vector2(0.5106838, 1)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="LabelSettings" id="LabelSettings_07drm"]
+font = ExtResource("32_0sbtr")
+font_size = 26
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l83k0"]
+color = Color(1, 1, 1, 1)
+grow_begin = 51.0
+
 [sub_resource type="Gradient" id="Gradient_04lay"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0.12713936, 0.6356968, 1)
@@ -107,6 +115,95 @@ width = 1920
 height = 646
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Animation" id="Animation_u6mta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenEffect/Eyes:texture:gradient:offsets")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedFloat32Array(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScreenEffect/Eyes:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScreenEffect/FrontColor:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1n72r"]
+resource_name = "black_screen"
+
+[sub_resource type="Animation" id="Animation_564en"]
+resource_name = "blink"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenEffect/Eyes:texture:gradient:offsets")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 0.353554, 1.56917, 1, 1, 1),
+"update": 0,
+"values": [PackedFloat32Array(1, 1), PackedFloat32Array(0.120253, 0.7), PackedFloat32Array(0.120253, 0.5), PackedFloat32Array(0.120253, 0.805907), PackedFloat32Array(0, 0.263713), PackedFloat32Array(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScreenEffect/Eyes:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScreenEffect/FrontColor:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.8666668, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oekpy"]
+_data = {
+&"RESET": SubResource("Animation_u6mta"),
+&"black_screen": SubResource("Animation_1n72r"),
+&"blink": SubResource("Animation_564en")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
 shader = ExtResource("22_b6isf")
@@ -140,71 +237,6 @@ width = 960
 height = 540
 fill = 1
 fill_from = Vector2(0.498246, 0.495906)
-
-[sub_resource type="Animation" id="Animation_u6mta"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ScreenEffect/Eyes:texture:gradient:offsets")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedFloat32Array(0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ScreenEffect/Eyes:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1n72r"]
-resource_name = "black_screen"
-
-[sub_resource type="Animation" id="Animation_564en"]
-resource_name = "blink"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ScreenEffect/Eyes:texture:gradient:offsets")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 0.353554, 1.56917, 1, 1, 1),
-"update": 0,
-"values": [PackedFloat32Array(1, 1), PackedFloat32Array(0.120253, 0.7), PackedFloat32Array(0.120253, 0.5), PackedFloat32Array(0.120253, 0.805907), PackedFloat32Array(0, 0.263713), PackedFloat32Array(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ScreenEffect/Eyes:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_oekpy"]
-_data = {
-&"RESET": SubResource("Animation_u6mta"),
-&"black_screen": SubResource("Animation_1n72r"),
-&"blink": SubResource("Animation_564en")
-}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymnf6"]
 bg_color = Color(0.458824, 0.247059, 0.215686, 1)
@@ -341,6 +373,54 @@ script = ExtResource("7_egao5")
 fight_dely_time = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime")
 stamina_bar = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/StaminaBar")
 stamina_config = ExtResource("8_se05l")
+
+[node name="MarginContainer" type="VBoxContainer" parent="MainCanvas" unique_id=2068474885]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="top" type="Container" parent="MainCanvas/MarginContainer" unique_id=1952464133]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.61
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainCanvas/MarginContainer" unique_id=1531178453]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Left" type="Container" parent="MainCanvas/MarginContainer/HBoxContainer" unique_id=432633915]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.4
+
+[node name="Container" type="VBoxContainer" parent="MainCanvas/MarginContainer/HBoxContainer" unique_id=1321770499]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MainCanvas/MarginContainer/HBoxContainer/Container" unique_id=1814540729]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "关卡名称"
+label_settings = SubResource("LabelSettings_07drm")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="MainCanvas/MarginContainer/HBoxContainer/Container" unique_id=854157321]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxLine_l83k0")
+
+[node name="Right" type="Container" parent="MainCanvas/MarginContainer/HBoxContainer" unique_id=536727058]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.07
+
+[node name="bot" type="Container" parent="MainCanvas/MarginContainer" unique_id=2048078758]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.82
 
 [node name="MindTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1141188428]
 modulate = Color(1, 1, 1, 0)
@@ -608,7 +688,12 @@ metadata/_edit_lock_ = true
 layer = 7
 script = ExtResource("21_lj80u")
 
+[node name="aniplayer" type="AnimationPlayer" parent="ScreenEffect" unique_id=893686757]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_oekpy")
+
 [node name="VHS" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
+visible = false
 light_mask = 0
 material = SubResource("ShaderMaterial_ky2o5")
 anchors_preset = 15
@@ -657,10 +742,6 @@ texture = SubResource("GradientTexture2D_usyv6")
 expand_mode = 3
 script = ExtResource("23_8whex")
 metadata/_edit_lock_ = true
-
-[node name="aniplayer" type="AnimationPlayer" parent="ScreenEffect/Eyes" unique_id=893686757]
-root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_oekpy")
 
 [node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
 layer = 7
