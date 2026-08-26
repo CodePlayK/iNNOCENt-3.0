@@ -54,12 +54,8 @@ func _body_entered(body: Node2D) -> void:
 	if dialogue_config.use_local_res and dialogue_config.dialogue_res:
 		pass
 	else:
-		var d:DialogueResource= DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
-		#判断当前cutscene state下是否有台词更新
-		if obj.dialogue_debug and !d.get_titles().has(dialogue_config.title):
-			Debug.dprintinfo(DebugCT.dp("[%s]在当前场景[%s]中无台词更新" %[dialogue_config.title,CutsceneState.current_cutscene],self))
-		elif dialogue_config.current_res!=CutsceneState.current_cutscene:
-			dialogue_config.dialogue_res=DialogueState.dialogue_file_res[CutsceneState.current_cutscene]
+		#Debug.dprintinfo(DebugCT.dp("[%s]在当前场景[%s]中无台词更新" %[dialogue_config.title,CutsceneState.current_cutscene],self))
+		dialogue_config.dialogue_res = DialogueState.dialogue_file_res[DialogueState.get_latest_cutscene_contain_title(dialogue_config.title)]
 		dialogue_config.current_res=CutsceneState.current_cutscene
 	#Dialogue.current_talker=obj.dialogue_config.talkers
 	Dialogue.current_start_obj = obj

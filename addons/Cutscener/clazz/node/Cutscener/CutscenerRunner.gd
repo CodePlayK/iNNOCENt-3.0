@@ -39,7 +39,8 @@ func run(c_name: String):
 
 	if cutscener_data and FileAccess.file_exists(cutscener_data):
 		CutscenerGlobal.ACTION_LOG = "[%s]开始运行, 存档:[%s]" % [cutscener_name, cutscener_data]
-		if change_CutsceneState_current_cutscene:CutsceneState.current_cutscene = cutscener_name
+		if change_CutsceneState_current_cutscene:
+			CutsceneState.current_cutscene = cutscener_name
 		dic = load_json(cutscener_data)
 	else:
 		dic = load_json(config_file["save_file_config"])

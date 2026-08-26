@@ -1,13 +1,15 @@
-~ 玩家醒来
-我: …… ……
+~ 地下室床
+床: 要对天使祈祷吗?已经祈祷{{EventData.events.祈祷次数}}次
+do CutscenerGlobal.cutscener_run.emit("0_0_0_pray")
+do EventData.events.祈祷次数+=1
 => END!
 
 ~ 祈祷
 M|idle: 美丽的天使
 M: 请让今天的决斗可以早点结束.....
 do PlayerState.set_player_current_default_expression("idle")
-
 => END!
+
 ~ 祈祷_开场
 M: [speed=0.1]美丽的天使啊
 M: [speed=0.2]请让今天的[color=#e0a924]决斗[/color]可以早点结束...
@@ -36,7 +38,7 @@ bloodking1|hurt: 缩短Q的cd，还缩短释放时间，然后还有攻击力。
 => END!
 
 ~ bloodking2
-bloodking2|sad: siuuuuuuuuuuuu！
+bloodking2|sad: 现在是场景0！
 bloodking2|hurt: siuuu siuuuuuu！
 do NpcState.set_npc_current_default_expression("happy","0bloodking2")
 
@@ -45,38 +47,4 @@ do NpcState.set_npc_current_default_expression("happy","0bloodking2")
 ~ TarnishedWidow
 TarnishedWidow: siuuuuuuuuuuuu！
 TarnishedWidow: siuuu siuuuuuu！
-=> END!
-
-~ 玩家醒来1
-我: 我…… ……
-我: 我这是在哪儿?
-=> END!
-
-~ 废弃汽车1
-汽车|: 一辆腐朽到只剩骨架的汽车残骸.
-M|疑惑: 汽车?
-M: 这种东西怎么会出现在楼层中
-M: 难道……我已经来到了地面上?
-我|头痛: …… ……
-我: 头还是好晕
-=> END!
-
-~ 遇见队友
-bloodking1: 呼,终于找到你了[color=ffff00]潜行者[/color].
-bloodking1: 这该死的降落伞果然不靠谱.
-bloodking2: 你没事吧?
-bloodking2: 我们得赶紧去和大部队汇合.
-我: …… ……
-M: 他们认识我？
-bloodking1: …… ……？
-bloodking1: 你不会摔傻了吧？
-bloodking1: 别愣着，这里不安全。
-bloodking2: 算了，你就先跟在我们身后。
-bloodking1: 出发！
-=> END!
-
-~ 遇见队友1
-我: …… ……
-我: 似乎也没别的路了.
-我: 就暂且跟过去吧.
 => END!

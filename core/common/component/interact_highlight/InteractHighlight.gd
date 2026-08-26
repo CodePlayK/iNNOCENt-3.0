@@ -1,5 +1,4 @@
 @icon("res://addons/at-icons/mesh/field_of_view.svg")
-
 extends ColorRect
 
 # ==============================================================================
@@ -34,12 +33,16 @@ extends ColorRect
 # 🎨 Shader 视觉外观控制变量 (仅在变动和初始化时通知 GPU)
 # ==============================================================================
 
-@export_group("Glow Dot Settings", "dot_")
+@export_group("提示点设置")
 ## 交互未激活时，默认呼吸提示光点的颜色与基础不透明度。
-@export var dot_color: Color = Color.WHITE:
+@export var DOT_COLOR:Dictionary[String,Color]  = {
+	"Mouse" : Color.WHITE,
+	"Body" : Color.SKY_BLUE
+}
+@export_enum("Mouse","Body") var dot_color: String ="Mouse":
 	set(val):
 		dot_color = val
-		_set_shader_param("glow_color", val)
+		_set_shader_param("glow_color", DOT_COLOR[val])
 
 ## 提示光点的基础直径大小（单位：像素）。
 @export var dot_size: float = 8.0:
@@ -164,7 +167,7 @@ func _update_shader_positions() -> void:
 
 ## 初始化向 GPU 批量投递材质 Uniform 常数
 func _init_shader_parameters() -> void:
-	_set_shader_param("glow_color", dot_color)
+	_set_shader_param("glow_color", DOT_COLOR[dot_color])
 	_set_shader_param("dot_size", dot_size)
 	_set_shader_param("breathe_amplitude", dot_breathe_amplitude)
 	_set_shader_param("breathe_speed", dot_breathe_speed)

@@ -35,7 +35,6 @@ class_name PlayerAttackState
 @export var timeout2attack:bool = false
 ## 打印“计时结束但未连段”的日志
 @export var timeout_not2attack:bool = false
-@onready var player_attack_time_event: BaseEvents = %PlayerAttackTimeEvent
 
 ##实际的攻击动画耗时,包括僵直
 @onready var attack_timer: Timer = $attackTimer

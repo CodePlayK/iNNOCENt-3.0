@@ -1,7 +1,7 @@
 @tool
 extends Resource
 class_name DialogueConfig
-#台词资源
+##当前的台词资源
 @export var dialogue_res:DialogueResource:
 	set(r):
 		dialogue_res=r
@@ -19,10 +19,6 @@ var dialogue_checker_path:String
 @export var title:String:
 	set(r):
 		title=r.strip_edges()
-		
-@export var event_key:String = "NA":
-	set(r):
-		event_key=r.strip_edges()
 #当前表情
 @export var current_default_expression:String="idle":
 	set(ce):
@@ -34,9 +30,7 @@ var dialogue_checker_path:String
 	set(f):
 		import = f
 		update()
-@export var auto_next:bool = true
 @export var balloon_color:Color = Color("000000f0")
-@export var line_end_wait_time:float = 1
 
 	
 

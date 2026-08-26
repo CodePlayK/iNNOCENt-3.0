@@ -12,6 +12,8 @@ var cutscene_playing:bool=false:
 				EventBus._cutscene_finished()
 				cutscene_playing=f
 var cutscener_playing:bool
+##cutscene名称约定为:幕号_章节_index
+##以"_"分割,最后一位必须是数字而且唯一,而且用于控制场景的顺序
 var current_cutscene:String="0_0_0"
 var test_var_String:String
 var test_var_Vector2:Vector2
@@ -21,9 +23,12 @@ var test_var_Array:Array
 var test_var_Dictionary:Dictionary
 var test_var_Resource:Resource
 var player_position:Vector2
+##场景名index映射<index:场景名>
+var cutscene_index_dic:Dictionary[int,String]
 
 
-
+func set_current_cutscene(cc:String):
+	current_cutscene = cc
 ##修改玩家状态
 func change_player_state(state_name:String):
 	PlayerState.player_player.state_manager.string2state(state_name,self)

@@ -1,9 +1,9 @@
 extends CanvasLayer
 @onready var player_camera: Camera2DPlus = %PlayerCamera
-@export var fight_dely_time: Timer = $LeftTop/VBC/HBC/FightDelyTime
-@export var stamina_bar: UIbar = $LeftTop/VBC/HBC/StaminaBar
 @onready var player_collect_marker: Marker = $PlayerCollectMarker
 @export var stamina_config:StaminaConfig
+@onready var fight_dely_time: Timer = $StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime
+@onready var stamina_bar: UIbar = $StateBar/HBC/MarginContainer3/MarginContainer2/StaminaBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
