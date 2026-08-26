@@ -2,8 +2,11 @@ extends Node
 ## NPC 全局状态
 ##
 ## 管理 NPC 数据、对话方位、以及场景复制时 @export Node 的路径缓存。
-
-
+##所有npc的dic[level_id+npc_name:Npcs]
+var npc_dic:Dictionary[String,Npcs]={}
+##设置指定npc的表情
+func set_npc_current_default_expression(exp:String,obj_id:String):
+	npc_dic[obj_id].character_box_config.current_default_expression = exp
 
 #region Export Node Cache
 ## 场景复制时，把 @export Node 的相对路径缓存下来，

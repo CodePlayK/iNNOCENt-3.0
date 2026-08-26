@@ -78,7 +78,8 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addon
 
 folder_colors={
 "res://addons/": "green",
-"res://core/level/resource/sprite/": "yellow"
+"res://core/level/resource/sprite/": "yellow",
+"res://core/player/resource/headers/": "yellow"
 }
 
 [gui]

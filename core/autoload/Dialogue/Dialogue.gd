@@ -56,8 +56,6 @@ var dialogue_line: DialogueLine:
 			end_dialogue.emit()
 			return
 		dialogue_line = next_dialogue_line
-		if dialogue_line.expression:
-			dialogue_config.current_expression=dialogue_line.expression
 		if !current_talker.has(dialogue_line.character):
 			if current_dialogue_balloon:
 				current_dialogue_balloon.dialogue_finished()

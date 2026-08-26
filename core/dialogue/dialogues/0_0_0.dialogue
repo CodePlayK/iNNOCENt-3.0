@@ -3,8 +3,10 @@
 => END!
 
 ~ 祈祷
-M: 美丽的天使
+M|idle: 美丽的天使
 M: 请让今天的决斗可以早点结束.....
+do PlayerState.set_player_current_default_expression("idle")
+
 => END!
 ~ 祈祷_开场
 M: [speed=0.1]美丽的天使啊
@@ -21,21 +23,23 @@ it: 需要我跟你一起走吗~
 => END!
 
 ~ bloodking1
-bloodking1: 你说得对.
+bloodking1|sad: 你说得对.
 bloodking1: 但是这就是奎桑提.
 - 我 4700.
 	M: 有不可阻挡，有护盾,还能过墙.
 - 护甲 329.
-	我: 有控制，甚至冷却时间只有1秒，只要15点蓝。.
+	我|mad: 有控制，甚至冷却时间只有1秒，只要15点蓝。.
 - 魔抗 201的英雄.
 - 转换姿态时甚至可以刷新W的cd，还有真实伤害。~ => END
 M: 然后，护甲和魔抗提升后还能获得技能加速,
-bloodking1: 缩短Q的cd，还缩短释放时间，然后还有攻击力。W就啊啊啊啊啊啊!!!
+bloodking1|hurt: 缩短Q的cd，还缩短释放时间，然后还有攻击力。W就啊啊啊啊啊啊!!!
 => END!
 
 ~ bloodking2
-bloodking2: siuuuuuuuuuuuu！
-bloodking2: siuuu siuuuuuu！
+bloodking2|sad: siuuuuuuuuuuuu！
+bloodking2|hurt: siuuu siuuuuuu！
+do NpcState.set_npc_current_default_expression("happy","0bloodking2")
+
 => END!
 
 ~ TarnishedWidow

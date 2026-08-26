@@ -26,7 +26,6 @@
 [ext_resource type="Script" uid="uid://dndomblipxr46" path="res://core/level/character_box_canvas.gd" id="24_3yn66"]
 [ext_resource type="Shader" uid="uid://swk4220saky5" path="res://core/common/shader/LevelTransition.gdshader" id="24_ydae1"]
 [ext_resource type="PackedScene" uid="uid://dkgxdrht840tp" path="res://core/common/ui/character_dialogue_box/character_box.tscn" id="25_wck0l"]
-[ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="26_535gr"]
 [ext_resource type="Script" uid="uid://co5k7q4j1q0c4" path="res://core/level/everythingeverywhere/in_game_debug_layer.gd" id="28_7ue4y"]
 [ext_resource type="Script" uid="uid://ci4y1snlap0ev" path="res://test/test_canvas.gd" id="28_ghsbg"]
 [ext_resource type="Script" uid="uid://dheawyf6jpi38" path="res://core/level/everythingeverywhere/test/Test.gd" id="29_imah0"]
@@ -119,6 +118,29 @@ font_color = Color(0.41725737, 0.41725743, 0.41725728, 1)
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_l83k0"]
 color = Color(0.34656936, 0.34656933, 0.34656933, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
+shader = ExtResource("22_b6isf")
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 1.145
+shader_parameter/roll_size = 5.03200023902
+shader_parameter/roll_variation = 1.50100006803762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.010000000475
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.21200001007
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.41200001957
+
 [sub_resource type="Animation" id="Animation_u6mta"]
 length = 0.001
 tracks/0/type = "value"
@@ -207,29 +229,6 @@ _data = {
 &"black_screen": SubResource("Animation_1n72r"),
 &"blink": SubResource("Animation_564en")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
-shader = ExtResource("22_b6isf")
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.0
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = false
-shader_parameter/roll = false
-shader_parameter/roll_speed = 1.145
-shader_parameter/roll_size = 5.03200023902
-shader_parameter/roll_variation = 1.50100006803762
-shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.0
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.010000000475
-shader_parameter/aberration = 4.7499999933364734e-08
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.21200001007
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.41200001957
 
 [sub_resource type="Gradient" id="Gradient_her8m"]
 colors = PackedColorArray(0, 0, 0, 0.0941176, 0, 0, 0, 1)
@@ -660,21 +659,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("19_ydae1")
 
 [node name="top" type="Container" parent="ScreenTxt/LevelTxt" unique_id=1952464133]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.28
+mouse_filter = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenTxt/LevelTxt" unique_id=1531178453]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="Left" type="Container" parent="ScreenTxt/LevelTxt/HBoxContainer" unique_id=432633915]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 20.0
+mouse_filter = 2
 
 [node name="TxtBox" type="VBoxContainer" parent="ScreenTxt/LevelTxt/HBoxContainer" unique_id=1321770499]
 layout_mode = 2
@@ -682,6 +685,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.16
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(1.5, 0)
+mouse_filter = 2
 
 [node name="Txt" type="Label" parent="ScreenTxt/LevelTxt/HBoxContainer/TxtBox" unique_id=1814540729]
 layout_mode = 2
@@ -700,21 +704,19 @@ theme_override_styles/normal = SubResource("StyleBoxLine_l83k0")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.07
+mouse_filter = 2
 
 [node name="bot" type="Container" parent="ScreenTxt/LevelTxt" unique_id=2048078758]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 7.82
+mouse_filter = 2
 
-[node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
+[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
 layer = 7
-script = ExtResource("21_lj80u")
+script = ExtResource("24_3yn66")
 
-[node name="aniplayer" type="AnimationPlayer" parent="ScreenEffect" unique_id=893686757]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_oekpy")
-
-[node name="VHS" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
+[node name="VHS" type="ColorRect" parent="CharacterBoxCanvas" unique_id=776308278]
 light_mask = 0
 material = SubResource("ShaderMaterial_ky2o5")
 anchors_preset = 15
@@ -723,6 +725,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]
+
+[node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
+layer = 7
+script = ExtResource("21_lj80u")
+
+[node name="aniplayer" type="AnimationPlayer" parent="ScreenEffect" unique_id=893686757]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_oekpy")
 
 [node name="FrontColor" type="ColorRect" parent="ScreenEffect" unique_id=1437392257]
 visible = false
@@ -779,68 +791,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="RestTimer" type="Timer" parent="ScreenEffect/LevelTransation" unique_id=1805130882]
 one_shot = true
-
-[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
-layer = 7
-script = ExtResource("24_3yn66")
-
-[node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]
-
-[node name="CharacterDialogueBox" type="MarginContainer" parent="CharacterBoxCanvas" unique_id=27117377]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("26_535gr")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterBoxCanvas/CharacterDialogueBox" unique_id=520605068]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="MarginContainer3" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=1144078633]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 20.0
-mouse_filter = 2
-
-[node name="callPlayer" type="Button" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3" unique_id=1260254178]
-visible = false
-layout_mode = 2
-mouse_filter = 2
-text = "展开"
-
-[node name="MarginContainer" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=2147012840]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 16.91
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer" unique_id=1289908402]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 15
-
-[node name="MarginContainer3" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=872044987]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
-mouse_filter = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1315556821]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 17.96
-mouse_filter = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=564318789]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-mouse_filter = 2
-metadata/_edit_lock_ = true
 
 [node name="TestCanvas" type="CanvasLayer" parent="." unique_id=470471263]
 layer = 21
@@ -1017,7 +967,6 @@ position = Vector2(0, -800)
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
 [connection signal="timeout" from="ScreenEffect/LevelTransation/RestTimer" to="ScreenEffect/LevelTransation" method="_on_rest_timer_timeout"]
-[connection signal="pressed" from="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterBoxCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT0" to="TestCanvas/MarginContainer/Test" method="_on_but_0_pressed"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT1" to="TestCanvas/MarginContainer/Test" method="_on_but_1_pressed"]

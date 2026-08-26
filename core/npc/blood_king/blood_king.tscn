@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="7_tfgkb"]
 [ext_resource type="PackedScene" uid="uid://buesm2hojnri5" path="res://core/common/component/damage_num/damage_num.tscn" id="8_1rf8v"]
 [ext_resource type="PackedScene" uid="uid://osw374to73sm" path="res://core/common/component/ui bar/ui_bar.tscn" id="9_esw4n"]
+[ext_resource type="Script" uid="uid://c2ol406txyxw2" path="res://core/common/component/visible_on_screen/visible_on_screen.gd" id="10_dmcg1"]
 [ext_resource type="PackedScene" uid="uid://536neyrjw7ey" path="res://core/common/component/weight_machine_ui/weight_machine_ui.tscn" id="12_qsj6b"]
 [ext_resource type="Theme" uid="uid://bpydhupj7vcjn" path="res://core/autoload/debug/debug.tres" id="13_ee7q0"]
 [ext_resource type="PackedScene" uid="uid://b4fv2togjt0e8" path="res://core/common/component/components/components.tscn" id="13_nujp8"]
@@ -1705,6 +1706,19 @@ visible = false
 [node name="AstarMarker" parent="Config/Marker" unique_id=505307897 instance=ExtResource("7_tfgkb")]
 position = Vector2(0, -21.6667)
 
+[node name="VisibleOnScreen" type="VisibleOnScreenNotifier2D" parent="Config" unique_id=1823548162]
+visible = false
+rect = Rect2(-2.5, -41.666664, 5, 41.666664)
+script = ExtResource("10_dmcg1")
+
+[node name="ShowingTimer" type="Timer" parent="Config/VisibleOnScreen" unique_id=1649017280]
+wait_time = 2.0
+one_shot = true
+
+[node name="HiddenTimer" type="Timer" parent="Config/VisibleOnScreen" unique_id=954975331]
+wait_time = 2.0
+one_shot = true
+
 [node name="UIs" type="Node2D" parent="." unique_id=1466472802]
 script = ExtResource("6_v887n")
 
@@ -2520,6 +2534,10 @@ scale = Vector2(0.025, 0.025)
 
 [node name="Events" type="Node" parent="." unique_id=1119527216]
 
+[connection signal="screen_entered" from="Config/VisibleOnScreen" to="Config/VisibleOnScreen" method="_on_screen_entered"]
+[connection signal="screen_exited" from="Config/VisibleOnScreen" to="Config/VisibleOnScreen" method="_on_screen_exited"]
+[connection signal="timeout" from="Config/VisibleOnScreen/ShowingTimer" to="Config/VisibleOnScreen" method="_on_showing_timer_timeout"]
+[connection signal="timeout" from="Config/VisibleOnScreen/HiddenTimer" to="Config/VisibleOnScreen" method="_on_hidden_timer_timeout"]
 [connection signal="frame_changed" from="Animations/Anime/base" to="Animations/Anime" method="_on_base_frame_changed"]
 [connection signal="animation_finished" from="UnfollowedAnimation/HurtFX/aniplayer" to="UnfollowedAnimation/HurtFX" method="_on_aniplayer_animation_finished"]
 [connection signal="timeout" from="NpcStateManager/stack/behitbati/Timer" to="NpcStateManager/stack/behitbati" method="_on_timer_timeout"]

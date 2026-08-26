@@ -5,9 +5,11 @@ var player_player:Player
 var player_health_config:HealthConfig
 var player_stamina_config:StaminaConfig
 
-#位置
-var player_born_facing_left:bool = false
+func set_player_current_default_expression(exp:String):
+	player_player.character_box_config.current_default_expression = exp
 
+##玩家出生时朝向
+var player_born_facing_left:bool = false
 func set_player_born_facing_left(fl:bool,source:Node):
 	player_born_facing_left = fl
 	Debug.dprintinfo(DebugCT.dp("更新玩家出生面朝向左: [%s]" %[fl],source))

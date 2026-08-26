@@ -105,7 +105,6 @@ border_color = Color(1, 1, 1, 1)
 border_blend = true
 
 [node name="WideMarg" type="VBoxContainer" unique_id=923313209]
-visible = false
 size_flags_horizontal = 3
 mouse_filter = 0
 alignment = 1

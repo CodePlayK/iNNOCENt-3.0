@@ -24,9 +24,9 @@ var dialogue_checker_path:String
 	set(r):
 		event_key=r.strip_edges()
 #当前表情
-@export var current_expression:String="NA":
+@export var current_default_expression:String="idle":
 	set(ce):
-		current_expression=ce
+		current_default_expression=ce
 		on_update_current_expression(ce)
 		
 @export_multiline var title_list:String

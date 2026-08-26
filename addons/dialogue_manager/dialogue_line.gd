@@ -17,8 +17,10 @@ var character:String ="":
 		var cs = c.split("|",false,2)
 		if cs.size()>1:
 			expression=cs[1]
+			if expression=="idle":
+				pass
 		character=cs[0]
-var expression: String = ""
+var expression: String
 		
 ## A dictionary of variable replacements fo the character name. Generally for internal use only.
 var character_replacements: Array[Dictionary] = []

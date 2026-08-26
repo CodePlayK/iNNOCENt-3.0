@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func reset():
 	if rest_timer:
-		rest_timer.start(1.5)
+		rest_timer.start(1.7)
 	else :
 		_on_rest_timer_timeout()
 

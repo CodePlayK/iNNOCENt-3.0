@@ -184,6 +184,8 @@ var face_left_normalized:int
 var obj_name:String:
 	set(s):
 		obj_name=str(s.replace("_","")).to_lower()
+var obj_id:String		
+		
 var on_talk:bool
 func _enter_tree() -> void:
 	obj_name=npc_name
@@ -195,6 +197,8 @@ func _ready() -> void:
 	self.tree_exiting.connect(_tree_exiting)
 	#state_manager.init(self)
 	on_ready=true
+	obj_id = str(LevelState.current_level)+npc_name
+	NpcState.npc_dic[obj_id] = self
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !on_ready or CutsceneState.cutscene_playing:
@@ -216,7 +220,8 @@ func _tree_exiting():
 	reset_npc()
 	
 func reset_npc():
-	pass
+	NpcState.npc_dic[obj_id] = null
+	NpcState.npc_dic.erase(obj_id)
 
 func init_config(config:NpcInitConfig):
 	patrol_left = config.patrol_left

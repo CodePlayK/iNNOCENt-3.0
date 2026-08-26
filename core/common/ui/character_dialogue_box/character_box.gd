@@ -47,6 +47,7 @@ func on_create_character_box(cbc:CharacterBoxConfig):
 		var new_box:CharacterBox = wide_marg.duplicate()
 		
 		new_box.is_prototype=false
+		new_box.enable=true
 		var margin_side:MarginContainer = margin_side.duplicate()
 		new_box.tree_exited.connect(margin_side.on_box_removed)
 		new_box.name = "box|-999" 
@@ -59,6 +60,7 @@ func on_create_character_box(cbc:CharacterBoxConfig):
 		if cbc.on_screen_left:	
 			var new_box = wide_marg.duplicate()
 			new_box.is_prototype=false
+			new_box.enable=true
 			var margin_side:MarginContainer = margin_side.duplicate()
 			new_box.tree_exited.connect(margin_side.on_box_removed)
 			new_box.name = "box|%s" %current_index
@@ -74,6 +76,7 @@ func on_create_character_box(cbc:CharacterBoxConfig):
 		else :
 			var new_box = wide_marg.duplicate()
 			new_box.is_prototype=false
+			new_box.enable=true
 			var margin_side = margin_side.duplicate()
 			new_box.tree_exited.connect(margin_side.on_box_removed)
 			new_box.name = "rbox"
