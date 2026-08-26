@@ -2648,8 +2648,10 @@ shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
 [node name="level_1_大堂" type="Node2D" unique_id=1086752988 node_paths=PackedStringArray("player_layer")]
+visible = false
 script = ExtResource("1_hsg0x")
 level_id = 1
+level_txt = "决斗场大堂"
 player_layer = NodePath("Parallax/ParallaxLayer_5/PlayerLayer")
 level_background_color = Color(1, 0.6666667, 0, 1)
 metadata/_edit_lock_ = true
@@ -3449,10 +3451,7 @@ unique_name_in_owner = true
 [node name="FALLING_BOX" type="ColorRect" parent="Parallax/ParallaxLayer_5/Main/LevelTransation" unique_id=869017759]
 z_index = 999
 material = SubResource("ShaderMaterial_07drm")
-offset_left = -707.0
-offset_top = -447.0
-offset_right = 1620.0
-offset_bottom = 33.0
+layout_mode = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true

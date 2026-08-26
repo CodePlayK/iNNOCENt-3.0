@@ -1,9 +1,10 @@
 @icon("res://addons/at-icons/control/doorway_entrance.svg")
 
-extends Node2D
+extends MarginContainer
 class_name LevelTransation
-
+@onready var rest_timer: Timer = $RestTimer
 @onready var falling_box: ColorRect = $FALLING_BOX
+signal level_transition_finished
 
 enum TRANSITION_NAME {
 	FALLING_BOX
@@ -19,10 +20,17 @@ func _ready() -> void:
 	reset()
 
 func reset():
+	if rest_timer:
+		rest_timer.start(1.5)
+	else :
+		_on_rest_timer_timeout()
+
+func _on_rest_timer_timeout() -> void:
 	falling_box.hide()
 	_update_shader_size()
 	_set_shader_progress(0.0)
-
+	pass # Replace with function body.
+	
 func _update_shader_size() -> void:
 	if falling_box and falling_box.material:
 		falling_box.material.set_shader_parameter("rect_size", falling_box.size)
@@ -65,3 +73,4 @@ func play_transition(trans_name: TRANSITION_NAME, trans_type: TRANSITION_TYPE, d
 			tw.tween_method(_set_shader_progress, 1.0, 0.0, duration)
 			await tw.finished
 			falling_box.hide()
+	level_transition_finished.emit()

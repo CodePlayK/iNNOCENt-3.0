@@ -146,7 +146,7 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 	#先暂停当前level
 	if LevelState.current_level_node:
 		if 	LevelState.last_level != LevelState.current_level:
-			await LevelState.current_level_node.level_transation.play_transition(LevelTransation.TRANSITION_NAME.FALLING_BOX,LevelTransation.TRANSITION_TYPE.IN,1)
+			await level_transation.play_transition(LevelTransation.TRANSITION_NAME.FALLING_BOX,LevelTransation.TRANSITION_TYPE.IN,1)
 		await LevelState.current_level_node.pause()
 	
 	if LevelState.level_dic.has(level_id):
@@ -176,7 +176,6 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 	if old_level_id==new_level_id:return
 	var old_level:Levels = LevelState.level_dic[old_level_id]
 	var new_level:Levels = LevelState.level_dic[new_level_id]
-	new_level.level_transation.reset()
 
 	var old_level_size =  old_level.get_level_shape_size()
 	var old_level_pos =  old_level.get_level_shape_pos()

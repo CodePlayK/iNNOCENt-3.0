@@ -17,11 +17,14 @@
 [ext_resource type="Script" uid="uid://c8ig3wyy7fbpe" path="res://core/common/ui/item_txt_box/ItemTxtBox.gd" id="14_eynxe"]
 [ext_resource type="PackedScene" uid="uid://osw374to73sm" path="res://core/common/component/ui bar/ui_bar.tscn" id="18_b5c8y"]
 [ext_resource type="PackedScene" uid="uid://cpebs4ek1lfvb" path="res://core/common/ui/state_box/state_box.tscn" id="19_q484j"]
+[ext_resource type="Script" uid="uid://dn24mt7m2patw" path="res://core/level/everythingeverywhere/level_txt.gd" id="19_ydae1"]
 [ext_resource type="PackedScene" uid="uid://dwrkrtl7ks4vh" path="res://core/common/ui/txt_history_box/txt_history_box.tscn" id="20_xtiwo"]
 [ext_resource type="Script" uid="uid://bgnhte7evfn18" path="res://core/level/everythingeverywhere/ScreenEffect.gd" id="21_lj80u"]
 [ext_resource type="Shader" uid="uid://beth4v0fkqbsf" path="res://core/common/shader/screen ctr.gdshader" id="22_b6isf"]
 [ext_resource type="Script" uid="uid://dquny67va6ekv" path="res://core/common/cutscene_fx/eyes.gd" id="23_8whex"]
+[ext_resource type="PackedScene" uid="uid://cpdngfglsnrb1" path="res://core/level/everythingeverywhere/level_transition/level_transation.tscn" id="23_celhk"]
 [ext_resource type="Script" uid="uid://dndomblipxr46" path="res://core/level/character_box_canvas.gd" id="24_3yn66"]
+[ext_resource type="Shader" uid="uid://swk4220saky5" path="res://core/common/shader/LevelTransition.gdshader" id="24_ydae1"]
 [ext_resource type="PackedScene" uid="uid://dkgxdrht840tp" path="res://core/common/ui/character_dialogue_box/character_box.tscn" id="25_wck0l"]
 [ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="26_535gr"]
 [ext_resource type="Script" uid="uid://co5k7q4j1q0c4" path="res://core/level/everythingeverywhere/in_game_debug_layer.gd" id="28_7ue4y"]
@@ -85,14 +88,6 @@ use_hdr = true
 fill_from = Vector2(0.5106838, 1)
 fill_to = Vector2(0.5, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_07drm"]
-font = ExtResource("32_0sbtr")
-font_size = 26
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_l83k0"]
-color = Color(1, 1, 1, 1)
-grow_begin = 51.0
-
 [sub_resource type="Gradient" id="Gradient_04lay"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0.12713936, 0.6356968, 1)
@@ -115,6 +110,14 @@ width = 1920
 height = 646
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_07drm"]
+font = ExtResource("32_0sbtr")
+font_size = 26
+font_color = Color(0.41725737, 0.41725743, 0.41725728, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l83k0"]
+color = Color(0.34656936, 0.34656933, 0.34656933, 1)
 
 [sub_resource type="Animation" id="Animation_u6mta"]
 length = 0.001
@@ -237,6 +240,17 @@ width = 960
 height = 540
 fill = 1
 fill_from = Vector2(0.498246, 0.495906)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtj5p"]
+resource_local_to_scene = true
+shader = ExtResource("24_ydae1")
+shader_parameter/rect_size = Vector2(2327, 333)
+shader_parameter/bar_width_pixels = 20.0
+shader_parameter/grid_height_pixels = 20.0
+shader_parameter/progress = 0.0
+shader_parameter/seed = 0.0
+shader_parameter/length_randomness = 0.7090000336775
+shader_parameter/speed_randomness = 0.7
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymnf6"]
 bg_color = Color(0.458824, 0.247059, 0.215686, 1)
@@ -374,54 +388,6 @@ fight_dely_time = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/Fight
 stamina_bar = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/StaminaBar")
 stamina_config = ExtResource("8_se05l")
 
-[node name="MarginContainer" type="VBoxContainer" parent="MainCanvas" unique_id=2068474885]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="top" type="Container" parent="MainCanvas/MarginContainer" unique_id=1952464133]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.61
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainCanvas/MarginContainer" unique_id=1531178453]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Left" type="Container" parent="MainCanvas/MarginContainer/HBoxContainer" unique_id=432633915]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.4
-
-[node name="Container" type="VBoxContainer" parent="MainCanvas/MarginContainer/HBoxContainer" unique_id=1321770499]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="MainCanvas/MarginContainer/HBoxContainer/Container" unique_id=1814540729]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-text = "关卡名称"
-label_settings = SubResource("LabelSettings_07drm")
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="MainCanvas/MarginContainer/HBoxContainer/Container" unique_id=854157321]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxLine_l83k0")
-
-[node name="Right" type="Container" parent="MainCanvas/MarginContainer/HBoxContainer" unique_id=536727058]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.07
-
-[node name="bot" type="Container" parent="MainCanvas/MarginContainer" unique_id=2048078758]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 7.82
-
 [node name="MindTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1141188428]
 modulate = Color(1, 1, 1, 0)
 z_index = -1
@@ -505,6 +471,7 @@ z_index = 2
 position = Vector2(89, 1025)
 
 [node name="ItemTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1058628516 node_paths=PackedStringArray("item_txt", "item_texture")]
+visible = false
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.514
@@ -684,6 +651,60 @@ visible = false
 [node name="TxtHistoryBox" parent="TxtHistoryBCanvas" unique_id=1847707320 instance=ExtResource("20_xtiwo")]
 metadata/_edit_lock_ = true
 
+[node name="ScreenTxt" type="CanvasLayer" parent="." unique_id=636526230]
+
+[node name="LevelTxt" type="VBoxContainer" parent="ScreenTxt" unique_id=2068474885]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_ydae1")
+
+[node name="top" type="Container" parent="ScreenTxt/LevelTxt" unique_id=1952464133]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.28
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenTxt/LevelTxt" unique_id=1531178453]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Left" type="Container" parent="ScreenTxt/LevelTxt/HBoxContainer" unique_id=432633915]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+
+[node name="TxtBox" type="VBoxContainer" parent="ScreenTxt/LevelTxt/HBoxContainer" unique_id=1321770499]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.16
+offset_transform_enabled = true
+
+[node name="Txt" type="Label" parent="ScreenTxt/LevelTxt/HBoxContainer/TxtBox" unique_id=1814540729]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "地下室"
+label_settings = SubResource("LabelSettings_07drm")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="ScreenTxt/LevelTxt/HBoxContainer/TxtBox" unique_id=854157321]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxLine_l83k0")
+
+[node name="Right" type="Container" parent="ScreenTxt/LevelTxt/HBoxContainer" unique_id=536727058]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.07
+
+[node name="bot" type="Container" parent="ScreenTxt/LevelTxt" unique_id=2048078758]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.82
+
 [node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
 layer = 7
 script = ExtResource("21_lj80u")
@@ -730,6 +751,7 @@ text = "用自己的过场插件做的事件驱动的对话选择:
 4.玩家拥有三支手电筒"
 
 [node name="Eyes" type="TextureRect" parent="ScreenEffect" unique_id=894097270]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -742,6 +764,21 @@ texture = SubResource("GradientTexture2D_usyv6")
 expand_mode = 3
 script = ExtResource("23_8whex")
 metadata/_edit_lock_ = true
+
+[node name="LevelTransation" parent="ScreenEffect" unique_id=1706298336 instance=ExtResource("23_celhk")]
+unique_name_in_owner = true
+mouse_filter = 2
+
+[node name="FALLING_BOX" type="ColorRect" parent="ScreenEffect/LevelTransation" unique_id=1297786577]
+material = SubResource("ShaderMaterial_jtj5p")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RestTimer" type="Timer" parent="ScreenEffect/LevelTransation" unique_id=1805130882]
+one_shot = true
 
 [node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
 layer = 7
@@ -979,6 +1016,7 @@ position = Vector2(0, -800)
 
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
+[connection signal="timeout" from="ScreenEffect/LevelTransation/RestTimer" to="ScreenEffect/LevelTransation" method="_on_rest_timer_timeout"]
 [connection signal="pressed" from="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterBoxCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT0" to="TestCanvas/MarginContainer/Test" method="_on_but_0_pressed"]

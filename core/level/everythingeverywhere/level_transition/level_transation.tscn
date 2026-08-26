@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bpfgvlkjafwg1" path="res://core/level/everythingeverywhere/level_transation.gd" id="1_o5gao"]
 
-[node name="LevelTransation" type="Node2D" unique_id=1706298336]
+[node name="LevelTransation" type="MarginContainer" unique_id=404348228]
 light_mask = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_o5gao")

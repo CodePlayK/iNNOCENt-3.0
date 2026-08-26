@@ -9,6 +9,7 @@ const clazz_name = "Levels"
 signal paused
 ##房间唯一id,level准备完毕后配置于[method _ready]
 @export var level_id:LevelState.LEVELS
+@export var level_txt:String = name
 @export var player_layer:Node2D
 ##@experimental
 ##房间默认播放的环境音[br][code]Array["音效名",音量][/code]
@@ -27,7 +28,7 @@ var waiting_2_load_save:bool=false
 @onready var leve_bound: CollisionShape2D = %LeveBound
 @onready var parallax: Parallax = $Parallax
 @onready var base_colored_controller: BaseColoredController = %BaseColoredController
-@onready var level_transation: LevelTransation = %LevelTransation
+#@onready var level_transation: LevelTransation = %LevelTransation
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
