@@ -1,4 +1,4 @@
-@icon("res://addons/at-icons/animation/eye.svg")
+@icon("res://addons/at-icons/mesh/field_of_view.svg")
 
 extends ColorRect
 

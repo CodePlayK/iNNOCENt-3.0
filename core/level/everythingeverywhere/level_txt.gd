@@ -7,7 +7,7 @@ extends VBoxContainer
 func _ready() -> void:
 	level_transation.level_transition_finished.connect(on_level_transition_finished)
 	EventBus.level_changed.connect(on_level_changed)
-
+	show_txt()
 func on_level_changed(fl, tl):
 	txt.text = LevelState.current_level_node.level_txt
 	show_txt()

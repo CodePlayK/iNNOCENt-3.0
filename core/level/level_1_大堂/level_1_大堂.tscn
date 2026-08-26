@@ -72,11 +72,6 @@
 [sub_resource type="Gradient" id="Gradient_m0sas"]
 colors = PackedColorArray(0.45840502, 0.45840508, 0.45840502, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2bf10"]
-gradient = SubResource("Gradient_m0sas")
-fill_from = Vector2(0.54131055, 0.8717949)
-fill_to = Vector2(0.5470086, 0)
-
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4434d"]
 gradient = SubResource("Gradient_m0sas")
 width = 640
@@ -2648,7 +2643,6 @@ shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
 [node name="level_1_大堂" type="Node2D" unique_id=1086752988 node_paths=PackedStringArray("player_layer")]
-visible = false
 script = ExtResource("1_hsg0x")
 level_id = 1
 level_txt = "决斗场大堂"
@@ -2663,7 +2657,7 @@ metadata/_edit_lock_ = true
 target_lights = [NodePath("../Lights/灯条"), NodePath("../Lights/白色高光")]
 
 [node name="UnstableLightFlicker3" parent="Components" unique_id=252046204 node_paths=PackedStringArray("target_lights") instance=ExtResource("3_d2vrs")]
-target_lights = [NodePath("../../Parallax/ParallaxLayer_-5/建筑2/墙灯/BaseLight")]
+target_lights = [NodePath("../../Parallax/ParallaxLayer_-5/建筑2/墙灯/BaseLight"), NodePath("../../Parallax/ParallaxLayer_-5/建筑2/墙灯2/BaseLight")]
 
 [node name="UnstableLightFlicker4" parent="Components" unique_id=1285822497 node_paths=PackedStringArray("target_lights") instance=ExtResource("3_d2vrs")]
 target_lights = [NodePath("../Lights/蓝色高光"), NodePath("../../Parallax/ParallaxLayer_-2/三角灯牌/三角灯牌2"), NodePath("../../Parallax/ParallaxLayer_-2/三角灯牌/三角灯牌4")]
@@ -2671,15 +2665,6 @@ target_lights = [NodePath("../Lights/蓝色高光"), NodePath("../../Parallax/Pa
 [node name="Lights" parent="Components" unique_id=1573464873 instance=ExtResource("4_eglqn")]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
-
-[node name="BaseLight" type="PointLight2D" parent="Components/Lights" unique_id=781203225]
-visible = false
-position = Vector2(90, -92.500015)
-scale = Vector2(3.280046, 0.4190625)
-blend_mode = 2
-range_item_cull_mask = 16
-texture = SubResource("GradientTexture2D_2bf10")
-texture_scale = 50.0
 
 [node name="红色高光" type="PointLight2D" parent="Components/Lights" unique_id=220004005]
 position = Vector2(90.00001, -93)
@@ -2712,12 +2697,13 @@ texture_scale = 50.0
 unique_name_in_owner = true
 position = Vector2(25.294388, -228)
 scale = Vector2(39.453125, 5.0625)
-energy = 0.71
+energy = 0.7
 blend_mode = 2
 texture = SubResource("GradientTexture2D_ppjcc")
 offset = Vector2(4.0606575, 14.419752)
 
 [node name="阴影层负光照" type="PointLight2D" parent="Components/Lights" unique_id=902095198]
+visible = false
 position = Vector2(-54.32901, -228)
 scale = Vector2(43.54688, 5.0625)
 color = Color(0.44806695, 0.44806695, 0.44806695, 1)
@@ -2886,7 +2872,6 @@ distance_strength = 0.7
 back_offset = false
 
 [node name="BaseLight" parent="Parallax/ParallaxLayer_-5/建筑2/墙灯" unique_id=352266773 node_paths=PackedStringArray("level") instance=ExtResource("14_i1w8m")]
-visible = false
 position = Vector2(-1, -166.08606)
 scale = Vector2(0.12609649, 0.22957987)
 color = Color(1, 0.94063157, 0.87126875, 1)

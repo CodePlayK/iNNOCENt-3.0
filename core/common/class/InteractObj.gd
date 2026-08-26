@@ -1,4 +1,4 @@
-@icon("res://addons/at-icons/mesh/pointer.svg")
+@icon("res://addons/at-icons/control/pointer.svg")
 extends Area2D
 class_name InteractObj
 #@onready var dialogue_position: Marker = $UIs/DialoguePosition

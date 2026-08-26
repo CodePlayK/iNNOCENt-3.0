@@ -9,5 +9,5 @@ func run(dic):
 	##CutscenerGlobal.ACTION_LOG = "------开始运行~------"
 	CutscenerGlobal.cutscener_started.emit()
 	##CutscenerGlobal.ACTION_LOG = "------StartRunner[%s]正在运行!------" %dic["title"]
-	finished.emit()
+	finished.emit(condition_result)
 	return condition_result_index
