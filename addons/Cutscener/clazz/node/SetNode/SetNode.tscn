@@ -1,32 +1,24 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmc6qf48xf7fu"]
+[gd_scene format=3 uid="uid://dmc6qf48xf7fu"]
 
 [ext_resource type="Theme" uid="uid://ch03cnrspt63o" path="res://addons/Cutscener/resource/node_theme.tres" id="1_h1gk0"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/SetNode/SetNode.gd" id="2_6nje8"]
+[ext_resource type="Script" uid="uid://bnh3gp2iaudpy" path="res://addons/Cutscener/clazz/node/SetNode/SetNode.gd" id="2_6nje8"]
 [ext_resource type="Texture2D" uid="uid://bai2qa2drkaio" path="res://addons/Cutscener/resource/slot.svg" id="2_us6vw"]
 [ext_resource type="PackedScene" uid="uid://brijnx0ig81b1" path="res://addons/Cutscener/clazz/node/Conmmon/param_2.tscn" id="3_bdj0k"]
 [ext_resource type="PackedScene" uid="uid://dobf7nc4fqttn" path="res://addons/Cutscener/clazz/node/Conmmon/delete_param_butt.tscn" id="3_o4833"]
 [ext_resource type="PackedScene" uid="uid://dug4013bo7vnr" path="res://addons/Cutscener/clazz/node/Conmmon/edit_menu.tscn" id="4_7ogia"]
 [ext_resource type="PackedScene" uid="uid://ce0jui8jj3xxr" path="res://addons/Cutscener/clazz/node/Conmmon/choose_file_butt.tscn" id="4_lrstn"]
 [ext_resource type="PackedScene" uid="uid://oclkone2cmff" path="res://addons/Cutscener/clazz/node/Conmmon/choose_vec_2_butt.tscn" id="5_1n85y"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/SetNode/runner.gd" id="6_1lxnd"]
+[ext_resource type="Script" uid="uid://83lm877mpki7" path="res://addons/Cutscener/clazz/node/SetNode/runner.gd" id="6_1lxnd"]
 [ext_resource type="PackedScene" uid="uid://us35lq4dhp2h" path="res://addons/Cutscener/clazz/node/Conmmon/export.tscn" id="6_vo2py"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/Conmmon/EventParam.gd" id="9_85le8"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/SetNode/Param.gd" id="9_lwea4"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/SetNode/DialoguePath.gd" id="10_m8bxm"]
+[ext_resource type="Script" uid="uid://c261u15cwarlk" path="res://addons/Cutscener/clazz/node/Conmmon/EventParam.gd" id="9_85le8"]
+[ext_resource type="Script" uid="uid://q1sw7p1bne8l" path="res://addons/Cutscener/clazz/node/SetNode/Param.gd" id="9_lwea4"]
+[ext_resource type="Script" uid="uid://btd2g2ubgchok" path="res://addons/Cutscener/clazz/node/SetNode/DialoguePath.gd" id="10_m8bxm"]
 
-[sub_resource type="Image" id="Image_osxae"]
-data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 16
-}
+[sub_resource type="DPITexture" id="DPITexture_tsmpe"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5d5d\" d=\"M2 1v8.586l1.293-1.293a1 1 0 0 1 1.414 0L7 10.587l2.293-2.293a1 1 0 0 1 1.414 0L13 10.586l1-1V6H9V1H2zm8 0v4h4zm-6 9.414-2 2V15h12v-2.586l-.293.293a1 1 0 0 1-1.414 0L10 10.414l-2.293 2.293a1 1 0 0 1-1.414 0L4 10.414z\"/></svg>
+"
 
-[sub_resource type="ImageTexture" id="ImageTexture_8215v"]
-image = SubResource("Image_osxae")
-
-[node name="SetNode" type="GraphNode"]
+[node name="SetNode" type="GraphNode" unique_id=593222167]
 offset_right = 521.0
 offset_bottom = 107.0
 theme = ExtResource("1_h1gk0")
@@ -53,20 +45,20 @@ slot/1/draw_stylebox = true
 script = ExtResource("2_6nje8")
 metadata/node_type = 2
 
-[node name="main" type="VBoxContainer" parent="."]
+[node name="main" type="VBoxContainer" parent="." unique_id=1996657253]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="ParamPrototype" type="HBoxContainer" parent="main"]
+[node name="ParamPrototype" type="HBoxContainer" parent="main" unique_id=95680070]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="main/ParamPrototype"]
+[node name="Label" type="Label" parent="main/ParamPrototype" unique_id=1169009182]
 visible = false
 layout_mode = 2
 text = "参数.1"
 
-[node name="Param" type="LineEdit" parent="main/ParamPrototype"]
+[node name="Param" type="LineEdit" parent="main/ParamPrototype" unique_id=935011096]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -77,14 +69,14 @@ editable = false
 expand_to_text_length = true
 caret_blink = true
 
-[node name="ParamType" type="OptionButton" parent="main/ParamPrototype"]
+[node name="ParamType" type="OptionButton" parent="main/ParamPrototype" unique_id=331781634]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 8
 selected = 7
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "String"
 popup/item_0/id = 4
 popup/item_0/disabled = true
@@ -110,14 +102,14 @@ popup/item_7/text = "Vector2"
 popup/item_7/id = 5
 popup/item_7/disabled = true
 
-[node name="SetType" type="OptionButton" parent="main/ParamPrototype"]
+[node name="SetType" type="OptionButton" parent="main/ParamPrototype" unique_id=603298413]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 6
 selected = 0
 fit_to_longest_item = false
+item_count = 6
 popup/item_0/text = "="
 popup/item_0/id = 0
 popup/item_1/text = "+="
@@ -131,63 +123,53 @@ popup/item_4/id = 9
 popup/item_5/text = "%="
 popup/item_5/id = 12
 
-[node name="Param2" parent="main/ParamPrototype" instance=ExtResource("3_bdj0k")]
+[node name="Param2" parent="main/ParamPrototype" unique_id=634283803 instance=ExtResource("3_bdj0k")]
 layout_mode = 2
 tooltip_text = "设置值"
 theme = null
 
-[node name="DeleteParam" parent="main/ParamPrototype" instance=ExtResource("3_o4833")]
+[node name="DeleteParam" parent="main/ParamPrototype" unique_id=1507413918 instance=ExtResource("3_o4833")]
 visible = true
 layout_mode = 2
 
-[node name="ChooseFile" parent="main/ParamPrototype" node_paths=PackedStringArray("node") instance=ExtResource("4_lrstn")]
+[node name="ChooseFile" parent="main/ParamPrototype" unique_id=1233749558 node_paths=PackedStringArray("node") instance=ExtResource("4_lrstn")]
 layout_mode = 2
-icon = SubResource("ImageTexture_8215v")
+icon = SubResource("DPITexture_tsmpe")
 node = NodePath("../Param2")
 
-[node name="ChooseVec2" parent="main/ParamPrototype" node_paths=PackedStringArray("target") instance=ExtResource("5_1n85y")]
+[node name="ChooseVec2" parent="main/ParamPrototype" unique_id=1298738071 node_paths=PackedStringArray("target") instance=ExtResource("5_1n85y")]
 layout_mode = 2
-icon = SubResource("ImageTexture_8215v")
+icon = SubResource("DPITexture_tsmpe")
 target = NodePath("../Param2")
 
-[node name="Export" parent="main/ParamPrototype" instance=ExtResource("6_vo2py")]
+[node name="Export" parent="main/ParamPrototype" unique_id=377026409 instance=ExtResource("6_vo2py")]
 visible = false
 layout_mode = 2
 
-[node name="EventPrototype" type="HBoxContainer" parent="main"]
+[node name="EventPrototype" type="HBoxContainer" parent="main" unique_id=1341580816]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="main/EventPrototype"]
+[node name="Label" type="Label" parent="main/EventPrototype" unique_id=812469926]
 visible = false
 layout_mode = 2
 text = "参数.1"
 
-[node name="Param" type="OptionButton" parent="main/EventPrototype"]
+[node name="Param" type="OptionButton" parent="main/EventPrototype" unique_id=663205374]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数名"
-item_count = 4
-selected = 0
-popup/item_0/text = "0.玩家攻击次数"
-popup/item_0/id = 0
-popup/item_1/text = "1.BloodkingAttack攻击次数"
-popup/item_1/id = 1
-popup/item_2/text = "2.PlayerDenseSucTimeEvent"
-popup/item_2/id = 2
-popup/item_3/text = "3.玩家拥有的手电筒的数量"
-popup/item_3/id = 3
 script = ExtResource("9_85le8")
 
-[node name="ParamType" type="OptionButton" parent="main/EventPrototype"]
+[node name="ParamType" type="OptionButton" parent="main/EventPrototype" unique_id=622368314]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 8
 selected = 7
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "String"
 popup/item_0/id = 4
 popup/item_0/disabled = true
@@ -213,14 +195,14 @@ popup/item_7/text = "Vector2"
 popup/item_7/id = 5
 popup/item_7/disabled = true
 
-[node name="SetType" type="OptionButton" parent="main/EventPrototype"]
+[node name="SetType" type="OptionButton" parent="main/EventPrototype" unique_id=857733778]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 6
 selected = 0
 fit_to_longest_item = false
+item_count = 6
 popup/item_0/text = "="
 popup/item_0/id = 0
 popup/item_1/text = "+="
@@ -234,69 +216,68 @@ popup/item_4/id = 9
 popup/item_5/text = "%="
 popup/item_5/id = 12
 
-[node name="Param2" parent="main/EventPrototype" instance=ExtResource("3_bdj0k")]
+[node name="Param2" parent="main/EventPrototype" unique_id=880341572 instance=ExtResource("3_bdj0k")]
 layout_mode = 2
 tooltip_text = "设置值"
 theme = null
 
-[node name="DeleteParam" parent="main/EventPrototype" instance=ExtResource("3_o4833")]
+[node name="DeleteParam" parent="main/EventPrototype" unique_id=440871150 instance=ExtResource("3_o4833")]
 visible = true
 layout_mode = 2
 
-[node name="ChooseFile" parent="main/EventPrototype" node_paths=PackedStringArray("node") instance=ExtResource("4_lrstn")]
+[node name="ChooseFile" parent="main/EventPrototype" unique_id=878540953 node_paths=PackedStringArray("node") instance=ExtResource("4_lrstn")]
 layout_mode = 2
-icon = SubResource("ImageTexture_8215v")
+icon = SubResource("DPITexture_tsmpe")
 node = NodePath("../../ParamPrototype/Param2")
 
-[node name="ChooseVec2" parent="main/EventPrototype" node_paths=PackedStringArray("target") instance=ExtResource("5_1n85y")]
+[node name="ChooseVec2" parent="main/EventPrototype" unique_id=78444936 node_paths=PackedStringArray("target") instance=ExtResource("5_1n85y")]
 layout_mode = 2
-icon = SubResource("ImageTexture_8215v")
+icon = SubResource("DPITexture_tsmpe")
 target = NodePath("../../ParamPrototype/Param2")
 
-[node name="Export" parent="main/EventPrototype" instance=ExtResource("6_vo2py")]
+[node name="Export" parent="main/EventPrototype" unique_id=148508279 instance=ExtResource("6_vo2py")]
 visible = false
 layout_mode = 2
 
-[node name="TitlePrototype" type="HBoxContainer" parent="main"]
+[node name="TitlePrototype" type="HBoxContainer" parent="main" unique_id=355611035]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="main/TitlePrototype"]
+[node name="Label" type="Label" parent="main/TitlePrototype" unique_id=259205863]
 visible = false
 layout_mode = 2
 text = "参数.1"
 
-[node name="DialoguePath" type="LineEdit" parent="main/TitlePrototype"]
+[node name="DialoguePath" type="LineEdit" parent="main/TitlePrototype" unique_id=1416885289]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数名"
 script = ExtResource("10_m8bxm")
 
-[node name="ChooseFile" parent="main/TitlePrototype" node_paths=PackedStringArray("node") instance=ExtResource("4_lrstn")]
+[node name="ChooseFile" parent="main/TitlePrototype" unique_id=83165676 node_paths=PackedStringArray("node") instance=ExtResource("4_lrstn")]
 visible = true
 layout_mode = 2
-icon = SubResource("ImageTexture_8215v")
+icon = SubResource("DPITexture_tsmpe")
 node = NodePath("../DialoguePath")
 
-[node name="Param" type="OptionButton" parent="main/TitlePrototype"]
+[node name="Param" type="OptionButton" parent="main/TitlePrototype" unique_id=158875497]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数名"
 item_count = 1
-popup/item_0/text = ""
 popup/item_0/id = 0
 script = ExtResource("9_lwea4")
 
-[node name="SetType" type="OptionButton" parent="main/TitlePrototype"]
+[node name="SetType" type="OptionButton" parent="main/TitlePrototype" unique_id=1106070155]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 6
 selected = 0
 fit_to_longest_item = false
+item_count = 6
 popup/item_0/text = "="
 popup/item_0/id = 0
 popup/item_1/text = "+="
@@ -310,33 +291,33 @@ popup/item_4/id = 9
 popup/item_5/text = "%="
 popup/item_5/id = 12
 
-[node name="Param2" parent="main/TitlePrototype" instance=ExtResource("3_bdj0k")]
+[node name="Param2" parent="main/TitlePrototype" unique_id=1338515188 instance=ExtResource("3_bdj0k")]
 layout_mode = 2
 tooltip_text = "设置值"
 theme = null
 
-[node name="DeleteParam" parent="main/TitlePrototype" instance=ExtResource("3_o4833")]
+[node name="DeleteParam" parent="main/TitlePrototype" unique_id=464991492 instance=ExtResource("3_o4833")]
 visible = true
 layout_mode = 2
 
-[node name="ChooseVec2" parent="main/TitlePrototype" node_paths=PackedStringArray("target") instance=ExtResource("5_1n85y")]
+[node name="ChooseVec2" parent="main/TitlePrototype" unique_id=490621405 node_paths=PackedStringArray("target") instance=ExtResource("5_1n85y")]
 layout_mode = 2
-icon = SubResource("ImageTexture_8215v")
+icon = SubResource("DPITexture_tsmpe")
 target = NodePath("../../ParamPrototype/Param2")
 
-[node name="Export" parent="main/TitlePrototype" instance=ExtResource("6_vo2py")]
+[node name="Export" parent="main/TitlePrototype" unique_id=2063429152 instance=ExtResource("6_vo2py")]
 visible = false
 layout_mode = 2
 
-[node name="ParamType" type="OptionButton" parent="main/TitlePrototype"]
+[node name="ParamType" type="OptionButton" parent="main/TitlePrototype" unique_id=703343240]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 8
 selected = 7
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "String"
 popup/item_0/id = 4
 popup/item_0/disabled = true
@@ -362,27 +343,27 @@ popup/item_7/text = "Vector2"
 popup/item_7/id = 5
 popup/item_7/disabled = true
 
-[node name="VBC" type="VBoxContainer" parent="main"]
+[node name="VBC" type="VBoxContainer" parent="main" unique_id=1774401791]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Signal" type="MarginContainer" parent="main/VBC"]
+[node name="Signal" type="MarginContainer" parent="main/VBC" unique_id=2003646104]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="SignalName" type="HBoxContainer" parent="main/VBC/Signal"]
+[node name="SignalName" type="HBoxContainer" parent="main/VBC/Signal" unique_id=1068593310]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 7
 
-[node name="Icon" type="Button" parent="main/VBC/Signal/SignalName"]
+[node name="Icon" type="Button" parent="main/VBC/Signal/SignalName" unique_id=757419850]
 layout_mode = 2
 theme_override_colors/icon_disabled_color = Color(1, 0.890196, 0.501961, 1)
 disabled = true
-icon = SubResource("ImageTexture_8215v")
+icon = SubResource("DPITexture_tsmpe")
 
-[node name="Index" type="Button" parent="main/VBC/Signal/SignalName"]
+[node name="Index" type="Button" parent="main/VBC/Signal/SignalName" unique_id=1520106568]
 visible = false
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(1, 0.890196, 0.501961, 1)
@@ -390,14 +371,14 @@ theme_override_colors/icon_disabled_color = Color(1, 0.890196, 0.501961, 1)
 disabled = true
 text = "#1"
 
-[node name="PropList" type="OptionButton" parent="main/VBC/Signal/SignalName"]
+[node name="PropList" type="OptionButton" parent="main/VBC/Signal/SignalName" unique_id=338501857]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "选择参数"
-item_count = 56
 selected = 0
 fit_to_longest_item = false
+item_count = 56
 popup/item_0/text = "CutsceneState.title_able"
 popup/item_0/id = 0
 popup/item_1/text = "CutsceneState.cutscene_playing"
@@ -511,36 +492,38 @@ popup/item_54/id = 54
 popup/item_55/text = "PlayerState.on_collection_hint"
 popup/item_55/id = 55
 
-[node name="AddParam" type="Button" parent="main/VBC/Signal/SignalName"]
+[node name="AddParam" type="Button" parent="main/VBC/Signal/SignalName" unique_id=289064708]
 layout_mode = 2
 tooltip_text = "添加参数"
 text = "Add"
 
-[node name="AddEvent" type="Button" parent="main/VBC/Signal/SignalName"]
+[node name="AddEvent" type="Button" parent="main/VBC/Signal/SignalName" unique_id=1085885321]
+visible = false
 layout_mode = 2
 tooltip_text = "添加参数"
 text = "AddE"
 
-[node name="AddtTitle" type="Button" parent="main/VBC/Signal/SignalName"]
+[node name="AddtTitle" type="Button" parent="main/VBC/Signal/SignalName" unique_id=2069922571]
+visible = false
 layout_mode = 2
 tooltip_text = "添加参数"
 text = "AddT"
 
-[node name="Param" type="VBoxContainer" parent="main/VBC"]
+[node name="Param" type="VBoxContainer" parent="main/VBC" unique_id=1990998093]
 layout_mode = 2
 
-[node name="EditMenu" type="MarginContainer" parent="."]
+[node name="EditMenu" type="MarginContainer" parent="." unique_id=1982509052]
 layout_mode = 2
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 7
 
-[node name="EditMenu" parent="EditMenu" node_paths=PackedStringArray("index1") instance=ExtResource("4_7ogia")]
+[node name="EditMenu" parent="EditMenu" unique_id=244754738 node_paths=PackedStringArray("index1") instance=ExtResource("4_7ogia")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 index1 = NodePath("../../main/VBC/Signal/SignalName/Index")
 
-[node name="runner" type="Node" parent="."]
+[node name="runner" type="Node" parent="." unique_id=1502656908]
 script = ExtResource("6_1lxnd")
 
 [connection signal="item_selected" from="main/EventPrototype/Param" to="main/EventPrototype/Param" method="_on_item_selected"]
