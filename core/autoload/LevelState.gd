@@ -1,7 +1,7 @@
 extends Node
 const LEVEL_0_PATH="res://core/level/level_0_地下室/level_0_地下室.tscn"
 const LEVEL_1_PATH="res://core/level/level_1_大堂/level_1_大堂.tscn"
-const LEVEL_2_PATH="res://core/level/level2/level_2.tscn"
+const LEVEL_2_PATH="res://core/level/level_2_决斗/level_2_决斗.tscn"
 const LEVEL_TEST_PATH="res://core/level/level_Test/level_Test.tscn"
 
 ##当前关卡

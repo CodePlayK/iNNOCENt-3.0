@@ -301,10 +301,10 @@ script = ExtResource("1_celhk")
 unique_name_in_owner = true
 visible = false
 ignore_rotation = false
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 process_callback = 0
 limit_left = -389
-limit_top = -25
+limit_top = -150
 limit_bottom = -243
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -380,12 +380,10 @@ texture = SubResource("GradientTexture2D_b1qy0")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="MainCanvas" type="CanvasLayer" parent="." unique_id=1075155551 node_paths=PackedStringArray("fight_dely_time", "stamina_bar")]
+[node name="MainCanvas" type="CanvasLayer" parent="." unique_id=1075155551]
 layer = 10
 follow_viewport_scale = 0.001
 script = ExtResource("7_egao5")
-fight_dely_time = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime")
-stamina_bar = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/StaminaBar")
 stamina_config = ExtResource("8_se05l")
 
 [node name="MindTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1141188428]

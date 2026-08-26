@@ -177,58 +177,34 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("base_bk:visible")
+tracks/0/path = NodePath("base_bk:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("baseFX:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("base_bk:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [51, 52, 53, 54, 55, 56, 57]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("base:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("base:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("baseFX:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("baseFX:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -547,7 +523,7 @@ length = 9.699999999999982
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("base_bk:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
@@ -1536,7 +1512,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_6i3b3"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1552,7 +1528,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_hpx6d"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1568,7 +1544,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_3k4e8"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1616,7 +1592,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_xquc6"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1760,7 +1736,7 @@ fill = 1
 fill_from = Vector2(0.4871795, 0.52991456)
 fill_to = Vector2(0.7150997, 0.33903134)
 
-[sub_resource type="Resource" id="Resource_mw8p0"]
+[sub_resource type="Resource" id="Resource_yurw6"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
@@ -1809,7 +1785,7 @@ texture = ExtResource("8_tpvv3")
 offset = Vector2(1.893, -13.483)
 hframes = 13
 vframes = 13
-frame = 158
+frame = 143
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -1844,10 +1820,10 @@ material = SubResource("ShaderMaterial_iop30")
 position = Vector2(-8.411851, 256.33392)
 scale = Vector2(2.1, 2.1)
 texture = ExtResource("33_yurw6")
-offset = Vector2(1.893, -13.483)
+offset = Vector2(1.893, 96.537)
 hframes = 12
 vframes = 11
-frame = 113
+frame = 51
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2580,7 +2556,7 @@ connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"),
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_mw8p0")
+save_data_config = SubResource("Resource_yurw6")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 

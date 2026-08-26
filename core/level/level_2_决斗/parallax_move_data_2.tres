@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ParallaxMoveData" format=3 uid="uid://dctrxxu0igds5"]
+
+[ext_resource type="Script" uid="uid://dlfh2lyflqjgp" path="res://core/common/parallax/Parallax_move_data.gd" id="1_kdd1r"]
+
+[resource]
+script = ExtResource("1_kdd1r")

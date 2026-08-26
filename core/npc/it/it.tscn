@@ -2388,9 +2388,7 @@ talkers = Array[String](["it"])
 current_res = "0_0_0"
 title = "it"
 title_list = "bloodking1 | bloodking2 | it | 废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
-auto_next = true
 balloon_color = Color(0, 0.39862674, 0, 1)
-line_end_wait_time = 1.0
 metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljb0i"]

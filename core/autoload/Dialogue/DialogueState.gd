@@ -10,7 +10,6 @@ var dialogue_his_box_dic:Dictionary
 var dialogue_file_res:Dictionary
 ##每个场景中包含的title汇总<场景名:[title1,title2...]>
 var dialogue_title_dic:Dictionary
-
 var current_index:int = -1
 var last_line:String
 
