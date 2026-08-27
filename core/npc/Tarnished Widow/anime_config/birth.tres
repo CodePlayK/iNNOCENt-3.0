@@ -11,3 +11,5 @@
 
 [resource]
 script = ExtResource("7_8r78n")
+animation_name = "death"
+backward = true

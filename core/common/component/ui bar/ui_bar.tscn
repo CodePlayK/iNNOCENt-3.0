@@ -70,7 +70,7 @@ back_bar_color = Color(1, 1, 1, 0.482353)
 [node name="UIBarBack" type="ProgressBar" parent="." unique_id=857574255]
 modulate = Color(1, 1, 1, 0.482353)
 show_behind_parent = true
-light_mask = 0
+light_mask = 2048
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
@@ -81,7 +81,7 @@ show_percentage = false
 
 [node name="UIBar" type="ProgressBar" parent="." unique_id=1823077236]
 modulate = Color(0, 1, 0, 0.9372549)
-light_mask = 0
+light_mask = 2048
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4

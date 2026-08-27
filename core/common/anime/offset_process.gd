@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 				if anime_controller.check_cache(anime_controller.anime.state_name+"offset"+str(offset_config.start_frame)):
 					continue
 				if !offset_config.anime_following_obj:
-					Debug.dprintwarn(DebugCT.dp("进入帧:[%s] - cache状态:[%s:%s]" %[anime_controller.current_frame,anime_controller.anime.state_name+"offset"+str(offset_config.start_frame),anime_controller.cache[anime_controller.anime.state_name+"offset"+str(offset_config.start_frame)]],self))
+					#Debug.dprintwarn(DebugCT.dp("进入帧:[%s] - cache状态:[%s:%s]" %[anime_controller.current_frame,anime_controller.anime.state_name+"offset"+str(offset_config.start_frame),anime_controller.cache[anime_controller.anime.state_name+"offset"+str(offset_config.start_frame)]],self))
 					anime_controller.cache_on(anime_controller.anime.state_name+"offset"+str(offset_config.start_frame))
 					var time:float
 					time = anime_controller.get_frame2frame_time(offset_config.start_frame,offset_config.end_frame)/anime_controller.aniplayer.speed_scale
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 						tween.parallel().tween_property(n,"position",Vector2(anime_controller.master.obj.face_left_normalized*offset_config.target_vec2.x,offset_config.target_vec2.y),time)		
 					await tween.finished
 				else :
-					Debug.dprintwarn(DebugCT.dp("进入帧:[%s] - cache状态:[%s:%s]" %[anime_controller.current_frame,anime_controller.anime.state_name+"offset"+str(offset_config.start_frame),anime_controller.cache[anime_controller.anime.state_name+"offset"+str(offset_config.start_frame)]],self))
+					#Debug.dprintwarn(DebugCT.dp("进入帧:[%s] - cache状态:[%s:%s]" %[anime_controller.current_frame,anime_controller.anime.state_name+"offset"+str(offset_config.start_frame),anime_controller.cache[anime_controller.anime.state_name+"offset"+str(offset_config.start_frame)]],self))
 					anime_controller.cache_on(anime_controller.anime.state_name+"offset"+str(offset_config.start_frame))
 					var time:float
 					time = anime_controller.get_frame2frame_time(offset_config.start_frame,offset_config.end_frame)/anime_controller.aniplayer.speed_scale

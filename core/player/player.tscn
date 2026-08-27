@@ -1708,7 +1708,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwrjn"]
-size = Vector2(22.5, 51)
+size = Vector2(30.546417, 121.34412)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3h3tc"]
 size = Vector2(147, 27)
@@ -2086,14 +2086,13 @@ monitorable = false
 visible = false
 
 [node name="HurtBox" parent="Components" unique_id=948620807 node_paths=PackedStringArray("signal_node_list", "shape_list") instance=ExtResource("6_1sm34")]
-visible = false
 collision_layer = 32
 collision_mask = 16
 signal_node_list = [NodePath("../../StateManager"), NodePath("../../StateManager/base/combat/dense")]
 shape_list = [NodePath("CollisionShape2D")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HurtBox" unique_id=108891522]
-position = Vector2(-0.25, 35.5)
+position = Vector2(0.120903015, 0.3279419)
 shape = SubResource("RectangleShape2D_fwrjn")
 
 [node name="HitBox" parent="Components" unique_id=1536420097 instance=ExtResource("8_sjgq1")]
@@ -2426,16 +2425,17 @@ input_receive_call_func_fail = null
 one_shot = true
 
 [node name="UIs" parent="." unique_id=303088328 instance=ExtResource("3_gyqt3")]
-visible = false
+light_mask = 2048
 position = Vector2(0, -35)
 health_config = ExtResource("3_qy2x3")
 
 [node name="DenseCooldownBar" type="ProgressBar" parent="UIs" unique_id=1892214432]
 modulate = Color(1, 1, 1, 0.854902)
+light_mask = 2048
 offset_left = 29.0
-offset_top = 11.0
+offset_top = -17.615326
 offset_right = 31.0
-offset_bottom = 38.0
+offset_bottom = 9.384674
 theme = ExtResource("4_fbcfd")
 step = 0.1
 value = 50.0
@@ -2444,10 +2444,11 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="LightBar" type="ProgressBar" parent="UIs" unique_id=960689858]
+light_mask = 2048
 offset_left = -29.0
-offset_top = 11.0
+offset_top = -18.844193
 offset_right = -27.0
-offset_bottom = 38.0
+offset_bottom = 8.1558075
 theme = ExtResource("5_6rmgu")
 step = 0.1
 value = 50.0
@@ -2467,18 +2468,23 @@ fill_mode = 3
 show_percentage = false
 
 [node name="StiffBar" type="ProgressBar" parent="UIs" unique_id=1585204204]
+light_mask = 2048
 offset_left = -10.0
+offset_top = -75.13716
 offset_right = 10.0
-offset_bottom = 4.0
+offset_bottom = -71.13716
 theme = ExtResource("7_qreo2")
 value = 50.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" parent="UIs" unique_id=1753141741 instance=ExtResource("4_lpne6")]
+light_mask = 2048
 anchors_preset = -1
 offset_left = -20.0
+offset_top = -110.747986
 offset_right = 20.0
+offset_bottom = -109.747986
 back_bar_delay_time = 1.0
 back_bar_animation_time = 0.5
 bar_color = Color(16.898285, 16.630459, 0, 1)
@@ -2486,12 +2492,15 @@ back_bar_color = Color(0, 0, 0, 0.8666667)
 metadata/_edit_use_anchors_ = true
 
 [node name="HurtUI" type="Node2D" parent="UIs" unique_id=1840738073]
+light_mask = 2048
 
 [node name="DamageNum" parent="UIs/HurtUI" unique_id=632465112 instance=ExtResource("9_u8lqu")]
+light_mask = 2048
+num_size_px = 17
 
 [node name="Marker" parent="UIs/HurtUI/DamageNum" unique_id=1924115499 instance=ExtResource("21_ykyob")]
 visible = false
-position = Vector2(-42, -70)
+position = Vector2(-44.234314, -128.89044)
 
 [node name="Timer" type="Node" parent="UIs" unique_id=1813876178]
 

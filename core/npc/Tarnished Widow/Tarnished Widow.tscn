@@ -110,7 +110,6 @@
 
 [sub_resource type="Resource" id="Resource_gaamt"]
 script = ExtResource("3_tma76")
-current_default_expression = null
 metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="Resource" id="Resource_aggdk"]
@@ -135,7 +134,7 @@ size = Vector2(175.83334, 15)
 size = Vector2(112.00001, 63.666664)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3yjq"]
-size = Vector2(331.66666, 1.6666851)
+size = Vector2(215.83331, 4.166684)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsvwk"]
 size = Vector2(86, 59)
@@ -286,7 +285,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_3dmnq"]
 length = 1.6000000000000003
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -540,7 +538,7 @@ tracks/2/path = NodePath("CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.7, 1.9333333),
+"times": PackedFloat32Array(0, 1.7, 2.0666666),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -642,7 +640,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yx5l"]
-size = Vector2(290, 2.0833259)
+size = Vector2(483, 6.6666665)
 
 [sub_resource type="Animation" id="Animation_7cfw8"]
 length = 0.595
@@ -725,7 +723,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_bbj5l"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -741,7 +739,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_rr6tm"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -757,7 +755,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_76xx8"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -805,7 +803,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_wd8i4"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -955,7 +953,6 @@ key = "TarnishedWidow"
 metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
 [node name="TarnishedWidow" type="CharacterBody2D" unique_id=1077960373]
-scale = Vector2(1.2, 1.2)
 collision_layer = 4
 safe_margin = 1.0
 script = ExtResource("1_d6kdm")
@@ -1009,14 +1006,14 @@ metadata/_edit_lock_ = true
 
 [node name="Marker" parent="UIs/HurtUI/DamageNum" unique_id=1340617557 instance=ExtResource("9_jjh18")]
 visible = false
-position = Vector2(-57, -61)
+position = Vector2(-57, -86)
 
 [node name="HealthBar" parent="UIs" unique_id=982675793 instance=ExtResource("12_pbqsg")]
 anchors_preset = -1
 offset_left = -40.0
-offset_top = -157.5
+offset_top = -225.0
 offset_right = 40.0
-offset_bottom = -42.5
+offset_bottom = -110.0
 mouse_filter = 2
 bar_color = Color(1, 0, 0.016666412, 0.654902)
 metadata/_edit_use_anchors_ = true
@@ -1069,7 +1066,6 @@ offset_bottom = -202.0
 weight_machine_ui = NodePath("../WeightMachineUi")
 
 [node name="Components" parent="." unique_id=943967071 instance=ExtResource("17_aa76q")]
-visible = false
 
 [node name="HitBox" parent="Components" unique_id=1659159738 instance=ExtResource("18_e2omx")]
 collision_layer = 16
@@ -1077,28 +1073,35 @@ collision_mask = 32
 damage = 2.0
 
 [node name="attack0" type="CollisionShape2D" parent="Components/HitBox" unique_id=944897674]
+visible = false
+light_mask = 4096
 position = Vector2(-10.833336, -62.166664)
 shape = SubResource("RectangleShape2D_hmb8x")
 
 [node name="attack1" type="CollisionShape2D" parent="Components/HitBox" unique_id=1456828047]
 visible = false
+light_mask = 4096
 position = Vector2(87.08333, -7.5000005)
 shape = SubResource("RectangleShape2D_neci4")
 
 [node name="attack2" type="CollisionShape2D" parent="Components/HitBox" unique_id=1131564850]
 visible = false
+light_mask = 4096
 position = Vector2(129, -32.333332)
 shape = SubResource("RectangleShape2D_laixw")
 
 [node name="attack3|1" type="CollisionShape2D" parent="Components/HitBox" unique_id=1596831968]
 visible = false
+light_mask = 4096
 position = Vector2(-11.666666, -16.666666)
 shape = SubResource("RectangleShape2D_c3yjq")
 
 [node name="attack3|2" type="CollisionShape2D" parent="Components/HitBox" unique_id=589769495]
 visible = false
-position = Vector2(-7.5000024, -1.6666586)
+light_mask = 2048
+position = Vector2(0.41666666, -2.9166582)
 shape = SubResource("RectangleShape2D_c3yjq")
+disabled = true
 
 [node name="AttackRange" type="Area2D" parent="Components/HitBox" unique_id=1486990697]
 visible = false
@@ -1141,6 +1144,7 @@ shape = SubResource("RectangleShape2D_u86bx")
 [node name="SpeedMap2Animation" parent="Components" unique_id=807679046 instance=ExtResource("22_riins")]
 
 [node name="Areas" type="Node2D" parent="Components" unique_id=1757821694]
+visible = false
 
 [node name="FollwingIdelRange" type="Area2D" parent="Components/Areas" unique_id=256317463]
 collision_layer = 0
@@ -1235,14 +1239,14 @@ script = ExtResource("35_7cfw8")
 nodes_following_anime = [NodePath("../../../UIs"), NodePath("../../../Components"), NodePath("../../FXs")]
 
 [node name="base" type="Sprite2D" parent="Animations/Anime" unique_id=957510044]
+light_mask = 7
 texture_filter = 1
 material = SubResource("ShaderMaterial_3kd28")
-scale = Vector2(2, 2)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("35_cfeqs")
 offset = Vector2(0, -31.12)
 hframes = 10
 vframes = 9
-frame = 54
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -1271,10 +1275,10 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "184cdfecf5f72d577c8ffeef19adec75"
 
 [node name="baseFX" type="Sprite2D" parent="Animations/Anime" unique_id=858767135]
-light_mask = 64
+light_mask = 2048
 texture_filter = 1
 material = ExtResource("38_irqh8")
-scale = Vector2(2, 2)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("36_cfeqs")
 offset = Vector2(0, -31.12)
 hframes = 7
@@ -1340,15 +1344,16 @@ damage_when_blocked = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Animations/FXs/attack3/HitBox" unique_id=1747604800]
 visible = false
+light_mask = 2048
 texture_filter = 1
 material = ExtResource("38_irqh8")
 position = Vector2(0, 1.66667)
-scale = Vector2(2, 2)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("41_7cfw8")
 offset = Vector2(0, -31.12)
 hframes = 7
 vframes = 7
-frame = 31
+frame = 25
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -1382,7 +1387,8 @@ libraries/ = SubResource("AnimationLibrary_ulgrq")
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/FXs/attack3/HitBox" unique_id=1472833598]
-position = Vector2(-0.8333409, 0.6250037)
+light_mask = 2048
+position = Vector2(-11.500004, -1.6666666)
 shape = SubResource("RectangleShape2D_0yx5l")
 disabled = true
 
