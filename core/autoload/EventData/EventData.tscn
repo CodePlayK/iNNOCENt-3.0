@@ -3,15 +3,23 @@
 [ext_resource type="Script" uid="uid://dtv8x00cy750g" path="res://core/autoload/EventData/EventData.gd" id="1_aduvi"]
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="2_rvxoa"]
 [ext_resource type="Script" uid="uid://cjf3iasnrq2sj" path="res://core/autoload/EventData/EventDataDataController.gd" id="3_qtycb"]
-[ext_resource type="Resource" uid="uid://prvms4x62jbm" path="res://core/events/EventsDataConfig.tres" id="4_a0jhb"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="4_bkxaw"]
+
+[sub_resource type="Resource" id="Resource_1e22j"]
+script = ExtResource("4_bkxaw")
+group = -1
+key = "event"
+level_id = -2
+metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
 
 [node name="EventData" type="Node" unique_id=623410720]
 script = ExtResource("1_aduvi")
 
 [node name="DataCollector" parent="." unique_id=2121114746 instance=ExtResource("2_rvxoa")]
 script = ExtResource("3_qtycb")
-save_data_config = ExtResource("4_a0jhb")
+save_data_config = SubResource("Resource_1e22j")
 has_master = false
+load_on_ready = true
 save_obj_id = false
 save_position = false
 save_faced = false

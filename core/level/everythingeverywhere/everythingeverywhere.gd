@@ -22,6 +22,7 @@ var packed_level_cache: Dictionary = {}
 var _threaded_requested: Dictionary = {}
 
 @export var obj_name: String
+
 @onready var player_camera: Camera2DPlus = %PlayerCamera
 @onready var player_camera_aniplayer: AnimationPlayer = $Setting/PlayerCamera/PlayerCameraAniplayer
 @onready var back_ground_color: TextureRect = $CanvasBackground/BackGroundColor
@@ -159,6 +160,9 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 	if LevelState.level_dic.has(LevelState.last_level) and LevelState.level_dic.has(level_id):
 		await trans_play(LevelState.last_level,LevelState.current_level)
 	else :
+		player_camera.limit_top = LevelState.level_dic[level_id].camera_limit_top
+		player_camera.limit_bottom = LevelState.level_dic[level_id].camera_limit_bottom
+		player_camera.zoom = LevelState.level_dic[level_id].camera_zoom
 		back_ground_color.modulate = LevelState.level_dic[level_id].level_background_color
 	Debug.dprintinfo(DebugCT.dp("房间切换:[%s]-->[%s]" % [str(LevelState.last_level), str(LevelState.current_level)],	self))
 	PlayerState.preset_player(self)
@@ -173,10 +177,9 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 
 	
 func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
-	if old_level_id==new_level_id:return
+	if old_level_id==new_level_id:	return
 	var old_level:Levels = LevelState.level_dic[old_level_id]
 	var new_level:Levels = LevelState.level_dic[new_level_id]
-
 	var old_level_size =  old_level.get_level_shape_size()
 	var old_level_pos =  old_level.get_level_shape_pos()
 	var new_level_pos =  new_level.get_level_shape_pos()
@@ -214,8 +217,11 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		tw.tween_property(old_level,"global_position",Vector2(old_level.global_position.x,old_level_end_y),3)	
 		tw.parallel().tween_property(new_level,"global_position",Vector2(0,0),3)	
 		tw.parallel().tween_property(back_ground_color,"modulate",new_level.level_background_color,3)
+		tw.parallel().tween_property(player_camera,"zoom",new_level.camera_zoom,3)
+		tw.parallel().tween_property(player_camera,"limit_top",new_level.camera_limit_top,3)
+		tw.parallel().tween_property(player_camera,"limit_bottom",new_level.camera_limit_bottom,3)
 		await tw.finished
-		new_level.parallax.parallax_on = true		
+		new_level.parallax.parallax_on = true
 		#Debug.dprintinfo(DebugCT.dp("--------结束切换关卡动画---------",self))
 		#动画过程中必须关闭smooth否则会飘移
 		Global.player_camera.position_smoothing_enabled = true

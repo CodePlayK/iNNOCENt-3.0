@@ -3347,6 +3347,7 @@ shader_parameter/distance_strength = 7.1
 [node name="level_0_underground" type="Node2D" unique_id=1086752988 node_paths=PackedStringArray("player_layer")]
 script = ExtResource("1_40gd8")
 level_txt = "决斗地下准备室"
+camera_limit_top = -142.0
 player_layer = NodePath("Parallax/ParallaxLayer_5/PlayerLayer")
 level_background_color = Color(1, 0.6666667, 0, 1)
 metadata/_edit_lock_ = true

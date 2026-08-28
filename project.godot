@@ -38,11 +38,11 @@ CutscenerGlobal="*uid://dii6bn0hay6i8"
 UiState="*res://core/autoload/UIState.gd"
 ItemState="*res://core/autoload/ItemState.gd"
 AbtState="*res://core/autoload/ABTState.gd"
-EventData="*res://core/autoload/EventData/EventData.tscn"
 Dialogue="*res://core/autoload/Dialogue/Dialogue.tscn"
 DialogueState="*res://core/autoload/Dialogue/DialogueState.tscn"
 DialogueManager="*uid://c3rodes2l3gxb"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+EventData="*uid://ceuvbqujenhlt"
 
 [debug]
 

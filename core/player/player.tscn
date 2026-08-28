@@ -2479,6 +2479,7 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" parent="UIs" unique_id=1753141741 instance=ExtResource("4_lpne6")]
+visible = false
 light_mask = 2048
 anchors_preset = -1
 offset_left = -20.0

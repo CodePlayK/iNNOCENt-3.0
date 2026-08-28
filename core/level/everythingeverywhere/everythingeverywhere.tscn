@@ -299,13 +299,12 @@ script = ExtResource("1_celhk")
 
 [node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
 unique_name_in_owner = true
-visible = false
 ignore_rotation = false
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 process_callback = 0
 limit_left = -389
-limit_top = -520
-limit_bottom = -243
+limit_top = 204
+limit_bottom = -887
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
@@ -363,7 +362,6 @@ unique_name_in_owner = true
 visible = false
 
 [node name="BackGroundColor" type="TextureRect" parent="CanvasBackground" unique_id=1904518559]
-visible = false
 light_mask = 32769
 visibility_layer = 32768
 anchors_preset = 15
@@ -737,12 +735,15 @@ libraries/ = SubResource("AnimationLibrary_oekpy")
 [node name="FrontColor" type="ColorRect" parent="ScreenEffect" unique_id=1437392257]
 visible = false
 light_mask = 0
+z_index = -10
+z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScreenEffect" unique_id=464848443]
 visible = false
@@ -780,6 +781,7 @@ unique_name_in_owner = true
 mouse_filter = 2
 
 [node name="FALLING_BOX" type="ColorRect" parent="ScreenEffect/LevelTransation" unique_id=1297786577]
+visible = false
 material = SubResource("ShaderMaterial_jtj5p")
 layout_mode = 2
 size_flags_horizontal = 3

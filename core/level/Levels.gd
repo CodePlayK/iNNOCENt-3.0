@@ -10,7 +10,14 @@ signal paused
 ##房间唯一id,level准备完毕后配置于[method _ready]
 @export var level_id:LevelState.LEVELS
 @export var level_txt:String = name
+@export_group("初始化相机配置")
+@export var camera_limit_top:float = -388
+@export var camera_limit_bottom:float = -121.0
+@export var camera_zoom:Vector2 = Vector2(2,2)
+@export_group("关卡切换配置配置")
+
 @export var player_layer:Node2D
+@export var dof:ColorRect = %DOF
 ##@experimental
 ##房间默认播放的环境音[br][code]Array["音效名",音量][/code]
 var atmosphere_se_dic:Array[Array]
