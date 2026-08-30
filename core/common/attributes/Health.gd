@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 @export var health_config:HealthConfig
 
 func _physics_process(delta: float) -> void:

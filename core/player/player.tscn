@@ -81,7 +81,9 @@
 [ext_resource type="Script" uid="uid://dkc8guimyw23i" path="res://core/player/states/behitDamaged.gd" id="41_2gdef"]
 [ext_resource type="Resource" uid="uid://cy0f0aqmerss5" path="res://core/player/anime config/lift.tres" id="41_orpom"]
 [ext_resource type="Script" uid="uid://cbyveabf3ebne" path="res://core/player/states/light.gd" id="42_5qc2j"]
+[ext_resource type="Script" uid="uid://it3r7xpnpk6u" path="res://core/common/attributes/Balance.gd" id="42_dq6eo"]
 [ext_resource type="Resource" uid="uid://xxrr8qopx0ba" path="res://core/player/anime config/toptrans.tres" id="43_8igox"]
+[ext_resource type="Resource" uid="uid://cyypvkx7qiq3s" path="res://core/player/attributes/player_balance.tres" id="43_kaqeq"]
 [ext_resource type="Script" uid="uid://dp4ycngfi5jnt" path="res://core/player/states/_attack.gd" id="43_twx36"]
 [ext_resource type="Script" uid="uid://dypwihm0hhhwe" path="res://core/player/states/attack0.gd" id="44_82lcl"]
 [ext_resource type="Resource" uid="uid://bkbvsm0b6dh32" path="res://core/player/anime config/fall.tres" id="45_mb2n1"]
@@ -105,9 +107,19 @@
 [ext_resource type="Script" uid="uid://cex2whhqr3kr0" path="res://core/player/states/wake.gd" id="72_c6fmk"]
 [ext_resource type="Script" uid="uid://c0dxbfgbfg2if" path="res://core/player/states/onfloor.gd" id="73_b43tn"]
 [ext_resource type="Resource" uid="uid://ckdoxt3m3a82" path="res://core/player/attributes/ABT_light_config.tres" id="75_j1i1n"]
+[ext_resource type="Script" uid="uid://c04vqe67ffl12" path="res://core/player/states/nobalance.gd" id="79_8i7n7"]
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="80_6i3b3"]
+[ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="81_hpx6d"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="82_3k4e8"]
 [ext_resource type="PackedScene" uid="uid://cpca2skfqrxdl" path="res://core/common/component/interactions/interactions.tscn" id="82_su2cd"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="83_e23kp"]
 [ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="83_iu40y"]
+[ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="84_fc4wq"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="85_xquc6"]
+[ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="86_66spe"]
 [ext_resource type="Script" uid="uid://bsftsgq0l1nkg" path="res://core/player/states/pray.gd" id="86_vp6bf"]
+[ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="87_2m31b"]
+[ext_resource type="Script" uid="uid://be4vapnafyny8" path="res://core/player/states/struggle.gd" id="88_hpx6d"]
 [ext_resource type="Resource" uid="uid://dlci62k7ghc80" path="res://core/player/resource/player_dialogue_config.tres" id="108_4t8e8"]
 [ext_resource type="PackedScene" uid="uid://wnma64238otk" path="res://core/common/saves/player_save_data_collector/player_save_data_collector.tscn" id="108_dq6eo"]
 [ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="109_kaqeq"]
@@ -173,7 +185,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_noujb"]
 length = 1.7000000000000004
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -380,7 +391,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_befvo"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1725,6 +1735,11 @@ size = Vector2(106, 38.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blaqd"]
 size = Vector2(84, 71)
 
+[sub_resource type="Resource" id="Resource_8i7n7"]
+script = ExtResource("86_66spe")
+animation_name = "attack0"
+metadata/_custom_type_script = "uid://cec3itdl7of5v"
+
 [sub_resource type="Resource" id="Resource_yurw6"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
@@ -1775,7 +1790,7 @@ texture = ExtResource("8_tpvv3")
 offset = Vector2(1.893, -13.483)
 hframes = 13
 vframes = 13
-frame = 34
+frame = 143
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -1813,7 +1828,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(1.893, 96.537)
 hframes = 12
 vframes = 11
-frame = 113
+frame = 51
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2140,13 +2155,18 @@ sprite = NodePath("../../Animations/Anime/base")
 
 [node name="Attributes" type="Node2D" parent="." unique_id=285534102]
 
-[node name="Health" type="Node2D" parent="Attributes" unique_id=883448739]
+[node name="Health" type="Node" parent="Attributes" unique_id=1683022997]
 script = ExtResource("2_3w4m5")
 health_config = ExtResource("3_qy2x3")
 
-[node name="Stamina" type="Node2D" parent="Attributes" unique_id=1626975924]
+[node name="Stamina" type="Node" parent="Attributes" unique_id=164604083]
 script = ExtResource("4_27ick")
 stamina_config = ExtResource("5_h5dm1")
+
+[node name="Balance" type="Node" parent="Attributes" unique_id=424141964 node_paths=PackedStringArray("notify_nodes")]
+script = ExtResource("42_dq6eo")
+balance_config = ExtResource("43_kaqeq")
+notify_nodes = [NodePath("../../StateManager")]
 
 [node name="StateManager" type="Node" parent="." unique_id=763386492 node_paths=PackedStringArray("starting_node")]
 script = ExtResource("12_lkqci")
@@ -2263,6 +2283,15 @@ anime_config = ExtResource("61_8i7n7")
 [node name="combat" type="Node" parent="StateManager/base" unique_id=482263818]
 script = ExtResource("37_twix3")
 is_group = true
+
+[node name="nobalance" type="Node" parent="StateManager/base/combat" unique_id=1129178403]
+script = ExtResource("79_8i7n7")
+is_normal_state = false
+lock_common_input = true
+anime_config = SubResource("Resource_8i7n7")
+
+[node name="struggle" type="Node" parent="StateManager/base/combat" unique_id=291711392]
+script = ExtResource("88_hpx6d")
 
 [node name="dense" type="Node" parent="StateManager/base/combat" unique_id=420547067]
 script = ExtResource("38_tkue4")

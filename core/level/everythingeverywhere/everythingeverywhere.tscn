@@ -884,6 +884,24 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
 text = "播放过场动画"
 icon_alignment = 1
 
+[node name="TextEdit" type="TextEdit" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=192691410]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "nobalance"
+placeholder_text = "state名"
+
+[node name="BUT2" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=213828527]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "切换玩家状态"
+icon_alignment = 1
+
 [node name="PathFind" type="Node2D" parent="TestCanvas/MarginContainer/Test" unique_id=1532952576]
 visible = false
 
@@ -1005,3 +1023,4 @@ position = Vector2(0, -800)
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT0" to="TestCanvas/MarginContainer/Test" method="_on_but_0_pressed"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT1" to="TestCanvas/MarginContainer/Test" method="_on_but_1_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT2" to="TestCanvas/MarginContainer/Test" method="_on_but_2_pressed"]

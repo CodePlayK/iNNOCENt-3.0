@@ -198,7 +198,8 @@ func _on_player_control_lock(state) -> void:
 
 
 func input_common_state(event: InputEvent):
-	if PlayerState.player_control_lock:
+	
+	if PlayerState.player_control_lock or current_state.lock_common_input:
 		return null
 
 	if (
@@ -261,10 +262,8 @@ func check_current_state_by_name(state_name) -> bool:
 func on_hurt(obj: HitBox) -> void:
 	if not obj.enable:
 		return
-
 	PlayerState.player_be_hitting = true
 	current_damage = obj.damage
-
 	if current_state and current_state.anime_config:
 		for bati in current_state.anime_config.bati_config:
 			PlayerState.set_player_bating(bati.bating, self)
@@ -280,3 +279,6 @@ func on_hurt(obj: HitBox) -> void:
 			Debug.dprintwarn(DebugCT.dp(
 				"[StateManager][input_common_state]切换到[behitDamaged_state]", self))
 		change_state(get_state("behitDamaged"))
+
+func on_balance_empty(balance_config:BalanceConfig):
+	change_state(base_state.no_balance)

@@ -2,6 +2,7 @@ extends HBoxContainer
 
 @onready var player_camera: Camera2DPlus = %PlayerCamera
 @onready var in_game_debug_layer: CanvasLayer = $"../../../InGameDebugLayer"
+@onready var text_edit: TextEdit = $VBoxContainer/HBoxContainer/TextEdit
 
 func _on_but_0_pressed() -> void:
 	in_game_debug_layer.visible = !in_game_debug_layer.visible
@@ -12,3 +13,6 @@ func _on_but_0_pressed() -> void:
 func _on_but_1_pressed() -> void:
 	CutscenerGlobal.cutscener_run.emit("NA")
 	pass # Replace with function body.
+
+func _on_but_2_pressed() -> void:
+	CutsceneState.change_player_state(text_edit.text)

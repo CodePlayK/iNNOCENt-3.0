@@ -1,9 +1,7 @@
 extends GroundState
 
 func  pre_animation() -> BaseState:
-	if player.velocity.x == 0 and move == 0 :
-		return idle_state
-	return null
+	return process_ground_motion(get_physics_process_delta_time(), apply_acceleration_run)
 	
 func enter():
 	super.enter()

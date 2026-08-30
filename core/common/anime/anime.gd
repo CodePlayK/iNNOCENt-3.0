@@ -406,4 +406,4 @@ func set_speed_scale(s:float=1):
 	aniplayer.speed_scale = s
 
 func _on_aniplayer_animation_finished(anim_name: StringName) -> void:
-	anime_finished.emit()
+	anime_finished.emit(anim_name)

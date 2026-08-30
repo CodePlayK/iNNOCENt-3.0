@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 @export var stamina_config:StaminaConfig
 
 func _physics_process(delta: float) -> void:

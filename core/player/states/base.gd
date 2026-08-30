@@ -35,6 +35,8 @@ class_name BaseState
 @onready var staminaerror_state: BaseState
 @onready var wake_state: BaseState
 @onready var onfloor_state: BaseState
+@onready var nobalance_state: BaseState
+@onready var struggle_state: BaseState
 
 ## 普通状态：临时状态（攻击/受击等）结束后可以切回
 @export var is_normal_state: bool = true
@@ -59,7 +61,8 @@ enum OVERLAYER_MODES { MULTIPLY = 0, MIX = 1, SOFT = 2 }
 @export var mix_modulate: bool = true
 ## modulate 混入 overlay 的强度（0~1）
 @export_range(0, 1, 0.1) var mix_modulate_strength: float = 1.0
-
+@export_group("交互")
+@export var lock_common_input:bool = false
 @export_group("战斗")
 var health_config: HealthConfig
 var stamina_config: StaminaConfig
@@ -68,7 +71,7 @@ var stamina_config: StaminaConfig
 ## 耐力不足时是否阻止进入/连段
 @export var need_stamina: bool = false
 
-@export_category("Anime")
+@export_group("Anime")
 ## 本状态的动画配置（动画名、音效、HitBox 帧等）
 @export var anime_config: AnimeConfig
 
