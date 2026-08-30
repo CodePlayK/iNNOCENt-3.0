@@ -28,6 +28,12 @@ signal layer_color_calculated(layer_id: int, color: Color)
 var base_color: Color = Color.WHITE:
 	set(value):
 		base_color = value
+		_on_colors_changed()
+
+@export var sync_main_light: bool = true:
+	set(value):
+		sync_main_light = value
+		_on_param_changed()
 
 ## 作为基准色（亮度 = 1.0）的层的 layer_id
 @export var main_index: int = 11:
@@ -64,7 +70,7 @@ func ready() -> void:
 
 func _wait_and_apply() -> void:
 	await get_tree().process_frame
-	main_light.color = base_color
+	if sync_main_light:main_light.color = base_color
 	if auto_apply:
 		apply_colors()
 
@@ -81,7 +87,7 @@ func register_layer(layer: ParallaxLayeri) -> void:
 func _on_param_changed() -> void:
 	if not is_inside_tree():
 		return
-	main_light.color = base_color
+	if sync_main_light:main_light.color = base_color
 	if colored_layers.is_empty():
 		return
 	apply_colors()

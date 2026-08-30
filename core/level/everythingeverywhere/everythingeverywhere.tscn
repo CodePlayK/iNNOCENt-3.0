@@ -26,8 +26,11 @@
 [ext_resource type="Script" uid="uid://dndomblipxr46" path="res://core/level/character_box_canvas.gd" id="24_3yn66"]
 [ext_resource type="Shader" uid="uid://swk4220saky5" path="res://core/common/shader/LevelTransition.gdshader" id="24_ydae1"]
 [ext_resource type="PackedScene" uid="uid://dkgxdrht840tp" path="res://core/common/ui/character_dialogue_box/character_box.tscn" id="25_wck0l"]
+[ext_resource type="Shader" uid="uid://bcm7tyo5vegl5" path="res://core/common/shader/hurt_intensity.gdshader" id="27_ydae1"]
 [ext_resource type="Script" uid="uid://co5k7q4j1q0c4" path="res://core/level/everythingeverywhere/in_game_debug_layer.gd" id="28_7ue4y"]
 [ext_resource type="Script" uid="uid://ci4y1snlap0ev" path="res://test/test_canvas.gd" id="28_ghsbg"]
+[ext_resource type="Script" uid="uid://ci5q0rmdhqwov" path="res://core/common/component/player_health_indicator/player_health_indicator.gd" id="28_i74u8"]
+[ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="29_7ue4y"]
 [ext_resource type="Script" uid="uid://dheawyf6jpi38" path="res://core/level/everythingeverywhere/test/Test.gd" id="29_imah0"]
 [ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="32_0sbtr"]
 [ext_resource type="FontFile" uid="uid://cgcv38l7xieq8" path="res://core/common/resource/font/凤凰点阵体 16px.ttf" id="33_0dkxc"]
@@ -251,6 +254,14 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytg4i"]
+shader = ExtResource("27_ydae1")
+shader_parameter/hurt_intensity = 1.0
+shader_parameter/black_border_ratio = 0.6000000285
+shader_parameter/pulse_frequency = 1.2020000538351199
+shader_parameter/blood_color = Color(0.48762423, 0.00051863893, 0.00028413988, 1)
+shader_parameter/border_black = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymnf6"]
 bg_color = Color(0.458824, 0.247059, 0.215686, 1)
 
@@ -300,10 +311,10 @@ script = ExtResource("1_celhk")
 [node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
 unique_name_in_owner = true
 ignore_rotation = false
-zoom = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
 process_callback = 0
 limit_left = -389
-limit_top = 204
+limit_top = -208
 limit_bottom = -887
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -792,6 +803,29 @@ mouse_filter = 2
 
 [node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]
 
+[node name="PlayerHealthIndicator" type="CanvasLayer" parent="." unique_id=1474834259]
+layer = 10
+
+[node name="PlayerHealthIndicator" type="ColorRect" parent="PlayerHealthIndicator" unique_id=634499740]
+light_mask = 0
+material = SubResource("ShaderMaterial_ytg4i")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("28_i74u8")
+health_config = ExtResource("29_7ue4y")
+intensity_min_health = 0.4
+intensity_max_health = 0.8
+pulse_frequency_min_health = 0.7
+pulse_frequency_max_health = 1.2
+
+[node name="Timer" type="Timer" parent="PlayerHealthIndicator/PlayerHealthIndicator" unique_id=1298281834]
+wait_time = 0.5
+autostart = true
+
 [node name="TestCanvas" type="CanvasLayer" parent="." unique_id=470471263]
 layer = 21
 script = ExtResource("28_ghsbg")
@@ -967,6 +1001,7 @@ position = Vector2(0, -800)
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
 [connection signal="timeout" from="ScreenEffect/LevelTransation/RestTimer" to="ScreenEffect/LevelTransation" method="_on_rest_timer_timeout"]
+[connection signal="timeout" from="PlayerHealthIndicator/PlayerHealthIndicator/Timer" to="PlayerHealthIndicator/PlayerHealthIndicator" method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT0" to="TestCanvas/MarginContainer/Test" method="_on_but_0_pressed"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT1" to="TestCanvas/MarginContainer/Test" method="_on_but_1_pressed"]

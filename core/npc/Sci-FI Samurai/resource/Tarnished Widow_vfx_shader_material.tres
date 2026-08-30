@@ -5,7 +5,7 @@
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_hrv6a")
-shader_parameter/enable = true
+shader_parameter/enable = false
 shader_parameter/precision = 0.1
 shader_parameter/from_color = Color(1, 0, 1, 1)
 shader_parameter/to_color = Color(1, 1, 1, 1)

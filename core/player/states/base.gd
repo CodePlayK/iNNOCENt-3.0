@@ -90,7 +90,9 @@ func init(_all_states) -> void:
 func pre_enter() -> bool:
 	return true
 
-
+func pre_animation() -> BaseState:
+	return null
+	
 func common_pre_enter() -> bool:
 	return true
 

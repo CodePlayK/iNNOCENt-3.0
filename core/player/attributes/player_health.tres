@@ -6,3 +6,4 @@
 script = ExtResource("1_dm06k")
 max_health = 1000.0
 current_health = 1000.0
+health_recover_speed = 10.0

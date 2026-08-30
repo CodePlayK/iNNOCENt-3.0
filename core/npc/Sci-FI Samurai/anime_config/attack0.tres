@@ -15,14 +15,14 @@ bati_end_frame = 16
 
 [sub_resource type="Resource" id="Resource_valb6"]
 script = ExtResource("5_s108s")
-damage = 10.0
+damage = 70.0
 hit_start_frame = 5
 hit_end_frame = 6
 
 [sub_resource type="Resource" id="Resource_ucwkf"]
 script = ExtResource("5_s108s")
 collision_index = 1
-damage = 10.0
+damage = 50.0
 hit_start_frame = 10
 hit_end_frame = 11
 metadata/_custom_type_script = "uid://be4do16qkly4o"

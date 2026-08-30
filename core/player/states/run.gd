@@ -1,6 +1,10 @@
 extends GroundState
 
-
+func  pre_animation() -> BaseState:
+	if player.velocity.x == 0 and move == 0 :
+		return idle_state
+	return null
+	
 func enter():
 	super.enter()
 	EventBus._play_SE_LOOP("running-in-grass", true, 1)

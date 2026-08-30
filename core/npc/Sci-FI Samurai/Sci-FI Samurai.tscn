@@ -231,7 +231,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_y44ay"]
-length = 1.9549999999999994
+length = 1.9549999999999992
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -258,7 +258,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_j8yue"]
-length = 1.8699999999999994
+length = 1.8699999999999992
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -700,6 +700,7 @@ position = Vector2(0, -60.8333)
 position = Vector2(0, -21.6667)
 
 [node name="UIs" type="Node2D" parent="." unique_id=1466472802]
+visible = false
 script = ExtResource("12_wdewt")
 
 [node name="DialoguePosition" parent="UIs" unique_id=1795995157 instance=ExtResource("11_kwpgi")]
@@ -957,7 +958,7 @@ texture = ExtResource("40_j433g")
 offset = Vector2(24.515, -24.505)
 hframes = 8
 vframes = 8
-frame = 38
+frame = 11
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -994,7 +995,6 @@ texture = ExtResource("38_vitj2")
 offset = Vector2(24.515, -24.505)
 hframes = 8
 vframes = 8
-frame = 30
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -1090,7 +1090,6 @@ total_weight_min = 0.0
 weight_machine_ui = NodePath("../../UIs/Test/TestCan/WeightMachineUi")
 
 [node name="attack0" parent="WeightMachines/ChaseWeightMachine" unique_id=873061840 instance=ExtResource("49_xyvi8")]
-confirm = true
 
 [node name="Distance2Player2" parent="WeightMachines/ChaseWeightMachine/attack0" unique_id=976566356 instance=ExtResource("50_6x120")]
 distance_max = 200.0

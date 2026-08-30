@@ -119,10 +119,9 @@ func change_state(new_state: BaseState) -> BaseState:
 		return null
 	if not new_state.common_pre_enter() or not new_state.pre_enter():
 		return null
-
 	var from_name := current_state.name if current_state else "null"
 	print_state_change(from_name, new_state.name)
-
+	var temp_state
 	if not new_state is StackingState:
 		is_changing_state = true
 		if current_state:
@@ -130,9 +129,12 @@ func change_state(new_state: BaseState) -> BaseState:
 			current_state.common_exit()
 			PlayerState.last2_state = PlayerState.last_state
 			PlayerState.last_state = current_state
+			temp_state = await new_state.pre_animation()
+			if temp_state:
+				change_state(temp_state)
+				return temp_state
 		current_state = new_state
 		PlayerState.current_state = current_state
-
 	new_state.load_var()
 	new_state.play_animation()
 	new_state.change_animation_color(
@@ -141,8 +143,7 @@ func change_state(new_state: BaseState) -> BaseState:
 	)
 	is_changing_state = false
 	new_state.common_enter()
-
-	var temp_state = await new_state.enter()
+	temp_state = await new_state.enter()
 	if temp_state:
 		change_state(temp_state)
 		return temp_state
