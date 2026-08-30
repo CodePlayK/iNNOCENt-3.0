@@ -41,8 +41,8 @@ AbtState="*res://core/autoload/ABTState.gd"
 Dialogue="*res://core/autoload/Dialogue/Dialogue.tscn"
 DialogueState="*res://core/autoload/Dialogue/DialogueState.tscn"
 DialogueManager="*uid://c3rodes2l3gxb"
-_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 EventData="*uid://ceuvbqujenhlt"
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 
 [debug]
 
@@ -80,6 +80,7 @@ folder_colors={
 "res://addons/": "green",
 "res://core/level/": "pink",
 "res://core/level/resource/sprite/": "yellow",
+"res://core/npc/": "teal",
 "res://core/player/resource/headers/": "yellow"
 }
 

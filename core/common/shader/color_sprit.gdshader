@@ -4,15 +4,15 @@ uniform bool enable = true;
 uniform float precision = 0.1;
 
 // 可选：整图单色替换对（未命中 0~4 时再用）
-uniform vec4 from_color : source_color = vec4(1.0);
+uniform vec4 from_color : source_color =vec4(1.0, 0.0, 1.0, 1.0);
 uniform vec4 to_color : source_color = vec4(1.0);
 
 // 选择性替换表（最多 5 组）
-uniform vec4 original_0 : source_color;
-uniform vec4 original_1 : source_color;
-uniform vec4 original_2 : source_color;
-uniform vec4 original_3 : source_color;
-uniform vec4 original_4 : source_color;
+uniform vec4 original_0 : source_color = vec4(1.0, 0.0, 1.0, 1.0);
+uniform vec4 original_1 : source_color = vec4(1.0, 0.0, 1.0, 1.0);
+uniform vec4 original_2 : source_color = vec4(1.0, 0.0, 1.0, 1.0);
+uniform vec4 original_3 : source_color =vec4(1.0, 0.0, 1.0, 1.0);
+uniform vec4 original_4 : source_color = vec4(1.0, 0.0, 1.0, 1.0);
 uniform vec4 replace_0 : source_color;
 uniform vec4 replace_1 : source_color;
 uniform vec4 replace_2 : source_color;

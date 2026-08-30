@@ -34,12 +34,11 @@ base_alpha = 1.0
 particle_color = Color(1, 1, 1, 1)
 flicker_intensity = 1.0
 hue_variation = 0.0
-amount = 10
 turbulence_scale = 19.3
 angular_velocity = 0.0
 scale_min = 0.5
 scale_max = 1.8
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=685176837]
-light_mask = 17
+light_mask = 38
 material = SubResource("ShaderMaterial_a57ac")

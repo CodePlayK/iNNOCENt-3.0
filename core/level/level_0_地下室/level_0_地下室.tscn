@@ -4380,7 +4380,7 @@ rim_softness = 0.4
 distance_strength = 1.0
 back_offset = false
 
-[node name="天使雕塑" parent="Parallax/ParallaxLayer_4" unique_id=945036903 instance=ExtResource("14_qgh0b")]
+[node name="天使雕塑" parent="Parallax/ParallaxLayer_4" unique_id=945036903 node_paths=PackedStringArray("back_overlay_light_mask_source") instance=ExtResource("14_qgh0b")]
 light_mask = 4
 material = SubResource("ShaderMaterial_632o5")
 position = Vector2(-260, -143)
@@ -4391,6 +4391,7 @@ rim_softness = 0.0
 light_dir = Vector2(-7.475, -23.905)
 distance_strength = 3.4
 back_offset_pixels = Vector2(-1.115, -2)
+back_overlay_light_mask_source = NodePath("BackOffsetLightMask")
 
 [node name="MouseInteractObj" parent="Parallax/ParallaxLayer_4/天使雕塑" unique_id=53410110 instance=ExtResource("39_cer7a")]
 position = Vector2(-4, 1)
@@ -4403,8 +4404,9 @@ dialogue_config = SubResource("Resource_m4xe4")
 position = Vector2(-2.5, -61)
 shape = SubResource("RectangleShape2D_egk4i")
 
+[node name="BackOffsetLightMask" type="Node2D" parent="Parallax/ParallaxLayer_4/天使雕塑" unique_id=1643856148]
+
 [node name="雕塑边框" parent="Parallax/ParallaxLayer_4" unique_id=364341294 node_paths=PackedStringArray("target_sprite", "trigger") instance=ExtResource("33_egk4i")]
-visible = false
 light_mask = 0
 material = SubResource("ShaderMaterial_qjchf")
 offset_left = -356.0

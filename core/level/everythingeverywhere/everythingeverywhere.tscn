@@ -118,29 +118,6 @@ font_color = Color(0.41725737, 0.41725743, 0.41725728, 1)
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_l83k0"]
 color = Color(0.34656936, 0.34656933, 0.34656933, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
-shader = ExtResource("22_b6isf")
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.0
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = false
-shader_parameter/roll = false
-shader_parameter/roll_speed = 1.145
-shader_parameter/roll_size = 5.03200023902
-shader_parameter/roll_variation = 1.50100006803762
-shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.0
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.010000000475
-shader_parameter/aberration = 4.7499999933364734e-08
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.21200001007
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.41200001957
-
 [sub_resource type="Animation" id="Animation_u6mta"]
 length = 0.001
 tracks/0/type = "value"
@@ -244,12 +221,35 @@ fill_from = Vector2(0.498246, 0.495906)
 resource_local_to_scene = true
 shader = ExtResource("24_ydae1")
 shader_parameter/rect_size = Vector2(2327, 333)
-shader_parameter/bar_width_pixels = 20.0
+shader_parameter/bar_width_pixels = 80.0
 shader_parameter/grid_height_pixels = 20.0
 shader_parameter/progress = 0.0
 shader_parameter/seed = 0.0
 shader_parameter/length_randomness = 0.7090000336775
 shader_parameter/speed_randomness = 0.7
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
+shader = ExtResource("22_b6isf")
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 1.145
+shader_parameter/roll_size = 5.03200023902
+shader_parameter/roll_variation = 1.50100006803762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.010000000475
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.400000019
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymnf6"]
 bg_color = Color(0.458824, 0.247059, 0.215686, 1)
@@ -708,22 +708,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 7.82
 mouse_filter = 2
 
-[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
-layer = 7
-script = ExtResource("24_3yn66")
-
-[node name="VHS" type="ColorRect" parent="CharacterBoxCanvas" unique_id=776308278]
-light_mask = 0
-material = SubResource("ShaderMaterial_ky2o5")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]
-
 [node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
 layer = 7
 script = ExtResource("21_lj80u")
@@ -791,6 +775,22 @@ color = Color(0, 0, 0, 1)
 
 [node name="RestTimer" type="Timer" parent="ScreenEffect/LevelTransation" unique_id=1805130882]
 one_shot = true
+
+[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
+layer = 7
+script = ExtResource("24_3yn66")
+
+[node name="VHS" type="ColorRect" parent="CharacterBoxCanvas" unique_id=776308278]
+light_mask = 0
+material = SubResource("ShaderMaterial_ky2o5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]
 
 [node name="TestCanvas" type="CanvasLayer" parent="." unique_id=470471263]
 layer = 21

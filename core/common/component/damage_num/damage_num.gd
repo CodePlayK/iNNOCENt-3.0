@@ -15,7 +15,7 @@ func _ready() -> void:
 	damage_num.hide()
 
 func emit_num(damage:float):
-	Debug.dprintinfo(DebugCT.dp("[伤害数字emit]%s" %damage,self))
+	#Debug.dprintinfo(DebugCT.dp("[伤害数字emit]%s" %damage,self))
 	# 安全检查：防止标记点不存在导致报错
 	if not is_instance_valid(damage_num_marker): return
 	

@@ -1711,7 +1711,7 @@ _data = {
 size = Vector2(30.546417, 121.34412)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3h3tc"]
-size = Vector2(147, 27)
+size = Vector2(109.48195, 126.39896)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jb62e"]
 size = Vector2(159, 38.5)
@@ -1785,7 +1785,7 @@ texture = ExtResource("8_tpvv3")
 offset = Vector2(1.893, -13.483)
 hframes = 13
 vframes = 13
-frame = 143
+frame = 34
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -1823,7 +1823,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(1.893, 96.537)
 hframes = 12
 vframes = 11
-frame = 51
+frame = 113
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2100,18 +2100,21 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="attack0" type="CollisionShape2D" parent="Components/HitBox" unique_id=1218217246]
-position = Vector2(44.5, 46.5)
+position = Vector2(74.65159, -2.5389557)
 shape = SubResource("RectangleShape2D_3h3tc")
 
 [node name="attack1" type="CollisionShape2D" parent="Components/HitBox" unique_id=1023533133]
+visible = false
 position = Vector2(50.5, 40.75)
 shape = SubResource("RectangleShape2D_jb62e")
 
 [node name="attack2" type="CollisionShape2D" parent="Components/HitBox" unique_id=947145073]
+visible = false
 position = Vector2(33.5, 46)
 shape = SubResource("RectangleShape2D_18vrw")
 
 [node name="attack3" type="CollisionShape2D" parent="Components/HitBox" unique_id=725139202]
+visible = false
 position = Vector2(53, 40.75)
 shape = SubResource("RectangleShape2D_vothx")
 
@@ -2314,7 +2317,7 @@ one_shot = true
 [node name="behitDamaged" type="Node" parent="StateManager/base/combat/behit" unique_id=1554660231]
 script = ExtResource("41_2gdef")
 stiff_time = 0.1
-protect_time = 1.0
+protect_time = 0.2
 is_normal_state = false
 change_animation = false
 change_sprite_color = true

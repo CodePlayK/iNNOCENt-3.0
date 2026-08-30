@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SaveDataConfig" format=3 uid="uid://drjt8s04026wu"]
+
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="1_yyti3"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_yyti3")
+group = 1
+key = "TarnishedWidow"
+metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"

@@ -74,6 +74,11 @@ var layer_color: Color = Color.WHITE
 	set(value):
 		back_overlay_color = value
 		_update_back_sprite()
+## 叠加在背后 Sprite 上的颜色（默认白色，用于提亮）
+@export var back_overlay_light_mask_source: Node2D:
+	set(value):
+		back_overlay_light_mask_source = value
+		_update_back_sprite()
 
 ## 从自己所在节点一路向上，找到第一个 ParallaxLayeri，并注册其 layer_id
 var layer_id: int = -1
@@ -163,7 +168,11 @@ func _sync_back_sprite_transform() -> void:
 	_back_sprite.global_position = global_position + back_offset_pixels
 	_back_sprite.rotation = rotation
 	_back_sprite.scale = scale
-	_back_sprite.light_mask = light_mask
+	if back_overlay_light_mask_source:
+		_back_sprite.light_mask = back_overlay_light_mask_source.light_mask
+	else:
+		_back_sprite.light_mask = light_mask
+		
 
 
 ## 创建 / 更新 / 销毁背后 Sprite（同级节点，用顺序控制前后）
