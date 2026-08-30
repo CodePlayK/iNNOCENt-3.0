@@ -123,6 +123,7 @@
 [ext_resource type="Resource" uid="uid://dlci62k7ghc80" path="res://core/player/resource/player_dialogue_config.tres" id="108_4t8e8"]
 [ext_resource type="PackedScene" uid="uid://wnma64238otk" path="res://core/common/saves/player_save_data_collector/player_save_data_collector.tscn" id="108_dq6eo"]
 [ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="109_kaqeq"]
+[ext_resource type="Script" uid="uid://dppdd0bm7whwe" path="res://core/common/component/HeartbeatQTE/heartbeat_qte.gd" id="122_xquc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phghf"]
 size = Vector2(19, 52)
@@ -1740,7 +1741,7 @@ script = ExtResource("86_66spe")
 animation_name = "attack0"
 metadata/_custom_type_script = "uid://cec3itdl7of5v"
 
-[sub_resource type="Resource" id="Resource_yurw6"]
+[sub_resource type="Resource" id="Resource_3k4e8"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
@@ -2292,6 +2293,7 @@ anime_config = SubResource("Resource_8i7n7")
 
 [node name="struggle" type="Node" parent="StateManager/base/combat" unique_id=291711392]
 script = ExtResource("88_hpx6d")
+lock_common_input = true
 
 [node name="dense" type="Node" parent="StateManager/base/combat" unique_id=420547067]
 script = ExtResource("38_tkue4")
@@ -2438,8 +2440,29 @@ input_receive_call_func_fail = null
 [node name="Timer" type="Timer" parent="StateManager/AttackListener" unique_id=2033586965]
 one_shot = true
 
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1705560239]
+light_mask = 2049
+custom_minimum_size = Vector2(20.82, 0)
+offset_left = -203.5392
+offset_top = -187.47252
+offset_right = -26.558823
+offset_bottom = -145.22394
+offset_transform_enabled = true
+focus_mode = 2
+script = ExtResource("122_xquc6")
+cursor_width = 2.0
+cursor_wing_width = 10.0
+cursor_wing_thickness = 1.5150000000000001
+baseline_default_color = Color(0.37665847, 0.37665847, 0.37665847, 1)
+success_color = Color(0.4512, 0.96, 0.4512, 1)
+fail_color = Color(1, 0.29000002, 0.29000002, 1)
+block_width = 20.0
+block_default_radius = 20.0
+block_fade_out_scale = 2.0
+wave_base_width = 0.8
+bg_color = Color(0, 0, 0, 0.34117648)
+
 [node name="UIs" parent="." unique_id=303088328 instance=ExtResource("3_gyqt3")]
-visible = false
 light_mask = 2048
 position = Vector2(0, -35)
 health_config = ExtResource("3_qy2x3")
@@ -2580,7 +2603,7 @@ connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"),
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_yurw6")
+save_data_config = SubResource("Resource_3k4e8")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 

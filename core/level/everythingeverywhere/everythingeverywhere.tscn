@@ -258,7 +258,7 @@ shader_parameter/vignette_opacity = 0.5
 shader = ExtResource("27_ydae1")
 shader_parameter/hurt_intensity = 1.0
 shader_parameter/black_border_ratio = 0.6000000285
-shader_parameter/pulse_frequency = 1.2020000538351199
+shader_parameter/pulse_frequency = 1.20200005383512
 shader_parameter/blood_color = Color(0.48762423, 0.00051863893, 0.00028413988, 1)
 shader_parameter/border_black = Color(0, 0, 0, 1)
 
@@ -902,6 +902,18 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
 text = "切换玩家状态"
 icon_alignment = 1
 
+[node name="BUT3" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1364502721]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "执行QTE"
+icon_alignment = 1
+
 [node name="PathFind" type="Node2D" parent="TestCanvas/MarginContainer/Test" unique_id=1532952576]
 visible = false
 
@@ -1024,3 +1036,4 @@ position = Vector2(0, -800)
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT0" to="TestCanvas/MarginContainer/Test" method="_on_but_0_pressed"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT1" to="TestCanvas/MarginContainer/Test" method="_on_but_1_pressed"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT2" to="TestCanvas/MarginContainer/Test" method="_on_but_2_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT3" to="TestCanvas/MarginContainer/Test" method="_on_but_3_pressed"]

@@ -104,6 +104,7 @@ signal player_face_changed
 signal player_running_changed
 signal player_into_lock_state
 signal player_load_save_file_pos
+signal start_qte
 #endregion
 
 
@@ -119,6 +120,10 @@ signal create_all_character_box
 signal test_layer_visiable
 ##添加过场到debug层
 signal add_debug(d:Node,ysize:Vector2)
+## 请求开始心跳复苏 QTE（参数：params 配置字典，可空）
+signal start_heartbeat_qte(params: Dictionary)
+## 心跳复苏 QTE 结束（参数：result 含 success / hit_count / success_score 等）
+signal heartbeat_qte_finished(result: Dictionary)
 #endregion
 func _add_debug(d:Node,size:Vector2,max_y:float):
 	add_debug.emit(d,size,max_y)
@@ -372,6 +377,12 @@ func _remove_all_character_box(source:Node) -> void:
 ## [param flag] 是否显示测试层
 func _test_layer_visiable(flag: bool) -> void:
 	test_layer_visiable.emit(flag)
+
+
+## 发射 [signal start_heartbeat_qte]
+## [param params] QTE 配置覆盖（duration / heartbeat_count / required_hits / required_success 等）
+func _start_heartbeat_qte(params: Dictionary = {}) -> void:
+	start_heartbeat_qte.emit(params)
 #endregion
 
 

@@ -16,3 +16,8 @@ func _on_but_1_pressed() -> void:
 
 func _on_but_2_pressed() -> void:
 	CutsceneState.change_player_state(text_edit.text)
+
+
+func _on_but_3_pressed() -> void:
+	EventBus.start_qte.emit()
+	pass # Replace with function body.
