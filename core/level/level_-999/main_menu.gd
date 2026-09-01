@@ -5,13 +5,13 @@ extends VBoxContainer
 @onready var menu_1: VBoxContainer = %menu1
 @onready var color_back: ColorRect = %ColorBack
 @onready var menu_dof: ColorRect = $MarginContainer/MenuDOF
-@onready var exit: Button = $MarginContainer/Menu/menu1/Exit
-@onready var hide_menu: Button = $MarginContainer/Menu/menu1/HideMenu
-@onready var continue_game: Button = $MarginContainer/Menu/menu1/ContinueGame
-@onready var back_2_main_menu: Button = $MarginContainer/Menu/menu1/Back2MainMenu
-@onready var new_gmae: Button = $MarginContainer/Menu/menu1/NewGmae
-@onready var quick_save_game: Button = $MarginContainer/Menu/menu1/QuickSaveGame
-@onready var save_save_file: Button = $MarginContainer/Menu/menu3/SaveSaveFile
+@onready var exit: Button = %Exit
+@onready var hide_menu: Button = %HideMenu
+@onready var continue_game: Button = %ContinueGame
+@onready var back_2_main_menu: Button = %Back2MainMenu
+@onready var new_gmae: Button = %NewGmae
+@onready var quick_save_game: Button = %QuickSaveGame
+@onready var save_save_file: Button = %SaveSaveFile
 
 
 func _ready() -> void:
@@ -45,6 +45,7 @@ func _on_back_2_main_pressed() -> void:
 ##主界面时的默认状态
 func default_view():
 	color_back.hide()
+	menu_dof.hide()
 	menu_2.hide()
 	menu_1r.show()
 	new_gmae.show()
@@ -62,6 +63,7 @@ func default_view():
 	
 func pop_view():
 	default_view()
+	menu_dof.show()
 	color_back.show()
 	quick_save_game.show()
 	back_2_main_menu.show()
@@ -76,7 +78,8 @@ func save_file_view():
 	menu_3.show()
 	menu_1r.hide()
 	menu_1.hide()
-
+	menu_dof.show()
+	color_back.show()
 
 func _on_save_save_file_pressed() -> void:
 	pass # Replace with function body.
