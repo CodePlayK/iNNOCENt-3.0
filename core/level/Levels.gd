@@ -123,6 +123,11 @@ func resume():
 	EventBus._test_layer_visiable(true)
 	Debug.dprintinfo(DebugCT.dp("level内的[resume]完成",self))
 	show()
+	
+func after_transition():
+	PlayerState.preset_player(self)
+	PlayerState.set_player_control_lock(false,self)
+	pass
 
 func get_level_shape_size()->Vector2:
 	var shape = leve_bound.shape as RectangleShape2D

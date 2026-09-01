@@ -106,6 +106,7 @@
 [ext_resource type="Resource" uid="uid://bj48a01ae5lxf" path="res://core/player/attributes/ABT_dense_config.tres" id="68_jk52r"]
 [ext_resource type="Script" uid="uid://cex2whhqr3kr0" path="res://core/player/states/wake.gd" id="72_c6fmk"]
 [ext_resource type="Script" uid="uid://c0dxbfgbfg2if" path="res://core/player/states/onfloor.gd" id="73_b43tn"]
+[ext_resource type="Script" uid="uid://26i533h15u8b" path="res://core/player/states/mainscreen.gd" id="75_e23kp"]
 [ext_resource type="Resource" uid="uid://ckdoxt3m3a82" path="res://core/player/attributes/ABT_light_config.tres" id="75_j1i1n"]
 [ext_resource type="Script" uid="uid://c04vqe67ffl12" path="res://core/player/states/nobalance.gd" id="79_8i7n7"]
 [ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="80_6i3b3"]
@@ -1741,7 +1742,7 @@ script = ExtResource("86_66spe")
 animation_name = "attack0"
 metadata/_custom_type_script = "uid://cec3itdl7of5v"
 
-[sub_resource type="Resource" id="Resource_3k4e8"]
+[sub_resource type="Resource" id="Resource_fc4wq"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
@@ -1771,7 +1772,6 @@ sprite_list = [NodePath("baseFX")]
 colored_node_list = [NodePath("baseFX")]
 anime_fx = NodePath("../FXs")
 fx_color = Color(0.792157, 0.792157, 0, 1)
-print_play_anime = true
 
 [node name="OffsetProcess" type="Node2D" parent="Animations/Anime" unique_id=213741754 node_paths=PackedStringArray("nodes_following_anime")]
 script = ExtResource("12_453cj")
@@ -2145,7 +2145,7 @@ autostart = true
 [node name="Move2Vec2" parent="Components" unique_id=1304076567 instance=ExtResource("26_q60xe")]
 
 [node name="FaceDirection" parent="Components" unique_id=1749619904 node_paths=PackedStringArray("direction_objs") instance=ExtResource("27_keddt")]
-direction_objs = [NodePath("../../Animations/Anime/base_bk"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx"), null, null, NodePath("../../Animations/Anime/base")]
+direction_objs = [NodePath("../../Animations/Anime/base_bk"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../../Animations/FXs/HitFx"), NodePath("../../Animations/Anime/base")]
 
 [node name="CreateCharacterBox" parent="Components" unique_id=45981142 instance=ExtResource("30_yurw6")]
 time_rand_range = Vector2(0, 0)
@@ -2171,7 +2171,7 @@ notify_nodes = [NodePath("../../StateManager")]
 
 [node name="StateManager" type="Node" parent="." unique_id=763386492 node_paths=PackedStringArray("starting_node")]
 script = ExtResource("12_lkqci")
-starting_node = NodePath("base/idle")
+starting_node = NodePath("base/interactive/mainscreen")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
 changing_state = true
@@ -2268,6 +2268,12 @@ is_group = true
 [node name="pray" type="Node" parent="StateManager/base/interactive" unique_id=411573926]
 script = ExtResource("86_vp6bf")
 is_normal_state = false
+
+[node name="mainscreen" type="Node" parent="StateManager/base/interactive" unique_id=251897984]
+script = ExtResource("75_e23kp")
+is_normal_state = false
+change_animation = false
+lock_common_input = true
 
 [node name="wake" type="Node" parent="StateManager/base/interactive" unique_id=1441156899]
 script = ExtResource("72_c6fmk")
@@ -2442,24 +2448,37 @@ one_shot = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1705560239]
 light_mask = 2049
+z_index = 17
 custom_minimum_size = Vector2(20.82, 0)
-offset_left = -203.5392
-offset_top = -187.47252
-offset_right = -26.558823
-offset_bottom = -145.22394
+offset_left = -123.83368
+offset_top = -163.76488
+offset_right = 138.46503
+offset_bottom = -130.99757
+pivot_offset = Vector2(83.55318, 19.888275)
 offset_transform_enabled = true
 focus_mode = 2
+mouse_filter = 2
 script = ExtResource("122_xquc6")
-cursor_width = 2.0
-cursor_wing_width = 10.0
-cursor_wing_thickness = 1.5150000000000001
-baseline_default_color = Color(0.33412254, 0.33412242, 0.3341224, 1)
-success_color = Color(0.4512, 0.96, 0.4512, 1)
-fail_color = Color(1, 0.29000002, 0.29000002, 1)
-block_default_radius = 20.0
-block_fade_out_scale = 2.0
-wave_base_width = 0.8
-bg_color = Color(0, 0, 0, 0.34117648)
+min_speed = 150.0
+max_speed = 300.0
+cursor_width = 1.75
+cursor_length = 32.465
+cursor_wing_width = 7.78
+cursor_wing_thickness = 1.155
+cursor_color = Color(0.47397572, 0.47397572, 0.47397572, 1)
+cursor_relative_ratio = 0.33
+line_thickness = 1.0
+block_default_radius = 12.0
+block_fade_out_duration = 0.4
+block_fade_out_scale = 3.0
+bg_color = Color(0, 0, 0, 0.31764707)
+ui_fade_duration = 0.2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=872721733]
+visible = false
+show_behind_parent = true
+layout_mode = 2
+color = Color(0, 0, 0, 0.7019608)
 
 [node name="UIs" parent="." unique_id=303088328 instance=ExtResource("3_gyqt3")]
 light_mask = 2048
@@ -2602,7 +2621,7 @@ connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"),
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_3k4e8")
+save_data_config = SubResource("Resource_fc4wq")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 

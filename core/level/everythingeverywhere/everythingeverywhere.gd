@@ -46,6 +46,11 @@ func _ready() -> void:
 	Global.back_ground_color = back_ground_color
 	# 后台线程预请求所有关卡 PackedScene，避免第一次过门时同步解析大 tscn
 	_request_all_levels_threaded()
+	load_main_screen()
+	
+func load_main_screen():
+	PlayerState.current_player_born_position = LevelState.main_scrren_player_pos
+	_on_change_level(LevelState.LEVELS.LEVEL_MAIN_SCREEN)
 
 	# 载入 cutscener 配置目录，判断当前运行是否为 cutscener
 	# var config = load_json(CutscenerGlobal.CONFIG_DATA_FILE_PATH)
@@ -56,6 +61,7 @@ func _init_level_paths() -> void:
 	dic_level_path[LevelState.LEVELS.LEVEL_0] = LevelState.LEVEL_0_PATH
 	dic_level_path[LevelState.LEVELS.LEVEL_1] = LevelState.LEVEL_1_PATH
 	dic_level_path[LevelState.LEVELS.LEVEL_2] = LevelState.LEVEL_2_PATH
+	dic_level_path[LevelState.LEVELS.LEVEL_MAIN_SCREEN] = LevelState.LEVEL_MAIN_SCREEN_PATH
 
 
 func _request_all_levels_threaded() -> void:
@@ -134,7 +140,6 @@ func resume_level(level_id: LevelState.LEVELS) -> void:
 
 
 func _on_change_level(level_id: LevelState.LEVELS) -> void:
-
 	LevelState.changing_level = true
 	door_locked_time.stop()
 	LevelState.set_doors_locked(true,self)
@@ -164,12 +169,12 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 		player_camera.limit_bottom = LevelState.level_dic[level_id].camera_limit_bottom
 		player_camera.zoom = LevelState.level_dic[level_id].camera_zoom
 		back_ground_color.modulate = LevelState.level_dic[level_id].level_background_color
+	
 	Debug.dprintinfo(DebugCT.dp("房间切换:[%s]-->[%s]" % [str(LevelState.last_level), str(LevelState.current_level)],	self))
-	PlayerState.preset_player(self)
+	LevelState.level_dic[level_id].after_transition()
 	EventBus._level_changed(LevelState.last_level, LevelState.current_level,self)
 	Global.player_camera.node_to_follow = player_player
 	LevelState.level_dic[LevelState.current_level].position.y=0
-	PlayerState.set_player_control_lock(false,self)
 	door_locked_time.start()
 	LevelState.playing_transition = false
 	LevelState.changing_level = false

@@ -11,7 +11,7 @@ func add_2_level_lights_dic(level_id:LevelState.LEVELS,bl:BaseLight):
 		level_lights_dic[level_id].append(bl)
 		
 var test_mark:Node2D
-
+var camera_controller:CameraController
 enum transition_type {
 	RIGHT_ENTER,
 	RIGHT_LEFT,

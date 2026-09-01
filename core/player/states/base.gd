@@ -37,6 +37,7 @@ class_name BaseState
 @onready var onfloor_state: BaseState
 @onready var nobalance_state: BaseState
 @onready var struggle_state: BaseState
+@onready var mainscreen_state: BaseState
 
 ## 普通状态：临时状态（攻击/受击等）结束后可以切回
 @export var is_normal_state: bool = true

@@ -3,6 +3,7 @@ const LEVEL_0_PATH="res://core/level/level_0_地下室/level_0_地下室.tscn"
 const LEVEL_1_PATH="res://core/level/level_1_大堂/level_1_大堂.tscn"
 const LEVEL_2_PATH="res://core/level/level_2_决斗/level_2_决斗.tscn"
 const LEVEL_TEST_PATH="res://core/level/level_Test/level_Test.tscn"
+const LEVEL_MAIN_SCREEN_PATH="res://core/level/level_-999/level_-999_主界面.tscn"
 
 ##当前关卡
 var current_save_id:int=-99999
@@ -18,7 +19,7 @@ enum TRANS_DIRCTS {
 	DOWN=1
 }
 var current_trans_direct:TRANS_DIRCTS
-
+var main_scrren_player_pos:Vector2 = Vector2(1306.0,845.0)
 
 var doors_locked:bool=false
 func set_doors_locked(flag:bool,source):
@@ -59,4 +60,5 @@ enum LEVELS
 	LEVEL_1=1,
 	LEVEL_2=2,
 	LEVEL_TEST=999,
+	LEVEL_MAIN_SCREEN=-999,
 }

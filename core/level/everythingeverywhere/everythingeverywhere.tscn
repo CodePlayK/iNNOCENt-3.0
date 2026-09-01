@@ -308,18 +308,20 @@ script = ExtResource("1_celhk")
 
 [node name="Setting" type="Node2D" parent="." unique_id=226376598]
 
-[node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
+[node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394 node_paths=PackedStringArray("node_to_follow")]
 unique_name_in_owner = true
+position = Vector2(1255, 356)
 ignore_rotation = false
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 process_callback = 0
-limit_left = -389
-limit_top = -208
-limit_bottom = -887
+limit_left = 649
+limit_top = 873
+limit_right = 1827
+limit_bottom = -173
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 3.0
-drag_horizontal_offset = 0.4
+position_smoothing_speed = 1.0
+drag_horizontal_offset = -0.3
 drag_left_margin = 0.5
 drag_right_margin = 0.5
 drag_bottom_margin = 0.34
@@ -329,10 +331,11 @@ script = ExtResource("2_celhk")
 SHAKE_DECAY = 0.07
 SHAKE_ANGLE_MULTIPLIER = 0.287
 SHAKE_POSITION_MULTIPLIER = 0.85
+node_to_follow = NodePath("../../PlayerPlayer")
 
 [node name="CutsceneCamera" parent="Setting/PlayerCamera" unique_id=1018596231 instance=ExtResource("3_ydae1")]
 
-[node name="CamreaChageFace" parent="Setting/PlayerCamera" unique_id=208228070 instance=ExtResource("4_jtj5p")]
+[node name="CameraController" parent="Setting/PlayerCamera" unique_id=208228070 instance=ExtResource("4_jtj5p")]
 trans_time = 3.0
 base_drag_horizontal_offset = 0.3
 
@@ -1014,7 +1017,6 @@ script = ExtResource("39_i74u8")
 save_data_config = ExtResource("39_ydae1")
 has_master = false
 debug = true
-load_on_ready = true
 save_position = false
 save_faced = false
 
@@ -1027,7 +1029,7 @@ limit_enabled = false
 unique_name_in_owner = true
 process_mode = 3
 light_mask = 6
-position = Vector2(81, -41)
+position = Vector2(1462, 872)
 
 [node name="CameraMark" type="Node2D" parent="PlayerPlayer" unique_id=767088440]
 position = Vector2(0, -800)

@@ -4693,10 +4693,9 @@ metadata/_custom_type_script = "uid://cwoinddfmepd0"
 metadata/_edit_lock_ = true
 
 [node name="LeftDoor" parent="Parallax/ParallaxLayer_5/Main/LevelChangers" unique_id=199191243 instance=ExtResource("48_dkmg4")]
-position = Vector2(-532, -60)
-from_level = 999
-target_level = 2
-target_born_position = Vector2(1490.0055, -26.074728)
+position = Vector2(-253, -60)
+target_level = -999
+target_born_position = Vector2(906, 491)
 target_born_position_name = "RightDoor"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Parallax/ParallaxLayer_5/Main/LevelChangers/LeftDoor" unique_id=28963651]
