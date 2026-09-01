@@ -79,18 +79,18 @@ func update_max_save_id() -> void:
 
 
 ## 更新存档 id 对应的截图资源
-func update_screenshot(save_id: int) -> void:
+func update_screenshot(save_id: int,uuid) -> void:
 	if not DirAccess.dir_exists_absolute(SAVE_SCREENSHOT_PATH):
 		DirAccess.make_dir_absolute(SAVE_SCREENSHOT_PATH)
 	ResourceSaver.save(
 		current_screenshot,
-		SAVE_SCREENSHOT_PATH + str(save_id) + ".res"
+		SAVE_SCREENSHOT_PATH + str(uuid) + ".res"
 	)
 
 
 ## 从资源中读取截图
-func get_screenshot(save_id: int):
-	return ResourceLoader.load(SAVE_SCREENSHOT_PATH + str(save_id) + ".res")
+func get_screenshot(save_id: int,uuid):
+	return ResourceLoader.load(SAVE_SCREENSHOT_PATH + str(uuid) + ".res")
 
 # endregion
 

@@ -100,3 +100,12 @@ func _on_new_gmae_pressed() -> void:
 	Global.everythingeverywhere42.reset_all_levels()
 	CutsceneState.current_cutscene = "0_0_0"
 	EventBus._change_level(LevelState.LEVELS.LEVEL_0,self)
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_visibility_changed() -> void:
+	DataState.current_screenshot = ImageTexture.create_from_image(get_viewport().get_texture().get_image())##更新截图
+	pass # Replace with function body.

@@ -28,8 +28,7 @@ void fragment() {
     // 将当前 UV 坐标离散化到局部格子的网格中
     vec2 grid_uv = floor(UV * grid_size) / grid_size;
     
-    // --- 核心改动：将随机种子融入正弦噪声计算中 ---
-    // 通过加入 seed，即使 grid_uv.x 相同，每次生成的 rand_length 和 rand_speed 也会完全不同
+    // --- 将随机种子融入正弦噪声计算中 ---
     float rand_length = fract(sin(dot(vec2(grid_uv.x + seed, 1.3), vec2(12.9898, 78.233))) * 43758.5453);
     float rand_speed  = fract(sin(dot(vec2(grid_uv.x - seed, 4.7), vec2(37.2411, 43.197))) * 75319.1235);
     
@@ -40,10 +39,23 @@ void fragment() {
     // 计算该格子的垂直位置判定阈值（从上到下）
     float threshold = (1.0 - grid_uv.y) * (1.0 - length_randomness) + (rand_length * length_randomness);
     
-    // 平滑抗锯齿过渡
+    // 抗锯齿过渡缓冲量
     float pixel_bleed = 1.5 / grid_size.y; 
+    
+    // --- 【核心修复逻辑】 ---
+    // 1. 重新映射 threshold 的 range，上限卡在 (1.0 - pixel_bleed)，给抗锯齿留出安全带
+    //    下限卡在 pixel_bleed，确保当 progress=1 时底部也能完全填满
+    threshold = mix(pixel_bleed, 1.0 - pixel_bleed, threshold);
+    
+    // 2. 正常进行原本的阈值对比计算
     float diff = column_progress - (1.0 - threshold);
     float alpha = smoothstep(-pixel_bleed, 0.0, diff);
+    
+    // 3. 【双重保险】：如果外部传入的进度本身就是严格的 0.0，强制让 alpha 归零
+    //    这样能百分之百规避不同显卡芯片由于浮点数截断精度不同带来的边缘溢出
+    if (progress <= 0.0) {
+        alpha = 0.0;
+    }
     
     COLOR = vec4(0.0, 0.0, 0.0, alpha);
 }

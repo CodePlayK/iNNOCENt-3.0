@@ -19,7 +19,7 @@ enum TRANS_DIRCTS {
 	DOWN=1
 }
 var current_trans_direct:TRANS_DIRCTS
-var main_scrren_player_pos:Vector2 = Vector2(1306.0,845.0)
+var main_scrren_player_pos:Vector2 = Vector2(1306.0,2414.0)
 
 var doors_locked:bool=false
 func set_doors_locked(flag:bool,source):

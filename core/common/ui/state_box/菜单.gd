@@ -5,6 +5,7 @@ class_name UIMenuTab
 @onready var read_save_file: Button = $"../menu3/ReadSaveFile"
 @onready var delete_save_file: Button = $"../menu3/DeleteSaveFile"
 @onready var save_save_file: Button = $"../menu3/SaveSaveFile"
+@onready var quick_save_game: Button = $"../menu1/QuickSaveGame"
 
 @onready var save: UISettingItem = $HBoxContainer/MarginContainer/VBoxContainer/save
 @onready var load: UISettingItem = $HBoxContainer/MarginContainer/VBoxContainer/load
@@ -29,6 +30,7 @@ func _ready() -> void:
 	load.selected.connect(on_load)
 	delete.selected.connect(on_delete)
 	save_save_file.pressed.connect(on_save)
+	quick_save_game.pressed.connect(on_save)
 	read_save_file.pressed.connect(on_load)
 	continue_game.pressed.connect(on_load)
 	delete_save_file.pressed.connect(on_delete)
@@ -44,6 +46,7 @@ func on_save() -> void:
 #
 	#_set_current_save_from_selection()
 	_debug_info("保存按钮按下")
+	DataState.current_save_file_dic[DataState.current_save_id].current_level = LevelState.current_level
 	EventBus._save_game()
 	EventBus._save_file_id_update()
 	#move_selected2top()
@@ -92,7 +95,8 @@ func on_new_save_file() -> void:
 		DataState.current_save_id,
 		LevelState.current_level,
 		"存档",
-		Time.get_datetime_string_from_system()
+		Time.get_datetime_string_from_system(),
+		Global.generate_uuid_short_id()
 	)
 	current_selected_save_file_item = new_item
 	EventBus._save_game()
@@ -116,7 +120,7 @@ func on_save_file_item_selected(save_file: UISaveFileItem) -> void:
 
 
 ## 新建存档文件并添加到列表
-func new_save_file(save_id: int, level_id: LevelState.LEVELS, save_name: String, time: String) -> UISaveFileItem:
+func new_save_file(save_id: int, level_id: LevelState.LEVELS, save_name: String, time: String,uuid:String = "NA",current_level:LevelState.LEVELS =LevelState.LEVELS.LEVEL_0 ) -> UISaveFileItem:
 	var sc := UISaveFileItemConfig.new()
 	DataState.add2save_file_dic(save_id, sc)
 
@@ -124,19 +128,24 @@ func new_save_file(save_id: int, level_id: LevelState.LEVELS, save_name: String,
 	sc.save_id = save_id
 	sc.save_name = save_name
 	sc.save_time = time
-
-	var screenshot_path := DataState.SAVE_SCREENSHOT_PATH + str(save_id) + ".res"
+	sc.current_level = current_level
+	if uuid == "NA":
+		uuid = Global.generate_uuid_short_id()
+	sc.screen_shot_uuid = uuid
+	var screenshot_path := DataState.SAVE_SCREENSHOT_PATH + str(uuid) + ".res"
 	if not FileAccess.file_exists(screenshot_path):
-		DataState.update_screenshot(save_id)
+		DataState.update_screenshot(save_id,uuid)
 		sc.screen_shot = DataState.current_screenshot
 	else:
-		sc.screen_shot = DataState.get_screenshot(save_id)
+		sc.screen_shot = DataState.get_screenshot(save_id,uuid)
 
 	var item: UISaveFileItem = UiState.SAVE_FILE_ITEM.instantiate()
 	save_list.add_child(item)
 	item.selected.connect(on_save_file_item_selected)
 	item.init(sc)
 	return item
+
+
 
 
 ## 将当前选中的存档移动到列表顶部并滚动到顶部

@@ -197,56 +197,48 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 	if old_level_id==new_level_id:	return
 	var old_level:Levels = LevelState.level_dic[old_level_id]
 	var new_level:Levels = LevelState.level_dic[new_level_id]
-	var old_level_size =  old_level.get_level_shape_size()
 	var old_level_pos =  old_level.get_level_shape_pos()
 	var new_level_pos =  new_level.get_level_shape_pos()
 	var new_level_size =  new_level.get_level_shape_size()
-	var tw=create_tween()
-	tw.set_trans(Tween.TRANS_CUBIC)
-	tw.set_ease(Tween.EASE_OUT)
+
 	if LevelState.current_trans_direct==LevelState.TRANS_DIRCTS.UP:
 		Debug.dprintinfo(DebugCT.dp("******开始播放关卡切换动画[UP][老关卡玩家位置:%s],[老关卡位置:%s],[玩家出生位置:%s],[相机位置:%s]" %[PlayerState.player_exit_level_pos,old_level.global_position,PlayerState.current_player_born_position,Global.player_camera.global_position],self))
-		var new_level_start_x = PlayerState.player_exit_level_pos.x-PlayerState.current_player_born_position.x 
-		var new_level_start_y = old_level_pos.y-old_level_size.y*0.5-(new_level_pos.y-old_level.global_position.y+new_level_size.y*0.5)
-		var new_level_end_x = new_level_start_x
-		var new_level_end_y = 0
 		old_level.parallax.parallax_on = false		
-		new_level.parallax.parallax_on = true		
-
-		Global.player_camera.limit_left = min(Global.player_camera.limit_left,new_level_pos.x-new_level_size.x*0.5)
-		Global.player_camera.limit_right = max(Global.player_camera.limit_right,new_level_pos.x+new_level_size.x*0.5)
-		Global.player_camera.node_to_follow = null		
-		var old_level_start_x = old_level.global_position.x
-		var old_level_start_y = old_level.global_position.y
-		var old_level_end_x = old_level.global_position.x
-		var old_level_end_y = abs(new_level_end_y-new_level_start_y)
-		#Global.player_camera.position_smoothing_enabled = false
-		PlayerState.player_player.face_direction.set_faced(PlayerState.player_born_facing_left)
-		var camera_last_pos = Global.player_camera.global_position
+		new_level.parallax.parallax_on = true	
+		new_level.global_position = Vector2(0,-new_level_size.y-new_level_pos.y)
+		LevelState.level_dic[LevelState.last_level].position=Vector2i(0,9999)
+		Global.player_camera.node_to_follow = null
+		Global.player_camera.position_smoothing_enabled = false
+		Global.player_camera.reset_smoothing()
 		player_player.reparent(new_level.player_layer)
 		player_player.position = PlayerState.current_player_born_position
-		new_level.global_position = Vector2(0,new_level_start_y)
-		old_level.global_position.x =  -new_level_start_x
-		Global.player_camera.global_position = camera_last_pos-Vector2(new_level_start_x,0)
-		#用一帧让相机和两个关卡按新关卡的坐标移动到零点
-		Global.player_camera.limit_left = new_level_pos.x-new_level_size.x*0.5
+		var new_camera_pos = Vector2(player_player.global_position.x,old_level_pos.y+new_level_size.y)
+		#await get_tree().process_frame
+		Global.player_camera.limit_top = new_level.camera_limit_top	- new_level_size.y*0.5
+		Global.player_camera.limit_bottom = new_level.camera_limit_bottom +  new_level_size.y*0.5
+
+		Global.player_camera.zoom = new_level.camera_zoom		
+		Global.player_camera.limit_left= new_level_pos.x-new_level_size.x*0.5
 		Global.player_camera.limit_right = new_level_pos.x+new_level_size.x*0.5
-		await get_tree().process_frame
-		new_level.parallax.parallax_on = true		
+		Global.player_camera.global_position = new_camera_pos
+		PlayerState.player_player.face_direction.set_faced(PlayerState.player_born_facing_left)
 		#Debug.dprintinfo(DebugCT.dp("--------开始播放切换关卡动画---------",self))
-		tw.tween_property(old_level,"global_position",Vector2(old_level.global_position.x,old_level_end_y),3)	
-		tw.parallel().tween_property(new_level,"global_position",Vector2(0,0),3)	
-		tw.parallel().tween_property(back_ground_color,"modulate",new_level.level_background_color,3)
-		tw.parallel().tween_property(player_camera,"zoom",new_level.camera_zoom,3)
-		tw.parallel().tween_property(player_camera,"limit_top",new_level.camera_limit_top,3)
-		tw.parallel().tween_property(player_camera,"limit_bottom",new_level.camera_limit_bottom,3)
+		var tw=create_tween()
+		tw.set_trans(Tween.TRANS_CUBIC)
+		tw.set_ease(Tween.EASE_OUT)	
+		tw.parallel().tween_property(new_level,"global_position",Vector2.ZERO,3)
+		tw.parallel().tween_property(Global.player_camera,"limit_top",new_level.camera_limit_top,3)
+		tw.parallel().tween_property(Global.player_camera,"limit_bottom",new_level.camera_limit_bottom,3)
 		await tw.finished
+		#Global.player_camera.limit_top = new_level.camera_limit_top	
+		#Global.player_camera.limit_bottom = new_level.camera_limit_bottom		
 		new_level.parallax.parallax_on = true
 		#Debug.dprintinfo(DebugCT.dp("--------结束切换关卡动画---------",self))
 		#动画过程中必须关闭smooth否则会飘移
 		Global.player_camera.position_smoothing_enabled = true
+		Global.player_camera.node_to_follow = player_player
+
 		tw.kill()
-		LevelState.level_dic[LevelState.last_level].position=Vector2i(0,9999)
 		LevelState.level_dic[LevelState.last_level].hide()
 	Debug.dprintinfo(DebugCT.dp("******关卡切换动画结束[UP]",self))
 

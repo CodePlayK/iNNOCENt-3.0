@@ -1742,7 +1742,7 @@ script = ExtResource("86_66spe")
 animation_name = "attack0"
 metadata/_custom_type_script = "uid://cec3itdl7of5v"
 
-[sub_resource type="Resource" id="Resource_fc4wq"]
+[sub_resource type="Resource" id="Resource_e23kp"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
@@ -2535,6 +2535,7 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" parent="UIs" unique_id=1753141741 instance=ExtResource("4_lpne6")]
+visible = false
 light_mask = 2048
 anchors_preset = -1
 offset_left = -20.0
@@ -2621,7 +2622,7 @@ connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"),
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_fc4wq")
+save_data_config = SubResource("Resource_e23kp")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 

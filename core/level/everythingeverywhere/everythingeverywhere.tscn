@@ -230,13 +230,13 @@ fill_from = Vector2(0.498246, 0.495906)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jtj5p"]
 resource_local_to_scene = true
 shader = ExtResource("24_ydae1")
-shader_parameter/rect_size = Vector2(2327, 333)
-shader_parameter/bar_width_pixels = 80.0
+shader_parameter/rect_size = Vector2(2332.13, 333)
+shader_parameter/bar_width_pixels = 69.68
 shader_parameter/grid_height_pixels = 20.0
 shader_parameter/progress = 0.0
-shader_parameter/seed = 0.0
-shader_parameter/length_randomness = 0.7090000336775
-shader_parameter/speed_randomness = 0.7
+shader_parameter/seed = 0.27
+shader_parameter/length_randomness = 0.6650000315875
+shader_parameter/speed_randomness = 0.7930000376675
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
 shader = ExtResource("22_b6isf")
@@ -793,7 +793,6 @@ unique_name_in_owner = true
 mouse_filter = 2
 
 [node name="FALLING_BOX" type="ColorRect" parent="ScreenEffect/LevelTransation" unique_id=1297786577]
-visible = false
 material = SubResource("ShaderMaterial_jtj5p")
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1046,11 +1045,6 @@ has_master = false
 debug = true
 save_position = false
 save_faced = false
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=537120733]
-enabled = false
-zoom = Vector2(0.305, 0.305)
-limit_enabled = false
 
 [node name="PlayerPlayer" parent="." unique_id=1119101225 instance=ExtResource("41_i74u8")]
 unique_name_in_owner = true
