@@ -26,8 +26,20 @@
 [ext_resource type="Texture2D" uid="uid://dx6f0ek4iloyb" path="res://core/level/resource/sprite/1.png" id="25_4ihe7"]
 [ext_resource type="Texture2D" uid="uid://dwvk5iomns1hn" path="res://core/level/resource/sprite/0.png" id="26_ep8cd"]
 [ext_resource type="Script" uid="uid://cwoinddfmepd0" path="res://core/common/component/components/components.gd" id="29_o7scw"]
+[ext_resource type="Script" uid="uid://j3t3annvu376" path="res://core/level/level_-999/main_menu.gd" id="31_3j1qu"]
+[ext_resource type="PackedScene" uid="uid://del22g175wnyf" path="res://core/level/level_-999/main_screen_menu.tscn" id="31_4ihe7"]
+[ext_resource type="PackedScene" uid="uid://dk2mepf1eu5ro" path="res://core/common/ui/state_box/setting/save_file_item/save_file_item.tscn" id="33_2nuac"]
+[ext_resource type="Script" uid="uid://dfkxj7p1v3mhp" path="res://core/common/ui/state_box/菜单.gd" id="33_8asi8"]
 [ext_resource type="PackedScene" path="res://core/common/component/parallax_scale/parallax_scale_2d.tscn" id="33_edfyf"]
+[ext_resource type="PackedScene" uid="uid://b81hgkg6syg5x" path="res://core/common/ui/state_box/setting/setting_item.tscn" id="33_rct81"]
+[ext_resource type="Resource" uid="uid://1j4fvfecu1s7" path="res://core/common/ui/state_box/setting/new_save_file.tres" id="34_8asi8"]
+[ext_resource type="Theme" uid="uid://tdxlyr8vxjoh" path="res://core/level/level_-999/mainui.tres" id="34_iqkoj"]
+[ext_resource type="Resource" uid="uid://cosditoy814sf" path="res://core/common/ui/state_box/setting/load_game.tres" id="36_gmhlb"]
 [ext_resource type="Texture2D" uid="uid://dhrj7bxf6hqni" path="res://core/common/resource/texture/marks.png" id="36_jhqbr"]
+[ext_resource type="Resource" uid="uid://wk0jnm23w7xm" path="res://core/common/ui/state_box/setting/delete_game.tres" id="37_r0jgi"]
+[ext_resource type="PackedScene" uid="uid://ybef35mhdxtn" path="res://core/common/saves/SaveFileDataController/BaseSaveFileController.tscn" id="38_pgh7o"]
+[ext_resource type="Script" uid="uid://ouhl12atvg6x" path="res://core/common/saves/SaveFileDataController/SaveFileDataController.gd" id="39_hl8cf"]
+[ext_resource type="Resource" uid="uid://dortpr4kglj6k" path="res://core/common/ui/state_box/setting/save_menu_ui_save_file_config.tres" id="40_x4ss8"]
 [ext_resource type="PackedScene" uid="uid://c56xbxh2my7gr" path="res://core/common/component/marks/marks.tscn" id="42_t76e3"]
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="43_dgbr5"]
 
@@ -56,51 +68,51 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7h3t0"]
 gradient = SubResource("Gradient_7h3t0")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ihe7"]
-resource_local_to_scene = true
-shader = ExtResource("20_vt5du")
-shader_parameter/enable_rim = true
-shader_parameter/rim_width_px = 2.6
-shader_parameter/rim_intensity = 5.8
-shader_parameter/rim_softness = 1.2
-shader_parameter/sample_count = 5
-shader_parameter/light_dir = Vector2(-2, -3.245)
-shader_parameter/distance_strength = 7.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oedco"]
-resource_local_to_scene = true
-shader = ExtResource("20_vt5du")
-shader_parameter/enable_rim = true
-shader_parameter/rim_width_px = 2.6
-shader_parameter/rim_intensity = 5.8
-shader_parameter/rim_softness = 1.2
-shader_parameter/sample_count = 5
-shader_parameter/light_dir = Vector2(-2, -3.245)
-shader_parameter/distance_strength = 7.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3j1qu"]
-resource_local_to_scene = true
-shader = ExtResource("20_vt5du")
-shader_parameter/enable_rim = true
-shader_parameter/rim_width_px = 2.6
-shader_parameter/rim_intensity = 5.8
-shader_parameter/rim_softness = 1.2
-shader_parameter/sample_count = 5
-shader_parameter/light_dir = Vector2(-2, -3.245)
-shader_parameter/distance_strength = 7.1
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2nuac"]
-resource_local_to_scene = true
-shader = ExtResource("20_vt5du")
-shader_parameter/enable_rim = true
-shader_parameter/rim_width_px = 2.6
-shader_parameter/rim_intensity = 5.8
-shader_parameter/rim_softness = 1.2
-shader_parameter/sample_count = 5
-shader_parameter/light_dir = Vector2(-2, -3.245)
-shader_parameter/distance_strength = 7.1
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ar8th"]
+resource_local_to_scene = true
+shader = ExtResource("20_vt5du")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.6
+shader_parameter/rim_intensity = 5.8
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-2, -3.245)
+shader_parameter/distance_strength = 7.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idiae"]
+resource_local_to_scene = true
+shader = ExtResource("20_vt5du")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.6
+shader_parameter/rim_intensity = 5.8
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-2, -3.245)
+shader_parameter/distance_strength = 7.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjlsl"]
+resource_local_to_scene = true
+shader = ExtResource("20_vt5du")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.6
+shader_parameter/rim_intensity = 5.8
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-2, -3.245)
+shader_parameter/distance_strength = 7.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rct81"]
+resource_local_to_scene = true
+shader = ExtResource("20_vt5du")
+shader_parameter/enable_rim = true
+shader_parameter/rim_width_px = 2.6
+shader_parameter/rim_intensity = 5.8
+shader_parameter/rim_softness = 1.2
+shader_parameter/sample_count = 5
+shader_parameter/light_dir = Vector2(-2, -3.245)
+shader_parameter/distance_strength = 7.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8asi8"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -231,7 +243,7 @@ sources/0 = SubResource("TileSetAtlasSource_ufwbg")
 shader = ExtResource("25_2c3rq")
 shader_parameter/blur_amount = 1.50000007125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_idiae"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmhlb"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -242,7 +254,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjlsl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0jgi"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -253,7 +265,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2ltx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgh7o"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -267,7 +279,7 @@ shader_parameter/distance_strength = 7.1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07drm"]
 size = Vector2(1177.5, 1028)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rct81"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hl8cf"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -278,7 +290,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8asi8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4ss8"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -289,7 +301,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmhlb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdwgw"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -339,7 +351,6 @@ texture_scale = 50.0
 [node name="白色高光" type="PointLight2D" parent="Components/Lights" unique_id=1120481193]
 position = Vector2(1599.3845, 412.5625)
 scale = Vector2(1.3055885, 0.7248039)
-energy = 4.74
 range_item_cull_mask = 2048
 texture = SubResource("GradientTexture2D_4434d")
 texture_scale = 5.81
@@ -393,8 +404,7 @@ enable = true
 
 [node name="UnstableLightFlicker" type="Node" parent="Components" unique_id=889655631]
 
-[node name="UnstableLightFlicker2" parent="Components/UnstableLightFlicker" unique_id=220190805 node_paths=PackedStringArray("target_lights") instance=ExtResource("5_5rky1")]
-target_lights = [NodePath("")]
+[node name="UnstableLightFlicker2" parent="Components/UnstableLightFlicker" unique_id=220190805 instance=ExtResource("5_5rky1")]
 interval_min = 14.6
 interval_max = 32.85
 
@@ -429,6 +439,7 @@ layer_id = -6
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Parallax/ParallaxLayer_-6" unique_id=1876825104]
+visible = false
 offset_left = -977.0
 offset_top = -213.0
 offset_right = 3582.0
@@ -441,7 +452,7 @@ metadata/_edit_lock_ = true
 
 [node name="BaseSprite2" parent="Parallax/ParallaxLayer_-5" unique_id=94096621 instance=ExtResource("10_5jisn")]
 light_mask = 1
-material = SubResource("ShaderMaterial_4ihe7")
+material = SubResource("ShaderMaterial_ar8th")
 position = Vector2(1280, 292)
 texture = ExtResource("12_tl2o3")
 base_color_override_scale = 0.525
@@ -459,7 +470,7 @@ host_layer = NodePath("../../../ParallaxLayer_-4")
 debug = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_-5" unique_id=1986247606 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_oedco")
+material = SubResource("ShaderMaterial_idiae")
 position = Vector2(1244, 292)
 scale = Vector2(1.403125, 1)
 texture = ExtResource("12_j1rmr")
@@ -476,7 +487,7 @@ layer_id = -4
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_-4" unique_id=395119875 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_3j1qu")
+material = SubResource("ShaderMaterial_hjlsl")
 position = Vector2(1173, 292)
 texture = ExtResource("13_10lvp")
 base_color_override_scale = 0.589
@@ -519,7 +530,7 @@ layer_id = -2
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite2" parent="Parallax/ParallaxLayer_-2" unique_id=1534780744 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_2nuac")
+material = SubResource("ShaderMaterial_rct81")
 position = Vector2(1296, 292)
 texture = ExtResource("14_8yxye")
 rim_width_px = 1.2
@@ -595,7 +606,7 @@ scale_max = 2.0
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_2" unique_id=244964257 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_ar8th")
+material = SubResource("ShaderMaterial_8asi8")
 position = Vector2(1262, 292)
 texture = ExtResource("15_hmkun")
 rim_width_px = 1.2
@@ -630,7 +641,7 @@ mouse_filter = 2
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_3" unique_id=580193503 instance=ExtResource("10_5jisn")]
 light_mask = 1
-material = SubResource("ShaderMaterial_idiae")
+material = SubResource("ShaderMaterial_gmhlb")
 position = Vector2(1280, 300)
 texture = ExtResource("17_2l71w")
 rim_width_px = 1.2
@@ -646,7 +657,7 @@ layer_id = 4
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_4" unique_id=1651893815 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_hjlsl")
+material = SubResource("ShaderMaterial_r0jgi")
 position = Vector2(1298, 292)
 texture = ExtResource("17_j1rmr")
 rim_width_px = 1.2
@@ -667,7 +678,7 @@ script = ExtResource("29_o7scw")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_5/Main/Tile" unique_id=1830226906 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_f2ltx")
+material = SubResource("ShaderMaterial_pgh7o")
 position = Vector2(1314, 292)
 texture = ExtResource("21_10lvp")
 rim_width_px = 1.2
@@ -723,7 +734,7 @@ scale_max = 2.0
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_6" unique_id=766053257 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_rct81")
+material = SubResource("ShaderMaterial_hl8cf")
 position = Vector2(1325, 292)
 texture = ExtResource("24_tl2o3")
 rim_width_px = 1.2
@@ -738,7 +749,7 @@ position = Vector2(11, 4)
 layer_id = 7
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_7" unique_id=1440866934 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_8asi8")
+material = SubResource("ShaderMaterial_x4ss8")
 position = Vector2(1309, 292)
 texture = ExtResource("25_4ihe7")
 rim_width_px = 1.2
@@ -753,14 +764,215 @@ position = Vector2(11, 4)
 layer_id = 8
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_8" unique_id=1120908873 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_gmhlb")
+material = SubResource("ShaderMaterial_cdwgw")
 position = Vector2(1193.5, 292)
 scale = Vector2(1.4585938, 1)
 texture = ExtResource("26_ep8cd")
-base_color_override_scale = 0.454
+base_color = Color(0, 0, 0, 1)
+base_color_override_scale = 0.611
 rim_width_px = 1.2
 rim_intensity = 0.7
 rim_softness = 0.0
 light_dir = Vector2(0, -2.625)
 distance_strength = 1.5
 back_offset = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1918601642]
+
+[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer" unique_id=264576979]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("31_3j1qu")
+
+[node name="1top" type="MarginContainer" parent="CanvasLayer/MainMenu" unique_id=1602894166]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.52
+mouse_filter = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu" unique_id=1064427978]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+mouse_filter = 2
+
+[node name="2left" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=228081354]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.43
+
+[node name="menu1" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=895542174]
+visible = false
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.74
+
+[node name="Continue" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=461845214 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "继续"
+
+[node name="NewGmae" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=1198991763 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+
+[node name="ReadSave" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=1296247075 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "读取存档"
+
+[node name="Setting" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=2011120639 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "设置"
+
+[node name="Exit" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=503642505 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "退出"
+
+[node name="menu3" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=427518834]
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.74
+
+[node name="SaveSaveFile" parent="CanvasLayer/MainMenu/VBoxContainer/menu3" unique_id=249343547 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "继续"
+
+[node name="ReadSaveFile" parent="CanvasLayer/MainMenu/VBoxContainer/menu3" unique_id=1168843115 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+
+[node name="DeleteSaveFile" parent="CanvasLayer/MainMenu/VBoxContainer/menu3" unique_id=1232734050 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "读取存档"
+
+[node name="Back2Main" parent="CanvasLayer/MainMenu/VBoxContainer/menu3" unique_id=1232012704 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "设置"
+
+[node name="menu2" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1518355273]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+script = ExtResource("33_8asi8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2" unique_id=1895796891]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer" unique_id=169700850]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 12.67
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2" unique_id=570222304]
+layout_mode = 2
+
+[node name="NewSaveFile" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1726226486 instance=ExtResource("33_rct81")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tooltip_text = "新建存档"
+setting_item = 2
+setting_item_config = ExtResource("34_8asi8")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=559343578]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 12.4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=1094783837]
+layout_mode = 2
+
+[node name="SaveList" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer" unique_id=2010124709]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveFileItem" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer/SaveList" unique_id=1389077879 instance=ExtResource("33_2nuac")]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer" unique_id=1016672317]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 15.33
+theme_override_constants/margin_top = 8
+
+[node name="Screenshot" type="TextureRect" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer3" unique_id=1155532841]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer" unique_id=924158247]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.32
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer" unique_id=599564166]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="save" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer/VBoxContainer" unique_id=232522236 instance=ExtResource("33_rct81")]
+layout_mode = 2
+theme = ExtResource("34_iqkoj")
+
+[node name="load" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer/VBoxContainer" unique_id=97241625 instance=ExtResource("33_rct81")]
+layout_mode = 2
+tooltip_text = "读取存档"
+update = true
+setting_item = 1
+setting_item_config = ExtResource("36_gmhlb")
+
+[node name="delete" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1390249601 instance=ExtResource("33_rct81")]
+layout_mode = 2
+tooltip_text = "删除存档"
+bk_conf_color = Color(0.74902, 0.0117647, 0, 0.72549)
+setting_item = 3
+setting_item_config = ExtResource("37_r0jgi")
+
+[node name="DataSaveFileCollector" parent="CanvasLayer/MainMenu/VBoxContainer/menu2" unique_id=1848048086 instance=ExtResource("38_pgh7o")]
+script = ExtResource("39_hl8cf")
+save_data_config = ExtResource("40_x4ss8")
+has_master = false
+debug = true
+load_on_ready = true
+save_id = false
+save_obj_id = false
+save_position = false
+save_faced = false
+
+[node name="Timer" type="Timer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2" unique_id=443916730]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="menu1R" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1740194946]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="2left4" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1444450828]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.58
+
+[node name="1bot" type="MarginContainer" parent="CanvasLayer/MainMenu" unique_id=302041931]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.93
+mouse_filter = 2
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/menu1/ReadSave" to="CanvasLayer/MainMenu" method="_on_read_save_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/menu3/Back2Main" to="CanvasLayer/MainMenu" method="_on_back_2_main_pressed"]

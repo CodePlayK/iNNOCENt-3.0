@@ -173,7 +173,7 @@ mouse_filter = 0
 theme = ExtResource("1_40a3c")
 theme_override_styles/panel = SubResource("StyleBoxFlat_g47y2")
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 tab_focus_mode = 1
 
 [node name="角色属性" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=242220930]
@@ -361,6 +361,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 
 [node name="收集品" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=569137082]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -450,7 +451,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.32
 
 [node name="菜单" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=1224675942]
-visible = false
 layout_mode = 2
 script = ExtResource("11_yaq3f")
 metadata/_tab_index = 2
@@ -499,7 +499,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="SaveFileItem" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer/SaveList" unique_id=1691027328 instance=ExtResource("21_o8lit")]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer" unique_id=919529801]

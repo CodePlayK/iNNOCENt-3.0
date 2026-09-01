@@ -790,11 +790,7 @@ color = Color(0, 0, 0, 1)
 [node name="RestTimer" type="Timer" parent="ScreenEffect/LevelTransation" unique_id=1805130882]
 one_shot = true
 
-[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
-layer = 7
-script = ExtResource("24_3yn66")
-
-[node name="VHS" type="ColorRect" parent="CharacterBoxCanvas" unique_id=776308278]
+[node name="VHS" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
 light_mask = 0
 material = SubResource("ShaderMaterial_ky2o5")
 anchors_preset = 15
@@ -803,6 +799,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
+layer = 7
+visible = false
+script = ExtResource("24_3yn66")
 
 [node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]
 

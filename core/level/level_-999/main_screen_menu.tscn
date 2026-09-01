@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://del22g175wnyf"]
+
+[ext_resource type="Theme" uid="uid://tdxlyr8vxjoh" path="res://core/level/level_-999/mainui.tres" id="2_ecj0j"]
+
+[node name="MainScreenMenu" type="Button" unique_id=249343547]
+offset_right = 96.0
+offset_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+theme = ExtResource("2_ecj0j")
+text = "新游戏"
