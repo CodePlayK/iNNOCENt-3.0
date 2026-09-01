@@ -6,3 +6,9 @@ func load_vars():
 		["forest-ambient",-20],
 		["wind-in-trees",-10]
 	]
+
+func resume():
+	super.resume()
+	if CutsceneState.current_cutscene == "0_0_0":
+		CutscenerGlobal.cutscener_run.emit("0_0_0_开场动画")
+		

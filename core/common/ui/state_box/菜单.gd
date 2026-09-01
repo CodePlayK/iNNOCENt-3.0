@@ -2,6 +2,10 @@ extends MarginContainer
 class_name UIMenuTab
 
 #region Node References
+@onready var read_save_file: Button = $"../menu3/ReadSaveFile"
+@onready var delete_save_file: Button = $"../menu3/DeleteSaveFile"
+@onready var save_save_file: Button = $"../menu3/SaveSaveFile"
+
 @onready var save: UISettingItem = $HBoxContainer/MarginContainer/VBoxContainer/save
 @onready var load: UISettingItem = $HBoxContainer/MarginContainer/VBoxContainer/load
 @onready var delete: UISettingItem = $HBoxContainer/MarginContainer/VBoxContainer/delete
@@ -13,6 +17,9 @@ class_name UIMenuTab
 @onready var timer: Timer = %Timer
 var save_locker:bool = false
 @export var debug: bool = false
+@onready var data_save_file_collector: BaseDataFileCollector = $DataSaveFileCollector
+@onready var new_save_file2: Button = $"../menu3/NewSaveFile"
+@onready var continue_game: Button = $"../menu1/ContinueGame"
 
 var current_selected_save_file_item: UISaveFileItem
 
@@ -21,20 +28,25 @@ func _ready() -> void:
 	save.selected.connect(on_save)
 	load.selected.connect(on_load)
 	delete.selected.connect(on_delete)
+	save_save_file.pressed.connect(on_save)
+	read_save_file.pressed.connect(on_load)
+	continue_game.pressed.connect(on_load)
+	delete_save_file.pressed.connect(on_delete)
 	new_save_file_but.selected.connect(on_new_save_file)
-
+	new_save_file2.pressed.connect(on_new_save_file)
+	EventBus.new_save_game.connect(on_new_save_file)
 
 #region Button Callbacks
 func on_save() -> void:
-	if not _has_valid_selection():
-		_debug_err("未选中存档!")
-		return
-
-	_set_current_save_from_selection()
+	#if not _has_valid_selection():
+		#_debug_err("未选中存档!")
+		#return
+#
+	#_set_current_save_from_selection()
 	_debug_info("保存按钮按下")
 	EventBus._save_game()
 	EventBus._save_file_id_update()
-	move_selected2top()
+	#move_selected2top()
 
 
 func on_load() -> void:
@@ -45,6 +57,7 @@ func on_load() -> void:
 	_set_current_save_from_selection()
 	_debug_info("载入按钮按下")
 	##通知存档持久化节点,但不要读取数据库里保存的current_save_id
+	data_save_file_collector.load_game = true
 	EventBus._load_save_file(false)
 	#EventBus._level_changed(LevelState.last_level, LevelState.current_level)
 	move_selected2top()
@@ -147,7 +160,7 @@ func _has_valid_selection() -> bool:
 func _set_current_save_from_selection() -> void:
 	var config: UISaveFileItemConfig = DataState.current_save_file_dic[DataState.current_select_save_id]
 	DataState.current_save_id = config.save_id
-
+	data_save_file_collector.update_current_save_id()
 
 func _try_select_first_remaining() -> void:
 	for child in save_list.get_children():
@@ -174,4 +187,8 @@ func _debug_err(msg: String) -> void:
 
 func _on_timer_timeout() -> void:
 	save_locker=false
+	pass # Replace with function body.
+
+
+func _on_save_save_file_pressed() -> void:
 	pass # Replace with function body.

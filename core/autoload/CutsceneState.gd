@@ -26,7 +26,8 @@ var player_position:Vector2
 ##场景名index映射<index:场景名>
 var cutscene_index_dic:Dictionary[int,String]
 
-
+func new_save_game():
+	EventBus.new_save_game.emit()
 func set_current_cutscene(cc:String):
 	current_cutscene = cc
 ##修改玩家状态
@@ -44,7 +45,7 @@ func talk(dialoge_config:DialogueConfig,title:String = ""):
 	await Dialogue.end_dialogue
 ##设置玩家位置
 func set_player_pos(pos:Vector2,face_left:int = 0):
-	PlayerState.player_player.global_position = pos
+	PlayerState.player_player.position = pos
 	match face_left:
 		1:
 			PlayerState.player_player.face_direction.set_faced(false)

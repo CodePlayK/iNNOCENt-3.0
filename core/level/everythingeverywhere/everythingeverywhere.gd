@@ -1,5 +1,5 @@
 @icon ("res://addons/at-icons/animation/institutional_building.svg")
-
+class_name Everythingeverywhere42
 extends Node2D
 ## 简短概述：42 is here
 ##
@@ -39,6 +39,7 @@ func _init() -> void:
 ## 初始化
 ## 如果要运行 cutscener，则在这里修改：载入 cutscener 配置目录，判断当前运行是否为 cutscener
 func _ready() -> void:
+	Global.everythingeverywhere42 = self
 	Global.test_mark = test_mark
 	PlayerState.player_player = player_player
 	_ensure_default_save_file()
@@ -52,6 +53,17 @@ func load_main_screen():
 	PlayerState.current_player_born_position = LevelState.main_scrren_player_pos
 	_on_change_level(LevelState.LEVELS.LEVEL_MAIN_SCREEN)
 
+func reset_all_levels():
+	EventBus.reset_game.emit()
+	return
+	player_player.reparent(self)
+	for k in LevelState.level_dic.keys():
+		if k == LevelState.LEVELS.LEVEL_MAIN_SCREEN:
+			LevelState.level_dic[k].pause()
+			#LevelState.level_dic[k].global_position = Vector2i(0,9999)
+			continue
+		LevelState.level_dic[k].queue_free()
+		LevelState.level_dic.erase(k)
 	# 载入 cutscener 配置目录，判断当前运行是否为 cutscener
 	# var config = load_json(CutscenerGlobal.CONFIG_DATA_FILE_PATH)
 	# if config["run_type"] == 0:
@@ -67,7 +79,7 @@ func _init_level_paths() -> void:
 func _request_all_levels_threaded() -> void:
 	for path in dic_level_path.values():
 		_request_level_threaded(path)
-
+	
 
 func _request_level_threaded(path: String) -> void:
 	if path.is_empty() or packed_level_cache.has(path) or _threaded_requested.has(path):
@@ -132,7 +144,6 @@ func load_level(level_path: String) -> void:
 	
 ## 恢复已加载的关卡
 func resume_level(level_id: LevelState.LEVELS) -> void:
-
 	var level: Levels = LevelState.level_dic[level_id]
 	player_player.reparent(level.player_layer)
 	LevelState.current_level_node = level
@@ -153,6 +164,7 @@ func _on_change_level(level_id: LevelState.LEVELS) -> void:
 	if LevelState.current_level_node:
 		if 	LevelState.last_level != LevelState.current_level:
 			await level_transation.play_transition(LevelTransation.TRANSITION_NAME.FALLING_BOX,LevelTransation.TRANSITION_TYPE.IN,1)
+		EventBus.old_level_hide_complete.emit()
 		await LevelState.current_level_node.pause()
 	
 	if LevelState.level_dic.has(level_id):
@@ -216,6 +228,8 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		old_level.global_position.x =  -new_level_start_x
 		Global.player_camera.global_position = camera_last_pos-Vector2(new_level_start_x,0)
 		#用一帧让相机和两个关卡按新关卡的坐标移动到零点
+		Global.player_camera.limit_left = new_level_pos.x-new_level_size.x*0.5
+		Global.player_camera.limit_right = new_level_pos.x+new_level_size.x*0.5
 		await get_tree().process_frame
 		new_level.parallax.parallax_on = true		
 		#Debug.dprintinfo(DebugCT.dp("--------开始播放切换关卡动画---------",self))
@@ -232,8 +246,6 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		Global.player_camera.position_smoothing_enabled = true
 		tw.kill()
 		LevelState.level_dic[LevelState.last_level].position=Vector2i(0,9999)
-		Global.player_camera.limit_left = new_level_pos.x-new_level_size.x*0.5
-		Global.player_camera.limit_right = new_level_pos.x+new_level_size.x*0.5
 		LevelState.level_dic[LevelState.last_level].hide()
 	Debug.dprintinfo(DebugCT.dp("******关卡切换动画结束[UP]",self))
 

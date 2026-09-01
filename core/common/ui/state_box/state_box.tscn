@@ -11,8 +11,6 @@
 [ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="8_rildj"]
 [ext_resource type="Resource" uid="uid://cjos3jdrktjxn" path="res://core/player/attributes/player_stamina.tres" id="9_56dnf"]
 [ext_resource type="PackedScene" uid="uid://dtphdry0yywm8" path="res://core/common/ui/state_box/ABTState/abt_item.tscn" id="11_4sda2"]
-[ext_resource type="PackedScene" uid="uid://b81hgkg6syg5x" path="res://core/common/ui/state_box/setting/setting_item.tscn" id="11_x27xv"]
-[ext_resource type="Script" uid="uid://dfkxj7p1v3mhp" path="res://core/common/ui/state_box/菜单.gd" id="11_yaq3f"]
 [ext_resource type="Resource" uid="uid://cjsxe3ktngblm" path="res://core/common/ui/state_box/ABTState/ABT_resource/ABTSwordWindConfig.tres" id="12_6qn6u"]
 [ext_resource type="Resource" uid="uid://dnvpenvyx8rgr" path="res://core/common/ui/state_box/ABTState/ABT_resource/ABTDashConfig.tres" id="12_bm4i8"]
 [ext_resource type="Texture2D" uid="uid://2afulh84wihv" path="res://core/common/ui/state_box/ABTState/Icons Separated.png" id="12_dyn74"]
@@ -20,14 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c2vbvuvmyf0u3" path="res://core/common/saves/DataController/DataController.tscn" id="15_f5qa1"]
 [ext_resource type="Resource" uid="uid://dimiykt48q1pc" path="res://core/common/ui/state_box/ABTState/ABT_resource/ABTDenseConfig.tres" id="15_vl54w"]
 [ext_resource type="Script" uid="uid://c6573i1xaw1n0" path="res://core/common/ui/state_box/StateDataController.gd" id="16_cnyhu"]
-[ext_resource type="Resource" uid="uid://cosditoy814sf" path="res://core/common/ui/state_box/setting/load_game.tres" id="20_r052k"]
-[ext_resource type="Resource" uid="uid://1j4fvfecu1s7" path="res://core/common/ui/state_box/setting/new_save_file.tres" id="21_5q5g4"]
-[ext_resource type="PackedScene" uid="uid://dk2mepf1eu5ro" path="res://core/common/ui/state_box/setting/save_file_item/save_file_item.tscn" id="21_o8lit"]
-[ext_resource type="Resource" uid="uid://wk0jnm23w7xm" path="res://core/common/ui/state_box/setting/delete_game.tres" id="22_80r3y"]
 [ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="23_77qh7"]
-[ext_resource type="Script" uid="uid://ouhl12atvg6x" path="res://core/common/saves/SaveFileDataController/SaveFileDataController.gd" id="24_1qo2b"]
-[ext_resource type="Resource" uid="uid://dortpr4kglj6k" path="res://core/common/ui/state_box/setting/save_menu_ui_save_file_config.tres" id="25_bhkcg"]
-[ext_resource type="PackedScene" uid="uid://ybef35mhdxtn" path="res://core/common/saves/SaveFileDataController/BaseSaveFileController.tscn" id="26_1m5ka"]
 [ext_resource type="Material" uid="uid://bli7y1u5kjxe4" path="res://test/shader/state_box_crt.tres" id="27_6r5qt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g47y2"]
@@ -173,7 +164,7 @@ mouse_filter = 0
 theme = ExtResource("1_40a3c")
 theme_override_styles/panel = SubResource("StyleBoxFlat_g47y2")
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 tab_focus_mode = 1
 
 [node name="角色属性" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=242220930]
@@ -361,7 +352,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.15
 
 [node name="收集品" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=569137082]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -449,95 +439,6 @@ theme_override_constants/separation = 26
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.32
-
-[node name="菜单" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" unique_id=1224675942]
-layout_mode = 2
-script = ExtResource("11_yaq3f")
-metadata/_tab_index = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单" unique_id=1936883550]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer" unique_id=297903949]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 10.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2" unique_id=1721334806]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=862362638]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 15.33
-theme_override_constants/margin_top = 8
-
-[node name="Screenshot" type="TextureRect" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2" unique_id=1672228869]
-unique_name_in_owner = true
-layout_mode = 2
-expand_mode = 3
-stretch_mode = 5
-
-[node name="NewSaveFile" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=367339227 instance=ExtResource("11_x27xv")]
-unique_name_in_owner = true
-layout_mode = 2
-tooltip_text = "新建存档"
-setting_item = 2
-setting_item_config = ExtResource("21_5q5g4")
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1559728427]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 10.89
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=1201274520]
-layout_mode = 2
-
-[node name="SaveList" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1190685603]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SaveFileItem" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer/SaveList" unique_id=1691027328 instance=ExtResource("21_o8lit")]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer" unique_id=919529801]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 4.22
-theme_override_constants/margin_top = 12
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer" unique_id=496367180]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="save" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer/VBoxContainer" unique_id=570774760 instance=ExtResource("11_x27xv")]
-layout_mode = 2
-
-[node name="load" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1996439048 instance=ExtResource("11_x27xv")]
-layout_mode = 2
-tooltip_text = "读取存档"
-update = true
-setting_item = 1
-setting_item_config = ExtResource("20_r052k")
-
-[node name="delete" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1749942804 instance=ExtResource("11_x27xv")]
-layout_mode = 2
-tooltip_text = "删除存档"
-bk_conf_color = Color(0.74902, 0.0117647, 0, 0.72549)
-setting_item = 3
-setting_item_config = ExtResource("22_80r3y")
-
-[node name="DataSaveFileCollector" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单" unique_id=1848048086 instance=ExtResource("26_1m5ka")]
-script = ExtResource("24_1qo2b")
-save_data_config = ExtResource("25_bhkcg")
-has_master = false
-debug = true
-load_on_ready = true
-save_id = false
-save_obj_id = false
-save_position = false
-save_faced = false
 
 [node name="HBoxContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer" unique_id=226930803]
 layout_mode = 2
@@ -637,4 +538,3 @@ one_shot = true
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer/MCLeft" to="." method="_on_mc_left_gui_input"]
 [connection signal="focus_exited" from="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs" to="." method="_on_state_tabs_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/HBoxContainer2/VBoxContainer/MarginContainer3/CloseBoxBut" to="." method="_on_close_box_but_pressed"]
-[connection signal="timeout" from="Timer" to="VBoxContainer/HBoxContainer/StateBoxCenter/MarginContainer2/HBoxContainer/MarginContainer/StateTabs/菜单" method="_on_timer_timeout"]

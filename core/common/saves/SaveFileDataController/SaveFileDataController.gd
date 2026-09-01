@@ -2,6 +2,7 @@
 ##current_save_id:最新的存档id,用于游戏在初始化时选择存档
 extends BaseDataFileCollector
 @onready var menu: UIMenuTab = $".."
+var load_game:bool = false
 
 func on_ready():
 	DataState.ui_save_data_controller = self
@@ -30,5 +31,9 @@ func load_custom_data(data:Dictionary,update_current_save_id:bool):
 		menu.new_save_file(int(k),data["save_files"][k]["level_id"],data["save_files"][k]["save_name"],data["save_files"][k]["save_time"])
 	DataState.current_select_save_id = DataState.current_save_id
 	EventBus._save_file_id_update()
-	EventBus.load_level.emit()
+	if load_game:EventBus.load_level.emit()
 	menu.move_selected2top()
+
+func update_current_save_id():
+	custom_data()
+	DataState._upsert_row(save_data_config.save_id,save_data_config.group,save_data_config.level_id,save_data_config.data,[])

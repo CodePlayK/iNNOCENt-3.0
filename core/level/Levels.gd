@@ -126,8 +126,9 @@ func resume():
 	
 func after_transition():
 	PlayerState.preset_player(self)
+	if CutsceneState.cutscener_playing:
+		return
 	PlayerState.set_player_control_lock(false,self)
-	pass
 
 func get_level_shape_size()->Vector2:
 	var shape = leve_bound.shape as RectangleShape2D

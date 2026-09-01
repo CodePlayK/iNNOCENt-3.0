@@ -9,7 +9,7 @@ func add_2_level_lights_dic(level_id:LevelState.LEVELS,bl:BaseLight):
 		level_lights_dic[level_id] = [bl]
 	else :
 		level_lights_dic[level_id].append(bl)
-		
+var everythingeverywhere42:Everythingeverywhere42		
 var test_mark:Node2D
 var camera_controller:CameraController
 enum transition_type {

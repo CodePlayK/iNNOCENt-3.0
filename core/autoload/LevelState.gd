@@ -9,7 +9,7 @@ const LEVEL_MAIN_SCREEN_PATH="res://core/level/level_-999/level_-999_主界面.t
 var current_save_id:int=-99999
 var current_level:LEVELS=LEVELS.LEVEL_CURRENT
 ##储存当前载入过的所有关卡{ [enum LEVELS] : [Levels] }
-var level_dic:Dictionary
+var level_dic:Dictionary[LEVELS,Levels]
 var current_level_node:Levels
 var changing_level:bool = false
 

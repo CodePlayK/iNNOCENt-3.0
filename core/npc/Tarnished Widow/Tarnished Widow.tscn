@@ -1247,6 +1247,7 @@ texture = ExtResource("35_cfeqs")
 offset = Vector2(0, -31.12)
 hframes = 10
 vframes = 9
+frame = 63
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,

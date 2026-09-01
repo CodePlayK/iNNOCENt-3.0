@@ -13,6 +13,7 @@ func reset():
 		n.position = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
+	if !anime_controller.anime:return
 	for offset_config:AnimeOffsetConfig in anime_controller.anime.anime_offset:
 			if anime_controller.current_frame == offset_config.start_frame and anime_controller.aniplayer.current_animation == anime_controller.anime.animation_name :
 				if anime_controller.check_cache(anime_controller.anime.state_name+"offset"+str(offset_config.start_frame)):

@@ -32,3 +32,7 @@ func _on_camera_shake(strenth,decay):
 func _on_fight_dely_time_timeout() -> void:
 	if stamina_config.current_stamina == stamina_config.max_stamina:
 		stamina_bar.hide()
+
+func _on_esc_pressed() -> void:
+	EventBus.on_esc_pressed.emit()	
+	pass # Replace with function body.

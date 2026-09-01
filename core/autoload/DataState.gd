@@ -204,6 +204,8 @@ func _upsert_row(
 
 # endregion
 
+func update_current_savefile(save_file_id):
+	pass
 
 # region 删除存档
 

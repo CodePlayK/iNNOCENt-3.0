@@ -14,11 +14,18 @@ signal save_game
 signal load_game
 ## 仅通知 [BaseSaveFileSaver] 载入存档文件本身（不触发完整关卡状态刷新）
 signal load_save_file
+signal save_save_file
 signal load_level
 ## 删除指定存档（参数：save_id）
 signal delete_save
 ## 当前使用的存档 ID 发生变化（菜单选中 / 新建 / 删除后同步 UI）
 signal save_file_id_update
+##按下esc时
+signal on_esc_pressed
+##重置游戏
+signal reset_game
+##通知新建游戏存档
+signal new_save_game
 #endregion
 
 
@@ -46,6 +53,8 @@ signal cutscene_is_playing
 signal play_cutscene_aniplayer
 ## 播放画面后处理/屏幕特效（参数：e_name 效果名, args 额外参数）
 signal play_screen_effect
+##老关卡被过场动画完全隐藏后发出
+signal old_level_hide_complete
 #endregion
 
 

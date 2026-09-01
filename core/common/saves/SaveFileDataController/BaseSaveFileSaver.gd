@@ -83,7 +83,7 @@ func _query_save_data(condition: String) -> Dictionary:
 
 	var row_data: Dictionary = parsed
 	if not row_data.has(save_data_config.key):
-		return {}
+		return row_data
 
 	var value: Variant = row_data[save_data_config.key]
 	return value if typeof(value) == TYPE_DICTIONARY else {}

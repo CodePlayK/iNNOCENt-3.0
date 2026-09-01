@@ -25,6 +25,7 @@
 [ext_resource type="Shader" uid="uid://dqk0ghejesoaf" path="res://test/shader/dof.gdshader" id="25_2c3rq"]
 [ext_resource type="Texture2D" uid="uid://dx6f0ek4iloyb" path="res://core/level/resource/sprite/1.png" id="25_4ihe7"]
 [ext_resource type="Texture2D" uid="uid://dwvk5iomns1hn" path="res://core/level/resource/sprite/0.png" id="26_ep8cd"]
+[ext_resource type="PackedScene" uid="uid://dp7l0db2yj7tb" path="res://core/common/component/test_mark/test_mark.tscn" id="28_r0jgi"]
 [ext_resource type="Script" uid="uid://cwoinddfmepd0" path="res://core/common/component/components/components.gd" id="29_o7scw"]
 [ext_resource type="Script" uid="uid://j3t3annvu376" path="res://core/level/level_-999/main_menu.gd" id="31_3j1qu"]
 [ext_resource type="PackedScene" uid="uid://del22g175wnyf" path="res://core/level/level_-999/main_screen_menu.tscn" id="31_4ihe7"]
@@ -68,7 +69,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7h3t0"]
 gradient = SubResource("Gradient_7h3t0")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ar8th"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmhlb"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -79,7 +80,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_idiae"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0jgi"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -90,7 +91,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjlsl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgh7o"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -101,7 +102,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rct81"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hl8cf"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -112,7 +113,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8asi8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4ss8"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -243,7 +244,7 @@ sources/0 = SubResource("TileSetAtlasSource_ufwbg")
 shader = ExtResource("25_2c3rq")
 shader_parameter/blur_amount = 1.50000007125
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmhlb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdwgw"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -254,7 +255,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0jgi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ebivr"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -265,7 +266,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgh7o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0a8i"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -279,7 +280,7 @@ shader_parameter/distance_strength = 7.1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07drm"]
 size = Vector2(1177.5, 1028)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hl8cf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3kkan"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -290,7 +291,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4ss8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ys6cv"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -301,7 +302,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdwgw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y7khy"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -311,6 +312,25 @@ shader_parameter/rim_softness = 1.2
 shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
+
+[sub_resource type="Shader" id="Shader_gmhlb"]
+code = "shader_type canvas_item;
+
+// 1. 特别注意：Render Mode 设为 unshaded（不受灯光直接控制）
+render_mode unshaded;
+
+uniform float blur_amount : hint_range(0.0, 5.0) = 2.0;
+uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap, source_color;
+
+void fragment() {
+    // 正常采样并模糊屏幕已有的画面（此时画面里已经包含关卡原本的灯光了）
+    COLOR = textureLod(screen_texture, SCREEN_UV, blur_amount);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_im4sx"]
+shader = SubResource("Shader_gmhlb")
+shader_parameter/blur_amount = 2.0
 
 [node name="MainScreen" type="Node2D" unique_id=1086752988 node_paths=PackedStringArray("player_born_pos", "player_layer", "dof")]
 script = ExtResource("1_10lvp")
@@ -439,7 +459,6 @@ layer_id = -6
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Parallax/ParallaxLayer_-6" unique_id=1876825104]
-visible = false
 offset_left = -977.0
 offset_top = -213.0
 offset_right = 3582.0
@@ -452,7 +471,7 @@ metadata/_edit_lock_ = true
 
 [node name="BaseSprite2" parent="Parallax/ParallaxLayer_-5" unique_id=94096621 instance=ExtResource("10_5jisn")]
 light_mask = 1
-material = SubResource("ShaderMaterial_ar8th")
+material = SubResource("ShaderMaterial_gmhlb")
 position = Vector2(1280, 292)
 texture = ExtResource("12_tl2o3")
 base_color_override_scale = 0.525
@@ -470,7 +489,7 @@ host_layer = NodePath("../../../ParallaxLayer_-4")
 debug = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_-5" unique_id=1986247606 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_idiae")
+material = SubResource("ShaderMaterial_r0jgi")
 position = Vector2(1244, 292)
 scale = Vector2(1.403125, 1)
 texture = ExtResource("12_j1rmr")
@@ -487,7 +506,7 @@ layer_id = -4
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_-4" unique_id=395119875 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_hjlsl")
+material = SubResource("ShaderMaterial_pgh7o")
 position = Vector2(1173, 292)
 texture = ExtResource("13_10lvp")
 base_color_override_scale = 0.589
@@ -530,7 +549,7 @@ layer_id = -2
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite2" parent="Parallax/ParallaxLayer_-2" unique_id=1534780744 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_rct81")
+material = SubResource("ShaderMaterial_hl8cf")
 position = Vector2(1296, 292)
 texture = ExtResource("14_8yxye")
 rim_width_px = 1.2
@@ -606,7 +625,7 @@ scale_max = 2.0
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_2" unique_id=244964257 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_8asi8")
+material = SubResource("ShaderMaterial_x4ss8")
 position = Vector2(1262, 292)
 texture = ExtResource("15_hmkun")
 rim_width_px = 1.2
@@ -641,7 +660,7 @@ mouse_filter = 2
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_3" unique_id=580193503 instance=ExtResource("10_5jisn")]
 light_mask = 1
-material = SubResource("ShaderMaterial_gmhlb")
+material = SubResource("ShaderMaterial_cdwgw")
 position = Vector2(1280, 300)
 texture = ExtResource("17_2l71w")
 rim_width_px = 1.2
@@ -657,7 +676,7 @@ layer_id = 4
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_4" unique_id=1651893815 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_r0jgi")
+material = SubResource("ShaderMaterial_ebivr")
 position = Vector2(1298, 292)
 texture = ExtResource("17_j1rmr")
 rim_width_px = 1.2
@@ -678,7 +697,7 @@ script = ExtResource("29_o7scw")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_5/Main/Tile" unique_id=1830226906 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_pgh7o")
+material = SubResource("ShaderMaterial_l0a8i")
 position = Vector2(1314, 292)
 texture = ExtResource("21_10lvp")
 rim_width_px = 1.2
@@ -693,6 +712,10 @@ back_offset = false
 [node name="Born" parent="Parallax/ParallaxLayer_5/Main/Marks" unique_id=2066289438 instance=ExtResource("43_dgbr5")]
 unique_name_in_owner = true
 position = Vector2(1306, 845)
+
+[node name="TestMark" parent="Parallax/ParallaxLayer_5/Main/Marks" unique_id=1034310470 instance=ExtResource("28_r0jgi")]
+position = Vector2(1309, 848)
+scale = Vector2(0.025, 0.025)
 
 [node name="LeveBound" type="CollisionShape2D" parent="Parallax/ParallaxLayer_5/Main" unique_id=644941246]
 unique_name_in_owner = true
@@ -734,7 +757,7 @@ scale_max = 2.0
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_6" unique_id=766053257 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_hl8cf")
+material = SubResource("ShaderMaterial_3kkan")
 position = Vector2(1325, 292)
 texture = ExtResource("24_tl2o3")
 rim_width_px = 1.2
@@ -749,7 +772,7 @@ position = Vector2(11, 4)
 layer_id = 7
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_7" unique_id=1440866934 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_x4ss8")
+material = SubResource("ShaderMaterial_ys6cv")
 position = Vector2(1309, 292)
 texture = ExtResource("25_4ihe7")
 rim_width_px = 1.2
@@ -764,7 +787,7 @@ position = Vector2(11, 4)
 layer_id = 8
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_8" unique_id=1120908873 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_cdwgw")
+material = SubResource("ShaderMaterial_y7khy")
 position = Vector2(1193.5, 292)
 scale = Vector2(1.4585938, 1)
 texture = ExtResource("26_ep8cd")
@@ -777,9 +800,12 @@ light_dir = Vector2(0, -2.625)
 distance_strength = 1.5
 back_offset = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1918601642]
+[node name="MainMenuCan" type="CanvasLayer" parent="." unique_id=1918601642]
+process_mode = 3
+layer = 7
 
-[node name="MainMenu" type="VBoxContainer" parent="CanvasLayer" unique_id=264576979]
+[node name="MainMenu" type="VBoxContainer" parent="MainMenuCan" unique_id=264576979]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -790,25 +816,85 @@ size_flags_vertical = 3
 mouse_filter = 2
 script = ExtResource("31_3j1qu")
 
-[node name="1top" type="MarginContainer" parent="CanvasLayer/MainMenu" unique_id=1602894166]
+[node name="1top" type="MarginContainer" parent="MainMenuCan/MainMenu" unique_id=1602894166]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.52
 mouse_filter = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu" unique_id=1064427978]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuCan/MainMenu" unique_id=1253324344]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="ColorBack" type="ColorRect" parent="MainMenuCan/MainMenu/MarginContainer" unique_id=30352073]
+unique_name_in_owner = true
+layout_mode = 2
+color = Color(0, 0, 0, 0.6156863)
+
+[node name="MenuDOF" type="ColorRect" parent="MainMenuCan/MainMenu/MarginContainer" unique_id=35141709]
+light_mask = 0
+material = SubResource("ShaderMaterial_im4sx")
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Menu" type="HBoxContainer" parent="MainMenuCan/MainMenu/MarginContainer" unique_id=1064427978]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 mouse_filter = 2
 
-[node name="2left" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=228081354]
+[node name="2left" type="MarginContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu" unique_id=228081354]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.43
 
-[node name="menu1" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=895542174]
+[node name="menu1" type="VBoxContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu" unique_id=895542174]
+unique_name_in_owner = true
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.74
+
+[node name="HideMenu" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu1" unique_id=249343547 instance=ExtResource("31_4ihe7")]
+visible = false
+layout_mode = 2
+text = "隐藏"
+
+[node name="ContinueGame" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu1" unique_id=461845214 instance=ExtResource("31_4ihe7")]
+visible = false
+layout_mode = 2
+text = "继续"
+
+[node name="QuickSaveGame" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu1" unique_id=1532299790 instance=ExtResource("31_4ihe7")]
+visible = false
+layout_mode = 2
+text = "快速保存"
+
+[node name="NewGmae" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu1" unique_id=1198991763 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+
+[node name="ReadSave" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu1" unique_id=1296247075 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "存档 . . ."
+
+[node name="Setting" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu1" unique_id=2011120639 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "设置"
+
+[node name="Exit" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu1" unique_id=503642505 instance=ExtResource("31_4ihe7")]
+layout_mode = 2
+text = "退出"
+
+[node name="Back2MainMenu" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu1" unique_id=146335221 instance=ExtResource("31_4ihe7")]
+visible = false
+layout_mode = 2
+text = "返回主菜单"
+
+[node name="menu3" type="VBoxContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu" unique_id=427518834]
+unique_name_in_owner = true
 visible = false
 propagate_maximum_size = false
 layout_mode = 2
@@ -816,48 +902,29 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.74
 
-[node name="Continue" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=461845214 instance=ExtResource("31_4ihe7")]
+[node name="SaveSaveFile" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu3" unique_id=201414118 instance=ExtResource("31_4ihe7")]
 layout_mode = 2
-text = "继续"
+text = "保存存档"
 
-[node name="NewGmae" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=1198991763 instance=ExtResource("31_4ihe7")]
-layout_mode = 2
-
-[node name="ReadSave" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=1296247075 instance=ExtResource("31_4ihe7")]
+[node name="ReadSaveFile" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu3" unique_id=1168843115 instance=ExtResource("31_4ihe7")]
 layout_mode = 2
 text = "读取存档"
 
-[node name="Setting" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=2011120639 instance=ExtResource("31_4ihe7")]
+[node name="NewSaveFile" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu3" unique_id=374456970 instance=ExtResource("31_4ihe7")]
+visible = false
 layout_mode = 2
-text = "设置"
+text = "另保存为新存档"
 
-[node name="Exit" parent="CanvasLayer/MainMenu/VBoxContainer/menu1" unique_id=503642505 instance=ExtResource("31_4ihe7")]
+[node name="DeleteSaveFile" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu3" unique_id=1232734050 instance=ExtResource("31_4ihe7")]
 layout_mode = 2
-text = "退出"
+text = "删除存档"
 
-[node name="menu3" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=427518834]
-propagate_maximum_size = false
+[node name="Back2Main" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu3" unique_id=1232012704 instance=ExtResource("31_4ihe7")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.74
+text = "返回"
 
-[node name="SaveSaveFile" parent="CanvasLayer/MainMenu/VBoxContainer/menu3" unique_id=249343547 instance=ExtResource("31_4ihe7")]
-layout_mode = 2
-text = "继续"
-
-[node name="ReadSaveFile" parent="CanvasLayer/MainMenu/VBoxContainer/menu3" unique_id=1168843115 instance=ExtResource("31_4ihe7")]
-layout_mode = 2
-
-[node name="DeleteSaveFile" parent="CanvasLayer/MainMenu/VBoxContainer/menu3" unique_id=1232734050 instance=ExtResource("31_4ihe7")]
-layout_mode = 2
-text = "读取存档"
-
-[node name="Back2Main" parent="CanvasLayer/MainMenu/VBoxContainer/menu3" unique_id=1232012704 instance=ExtResource("31_4ihe7")]
-layout_mode = 2
-text = "设置"
-
-[node name="menu2" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1518355273]
+[node name="menu2" type="MarginContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu" unique_id=1518355273]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -865,18 +932,18 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 script = ExtResource("33_8asi8")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2" unique_id=1895796891]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2" unique_id=1895796891]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer" unique_id=169700850]
+[node name="MarginContainer2" type="MarginContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer" unique_id=169700850]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 12.67
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2" unique_id=570222304]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer2" unique_id=570222304]
 layout_mode = 2
 
-[node name="NewSaveFile" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1726226486 instance=ExtResource("33_rct81")]
+[node name="NewSaveFile" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1726226486 instance=ExtResource("33_rct81")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -884,64 +951,76 @@ tooltip_text = "新建存档"
 setting_item = 2
 setting_item_config = ExtResource("34_8asi8")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=559343578]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=559343578]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 12.4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=1094783837]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=1094783837]
 layout_mode = 2
 
-[node name="SaveList" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer" unique_id=2010124709]
+[node name="SaveList" type="VBoxContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer" unique_id=2010124709]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SaveFileItem" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer/SaveList" unique_id=1389077879 instance=ExtResource("33_2nuac")]
+[node name="SaveFileItem" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer/SaveList" unique_id=1389077879 instance=ExtResource("33_2nuac")]
+visible = false
 layout_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer" unique_id=1016672317]
+[node name="Button" type="Button" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/ScrollContainer/SaveList" unique_id=1996672656]
+layout_mode = 2
+theme = ExtResource("34_iqkoj")
+text = "啊撒大声地"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer" unique_id=1016672317]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 15.33
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_left = 20
 
-[node name="Screenshot" type="TextureRect" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer3" unique_id=1155532841]
+[node name="ColorRect" type="ColorRect" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer3" unique_id=499262928]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Screenshot" type="TextureRect" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer3" unique_id=1155532841]
 unique_name_in_owner = true
 layout_mode = 2
-expand_mode = 3
-stretch_mode = 5
+mouse_filter = 2
+expand_mode = 5
+stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer" unique_id=924158247]
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer" unique_id=924158247]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 7.32
 theme_override_constants/margin_top = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer" unique_id=599564166]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer" unique_id=599564166]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="save" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer/VBoxContainer" unique_id=232522236 instance=ExtResource("33_rct81")]
+[node name="save" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer/VBoxContainer" unique_id=232522236 instance=ExtResource("33_rct81")]
 layout_mode = 2
 theme = ExtResource("34_iqkoj")
 
-[node name="load" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer/VBoxContainer" unique_id=97241625 instance=ExtResource("33_rct81")]
+[node name="load" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer/VBoxContainer" unique_id=97241625 instance=ExtResource("33_rct81")]
 layout_mode = 2
 tooltip_text = "读取存档"
 update = true
 setting_item = 1
 setting_item_config = ExtResource("36_gmhlb")
 
-[node name="delete" parent="CanvasLayer/MainMenu/VBoxContainer/menu2/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1390249601 instance=ExtResource("33_rct81")]
+[node name="delete" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1390249601 instance=ExtResource("33_rct81")]
 layout_mode = 2
 tooltip_text = "删除存档"
 bk_conf_color = Color(0.74902, 0.0117647, 0, 0.72549)
 setting_item = 3
 setting_item_config = ExtResource("37_r0jgi")
 
-[node name="DataSaveFileCollector" parent="CanvasLayer/MainMenu/VBoxContainer/menu2" unique_id=1848048086 instance=ExtResource("38_pgh7o")]
+[node name="DataSaveFileCollector" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2" unique_id=1848048086 instance=ExtResource("38_pgh7o")]
 script = ExtResource("39_hl8cf")
 save_data_config = ExtResource("40_x4ss8")
 has_master = false
@@ -952,27 +1031,32 @@ save_obj_id = false
 save_position = false
 save_faced = false
 
-[node name="Timer" type="Timer" parent="CanvasLayer/MainMenu/VBoxContainer/menu2" unique_id=443916730]
+[node name="Timer" type="Timer" parent="MainMenuCan/MainMenu/MarginContainer/Menu/menu2" unique_id=443916730]
 unique_name_in_owner = true
 one_shot = true
 
-[node name="menu1R" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1740194946]
+[node name="menu1R" type="MarginContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu" unique_id=1740194946]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="2left4" type="MarginContainer" parent="CanvasLayer/MainMenu/VBoxContainer" unique_id=1444450828]
+[node name="2left4" type="MarginContainer" parent="MainMenuCan/MainMenu/MarginContainer/Menu" unique_id=1444450828]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.58
 
-[node name="1bot" type="MarginContainer" parent="CanvasLayer/MainMenu" unique_id=302041931]
+[node name="1bot" type="MarginContainer" parent="MainMenuCan/MainMenu" unique_id=302041931]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.93
 mouse_filter = 2
 
-[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/menu1/ReadSave" to="CanvasLayer/MainMenu" method="_on_read_save_pressed"]
-[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/menu3/Back2Main" to="CanvasLayer/MainMenu" method="_on_back_2_main_pressed"]
+[connection signal="pressed" from="MainMenuCan/MainMenu/MarginContainer/Menu/menu1/HideMenu" to="MainMenuCan/MainMenu" method="_on_hide_pressed"]
+[connection signal="pressed" from="MainMenuCan/MainMenu/MarginContainer/Menu/menu1/NewGmae" to="MainMenuCan/MainMenu" method="_on_new_gmae_pressed"]
+[connection signal="pressed" from="MainMenuCan/MainMenu/MarginContainer/Menu/menu1/ReadSave" to="MainMenuCan/MainMenu" method="_on_read_save_pressed"]
+[connection signal="pressed" from="MainMenuCan/MainMenu/MarginContainer/Menu/menu1/Back2MainMenu" to="MainMenuCan/MainMenu" method="_on_back_2_main_menu_pressed"]
+[connection signal="pressed" from="MainMenuCan/MainMenu/MarginContainer/Menu/menu3/Back2Main" to="MainMenuCan/MainMenu" method="_on_back_2_main_pressed"]
+[connection signal="timeout" from="MainMenuCan/MainMenu/MarginContainer/Menu/menu2/Timer" to="MainMenuCan/MainMenu/MarginContainer/Menu/menu2" method="_on_timer_timeout"]

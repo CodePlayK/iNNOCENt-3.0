@@ -113,6 +113,13 @@ height = 646
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
 
+[sub_resource type="InputEventKey" id="InputEventKey_i74u8"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_07drm"]
+events = [SubResource("InputEventKey_i74u8")]
+
 [sub_resource type="LabelSettings" id="LabelSettings_07drm"]
 font = ExtResource("32_0sbtr")
 font_size = 26
@@ -256,9 +263,9 @@ shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ytg4i"]
 shader = ExtResource("27_ydae1")
-shader_parameter/hurt_intensity = 1.0
+shader_parameter/hurt_intensity = 0.0
 shader_parameter/black_border_ratio = 0.6000000285
-shader_parameter/pulse_frequency = 1.20200005383512
+shader_parameter/pulse_frequency = 0.10000000149012
 shader_parameter/blood_color = Color(0.48762423, 0.00051863893, 0.00028413988, 1)
 shader_parameter/border_black = Color(0, 0, 0, 1)
 
@@ -320,8 +327,8 @@ limit_right = 1827
 limit_bottom = -173
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 1.0
-drag_horizontal_offset = -0.3
+position_smoothing_speed = 3.0
+drag_horizontal_offset = 0.4
 drag_left_margin = 0.5
 drag_right_margin = 0.5
 drag_bottom_margin = 0.34
@@ -337,7 +344,6 @@ node_to_follow = NodePath("../../PlayerPlayer")
 
 [node name="CameraController" parent="Setting/PlayerCamera" unique_id=208228070 instance=ExtResource("4_jtj5p")]
 trans_time = 3.0
-base_drag_horizontal_offset = 0.3
 
 [node name="PlayerCameraAniplayer" type="AnimationPlayer" parent="Setting/PlayerCamera" unique_id=490699425]
 root_node = NodePath("../../..")
@@ -654,6 +660,14 @@ mouse_filter = 2
 
 [node name="StateBox" parent="MainCanvas" unique_id=1721225745 instance=ExtResource("19_q484j")]
 
+[node name="ESC" type="Button" parent="MainCanvas" unique_id=699497220]
+unique_name_in_owner = true
+offset_left = -4974.0
+offset_top = 162.0
+offset_right = -4966.0
+offset_bottom = 170.0
+shortcut = SubResource("Shortcut_07drm")
+
 [node name="TxtHistoryBCanvas" type="CanvasLayer" parent="." unique_id=524535970]
 layer = 9
 visible = false
@@ -851,7 +865,6 @@ script = ExtResource("29_imah0")
 [node name="MarginContainer" type="MarginContainer" parent="TestCanvas/MarginContainer/Test" unique_id=25995065]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.79
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TestCanvas/MarginContainer/Test" unique_id=1986667250]
@@ -920,6 +933,19 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
 text = "执行QTE"
+icon_alignment = 1
+
+[node name="切换关卡" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=2004860816]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "切换关卡"
 icon_alignment = 1
 
 [node name="PathFind" type="Node2D" parent="TestCanvas/MarginContainer/Test" unique_id=1532952576]
@@ -1037,6 +1063,7 @@ position = Vector2(0, -800)
 
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
 [connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
+[connection signal="pressed" from="MainCanvas/ESC" to="MainCanvas" method="_on_esc_pressed"]
 [connection signal="timeout" from="ScreenEffect/LevelTransation/RestTimer" to="ScreenEffect/LevelTransation" method="_on_rest_timer_timeout"]
 [connection signal="timeout" from="PlayerHealthIndicator/PlayerHealthIndicator/Timer" to="PlayerHealthIndicator/PlayerHealthIndicator" method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
@@ -1044,3 +1071,4 @@ position = Vector2(0, -800)
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT1" to="TestCanvas/MarginContainer/Test" method="_on_but_1_pressed"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT2" to="TestCanvas/MarginContainer/Test" method="_on_but_2_pressed"]
 [connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT3" to="TestCanvas/MarginContainer/Test" method="_on_but_3_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/切换关卡" to="TestCanvas/MarginContainer/Test" method="_on_切换关卡_pressed"]

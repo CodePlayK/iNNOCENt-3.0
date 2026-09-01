@@ -57,23 +57,12 @@
 [ext_resource type="PackedScene" uid="uid://c56xbxh2my7gr" path="res://core/common/component/marks/marks.tscn" id="37_xy24n"]
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="38_lqpy8"]
 [ext_resource type="PackedScene" uid="uid://ynwdhd17uqh6" path="res://core/common/class/MouseInteractObj.tscn" id="39_cer7a"]
-[ext_resource type="PackedScene" uid="uid://dhghmi0gq3f2t" path="res://core/npc/Tarnished Widow/Tarnished Widow.tscn" id="39_v2xsn"]
 [ext_resource type="PackedScene" uid="uid://c1l8e1yomi4wq" path="res://core/common/class/BodyInteractObj.tscn" id="40_016e5"]
-[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="40_dp3ts"]
-[ext_resource type="PackedScene" uid="uid://c5xaw4oi56wfr" path="res://core/npc/blood_king/blood_king.tscn" id="41_ssr58"]
-[ext_resource type="Script" uid="uid://cd7hg22t3yjur" path="res://core/common/resource/npc/npc_data.gd" id="42_pgyvf"]
-[ext_resource type="Resource" uid="uid://bxi5abugxwqv2" path="res://core/npc/blood_king/dilogues/bloodking1_dialogue.tres" id="43_erjvb"]
-[ext_resource type="Resource" uid="uid://behwdfqux0bqr" path="res://core/npc/blood_king/resource/bloodking1_character_box_config.tres" id="44_4mg3w"]
-[ext_resource type="Resource" uid="uid://ww01r8pk0y5u" path="res://core/npc/blood_king/dilogues/bloodking2_dialogue.tres" id="45_llria"]
-[ext_resource type="Resource" uid="uid://bi52pxfibdl5r" path="res://core/npc/blood_king/resource/bloodking2_character_box_config.tres" id="46_dd7mq"]
 [ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="46_egk4i"]
-[ext_resource type="PackedScene" uid="uid://dlacte5mobc5k" path="res://core/npc/it/it.tscn" id="47_mepfb"]
 [ext_resource type="PackedScene" uid="uid://c0hnf7o0i1a1" path="res://core/common/component/level_changer/level_changer.tscn" id="48_dkmg4"]
 [ext_resource type="PackedScene" uid="uid://ccwjpeftahknr" path="res://core/common/component/auto transparent/auto_transparent.tscn" id="51_xfkqh"]
-[ext_resource type="Resource" uid="uid://dfu150fhuj5uh" path="res://core/npc/Tarnished Widow/dilogues/TarnishedWidow_dialogue.tres" id="52_m4xe4"]
 [ext_resource type="Texture2D" uid="uid://bgw0iqqo0u0li" path="res://core/common/resource/texture/forest/tree top bot/tree top bot.png" id="52_uu0l1"]
 [ext_resource type="Material" uid="uid://b4ag5pa4kipx8" path="res://core/common/resource/material/transparent_tile.tres" id="53_fcqf7"]
-[ext_resource type="Resource" uid="uid://ds0ms1ipwegok" path="res://core/npc/Tarnished Widow/resource/TarnishedWidow_character_box_config.tres" id="55_ph6oa"]
 [ext_resource type="Texture2D" uid="uid://cphxg0p3lcsnk" path="res://core/level/resource/sprite/金属架.001.png" id="67_u7t5c"]
 
 [sub_resource type="Gradient" id="Gradient_m0sas"]
@@ -1377,45 +1366,6 @@ sources/0 = SubResource("TileSetAtlasSource_ufwbg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7upp4"]
 size = Vector2(80, 465)
-
-[sub_resource type="Resource" id="Resource_sqbua"]
-resource_local_to_scene = true
-script = ExtResource("40_dp3ts")
-group = 1
-key = "TarnishedWidow"
-metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
-
-[sub_resource type="Resource" id="Resource_aq5kf"]
-script = ExtResource("42_pgyvf")
-health = 500.0
-
-[sub_resource type="Resource" id="Resource_ax7lf"]
-resource_local_to_scene = true
-script = ExtResource("40_dp3ts")
-group = 1
-key = "bloodking1"
-metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
-
-[sub_resource type="Resource" id="Resource_i02hx"]
-script = ExtResource("42_pgyvf")
-health = 100.0
-
-[sub_resource type="Resource" id="Resource_o5ewt"]
-resource_local_to_scene = true
-script = ExtResource("40_dp3ts")
-group = 1
-key = "bloodking2"
-metadata/_custom_type_script = "uid://c4jrwqjv7uq1l"
-
-[sub_resource type="Resource" id="Resource_pm1oa"]
-resource_local_to_scene = true
-script = ExtResource("30_d6m5x")
-talkers = Array[String](["it"])
-current_res = "0_0_0"
-title = "it"
-title_list = "TarnishedWidow | bloodking1 | bloodking2 | it | 废弃汽车1 | 玩家醒来 | 玩家醒来1 | 祈祷 | 遇见队友 | 遇见队友1 | "
-balloon_color = Color(0, 0.39862674, 0, 1)
-metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5ewt"]
 size = Vector2(158, 271)
@@ -4561,7 +4511,7 @@ astar_range = NodePath("../CollisionShape2D")
 enabel_ui = false
 enable = true
 base_tile = NodePath("..")
-npc = NodePath("../../../Npcs/TarnishedWidow")
+npc = NodePath("")
 jump_try_time_range = Vector2i(2, 4)
 target_on_cell_color = Color(1, 0.4720599, 0.4062736, 1)
 
@@ -4573,7 +4523,7 @@ astar_range = NodePath("../CollisionShape2D")
 enabel_ui = false
 enable = true
 base_tile = NodePath("..")
-npc = NodePath("../../../Npcs/BloodKing1")
+npc = NodePath("")
 jump_try_time_range = Vector2i(2, 4)
 target_on_cell_color = Color(1, 0.4720599, 0.4062736, 1)
 
@@ -4584,7 +4534,7 @@ astar_range = NodePath("../CollisionShape2D")
 enabel_ui = false
 enable = true
 base_tile = NodePath("..")
-npc = NodePath("../../../Npcs/BloodKing2")
+npc = NodePath("")
 jump_try_time_range = Vector2i(2, 4)
 
 [node name="it" parent="Parallax/ParallaxLayer_5/Main/astar/BloodKingAstarMap" unique_id=1906517865 node_paths=PackedStringArray("astar_range", "base_tile", "npc") instance=ExtResource("36_iv2g0")]
@@ -4596,7 +4546,7 @@ enabel_ui = false
 enable = true
 only_update_on_floor = true
 base_tile = NodePath("..")
-npc = NodePath("../../../Npcs/it")
+npc = NodePath("")
 jump_try_time_range = Vector2i(2, 6)
 
 [node name="Tile" type="Node2D" parent="Parallax/ParallaxLayer_5/Main" unique_id=863168673]
@@ -4635,42 +4585,6 @@ debug_color = Color(0.909804, 1, 0.0901961, 0.168627)
 script = ExtResource("22_5unon")
 metadata/_custom_type_script = "uid://cwoinddfmepd0"
 metadata/_edit_lock_ = true
-
-[node name="TarnishedWidow" parent="Parallax/ParallaxLayer_5/Main/Npcs" unique_id=1077960373 node_paths=PackedStringArray("astar") instance=ExtResource("39_v2xsn")]
-position = Vector2(-987, -63)
-dialogue_config = ExtResource("52_m4xe4")
-save_data_config = SubResource("Resource_sqbua")
-character_box_config = ExtResource("55_ph6oa")
-astar = NodePath("../../astar/BloodKingAstarMap/TarnishedWidow")
-
-[node name="BloodKing1" parent="Parallax/ParallaxLayer_5/Main/Npcs" unique_id=775367354 node_paths=PackedStringArray("astar") instance=ExtResource("41_ssr58")]
-position = Vector2(-771, -66)
-npc_name = "bloodking1"
-data = SubResource("Resource_aq5kf")
-dialogue_config = ExtResource("43_erjvb")
-save_data_config = SubResource("Resource_ax7lf")
-character_box_config = ExtResource("44_4mg3w")
-astar = NodePath("../../astar/BloodKingAstarMap/BloodKing1")
-
-[node name="BloodKing2" parent="Parallax/ParallaxLayer_5/Main/Npcs" unique_id=1024679503 node_paths=PackedStringArray("astar") instance=ExtResource("41_ssr58")]
-position = Vector2(209.00002, -68)
-npc_name = "bloodking2"
-data = SubResource("Resource_i02hx")
-dialogue_config = ExtResource("45_llria")
-save_data_config = SubResource("Resource_o5ewt")
-character_box_config = ExtResource("46_dd7mq")
-astar = NodePath("../../astar/BloodKingAstarMap/BloodKing2")
-max_chase_speed = 200.0
-accelerate = 300.0
-air_accelerate = 800.0
-max_velocity_y = 800.0
-
-[node name="it" parent="Parallax/ParallaxLayer_5/Main/Npcs" unique_id=649049201 node_paths=PackedStringArray("astar") instance=ExtResource("47_mepfb")]
-position = Vector2(-695, -20)
-dialogue_config = SubResource("Resource_pm1oa")
-starting_state = "lock"
-running_state = "idle"
-astar = NodePath("../../astar/BloodKingAstarMap/it")
 
 [node name="Marks" parent="Parallax/ParallaxLayer_5/Main" unique_id=498738836 instance=ExtResource("37_xy24n")]
 
@@ -4909,6 +4823,14 @@ back_offset = false
 root_node = NodePath("../..")
 
 [node name="Vfx" type="Node2D" parent="Cutscene" unique_id=673856081]
+
+[node name="CutscenerRunner" parent="Cutscene" unique_id=1286330633 instance=ExtResource("33_d6m5x")]
+visible = false
+position = Vector2(382, 227)
+print_debug = true
+cutscener_data = "C:/Users/hakace/AppData/Roaming/Godot/app_userdata/iNNOCENt 3.0/Cutscener/Level0/0_0_0_开场动画.crd"
+change_CutsceneState_current_cutscene = false
+cutscener_name = "0_0_0_开场动画"
 
 [connection signal="body_entered" from="Parallax/ParallaxLayer_5/Main/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_5/Main/CutsceneTrigger/CutscenerTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="Parallax/ParallaxLayer_5/Main/CutsceneTrigger/CutscenerTrigger" to="Parallax/ParallaxLayer_5/Main/CutsceneTrigger/CutscenerTrigger" method="_on_body_exited"]
