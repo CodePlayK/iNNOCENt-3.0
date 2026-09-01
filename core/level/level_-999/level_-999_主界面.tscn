@@ -278,7 +278,7 @@ shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07drm"]
-size = Vector2(1177.5, 1028)
+size = Vector2(1177.5, 746)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3kkan"]
 resource_local_to_scene = true
@@ -337,7 +337,7 @@ script = ExtResource("1_10lvp")
 player_born_pos = NodePath("Parallax/ParallaxLayer_5/Main/Marks/Born")
 level_id = -999
 camera_limit_top = 861.0
-player_layer = NodePath("Parallax/ParallaxLayer_5/PlayerLayer")
+player_layer = NodePath("Parallax/ParallaxLayer_3/PlayerLayer")
 dof = NodePath("Parallax/ParallaxLayer_3/DOF")
 level_background_color = Color(0.9999977, 0.56451726, 0.27968633, 1)
 metadata/_edit_lock_ = true
@@ -435,7 +435,7 @@ script = ExtResource("6_v0qlc")
 unique_name_in_owner = true
 script = ExtResource("7_sphv2")
 parallax_move_data = ExtResource("8_443ve")
-parallax_main_layer = NodePath("ParallaxLayer_5")
+parallax_main_layer = NodePath("ParallaxLayer_3")
 parallax_origin = NodePath("..")
 parallax_layer_speed_m6 = 0.0
 parallax_layer_speed_m5 = -160.0
@@ -460,9 +460,9 @@ metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Parallax/ParallaxLayer_-6" unique_id=1876825104]
 offset_left = -977.0
-offset_top = -213.0
+offset_top = -92.0
 offset_right = 3582.0
-offset_bottom = 1214.0
+offset_bottom = 651.0
 color = Color(1, 0.48333335, 0, 1)
 
 [node name="ParallaxLayer_-5" parent="Parallax" unique_id=2066544471 instance=ExtResource("9_1hao5")]
@@ -639,6 +639,10 @@ back_offset = false
 layer_id = 3
 metadata/_edit_lock_ = true
 
+[node name="PlayerLayer" type="Node2D" parent="Parallax/ParallaxLayer_3" unique_id=1162357529]
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
+metadata/_edit_lock_ = true
+
 [node name="ground_floor" type="TileMapLayer" parent="Parallax/ParallaxLayer_3" unique_id=959031133]
 visible = false
 modulate = Color(1, 1, 1, 0.3254902)
@@ -719,15 +723,10 @@ scale = Vector2(0.025, 0.025)
 
 [node name="LeveBound" type="CollisionShape2D" parent="Parallax/ParallaxLayer_5/Main" unique_id=644941246]
 unique_name_in_owner = true
-position = Vector2(1238.25, 312)
+position = Vector2(1238.25, 279)
 shape = SubResource("RectangleShape2D_07drm")
 debug_color = Color(0, 0.97, 0.3071666, 0.2)
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
-
-[node name="PlayerLayer" type="Node2D" parent="Parallax/ParallaxLayer_5" unique_id=1162357529]
-modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
-metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer_6" parent="Parallax" unique_id=1232825231 instance=ExtResource("9_1hao5")]
 layer_id = 6

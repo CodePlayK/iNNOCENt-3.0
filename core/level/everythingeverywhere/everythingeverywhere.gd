@@ -211,6 +211,7 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		var new_level_end_x = new_level_start_x
 		var new_level_end_y = 0
 		old_level.parallax.parallax_on = false		
+		new_level.parallax.parallax_on = true		
 
 		Global.player_camera.limit_left = min(Global.player_camera.limit_left,new_level_pos.x-new_level_size.x*0.5)
 		Global.player_camera.limit_right = max(Global.player_camera.limit_right,new_level_pos.x+new_level_size.x*0.5)
@@ -219,7 +220,7 @@ func trans_play(old_level_id:LevelState.LEVELS,new_level_id:LevelState.LEVELS):
 		var old_level_start_y = old_level.global_position.y
 		var old_level_end_x = old_level.global_position.x
 		var old_level_end_y = abs(new_level_end_y-new_level_start_y)
-		Global.player_camera.position_smoothing_enabled = false
+		#Global.player_camera.position_smoothing_enabled = false
 		PlayerState.player_player.face_direction.set_faced(PlayerState.player_born_facing_left)
 		var camera_last_pos = Global.player_camera.global_position
 		player_player.reparent(new_level.player_layer)
