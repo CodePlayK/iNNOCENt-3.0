@@ -57,22 +57,18 @@ var SE_LOOP_dic: Dictionary = {
 @onready var _loop_root: Node = $SE_LOOP
 @onready var _ambient_root: Node = $Ambient
 
-## free pools
 var _bgm_free: Array[AudioStreamPlayer] = []
 var _se_free: Array[AudioStreamPlayer] = []
 var _loop_free: Array[AudioStreamPlayer] = []
 var _ambient_free: Array[AudioStreamPlayer] = []
 
-## active: key -> player
-var _bgm_active: Dictionary = {} # effect_name -> AudioStreamPlayer
-var _se_active: Dictionary = {} # owner|effect -> AudioStreamPlayer
-var _loop_active: Dictionary = {} # effect_name -> AudioStreamPlayer
-var _ambient_active: Dictionary = {} # effect_name -> AudioStreamPlayer
+var _bgm_active: Dictionary = {}
+var _se_active: Dictionary = {}
+var _loop_active: Dictionary = {}
+var _ambient_active: Dictionary = {}
 
 var _level_change_lock: bool = false
-var _na_counter: int = 0
 
-## 线性音量缓存 0.0~1.0（供设置 UI 读写）
 var bgm_volume_linear: float = 1.0
 var se_volume_linear: float = 1.0
 var ambient_volume_linear: float = 1.0
@@ -89,7 +85,6 @@ func _ready() -> void:
 	EventBus.play_BGM.connect(_on_play_BGM)
 	EventBus.change_level.connect(_on_change_level)
 
-	# 确保总线存在（编辑器未同步 layout 时兜底）
 	_ensure_bus(BUS_BGM)
 	_ensure_bus(BUS_SE)
 	_ensure_bus(BUS_AMBIENT)
@@ -104,9 +99,6 @@ func _collect_pool(root: Node, free_list: Array[AudioStreamPlayer], bus_name: St
 		if c is AudioStreamPlayer:
 			var p := c as AudioStreamPlayer
 			p.bus = bus_name
-			if not p.finished.is_connected(_on_player_finished.bind(p, free_list)):
-				# 一次性 SE 播放完回收；循环不依赖 finished
-				pass
 			free_list.append(p)
 
 
@@ -157,7 +149,6 @@ func _set_bus_linear(bus_name: String, linear: float) -> void:
 
 func _on_change_level(_room) -> void:
 	_level_change_lock = true
-	# 停止「切关需停」的循环 SE
 	var to_release: Array = []
 	for key in _loop_active.keys():
 		var cfg = SE_LOOP_dic.get(key)
@@ -172,12 +163,10 @@ func _on_change_level(_room) -> void:
 
 
 func _acquire(free_list: Array[AudioStreamPlayer], active: Dictionary, root: Node, bus_name: String) -> AudioStreamPlayer:
-	# 1) 空闲池
 	while free_list.size() > 0:
 		var p: AudioStreamPlayer = free_list.pop_back()
 		if is_instance_valid(p):
 			return p
-	# 2) 回收已停止但仍占 active 的（仅对 SE 有意义）
 	var dead_keys: Array = []
 	for k in active.keys():
 		var ap: AudioStreamPlayer = active[k]
@@ -189,7 +178,6 @@ func _acquire(free_list: Array[AudioStreamPlayer], active: Dictionary, root: Nod
 		active.erase(k)
 	if free_list.size() > 0:
 		return free_list.pop_back()
-	# 3) 动态扩容，避免丢音效
 	var np := AudioStreamPlayer.new()
 	np.bus = bus_name
 	np.process_mode = Node.PROCESS_MODE_ALWAYS if bus_name != BUS_SE else Node.PROCESS_MODE_INHERIT
@@ -202,6 +190,7 @@ func _release_to_pool(player: AudioStreamPlayer, free_list: Array[AudioStreamPla
 		active.erase(key)
 	player.stop()
 	player.stream = null
+	player.remove_meta("se_key")
 	if not free_list.has(player):
 		free_list.append(player)
 
@@ -257,20 +246,24 @@ func _on_play_SE(effect_name: String, speed: float = 1.0, effect_volume: float =
 		else:
 			player = _acquire(_se_free, _se_active, _se_root, BUS_SE)
 			_se_active[k_name] = player
-			# 播完自动回收（避免池枯竭）
 			if not player.finished.is_connected(_on_se_finished):
-				player.finished.connect(_on_se_finished.bind(player, k_name))
+				player.finished.connect(_on_se_finished.bind(player))
+		player.set_meta("se_key", k_name)
 		_apply_playback(player, SE_dic[effect_name][0], speed, _default_volume_db(SE_dic[effect_name], effect_volume))
 	else:
 		if _se_active.has(k_name):
 			_release_to_pool(_se_active[k_name], _se_free, _se_active, k_name)
 
 
-func _on_se_finished(player: AudioStreamPlayer, k_name: String) -> void:
-	if _se_active.get(k_name) == player:
+func _on_se_finished(player: AudioStreamPlayer) -> void:
+	if not is_instance_valid(player):
+		return
+	var k_name = player.get_meta("se_key", "")
+	if k_name != "" and _se_active.get(k_name) == player:
 		_se_active.erase(k_name)
-		if not _se_free.has(player):
-			_se_free.append(player)
+	player.remove_meta("se_key")
+	if not _se_free.has(player):
+		_se_free.append(player)
 #endregion
 
 
