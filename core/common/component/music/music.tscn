@@ -5,66 +5,95 @@
 [node name="Music" type="Node" unique_id=900836316]
 script = ExtResource("1_0yhny")
 
-[node name="BGSE" type="Node" parent="." unique_id=1020879930]
-
-[node name="BGM" type="Node" parent="." unique_id=1801368396]
+[node name="BGM" type="Node" parent="."]
 process_mode = 3
 
-[node name="backgroundMusicPlayer" type="AudioStreamPlayer" parent="BGM" unique_id=1070668015]
+[node name="BGM_1" type="AudioStreamPlayer" parent="BGM"]
 process_mode = 3
+bus = &"BGM"
 
-[node name="backgroundMusicPlayer2" type="AudioStreamPlayer" parent="BGM" unique_id=23645181]
+[node name="BGM_2" type="AudioStreamPlayer" parent="BGM"]
 process_mode = 3
+bus = &"BGM"
 
-[node name="backgroundMusicPlayer3" type="AudioStreamPlayer" parent="BGM" unique_id=1949759156]
+[node name="BGM_3" type="AudioStreamPlayer" parent="BGM"]
 process_mode = 3
+bus = &"BGM"
 
-[node name="backgroundMusicPlayer4" type="AudioStreamPlayer" parent="BGM" unique_id=1888528446]
+[node name="BGM_4" type="AudioStreamPlayer" parent="BGM"]
 process_mode = 3
+bus = &"BGM"
 
 [node name="SE" type="Node" parent="." unique_id=170817568]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SE" unique_id=1201895828]
+[node name="SE_1" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SE" unique_id=251967852]
+[node name="SE_2" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SE" unique_id=39224094]
+[node name="SE_3" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SE" unique_id=1123856709]
+[node name="SE_4" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SE" unique_id=302158698]
+[node name="SE_5" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SE" unique_id=1308883965]
+[node name="SE_6" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="SE" unique_id=168347687]
+[node name="SE_7" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="SE" unique_id=150597318]
+[node name="SE_8" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="SE" unique_id=560892607]
+[node name="SE_9" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="SE" unique_id=178849789]
+[node name="SE_10" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
-[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="SE" unique_id=587565810]
+[node name="SE_11" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
+
+[node name="SE_12" type="AudioStreamPlayer" parent="SE"]
+bus = &"SE"
 
 [node name="SE_LOOP" type="Node" parent="." unique_id=86668641]
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=67585744]
+[node name="LOOP_1" type="AudioStreamPlayer" parent="SE_LOOP"]
 process_mode = 3
+bus = &"SE"
 
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=2059249455]
+[node name="LOOP_2" type="AudioStreamPlayer" parent="SE_LOOP"]
 process_mode = 3
+bus = &"SE"
 
-[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=777564521]
+[node name="LOOP_3" type="AudioStreamPlayer" parent="SE_LOOP"]
 process_mode = 3
+bus = &"SE"
 
-[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=877013729]
+[node name="LOOP_4" type="AudioStreamPlayer" parent="SE_LOOP"]
 process_mode = 3
+bus = &"SE"
 
-[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=1263076593]
-process_mode = 3
+[node name="Ambient" type="Node" parent="."]
 
-[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=1003152548]
+[node name="AMB_1" type="AudioStreamPlayer" parent="Ambient"]
 process_mode = 3
+bus = &"Ambient"
 
-[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=2036645021]
+[node name="AMB_2" type="AudioStreamPlayer" parent="Ambient"]
 process_mode = 3
+bus = &"Ambient"
+
+[node name="AMB_3" type="AudioStreamPlayer" parent="Ambient"]
+process_mode = 3
+bus = &"Ambient"
+
+[node name="AMB_4" type="AudioStreamPlayer" parent="Ambient"]
+process_mode = 3
+bus = &"Ambient"
