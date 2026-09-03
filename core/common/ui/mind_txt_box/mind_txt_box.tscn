@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://818e7p2k8d0a"]
+[gd_scene format=3 uid="uid://818e7p2k8d0a"]
 
 [sub_resource type="Gradient" id="Gradient_04lay"]
 offsets = PackedFloat32Array(0.0630915, 0.602524, 1)
@@ -11,14 +11,14 @@ height = 275
 fill_from = Vector2(0.474576, 1)
 fill_to = Vector2(0.48184, 0)
 
-[node name="MindTxtBox" type="MarginContainer"]
+[node name="MindTxtBox" type="MarginContainer" unique_id=1487447839]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 461.0
 grow_horizontal = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1907818408]
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_3g2uu")

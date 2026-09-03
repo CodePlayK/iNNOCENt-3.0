@@ -3,7 +3,6 @@ class_name CharacterBox
 @onready var img_box_top_marg: MarginContainer = %ImgBoxTopMarg
 @onready var img_box: MarginContainer = %ImgBox
 @onready var timer: Timer = $Timer
-@onready var ui_bar: UIbar = %UIBar
 @onready var texture_rect: TextureRect = $ImgBox/HBoxContainer/VBoxContainer/MarginContainer/TextureRect
 @onready var test: Label = %TEST
 @onready var delay_timer: Timer = $delay_timer
@@ -34,7 +33,6 @@ func _ready() -> void:
 	img_box_top_marg.size_flags_stretch_ratio=20
 	timer.wait_time = character_box_config.drag_time
 	modulate = character_box_config.unselect_modulate
-	ui_bar.bar_max_value = health_config.max_health
 	timer.timeout.connect(_on_timer_timeout)
 	EventBus.player_health_damaged.connect(on_player_health_damaged)
 	EventBus.player_health_healed.connect(on_player_health_healed)
@@ -241,11 +239,9 @@ func _on_img_box_gui_input(event: InputEvent) -> void:
 
 func on_player_health_damaged():
 	if is_prototype or !enable:return
-	ui_bar.bar_decrease(health_config.current_health)
 	
 func on_player_health_healed():
 	if is_prototype or !enable:return
-	ui_bar.bar_grow(health_config.current_health)
 
 
 func _on_gui_input(event: InputEvent) -> void:

@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/clock.svg-192dce33cae6395c8ec2c4d61650c831.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

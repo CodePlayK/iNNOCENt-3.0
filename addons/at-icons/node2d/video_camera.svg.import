@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/video_camera.svg-582e9c23c5b2fb240f3e97da033c
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

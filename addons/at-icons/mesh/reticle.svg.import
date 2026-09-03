@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/reticle.svg-4fc2a495a7e2f698c2386719fb9fc447.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

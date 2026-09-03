@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://df0bdvbjcfmpy"]
+[gd_scene format=3 uid="uid://df0bdvbjcfmpy"]
 
-[ext_resource type="Script" path="res://core/common/component/marker/marker.gd" id="1_0bkci"]
+[ext_resource type="Script" uid="uid://dqwqyijedgnrf" path="res://core/common/component/marker/marker.gd" id="1_0bkci"]
 [ext_resource type="Texture2D" uid="uid://5v7rnqopp4u3" path="res://core/common/component/marker/mark.png" id="2_7hlcp"]
 
-[node name="Marker" type="Marker2D"]
+[node name="Marker" type="Marker2D" unique_id=557061764]
 script = ExtResource("1_0bkci")
 
-[node name="base" type="Sprite2D" parent="."]
+[node name="base" type="Sprite2D" parent="." unique_id=1345615141]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_7hlcp")

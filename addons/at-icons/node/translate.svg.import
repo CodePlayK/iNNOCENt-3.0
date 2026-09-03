@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/translate.svg-e95c6e5c03ce9fa099f6c79f132f061
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

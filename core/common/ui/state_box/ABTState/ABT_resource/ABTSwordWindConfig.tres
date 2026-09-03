@@ -1,14 +1,12 @@
-[gd_resource type="Resource" script_class="ABTItemConfig" load_steps=3 format=3 uid="uid://cjsxe3ktngblm"]
+[gd_resource type="Resource" script_class="ABTItemConfig" format=3 uid="uid://cjsxe3ktngblm"]
 
 [ext_resource type="Texture2D" uid="uid://2afulh84wihv" path="res://core/common/ui/state_box/ABTState/Icons Separated.png" id="1_wbi10"]
-[ext_resource type="Script" path="res://core/common/ui/state_box/ABTState/ABTItemConfig.gd" id="2_nyl1g"]
+[ext_resource type="Script" uid="uid://ckgnieuu7g6ww" path="res://core/common/ui/state_box/ABTState/ABTItemConfig.gd" id="2_nyl1g"]
 
 [resource]
 script = ExtResource("2_nyl1g")
 ABT_name = "剑锋"
 ABT_name_line = "在四段攻击后,向面向发射一道剑锋"
 ABT_name_txt = "合理"
-ABT_cooldown = 0.0
-ABT_during = 0.0
 ABT_texture_rect = Rect2(1, 121, 22, 22)
 ABT_texture = ExtResource("1_wbi10")

@@ -49,7 +49,7 @@
 [ext_resource type="Script" uid="uid://djfjcem8jsghj" path="res://core/player/fx/HitFx.gd" id="25_otctn"]
 [ext_resource type="Script" uid="uid://dx8iyg0i0puah" path="res://core/player/states/walk.gd" id="26_75ljn"]
 [ext_resource type="PackedScene" uid="uid://ckuax7vqmwe5p" path="res://core/common/component/Move2Vec2/move_2_vec_2.tscn" id="26_q60xe"]
-[ext_resource type="Script" uid="uid://qmfnhl0b35t7" path="res://core/player/denseSafe.gd" id="27_5kkgk"]
+[ext_resource type="Script" uid="uid://qmfnhl0b35t7" path="res://core/player/states/denseSafe.gd" id="27_5kkgk"]
 [ext_resource type="PackedScene" uid="uid://cgyau8qv0a50v" path="res://core/common/component/screen_vec_2/screen_vec_2.tscn" id="27_awfha"]
 [ext_resource type="PackedScene" uid="uid://d0xx28b7i01wl" path="res://core/common/component/face_direction/face_direction.tscn" id="27_keddt"]
 [ext_resource type="Script" uid="uid://dqyuh8k5h7pok" path="res://core/player/states/run.gd" id="27_lqjbr"]
@@ -66,27 +66,24 @@
 [ext_resource type="Texture2D" uid="uid://b5juukyy77ote" path="res://core/player/animation/aniplayer/base.png" id="33_yurw6"]
 [ext_resource type="Texture2D" uid="uid://boeapwrwv2llt" path="res://core/player/animation/aniplayer/baseFx.png" id="34_kaqeq"]
 [ext_resource type="Script" uid="uid://cfgo65jydr22m" path="res://core/player/states/fall.gd" id="34_svukf"]
-[ext_resource type="Script" uid="uid://i1efccr8yuad" path="res://core/player/ground.gd" id="35_20iv7"]
+[ext_resource type="Script" uid="uid://i1efccr8yuad" path="res://core/player/states/ground.gd" id="35_20iv7"]
 [ext_resource type="Script" uid="uid://ddrlvr4fm28sw" path="res://core/player/states/interactive.gd" id="35_eavra"]
-[ext_resource type="Resource" uid="uid://dfmy5uuibdlh4" path="res://core/player/anime config/fastrun.tres" id="35_ouo11"]
 [ext_resource type="Shader" uid="uid://cyr0w13jexgj8" path="res://core/common/shader/RimLight.gdshader" id="35_x7ir2"]
 [ext_resource type="Script" uid="uid://ncct3dwkvkmh" path="res://core/player/states/talk.gd" id="36_sqf10"]
 [ext_resource type="Script" uid="uid://48y3khe2x5ln" path="res://core/player/fx/DashPartical.gd" id="37_e1hln"]
 [ext_resource type="Resource" uid="uid://dtbqgw4un2v8c" path="res://core/player/anime config/dash.tres" id="37_m08ca"]
 [ext_resource type="Script" uid="uid://dqesqd38gkjj2" path="res://core/player/states/combat.gd" id="37_twix3"]
+[ext_resource type="Script" uid="uid://d0ugirgtrgo27" path="res://core/common/component/attributes/attributes.gd" id="38_i3km5"]
 [ext_resource type="Texture2D" uid="uid://cybmne8yk0yrn" path="res://core/player/animation/dash-frame-o.png" id="38_m5lf2"]
 [ext_resource type="Script" uid="uid://cbqf4s680nghe" path="res://core/player/states/dense.gd" id="38_tkue4"]
 [ext_resource type="Script" uid="uid://cdvohjklu0wmo" path="res://core/player/states/behit.gd" id="39_7ni88"]
 [ext_resource type="Script" uid="uid://dhwbxsnluxsc3" path="res://core/player/states/behitDenseSafed.gd" id="40_2jtbn"]
 [ext_resource type="Script" uid="uid://dkc8guimyw23i" path="res://core/player/states/behitDamaged.gd" id="41_2gdef"]
-[ext_resource type="Resource" uid="uid://cy0f0aqmerss5" path="res://core/player/anime config/lift.tres" id="41_orpom"]
 [ext_resource type="Script" uid="uid://cbyveabf3ebne" path="res://core/player/states/light.gd" id="42_5qc2j"]
 [ext_resource type="Script" uid="uid://it3r7xpnpk6u" path="res://core/common/attributes/Balance.gd" id="42_dq6eo"]
-[ext_resource type="Resource" uid="uid://xxrr8qopx0ba" path="res://core/player/anime config/toptrans.tres" id="43_8igox"]
 [ext_resource type="Resource" uid="uid://cyypvkx7qiq3s" path="res://core/player/attributes/player_balance.tres" id="43_kaqeq"]
 [ext_resource type="Script" uid="uid://dp4ycngfi5jnt" path="res://core/player/states/_attack.gd" id="43_twx36"]
 [ext_resource type="Script" uid="uid://dypwihm0hhhwe" path="res://core/player/states/attack0.gd" id="44_82lcl"]
-[ext_resource type="Resource" uid="uid://bkbvsm0b6dh32" path="res://core/player/anime config/fall.tres" id="45_mb2n1"]
 [ext_resource type="Script" uid="uid://85f3fia5b20h" path="res://core/player/states/attack1.gd" id="45_scjvk"]
 [ext_resource type="Resource" uid="uid://bs3k3i3q70w6f" path="res://core/player/anime config/idle.tres" id="46_453cj"]
 [ext_resource type="Script" uid="uid://dhrmmmvhvbrkc" path="res://core/player/states/attack2.gd" id="46_a2y62"]
@@ -96,6 +93,7 @@
 [ext_resource type="Resource" uid="uid://bn4ybygdwdj6g" path="res://core/player/anime config/behitDamaged.tres" id="54_1p1vi"]
 [ext_resource type="Resource" uid="uid://r4qhrf2xruyk" path="res://core/player/attributes/ABT_dash_config.tres" id="55_k70b2"]
 [ext_resource type="Resource" uid="uid://dpbk5awy5kwll" path="res://core/player/anime config/attack0.tres" id="58_m42ps"]
+[ext_resource type="Resource" uid="uid://ca5n16x11ihrj" path="res://core/player/anime config/combatfastrun.tres" id="59_sob6d"]
 [ext_resource type="Script" uid="uid://bcvuswovemkmk" path="res://core/player/states/lock.gd" id="60_8i7n7"]
 [ext_resource type="Resource" uid="uid://ctu1bxos34g5l" path="res://core/player/anime config/attack1.tres" id="60_jb8p8"]
 [ext_resource type="Resource" uid="uid://nf0254mhmqke" path="res://core/player/anime config/lock.tres" id="61_8i7n7"]
@@ -103,12 +101,16 @@
 [ext_resource type="Script" uid="uid://ii5p6kdg4qu3" path="res://core/player/states/move2vec2.gd" id="63_54ve7"]
 [ext_resource type="Resource" uid="uid://c4ruomcquwmpt" path="res://core/player/anime config/dense.tres" id="64_lxci8"]
 [ext_resource type="Resource" uid="uid://c65vk35hvyh30" path="res://core/player/anime config/attack3.tres" id="64_xw3yw"]
+[ext_resource type="Resource" uid="uid://wes7rrkbhte2" path="res://core/player/anime config/combatlift.tres" id="67_wjx43"]
 [ext_resource type="Resource" uid="uid://bj48a01ae5lxf" path="res://core/player/attributes/ABT_dense_config.tres" id="68_jk52r"]
+[ext_resource type="Resource" uid="uid://dypt1ovtiwokr" path="res://core/player/anime config/combattoptrans.tres" id="69_vm7gv"]
+[ext_resource type="Resource" uid="uid://4xj6beokjvxd" path="res://core/player/anime config/combatfall.tres" id="71_i3km5"]
 [ext_resource type="Script" uid="uid://cex2whhqr3kr0" path="res://core/player/states/wake.gd" id="72_c6fmk"]
 [ext_resource type="Script" uid="uid://c0dxbfgbfg2if" path="res://core/player/states/onfloor.gd" id="73_b43tn"]
 [ext_resource type="Script" uid="uid://26i533h15u8b" path="res://core/player/states/mainscreen.gd" id="75_e23kp"]
 [ext_resource type="Resource" uid="uid://ckdoxt3m3a82" path="res://core/player/attributes/ABT_light_config.tres" id="75_j1i1n"]
 [ext_resource type="Script" uid="uid://c04vqe67ffl12" path="res://core/player/states/nobalance.gd" id="79_8i7n7"]
+[ext_resource type="Script" uid="uid://bpy0dkrg771r0" path="res://core/player/states/combatground.gd" id="80_2m31b"]
 [ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="80_6i3b3"]
 [ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="81_hpx6d"]
 [ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="82_3k4e8"]
@@ -116,11 +118,24 @@
 [ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="83_e23kp"]
 [ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="83_iu40y"]
 [ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="84_fc4wq"]
+[ext_resource type="Resource" uid="uid://buqfx7i8uopqi" path="res://core/player/anime config/combatrun.tres" id="84_wjx43"]
+[ext_resource type="Script" uid="uid://jxrx4210644c" path="res://core/player/states/combatfastrun.gd" id="84_yjacm"]
+[ext_resource type="Script" uid="uid://cttrbe1rmkt4m" path="res://core/player/states/combatdash.gd" id="85_8keo1"]
 [ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="85_xquc6"]
 [ext_resource type="Script" uid="uid://cec3itdl7of5v" path="res://core/common/anime/AnimeConfig.gd" id="86_66spe"]
+[ext_resource type="Script" uid="uid://bd8d6dd6o4vte" path="res://core/player/states/combatlanding.gd" id="86_iarq5"]
 [ext_resource type="Script" uid="uid://bsftsgq0l1nkg" path="res://core/player/states/pray.gd" id="86_vp6bf"]
 [ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="87_2m31b"]
+[ext_resource type="Script" uid="uid://klc45xgwlcv5" path="res://core/player/states/combatair.gd" id="87_iuhom"]
+[ext_resource type="Script" uid="uid://c2robofau01uj" path="res://core/player/states/combatlift.gd" id="88_0mmhs"]
 [ext_resource type="Script" uid="uid://be4vapnafyny8" path="res://core/player/states/struggle.gd" id="88_hpx6d"]
+[ext_resource type="Resource" uid="uid://c6l3p15wjbokp" path="res://core/player/anime config/combatlanding.tres" id="88_vm7gv"]
+[ext_resource type="Resource" uid="uid://dxukqv7xrsyda" path="res://core/player/anime config/combatidle.tres" id="89_fc4wq"]
+[ext_resource type="Script" uid="uid://b2ssetf22w4eo" path="res://core/player/states/combattoptrans.gd" id="89_fl7o0"]
+[ext_resource type="Script" uid="uid://bjokyt6hj33kd" path="res://core/player/states/combatidle.gd" id="89_xquc6"]
+[ext_resource type="Script" uid="uid://1pn0oku3kyi5" path="res://core/player/states/combatfall.gd" id="90_dprj2"]
+[ext_resource type="Script" uid="uid://drojsm1kam8bd" path="res://core/player/states/combatrun.gd" id="91_66spe"]
+[ext_resource type="Script" uid="uid://dvf5ecbxk6wkn" path="res://core/player/states/combatjump.gd" id="91_hfo3f"]
 [ext_resource type="Resource" uid="uid://dlci62k7ghc80" path="res://core/player/resource/player_dialogue_config.tres" id="108_4t8e8"]
 [ext_resource type="PackedScene" uid="uid://wnma64238otk" path="res://core/common/saves/player_save_data_collector/player_save_data_collector.tscn" id="108_dq6eo"]
 [ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="109_kaqeq"]
@@ -187,6 +202,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_noujb"]
 length = 1.7000000000000004
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -202,26 +218,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("base:frame")
+tracks/1/path = NodePath("baseFX:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159]
+"values": [0, 0, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("baseFX:frame")
+tracks/2/path = NodePath("base:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = false
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+"values": [143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 143]
 }
 
 [sub_resource type="Animation" id="Animation_kh7lt"]
@@ -361,6 +377,38 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [72, 73, 74, 75, 76, 77]
+}
+
+[sub_resource type="Animation" id="Animation_tcssq"]
+length = 2.400000000000001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("base:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182]
+}
+
+[sub_resource type="Animation" id="Animation_orqdu"]
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("base:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194]
 }
 
 [sub_resource type="Animation" id="Animation_2py30"]
@@ -572,26 +620,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("base:frame")
+tracks/3/path = NodePath("baseFX:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 7, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 9, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130]
+"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("baseFX:frame")
+tracks/4/path = NodePath("base:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 7, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 9, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+"values": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130]
 }
 
 [sub_resource type="Animation" id="Animation_scyt5"]
@@ -736,26 +784,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("base:frame")
+tracks/0/path = NodePath("baseFX:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 11]
+"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("baseFX:frame")
+tracks/1/path = NodePath("base:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+"values": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 11]
 }
 
 [sub_resource type="Animation" id="Animation_p127a"]
@@ -856,26 +904,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("base:frame")
+tracks/3/path = NodePath("baseFX:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142]
+"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("baseFX:frame")
+tracks/4/path = NodePath("base:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+"values": [131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142]
 }
 
 [sub_resource type="Animation" id="Animation_fjaki"]
@@ -976,26 +1024,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("base:frame")
+tracks/3/path = NodePath("baseFX:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("baseFX:frame")
+tracks/4/path = NodePath("base:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = false
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
 
 [sub_resource type="Animation" id="Animation_r5r04"]
@@ -1120,6 +1168,8 @@ _data = {
 &"attack3": SubResource("Animation_31yl5"),
 &"behit": SubResource("Animation_tb8vv"),
 &"behitDenseSafed": SubResource("Animation_adi1s"),
+&"combatidle": SubResource("Animation_tcssq"),
+&"combatrun": SubResource("Animation_orqdu"),
 &"dash": SubResource("Animation_2py30"),
 &"death": SubResource("Animation_befvo"),
 &"dense": SubResource("Animation_ytak2"),
@@ -1742,7 +1792,7 @@ script = ExtResource("86_66spe")
 animation_name = "attack0"
 metadata/_custom_type_script = "uid://cec3itdl7of5v"
 
-[sub_resource type="Resource" id="Resource_e23kp"]
+[sub_resource type="Resource" id="Resource_i3km5"]
 resource_local_to_scene = true
 script = ExtResource("109_kaqeq")
 key = "base"
@@ -1789,9 +1839,9 @@ position = Vector2(-1.0853271, 0.109004974)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("8_tpvv3")
 offset = Vector2(1.893, -13.483)
-hframes = 13
-vframes = 13
-frame = 143
+hframes = 14
+vframes = 14
+frame = 183
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -1817,7 +1867,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {},
 "slice_section": true
 }
-metadata/_aseprite_wizard_source_file_hash_ = "80108766881aca6cf4f935ccea6356a1"
+metadata/_aseprite_wizard_source_file_hash_ = "9e62890ab93aa589d9b34e9cffa9fe8b"
 
 [node name="base_bk" type="Sprite2D" parent="Animations/Anime" unique_id=1766364568]
 light_mask = 0
@@ -1829,7 +1879,7 @@ texture = ExtResource("33_yurw6")
 offset = Vector2(1.893, 96.537)
 hframes = 12
 vframes = 11
-frame = 51
+frame = 112
 metadata/_aseprite_wizard_config_ = {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
@@ -2154,7 +2204,8 @@ time_rand_range = Vector2(0, 0)
 script = ExtResource("32_vp6bf")
 sprite = NodePath("../../Animations/Anime/base")
 
-[node name="Attributes" type="Node2D" parent="." unique_id=285534102]
+[node name="Attributes" type="Node" parent="." unique_id=1700938077]
+script = ExtResource("38_i3km5")
 
 [node name="Health" type="Node" parent="Attributes" unique_id=1683022997]
 script = ExtResource("2_3w4m5")
@@ -2174,7 +2225,6 @@ script = ExtResource("12_lkqci")
 starting_node = NodePath("base/interactive/mainscreen")
 health_config = ExtResource("3_qy2x3")
 stamina_config = ExtResource("5_h5dm1")
-changing_state = true
 
 [node name="stack" type="Node" parent="StateManager" unique_id=1932350376]
 script = ExtResource("14_mcp7q")
@@ -2219,7 +2269,7 @@ anime_config = ExtResource("33_idsae")
 [node name="fastrun" type="Node" parent="StateManager/base/ground" unique_id=844084870]
 script = ExtResource("28_ekilh")
 is_normal_state = false
-anime_config = ExtResource("35_ouo11")
+anime_config = ExtResource("59_sob6d")
 
 [node name="dash" type="Node" parent="StateManager/base/ground" unique_id=2035338403]
 script = ExtResource("29_un8va")
@@ -2246,16 +2296,16 @@ is_group = true
 
 [node name="lift" type="Node" parent="StateManager/base/air" unique_id=273686356]
 script = ExtResource("32_ssiia")
-anime_config = ExtResource("41_orpom")
+anime_config = ExtResource("67_wjx43")
 
 [node name="toptrans" type="Node" parent="StateManager/base/air" unique_id=1119635300]
 script = ExtResource("33_0so5l")
 is_normal_state = false
-anime_config = ExtResource("43_8igox")
+anime_config = ExtResource("69_vm7gv")
 
 [node name="fall" type="Node" parent="StateManager/base/air" unique_id=928279892]
 script = ExtResource("34_svukf")
-anime_config = ExtResource("45_mb2n1")
+anime_config = ExtResource("71_i3km5")
 
 [node name="jump" type="Node" parent="StateManager/base/air" unique_id=79949838]
 script = ExtResource("25_opvnn")
@@ -2290,6 +2340,58 @@ anime_config = ExtResource("61_8i7n7")
 [node name="combat" type="Node" parent="StateManager/base" unique_id=482263818]
 script = ExtResource("37_twix3")
 is_group = true
+
+[node name="combatidle" type="Node" parent="StateManager/base/combat" unique_id=1682395949]
+script = ExtResource("89_xquc6")
+anime_config = ExtResource("89_fc4wq")
+
+[node name="combatground" type="Node" parent="StateManager/base/combat" unique_id=1552178482]
+script = ExtResource("80_2m31b")
+
+[node name="combatrun" type="Node" parent="StateManager/base/combat/combatground" unique_id=843583952]
+script = ExtResource("91_66spe")
+anime_config = ExtResource("84_wjx43")
+
+[node name="combatfastrun" type="Node" parent="StateManager/base/combat/combatground" unique_id=1536845285]
+script = ExtResource("84_yjacm")
+is_normal_state = false
+anime_config = ExtResource("59_sob6d")
+
+[node name="combatdash" type="Node" parent="StateManager/base/combat/combatground" unique_id=480765828]
+script = ExtResource("85_8keo1")
+dash_config = ExtResource("55_k70b2")
+is_normal_state = false
+stamina_cost = 40
+need_stamina = true
+anime_config = ExtResource("37_m08ca")
+
+[node name="Timer" type="Timer" parent="StateManager/base/combat/combatground/combatdash" unique_id=28019062]
+one_shot = true
+
+[node name="combatlanding" type="Node" parent="StateManager/base/combat/combatground" unique_id=942456778]
+script = ExtResource("86_iarq5")
+anime_config = ExtResource("88_vm7gv")
+
+[node name="combatair" type="Node" parent="StateManager/base/combat" unique_id=729150267]
+script = ExtResource("87_iuhom")
+is_group = true
+
+[node name="combatlift" type="Node" parent="StateManager/base/combat/combatair" unique_id=1668913150]
+script = ExtResource("88_0mmhs")
+anime_config = ExtResource("67_wjx43")
+
+[node name="combattoptrans" type="Node" parent="StateManager/base/combat/combatair" unique_id=221787096]
+script = ExtResource("89_fl7o0")
+is_normal_state = false
+anime_config = ExtResource("69_vm7gv")
+
+[node name="combatfall" type="Node" parent="StateManager/base/combat/combatair" unique_id=793917330]
+script = ExtResource("90_dprj2")
+anime_config = ExtResource("71_i3km5")
+
+[node name="combatjump" type="Node" parent="StateManager/base/combat/combatair" unique_id=1240022201]
+script = ExtResource("91_hfo3f")
+is_normal_state = false
 
 [node name="nobalance" type="Node" parent="StateManager/base/combat" unique_id=1129178403]
 script = ExtResource("79_8i7n7")
@@ -2535,18 +2637,18 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" parent="UIs" unique_id=1753141741 instance=ExtResource("4_lpne6")]
-visible = false
+modulate = Color(1, 1, 1, 0)
 light_mask = 2048
 anchors_preset = -1
-offset_left = -20.0
-offset_top = -110.747986
-offset_right = 20.0
-offset_bottom = -109.747986
+offset_left = -37.843323
+offset_top = -117.97029
+offset_right = 36.144104
+offset_bottom = -116.97029
+only_show_in_combat = true
 back_bar_delay_time = 1.0
 back_bar_animation_time = 0.5
 bar_color = Color(16.898285, 16.630459, 0, 1)
 back_bar_color = Color(0, 0, 0, 0.8666667)
-metadata/_edit_use_anchors_ = true
 
 [node name="HurtUI" type="Node2D" parent="UIs" unique_id=1840738073]
 light_mask = 2048
@@ -2622,7 +2724,7 @@ connects = [NodePath("../Components/HurtBox"), NodePath("../Components/HitBox"),
 [node name="Saves" type="Node" parent="." unique_id=1635753057]
 
 [node name="DataCollector" parent="Saves" unique_id=1706702443 instance=ExtResource("108_dq6eo")]
-save_data_config = SubResource("Resource_e23kp")
+save_data_config = SubResource("Resource_i3km5")
 
 [node name="Interactions" parent="." unique_id=1647744603 instance=ExtResource("82_su2cd")]
 
@@ -2637,6 +2739,7 @@ dialogue_config = ExtResource("108_4t8e8")
 [connection signal="timeout" from="Components/UpdateTimer" to="." method="_on_update_timer_timeout"]
 [connection signal="timeout" from="StateManager/stack/behitbati/Timer" to="StateManager/stack/behitbati" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/ground/dash/Timer" to="StateManager/base/ground/dash" method="_on_timer_timeout"]
+[connection signal="timeout" from="StateManager/base/combat/combatground/combatdash/Timer" to="StateManager/base/combat/combatground/combatdash" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/combat/dense/DenseTimer" to="StateManager/base/combat/dense" method="_on_dense_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/combat/dense/DenseCooldownTimer" to="StateManager/base/combat/dense" method="_on_dense_cooldown_timer_timeout"]
 [connection signal="timeout" from="StateManager/base/combat/behit/behitDenseSafed/StiffTimer" to="StateManager/base/combat/behit/behitDenseSafed" method="_on_stiff_timer_timeout"]

@@ -9,9 +9,7 @@ class_name BalanceConfig
 	set(h):
 		var e = clamp(h,0,max_balance)
 		if e == max_balance:
-			EventBus._player_on_fighting_changed(false)
 			current_balance = e
 			return
-		EventBus._player_on_fighting_changed(true)
 		last_balance = current_balance
 		current_balance = e

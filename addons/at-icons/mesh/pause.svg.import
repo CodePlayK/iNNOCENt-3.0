@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/pause.svg-c16f32ae5556f1e12a395abccd666f0e.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

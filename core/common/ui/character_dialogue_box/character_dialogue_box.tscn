@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://boer66sak1shi"]
+[gd_scene format=3 uid="uid://boer66sak1shi"]
 
 [ext_resource type="Texture2D" uid="uid://bxrjsuoa2xip4" path="res://test/texture/女主.png" id="1_iuhow"]
-[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="2_iaaos"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="2_iaaos"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mis7"]
 bg_color = Color(0, 0, 0, 0.454902)
@@ -35,71 +35,72 @@ fill_to = Vector2(0.5, 0)
 
 [sub_resource type="Theme" id="Theme_hreqw"]
 
-[node name="CharacterDialogueBox" type="MarginContainer"]
+[node name="CharacterDialogueBox" type="MarginContainer" unique_id=855558108]
 offset_left = 101.0
 offset_top = 741.0
 offset_right = 1835.0
 offset_bottom = 1525.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=27695415]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=909097027]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=417721194]
 layout_mode = 2
 size_flags_stretch_ratio = 10.0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1514539374]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=529320189]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7mis7")
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=995070714]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_dqp7l")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1404226602]
 layout_mode = 2
 texture = ExtResource("1_iuhow")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=618937852]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.63
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=1889154128]
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 10.0
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=241935910]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=636470384]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=243243849]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_lfqbu")
 
-[node name="DialogueLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="DialogueLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer" unique_id=267060767]
 layout_mode = 2
 theme = SubResource("Theme_hreqw")
 text = "啦啦啦啦啦啦啦啦啦啦"
 script = ExtResource("2_iaaos")
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=1555582701]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 10.65

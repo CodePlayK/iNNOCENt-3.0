@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/wind.svg-fc1950e5d6886772a951676f4d3d8b88.cte
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

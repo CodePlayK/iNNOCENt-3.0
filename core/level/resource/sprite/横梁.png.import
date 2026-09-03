@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/横梁.png-06f56bcc4c6f59d2ebf699059ce3989a.c
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/shovel.svg-dd5d7b655920bd9f102f10ee9fd47a03.c
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

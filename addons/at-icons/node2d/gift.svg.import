@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/gift.svg-ea320c5462d9a1ceb821b1a30c2feb83.cte
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

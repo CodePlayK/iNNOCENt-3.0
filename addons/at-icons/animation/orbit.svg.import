@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/orbit.svg-44be06ac85d9c01ab4174b99d9408c50.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

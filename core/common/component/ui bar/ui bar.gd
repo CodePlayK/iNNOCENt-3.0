@@ -1,8 +1,9 @@
-@tool
 @icon("res://core/common/resource/icon/ProgressBar.png")
 extends Control
 class_name UIbar
-@export_category("状态条配置")
+@export_group("基础配置")
+@export var only_show_in_combat:bool = true	
+@export var keep_show_in_combat:bool = true	
 @export_group("初始化设置")
 @export var bar_max_value:float:
 	set(f):
@@ -23,6 +24,7 @@ class_name UIbar
 		last_value = current_value
 		current_value = v
 @export_group("外观")
+@export var bar_max_hide_time:float = 3
 @export var back_bar_delay_time:float
 @export var bar_animation_time:float = .2
 @export var back_bar_animation_time:float = .2
@@ -38,10 +40,18 @@ var last_value:float
 @onready var back_bar_timer: Timer = $BackBarTimer
 @onready var back_bar: ProgressBar = $UIBarBack
 @onready var ui_bar: ProgressBar = $UIBar
+@onready var max_hide_timer: Timer = $MaxHideTimer
 
 func _ready() -> void:
+	hide()
 	preset_back_bar(back_bar_enable)
 	set_color()
+	EventBus.on_new_game.connect(on_new_game)
+	
+
+func on_new_game():
+	current_value = bar_max_value
+	hide()
 	
 ##master初始化事件			
 func on_master_ready(m:Master) -> void:
@@ -101,3 +111,27 @@ func preset():
 	back_bar.max_value = bar_max_value
 	back_bar.min_value = bar_min_value
 	back_bar.value = current_value
+
+
+func _on_ui_bar_value_changed(value: float) -> void:
+	if keep_show_in_combat and PlayerState.player_on_fighting:
+		max_hide_timer.stop()	
+		show()
+		return
+	if current_value >= bar_max_value and visible and max_hide_timer.is_stopped():
+		max_hide_timer.start(bar_max_hide_time)
+	elif current_value < bar_max_value :
+		if only_show_in_combat :
+			if PlayerState.player_on_fighting:
+				max_hide_timer.stop()
+				show()
+		else:
+			max_hide_timer.stop()
+			show()
+	
+func _on_max_hide_timer_timeout() -> void:
+	hide()
+
+
+func _on_check_timer_timeout() -> void:
+	_on_ui_bar_value_changed(current_value)

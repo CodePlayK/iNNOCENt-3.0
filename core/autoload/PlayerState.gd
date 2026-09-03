@@ -81,6 +81,7 @@ var player_z_index={
 var is_player_on_fighting:bool=false:
 	set(f):
 		is_player_on_fighting = f
+		EventBus._player_on_fighting_changed(is_player_on_fighting)
 		if player_player:
 			player_player.ui.player_on_fighting_changed(f)
 

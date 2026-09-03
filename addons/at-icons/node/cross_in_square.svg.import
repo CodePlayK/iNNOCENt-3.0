@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/cross_in_square.svg-2778ef2c08272980a3f6f80f2
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://chsjmyajlpl3t"]
+[gd_scene format=3 uid="uid://chsjmyajlpl3t"]
 
-[ext_resource type="Script" path="res://core/common/component/rect_debug/RectDebug.gd" id="1_hox7r"]
+[ext_resource type="Script" uid="uid://cjv2rts5m7fy6" path="res://core/common/component/rect_debug/RectDebug.gd" id="1_hox7r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tg7od"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -10,7 +10,7 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
-[node name="Panel" type="Panel"]
+[node name="Panel" type="Panel" unique_id=2069398992]
 offset_left = -52.0
 offset_top = -59.5
 offset_right = 278.0

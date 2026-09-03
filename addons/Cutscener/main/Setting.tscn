@@ -1,22 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgehu404kucay"]
+[gd_scene format=3 uid="uid://dgehu404kucay"]
 
 [ext_resource type="Theme" uid="uid://ch03cnrspt63o" path="res://addons/Cutscener/resource/node_theme.tres" id="1_bvw1c"]
-[ext_resource type="Script" path="res://addons/Cutscener/main/Setting.gd" id="1_u5m5v"]
+[ext_resource type="Script" uid="uid://caxngjfa33hb2" path="res://addons/Cutscener/main/Setting.gd" id="1_u5m5v"]
 
-[node name="Setting" type="TabContainer"]
+[node name="Setting" type="TabContainer" unique_id=1705285612]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bvw1c")
+current_tab = 0
+tab_0/title = "配置Autoloads"
 script = ExtResource("1_u5m5v")
 
-[node name="Enable Autoloads" type="VBoxContainer" parent="."]
+[node name="Enable Autoloads" type="VBoxContainer" parent="." unique_id=1193074686]
 layout_mode = 2
 metadata/_tab_name = "配置Autoloads"
+metadata/_tab_index = 0
 
-[node name="Label" type="Label" parent="Enable Autoloads"]
+[node name="Label" type="Label" parent="Enable Autoloads" unique_id=77803141]
 layout_mode = 2
 text = "载入 MerhodBus 中选中的全局脚本的方法 , 以在 信号 节点中选择.
 The Cutscener will load all methods from autoloads which selected under MethodBus.
@@ -25,20 +28,22 @@ The StateBus will load all properties from autoloads which selected under StateB
 *列表只会显示有@tool标记的工具脚本
 *Only showing autoloads with @tool"
 
-[node name="Button" type="Button" parent="Enable Autoloads"]
+[node name="Button" type="Button" parent="Enable Autoloads" unique_id=1723603911]
 visible = false
 layout_mode = 2
 toggle_mode = true
 text = "点我刷新数据~"
 
-[node name="TabContainer" type="TabContainer" parent="Enable Autoloads"]
+[node name="TabContainer" type="TabContainer" parent="Enable Autoloads" unique_id=1307864720]
 layout_mode = 2
 size_flags_vertical = 3
+current_tab = 0
 
-[node name="MethodBus" type="VBoxContainer" parent="Enable Autoloads/TabContainer"]
+[node name="MethodBus" type="VBoxContainer" parent="Enable Autoloads/TabContainer" unique_id=1969733729]
 layout_mode = 2
+metadata/_tab_index = 0
 
-[node name="MethodTree" type="Tree" parent="Enable Autoloads/TabContainer/MethodBus"]
+[node name="MethodTree" type="Tree" parent="Enable Autoloads/TabContainer/MethodBus" unique_id=1581572213]
 layout_mode = 2
 size_flags_vertical = 3
 columns = 3
@@ -49,11 +54,12 @@ hide_root = true
 select_mode = 1
 scroll_horizontal_enabled = false
 
-[node name="StateBus" type="VBoxContainer" parent="Enable Autoloads/TabContainer"]
+[node name="StateBus" type="VBoxContainer" parent="Enable Autoloads/TabContainer" unique_id=1732574151]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
-[node name="StateTree" type="Tree" parent="Enable Autoloads/TabContainer/StateBus"]
+[node name="StateTree" type="Tree" parent="Enable Autoloads/TabContainer/StateBus" unique_id=1210636060]
 layout_mode = 2
 size_flags_vertical = 3
 columns = 3

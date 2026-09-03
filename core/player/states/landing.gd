@@ -1,4 +1,4 @@
-extends GroundState
+extends CombatGroundState
 
 
 func input(_event: InputEvent) -> BaseState:

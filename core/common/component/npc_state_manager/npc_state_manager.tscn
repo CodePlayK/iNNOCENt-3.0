@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b575b3phfd4ku"]
+[gd_scene format=3 uid="uid://b575b3phfd4ku"]
 
-[ext_resource type="Script" path="res://core/common/component/npc_state_manager/npc_state_manager.gd" id="1_outb8"]
+[ext_resource type="Script" uid="uid://cjquy3fv3m5c6" path="res://core/common/component/npc_state_manager/npc_state_manager.gd" id="1_outb8"]
 
-[node name="NpcStateManager" type="Node"]
+[node name="NpcStateManager" type="Node" unique_id=2006411384]
 script = ExtResource("1_outb8")

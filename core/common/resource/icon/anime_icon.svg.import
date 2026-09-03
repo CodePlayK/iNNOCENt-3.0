@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/anime_icon.svg-5596633682b336063e236c10ba1763
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

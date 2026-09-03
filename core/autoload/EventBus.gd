@@ -26,6 +26,7 @@ signal on_esc_pressed
 signal reset_game
 ##通知新建游戏存档
 signal new_save_game
+signal on_new_game
 #endregion
 
 
@@ -257,7 +258,8 @@ func _camera_shake(strength: float, SHAKE_DECAY: float) -> void:
 func _change_level(level_id: LevelState.LEVELS,source:Node) -> void:
 	Debug.dprintwarn(DebugCT.dp("信号: 开始切换Level - [%s]" %[level_id],source))
 	change_level.emit(level_id)
-
+func _on_new_game():
+	on_new_game.emit()
 
 ## 发射 [signal level_changed]
 ## [param fl] 切换前关卡

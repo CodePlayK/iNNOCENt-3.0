@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/wheel.svg-4c39da2c060784b1a7823d307650ccb5.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

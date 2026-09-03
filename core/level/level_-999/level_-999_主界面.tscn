@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://del22g175wnyf" path="res://core/level/level_-999/main_screen_menu.tscn" id="31_4ihe7"]
 [ext_resource type="PackedScene" uid="uid://dk2mepf1eu5ro" path="res://core/common/ui/state_box/setting/save_file_item/save_file_item.tscn" id="33_2nuac"]
 [ext_resource type="Script" uid="uid://dfkxj7p1v3mhp" path="res://core/common/ui/state_box/菜单.gd" id="33_8asi8"]
-[ext_resource type="PackedScene" path="res://core/common/component/parallax_scale/parallax_scale_2d.tscn" id="33_edfyf"]
+[ext_resource type="PackedScene" uid="uid://x12cjq3he6n5" path="res://core/common/component/parallax_scale/parallax_scale_2d.tscn" id="33_edfyf"]
 [ext_resource type="PackedScene" uid="uid://b81hgkg6syg5x" path="res://core/common/ui/state_box/setting/setting_item.tscn" id="33_rct81"]
 [ext_resource type="Resource" uid="uid://1j4fvfecu1s7" path="res://core/common/ui/state_box/setting/new_save_file.tres" id="34_8asi8"]
 [ext_resource type="Theme" uid="uid://tdxlyr8vxjoh" path="res://core/level/level_-999/mainui.tres" id="34_iqkoj"]
@@ -71,7 +71,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7h3t0"]
 gradient = SubResource("Gradient_7h3t0")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgh7o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0jgi"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -82,7 +82,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0jgi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgh7o"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -304,7 +304,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_beut6"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pppvl"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -315,7 +315,7 @@ shader_parameter/sample_count = 5
 shader_parameter/light_dir = Vector2(-2, -3.245)
 shader_parameter/distance_strength = 7.1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pppvl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_beut6"]
 resource_local_to_scene = true
 shader = ExtResource("20_vt5du")
 shader_parameter/enable_rim = true
@@ -493,7 +493,7 @@ layer_id = -5
 metadata/_edit_lock_ = true
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_-5" unique_id=1986247606 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_pgh7o")
+material = SubResource("ShaderMaterial_r0jgi")
 position = Vector2(1244, 319)
 scale = Vector2(1.403125, 1)
 texture = ExtResource("12_j1rmr")
@@ -507,7 +507,7 @@ back_offset_pixels = Vector2(-3, 1.565)
 
 [node name="BaseSprite2" parent="Parallax/ParallaxLayer_-5" unique_id=94096621 instance=ExtResource("10_5jisn")]
 light_mask = 1
-material = SubResource("ShaderMaterial_r0jgi")
+material = SubResource("ShaderMaterial_pgh7o")
 position = Vector2(1280, 292)
 texture = ExtResource("12_tl2o3")
 base_color_override_scale = 0.525
@@ -807,7 +807,7 @@ back_offset = false
 
 [node name="BaseSprite2" parent="Parallax/ParallaxLayer_7" unique_id=2138048998 instance=ExtResource("10_5jisn")]
 z_index = 1
-material = SubResource("ShaderMaterial_beut6")
+material = SubResource("ShaderMaterial_pppvl")
 position = Vector2(1597, 534)
 rotation = 0.019252876
 texture = ExtResource("30_r0jgi")
@@ -820,7 +820,7 @@ position = Vector2(11, 4)
 layer_id = 8
 
 [node name="BaseSprite" parent="Parallax/ParallaxLayer_8" unique_id=1120908873 instance=ExtResource("10_5jisn")]
-material = SubResource("ShaderMaterial_pppvl")
+material = SubResource("ShaderMaterial_beut6")
 position = Vector2(1242, 278)
 texture = ExtResource("26_ep8cd")
 base_color = Color(0, 0, 0, 1)

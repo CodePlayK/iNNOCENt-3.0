@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/roadblock.svg-d8d88ff5aea38d0a72c30ab0d49c9a2
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

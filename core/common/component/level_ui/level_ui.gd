@@ -22,16 +22,11 @@ func _on_player_stamina_damaged():
 func _on_player_on_fighting_changed(flag):
 	if flag:
 		stamina_bar.visible = flag
-	else :
-		if stamina_bar.visible and fight_dely_time.is_stopped():
-			fight_dely_time.start(3)
+
 func _on_camera_shake(strenth,decay):
 	player_camera.SHAKE_DECAY = decay
 	player_camera.add_shake(strenth)
 	
-func _on_fight_dely_time_timeout() -> void:
-	if stamina_config.current_stamina == stamina_config.max_stamina:
-		stamina_bar.hide()
 
 func _on_esc_pressed() -> void:
 	EventBus.on_esc_pressed.emit()	

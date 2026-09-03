@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/arrows_clockwise.svg-ecc49b85ec6fb73b00595d71
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

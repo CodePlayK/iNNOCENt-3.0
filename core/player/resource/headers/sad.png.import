@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/sad.png-bf567030e8ac1a9500e9d285bd03b4f2.ctex
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

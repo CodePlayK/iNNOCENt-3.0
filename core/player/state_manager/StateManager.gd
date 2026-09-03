@@ -44,6 +44,7 @@ var is_changing_state: bool = false
 func init(p_player: Player) -> void:
 	anime.animes.clear()
 	EventBus.player_control_lock.connect(_on_player_control_lock)
+	EventBus.player_on_fighting_changed.connect(_on_player_on_fighting_changed)
 
 	_collect_states(self)
 
@@ -194,7 +195,10 @@ func _on_player_control_lock(state) -> void:
 	if state:
 		change_state(get_state("lock"))
 	else:
-		change_state(get_state("idle"))
+		if PlayerState.is_player_on_fighting:
+			change_state(get_state("combatidle"))
+		else:
+			change_state(get_state("idle"))
 
 
 func input_common_state(event: InputEvent):
@@ -262,6 +266,8 @@ func check_current_state_by_name(state_name) -> bool:
 func on_hurt(obj: HitBox) -> void:
 	if not obj.enable:
 		return
+	if current_state in  [base_state.lock_state]:
+		return
 	PlayerState.player_be_hitting = true
 	current_damage = obj.damage
 	if current_state and current_state.anime_config:
@@ -282,3 +288,7 @@ func on_hurt(obj: HitBox) -> void:
 
 func on_balance_empty(balance_config:BalanceConfig):
 	change_state(base_state.no_balance)
+
+func _on_player_on_fighting_changed(on_fighting:bool):
+	if on_fighting:
+		change_state(base_state.combatidle_state)

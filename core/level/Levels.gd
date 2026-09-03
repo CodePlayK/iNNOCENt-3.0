@@ -49,7 +49,6 @@ func _ready() -> void:
 	load_transitions()
 	self.tree_exited.connect(_tree_exited)
 	connect_signals()
-	play_atmosphere_se()
 	preset_player()
 	
 ##@experimental
@@ -86,10 +85,6 @@ func load_player_position():
 func preset_player():
 	PlayerState.preset_player(self)
 	
-##播放[member atmosphere_se_dic]当前环境音	
-func play_atmosphere_se():
-	for se in atmosphere_se_dic:
-		EventBus._play_SE_LOOP(se[0],true,1.0,se[1])
 		
 ##房间tree exited时执行的方法	
 func _tree_exited():

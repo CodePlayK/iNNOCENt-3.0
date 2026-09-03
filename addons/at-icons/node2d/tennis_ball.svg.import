@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/tennis_ball.svg-e04c20b4f604f69cc7d932f9e9915
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

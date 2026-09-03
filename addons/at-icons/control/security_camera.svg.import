@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/security_camera.svg-3a527fe1d7ea12b5a31b0dc35
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

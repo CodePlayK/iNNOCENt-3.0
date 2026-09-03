@@ -1,70 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://dls6u3t8iow8i"]
+[gd_scene format=3 uid="uid://dls6u3t8iow8i"]
 
-[ext_resource type="Script" path="res://core/common/component/music/music.gd" id="1_0yhny"]
+[ext_resource type="Script" uid="uid://dspu1b2n0slyo" path="res://core/common/component/music/music.gd" id="1_0yhny"]
 
-[node name="Music" type="Node"]
+[node name="Music" type="Node" unique_id=900836316]
 script = ExtResource("1_0yhny")
 
-[node name="BGSE" type="Node" parent="."]
+[node name="BGSE" type="Node" parent="." unique_id=1020879930]
 
-[node name="BGM" type="Node" parent="."]
+[node name="BGM" type="Node" parent="." unique_id=1801368396]
 process_mode = 3
 
-[node name="backgroundMusicPlayer" type="AudioStreamPlayer" parent="BGM"]
+[node name="backgroundMusicPlayer" type="AudioStreamPlayer" parent="BGM" unique_id=1070668015]
 process_mode = 3
 
-[node name="backgroundMusicPlayer2" type="AudioStreamPlayer" parent="BGM"]
+[node name="backgroundMusicPlayer2" type="AudioStreamPlayer" parent="BGM" unique_id=23645181]
 process_mode = 3
 
-[node name="backgroundMusicPlayer3" type="AudioStreamPlayer" parent="BGM"]
+[node name="backgroundMusicPlayer3" type="AudioStreamPlayer" parent="BGM" unique_id=1949759156]
 process_mode = 3
 
-[node name="backgroundMusicPlayer4" type="AudioStreamPlayer" parent="BGM"]
+[node name="backgroundMusicPlayer4" type="AudioStreamPlayer" parent="BGM" unique_id=1888528446]
 process_mode = 3
 
-[node name="SE" type="Node" parent="."]
+[node name="SE" type="Node" parent="." unique_id=170817568]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SE" unique_id=1201895828]
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SE" unique_id=251967852]
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SE" unique_id=39224094]
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SE" unique_id=1123856709]
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SE" unique_id=302158698]
 
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SE" unique_id=1308883965]
 
-[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="SE" unique_id=168347687]
 
-[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="SE" unique_id=150597318]
 
-[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="SE" unique_id=560892607]
 
-[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="SE" unique_id=178849789]
 
-[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="SE"]
+[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="SE" unique_id=587565810]
 
-[node name="SE_LOOP" type="Node" parent="."]
+[node name="SE_LOOP" type="Node" parent="." unique_id=86668641]
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SE_LOOP"]
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=67585744]
 process_mode = 3
 
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SE_LOOP"]
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=2059249455]
 process_mode = 3
 
-[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="SE_LOOP"]
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=777564521]
 process_mode = 3
 
-[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="SE_LOOP"]
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=877013729]
 process_mode = 3
 
-[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="SE_LOOP"]
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=1263076593]
 process_mode = 3
 
-[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="SE_LOOP"]
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=1003152548]
 process_mode = 3
 
-[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="SE_LOOP"]
+[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="SE_LOOP" unique_id=2036645021]
 process_mode = 3

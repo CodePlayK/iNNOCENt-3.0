@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dug4013bo7vnr"]
+[gd_scene format=3 uid="uid://dug4013bo7vnr"]
 
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/Conmmon/edit_menu.gd" id="1_kxgnt"]
+[ext_resource type="Script" uid="uid://ylltgi7ndw83" path="res://addons/Cutscener/clazz/node/Conmmon/edit_menu.gd" id="1_kxgnt"]
 [ext_resource type="Theme" uid="uid://ch03cnrspt63o" path="res://addons/Cutscener/resource/node_theme.tres" id="1_uy03n"]
 [ext_resource type="PackedScene" uid="uid://biow5ccnofp2u" path="res://addons/Cutscener/clazz/node/Conmmon/index_op.tscn" id="3_lb2ua"]
 
@@ -26,22 +26,22 @@ corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
-[node name="EditMenu" type="VBoxContainer"]
+[node name="EditMenu" type="VBoxContainer" unique_id=1341531876]
 theme = ExtResource("1_uy03n")
 theme_override_constants/separation = 3
 script = ExtResource("1_kxgnt")
 
-[node name="HSeparator" type="HSeparator" parent="."]
+[node name="HSeparator" type="HSeparator" parent="." unique_id=1970175603]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="EditMenu" type="HBoxContainer" parent="."]
+[node name="EditMenu" type="HBoxContainer" parent="." unique_id=1238514875]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 3
 
-[node name="delete" type="Button" parent="EditMenu"]
+[node name="delete" type="Button" parent="EditMenu" unique_id=2040523422]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "删除Node"
@@ -49,7 +49,7 @@ mouse_filter = 1
 theme_override_font_sizes/font_size = 14
 text = "Delete"
 
-[node name="copy" type="Button" parent="EditMenu"]
+[node name="copy" type="Button" parent="EditMenu" unique_id=1330208498]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "复制Node"
@@ -57,7 +57,7 @@ mouse_filter = 1
 theme_override_font_sizes/font_size = 14
 text = "Copy Name"
 
-[node name="clear" type="Button" parent="EditMenu"]
+[node name="clear" type="Button" parent="EditMenu" unique_id=105287605]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "清除Node的所有连接"
@@ -65,7 +65,7 @@ mouse_filter = 1
 theme_override_font_sizes/font_size = 14
 text = "Clear Connection"
 
-[node name="timer" type="LineEdit" parent="EditMenu"]
+[node name="timer" type="LineEdit" parent="EditMenu" unique_id=1085280622]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "该Node运行结束后的等待时间"
@@ -76,15 +76,15 @@ alignment = 1
 expand_to_text_length = true
 caret_blink = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=509077087]
 layout_mode = 2
 theme_override_constants/margin_top = 7
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1774121091]
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="Index" type="LineEdit" parent="MarginContainer/HBoxContainer"]
+[node name="Index" type="LineEdit" parent="MarginContainer/HBoxContainer" unique_id=666008088]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -94,12 +94,12 @@ text = "0"
 alignment = 1
 expand_to_text_length = true
 
-[node name="IndexOp" parent="MarginContainer/HBoxContainer" node_paths=PackedStringArray("target") instance=ExtResource("3_lb2ua")]
+[node name="IndexOp" parent="MarginContainer/HBoxContainer" unique_id=2098726657 node_paths=PackedStringArray("target") instance=ExtResource("3_lb2ua")]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 target = NodePath("../Index")
 
-[node name="plus" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="plus" type="Button" parent="MarginContainer/HBoxContainer" unique_id=358281515]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -111,7 +111,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_yfcs0")
 text = "+"
 icon_alignment = 1
 
-[node name="min" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="min" type="Button" parent="MarginContainer/HBoxContainer" unique_id=166898996]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -123,7 +123,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vl54u")
 text = "-"
 icon_alignment = 1
 
-[node name="TitleEdit" type="LineEdit" parent="MarginContainer/HBoxContainer"]
+[node name="TitleEdit" type="LineEdit" parent="MarginContainer/HBoxContainer" unique_id=550511428]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "修改标题名"

@@ -5,7 +5,6 @@ type="CompressedTexture2D"
 uid="uid://b50crhdntns14"
 path="res://.godot/imported/main_bk.png-3c24681a29d76ba4b11516358610e16d.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
@@ -18,6 +17,7 @@ dest_files=["res://.godot/imported/main_bk.png-3c24681a29d76ba4b11516358610e16d.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

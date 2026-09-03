@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="ParallaxSaveData" load_steps=2 format=3 uid="uid://m0qqq8ujww4j"]
+[gd_resource type="Resource" script_class="ParallaxSaveData" format=3 uid="uid://m0qqq8ujww4j"]
 
-[ext_resource type="Script" path="res://core/common/parallax/parallax_save_data.gd" id="1_ed6ky"]
+[ext_resource type="Script" uid="uid://c8m772s4mgfuh" path="res://core/common/parallax/parallax_save_data.gd" id="1_ed6ky"]
 
 [resource]
 script = ExtResource("1_ed6ky")
-dic_position = {}

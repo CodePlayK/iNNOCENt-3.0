@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/wind_sock.svg-6098903e548d95cc8136d8631b8a467
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

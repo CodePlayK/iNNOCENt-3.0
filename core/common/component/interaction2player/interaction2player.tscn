@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk2esskf18q30"]
+[gd_scene format=3 uid="uid://dk2esskf18q30"]
 
-[ext_resource type="Script" path="res://core/common/component/interaction2player/interaction2player.gd" id="1_psco5"]
+[ext_resource type="Script" uid="uid://mipurev7mq3t" path="res://core/common/component/interaction2player/interaction2player.gd" id="1_psco5"]
 
-[node name="Interaction" type="Area2D"]
+[node name="Interaction" type="Area2D" unique_id=797953978]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_psco5")

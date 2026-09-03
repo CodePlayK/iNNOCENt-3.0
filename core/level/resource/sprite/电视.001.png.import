@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/电视.001.png-01c3621a9f8c6d597a7d9f009fc5ee
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

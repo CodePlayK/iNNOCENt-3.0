@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/tank.svg-81e24300b53578aa7f07df4e2020fc6b.cte
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

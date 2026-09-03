@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/italics.svg-8317d1ca7f5423c8c81dad4cd605375f.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

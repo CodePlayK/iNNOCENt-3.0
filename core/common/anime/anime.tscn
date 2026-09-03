@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bewwlmeborpfh"]
+[gd_scene format=3 uid="uid://bewwlmeborpfh"]
 
-[ext_resource type="Script" path="res://core/common/anime/anime.gd" id="1_jn0c5"]
+[ext_resource type="Script" uid="uid://llna5dyt6una" path="res://core/common/anime/anime.gd" id="1_jn0c5"]
 
-[node name="Anime" type="Node2D"]
+[node name="Anime" type="Node2D" unique_id=549973291]
 script = ExtResource("1_jn0c5")

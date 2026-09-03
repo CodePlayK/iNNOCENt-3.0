@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/arrow_right_to_bracket.svg-8300304a16d3c0ff4c
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

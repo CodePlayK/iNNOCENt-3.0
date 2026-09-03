@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/reverse.svg-7564adf53e7d2b2c9e2ed1766b440356.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

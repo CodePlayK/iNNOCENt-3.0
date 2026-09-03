@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://lv1uokjjtteq"]
+[gd_scene format=3 uid="uid://lv1uokjjtteq"]
 
-[ext_resource type="Script" path="res://core/common/component/collect_hint/CollectHint.gd" id="1_n6p75"]
+[ext_resource type="Script" uid="uid://cysnqbdpm708d" path="res://core/common/component/collect_hint/CollectHint.gd" id="1_n6p75"]
 [ext_resource type="Texture2D" uid="uid://dj4ton4fwrlky" path="res://core/item/UI - Icons.png" id="2_ub1fc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vuatg"]
@@ -132,18 +132,18 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_budv1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 10.0
 }]
 
-[node name="CollectHint" type="Area2D"]
+[node name="CollectHint" type="Area2D" unique_id=1840162705]
 collision_layer = 0
 collision_mask = 2
 input_pickable = false
 script = ExtResource("1_n6p75")
 
-[node name="hintBase" type="AnimatedSprite2D" parent="."]
+[node name="hintBase" type="AnimatedSprite2D" parent="." unique_id=438981666]
 texture_filter = 1
 position = Vector2(0, -27)
 sprite_frames = SubResource("SpriteFrames_3mlv1")

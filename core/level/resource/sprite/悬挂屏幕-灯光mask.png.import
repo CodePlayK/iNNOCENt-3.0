@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/悬挂屏幕-灯光mask.png-9b6c69ee620578aec
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

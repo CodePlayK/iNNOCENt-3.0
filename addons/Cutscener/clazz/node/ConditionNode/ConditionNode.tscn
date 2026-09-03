@@ -1,28 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmg1sugpxikvt"]
+[gd_scene format=3 uid="uid://cmg1sugpxikvt"]
 
 [ext_resource type="Theme" uid="uid://ch03cnrspt63o" path="res://addons/Cutscener/resource/node_theme.tres" id="1_s6fmr"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/ConditionNode/ConditionNode.gd" id="2_xr0h6"]
+[ext_resource type="Script" uid="uid://buegh2i0xhse7" path="res://addons/Cutscener/clazz/node/ConditionNode/ConditionNode.gd" id="2_xr0h6"]
 [ext_resource type="PackedScene" uid="uid://dobf7nc4fqttn" path="res://addons/Cutscener/clazz/node/Conmmon/delete_param_butt.tscn" id="3_63l2l"]
 [ext_resource type="PackedScene" uid="uid://brijnx0ig81b1" path="res://addons/Cutscener/clazz/node/Conmmon/param_2.tscn" id="3_5232u"]
 [ext_resource type="PackedScene" uid="uid://ce0jui8jj3xxr" path="res://addons/Cutscener/clazz/node/Conmmon/choose_file_butt.tscn" id="4_xmtyl"]
 [ext_resource type="PackedScene" uid="uid://oclkone2cmff" path="res://addons/Cutscener/clazz/node/Conmmon/choose_vec_2_butt.tscn" id="5_451ug"]
 [ext_resource type="PackedScene" uid="uid://dug4013bo7vnr" path="res://addons/Cutscener/clazz/node/Conmmon/edit_menu.tscn" id="5_g5yrs"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/ConditionNode/runner.gd" id="6_du3o6"]
+[ext_resource type="Script" uid="uid://dquyr2ti0t4ty" path="res://addons/Cutscener/clazz/node/ConditionNode/runner.gd" id="6_du3o6"]
 [ext_resource type="PackedScene" uid="uid://us35lq4dhp2h" path="res://addons/Cutscener/clazz/node/Conmmon/export.tscn" id="6_w7h20"]
 
-[sub_resource type="Image" id="Image_6sph5"]
-data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 16
-}
+[sub_resource type="DPITexture" id="DPITexture_brc5y"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5d5d\" d=\"M2 1v8.586l1.293-1.293a1 1 0 0 1 1.414 0L7 10.587l2.293-2.293a1 1 0 0 1 1.414 0L13 10.586l1-1V6H9V1H2zm8 0v4h4zm-6 9.414-2 2V15h12v-2.586l-.293.293a1 1 0 0 1-1.414 0L10 10.414l-2.293 2.293a1 1 0 0 1-1.414 0L4 10.414z\"/></svg>
+"
 
-[sub_resource type="ImageTexture" id="ImageTexture_e0lfa"]
-image = SubResource("Image_6sph5")
-
-[node name="ConditionNode" type="GraphNode"]
+[node name="ConditionNode" type="GraphNode" unique_id=1951837710]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -57,32 +49,32 @@ slot/1/draw_stylebox = true
 script = ExtResource("2_xr0h6")
 metadata/node_type = 3
 
-[node name="main" type="MarginContainer" parent="."]
+[node name="main" type="MarginContainer" parent="." unique_id=1659438006]
 layout_mode = 2
 theme_override_constants/margin_top = 7
 
-[node name="ParamPrototype" type="HBoxContainer" parent="main"]
+[node name="ParamPrototype" type="HBoxContainer" parent="main" unique_id=2133597608]
 visible = false
 layout_mode = 2
 
-[node name="ConditionLinkType" type="OptionButton" parent="main/ParamPrototype"]
+[node name="ConditionLinkType" type="OptionButton" parent="main/ParamPrototype" unique_id=2146539231]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "连接类型"
-item_count = 2
 selected = 0
 fit_to_longest_item = false
+item_count = 2
 popup/item_0/text = "and"
 popup/item_0/id = 20
 popup/item_1/text = "or"
 popup/item_1/id = 21
 
-[node name="Label" type="Label" parent="main/ParamPrototype"]
+[node name="Label" type="Label" parent="main/ParamPrototype" unique_id=1606505642]
 layout_mode = 2
 text = "参数.1"
 
-[node name="Param" type="LineEdit" parent="main/ParamPrototype"]
+[node name="Param" type="LineEdit" parent="main/ParamPrototype" unique_id=864749175]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -93,14 +85,14 @@ editable = false
 expand_to_text_length = true
 caret_blink = true
 
-[node name="ParamType" type="OptionButton" parent="main/ParamPrototype"]
+[node name="ParamType" type="OptionButton" parent="main/ParamPrototype" unique_id=386375831]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 8
 selected = 7
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "String"
 popup/item_0/id = 4
 popup/item_0/disabled = true
@@ -126,14 +118,14 @@ popup/item_7/text = "Vector2"
 popup/item_7/id = 5
 popup/item_7/disabled = true
 
-[node name="ConditionType" type="OptionButton" parent="main/ParamPrototype"]
+[node name="ConditionType" type="OptionButton" parent="main/ParamPrototype" unique_id=1901378575]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "判断符号"
-item_count = 8
 selected = 0
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "=="
 popup/item_0/id = 0
 popup/item_1/text = "!="
@@ -151,50 +143,50 @@ popup/item_6/id = 23
 popup/item_7/text = "in"
 popup/item_7/id = 24
 
-[node name="Param2" parent="main/ParamPrototype" instance=ExtResource("3_5232u")]
+[node name="Param2" parent="main/ParamPrototype" unique_id=1703636766 instance=ExtResource("3_5232u")]
 layout_mode = 2
 tooltip_text = "目标值"
 theme = null
 
-[node name="DeleteParam" parent="main/ParamPrototype" instance=ExtResource("3_63l2l")]
+[node name="DeleteParam" parent="main/ParamPrototype" unique_id=1937444355 instance=ExtResource("3_63l2l")]
 visible = true
 layout_mode = 2
 
-[node name="ChooseFile" parent="main/ParamPrototype" node_paths=PackedStringArray("node") instance=ExtResource("4_xmtyl")]
+[node name="ChooseFile" parent="main/ParamPrototype" unique_id=262418970 node_paths=PackedStringArray("node") instance=ExtResource("4_xmtyl")]
 layout_mode = 2
-icon = SubResource("ImageTexture_e0lfa")
+icon = SubResource("DPITexture_brc5y")
 node = NodePath("../Param2")
 
-[node name="ChooseVec2" parent="main/ParamPrototype" node_paths=PackedStringArray("target") instance=ExtResource("5_451ug")]
+[node name="ChooseVec2" parent="main/ParamPrototype" unique_id=1623098328 node_paths=PackedStringArray("target") instance=ExtResource("5_451ug")]
 layout_mode = 2
-icon = SubResource("ImageTexture_e0lfa")
+icon = SubResource("DPITexture_brc5y")
 target = NodePath("../Param2")
 
-[node name="Export" parent="main/ParamPrototype" instance=ExtResource("6_w7h20")]
+[node name="Export" parent="main/ParamPrototype" unique_id=1644340408 instance=ExtResource("6_w7h20")]
 visible = false
 layout_mode = 2
 
-[node name="VBC" type="VBoxContainer" parent="main"]
+[node name="VBC" type="VBoxContainer" parent="main" unique_id=473128924]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Signal" type="MarginContainer" parent="main/VBC"]
+[node name="Signal" type="MarginContainer" parent="main/VBC" unique_id=1269286474]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="SignalName" type="HBoxContainer" parent="main/VBC/Signal"]
+[node name="SignalName" type="HBoxContainer" parent="main/VBC/Signal" unique_id=214579323]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 7
 
-[node name="Icon" type="Button" parent="main/VBC/Signal/SignalName"]
+[node name="Icon" type="Button" parent="main/VBC/Signal/SignalName" unique_id=1995582921]
 layout_mode = 2
 theme_override_colors/icon_disabled_color = Color(1, 0.890196, 0.501961, 1)
 disabled = true
-icon = SubResource("ImageTexture_e0lfa")
+icon = SubResource("DPITexture_brc5y")
 
-[node name="Index" type="Button" parent="main/VBC/Signal/SignalName"]
+[node name="Index" type="Button" parent="main/VBC/Signal/SignalName" unique_id=1923423871]
 visible = false
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(1, 0.890196, 0.501961, 1)
@@ -202,13 +194,13 @@ theme_override_colors/icon_disabled_color = Color(1, 0.890196, 0.501961, 1)
 disabled = true
 text = "#1"
 
-[node name="PropList" type="OptionButton" parent="main/VBC/Signal/SignalName"]
+[node name="PropList" type="OptionButton" parent="main/VBC/Signal/SignalName" unique_id=12095439]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.59
 tooltip_text = "选择参数"
-item_count = 23
 selected = 0
+item_count = 23
 popup/item_0/text = "CutsceneState.title_able"
 popup/item_0/id = 0
 popup/item_1/text = "CutsceneState.cutscene_playing"
@@ -256,26 +248,26 @@ popup/item_21/id = 21
 popup/item_22/text = "Dialogue.dialogue_line"
 popup/item_22/id = 22
 
-[node name="AddParam" type="Button" parent="main/VBC/Signal/SignalName"]
+[node name="AddParam" type="Button" parent="main/VBC/Signal/SignalName" unique_id=302113302]
 layout_mode = 2
 tooltip_text = "添加参数"
 text = "Add"
 
-[node name="Param" type="VBoxContainer" parent="main/VBC"]
+[node name="Param" type="VBoxContainer" parent="main/VBC" unique_id=1358963579]
 layout_mode = 2
 
-[node name="EditMenu" type="MarginContainer" parent="."]
+[node name="EditMenu" type="MarginContainer" parent="." unique_id=1580652596]
 layout_mode = 2
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 7
 
-[node name="EditMenu" parent="EditMenu" node_paths=PackedStringArray("index1") instance=ExtResource("5_g5yrs")]
+[node name="EditMenu" parent="EditMenu" unique_id=2054207424 node_paths=PackedStringArray("index1") instance=ExtResource("5_g5yrs")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 index1 = NodePath("../../main/VBC/Signal/SignalName/Index")
 
-[node name="runner" type="Node" parent="."]
+[node name="runner" type="Node" parent="." unique_id=1009820075]
 script = ExtResource("6_du3o6")
 
 [connection signal="pressed" from="main/VBC/Signal/SignalName/AddParam" to="." method="_on_add_param_pressed"]

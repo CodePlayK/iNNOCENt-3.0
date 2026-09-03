@@ -1,13 +1,10 @@
-[gd_resource type="Resource" script_class="ItemConfig" load_steps=3 format=3 uid="uid://c1b7bivetoi1j"]
+[gd_resource type="Resource" script_class="ItemConfig" format=3 uid="uid://c1b7bivetoi1j"]
 
 [ext_resource type="Resource" uid="uid://bgmya0sji0ysu" path="res://core/common/resource/texture/items/bandage.tres" id="1_uvste"]
-[ext_resource type="Script" path="res://core/item/ItemConfig.gd" id="2_ql0mv"]
+[ext_resource type="Script" uid="uid://blp5uvxjp3h6q" path="res://core/item/ItemConfig.gd" id="2_ql0mv"]
 
 [resource]
 script = ExtResource("2_ql0mv")
-item_id = 0
-item_type = 0
 item_texture_config = ExtResource("1_uvste")
 item_name = "绷带"
 item_txt = "医学奇迹"
-item_detail_txt = ""

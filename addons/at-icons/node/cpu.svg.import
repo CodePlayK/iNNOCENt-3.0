@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/cpu.svg-1951a6184b8cf7331e2d7f5028dcadc3.ctex
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

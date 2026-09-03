@@ -197,7 +197,3 @@ func _debug_err(msg: String) -> void:
 func _on_timer_timeout() -> void:
 	save_locker=false
 	pass # Replace with function body.
-
-
-func _on_save_save_file_pressed() -> void:
-	pass # Replace with function body.

@@ -54,6 +54,7 @@ expand_margin_right = 1.0
 expand_margin_bottom = 1.0
 
 [node name="UIBar" type="MarginContainer" unique_id=472572121]
+visible = false
 modulate = Color(1, 1, 1, 0.854902)
 light_mask = 0
 anchors_preset = 15
@@ -65,10 +66,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_xmfd2")
 script = ExtResource("1_5ivna")
-back_bar_color = Color(1, 1, 1, 0.482353)
 
 [node name="UIBarBack" type="ProgressBar" parent="." unique_id=857574255]
-modulate = Color(1, 1, 1, 0.482353)
+modulate = Color(1, 0, 0, 0.48235294)
 show_behind_parent = true
 light_mask = 2048
 layout_mode = 2
@@ -94,4 +94,12 @@ show_percentage = false
 [node name="BackBarTimer" type="Timer" parent="." unique_id=805667155]
 one_shot = true
 
+[node name="MaxHideTimer" type="Timer" parent="." unique_id=1001779172]
+one_shot = true
+
+[node name="checkTimer" type="Timer" parent="." unique_id=1255523556]
+
+[connection signal="value_changed" from="UIBar" to="." method="_on_ui_bar_value_changed"]
 [connection signal="timeout" from="BackBarTimer" to="." method="_on_back_bar_timer_timeout"]
+[connection signal="timeout" from="MaxHideTimer" to="." method="_on_max_hide_timer_timeout"]
+[connection signal="timeout" from="checkTimer" to="." method="_on_check_timer_timeout"]

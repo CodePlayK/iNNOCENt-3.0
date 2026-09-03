@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/ammunition.svg-fa7ad19f69bb9399e261ef3a33f343
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/delivery_box.svg-d0b27a647a7631c6257e9f949cf3
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

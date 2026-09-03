@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck8mudkj4mcdr"]
+[gd_scene format=3 uid="uid://ck8mudkj4mcdr"]
 
 [ext_resource type="Theme" uid="uid://brsfaf6oapa4p" path="res://core/common/resource/theme/txt_history_box.tres" id="1_av5k7"]
-[ext_resource type="Script" path="res://core/common/ui/txt_history_box/dialogue_line.gd" id="2_vnj80"]
+[ext_resource type="Script" uid="uid://v2phqs3f8cgy" path="res://core/common/ui/txt_history_box/dialogue_line.gd" id="2_vnj80"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkh12"]
 content_margin_left = 5.0
@@ -21,29 +21,29 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 anti_aliasing = false
 
-[node name="DialogueLine" type="HBoxContainer"]
+[node name="DialogueLine" type="HBoxContainer" unique_id=527126471]
 z_index = 1
 offset_right = 75.0
 offset_bottom = 57.0
 theme = ExtResource("1_av5k7")
 script = ExtResource("2_vnj80")
 
-[node name="MC" type="MarginContainer" parent="."]
+[node name="MC" type="MarginContainer" parent="." unique_id=714164897]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_av5k7")
 theme_override_constants/margin_left = 6
 
-[node name="VC" type="VBoxContainer" parent="MC"]
+[node name="VC" type="VBoxContainer" parent="MC" unique_id=5645207]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="HC" type="HBoxContainer" parent="MC/VC"]
+[node name="HC" type="HBoxContainer" parent="MC/VC" unique_id=1345282004]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 1
 
-[node name="LeftTalkerName" type="RichTextLabel" parent="MC/VC/HC"]
+[node name="LeftTalkerName" type="RichTextLabel" parent="MC/VC/HC" unique_id=1309373645]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_tkh12")
@@ -53,18 +53,18 @@ fit_content = true
 autowrap_mode = 0
 hint_underlined = false
 
-[node name="MC" type="MarginContainer" parent="MC/VC/HC"]
+[node name="MC" type="MarginContainer" parent="MC/VC/HC" unique_id=90053277]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 33
 theme_override_constants/margin_right = 3
 
-[node name="VSeparator" type="HSeparator" parent="MC/VC/HC/MC"]
+[node name="VSeparator" type="HSeparator" parent="MC/VC/HC/MC" unique_id=1343494814]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="RightTalkerName" type="RichTextLabel" parent="MC/VC/HC"]
+[node name="RightTalkerName" type="RichTextLabel" parent="MC/VC/HC" unique_id=1499716660]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -75,7 +75,7 @@ text = "谁谁谁"
 fit_content = true
 autowrap_mode = 0
 
-[node name="MC" type="MarginContainer" parent="MC/VC"]
+[node name="MC" type="MarginContainer" parent="MC/VC" unique_id=1588581947]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 0
@@ -84,14 +84,14 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="LineBackColor" type="ColorRect" parent="MC/VC/MC"]
+[node name="LineBackColor" type="ColorRect" parent="MC/VC/MC" unique_id=2032491277]
 visible = false
 z_index = -1
 layout_mode = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0.156863)
 
-[node name="MC" type="MarginContainer" parent="MC/VC/MC"]
+[node name="MC" type="MarginContainer" parent="MC/VC/MC" unique_id=275391858]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 0
@@ -99,7 +99,7 @@ theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="Line" type="RichTextLabel" parent="MC/VC/MC/MC"]
+[node name="Line" type="RichTextLabel" parent="MC/VC/MC/MC" unique_id=1400982888]
 layout_mode = 2
 mouse_filter = 2
 theme = ExtResource("1_av5k7")

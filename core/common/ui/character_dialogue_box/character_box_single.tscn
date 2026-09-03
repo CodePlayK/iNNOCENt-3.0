@@ -3,54 +3,12 @@
 [ext_resource type="Script" uid="uid://bgtsusp4gowle" path="res://core/common/ui/character_dialogue_box/character_box_sigle.gd" id="1_02r1p"]
 [ext_resource type="Script" uid="uid://by8uti5xwqq2u" path="res://core/common/ui/character_dialogue_box/CharacterBoxConfig.gd" id="2_02r1p"]
 [ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="3_dtj3b"]
-[ext_resource type="Script" uid="uid://5xj7spu46f11" path="res://core/common/component/ui bar/ui bar.gd" id="4_ntfng"]
 [ext_resource type="Shader" uid="uid://w1l31200ap47" path="res://core/common/ui/character_dialogue_box/character_box_ctr.gdshader" id="5_a2nql"]
 [ext_resource type="Texture2D" uid="uid://0pvqic15b4y5" path="res://core/player/resource/header.tres" id="5_cojnu"]
 
 [sub_resource type="Resource" id="Resource_02r1p"]
 script = ExtResource("2_02r1p")
 metadata/_custom_type_script = "uid://by8uti5xwqq2u"
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lx3nq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxxn1"]
-bg_color = Color(1, 0.34902, 0.34902, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-anti_aliasing = false
-
-[sub_resource type="Theme" id="Theme_xmfd2"]
-ProgressBar/styles/background = SubResource("StyleBoxEmpty_lx3nq")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_xxxn1")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngx7a"]
-bg_color = Color(0, 0, 0, 0.435294)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_top = 6.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23hh6"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_top = 6.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svija"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_top = 6.0
-anti_aliasing = false
 
 [sub_resource type="Gradient" id="Gradient_upb8q"]
 offsets = PackedFloat32Array(0, 0.374384, 0.997537)
@@ -132,43 +90,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 mouse_filter = 2
-
-[node name="UIBar" type="MarginContainer" parent="ImgBoxTopMarg2" unique_id=1466152870]
-unique_name_in_owner = true
-visible = false
-modulate = Color(1, 1, 1, 0.854902)
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 20.0
-mouse_filter = 2
-script = ExtResource("4_ntfng")
-back_bar_color = Color(1, 0, 0, 0.960784)
-
-[node name="UIBarBack" type="ProgressBar" parent="ImgBoxTopMarg2/UIBar" unique_id=722011821]
-modulate = Color(1, 0, 0, 0.960784)
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme = SubResource("Theme_xmfd2")
-theme_override_styles/background = SubResource("StyleBoxFlat_ngx7a")
-theme_override_styles/fill = SubResource("StyleBoxFlat_23hh6")
-show_percentage = false
-
-[node name="UIBar" type="ProgressBar" parent="ImgBoxTopMarg2/UIBar" unique_id=347227212]
-modulate = Color(0, 1, 0, 0.9372549)
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme = SubResource("Theme_xmfd2")
-theme_override_styles/fill = SubResource("StyleBoxFlat_svija")
-value = 50.0
-show_percentage = false
-
-[node name="BackBarTimer" type="Timer" parent="ImgBoxTopMarg2/UIBar" unique_id=632749042]
-one_shot = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="ImgBoxTopMarg2" unique_id=1711459576]
 layout_mode = 2
@@ -266,5 +187,4 @@ wait_time = 0.5
 [node name="delay_timer" type="Timer" parent="." unique_id=968558235]
 one_shot = true
 
-[connection signal="timeout" from="ImgBoxTopMarg2/UIBar/BackBarTimer" to="ImgBoxTopMarg2/UIBar" method="_on_back_bar_timer_timeout"]
 [connection signal="timeout" from="delay_timer" to="." method="_on_delay_timer_timeout"]

@@ -1,13 +1,10 @@
-[gd_resource type="Resource" script_class="ItemConfig" load_steps=3 format=3 uid="uid://6tce10o7nubg"]
+[gd_resource type="Resource" script_class="ItemConfig" format=3 uid="uid://6tce10o7nubg"]
 
 [ext_resource type="Resource" uid="uid://cin6jht65bgmr" path="res://core/common/resource/texture/items/key.tres" id="1_nk365"]
-[ext_resource type="Script" path="res://core/item/ItemConfig.gd" id="2_qak84"]
+[ext_resource type="Script" uid="uid://blp5uvxjp3h6q" path="res://core/item/ItemConfig.gd" id="2_qak84"]
 
 [resource]
 script = ExtResource("2_qak84")
-item_id = 0
-item_type = 0
 item_texture_config = ExtResource("1_nk365")
 item_name = "钥匙"
 item_txt = "会打开哪里的大门呢"
-item_detail_txt = ""

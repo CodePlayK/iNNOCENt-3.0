@@ -644,13 +644,13 @@ size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="StaminaBar" parent="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2" unique_id=1763954993 instance=ExtResource("18_b5c8y")]
+visible = false
 layout_mode = 2
 size_flags_stretch_ratio = 2.67
 mouse_filter = 2
+only_show_in_combat = false
+keep_show_in_combat = null
 bar_color = Color(1, 1, 0, 0.811765)
-
-[node name="FightDelyTime" type="Timer" parent="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2" unique_id=692563253]
-one_shot = true
 
 [node name="MarginContainer4" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=1118141144]
 layout_mode = 2
@@ -905,7 +905,8 @@ icon_alignment = 1
 [node name="TextEdit" type="TextEdit" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=192691410]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "nobalance"
+focus_mode = 0
+text = "combatidle"
 placeholder_text = "state名"
 
 [node name="BUT2" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=213828527]
@@ -1056,7 +1057,6 @@ position = Vector2(1462, 872)
 position = Vector2(0, -800)
 
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
-[connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
 [connection signal="pressed" from="MainCanvas/ESC" to="MainCanvas" method="_on_esc_pressed"]
 [connection signal="timeout" from="ScreenEffect/LevelTransation/RestTimer" to="ScreenEffect/LevelTransation" method="_on_rest_timer_timeout"]
 [connection signal="timeout" from="PlayerHealthIndicator/PlayerHealthIndicator/Timer" to="PlayerHealthIndicator/PlayerHealthIndicator" method="_on_timer_timeout"]

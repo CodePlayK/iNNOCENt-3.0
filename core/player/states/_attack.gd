@@ -7,6 +7,7 @@ class_name PlayerAttackState
 ## 本段攻击命中时造成的伤害
 @export var damage:float = 1.0
 @export_group("基础配置")
+@export var fallback_state:BaseState
 ## 连段成功后切入的下一段攻击状态；为空则连段结束
 @export var next_attack:PlayerAttackState
 ## 经过攻击时长该比例后，才允许切换到下一段攻击（0~1）

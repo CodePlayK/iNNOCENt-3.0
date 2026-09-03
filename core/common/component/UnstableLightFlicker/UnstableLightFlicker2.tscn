@@ -4,7 +4,7 @@
 
 [node name="UnstableLightFlicker2" type="Node" unique_id=220190805 node_paths=PackedStringArray("target_lights")]
 script = ExtResource("1_ytndw")
-target_lights = [NodePath("")]
+target_lights = [null]
 interval_min = 2.15
 interval_max = 10.8
 short_gap_time = 0.035

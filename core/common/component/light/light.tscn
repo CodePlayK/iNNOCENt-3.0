@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://n1fmqnyotqy1"]
+[gd_scene format=3 uid="uid://n1fmqnyotqy1"]
 
-[ext_resource type="Script" path="res://core/common/component/light/light.gd" id="1_cvu6c"]
+[ext_resource type="Script" uid="uid://crtyntuflyxnf" path="res://core/common/component/light/light.gd" id="1_cvu6c"]
 
-[node name="Light" type="Area2D"]
+[node name="Light" type="Area2D" unique_id=198377208]
 collision_layer = 0
 collision_mask = 65536
 script = ExtResource("1_cvu6c")

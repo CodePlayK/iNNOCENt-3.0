@@ -2107,7 +2107,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_35qdw"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2123,7 +2123,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_y8q3r"]
-length = 0.42500000000000004
+length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2139,7 +2139,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_tsc85"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2187,7 +2187,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_yibsp"]
-length = 1.1899999999999997
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2381,7 +2381,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_l1873"]
+[sub_resource type="Resource" id="Resource_iic6y"]
 resource_local_to_scene = true
 script = ExtResource("100_kll38")
 talkers = Array[String](["it"])
@@ -6798,7 +6798,7 @@ shape = SubResource("RectangleShape2D_b8y3r")
 [node name="Dialogue" parent="Interactions" unique_id=1132349855 instance=ExtResource("94_35ooo")]
 z_index = 107
 position = Vector2(10.8333, -59.1667)
-dialogue_config = SubResource("Resource_l1873")
+dialogue_config = SubResource("Resource_iic6y")
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 process_mode = 3

@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/cauldron.svg-00162b78c8ac9fd392ac30ed83c29d84
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

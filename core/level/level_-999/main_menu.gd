@@ -81,10 +81,6 @@ func save_file_view():
 	menu_dof.show()
 	color_back.show()
 
-func _on_save_save_file_pressed() -> void:
-	pass # Replace with function body.
-
-
 func _on_hide_pressed() -> void:
 	hide()
 
@@ -94,14 +90,11 @@ func _on_back_2_main_menu_pressed() -> void:
 	EventBus._change_level(LevelState.LEVELS.LEVEL_MAIN_SCREEN,self)
 
 
-func _on_new_save_file_pressed() -> void:
-	
-	pass # Replace with function body.
-
 
 func _on_new_gmae_pressed() -> void:
 	Global.everythingeverywhere42.reset_all_levels()
 	CutsceneState.current_cutscene = "0_0_0"
+	EventBus._on_new_game()
 	EventBus._change_level(LevelState.LEVELS.LEVEL_0,self)
 
 
@@ -110,5 +103,6 @@ func _on_exit_pressed() -> void:
 
 
 func _on_visibility_changed() -> void:
-	DataState.current_screenshot = ImageTexture.create_from_image(get_viewport().get_texture().get_image())##更新截图
-	pass # Replace with function body.
+	var ti = get_viewport().get_texture().get_image()
+	ti.resize(640, 360, Image.Interpolation.INTERPOLATE_BILINEAR)
+	DataState.current_screenshot = ImageTexture.create_from_image(ti)##更新截图

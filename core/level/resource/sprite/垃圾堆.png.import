@@ -5,7 +5,6 @@ type="CompressedTexture2D"
 uid="uid://7brne3blaru1"
 path="res://.godot/imported/垃圾堆.png-957fba92e24f228a71a357853915e30c.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
@@ -18,6 +17,7 @@ dest_files=["res://.godot/imported/垃圾堆.png-957fba92e24f228a71a357853915e30
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/Mei-baseFx.png-c4de0174c0467d6c3f2dbee9435260
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

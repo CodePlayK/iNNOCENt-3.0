@@ -1,9 +1,6 @@
-[gd_resource type="Resource" script_class="PlayerABTDenseConfig" load_steps=2 format=3 uid="uid://bj48a01ae5lxf"]
+[gd_resource type="Resource" script_class="PlayerABTDenseConfig" format=3 uid="uid://bj48a01ae5lxf"]
 
-[ext_resource type="Script" path="res://core/player/attributes/PlayerABTDenseConfig.gd" id="1_1kotw"]
+[ext_resource type="Script" uid="uid://bskoqbeiaf3w7" path="res://core/player/attributes/PlayerABTDenseConfig.gd" id="1_1kotw"]
 
 [resource]
 script = ExtResource("1_1kotw")
-dense_time = 0.5
-dense_cooldown = 1.4
-dense_gravity_scale = 12.0

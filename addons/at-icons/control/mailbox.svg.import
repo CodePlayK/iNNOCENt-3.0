@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/mailbox.svg-098d9ae71b25a0c8e1ec8afd6b53ba56.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

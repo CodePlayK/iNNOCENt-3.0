@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://dtnu23vt0w20" path="res://core/common/component/interact_highlight/interact_highlight.tscn" id="27_rtgpi"]
 [ext_resource type="Texture2D" uid="uid://cu4t6it0jl75y" path="res://core/level/resource/sprite/大堂横梁.png" id="29_t08wi"]
 [ext_resource type="PackedScene" uid="uid://blqf17nu62ghq" path="res://core/common/component/floating dust/FloatingDust.tscn" id="33_d43i8"]
-[ext_resource type="PackedScene" path="res://core/common/component/parallax_scale/parallax_scale_2d.tscn" id="36_qdjur"]
+[ext_resource type="PackedScene" uid="uid://x12cjq3he6n5" path="res://core/common/component/parallax_scale/parallax_scale_2d.tscn" id="36_qdjur"]
 [ext_resource type="Texture2D" uid="uid://bue0d2ufm02eo" path="res://core/level/resource/sprite/急救包.png" id="37_na7un"]
 [ext_resource type="Texture2D" uid="uid://bbk1d88r2fvwb" path="res://core/level/resource/sprite/电视.png" id="38_he6kj"]
 [ext_resource type="Texture2D" uid="uid://cpcusn7h7v7cq" path="res://core/level/resource/sprite/楼梯.png" id="38_oywt0"]

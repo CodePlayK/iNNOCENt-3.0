@@ -14,7 +14,7 @@
 [ext_resource type="Script" uid="uid://q1sw7p1bne8l" path="res://addons/Cutscener/clazz/node/SetNode/Param.gd" id="9_lwea4"]
 [ext_resource type="Script" uid="uid://btd2g2ubgchok" path="res://addons/Cutscener/clazz/node/SetNode/DialoguePath.gd" id="10_m8bxm"]
 
-[sub_resource type="DPITexture" id="DPITexture_tsmpe"]
+[sub_resource type="DPITexture" id="DPITexture_brc5y"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5d5d\" d=\"M2 1v8.586l1.293-1.293a1 1 0 0 1 1.414 0L7 10.587l2.293-2.293a1 1 0 0 1 1.414 0L13 10.586l1-1V6H9V1H2zm8 0v4h4zm-6 9.414-2 2V15h12v-2.586l-.293.293a1 1 0 0 1-1.414 0L10 10.414l-2.293 2.293a1 1 0 0 1-1.414 0L4 10.414z\"/></svg>
 "
 
@@ -134,12 +134,10 @@ layout_mode = 2
 
 [node name="ChooseFile" parent="main/ParamPrototype" unique_id=1233749558 node_paths=PackedStringArray("node") instance=ExtResource("4_lrstn")]
 layout_mode = 2
-icon = SubResource("DPITexture_tsmpe")
 node = NodePath("../Param2")
 
 [node name="ChooseVec2" parent="main/ParamPrototype" unique_id=1298738071 node_paths=PackedStringArray("target") instance=ExtResource("5_1n85y")]
 layout_mode = 2
-icon = SubResource("DPITexture_tsmpe")
 target = NodePath("../Param2")
 
 [node name="Export" parent="main/ParamPrototype" unique_id=377026409 instance=ExtResource("6_vo2py")]
@@ -227,12 +225,10 @@ layout_mode = 2
 
 [node name="ChooseFile" parent="main/EventPrototype" unique_id=878540953 node_paths=PackedStringArray("node") instance=ExtResource("4_lrstn")]
 layout_mode = 2
-icon = SubResource("DPITexture_tsmpe")
 node = NodePath("../../ParamPrototype/Param2")
 
 [node name="ChooseVec2" parent="main/EventPrototype" unique_id=78444936 node_paths=PackedStringArray("target") instance=ExtResource("5_1n85y")]
 layout_mode = 2
-icon = SubResource("DPITexture_tsmpe")
 target = NodePath("../../ParamPrototype/Param2")
 
 [node name="Export" parent="main/EventPrototype" unique_id=148508279 instance=ExtResource("6_vo2py")]
@@ -258,7 +254,6 @@ script = ExtResource("10_m8bxm")
 [node name="ChooseFile" parent="main/TitlePrototype" unique_id=83165676 node_paths=PackedStringArray("node") instance=ExtResource("4_lrstn")]
 visible = true
 layout_mode = 2
-icon = SubResource("DPITexture_tsmpe")
 node = NodePath("../DialoguePath")
 
 [node name="Param" type="OptionButton" parent="main/TitlePrototype" unique_id=158875497]
@@ -302,7 +297,6 @@ layout_mode = 2
 
 [node name="ChooseVec2" parent="main/TitlePrototype" unique_id=490621405 node_paths=PackedStringArray("target") instance=ExtResource("5_1n85y")]
 layout_mode = 2
-icon = SubResource("DPITexture_tsmpe")
 target = NodePath("../../ParamPrototype/Param2")
 
 [node name="Export" parent="main/TitlePrototype" unique_id=2063429152 instance=ExtResource("6_vo2py")]
@@ -361,7 +355,7 @@ theme_override_constants/separation = 7
 layout_mode = 2
 theme_override_colors/icon_disabled_color = Color(1, 0.890196, 0.501961, 1)
 disabled = true
-icon = SubResource("DPITexture_tsmpe")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="Index" type="Button" parent="main/VBC/Signal/SignalName" unique_id=1520106568]
 visible = false

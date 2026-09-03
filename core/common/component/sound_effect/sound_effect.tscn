@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dufbodgtpe8v3"]
+[gd_scene format=3 uid="uid://dufbodgtpe8v3"]
 
-[ext_resource type="Script" path="res://core/common/component/sound_effect/sound_effect.gd" id="1_bcurr"]
+[ext_resource type="Script" uid="uid://6811qmepbhf0" path="res://core/common/component/sound_effect/sound_effect.gd" id="1_bcurr"]
 
-[node name="SoundEffect" type="Node"]
+[node name="SoundEffect" type="Node" unique_id=1400860938]
 script = ExtResource("1_bcurr")

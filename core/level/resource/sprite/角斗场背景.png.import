@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/角斗场背景.png-24861d09a8d4a6c22c6457461
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/joystick.svg-731fe87fb03232c1eef7d65e83275aa9
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

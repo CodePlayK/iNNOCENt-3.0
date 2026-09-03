@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/circuit_board.svg-c53aaa0f61fdd0bcc81236d7fc6
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

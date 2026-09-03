@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/tap.svg-11a99bb11e106afdd3c899925e5c7cb3.ctex
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

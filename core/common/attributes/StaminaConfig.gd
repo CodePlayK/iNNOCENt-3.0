@@ -9,9 +9,7 @@ class_name StaminaConfig
 	set(h):
 		var e = clamp(h,0,max_stamina)
 		if e == max_stamina:
-			EventBus._player_on_fighting_changed(false)
 			current_stamina = e
 			return
-		EventBus._player_on_fighting_changed(true)
 		last_stamina = current_stamina
 		current_stamina = e

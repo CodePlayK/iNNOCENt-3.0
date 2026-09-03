@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/medkit.svg-5ce2475882813fde1a6ad6aaafe763ca.c
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -39,6 +39,19 @@ class_name BaseState
 @onready var struggle_state: BaseState
 @onready var mainscreen_state: BaseState
 
+@onready var combatidle_state: BaseState
+@onready var combatrun_state: BaseState
+@onready var combatfastrun_state: BaseState
+@onready var combatdash_state: BaseState
+@onready var combatlanding_state: BaseState
+
+@onready var combatlift_state: BaseState
+@onready var combattoptrans_state: BaseState
+@onready var combatfall_state: BaseState
+@onready var combatjump_state: BaseState
+
+
+
 ## 普通状态：临时状态（攻击/受击等）结束后可以切回
 @export var is_normal_state: bool = true
 ## 分组节点（base/combat/air/_attack/stack），不能被 change_state 进入

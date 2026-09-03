@@ -700,7 +700,6 @@ position = Vector2(0, -60.8333)
 position = Vector2(0, -21.6667)
 
 [node name="UIs" type="Node2D" parent="." unique_id=1466472802]
-visible = false
 script = ExtResource("12_wdewt")
 
 [node name="DialoguePosition" parent="UIs" unique_id=1795995157 instance=ExtResource("11_kwpgi")]
@@ -719,12 +718,14 @@ visible = false
 position = Vector2(-57, -86)
 
 [node name="HealthBar" parent="UIs" unique_id=982675793 instance=ExtResource("14_5em3o")]
+visible = false
 anchors_preset = -1
 offset_left = -40.0
 offset_top = -225.0
 offset_right = 40.0
 offset_bottom = -110.0
 mouse_filter = 2
+only_show_in_combat = true
 bar_color = Color(1, 0, 0.016666412, 0.654902)
 metadata/_edit_use_anchors_ = true
 
@@ -739,6 +740,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TestLabel" type="Label" parent="UIs/Test" unique_id=1460675356]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5

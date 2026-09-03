@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccwjpeftahknr"]
+[gd_scene format=3 uid="uid://ccwjpeftahknr"]
 
-[ext_resource type="Script" path="res://core/common/component/auto transparent/transparent.gd" id="1_irgec"]
+[ext_resource type="Script" uid="uid://bcs6anfw8f06l" path="res://core/common/component/auto transparent/transparent.gd" id="1_irgec"]
 
-[node name="AutoTransparent" type="Node"]
+[node name="AutoTransparent" type="Node" unique_id=1853471035]
 script = ExtResource("1_irgec")

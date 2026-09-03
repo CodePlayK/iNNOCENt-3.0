@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhk18ifcm4qlm"]
+[gd_scene format=3 uid="uid://bhk18ifcm4qlm"]
 
-[ext_resource type="Script" path="res://core/common/component/weight_machine/weight_machine.gd" id="1_cxpya"]
+[ext_resource type="Script" uid="uid://puevyqatcomk" path="res://core/common/component/weight_machine/weight_machine.gd" id="1_cxpya"]
 
-[node name="WeightMachine" type="Node"]
+[node name="WeightMachine" type="Node" unique_id=913327838]
 script = ExtResource("1_cxpya")
 
-[node name="_Timer" type="Timer" parent="."]
+[node name="_Timer" type="Timer" parent="." unique_id=1122910470]
 
 [connection signal="timeout" from="_Timer" to="." method="_on_timer_timeout"]

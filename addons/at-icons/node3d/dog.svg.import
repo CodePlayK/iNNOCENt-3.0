@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/dog.svg-e44e2332501560360d1c98deb31ab7c9.ctex
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

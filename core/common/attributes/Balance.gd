@@ -1,4 +1,4 @@
-extends Node
+extends Attributes
 @export var balance_config:BalanceConfig
 @export var notify_nodes:Array[Node]
 
@@ -14,3 +14,5 @@ func damage_balance(damage,update:bool = true):
 			n.on_balance_empty(balance_config)
 	balance_config.current_balance-=damage
 	
+func reset():
+	balance_config.current_balance = balance_config.max_balance

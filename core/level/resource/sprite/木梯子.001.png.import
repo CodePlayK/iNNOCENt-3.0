@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/木梯子.001.png-6167e9e50e16bd0ba8bef6ac23e
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

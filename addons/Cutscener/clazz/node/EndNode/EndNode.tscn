@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsmk131mmsvfr"]
+[gd_scene format=3 uid="uid://bsmk131mmsvfr"]
 
 [ext_resource type="Theme" uid="uid://ch03cnrspt63o" path="res://addons/Cutscener/resource/node_theme.tres" id="1_c67of"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/EndNode/EndNode.gd" id="2_e7mkg"]
+[ext_resource type="Script" uid="uid://imcy21icldeh" path="res://addons/Cutscener/clazz/node/EndNode/EndNode.gd" id="2_e7mkg"]
 [ext_resource type="PackedScene" uid="uid://dug4013bo7vnr" path="res://addons/Cutscener/clazz/node/Conmmon/edit_menu.tscn" id="3_2fprv"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/EndNode/runner.gd" id="4_db6e5"]
+[ext_resource type="Script" uid="uid://do346p5kgurj8" path="res://addons/Cutscener/clazz/node/EndNode/runner.gd" id="4_db6e5"]
 
-[node name="EndNode" type="GraphNode"]
+[node name="EndNode" type="GraphNode" unique_id=1925416956]
 offset_right = 282.0
 offset_bottom = 111.0
 theme = ExtResource("1_c67of")
@@ -31,20 +31,20 @@ slot/1/draw_stylebox = true
 script = ExtResource("2_e7mkg")
 metadata/node_type = 4
 
-[node name="main" type="MarginContainer" parent="."]
+[node name="main" type="MarginContainer" parent="." unique_id=1289857803]
 layout_mode = 2
 theme_override_constants/margin_top = 7
 
-[node name="VBC" type="VBoxContainer" parent="main"]
+[node name="VBC" type="VBoxContainer" parent="main" unique_id=1976447387]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="HBC" type="HBoxContainer" parent="main/VBC"]
+[node name="HBC" type="HBoxContainer" parent="main/VBC" unique_id=1334582084]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 7
 
-[node name="LineEdit" type="LineEdit" parent="main/VBC/HBC"]
+[node name="LineEdit" type="LineEdit" parent="main/VBC/HBC" unique_id=1688582577]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.59
@@ -53,22 +53,22 @@ text = "fin~"
 editable = false
 expand_to_text_length = true
 
-[node name="start" type="Button" parent="main/VBC/HBC"]
+[node name="start" type="Button" parent="main/VBC/HBC" unique_id=1013285400]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "启动"
 
-[node name="EditMenu" type="MarginContainer" parent="."]
+[node name="EditMenu" type="MarginContainer" parent="." unique_id=205784218]
 layout_mode = 2
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 7
 
-[node name="EditMenu" parent="EditMenu" instance=ExtResource("3_2fprv")]
+[node name="EditMenu" parent="EditMenu" unique_id=892320749 instance=ExtResource("3_2fprv")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="runner" type="Node" parent="."]
+[node name="runner" type="Node" parent="." unique_id=1770795645]
 script = ExtResource("4_db6e5")

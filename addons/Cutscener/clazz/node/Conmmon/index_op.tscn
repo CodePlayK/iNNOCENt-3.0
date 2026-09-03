@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://biow5ccnofp2u"]
+[gd_scene format=3 uid="uid://biow5ccnofp2u"]
 
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/Conmmon/IndexOp.gd" id="1_f877j"]
+[ext_resource type="Script" uid="uid://d2kc86cplnbqd" path="res://addons/Cutscener/clazz/node/Conmmon/IndexOp.gd" id="1_f877j"]
 [ext_resource type="Theme" uid="uid://ch03cnrspt63o" path="res://addons/Cutscener/resource/node_theme.tres" id="2_8k0hm"]
 
-[node name="IndexOp" type="HBoxContainer"]
+[node name="IndexOp" type="HBoxContainer" unique_id=461618730]
 offset_right = 36.0
 offset_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.25
 script = ExtResource("1_f877j")
 
-[node name="min" type="Button" parent="."]
+[node name="min" type="Button" parent="." unique_id=852100500]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -20,7 +20,7 @@ theme = ExtResource("2_8k0hm")
 text = "↓"
 icon_alignment = 1
 
-[node name="plus" type="Button" parent="."]
+[node name="plus" type="Button" parent="." unique_id=1592119638]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

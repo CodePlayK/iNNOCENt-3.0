@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/arrow_cross.svg-47b23286e69c4061c3aad3d52f31a
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

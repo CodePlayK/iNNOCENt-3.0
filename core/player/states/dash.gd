@@ -1,4 +1,4 @@
-extends GroundState
+extends CombatGroundState
 
 @onready var timer: Timer = $Timer
 ## 冲刺能力配置（持续时长、冷却）

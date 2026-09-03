@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b81hgkg6syg5x"]
+[gd_scene format=3 uid="uid://b81hgkg6syg5x"]
 
-[ext_resource type="Script" path="res://core/common/ui/state_box/setting/setting_item.gd" id="1_24l4b"]
+[ext_resource type="Script" uid="uid://vuu3hov5hnn0" path="res://core/common/ui/state_box/setting/setting_item.gd" id="1_24l4b"]
 [ext_resource type="Texture2D" uid="uid://bsv0x0jscgyon" path="res://core/common/resource/texture/ui/UI - ICONS/UI - Icons13.png" id="1_br4iw"]
 [ext_resource type="Resource" uid="uid://bevjmidjy6sak" path="res://core/common/ui/state_box/setting/save_game.tres" id="2_os60m"]
 
-[node name="SettingItem" type="MarginContainer"]
+[node name="SettingItem" type="MarginContainer" unique_id=1836516458]
 custom_minimum_size = Vector2(0, 40)
 tooltip_text = "保存游戏"
 mouse_filter = 0
@@ -14,55 +14,55 @@ theme_override_constants/margin_bottom = 2
 script = ExtResource("1_24l4b")
 setting_item_config = ExtResource("2_os60m")
 
-[node name="BG" type="HBoxContainer" parent="."]
+[node name="BG" type="HBoxContainer" parent="." unique_id=2087708209]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="BG1" type="MarginContainer" parent="BG"]
+[node name="BG1" type="MarginContainer" parent="BG" unique_id=947326726]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Background" type="ColorRect" parent="BG/BG1"]
+[node name="Background" type="ColorRect" parent="BG/BG1" unique_id=1375797508]
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.521569, 1, 1, 0.662745)
 
-[node name="BG2" type="MarginContainer" parent="BG"]
+[node name="BG2" type="MarginContainer" parent="BG" unique_id=898970473]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="Background2" type="ColorRect" parent="BG/BG2"]
+[node name="Background2" type="ColorRect" parent="BG/BG2" unique_id=1771229347]
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.0627451, 0.74902, 0, 0.72549)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=487468471]
 layout_mode = 2
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1949841656]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1021538104]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="ItemTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer"]
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer" unique_id=179701717]
 layout_mode = 2
 texture = ExtResource("1_br4iw")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=190767365]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 6.0
 
-[node name="ItemName" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer2"]
+[node name="ItemName" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer2" unique_id=674784809]
 layout_mode = 2
 text = "保存存档"
 

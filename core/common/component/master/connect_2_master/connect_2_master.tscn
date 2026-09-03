@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0anwd58a4cex"]
+[gd_scene format=3 uid="uid://d0anwd58a4cex"]
 
-[ext_resource type="Script" path="res://core/common/component/master/connect_2_master/connect_2_master.gd" id="1_hlaym"]
+[ext_resource type="Script" uid="uid://c6h2kcwp7jgkv" path="res://core/common/component/master/connect_2_master/connect_2_master.gd" id="1_hlaym"]
 
-[node name="Connect2Master" type="Node"]
+[node name="Connect2Master" type="Node" unique_id=1379823933]
 script = ExtResource("1_hlaym")

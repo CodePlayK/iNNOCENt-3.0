@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/screwdriver.svg-cc6f87b97235112b91251a3f0cfab
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
