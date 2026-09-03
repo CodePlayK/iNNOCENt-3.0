@@ -54,7 +54,7 @@ signal cutscene_is_playing
 signal play_cutscene_aniplayer
 ## 播放画面后处理/屏幕特效（参数：e_name 效果名, args 额外参数）
 signal play_screen_effect
-##老关卡被过场动画完全隐藏后发出
+##当关卡被过场动画完全隐藏后发出
 signal old_level_hide_complete
 #endregion
 
@@ -139,7 +139,7 @@ func _add_debug(d:Node,size:Vector2,max_y:float):
 	add_debug.emit(d,size,max_y)
 
 #region Sound / 音频
-## 播放循环音效（参数：SE_LOOP_name, state 开关, speed 速率, effect_volume 音量偏移）
+## 播放循环音效（参数：SE_LOOP_name, state, speed, effect_volume, owner_name）
 signal play_SE_LOOP
 ## 播放一次性音效（参数：SE_name, speed, effect_volume, owner_name, state）
 signal play_SE
@@ -403,8 +403,9 @@ func _start_heartbeat_qte(params: Dictionary = {}) -> void:
 ## [param state] 播放/停止
 ## [param speed] 播放速率
 ## [param effect_volume] 音量偏移（dB）
-func _play_SE_LOOP(SE_LOOP_name, state: bool = true, speed: float = 1.0, effect_volume: float = 0.0) -> void:
-	play_SE_LOOP.emit(SE_LOOP_name, state, speed, effect_volume)
+## [param owner_name] 来源标识（用于多实例去重/精确停止）
+func _play_SE_LOOP(SE_LOOP_name, state: bool = true, speed: float = 1.0, effect_volume: float = 0.0, owner_name: String = "NA") -> void:
+	play_SE_LOOP.emit(SE_LOOP_name, state, speed, effect_volume, owner_name)
 
 
 ## 发射 [signal play_SE]

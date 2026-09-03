@@ -1,6 +1,8 @@
 extends Node
 ## 全局音频管理（Autoload: Music）
 ## - BGM / SE（一次性） / SE_LOOP（可随场景停止的循环） / Ambient（环境循环）
+## - SE 与 SE_LOOP/Ambient 均使用 owner_name 做唯一键，便于精确停止
+## - BGM 仍按曲名全局唯一
 ## - 使用对象池，避免「没有空闲播放器就丢音效」
 ## - 通过 AudioBus 提供全局音量：背景音乐 / 效果音 / 环境音
 
@@ -147,11 +149,24 @@ func _set_bus_linear(bus_name: String, linear: float) -> void:
 #endregion
 
 
+func _make_key(owner_name: String, effect_name: String) -> String:
+	return "%s|%s" % [owner_name, effect_name]
+
+
+func _effect_name_from_key(key: String) -> String:
+	var i := key.find("|")
+	if i < 0:
+		return key
+	return key.substr(i + 1)
+
+
 func _on_change_level(_room) -> void:
 	_level_change_lock = true
+	# 停止所有「切关需停」的循环 SE（任意 owner）
 	var to_release: Array = []
 	for key in _loop_active.keys():
-		var cfg = SE_LOOP_dic.get(key)
+		var effect_name := _effect_name_from_key(str(key))
+		var cfg = SE_LOOP_dic.get(effect_name)
 		if cfg and cfg.size() > 2 and cfg[2]:
 			var p: AudioStreamPlayer = _loop_active[key]
 			p.stop()
@@ -190,7 +205,8 @@ func _release_to_pool(player: AudioStreamPlayer, free_list: Array[AudioStreamPla
 		active.erase(key)
 	player.stop()
 	player.stream = null
-	player.remove_meta("se_key")
+	if player.has_meta("se_key"):
+		player.remove_meta("se_key")
 	if not free_list.has(player):
 		free_list.append(player)
 
@@ -210,7 +226,7 @@ func _apply_playback(player: AudioStreamPlayer, stream: AudioStream, pitch: floa
 	player.play()
 
 
-#region BGM
+#region BGM（仍按曲名全局唯一，无 owner）
 func _on_play_BGM(effect_name: String, state: bool = true, speed: float = 1.0, effect_volume: float = 0.0) -> void:
 	if not BGM_dic.has(effect_name):
 		return
@@ -238,7 +254,7 @@ func _on_play_SE(effect_name: String, speed: float = 1.0, effect_volume: float =
 		return
 	if not SE_dic.has(effect_name):
 		return
-	var k_name := "%s|%s" % [owner_name, effect_name]
+	var k_name := _make_key(owner_name, effect_name)
 	if state:
 		var player: AudioStreamPlayer
 		if _se_active.has(k_name) and is_instance_valid(_se_active[k_name]):
@@ -261,14 +277,15 @@ func _on_se_finished(player: AudioStreamPlayer) -> void:
 	var k_name = player.get_meta("se_key", "")
 	if k_name != "" and _se_active.get(k_name) == player:
 		_se_active.erase(k_name)
-	player.remove_meta("se_key")
+	if player.has_meta("se_key"):
+		player.remove_meta("se_key")
 	if not _se_free.has(player):
 		_se_free.append(player)
 #endregion
 
 
-#region SE_LOOP / Ambient
-func _on_play_SE_LOOP(effect_name: String, state: bool = true, speed: float = 1.0, effect_volume: float = 0.0) -> void:
+#region SE_LOOP / Ambient（key = owner|effect_name）
+func _on_play_SE_LOOP(effect_name: String, state: bool = true, speed: float = 1.0, effect_volume: float = 0.0, owner_name: String = "NA") -> void:
 	if _level_change_lock:
 		return
 	if not SE_LOOP_dic.has(effect_name):
@@ -279,10 +296,11 @@ func _on_play_SE_LOOP(effect_name: String, state: bool = true, speed: float = 1.
 	var active := _ambient_active if is_ambient else _loop_active
 	var root := _ambient_root if is_ambient else _loop_root
 	var bus_name := BUS_AMBIENT if is_ambient else BUS_SE
+	var k_name := _make_key(owner_name, effect_name)
 
 	if state:
-		if active.has(effect_name) and is_instance_valid(active[effect_name]):
-			var p: AudioStreamPlayer = active[effect_name]
+		if active.has(k_name) and is_instance_valid(active[k_name]):
+			var p: AudioStreamPlayer = active[k_name]
 			p.pitch_scale = speed
 			p.volume_db = _default_volume_db(cfg, effect_volume)
 			if not p.playing:
@@ -290,9 +308,9 @@ func _on_play_SE_LOOP(effect_name: String, state: bool = true, speed: float = 1.
 				p.play()
 			return
 		var player := _acquire(free_list, active, root, bus_name)
-		active[effect_name] = player
+		active[k_name] = player
 		_apply_playback(player, cfg[0], speed, _default_volume_db(cfg, effect_volume))
 	else:
-		if active.has(effect_name):
-			_release_to_pool(active[effect_name], free_list, active, effect_name)
+		if active.has(k_name):
+			_release_to_pool(active[k_name], free_list, active, k_name)
 #endregion
