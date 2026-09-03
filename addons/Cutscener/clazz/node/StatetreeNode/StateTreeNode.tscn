@@ -1,35 +1,23 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxrlb6f5tks3v"]
+[gd_scene format=3 uid="uid://cxrlb6f5tks3v"]
 
 [ext_resource type="Theme" uid="uid://ch03cnrspt63o" path="res://addons/Cutscener/resource/node_theme.tres" id="1_irxfv"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/StatetreeNode/StateTreeNode.gd" id="2_eyj4c"]
+[ext_resource type="Script" uid="uid://qejjq60gx5a4" path="res://addons/Cutscener/clazz/node/StatetreeNode/StateTreeNode.gd" id="2_eyj4c"]
 [ext_resource type="PackedScene" uid="uid://brijnx0ig81b1" path="res://addons/Cutscener/clazz/node/Conmmon/param_2.tscn" id="3_hmswt"]
 [ext_resource type="PackedScene" uid="uid://biow5ccnofp2u" path="res://addons/Cutscener/clazz/node/Conmmon/index_op.tscn" id="4_4wka5"]
 [ext_resource type="PackedScene" uid="uid://dobf7nc4fqttn" path="res://addons/Cutscener/clazz/node/Conmmon/delete_param_butt.tscn" id="4_sia3i"]
 [ext_resource type="PackedScene" uid="uid://us35lq4dhp2h" path="res://addons/Cutscener/clazz/node/Conmmon/export.tscn" id="5_jf4bp"]
 [ext_resource type="PackedScene" uid="uid://ce0jui8jj3xxr" path="res://addons/Cutscener/clazz/node/Conmmon/choose_file_butt.tscn" id="6_2ybc7"]
 [ext_resource type="PackedScene" uid="uid://dug4013bo7vnr" path="res://addons/Cutscener/clazz/node/Conmmon/edit_menu.tscn" id="6_pgc7m"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/StatetreeNode/Param.gd" id="8_b7j4v"]
+[ext_resource type="Script" uid="uid://do56ixfa8qhd3" path="res://addons/Cutscener/clazz/node/StatetreeNode/Param.gd" id="8_b7j4v"]
 [ext_resource type="PackedScene" uid="uid://oclkone2cmff" path="res://addons/Cutscener/clazz/node/Conmmon/choose_vec_2_butt.tscn" id="8_sota0"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/StatetreeNode/runner.gd" id="9_rw2g7"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/SetNode/DialoguePath.gd" id="10_6wf84"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/Conmmon/EventParam.gd" id="10_f6kph"]
+[ext_resource type="Script" uid="uid://y0x0j0x77nl6" path="res://addons/Cutscener/clazz/node/StatetreeNode/runner.gd" id="9_rw2g7"]
+[ext_resource type="Script" uid="uid://btd2g2ubgchok" path="res://addons/Cutscener/clazz/node/SetNode/DialoguePath.gd" id="10_6wf84"]
+[ext_resource type="Script" uid="uid://c261u15cwarlk" path="res://addons/Cutscener/clazz/node/Conmmon/EventParam.gd" id="10_f6kph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgnk3"]
 bg_color = Color(0, 0, 0, 0.921569)
 
-[sub_resource type="Image" id="Image_4iius"]
-data = {
-"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 16
-}
-
-[sub_resource type="ImageTexture" id="ImageTexture_nwy1d"]
-image = SubResource("Image_4iius")
-
-[sub_resource type="Image" id="Image_ghxoy"]
+[sub_resource type="Image" id="Image_clamp"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -39,10 +27,10 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_dht5b"]
-image = SubResource("Image_ghxoy")
+image = SubResource("Image_clamp")
 
-[node name="StateTreeNode" type="GraphNode"]
-offset_right = 249.0
+[node name="StateTreeNode" type="GraphNode" unique_id=341397504]
+offset_right = 265.0
 offset_bottom = 144.0
 theme = ExtResource("1_irxfv")
 resizable = true
@@ -86,13 +74,13 @@ slot/3/draw_stylebox = true
 script = ExtResource("2_eyj4c")
 metadata/node_type = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=792093970]
 layout_mode = 2
 
-[node name="Node2D" type="Node2D" parent="MarginContainer"]
+[node name="Node2D" type="Node2D" parent="MarginContainer" unique_id=2145164803]
 position = Vector2(3, -79)
 
-[node name="Dialogues" type="RichTextLabel" parent="MarginContainer/Node2D"]
+[node name="Dialogues" type="RichTextLabel" parent="MarginContainer/Node2D" unique_id=381093919]
 unique_name_in_owner = true
 visible = false
 z_index = 2
@@ -105,104 +93,103 @@ theme = ExtResource("1_irxfv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgnk3")
 bbcode_enabled = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=107574689]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=998608687]
 layout_mode = 2
 
-[node name="ResFile" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ResFile" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1112490199]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="ChooseFile" parent="MarginContainer/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
+[node name="ChooseFile" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=970397425 node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
 visible = true
 layout_mode = 2
-icon = SubResource("ImageTexture_nwy1d")
 node = NodePath("../ResFile")
 
-[node name="Update" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Update" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1115115902]
 layout_mode = 2
 text = "更新资源"
 
-[node name="ParamPrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ParamPrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2086875367]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/ParamPrototype"]
+[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/ParamPrototype" unique_id=525074999]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 text = "参数.1"
 
-[node name="Min" parent="MarginContainer/VBoxContainer/ParamPrototype" instance=ExtResource("3_hmswt")]
+[node name="Min" parent="MarginContainer/VBoxContainer/ParamPrototype" unique_id=982310209 instance=ExtResource("3_hmswt")]
 layout_mode = 2
 tooltip_text = "目标值"
 theme = null
 text = "-1"
 
-[node name="IndexOp" parent="MarginContainer/VBoxContainer/ParamPrototype" node_paths=PackedStringArray("target") instance=ExtResource("4_4wka5")]
+[node name="IndexOp" parent="MarginContainer/VBoxContainer/ParamPrototype" unique_id=1590711347 node_paths=PackedStringArray("target") instance=ExtResource("4_4wka5")]
 layout_mode = 2
 size_flags_stretch_ratio = 3.15
 target = NodePath("../Min")
 
-[node name="Max" parent="MarginContainer/VBoxContainer/ParamPrototype" instance=ExtResource("3_hmswt")]
+[node name="Max" parent="MarginContainer/VBoxContainer/ParamPrototype" unique_id=706717229 instance=ExtResource("3_hmswt")]
 layout_mode = 2
 tooltip_text = "目标值"
 theme = null
 text = "-1"
 
-[node name="IndexOp2" parent="MarginContainer/VBoxContainer/ParamPrototype" node_paths=PackedStringArray("target") instance=ExtResource("4_4wka5")]
+[node name="IndexOp2" parent="MarginContainer/VBoxContainer/ParamPrototype" unique_id=1203582401 node_paths=PackedStringArray("target") instance=ExtResource("4_4wka5")]
 layout_mode = 2
 size_flags_stretch_ratio = 3.15
 target = NodePath("../Max")
 
-[node name="DeleteParam" parent="MarginContainer/VBoxContainer/ParamPrototype" instance=ExtResource("4_sia3i")]
+[node name="DeleteParam" parent="MarginContainer/VBoxContainer/ParamPrototype" unique_id=1121834530 instance=ExtResource("4_sia3i")]
 visible = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 
-[node name="CheckButton" parent="MarginContainer/VBoxContainer/ParamPrototype" instance=ExtResource("5_jf4bp")]
+[node name="CheckButton" parent="MarginContainer/VBoxContainer/ParamPrototype" unique_id=133998051 instance=ExtResource("5_jf4bp")]
 visible = false
 layout_mode = 2
 
-[node name="ConditionPrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ConditionPrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1432889161]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="ConditionLinkType" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+[node name="ConditionLinkType" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=1427399360]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "连接类型"
-item_count = 2
 selected = 0
 fit_to_longest_item = false
+item_count = 2
 popup/item_0/text = "and"
 popup/item_0/id = 20
 popup/item_1/text = "or"
 popup/item_1/id = 21
 
-[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=156359696]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 text = "参数.1"
 
-[node name="Param" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+[node name="Param" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=1028922260]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
-item_count = 56
 selected = 0
 fit_to_longest_item = false
+item_count = 56
 popup/item_0/text = "CutsceneState.title_able"
 popup/item_0/id = 0
 popup/item_1/text = "CutsceneState.cutscene_playing"
@@ -317,14 +304,14 @@ popup/item_55/text = "PlayerState.on_collection_hint"
 popup/item_55/id = 55
 script = ExtResource("8_b7j4v")
 
-[node name="ParamType" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+[node name="ParamType" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=1928567054]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 8
 selected = 7
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "String"
 popup/item_0/id = 4
 popup/item_0/disabled = true
@@ -350,14 +337,14 @@ popup/item_7/text = "Vector2"
 popup/item_7/id = 5
 popup/item_7/disabled = true
 
-[node name="ConditionType" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype"]
+[node name="ConditionType" type="OptionButton" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=70509923]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "判断符号"
-item_count = 8
 selected = 0
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "=="
 popup/item_0/id = 0
 popup/item_1/text = "!="
@@ -375,77 +362,65 @@ popup/item_6/id = 23
 popup/item_7/text = "in"
 popup/item_7/id = 24
 
-[node name="Param2" parent="MarginContainer/VBoxContainer/ConditionPrototype" instance=ExtResource("3_hmswt")]
+[node name="Param2" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=1657916404 instance=ExtResource("3_hmswt")]
 layout_mode = 2
 tooltip_text = "目标值"
 theme = null
 
-[node name="DeleteParam" parent="MarginContainer/VBoxContainer/ConditionPrototype" instance=ExtResource("4_sia3i")]
+[node name="DeleteParam" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=570441176 instance=ExtResource("4_sia3i")]
 visible = true
 layout_mode = 2
 
-[node name="ChooseFile" parent="MarginContainer/VBoxContainer/ConditionPrototype" node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
+[node name="ChooseFile" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=1259978074 node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
 layout_mode = 2
-icon = SubResource("ImageTexture_nwy1d")
 node = NodePath("../Param2")
 
-[node name="ChooseVec2" parent="MarginContainer/VBoxContainer/ConditionPrototype" node_paths=PackedStringArray("target") instance=ExtResource("8_sota0")]
+[node name="ChooseVec2" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=176160545 node_paths=PackedStringArray("target") instance=ExtResource("8_sota0")]
 layout_mode = 2
-icon = SubResource("ImageTexture_nwy1d")
 target = NodePath("../Param2")
 
-[node name="Export" parent="MarginContainer/VBoxContainer/ConditionPrototype" instance=ExtResource("5_jf4bp")]
+[node name="Export" parent="MarginContainer/VBoxContainer/ConditionPrototype" unique_id=740751591 instance=ExtResource("5_jf4bp")]
 visible = false
 layout_mode = 2
 
-[node name="EventPrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="EventPrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1342667891]
 visible = false
 layout_mode = 2
 
-[node name="ConditionLinkType" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype"]
+[node name="ConditionLinkType" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=754672892]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "连接类型"
-item_count = 2
 selected = 0
 fit_to_longest_item = false
+item_count = 2
 popup/item_0/text = "and"
 popup/item_0/id = 20
 popup/item_1/text = "or"
 popup/item_1/id = 21
 
-[node name="Type" type="LineEdit" parent="MarginContainer/VBoxContainer/EventPrototype"]
+[node name="Type" type="LineEdit" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=1087603905]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 text = "0"
 
-[node name="Param" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype"]
+[node name="Param" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=178243105]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
-item_count = 4
-selected = 0
-popup/item_0/text = "0.玩家攻击次数"
-popup/item_0/id = 0
-popup/item_1/text = "1.BloodkingAttack攻击次数"
-popup/item_1/id = 1
-popup/item_2/text = "2.PlayerDenseSucTimeEvent"
-popup/item_2/id = 2
-popup/item_3/text = "3.玩家拥有的手电筒的数量"
-popup/item_3/id = 3
 script = ExtResource("10_f6kph")
 
-[node name="ParamType" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype"]
+[node name="ParamType" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=871589740]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 8
 selected = 7
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "String"
 popup/item_0/id = 4
 popup/item_0/disabled = true
@@ -471,14 +446,14 @@ popup/item_7/text = "Vector2"
 popup/item_7/id = 5
 popup/item_7/disabled = true
 
-[node name="ConditionType" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype"]
+[node name="ConditionType" type="OptionButton" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=50398704]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "判断符号"
-item_count = 8
 selected = 0
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "=="
 popup/item_0/id = 0
 popup/item_1/text = "!="
@@ -496,82 +471,78 @@ popup/item_6/id = 23
 popup/item_7/text = "in"
 popup/item_7/id = 24
 
-[node name="Param2" parent="MarginContainer/VBoxContainer/EventPrototype" instance=ExtResource("3_hmswt")]
+[node name="Param2" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=1228729304 instance=ExtResource("3_hmswt")]
 layout_mode = 2
 tooltip_text = "目标值"
 theme = null
 
-[node name="DeleteParam" parent="MarginContainer/VBoxContainer/EventPrototype" instance=ExtResource("4_sia3i")]
+[node name="DeleteParam" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=1480501414 instance=ExtResource("4_sia3i")]
 visible = true
 layout_mode = 2
 
-[node name="ChooseFile" parent="MarginContainer/VBoxContainer/EventPrototype" node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
+[node name="ChooseFile" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=916026084 node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
 layout_mode = 2
-icon = SubResource("ImageTexture_nwy1d")
 node = NodePath("../Param2")
 
-[node name="ChooseVec2" parent="MarginContainer/VBoxContainer/EventPrototype" node_paths=PackedStringArray("target") instance=ExtResource("8_sota0")]
+[node name="ChooseVec2" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=61046297 node_paths=PackedStringArray("target") instance=ExtResource("8_sota0")]
 layout_mode = 2
-icon = SubResource("ImageTexture_nwy1d")
 target = NodePath("../Param2")
 
-[node name="Export" parent="MarginContainer/VBoxContainer/EventPrototype" instance=ExtResource("5_jf4bp")]
+[node name="Export" parent="MarginContainer/VBoxContainer/EventPrototype" unique_id=1017696360 instance=ExtResource("5_jf4bp")]
 visible = false
 layout_mode = 2
 
-[node name="TitlePrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="TitlePrototype" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=195682178]
 visible = false
 layout_mode = 2
 
-[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=896723706]
 visible = false
 layout_mode = 2
 text = "参数.1"
 
-[node name="ConditionLinkType" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+[node name="ConditionLinkType" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=2141397402]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "连接类型"
-item_count = 2
 selected = 0
 fit_to_longest_item = false
+item_count = 2
 popup/item_0/text = "and"
 popup/item_0/id = 20
 popup/item_1/text = "or"
 popup/item_1/id = 21
 
-[node name="DialoguePath" type="LineEdit" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+[node name="DialoguePath" type="LineEdit" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=303050810]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数名"
 script = ExtResource("10_6wf84")
 
-[node name="ChooseFile" parent="MarginContainer/VBoxContainer/TitlePrototype" node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
+[node name="ChooseFile" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=396620945 node_paths=PackedStringArray("node") instance=ExtResource("6_2ybc7")]
 visible = true
 layout_mode = 2
-icon = SubResource("ImageTexture_nwy1d")
 node = NodePath("../DialoguePath")
 
-[node name="Param" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+[node name="Param" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=1426587331]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数名"
 item_count = 1
-popup/item_0/text = ""
 popup/item_0/id = 0
 script = ExtResource("8_b7j4v")
 
-[node name="ConditionType" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+[node name="ConditionType" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=1529736808]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 6
 selected = 0
 fit_to_longest_item = false
+item_count = 6
 popup/item_0/text = "="
 popup/item_0/id = 0
 popup/item_1/text = "+="
@@ -585,32 +556,31 @@ popup/item_4/id = 9
 popup/item_5/text = "%="
 popup/item_5/id = 12
 
-[node name="Param2" parent="MarginContainer/VBoxContainer/TitlePrototype" instance=ExtResource("3_hmswt")]
+[node name="Param2" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=191243897 instance=ExtResource("3_hmswt")]
 layout_mode = 2
 tooltip_text = "设置值"
 theme = null
 
-[node name="DeleteParam" parent="MarginContainer/VBoxContainer/TitlePrototype" instance=ExtResource("4_sia3i")]
+[node name="DeleteParam" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=503371809 instance=ExtResource("4_sia3i")]
 visible = true
 layout_mode = 2
 
-[node name="ChooseVec2" parent="MarginContainer/VBoxContainer/TitlePrototype" instance=ExtResource("8_sota0")]
+[node name="ChooseVec2" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=109733612 instance=ExtResource("8_sota0")]
 layout_mode = 2
-icon = SubResource("ImageTexture_nwy1d")
 
-[node name="Export" parent="MarginContainer/VBoxContainer/TitlePrototype" instance=ExtResource("5_jf4bp")]
+[node name="Export" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=1313209022 instance=ExtResource("5_jf4bp")]
 visible = false
 layout_mode = 2
 
-[node name="ParamType" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype"]
+[node name="ParamType" type="OptionButton" parent="MarginContainer/VBoxContainer/TitlePrototype" unique_id=1870371242]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 tooltip_text = "参数类型"
-item_count = 8
 selected = 7
 fit_to_longest_item = false
+item_count = 8
 popup/item_0/text = "String"
 popup/item_0/id = 4
 popup/item_0/disabled = true
@@ -636,33 +606,33 @@ popup/item_7/text = "Vector2"
 popup/item_7/id = 5
 popup/item_7/disabled = true
 
-[node name="main" type="MarginContainer" parent="."]
+[node name="main" type="MarginContainer" parent="." unique_id=1212409465]
 layout_mode = 2
 theme = ExtResource("1_irxfv")
 theme_override_constants/margin_top = 7
 
-[node name="VBoxContainer" type="VBoxContainer" parent="main"]
+[node name="VBoxContainer" type="VBoxContainer" parent="main" unique_id=650232191]
 layout_mode = 2
 
-[node name="StateName" type="MarginContainer" parent="main/VBoxContainer"]
+[node name="StateName" type="MarginContainer" parent="main/VBoxContainer" unique_id=2013932164]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_irxfv")
 theme_override_constants/margin_bottom = 3
 
-[node name="StateName" type="HBoxContainer" parent="main/VBoxContainer/StateName"]
+[node name="StateName" type="HBoxContainer" parent="main/VBoxContainer/StateName" unique_id=1398769996]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_irxfv")
 theme_override_constants/separation = 7
 
-[node name="Icon" type="Button" parent="main/VBoxContainer/StateName/StateName"]
+[node name="Icon" type="Button" parent="main/VBoxContainer/StateName/StateName" unique_id=1943864359]
 layout_mode = 2
 theme_override_colors/icon_disabled_color = Color(1, 0.890196, 0.501961, 1)
 disabled = true
 icon = SubResource("ImageTexture_dht5b")
 
-[node name="Index" type="Button" parent="main/VBoxContainer/StateName/StateName"]
+[node name="Index" type="Button" parent="main/VBoxContainer/StateName/StateName" unique_id=252764784]
 visible = false
 layout_mode = 2
 theme_override_colors/font_disabled_color = Color(1, 0.890196, 0.501961, 1)
@@ -670,7 +640,7 @@ theme_override_colors/icon_disabled_color = Color(1, 0.890196, 0.501961, 1)
 disabled = true
 text = "#1"
 
-[node name="TitleList" type="OptionButton" parent="main/VBoxContainer/StateName/StateName"]
+[node name="TitleList" type="OptionButton" parent="main/VBoxContainer/StateName/StateName" unique_id=498339096]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -679,32 +649,32 @@ tooltip_text = "选择方法"
 theme = ExtResource("1_irxfv")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 
-[node name="CurrentValue" type="Button" parent="main/VBoxContainer/StateName/StateName"]
+[node name="CurrentValue" type="Button" parent="main/VBoxContainer/StateName/StateName" unique_id=92775299]
 unique_name_in_owner = true
 layout_mode = 2
 text = "查看"
 
-[node name="AddParam" type="Button" parent="main/VBoxContainer/StateName/StateName"]
+[node name="AddParam" type="Button" parent="main/VBoxContainer/StateName/StateName" unique_id=891450385]
 layout_mode = 2
 tooltip_text = "添加参数"
 text = "Add"
 
-[node name="StateBoxs" type="VBoxContainer" parent="."]
+[node name="StateBoxs" type="VBoxContainer" parent="." unique_id=2041868702]
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="EditMenu" type="MarginContainer" parent="."]
+[node name="EditMenu" type="MarginContainer" parent="." unique_id=1138422745]
 layout_mode = 2
 theme = ExtResource("1_irxfv")
 theme_override_constants/margin_top = 7
 theme_override_constants/margin_bottom = 7
 
-[node name="EditMenu" parent="EditMenu" instance=ExtResource("6_pgc7m")]
+[node name="EditMenu" parent="EditMenu" unique_id=1673218520 instance=ExtResource("6_pgc7m")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="runner" type="Node" parent="."]
+[node name="runner" type="Node" parent="." unique_id=1975177334]
 script = ExtResource("9_rw2g7")
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

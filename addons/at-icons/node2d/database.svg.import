@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/database.svg-13bab5341a95fef04647c3b20bc5e909
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

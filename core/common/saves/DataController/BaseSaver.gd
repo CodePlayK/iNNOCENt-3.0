@@ -42,7 +42,7 @@ func _save() -> void:
 
 	if save_data_collector.debug:
 		Debug.dprint(DebugCT.dp(
-			"「保存」存档|[%s]%s" % [save_data_config.level_id, save_data_config.data],
+			"「保存」存档|[level_id:%s]data:%s" % [save_data_config.level_id, save_data_config.data],
 			self
 		))
 
@@ -66,7 +66,7 @@ func _load() -> void:
 
 	if save_data_collector.debug:
 		Debug.dprint(DebugCT.dp(
-			"「载入」存档|[%s]%s" % [condition, JSON.stringify(data)],
+			"「载入」存档|[条件:%s]结果:%s" % [condition, JSON.stringify(data)],
 			self
 		))
 

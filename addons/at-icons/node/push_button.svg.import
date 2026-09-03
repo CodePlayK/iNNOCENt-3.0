@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/push_button.svg-39b2dad2a243ff7d5b127ac2896b0
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

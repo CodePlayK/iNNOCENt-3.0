@@ -1,7 +1,9 @@
+@icon("res://addons/at-icons/control/speech_bubble_ellipsis.svg")
+
 extends Node2D
 class_name DialogueBalloon
 @export var talker_name:Array[String]
-#region onrady
+#region onready
 @onready var balloon: Control = $Balloon
 @onready var margin: MarginContainer = $Balloon/VB/background/Margin
 @onready var hint_sprite = $Balloon/VB/background/Margin/HB/VB/HB/MC/Hint
@@ -9,12 +11,11 @@ class_name DialogueBalloon
 @onready var dialogue_label:DialogueLabel=$Balloon/VB/background/Margin/HB/VB/HB/DialogueLabel
 @onready var responses_menu: VBoxContainer = %Responses
 @onready var background =$Balloon/VB/background
-@onready var response_margin =  %responseMargin
+@onready var response_margin = %responseMargin
 @onready var background_color: ColorRect = $Balloon/VB/background/BackgroundMC/BackgroundColor
 @onready var background_mc: MarginContainer = $Balloon/VB/background/BackgroundMC
 @onready var pointer_right = $Balloon/VB/MC/HB/MC2/PointerRight
 @onready var pointer_left = $Balloon/VB/MC/HB/MC/PointerLeft
-#@onready var response_style_box =preload("res://core/common/dialogue_ballon/dialogue/response style box focus.tres")
 @onready var screen_checker_r = %ScreenCheckerR
 @onready var screen_checker_l = %ScreenCheckerL
 @onready var vb = $Balloon/VB
@@ -47,30 +48,74 @@ var tween_killed:bool = false
 
 var current_level:LevelState.LEVELS
 
+## 弹出与边框高亮
+var _pop_tween: Tween
+var _base_scale: Vector2 = Vector2(0.5, 0.5)
+var _border_mat: ShaderMaterial
+const BORDER_SHADER_PATH := "res://core/dialogue/dialogue/dialogue_ballon/resource/dialogue_balloon_border.gdshader"
+
+## 打断旧 await 链：每次新 talk / hide 递增，旧协程发现变化后直接 return
+var _talk_gen: int = 0
+
+const SHOW_SCALE_DURATION := 0.28
+const SHOW_FADE_DURATION := 0.18
+const HIDE_DURATION := 0.10
+
 func _ready() -> void:
 	Dialogue.talk_start.connect(on_talker_start)
-	hide_balloon()
+	_base_scale = scale
+	_setup_border_shader()
+	# 初始静默隐藏（不播动画）
+	_set_hidden_visual()
+	enable = false
+	balloon_visiable = false
 	margin.size = Vector2.ZERO
 	response_margin.size = Vector2.ZERO
 	DialogueManager.mutated.connect(_on_mutation)
+	EventBus.change_level.connect(_on_level_changed)
+
+func _on_level_changed(level_id):
+	hide_balloon(true)
+
+func _setup_border_shader() -> void:
+	## 为背景 ColorRect 添加动态高亮边框 shader，不覆盖原有颜色逻辑
+	if not background_color:
+		return
+	var sh: Shader = load(BORDER_SHADER_PATH) as Shader
+	if not sh:
+		Debug.dprintwarn(DebugCT.dp("DialogueBalloon border shader missing: %s" % BORDER_SHADER_PATH, self))
+		return
+	_border_mat = ShaderMaterial.new()
+	_border_mat.shader = sh
+	_border_mat.set_shader_parameter("border_color", Color(1.0, 1.0, 1.0, 0.95))
+	_border_mat.set_shader_parameter("border_width", 5)
+	_border_mat.set_shader_parameter("pulse_speed", 2.8)
+	_border_mat.set_shader_parameter("pulse_amount", 0.4)
+	_border_mat.set_shader_parameter("glow_strength", 10)
+	#background_color.material = _border_mat
 
 func set_level(dialogue_cinfig:DialogueConfig):
 	if dialogue_cinfig.current_level==LevelState.LEVELS.LEVEL_CURRENT:
 		current_level = LevelState.current_level
 
 func dialogue_finished():
-	hide_balloon()	
-	
+	hide_balloon()
+
 func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:DialogueLine):
 	if !talker_name.has(current_talker):
 		return
 	if dialogue_config.current_level!=LevelState.LEVELS.LEVEL_ALL and current_level!=LevelState.current_level:
 		return
-	#Dialogue.current_talker = talker_name
+
+	# 新一次弹出：作废所有进行中的 await / tween
+	_talk_gen += 1
+	var gen := _talk_gen
+
 	Dialogue.current_dialogue_balloon = self
-	hide_balloon()
-	if back_color_tween:back_color_tween.kill()
-	var last_backcolor_mc_size = background.size.x
+	_kill_pop_and_back_tweens()
+	typeout_timer.stop()
+
+	# 内容清理（不立刻播 hide 动画，避免与随后 show 打架）
 	for item in responses_menu.get_children():
 		item.get_child(1).text=""
 		item.queue_free()
@@ -78,24 +123,34 @@ func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:Dialog
 	character_label.text=""
 	max_x=0
 	is_waiting_for_input = false
-#		自动配置对话框颜色
+	nextable = true
+
+	# 自动配置对话框颜色
 	background_color.color=dialogue_config.balloon_color
 	pointer_right.color=dialogue_config.balloon_color
 	pointer_left.color=dialogue_config.balloon_color
 	response_background.color=dialogue_config.balloon_color
-	#pointer_right.material.set_shader_parameter("color",background_color.color)
-	#pointer_left.material.set_shader_parameter("color",background_color.color)
+	# 同步边框高亮色（略亮一点）
+	if _border_mat:
+		var bc: Color = dialogue_config.balloon_color
+		var highlight := Color(
+			clamp(bc.r * 1.35 + 0.25, 0.0, 1.0),
+			clamp(bc.g * 1.25 + 0.2, 0.0, 1.0),
+			clamp(bc.b * 0.9 + 0.15, 0.0, 1.0),
+			0.95
+		)
+		_border_mat.set_shader_parameter("border_color", highlight)
+
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = dialogue_line.character+":"
 	dialogue_label.modulate.a = 0
 	dialogue_label.dialogue_line = dialogue_line
-	#if null==dialogue_line.next_id or ""==dialogue_line.next_id:
 	hint_sprite.hide()
-	#Show any responses we have
 	responses_menu.modulate.a = 0
 	margin.size = Vector2.ZERO
 	response_margin.size = Vector2.ZERO
-	#配置多选项
+
+	# 配置多选项
 	if dialogue_line.responses.size() > 0:
 		for response1 in dialogue_line.responses:
 			var item = response.duplicate(0)
@@ -109,53 +164,71 @@ func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:Dialog
 			item.show()
 			responses_menu.add_child(item)
 			configure_menu()
-	#	预计算左右位置
+
+	# 预计算左右位置
 	temp_position_l= get_left_side_position()
 	temp_position_r= get_right_side_position()
-#	判断当前对话框边界是否超出屏幕，超出则反向
 	if left_side_flag:
 		self.position=temp_position_l
 	else :
 		self.position=temp_position_r
+
+	# 等一帧让布局稳定；被新 talk / hide 打断则退出
 	await RenderingServer.frame_post_draw
+	if gen != _talk_gen:
+		return
+
+	var last_backcolor_mc_size = background.size.x
+	background_mc.set("theme_override_constants/margin_right", max(0.0, background.size.x - last_backcolor_mc_size))
+	background_mc.show()
+
+	# 同步弹出（show_balloon 内不再 await）
 	show_balloon()
-	background_mc.set("theme_override_constants/margin_right",background.size.x-last_backcolor_mc_size)
+	if gen != _talk_gen:
+		return
+
 	dialogue_label.modulate.a = 1
 	tween_killed = false
 	back_color_tween = background_color.create_tween()
 	back_color_tween.finished.connect(on_tween_finshed)
 	back_color_tween.set_trans(Tween.TRANS_CUBIC)
 	back_color_tween.set_ease(Tween.EASE_OUT)
-	background_mc.show()
 	back_color_tween.tween_property(background_mc,"theme_override_constants/margin_right",0,.5)
+
 	max_x=0
 	if not dialogue_line.text.is_empty():
-		show_balloon()
 		nextable=false
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
-		if back_color_tween and !tween_killed and back_color_tween.is_running():
+		if gen != _talk_gen:
+			return
+		if back_color_tween and !tween_killed and back_color_tween.is_valid() and back_color_tween.is_running():
 			await back_color_tween.finished
-			back_color_tween.kill()
+			if gen != _talk_gen:
+				return
+			if back_color_tween:
+				back_color_tween.kill()
 		nextable=true
 
-		# Wait for input
+	if gen != _talk_gen:
+		return
+
+	# Wait for input
 	if dialogue_line.responses.size() > 0:
 		responses_menu.modulate.a = 1
 	elif dialogue_line.time != null:
 		var time = dialogue_line.text.length() * 0.05 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
 		await get_tree().create_timer(time).timeout
+		if gen != _talk_gen:
+			return
 		is_waiting_for_input = true
-		#if dialogue_config.auto_next:
-				#await get_tree().create_timer(dialogue_config.line_end_wait_time).timeout
-				#if enable and current_id == dialogue_line.id:
-					#next(dialogue_line.next_id)
 	else:
 		is_waiting_for_input = true
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
-	hint_sprite.show()	
-	#判断是否为第一次对白，是才进入历史	
+	hint_sprite.show()
+
+	# 判断是否为第一次对白，是才进入历史
 	var l = Dialogue.dialogue_config.current_res+str(dialogue_line.id).split("@",true,0)[1]
 	if Dialogue.dialogue_title_dic.has(dialogue_config.current_res):
 		if Dialogue.dialogue_title_dic[dialogue_config.current_res].has(dialogue_config.title):
@@ -163,13 +236,13 @@ func on_talker_start(current_talker:String,d:DialogueConfig,dialogue_line:Dialog
 		else :
 			if Dialogue.dialogue_title_dic_tmp.has(l):
 				if Dialogue.dialogue_title_dic_tmp[l]!=1:
-					return			
+					return
 	else :
 		if Dialogue.dialogue_title_dic_tmp.has(l):
-				if Dialogue.dialogue_title_dic_tmp[l]!=1:
-					return	
+			if Dialogue.dialogue_title_dic_tmp[l]!=1:
+				return
 	DialogueState.add_dialogue_history(talker_name[0],dialogue_line.text)
-	
+
 func end_talk():
 	typeout_timer.stop()
 	typeout_timer.start()
@@ -177,7 +250,7 @@ func end_talk():
 	if !nextable:
 		nextable=true
 	hide_balloon()
-		
+
 func configure_menu() -> void:
 	balloon.focus_mode = Control.FOCUS_NONE
 	var items = get_responses()
@@ -204,7 +277,7 @@ func configure_menu() -> void:
 		if !item.get_child(1).gui_input.is_connected(_on_response_gui_input):
 			item.get_child(1).gui_input.connect(_on_response_gui_input.bind(item))
 	items[0].get_child(1).grab_focus()
-# Get a list of enabled items
+
 func get_responses() -> Array:
 	var items: Array = []
 	for child in responses_menu.get_children():
@@ -215,7 +288,6 @@ func get_responses() -> Array:
 ### Signals
 func _on_mutation(mutation:Dictionary) -> void:
 	is_waiting_for_input = false
-	#hide_balloon()
 
 func _on_response_mouse_entered(item: Control) -> void:
 	if !enable:return
@@ -228,7 +300,6 @@ func _on_response_gui_input(event: InputEvent, item: Control) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == 1:
-				#Dialogue.current_talker = DialogueState.player_name
 				DialogueState.add_dialogue_history(DialogueState.player_name[0],Dialogue.dialogue_line.responses[item.get_index()].text)
 				dialogue_finished()
 				Dialogue.next(Dialogue.dialogue_line.responses[item.get_index()].next_id)
@@ -236,7 +307,7 @@ func _on_response_gui_input(event: InputEvent, item: Control) -> void:
 		Dialogue.current_talker = DialogueState.player_name
 		dialogue_finished()
 		Dialogue.next(Dialogue.dialogue_line.responses[item.get_index()].next_id)
-		if Dialogue.dialogue_line.responses.has(item.get_index()): 
+		if Dialogue.dialogue_line.responses.has(item.get_index()):
 			DialogueState.add_dialogue_history(DialogueState.player_name[0],Dialogue.dialogue_line.responses[item.get_index()].text)
 
 func _on_balloon_gui_input(event: InputEvent) -> void:
@@ -249,6 +320,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		Dialogue.next(Dialogue.dialogue_line.next_id)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if LevelState.changing_level:
+		return
 	if !enable:return
 	if UiState.item_txt_box.showing:return
 	if PlayerState.on_collection_hint:return
@@ -258,7 +331,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Dialogue.next(Dialogue.dialogue_line.next_id)
 
 func get_left_side_position() -> Vector2:
-	if Dialogue.dialogue_line.responses.size() > 0:
+	if Dialogue.dialogue_line and Dialogue.dialogue_line.responses.size() > 0:
 		for item in responses_menu.get_children():
 			max_x=max(max_x,item.get_child(1).get_content_width())
 	else:
@@ -267,40 +340,89 @@ func get_left_side_position() -> Vector2:
 			temp_margin=3
 		else :
 			temp_margin=3
-	temp_position_l=Vector2(-(max(max_x,dialogue_label.get_content_width(),character_label.get_content_width()))*self.scale.x-temp_margin,0)
+	# 用 _base_scale 算位置，避免 pop 动画中途 scale 变化导致左右偏移跳动
+	temp_position_l=Vector2(-(max(max_x,dialogue_label.get_content_width(),character_label.get_content_width()))*_base_scale.x-temp_margin,0)
 	return temp_position_l
 
 func get_right_side_position() -> Vector2:
 	temp_position_r=Vector2.ZERO
 	return temp_position_r
-	
-func hide_balloon():
-	enable = false
-	response_margin.modulate.a=0
-	background.modulate.a=0
-	pointer_left.self_modulate.a=.01
-	pointer_right.self_modulate.a=.01
-	balloon_visiable=false
-	for item in responses_menu.get_children():
-		item.get_child(1).text=""
-		item.queue_free()
-	
-func show_balloon():
-	enable = true
-	if !nextable:
-		await dialogue_label.finished_typing
-		nextable=true
-	response_margin.modulate.a=.95
-	background.modulate.a=.95
-	if left_side_flag:
-		pointer_left.self_modulate.a=.01
-		pointer_right.self_modulate.a=.95
-	else:
-		pointer_right.self_modulate.a=.01
-		pointer_left.self_modulate.a=.95
-	vb.visible = true
-	balloon_visiable=true
 
+## ---------- 可见性 / 弹出核心（可被快速打断） ----------
+
+func _kill_pop_and_back_tweens() -> void:
+	if _pop_tween and _pop_tween.is_valid():
+		_pop_tween.kill()
+	_pop_tween = null
+	if back_color_tween and back_color_tween.is_valid():
+		back_color_tween.kill()
+	back_color_tween = null
+	tween_killed = true
+
+func _set_hidden_visual() -> void:
+	scale = _base_scale
+	background.modulate.a = 0.0
+	response_margin.modulate.a = 0.0
+	pointer_left.self_modulate.a = 0.01
+	pointer_right.self_modulate.a = 0.01
+
+func hide_balloon(immediate: bool = false) -> void:
+	# 递增 gen，让 on_talker_start 里所有 await 后检查失败并退出
+	_talk_gen += 1
+	enable = false
+	is_waiting_for_input = false
+	balloon_visiable = false
+	typeout_timer.stop()
+
+	for item in responses_menu.get_children():
+		item.get_child(1).text = ""
+		item.queue_free()
+
+	_kill_pop_and_back_tweens()
+
+	if immediate or not is_inside_tree():
+		_set_hidden_visual()
+		return
+
+	# 快速收起：从当前 scale/alpha 收到略小 + 透明，不阻塞
+	_pop_tween = create_tween()
+	_pop_tween.set_parallel(true)
+	_pop_tween.set_trans(Tween.TRANS_CUBIC)
+	_pop_tween.set_ease(Tween.EASE_IN)
+	_pop_tween.tween_property(self, "scale", _base_scale * 0.78, HIDE_DURATION)
+	_pop_tween.tween_property(background, "modulate:a", 0.0, HIDE_DURATION)
+	_pop_tween.tween_property(response_margin, "modulate:a", 0.0, HIDE_DURATION)
+	_pop_tween.tween_property(pointer_left, "self_modulate:a", 0.01, HIDE_DURATION)
+	_pop_tween.tween_property(pointer_right, "self_modulate:a", 0.01, HIDE_DURATION)
+
+func show_balloon() -> void:
+	# 纯同步：不 await，避免旧协程醒来后把新状态改坏
+	enable = true
+	balloon_visiable = true
+	vb.visible = true
+
+	_kill_pop_and_back_tweens()
+
+	# 起始态（始终相对固定的 _base_scale，不会被连续 hide 污染）
+	scale = _base_scale * 0.72
+	background.modulate.a = 0.0
+	response_margin.modulate.a = 0.0
+	pointer_left.self_modulate.a = 0.01
+	pointer_right.self_modulate.a = 0.01
+
+	_pop_tween = create_tween()
+	_pop_tween.set_parallel(true)
+	_pop_tween.set_trans(Tween.TRANS_BACK)
+	_pop_tween.set_ease(Tween.EASE_OUT)
+	_pop_tween.tween_property(self, "scale", _base_scale, SHOW_SCALE_DURATION)
+	_pop_tween.tween_property(background, "modulate:a", 0.95, SHOW_FADE_DURATION)
+	_pop_tween.tween_property(response_margin, "modulate:a", 0.95, SHOW_FADE_DURATION)
+	if left_side_flag:
+		_pop_tween.tween_property(pointer_right, "self_modulate:a", 0.95, 0.16)
+		pointer_left.self_modulate.a = 0.01
+	else:
+		_pop_tween.tween_property(pointer_left, "self_modulate:a", 0.95, 0.16)
+		pointer_right.self_modulate.a = 0.01
 
 func _on_typeout_timer_timeout():
 	hide_balloon()
@@ -310,26 +432,36 @@ func _on_dialogue_ended_timer_timeout() -> void:
 		hide_balloon()
 
 func on_tween_finshed():
-	if back_color_tween: 
+	if back_color_tween:
 		tween_killed = true
 		back_color_tween.kill()
 
 func _on_screen_checker_l_screen_exited() -> void:
 	if !Dialogue.dialogue_line:return
 	temp_position_r= get_right_side_position()
-#	判断当前对话框边界是否超出屏幕，超出则反向
 	left_side_flag=false
 	if enable:
 		pointer_right.self_modulate.a=.01
-		pointer_left.self_modulate.a=.95	
+		pointer_left.self_modulate.a=.95
 	self.position=temp_position_r
 
 func _on_screen_checker_r_screen_exited() -> void:
 	if !Dialogue.dialogue_line:return
 	temp_position_l= get_left_side_position()
-#	判断当前对话框边界是否超出屏幕，超出则反向
 	left_side_flag=true
 	if enable:
 		pointer_left.self_modulate.a=.01
 		pointer_right.self_modulate.a=.95
 	self.position=temp_position_l
+
+## 场景连接的缺失方法（防止信号报错，保留兼容）
+func _on_tree_exiting() -> void:
+	_kill_pop_and_back_tweens()
+
+func _on_timer_timeout() -> void:
+	## DialogueEndTimer 超时，安全收起
+	hide_balloon()
+
+func _on_button_button_down() -> void:
+	## 隐藏测试按钮，保留空实现避免连接报错
+	pass

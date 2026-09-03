@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/road.svg-947b591b6cc57016c211e82b6c95f1fa.cte
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

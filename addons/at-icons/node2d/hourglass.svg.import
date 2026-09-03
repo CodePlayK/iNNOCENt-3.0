@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/hourglass.svg-ce90e439930b3b63f740f98fcc1eaba
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

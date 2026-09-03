@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="UISettingItemConfig" load_steps=3 format=3 uid="uid://bevjmidjy6sak"]
+[gd_resource type="Resource" script_class="UISettingItemConfig" format=3 uid="uid://bevjmidjy6sak"]
 
-[ext_resource type="Script" path="res://core/common/ui/state_box/setting/UISettingItemConfig.gd" id="1_3bmow"]
+[ext_resource type="Script" uid="uid://d4gaood67orgw" path="res://core/common/ui/state_box/setting/UISettingItemConfig.gd" id="1_3bmow"]
 [ext_resource type="Texture2D" uid="uid://bsv0x0jscgyon" path="res://core/common/resource/texture/ui/UI - ICONS/UI - Icons13.png" id="2_qk6md"]
 
 [resource]

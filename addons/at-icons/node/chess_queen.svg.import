@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/chess_queen.svg-cffee97d0d87a2e6ea0534fb715c8
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

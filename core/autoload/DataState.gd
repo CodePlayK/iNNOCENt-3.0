@@ -34,7 +34,7 @@ var save_cache: Dictionary = {}
 ## 要存档的物体注册字典 key -> 是否已就绪
 var save_obj_state: Dictionary = {}
 ## 存档菜单 Collector
-var ui_save_data_controller: BaseDataCollector
+var ui_save_data_controller: BaseDataFileCollector
 ## 存档配置类
 var save_file_config: SaveDataConfig
 ## 当前屏幕截图
@@ -79,18 +79,18 @@ func update_max_save_id() -> void:
 
 
 ## 更新存档 id 对应的截图资源
-func update_screenshot(save_id: int) -> void:
+func update_screenshot(save_id: int,uuid) -> void:
 	if not DirAccess.dir_exists_absolute(SAVE_SCREENSHOT_PATH):
 		DirAccess.make_dir_absolute(SAVE_SCREENSHOT_PATH)
 	ResourceSaver.save(
 		current_screenshot,
-		SAVE_SCREENSHOT_PATH + str(save_id) + ".res"
+		SAVE_SCREENSHOT_PATH + str(uuid) + ".res"
 	)
 
 
 ## 从资源中读取截图
-func get_screenshot(save_id: int):
-	return ResourceLoader.load(SAVE_SCREENSHOT_PATH + str(save_id) + ".res")
+func get_screenshot(save_id: int,uuid):
+	return ResourceLoader.load(SAVE_SCREENSHOT_PATH + str(uuid) + ".res")
 
 # endregion
 
@@ -204,6 +204,8 @@ func _upsert_row(
 
 # endregion
 
+func update_current_savefile(save_file_id):
+	pass
 
 # region 删除存档
 
@@ -232,3 +234,28 @@ func delete_save(save_id: int) -> void:
 		current_save_id = current_max_save_id
 
 # endregion
+
+## 🚀 自动化：把任意自定义 Resource 转为标准 JSON 字符串
+func resource_to_json(res: Resource) -> String:
+	var dict: Dictionary = {}
+	# 获取该对象的所有属性列表
+	for prop in res.get_property_list():
+		# 💡 核心：只抓取我们在代码里用 @export 导出的自定义变量
+		if prop["usage"] & PROPERTY_USAGE_SCRIPT_VARIABLE:
+			var prop_name = prop["name"]
+			dict[prop_name] = res.get(prop_name)
+	return JSON.stringify(dict)
+
+## 🚀 自动化：把标准 JSON 字符串灌回指定的 Resource 实例中
+func json_to_resource(json_str: String, target_res: Resource) -> void:
+	var dict = JSON.parse_string(json_str)
+	if dict == null: return
+	
+	for key in dict.keys():
+		if key in target_res:
+			# 💡 核心防御：在此处强转，彻底解决 JSON 把所有数字变成 float 的痛点！
+			var current_value = target_res.get(key)
+			if current_value is int:
+				target_res.set(key, int(dict[key]))
+			else:
+				target_res.set(key, dict[key])

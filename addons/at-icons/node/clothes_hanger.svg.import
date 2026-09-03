@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/clothes_hanger.svg-3e0993f628f085d4cfb33e0f55
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

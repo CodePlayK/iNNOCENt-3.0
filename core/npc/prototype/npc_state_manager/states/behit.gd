@@ -1,13 +1,19 @@
 extends NpcsCombatState
 class_name NpcBehitState
 var tween:Tween
+## 受击后沿攻击方向被击退的距离
 @export var back_distance:float
+## 受击硬直持续时间（秒）
 @export var stiff_time:float = .2
+## 受击时冻结动画的时长（秒）；0 表示不冻结
 @export var froze_time:float = 0
+## 受击无敌/保护时间（秒），期间不再进入本状态
 @export var protect_time:float = .2
+## 受击时播放的 HurtFX 动画名
 @export var hurt_fx_name:String
 @onready var protect_timer: Timer = $ProtectTimer
 @onready var bati_protect_timer: Timer = $BatiProtectTimer
+## 连续受击达到该次数后进入霸体；0 表示不触发霸体
 @export var be_hit_time_max_2_bati: int = 0
 var enable:bool = true
 		
@@ -21,6 +27,8 @@ func enter():
 		npc.be_hit_times+=1
 	npc.blood_surface.blood_splash()
 	enable = false
+	if protect_time > 0:
+		protect_timer.start(protect_time)
 	npc.health.damage(state_manager.current_damage)
 	npc.hurt_fx.play_fx(hurt_fx_name)
 	var npc_global_position_x:float=npc.global_position.x

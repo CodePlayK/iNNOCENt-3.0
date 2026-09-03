@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://x12cjq3he6n5"]
+
+[ext_resource type="Script" uid="uid://1ud6eab5glar" path="res://core/common/component/parallax_scale/parallax_scale_2d.gd" id="1_scale"]
+
+[node name="ParallaxScale2D" type="Node" unique_id=334458102]
+script = ExtResource("1_scale")
+enable = true

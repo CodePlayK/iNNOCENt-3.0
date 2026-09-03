@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://brijnx0ig81b1"]
+[gd_scene format=3 uid="uid://brijnx0ig81b1"]
 
 [ext_resource type="Theme" uid="uid://ch03cnrspt63o" path="res://addons/Cutscener/resource/node_theme.tres" id="1_f2qqe"]
-[ext_resource type="Script" path="res://addons/Cutscener/clazz/node/Conmmon/Param2.gd" id="2_kslei"]
+[ext_resource type="Script" uid="uid://deo08kd7r1tah" path="res://addons/Cutscener/clazz/node/Conmmon/Param2.gd" id="2_kslei"]
 
-[node name="Param2" type="LineEdit"]
+[node name="Param2" type="LineEdit" unique_id=252260423]
 size_flags_horizontal = 3
 tooltip_text = "参数值"
 mouse_filter = 1

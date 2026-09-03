@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/floppy_disk.svg-6d82b67a532bd51d5554a400ed2f5
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/joypad.svg-60cf73772b7c09ef47c41055c5a3b4ad.c
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

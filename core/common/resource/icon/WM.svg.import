@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/WM.svg-455c27356920a4a9b671303c0c84cc60.ctex"
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

@@ -2,9 +2,13 @@ extends Node
 @onready var timer: Timer = $Timer
 @onready var state_manager: PlayerStateManager = $".."
 @export_category("Debug")
+## 打印监听器收到输入的日志
 @export var input_receive:bool = false
+## 打印“收到输入但监听器已关闭”的日志
 @export var input_receive_but_disable:bool = false
+## 打印触发条件判定成功、即将切状态的日志
 @export var input_receive_call_func_success:bool = false
+## 打印触发条件判定失败的日志
 @export var input_receive_call_func_fail:bool = false
 var to_state:BaseState
 var from_state:BaseState

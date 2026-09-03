@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b7xx12ipa5nrh"]
+
+[ext_resource type="Shader" uid="uid://bi4kuyk3novrj" path="res://core/common/component/player_health_indicator/heartbeat_qte.gdshader" id="1_8xvcn"]
+
+[resource]
+shader = ExtResource("1_8xvcn")
+shader_parameter/rect_size = Vector2(128, 36)
+shader_parameter/scroll_px = 0.0
+shader_parameter/energy = 2.0
+shader_parameter/flash = 0.0
+shader_parameter/jagged = 2.0
+shader_parameter/pulse = 0.0
+shader_parameter/w_count = 0
+shader_parameter/w_x = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/w_amp = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/w_width = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/w_cut = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/line_color = Color(1, 1, 1, 0.92)
+shader_parameter/panel_color = Color(0.03, 0.04, 0.05, 0.42)
+shader_parameter/hit_tint = Color(0.55, 1, 0.78, 1)
+shader_parameter/miss_tint = Color(1, 0.3, 0.26, 1)

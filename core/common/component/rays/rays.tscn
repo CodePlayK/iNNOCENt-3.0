@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctvwf1cocln24"]
+[gd_scene format=3 uid="uid://ctvwf1cocln24"]
 
-[ext_resource type="Script" path="res://core/common/component/rays/rays.gd" id="1_wsxux"]
+[ext_resource type="Script" uid="uid://bst5qpbvhe2bh" path="res://core/common/component/rays/rays.gd" id="1_wsxux"]
 
-[node name="Rays" type="Node2D"]
+[node name="Rays" type="Node2D" unique_id=636155002]
 script = ExtResource("1_wsxux")

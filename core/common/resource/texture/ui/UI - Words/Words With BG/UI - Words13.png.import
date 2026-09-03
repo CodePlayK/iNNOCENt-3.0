@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/UI - Words13.png-d33d451e6ad6bd59ed4079ee5fe8
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

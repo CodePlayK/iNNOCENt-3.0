@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="ItemConfig" load_steps=3 format=3 uid="uid://bqjw1sgjtv2on"]
+[gd_resource type="Resource" script_class="ItemConfig" format=3 uid="uid://bqjw1sgjtv2on"]
 
 [ext_resource type="Resource" uid="uid://d348t4y1q4n0o" path="res://core/common/resource/texture/items/ammo.tres" id="1_0htn8"]
-[ext_resource type="Script" path="res://core/item/ItemConfig.gd" id="3_ank72"]
+[ext_resource type="Script" uid="uid://blp5uvxjp3h6q" path="res://core/item/ItemConfig.gd" id="3_ank72"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("3_ank72")
-item_id = 0
-item_type = 0
 item_texture_config = ExtResource("1_0htn8")
 item_name = "子弹"
 item_txt = "飞一会儿"

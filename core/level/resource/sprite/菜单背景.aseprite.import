@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://crnhkbjyooyw6"
+path="res://.godot/imported/菜单背景.aseprite-6b6157a7b7ae83beaa4b0a299a6e4e31.res"
+
+[deps]
+
+source_file="res://core/level/resource/sprite/菜单背景.aseprite"
+dest_files=["res://.godot/imported/菜单背景.aseprite-6b6157a7b7ae83beaa4b0a299a6e4e31.res"]
+
+[params]
+

@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/arrow_uturn_down_left.svg-6ad495bb8f38d0f6804
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

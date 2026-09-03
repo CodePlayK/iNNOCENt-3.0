@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/hand_mirror.svg-30c1c0af8aeeb38c0197add0ae724
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

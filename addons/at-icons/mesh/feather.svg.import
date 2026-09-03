@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/feather.svg-556f419a038768010f2a4844f1458d39.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

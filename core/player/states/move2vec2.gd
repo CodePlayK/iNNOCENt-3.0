@@ -1,4 +1,5 @@
 extends GroundState
+## 移动到目标时，目标格相对玩家的偏移（格坐标）
 @export var following_offset_vec2i:Vector2i
 
 func enter():
@@ -8,13 +9,12 @@ func enter():
 	player.astar_move.set_astar(true)
 	return
 	
-func physics_process(delta: float):
+func physics_process(_delta: float):
 	if !player.astar.enable:return
 	player.astar_move.running = true
-	if player.velocity.y>0 and !player.is_on_floor():
-		return fall_state
-	if player.velocity.y<0 and !player.is_on_floor() :
-		return lift_state
+	var airborne := get_airborne_state()
+	if airborne:
+		return airborne
 	if player.velocity.x>0:
 		player.face_direction.set_faced(false)
 	elif player.velocity.x<0:

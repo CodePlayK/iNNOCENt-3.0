@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjmxdml23pp87"]
+[gd_scene format=3 uid="uid://bjmxdml23pp87"]
 
-[ext_resource type="Script" path="res://core/common/component/weight_machine/weight/player_hiting_weight/player_hiting_weight.gd" id="1_kqlpw"]
+[ext_resource type="Script" uid="uid://dxhsbp715bdqn" path="res://core/common/component/weight_machine/weight/player_hiting_weight/player_hiting_weight.gd" id="1_kqlpw"]
 
-[node name="PlayerHitingWeight" type="Node"]
+[node name="PlayerHitingWeight" type="Node" unique_id=155243477]
 script = ExtResource("1_kqlpw")

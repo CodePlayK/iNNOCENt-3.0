@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/pie_chart.svg-4de1e0806497b35471c66038d1cd9a2
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

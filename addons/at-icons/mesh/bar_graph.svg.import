@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/bar_graph.svg-1ba90e9139fc80ba68ab8908e22a565
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

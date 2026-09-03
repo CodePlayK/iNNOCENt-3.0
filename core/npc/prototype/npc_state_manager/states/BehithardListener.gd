@@ -1,6 +1,8 @@
 extends Node
 var obj
+## 收到弹反/重受击信号后切入的状态
 @export var target_state:NpcsBaseState
+## 打印收到弹反信号的日志
 @export var p_behithard:bool = false
 func on_master_ready(master):
 	obj = master.obj

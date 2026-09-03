@@ -23,7 +23,6 @@ func  _physics_process(delta: float) -> void:
 		return
 	move = get_cell_move()
 	if null!=move and move.x == 0 and obj.velocity.x == 0:
-		print(obj.astar.get_cell_data(obj.current_cell,"direction"))
 		if obj.astar.get_cell_data(obj.current_cell,"direction") in [Vector2i(0,1)]:
 			Debug.dprintwarn(DebugCT.dp("[%s][%s]进行边缘移动补偿W " %[obj.current_cell,obj.astar.cell_data_vec2i_dic[obj.current_cell]],self))
 			move.x = -obj.face_left_normalized

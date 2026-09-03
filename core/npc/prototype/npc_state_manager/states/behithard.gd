@@ -1,11 +1,17 @@
 extends NpcsCombatState
 var tween:Tween
+## 重受击后沿攻击方向被击退的距离
 @export var back_distance:float
+## 重受击硬直持续时间（秒）
 @export var stiff_time:float = .2
+## 重受击时冻结动画的时长（秒）；0 表示不冻结
 @export var froze_time:float = 0
+## 重受击无敌/保护时间（秒），期间不再进入本状态
 @export var protect_time:float = .2
+## 重受击时播放的 HurtFX 动画名
 @export var hurt_fx_name:String
 @onready var protect_timer: Timer = $ProtectTimer
+## 重受击时播放的音效配置
 @export var hurt_sound_config:SoundEffectConfig
 var enable:bool = true
 	
@@ -28,7 +34,7 @@ func enter():
 	npc.being_hit = false
 	protect_timer.start(protect_time)
 	npc.hurt_fx.play_fx(hurt_fx_name)
-	npc.health.damage(1)
+	npc.health.damage(state_manager.current_damage if state_manager.current_damage > 0 else 1.0)
 	var npc_global_position_x:float=npc.global_position.x
 	tween=npc.create_tween()
 	tween.set_trans(Tween.TRANS_CUBIC)

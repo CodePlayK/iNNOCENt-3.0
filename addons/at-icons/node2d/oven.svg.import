@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/oven.svg-4e4694b3c1a3756a16e2837c7326226c.cte
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

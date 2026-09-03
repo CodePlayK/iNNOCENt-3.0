@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx4miwehgo47b"]
+[gd_scene format=3 uid="uid://dx4miwehgo47b"]
 
-[ext_resource type="Script" path="res://core/item/collectable_item/collectable_item.gd" id="1_eje00"]
+[ext_resource type="Script" uid="uid://bds0eytw6nlbe" path="res://core/item/collectable_item/collectable_item.gd" id="1_eje00"]
 [ext_resource type="SpriteFrames" uid="uid://ds63i30ljvaah" path="res://core/common/resource/texture/items/test_items/Pop Cans.tres" id="2_gqmao"]
 [ext_resource type="Resource" uid="uid://dg4f1bjmaynvm" path="res://core/item/resource/lens.tres" id="2_vh6t7"]
 
-[node name="CollectableItem" type="Node2D"]
+[node name="CollectableItem" type="Node2D" unique_id=1421271337]
 script = ExtResource("1_eje00")
 update_now = true
 item_config = ExtResource("2_vh6t7")
 
-[node name="item" type="Node2D" parent="."]
+[node name="item" type="Node2D" parent="." unique_id=648984639]
 
-[node name="base" type="AnimatedSprite2D" parent="item"]
+[node name="base" type="AnimatedSprite2D" parent="item" unique_id=2085450160]
 z_index = 1
 texture_filter = 1
 sprite_frames = ExtResource("2_gqmao")

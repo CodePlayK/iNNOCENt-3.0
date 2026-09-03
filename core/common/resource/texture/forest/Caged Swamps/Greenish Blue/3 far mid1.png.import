@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/3 far mid1.png-8675c51cb22c2f759d734a1b899dc7
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

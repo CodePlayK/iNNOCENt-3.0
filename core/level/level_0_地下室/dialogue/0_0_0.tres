@@ -8,4 +8,3 @@ script = ExtResource("2_eas36")
 dialogue_res = ExtResource("1_puls2")
 current_res = "0_0_0"
 title_list = "废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "
-auto_next = false

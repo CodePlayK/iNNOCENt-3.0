@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgyau8qv0a50v"]
+[gd_scene format=3 uid="uid://cgyau8qv0a50v"]
 
-[ext_resource type="Script" path="res://core/common/component/screen_vec_2/screen_vec_2.gd" id="1_dyy1u"]
+[ext_resource type="Script" uid="uid://0hsxfjh252xn" path="res://core/common/component/screen_vec_2/screen_vec_2.gd" id="1_dyy1u"]
 
-[node name="ScreenVec2" type="Node2D"]
+[node name="ScreenVec2" type="Node2D" unique_id=1185890273]
 script = ExtResource("1_dyy1u")

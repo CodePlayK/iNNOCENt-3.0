@@ -2,7 +2,7 @@ extends MarginContainer
 ##存档设置界面的存档item
 class_name UISaveFileItem
 @export var save_file_item_config:UISaveFileItemConfig
-@onready var background: ColorRect = $Background
+@onready var background: Panel = $Background
 @onready var save_name: Label = $MarginContainer/HBoxContainer/MC2/VBoxContainer/MC2/HBoxContainer/MC/SaveName
 @onready var save_time: Label = $MarginContainer/HBoxContainer/MC2/VBoxContainer/MC/SaveTime
 @onready var level: Label = $MarginContainer/HBoxContainer/MC2/VBoxContainer/MC2/HBoxContainer/MC2/Level
@@ -27,7 +27,7 @@ func init(save_file_item_config:UISaveFileItemConfig):
 	self.save_file_item_config = save_file_item_config
 	screen_shot.texture = save_file_item_config.screen_shot
 	save_name.text = "[%s]%s" %[save_file_item_config.save_id,save_file_item_config.save_name]
-	level.text = "关卡-%s" %str(save_file_item_config.level)
+	level.text = "关卡-%s" %str(save_file_item_config.current_level)
 	save_time.text = save_file_item_config.save_time
 	inited.emit()
 	
@@ -64,10 +64,12 @@ func _on_save_file_id_update():
 
 func _on_save_game():
 	if DataState.current_save_id == save_file_item_config.save_id:
-		DataState.update_screenshot(save_file_item_config.save_id)
+		DataState.update_screenshot(save_file_item_config.save_id,save_file_item_config.screen_shot_uuid)
 		screen_shot.texture = DataState.current_screenshot
 		save_file_item_config.screen_shot = DataState.current_screenshot
 		selected.emit(self)
+		level.text = "关卡-%s" %str(save_file_item_config.current_level)
+		
 
 func _on_delete_save(save_id):
 	if save_id == save_file_item_config.save_id:

@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/galaxy.svg-cb0e1d333b68dca7ff5965dd2c2c6b6c.c
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

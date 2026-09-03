@@ -10,10 +10,10 @@
 script = ExtResource("2_xfmas")
 dialogue_res = ExtResource("2_bxsl3")
 current_res = "common"
-use_local_res = null
 title_list = "start | "
 
 [node name="DialogueContect" type="Node2D" unique_id=1536966825]
+light_mask = 0
 z_index = 10
 script = ExtResource("1_v3hue")
 dialogue_config = SubResource("Resource_628xn")
@@ -22,3 +22,4 @@ dialogue_config = SubResource("Resource_628xn")
 cutscener_name = "Dialogue"
 
 [node name="DialogueBalloon" parent="." unique_id=1392734333 instance=ExtResource("4_iv2pr")]
+scale = Vector2(0.7, 0.7)

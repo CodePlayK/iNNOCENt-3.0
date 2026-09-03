@@ -1,7 +1,7 @@
 @tool
 extends Resource
 class_name DialogueConfig
-#台词资源
+##当前的台词资源
 @export var dialogue_res:DialogueResource:
 	set(r):
 		dialogue_res=r
@@ -12,15 +12,17 @@ var dialogue_checker_path:String
 #当前的有效台词资源
 @export var current_res:String 
 @export var use_local_res:bool  = false
+##只执行一次
+@export var onece:bool  = false
 @export var current_level:LevelState.LEVELS =LevelState.LEVELS.LEVEL_CURRENT
 #当前标题
 @export var title:String:
 	set(r):
 		title=r.strip_edges()
 #当前表情
-@export var current_expression:String="NA":
+@export var current_default_expression:String="idle":
 	set(ce):
-		current_expression=ce
+		current_default_expression=ce
 		on_update_current_expression(ce)
 		
 @export_multiline var title_list:String
@@ -28,9 +30,9 @@ var dialogue_checker_path:String
 	set(f):
 		import = f
 		update()
-@export var auto_next:bool = true
-@export var balloon_color:Color
-@export var line_end_wait_time:float = 1
+@export var balloon_color:Color = Color("000000f0")
+
+	
 
 func on_update_dialogue_res(dialogue_res:DialogueResource):
 	if !dialogue_res:return

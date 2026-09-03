@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/bowling_pin.svg-e6c764accecb88e3d14e75bb98b0f
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

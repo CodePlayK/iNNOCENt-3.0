@@ -27,7 +27,7 @@ func physics_process(delta: float) -> BaseState:
 func exit(state:BaseState):
 	super.exit(state)
 	
-func on_anime_finished():
+func on_anime_finished(anime_name):
 	if !state_manager.current_state == self:return
 	if touched_floor:
 		EventBus._player_woke()

@@ -506,7 +506,9 @@ metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": true,
 "layer_section": true,
 "output_section": true,
-"pending_changes": {},
+"pending_changes": {
+"source_uid": 5677076365401885752
+},
 "slice_section": true
 }
 metadata/_aseprite_wizard_config_ = {

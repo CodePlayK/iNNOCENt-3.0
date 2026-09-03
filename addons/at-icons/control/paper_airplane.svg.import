@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/paper_airplane.svg-4309cada231a393d568b206418
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

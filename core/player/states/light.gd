@@ -1,6 +1,7 @@
 extends BaseState
 
 @onready var lightTimer=$lightTimer
+## 轻化能力配置（持续、冷却、重力倍率）
 @export var ABT_light_config:PlayerABTLightConfig
 
 @onready var light_cooldown_timer: Timer = $lightCooldownTimer

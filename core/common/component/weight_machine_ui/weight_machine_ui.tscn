@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://536neyrjw7ey"]
+[gd_scene format=3 uid="uid://536neyrjw7ey"]
 
-[ext_resource type="Script" path="res://core/common/component/weight_machine_ui/weightmachineui.gd" id="1_2h5lj"]
+[ext_resource type="Script" uid="uid://7k0qanek15mo" path="res://core/common/component/weight_machine_ui/weightmachineui.gd" id="1_2h5lj"]
 [ext_resource type="Theme" uid="uid://ttbiiav5vib8" path="res://core/common/resource/theme/debug_but_theme.tres" id="3_uq8ux"]
 
 [sub_resource type="Curve" id="Curve_leds1"]
@@ -43,29 +43,32 @@ content_margin_right = 5.0
 [sub_resource type="LabelSettings" id="LabelSettings_6wncm"]
 line_spacing = 0.0
 font_size = 14
-font_color = Color(0.6, 0.6, 0.6, 1)
+font_color = Color(1, 0, 1, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_tuen4"]
 line_spacing = 0.0
 font_size = 14
+font_color = Color(1, 0, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jthrl"]
 line_spacing = 0.0
 font_size = 15
 font_color = Color(0, 0, 0, 1)
 
-[node name="Control" type="Node2D"]
+[node name="Control" type="Node2D" unique_id=1457446323]
 script = ExtResource("1_2h5lj")
 negtive_color = Color(0.054902, 0.054902, 0.054902, 1)
 detail_state_name_flash_color = Color(0.529412, 0.529412, 0.529412, 1)
 
-[node name="Line" type="Line2D" parent="."]
+[node name="Line" type="Line2D" parent="." unique_id=2012325790]
 points = PackedVector2Array(0, -1, -8, -1)
 width_curve = SubResource("Curve_leds1")
 default_color = Color(1, 1, 1, 0.509804)
 
-[node name="WeightMachineUi" type="MarginContainer" parent="."]
+[node name="WeightMachineUi" type="MarginContainer" parent="." unique_id=218502700]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -79,15 +82,15 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(218, 60)
 
-[node name="Timer" type="Timer" parent="WeightMachineUi"]
+[node name="Timer" type="Timer" parent="WeightMachineUi" unique_id=1124907191]
 wait_time = 0.2
 autostart = true
 
-[node name="VBC" type="VBoxContainer" parent="WeightMachineUi"]
+[node name="VBC" type="VBoxContainer" parent="WeightMachineUi" unique_id=1296637686]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Detail" type="PanelContainer" parent="WeightMachineUi/VBC"]
+[node name="Detail" type="PanelContainer" parent="WeightMachineUi/VBC" unique_id=220814382]
 light_mask = 0
 z_index = 99
 layout_mode = 2
@@ -95,15 +98,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_eriyx")
 
-[node name="WeightStateDebugUI" type="VBoxContainer" parent="WeightMachineUi/VBC/Detail"]
+[node name="WeightStateDebugUI" type="VBoxContainer" parent="WeightMachineUi/VBC/Detail" unique_id=1617140436]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="WeightState" type="VBoxContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI"]
+[node name="WeightState" type="VBoxContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI" unique_id=99866934]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="StateName" type="PanelContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI"]
+[node name="StateName" type="PanelContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI" unique_id=2021604970]
 visible = false
 self_modulate = Color(0, 0, 0, 0.509804)
 light_mask = 0
@@ -113,7 +116,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_p43tw")
 
-[node name="WeightData" type="Label" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/StateName"]
+[node name="WeightData" type="Label" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/StateName" unique_id=1944351552]
 light_mask = 0
 z_index = 99
 layout_mode = 2
@@ -128,15 +131,15 @@ clip_text = true
 text_overrun_behavior = 1
 visible_characters_behavior = 1
 
-[node name="WeightDetailBar" type="MarginContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI"]
+[node name="WeightDetailBar" type="MarginContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI" unique_id=1463899123]
 visible = false
 layout_mode = 2
 
-[node name="WeightDetailBar" type="HBoxContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar"]
+[node name="WeightDetailBar" type="HBoxContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar" unique_id=1419406734]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="WeightDetailBar" type="Panel" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WeightDetailBar"]
+[node name="WeightDetailBar" type="Panel" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WeightDetailBar" unique_id=859660678]
 light_mask = 0
 z_index = 99
 custom_minimum_size = Vector2(0, 22)
@@ -146,7 +149,7 @@ size_flags_stretch_ratio = 0.78
 mouse_filter = 1
 theme = SubResource("Theme_tk611")
 
-[node name="filler" type="PanelContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WeightDetailBar"]
+[node name="filler" type="PanelContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WeightDetailBar" unique_id=1757764399]
 light_mask = 0
 z_index = 99
 layout_mode = 2
@@ -155,11 +158,11 @@ mouse_filter = 1
 theme = SubResource("Theme_tk611")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2x3bn")
 
-[node name="WerghtDetailTxt" type="HBoxContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar"]
+[node name="WerghtDetailTxt" type="HBoxContainer" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar" unique_id=754943297]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WerghtDetailTxt"]
+[node name="Label" type="Label" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WerghtDetailTxt" unique_id=20205259]
 light_mask = 0
 z_index = 99
 layout_mode = 2
@@ -173,7 +176,7 @@ justification_flags = 0
 text_overrun_behavior = 1
 visible_characters_behavior = 1
 
-[node name="Label2" type="Label" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WerghtDetailTxt"]
+[node name="Label2" type="Label" parent="WeightMachineUi/VBC/Detail/WeightStateDebugUI/WeightDetailBar/WerghtDetailTxt" unique_id=2043799510]
 light_mask = 0
 z_index = 99
 custom_minimum_size = Vector2(0, 22)
@@ -186,7 +189,7 @@ label_settings = SubResource("LabelSettings_6wncm")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="WightMachineTitle" type="PanelContainer" parent="WeightMachineUi/VBC"]
+[node name="WightMachineTitle" type="PanelContainer" parent="WeightMachineUi/VBC" unique_id=875650953]
 light_mask = 0
 z_index = 99
 layout_mode = 2
@@ -194,10 +197,10 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_eriyx")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="WeightMachineUi/VBC/WightMachineTitle"]
+[node name="HBoxContainer" type="HBoxContainer" parent="WeightMachineUi/VBC/WightMachineTitle" unique_id=687042632]
 layout_mode = 2
 
-[node name="WightMachineTitle" type="Label" parent="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer"]
+[node name="WightMachineTitle" type="Label" parent="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer" unique_id=288950660]
 light_mask = 0
 z_index = 99
 layout_mode = 2
@@ -211,7 +214,7 @@ clip_text = true
 text_overrun_behavior = 1
 visible_characters_behavior = 1
 
-[node name="ShowDetail" type="Button" parent="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer"]
+[node name="ShowDetail" type="Button" parent="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer" unique_id=181858684]
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
@@ -220,7 +223,7 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("3_uq8ux")
 text = "show detail"
 
-[node name="Button2" type="Button" parent="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer"]
+[node name="Button2" type="Button" parent="WeightMachineUi/VBC/WightMachineTitle/HBoxContainer" unique_id=569412723]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -228,11 +231,11 @@ size_flags_stretch_ratio = 0.0
 theme = ExtResource("3_uq8ux")
 text = "cacz"
 
-[node name="Text" type="HBoxContainer" parent="WeightMachineUi/VBC"]
+[node name="Text" type="HBoxContainer" parent="WeightMachineUi/VBC" unique_id=323472426]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="WeightData" type="PanelContainer" parent="WeightMachineUi/VBC/Text"]
+[node name="WeightData" type="PanelContainer" parent="WeightMachineUi/VBC/Text" unique_id=988875287]
 light_mask = 0
 z_index = 99
 layout_mode = 2
@@ -240,7 +243,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_eriyx")
 
-[node name="WeightData" type="Label" parent="WeightMachineUi/VBC/Text/WeightData"]
+[node name="WeightData" type="Label" parent="WeightMachineUi/VBC/Text/WeightData" unique_id=1627200108]
 light_mask = 0
 z_index = 99
 layout_mode = 2
@@ -251,19 +254,19 @@ horizontal_alignment = 1
 justification_flags = 0
 visible_characters_behavior = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="WeightMachineUi/VBC"]
+[node name="PanelContainer" type="PanelContainer" parent="WeightMachineUi/VBC" unique_id=2106551051]
 light_mask = 0
 z_index = 99
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_eriyx")
 
-[node name="Bar" type="HBoxContainer" parent="WeightMachineUi/VBC/PanelContainer"]
+[node name="Bar" type="HBoxContainer" parent="WeightMachineUi/VBC/PanelContainer" unique_id=384758126]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="WeightBar" type="PanelContainer" parent="WeightMachineUi/VBC/PanelContainer/Bar"]
+[node name="WeightBar" type="PanelContainer" parent="WeightMachineUi/VBC/PanelContainer/Bar" unique_id=1663681345]
 visible = false
 light_mask = 0
 z_index = 99
@@ -272,7 +275,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = SubResource("Theme_tk611")
 
-[node name="Label" type="Label" parent="WeightMachineUi/VBC/PanelContainer/Bar/WeightBar"]
+[node name="Label" type="Label" parent="WeightMachineUi/VBC/PanelContainer/Bar/WeightBar" unique_id=1758611610]
 light_mask = 0
 z_index = 99
 layout_mode = 2

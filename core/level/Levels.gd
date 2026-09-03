@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/node2d/wave.svg")
+
 ## 关卡的根节点.
 ##
 ## 每一关的基础场景,负责统一的环境与每关的变量初始化;
@@ -7,7 +9,15 @@ const clazz_name = "Levels"
 signal paused
 ##房间唯一id,level准备完毕后配置于[method _ready]
 @export var level_id:LevelState.LEVELS
+@export var level_txt:String = name
+@export_group("初始化相机配置")
+@export var camera_limit_top:float = -388
+@export var camera_limit_bottom:float = -121.0
+@export var camera_zoom:Vector2 = Vector2(2,2)
+@export_group("关卡切换配置配置")
+
 @export var player_layer:Node2D
+@export var dof:ColorRect = %DOF
 ##@experimental
 ##房间默认播放的环境音[br][code]Array["音效名",音量][/code]
 var atmosphere_se_dic:Array[Array]
@@ -25,6 +35,7 @@ var waiting_2_load_save:bool=false
 @onready var leve_bound: CollisionShape2D = %LeveBound
 @onready var parallax: Parallax = $Parallax
 @onready var base_colored_controller: BaseColoredController = %BaseColoredController
+#@onready var level_transation: LevelTransation = %LevelTransation
 
 func _init() -> void:
 	set_meta("clazz_name",clazz_name)
@@ -38,7 +49,6 @@ func _ready() -> void:
 	load_transitions()
 	self.tree_exited.connect(_tree_exited)
 	connect_signals()
-	play_atmosphere_se()
 	preset_player()
 	
 ##@experimental
@@ -75,10 +85,6 @@ func load_player_position():
 func preset_player():
 	PlayerState.preset_player(self)
 	
-##播放[member atmosphere_se_dic]当前环境音	
-func play_atmosphere_se():
-	for se in atmosphere_se_dic:
-		EventBus._play_SE_LOOP(se[0],true,1.0,se[1])
 		
 ##房间tree exited时执行的方法	
 func _tree_exited():
@@ -112,6 +118,12 @@ func resume():
 	EventBus._test_layer_visiable(true)
 	Debug.dprintinfo(DebugCT.dp("level内的[resume]完成",self))
 	show()
+	
+func after_transition():
+	PlayerState.preset_player(self)
+	if CutsceneState.cutscener_playing:
+		return
+	PlayerState.set_player_control_lock(false,self)
 
 func get_level_shape_size()->Vector2:
 	var shape = leve_bound.shape as RectangleShape2D

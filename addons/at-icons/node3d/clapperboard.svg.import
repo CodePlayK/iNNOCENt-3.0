@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/clapperboard.svg-f051a36cce411f331c14b5f0a800
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

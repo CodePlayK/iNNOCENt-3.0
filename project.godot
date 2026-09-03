@@ -8,15 +8,11 @@
 
 config_version=5
 
-[animation]
-
-compatibility/default_parent_skeleton_in_mesh_instance_3d=true
-
 [application]
 
 config/name="iNNOCENt 3.0"
 run/main_scene="uid://dtohg4g1fxwh5"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.8", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -34,14 +30,16 @@ Global="*res://core/autoload/Global.gd"
 NpcState="*res://core/autoload/NpcState.gd"
 Debug="*res://core/autoload/debug/debug2.tscn"
 Music="*res://core/common/component/music/music.tscn"
+CutscenerGlobal="*res://addons/Cutscener/clazz/CutscenerGlobal.gd"
 UiState="*res://core/autoload/UIState.gd"
 ItemState="*res://core/autoload/ItemState.gd"
 AbtState="*res://core/autoload/ABTState.gd"
-EventData="*res://core/autoload/EventData/EventData.tscn"
 Dialogue="*res://core/autoload/Dialogue/Dialogue.tscn"
 DialogueState="*res://core/autoload/Dialogue/DialogueState.tscn"
 DialogueManager="*uid://c3rodes2l3gxb"
-CutscenerGlobal="*uid://dii6bn0hay6i8"
+EventData="*uid://ceuvbqujenhlt"
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
 
 [debug]
 
@@ -61,19 +59,27 @@ window/size/always_on_top=true
 window/size/window_width_override=2560
 window/size/window_height_override=1440
 window/stretch/mode="canvas_items"
+window/per_pixel_transparency/allowed=true
 
 [editor]
 
 script/templates_search_path="res://core/autoload/script_templates/"
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/Cutscener/plugin.cfg", "res://addons/at-icons/plugin.cfg", "res://addons/camera_2d_plus/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/Cutscener/plugin.cfg", "res://addons/at-icons/plugin.cfg", "res://addons/camera_2d_plus/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/godot-sqlite/plugin.cfg", "res://addons/godot_ai/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg", "res://addons/project-time-tracker/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
-"res://addons/": "green"
+"res://addons/": "green",
+"res://core/autoload/": "pink",
+"res://core/level/": "pink",
+"res://core/level/resource/sprite/": "yellow",
+"res://core/npc/": "teal",
+"res://core/player/resource/headers/": "yellow"
 }
 
 [gui]
@@ -110,69 +116,346 @@ base_sprite_importer={}
 
 move_right={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
-]
+"events": [Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 4194321,
+"key_label": 0,
+"unicode": 0,
+"location": 0,
+"echo": false,
+"script": null
+), Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 68,
+"key_label": 0,
+"unicode": 100,
+"location": 0,
+"echo": false,
+"script": null
+)]
 }
 move_left={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
+"events": [Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 65,
+"key_label": 0,
+"unicode": 97,
+"location": 0,
+"echo": false,
+"script": null
+), Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 4194319,
+"key_label": 0,
+"unicode": 0,
+"location": 0,
+"echo": false,
+"script": null
+)]
 }
 jump={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
+"events": [Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 87,
+"key_label": 0,
+"unicode": 119,
+"location": 0,
+"echo": false,
+"script": null
+), Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 4194320,
+"key_label": 0,
+"unicode": 0,
+"location": 0,
+"echo": false,
+"script": null
+)]
 }
 run={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
+"events": [Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 4194325,
+"key_label": 0,
+"unicode": 0,
+"location": 0,
+"echo": false,
+"script": null
+)]
 }
 dash={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194328,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":4,"position":Vector2(198, 23),"global_position":Vector2(204, 85),"factor":1.0,"button_index":3,"canceled":false,"pressed":true,"double_click":false,"script":null)
-]
+"events": [Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 4194328,
+"key_label": 0,
+"unicode": 0,
+"location": 0,
+"echo": false,
+"script": null
+), Object(InputEventMouseButton,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"button_mask": 4,
+"position": Vector2(198, 23),
+"global_position": Vector2(204, 85),
+"factor": 1.0,
+"button_index": 3,
+"canceled": false,
+"pressed": true,
+"double_click": false,
+"script": null
+)]
 }
 interactive={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
-]
+"events": [Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 69,
+"key_label": 0,
+"unicode": 101,
+"location": 0,
+"echo": false,
+"script": null
+)]
 }
 dense={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(380, 23),"global_position":Vector2(386, 85),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":76,"key_label":0,"unicode":108,"location":0,"echo":false,"script":null)
-]
+"events": [Object(InputEventMouseButton,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"button_mask": 2,
+"position": Vector2(380, 23),
+"global_position": Vector2(386, 85),
+"factor": 1.0,
+"button_index": 2,
+"canceled": false,
+"pressed": true,
+"double_click": false,
+"script": null
+), Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 76,
+"key_label": 0,
+"unicode": 108,
+"location": 0,
+"echo": false,
+"script": null
+)]
 }
 light={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
-]
+"events": [Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 32,
+"key_label": 0,
+"unicode": 32,
+"location": 0,
+"echo": false,
+"script": null
+)]
 }
 attack={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":106,"location":0,"echo":false,"script":null)
-, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(382, 26),"global_position":Vector2(388, 88),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
-]
+"events": [Object(InputEventKey,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"pressed": false,
+"keycode": 0,
+"physical_keycode": 74,
+"key_label": 0,
+"unicode": 106,
+"location": 0,
+"echo": false,
+"script": null
+), Object(InputEventMouseButton,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"button_mask": 1,
+"position": Vector2(382, 26),
+"global_position": Vector2(388, 88),
+"factor": 1.0,
+"button_index": 1,
+"canceled": false,
+"pressed": true,
+"double_click": false,
+"script": null
+)]
 }
 drag={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(231, 21),"global_position":Vector2(237, 83),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
-]
+"events": [Object(InputEventMouseButton,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"button_mask": 1,
+"position": Vector2(231, 21),
+"global_position": Vector2(237, 83),
+"factor": 1.0,
+"button_index": 1,
+"canceled": false,
+"pressed": true,
+"double_click": false,
+"script": null
+)]
 }
 uiselect={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(237, 19),"global_position":Vector2(243, 81),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
-]
+"events": [Object(InputEventMouseButton,
+"resource_local_to_scene": false,
+"resource_name": "",
+"device": -1,
+"window_id": 0,
+"alt_pressed": false,
+"shift_pressed": false,
+"ctrl_pressed": false,
+"meta_pressed": false,
+"button_mask": 1,
+"position": Vector2(237, 19),
+"global_position": Vector2(243, 81),
+"factor": 1.0,
+"button_index": 1,
+"canceled": false,
+"pressed": true,
+"double_click": false,
+"script": null
+)]
 }
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://test/dialogue/test1.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/0_0_bedroom.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/interactive_all.dialogue", "res://core/dialogue/dialogues/0_0_0.dialogue", "res://core/dialogue/dialogues/0_0_1.dialogue", "res://core/dialogue/dialogues/common.dialogue")
+locale/translations_pot_files=PackedStringArray("res://core/dialogue/dialogues/0_0_0.dialogue", "res://core/dialogue/dialogues/common.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/0_0_bedroom.dialogue", "res://core/dialogue/dialogue/dialogue_ballon/dialogue/interactive_all.dialogue", "res://core/dialogue/dialogues/0_0_1.dialogue", "res://test/dialogue/test1.dialogue")
 
 [layer_names]
 
@@ -182,6 +465,7 @@ locale/translations_pot_files=PackedStringArray("res://test/dialogue/test1.dialo
 2d_render/layer_4="墙面光照-只照亮背景墙面"
 2d_render/layer_5="环境光照 - godray"
 2d_render/layer_11="红色高光"
+2d_render/layer_12="白色高光"
 2d_render/layer_16="背景光1-会生阴影"
 2d_render/layer_17="背景光2-会生阴影"
 2d_render/layer_18="背景光3-会生阴影"

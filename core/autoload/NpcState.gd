@@ -2,39 +2,11 @@ extends Node
 ## NPC 全局状态
 ##
 ## 管理 NPC 数据、对话方位、以及场景复制时 @export Node 的路径缓存。
-
-
-#region Data
-## 各 NPC 运行时数据（按需写入，结构由业务决定）
-var npcs_data: Dictionary = {}
-
-## 对应 NPC 是否处于玩家侧（对白/站位用）
-## key: 场景/对象唯一名（如 "Npc_Sen"）
-var dic_on_player: Dictionary = {
-	"Npc_Sen": false,
-	"Npc_An": false,
-	"NPC_BloodKing": false,
-}
-
-## 对白时该 NPC 是否显示在左侧
-## key: 同上；true = 左侧，false = 右侧
-var dic_dialogue_side_left: Dictionary = {
-	"Npc_Sen": false,
-	"Npc_An": false,
-	"NPC_BloodKing": true,
-}
-#endregion
-
-
-#region Enum
-## NPC 枚举 ID
-enum NPC {
-	SEN = 0,
-	AN = 1,
-	BLOODKING = 2,
-}
-#endregion
-
+##所有npc的dic[level_id+npc_name:Npcs]
+var npc_dic:Dictionary[String,Npcs]={}
+##设置指定npc的表情
+func set_npc_current_default_expression(exp:String,obj_id:String):
+	npc_dic[obj_id].character_box_config.current_default_expression = exp
 
 #region Export Node Cache
 ## 场景复制时，把 @export Node 的相对路径缓存下来，

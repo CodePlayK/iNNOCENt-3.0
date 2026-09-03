@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueConfig" format=3 uid="uid://ca44htex26i73"]
+
+[ext_resource type="Resource" uid="uid://c4188x2w0xuia" path="res://core/dialogue/dialogues/0_0_0.dialogue" id="1_7th64"]
+[ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="2_ji8x2"]
+
+[resource]
+script = ExtResource("2_ji8x2")
+dialogue_res = ExtResource("1_7th64")
+current_res = "0_0_0"
+title_list = "废弃汽车1 | 玩家醒来 | 玩家醒来1 | 遇见队友 | 遇见队友1 | "

@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/bunny.svg-7c300a641daa957b4b0ab6f6d3195011.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

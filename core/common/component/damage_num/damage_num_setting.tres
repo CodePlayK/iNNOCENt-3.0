@@ -1,4 +1,4 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b0a4nstd7bp7r"]
+[gd_resource type="LabelSettings" format=3 uid="uid://b0a4nstd7bp7r"]
 
 [ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="1_p7ii7"]
 

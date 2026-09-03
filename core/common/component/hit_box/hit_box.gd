@@ -58,5 +58,5 @@ func disable_shape(index:int=-1):
 
 func enable_shape(index:int=-1):
 	for i in shape_list.size():
-		if i == index or index == -1:
+		if i == index:
 			shape_list[i].set_deferred("disabled" , false)

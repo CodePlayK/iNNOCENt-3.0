@@ -18,6 +18,9 @@ var character_box_id:String
 @export_group("显示配置")
 var showing:bool=true
 @export var image:Texture2D
+## 头像图片所在文件夹（默认 res:// 路径，末尾可带或不带 /）
+@export var avatar_folder: String = "res://core/player/resource/headers/"
+@export var current_default_expression:String = "idle"
 @export var unselect_modulate:Color = Color("727272")
 @export var selected_modulate:Color = Color("ffffff")
 @export var img_box_top_marg_hide:float = 13.7

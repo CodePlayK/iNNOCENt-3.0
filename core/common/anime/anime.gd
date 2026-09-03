@@ -169,10 +169,14 @@ func play_anime(anime_name:String):
 	if anime_name == "attack3":
 		pass
 	if print_play_anime:Debug.dprintwarn(DebugCT.dp("[Anime]播放:%s" %[anime_name],self))
+	if not anime_dic.has(anime_name):
+		push_warning("[Anime] missing config for state '%s'" % anime_name)
+		return
 	anime = anime_dic[anime_name]
+	var last_animation_name:String = current_animation
 	preset_cache(anime)
 	preset_anime(anime)
-	if aniplayer.has_animation(current_animation):
+	if aniplayer.has_animation(current_animation) and last_animation_name!=current_animation:
 		#Debug.dprinterr(DebugCT.dp("在aniplayer中未找到当前状态动画:%s" %[anime_name],self))
 		aniplayer.stop()
 		animation = aniplayer.get_animation(current_animation)
@@ -189,7 +193,7 @@ func play_anime(anime_name:String):
 		else :
 			aniplayer.play_backwards(current_animation)
 			aniplayer.advance(0)
-	current_frame = 0
+		current_frame = 0
 	play_lock = false
 ##处理帧			
 func process() -> void:
@@ -402,4 +406,4 @@ func set_speed_scale(s:float=1):
 	aniplayer.speed_scale = s
 
 func _on_aniplayer_animation_finished(anim_name: StringName) -> void:
-	anime_finished.emit()
+	anime_finished.emit(anim_name)

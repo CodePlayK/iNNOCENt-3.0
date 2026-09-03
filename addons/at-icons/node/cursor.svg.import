@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/cursor.svg-6e39aa0e2f1c40cb2df42e5f2d1e198b.c
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

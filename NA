@@ -1,0 +1,28 @@
+{
+	"base": {
+		"0": {
+			"StartNode_442602100958708": {
+				"index_by_parent": 0,
+				"name": "StartNode_442602100958708",
+				"node_type": 0,
+				"position.x": 142.0,
+				"position.y": 265.0,
+				"position_offset.x": 142.0,
+				"position_offset.y": 265.0,
+				"timer": "",
+				"title": "Start"
+			}
+		},
+		"connection_list": [],
+		"connection_list_with_out_side": [],
+		"graph_positon": [
+			0.0,
+			0.0,
+			1.0
+		],
+		"nodes_type": {
+			"StartNode_442602100958708": 0
+		},
+		"run_data": {}
+	}
+}

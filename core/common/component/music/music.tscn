@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dls6u3t8iow8i"]
+[gd_scene format=3 uid="uid://dls6u3t8iow8i"]
 
-[ext_resource type="Script" path="res://core/common/component/music/music.gd" id="1_0yhny"]
+[ext_resource type="Script" uid="uid://dspu1b2n0slyo" path="res://core/common/component/music/music.gd" id="1_0yhny"]
 
-[node name="Music" type="Node"]
+[node name="Music" type="Node" unique_id=900836316]
 script = ExtResource("1_0yhny")
 
 [node name="BGM" type="Node" parent="."]
@@ -24,7 +24,7 @@ bus = &"BGM"
 process_mode = 3
 bus = &"BGM"
 
-[node name="SE" type="Node" parent="."]
+[node name="SE" type="Node" parent="." unique_id=170817568]
 
 [node name="SE_1" type="AudioStreamPlayer" parent="SE"]
 bus = &"SE"
@@ -62,7 +62,7 @@ bus = &"SE"
 [node name="SE_12" type="AudioStreamPlayer" parent="SE"]
 bus = &"SE"
 
-[node name="SE_LOOP" type="Node" parent="."]
+[node name="SE_LOOP" type="Node" parent="." unique_id=86668641]
 
 [node name="LOOP_1" type="AudioStreamPlayer" parent="SE_LOOP"]
 process_mode = 3

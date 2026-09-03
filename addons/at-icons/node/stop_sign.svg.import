@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/stop_sign.svg-7f725d5d2d14f9a343372f9c537aa1e
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

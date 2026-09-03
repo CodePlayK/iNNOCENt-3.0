@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cew7s6txfw7jj"]
+[gd_scene format=3 uid="uid://cew7s6txfw7jj"]
 
-[ext_resource type="Script" path="res://core/common/component/camera/player_camera.gd" id="1_hlpg4"]
+[ext_resource type="Script" uid="uid://b3f63gdld2emr" path="res://core/common/component/camera/player_camera.gd" id="1_hlpg4"]
 
-[node name="PlayerCamera" type="Camera2D"]
+[node name="PlayerCamera" type="Camera2D" unique_id=1134981756]
 script = ExtResource("1_hlpg4")

@@ -29,12 +29,12 @@ const clazz_name = "Npcs"
 @onready var health: Health = $Config/Health
 @onready var obj_2_player_side: Obj2PlayerSide = $Config/Obj2PlayerSide
 @onready var sound_effect: SoundEffect = $Components/SoundEffect
-@onready var launche_fx: Node2D = $Animations/FXs/LauncheFX
+@onready var launche_fx: Node2D = get_node_or_null("Animations/FXs/LauncheFX")
 @onready var chase_range: Area2D = $Components/Areas/ChaseRange
 @onready var astar_move: Node2D = $Components/AStarMove
 @onready var move_2_vec_2: Node = $Components/Move2Vec2
 @onready var blood_surface: Area2D = $Components/Areas/BloodSurface
-@onready var follwing_idel_range: Area2D = $Components/Areas/FollwingIdelRange
+@onready var follwing_idel_range: Area2D = get_node_or_null("Components/Areas/FollwingIdelRange")
 
 ##当前Astar执行的模式,会影响其他状态执行选择
 enum ASTAR_MODE {
@@ -49,27 +49,33 @@ var current_patrol_left:Marker
 var current_patrol_right:Marker
 var current_bot_y:float
 @export_group("基础配置")
+## NPC 显示名（存档、UI、调试日志用）
 @export var npc_name:String:
 	set(nn):
 		npc_name=nn
 var talker_name:Array[String]
+## NPC 运行时数据资源（生命、耐力、朝向、战斗标记等）
 @export var data:NpcsDataResource
+## 本角色使用的对话资源配置；赋值时会同步 [member talker_name]
 @export var dialogue_config:DialogueConfig:
 	set(r):
 		if r:
 			dialogue_config=r
 			talker_name=dialogue_config.talkers
 
+## 存档配置（哪些字段写入/读取存档）
 @export var save_data_config:SaveDataConfig
+## 角色立绘/对话框配置；未填写角色名时会自动追加 NPC 名
 @export var character_box_config:CharacterBoxConfig:
 	set(cb):
 		character_box_config=cb
 		if !cb.character_names:character_box_config.character_names.append(obj_name)
 @export_group("状态机配置")
-##初始化时进入的首个节点(并不会运行)
+## 初始化时登记的起始状态名（只作为 current_state，不会真正 enter）
 @export var starting_state:String
-##运行时进入的状态
+## 状态机启用后真正进入的第一个状态名
 @export var starting1_state:String
+## 场景开始运行（on_running_obj）后切入的状态名
 @export var running_state:String
 var on_ready=false
 ##巡逻范围右边界
@@ -136,6 +142,7 @@ var patrol_left:Marker2D
 ## 巡逻区域；不在追逐时在此 Area 内活动（与 A* 追逐互斥由状态机切换）
 @export var patrol_area: Area2D
 @export_group("DEBUG配置")
+## 开启后打印对话相关调试信息
 @export var dialogue_debug:bool = false
 
 
@@ -177,6 +184,8 @@ var face_left_normalized:int
 var obj_name:String:
 	set(s):
 		obj_name=str(s.replace("_","")).to_lower()
+var obj_id:String		
+		
 var on_talk:bool
 func _enter_tree() -> void:
 	obj_name=npc_name
@@ -188,6 +197,8 @@ func _ready() -> void:
 	self.tree_exiting.connect(_tree_exiting)
 	#state_manager.init(self)
 	on_ready=true
+	obj_id = str(LevelState.current_level)+npc_name
+	NpcState.npc_dic[obj_id] = self
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !on_ready or CutsceneState.cutscene_playing:
@@ -209,7 +220,8 @@ func _tree_exiting():
 	reset_npc()
 	
 func reset_npc():
-	pass
+	NpcState.npc_dic[obj_id] = null
+	NpcState.npc_dic.erase(obj_id)
 
 func init_config(config:NpcInitConfig):
 	patrol_left = config.patrol_left

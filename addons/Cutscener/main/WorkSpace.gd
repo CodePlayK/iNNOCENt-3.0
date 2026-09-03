@@ -22,6 +22,9 @@ var cursor_pos = Vector2.ZERO
 @onready var side_bar: VBoxContainer = $SideBar
 @onready var sidebar: Button = $"../MenuBar/sidebar"
 
+## 位置变化时节流刷新 index（同帧只算一次）
+var _index_refresh_queued: bool = false
+
 func _init() -> void:
 	CutscenerGlobal.load_all_method_state_from_global.connect(on_load_all_method_state_from_global)
 	
@@ -34,32 +37,12 @@ func _ready() -> void:
 	CutscenerGlobal.file_history_changed.connect(on_file_history_changed)#文件历史
 	CutscenerGlobal.WORK_SPACE = self#注册到CutscenerGlobal
 	on_file_history_changed()
-	
-func on_load_all_method_state_from_global():
-	await get_tree().create_timer(.2).timeout##等待一秒,防止单例还未进入场景树
-	##载入指定的全局脚本方法数据
-	if CutscenerGlobal.METHOD_BUSES and !CutscenerGlobal.METHOD_BUSES.is_empty():
-		CutscenerGlobal.CUTSCENE_BUS_METHOD=[]
-		for bus in CutscenerGlobal.METHOD_BUSES:
-			CutscenerGlobal.ACTION_LOG = "载入METHOD_BUS [%s]" %bus
-			for method in get_tree().get_root().get_node(bus).get_method_list():
-				if method.flags == 1 and method.id ==0 and method.name !="free":
-					var args:Array = method["args"]
-					var args_real:Array= []
-					for arg in args:
-						args_real.append({"arg_name":arg["name"],"arg_type":arg["type"]})
-					CutscenerGlobal.CUTSCENE_BUS_METHOD.append([bus+"."+method["name"],args_real,method["return"]["type"]])
-	##载入指定的全局脚本变量数据
-	if CutscenerGlobal.STATE_BUSES and !CutscenerGlobal.STATE_BUSES.is_empty():
-		CutscenerGlobal.CUTSCENE_BUS_STATE = {}
-		for bus in CutscenerGlobal.STATE_BUSES:
-			#CutscenerGlobal.ACTION_LOG = "载入STATE_BUS [%s]" %bus
-			var prop_list:Array =get_tree().get_root().get_node(bus).get_property_list()
-			for i in prop_list.size():
-				if i > 18:
-					var prop = prop_list[i]
-					CutscenerGlobal.CUTSCENE_BUS_STATE[bus+"."+prop["name"]]=prop["type"]
-	CutscenerGlobal.load_global.emit()##载入完毕后通知节点配置数据
+	# 主界面就绪后再加载方法/变量（避免首次空列表、不依赖刷新插件）
+	CutscenerGlobal.request_reload_methods()
+
+## 兼容旧信号：设置确认等仍会 emit load_all_method_state_from_global
+func on_load_all_method_state_from_global() -> void:
+	CutscenerGlobal.request_reload_methods()
 	
 ##右键菜单弹出事件	
 func _on_graph_edit_popup_request(position: Vector2) -> void:
@@ -156,14 +139,15 @@ func duplicate_prototype_to_editor(pro_node:Node):
 	var node = pro_node.duplicate()
 	graph_edit.add_child(node)
 	node.set_visible(true)
+	_bind_node_position_watch(node)
 	return node
 	
 ##连接node
 func _on_graph_edit_connection_request(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> void:
 	CutscenerGlobal.ACTION_LOG = "连接node:[%s].%s->[%s].%s" %[from_node,from_port,to_node,to_port]
-	var ct = get_node_children_max_index(from_node)
-	CutscenerGlobal.NODE_INST[to_node].edit_menu.base_index = ct + 1
 	graph_edit.connect_node(from_node,from_port,to_node,to_port)
+	# 连接后按同层级上下顺序自动重算 index（仅展示，禁止手动）
+	auto_assign_indices_by_y()
 
 ##将多个节点保存到指定文件(要保存的所有节点,要存档的文件名,是否为另存为)
 func save_graph(node_name_list:Array,file_name:String = CutscenerGlobal.FILE_SYS_DIC["current_save_file_path"],is_saving_other:bool = false):
@@ -207,6 +191,8 @@ func save_graph(node_name_list:Array,file_name:String = CutscenerGlobal.FILE_SYS
 			if !dic.has("nodes_type"):
 				dic["nodes_type"]={}
 			dic["nodes_type"][node.name]=node_type#节点的类型单独保存在nodes_type中
+	# 保存前按同层级 Y 顺序自动写入 index（保证 run_data 正确）
+	auto_assign_indices_by_y()
 	get_runner_data(dic)
 	if is_saving_other:#另存为时
 		var str_dic = JSON.stringify(dic)#存档字典转为json字符
@@ -295,6 +281,97 @@ func get_node_index(node_name,dic):
 	if !dic["nodes_type"].has(node_name):return 0
 	var node_type = dic["nodes_type"][node_name]
 	return	dic[node_type][node_name]["index_by_parent"]
+
+## ---------------------------------------------------------------------------
+## 同层级 index 自动计算（按上下位置 Y，仅展示、禁止手动调整）
+## 同一父节点下的子节点为一组；无父节点的根节点各自为独立组
+## 组内按 position_offset.y 升序（上小下大）赋予 0,1,2...
+## 拖动节点时通过 position_offset_changed 实时刷新（同帧节流）
+## ---------------------------------------------------------------------------
+
+## 监听 GraphNode 位置变化，拖动时实时重算 index
+func _bind_node_position_watch(node: Node) -> void:
+	if node == null:
+		return
+	# GraphNode 信号：position_offset_changed
+	if node.has_signal("position_offset_changed"):
+		if not node.position_offset_changed.is_connected(_on_node_position_offset_changed):
+			node.position_offset_changed.connect(_on_node_position_offset_changed)
+
+func _on_node_position_offset_changed() -> void:
+	_queue_index_refresh()
+
+## 同帧只刷新一次，避免拖动时每像素全量重算
+func _queue_index_refresh() -> void:
+	if _index_refresh_queued:
+		return
+	_index_refresh_queued = true
+	call_deferred("_flush_index_refresh")
+
+func _flush_index_refresh() -> void:
+	_index_refresh_queued = false
+	auto_assign_indices_by_y()
+
+func auto_assign_indices_by_y() -> void:
+	var inst = CutscenerGlobal.NODE_INST
+	if inst.is_empty():
+		return
+	# parent -> [child_name, ...]
+	var groups: Dictionary = {}
+	for node_name in inst.keys():
+		if node_name == "NA" or inst[node_name] == null:
+			continue
+		var parent = get_parent_node(node_name)
+		var key = parent if parent != null else ("__root__:%s" % node_name)
+		if not groups.has(key):
+			groups[key] = []
+		groups[key].append(node_name)
+	for key in groups.keys():
+		var siblings: Array = groups[key]
+		# 按 Y 从上到下排序
+		siblings.sort_custom(func(a, b):
+			var ya = inst[a].position_offset.y if inst.has(a) and inst[a] else 0.0
+			var yb = inst[b].position_offset.y if inst.has(b) and inst[b] else 0.0
+			if ya == yb:
+				# Y 相同则按 X 再比，保证稳定
+				var xa = inst[a].position_offset.x if inst.has(a) and inst[a] else 0.0
+				var xb = inst[b].position_offset.x if inst.has(b) and inst[b] else 0.0
+				return xa < xb
+			return ya < yb
+		)
+		for i in siblings.size():
+			var nname = siblings[i]
+			var node = inst[nname]
+			if node == null:
+				continue
+			if node.get("edit_menu") == null:
+				continue
+			# 写入展示用 index（会触发 edit_menu 的 setter 刷新文本）
+			node.edit_menu.base_index = i
+			_lock_index_ui_readonly(node)
+
+## 禁止手动调整 index：LineEdit 只读，+/- 按钮禁用
+func _lock_index_ui_readonly(node) -> void:
+	if node == null or node.get("edit_menu") == null:
+		return
+	var em = node.edit_menu
+	if em.get("index") != null:
+		em.index.editable = false
+		em.index.focus_mode = Control.FOCUS_NONE
+		em.index.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# 常见按钮命名兼容（Index 旁的 + / -）
+	for child in em.get_children():
+		_disable_index_buttons_recursive(child)
+
+func _disable_index_buttons_recursive(n: Node) -> void:
+	if n is Button:
+		var t = str(n.text).strip_edges()
+		var nm = str(n.name)
+		if t in ["+", "-", "＋", "－"] or nm.to_lower().contains("plus") or nm.to_lower().contains("min") or nm.to_lower().contains("index1"):
+			n.disabled = true
+			n.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for c in n.get_children():
+		_disable_index_buttons_recursive(c)
 		
 ##从存档中载入主视图(是否清空主视图,文件名,聚合节点名,聚合数据名)	
 func load_greph(is_clean_editor:bool = true,file_name:String = CutscenerGlobal.FILE_SYS_DIC["current_save_file_path"],combine_name:String = "NA",data_node_name:String = "NA"):
@@ -344,7 +421,9 @@ func load_by_type(type,dic,combine_name:String = "NA",dic_raw={}):
 				break
 	var connection_list = dic["connection_list"]
 	for connection in connection_list:
-		graph_edit.connect_node(connection["from_node"],connection["from_port"],connection["to_node"],connection["to_port"])	
+		graph_edit.connect_node(connection["from_node"],connection["from_port"],connection["to_node"],connection["to_port"])
+	# 载入后按同层级上下顺序自动计算 index，并锁定为只读展示
+	auto_assign_indices_by_y()
 	
 ##载入按钮事件	
 func _on_load_2_pressed() -> void:
@@ -393,6 +472,7 @@ func load_json(file_name):
 ##必须启用[member GraphEdit.right_disconnects]
 func _on_graph_edit_disconnection_request(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> void:
 	graph_edit.disconnect_node(from_node,from_port,to_node,to_port)
+	auto_assign_indices_by_y()
 	
 ##运行按钮事件
 func _on_run_pressed() -> void:
@@ -434,6 +514,7 @@ func _on_graph_edit_copy_nodes_request() -> void:
 			new_node.selected = false
 			new_node.position_offset+=Vector2(15,15)#让复制的节点与原位置偏移一定距离
 			new_node.naming_node_and_add_2_global(true)
+			_bind_node_position_watch(new_node)
 			new_node_list.append(new_node)
 	if !new_node_list.is_empty():
 		for node in clipboard.get_children():#先清空剪贴板
@@ -449,14 +530,16 @@ func _on_graph_edit_paste_nodes_request() -> void:
 			CutscenerGlobal.NODE_INST[node_name].set_selected(false)
 	for node in clipboard.get_children():
 		node.reparent(graph_edit)
+		_bind_node_position_watch(node)
 		var base_node_name = node.duplicate_data["base_node_name"]
 		for connection_dic in node.duplicate_data["connection_list"]:
 			if connection_dic["from_node"]==base_node_name:#不需要连接到原子节点
 				pass
 			elif connection_dic["to_node"]==base_node_name:#连接到原父节点
 				graph_edit.connect_node(connection_dic["from_node"],connection_dic["from_port"],node.name,connection_dic["to_port"])	
-		node.edit_menu.base_index = node.duplicate_data["base_index"]#复制原节点的运行顺序
 		node.set_selected(true)
+	# 粘贴后按同层级上下顺序自动重算 index
+	auto_assign_indices_by_y()
 		
 ##删除事件
 func _on_graph_edit_delete_nodes_request(nodes: Array[StringName]) -> void:
@@ -535,6 +618,8 @@ func _on_action_panel_mouse_exited() -> void:
 ##整理节点
 func _on_rearrange_pressed() -> void:
 	graph_edit.arrange_nodes()
+	# 整理后按新的上下位置重算同层级 index
+	auto_assign_indices_by_y()
 
 ##当前运行节点变化
 func on_running_node_changed(node_name:String) -> void:

@@ -21,7 +21,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2p4e5"]
 
-[sub_resource type="DPITexture" id="DPITexture_7elbj"]
+[sub_resource type="DPITexture" id="DPITexture_brc5y"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5d5d\" d=\"M2 1v8.586l1.293-1.293a1 1 0 0 1 1.414 0L7 10.587l2.293-2.293a1 1 0 0 1 1.414 0L13 10.586l1-1V6H9V1H2zm8 0v4h4zm-6 9.414-2 2V15h12v-2.586l-.293.293a1 1 0 0 1-1.414 0L10 10.414l-2.293 2.293a1 1 0 0 1-1.414 0L4 10.414z\"/></svg>
 "
 
@@ -140,39 +140,18 @@ offset_bottom = 897.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-text = "
-[NA]已经在运行中,请等待完成
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-载入METHOD_BUS [Dialogue]
-载入METHOD_BUS [CutsceneState]
-载入METHOD_BUS [Dialogue]
-载入METHOD_BUS [CutsceneState]
-载入METHOD_BUS [Dialogue]
-载入METHOD_BUS [CutsceneState]
-载入METHOD_BUS [Dialogue]
-载入METHOD_BUS [CutsceneState]
-[NA]已经在运行中,请等待完成
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-[NA]已经在运行中,请等待完成
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-[NA]已经在运行中,请等待完成
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
----------Cutscener[NA]开始运行---------
-[NA]开始运行默认存档,存档位置:[user://Cutscener/Level0/0_0_0.crd]
-保存视图:[user://Cutscener/Level0/0_0_0.crd]
-载入视图:[user://Cutscener/Level0/0_0_0.crd]
-载入METHOD_BUS [Dialogue]
-载入METHOD_BUS [CutsceneState]
-载入METHOD_BUS [Dialogue]
-载入METHOD_BUS [CutsceneState]
-载入METHOD_BUS [Dialogue]
-载入METHOD_BUS [CutsceneState]
+text = "METHOD/STATE 载入完成: methods=18 states=63
+载入 STATE_BUS [PlayerState]（脚本变量）
+载入 STATE_BUS [Dialogue]（脚本变量）
+载入 STATE_BUS [CutsceneState]（脚本变量）
+载入 METHOD_BUS [Dialogue]（脚本方法 7）
+载入 METHOD_BUS [CutsceneState]（脚本方法 11）
+METHOD/STATE 载入完成: methods=18 states=63
+载入 STATE_BUS [PlayerState]（脚本变量）
+载入 STATE_BUS [Dialogue]（脚本变量）
+载入 STATE_BUS [CutsceneState]（脚本变量）
+载入 METHOD_BUS [Dialogue]（脚本方法 7）
+载入 METHOD_BUS [CutsceneState]（脚本方法 11）
 
 "
 horizontal_alignment = 2
@@ -193,7 +172,7 @@ theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 toggle_mode = true
 button_pressed = true
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 icon_alignment = 1
 
 [node name="save" type="Button" parent="VBoxContainer/MenuBar" unique_id=364656148]
@@ -204,7 +183,7 @@ theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 shortcut = SubResource("Shortcut_3lm0b")
 text = "Save"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="save_as" type="Button" parent="VBoxContainer/MenuBar" unique_id=371769695]
 layout_mode = 2
@@ -213,7 +192,7 @@ tooltip_text = "当前视图另存为"
 theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 text = "Save As"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="open" type="Button" parent="VBoxContainer/MenuBar" unique_id=1931552288]
 layout_mode = 2
@@ -222,7 +201,7 @@ tooltip_text = "打开视图"
 theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 text = "Open"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="new" type="Button" parent="VBoxContainer/MenuBar" unique_id=90947576]
 layout_mode = 2
@@ -231,7 +210,7 @@ tooltip_text = "新建视图"
 theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 text = "New"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="run" type="Button" parent="VBoxContainer/MenuBar" unique_id=18523376]
 layout_mode = 2
@@ -240,7 +219,7 @@ tooltip_text = "运行视图"
 theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 text = "Run"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="load" type="Button" parent="VBoxContainer/MenuBar" unique_id=1188845173]
 layout_mode = 2
@@ -249,7 +228,7 @@ tooltip_text = "重新载入当前视图"
 theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 text = "Reload"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="rearrange" type="Button" parent="VBoxContainer/MenuBar" unique_id=513605317]
 visible = false
@@ -260,7 +239,7 @@ tooltip_text = "整理所有Node(慎用)"
 theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 text = "Rearrange"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="setting" type="Button" parent="VBoxContainer/MenuBar" unique_id=410492314]
 layout_mode = 2
@@ -269,7 +248,7 @@ tooltip_text = "整理所有Node(慎用)"
 theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 text = "Setting"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="run_config" type="HBoxContainer" parent="VBoxContainer/MenuBar" unique_id=1235009074]
 layout_mode = 2
@@ -284,7 +263,7 @@ size_flags_horizontal = 3
 theme = ExtResource("1_3euby")
 theme_override_colors/font_color = Color(1, 0.890196, 0.501961, 1)
 text = "Run Scene"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 
 [node name="project_choose" type="OptionButton" parent="VBoxContainer/MenuBar/run_config" unique_id=1545085801]
 layout_mode = 2
@@ -321,20 +300,22 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_fcgeb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tc3oo")
 disabled = true
 text = "File History:"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 alignment = 0
 
 [node name="FileHistory" type="ItemList" parent="VBoxContainer/WorkSpace/SideBar" unique_id=6254062]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 3
-item_count = 5
+item_count = 7
 same_column_width = true
-item_0/text = "0_0_0.crd"
-item_1/text = "0_0_1.crd"
-item_2/text = "2.crd"
-item_3/text = "1.crd"
-item_4/text = "3.crd"
+item_0/text = "0_0_0_开场动画.crd"
+item_1/text = "0_0_0.crd"
+item_2/text = "0_0_0_pray.crd"
+item_3/text = "0_0_1.crd"
+item_4/text = "1.crd"
+item_5/text = "2.crd"
+item_6/text = "3.crd"
 
 [node name="Label2" type="Button" parent="VBoxContainer/WorkSpace/SideBar" unique_id=2083001903]
 layout_mode = 2
@@ -347,80 +328,78 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_fcgeb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tc3oo")
 disabled = true
 text = "Global Variant:"
-icon = SubResource("DPITexture_7elbj")
+icon = SubResource("DPITexture_brc5y")
 alignment = 0
 
 [node name="States" type="ItemList" parent="VBoxContainer/WorkSpace/SideBar" unique_id=341675503]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 3
-item_count = 65
+item_count = 63
 same_column_width = true
-item_0/text = "editor_description"
-item_1/text = "script"
-item_2/text = "CutsceneState.gd"
-item_3/text = "title_able"
-item_4/text = "cutscene_playing"
-item_5/text = "cutscener_playing"
-item_6/text = "current_cutscene"
-item_7/text = "test_var_String"
-item_8/text = "test_var_Vector2"
-item_9/text = "test_var_int"
-item_10/text = "test_var_float"
-item_11/text = "test_var_Array"
-item_12/text = "test_var_Dictionary"
-item_13/text = "test_var_Resource"
-item_14/text = "player_position"
-item_15/text = "editor_description"
-item_16/text = "script"
-item_17/text = "Dialogue.gd"
-item_18/text = "dialogue_resource"
-item_19/text = "temporary_game_states"
-item_20/text = "dialogue_config"
-item_21/text = "current_talker"
-item_22/text = "current_start_talker"
-item_23/text = "current_dialogue_balloon"
-item_24/text = "current_title"
-item_25/text = "current_start_obj"
-item_26/text = "current_start_title"
-item_27/text = "dialogue_title_dic"
-item_28/text = "dialogue_line"
-item_29/text = "editor_description"
-item_30/text = "script"
-item_31/text = "PlayerState.gd"
-item_32/text = "player"
-item_33/text = "player_health_config"
-item_34/text = "player_stamina_config"
-item_35/text = "player_control_lcok"
-item_36/text = "face_left"
-item_37/text = "face_left_normalize"
-item_38/text = "player_interact_being_locked"
-item_39/text = "player_lock_interact_obj"
-item_40/text = "player_attack_lock"
-item_41/text = "player_z_index"
-item_42/text = "is_player_on_fighting"
-item_43/text = "player_on_fighting"
-item_44/text = "player_state_history"
-item_45/text = "player_unnormal_state"
-item_46/text = "player_global_position"
-item_47/text = "player_screen_position"
-item_48/text = "max_height"
-item_49/text = "current_height"
-item_50/text = "start_jump_height"
-item_51/text = "last_state"
-item_52/text = "last2_state"
-item_53/text = "current_state"
-item_54/text = "ability_lock"
-item_55/text = "dense_flag"
-item_56/text = "denseable_flag"
-item_57/text = "dense_success_flag"
-item_58/text = "attacking"
-item_59/text = "hitting"
-item_60/text = "lightable_flag"
-item_61/text = "light_flag"
-item_62/text = "player_be_hitting"
-item_63/text = "double_jump_able"
-item_64/text = "on_collection_hint"
+item_0/text = "title_able"
+item_1/text = "cutscene_playing"
+item_2/text = "cutscener_playing"
+item_3/text = "current_cutscene"
+item_4/text = "test_var_String"
+item_5/text = "test_var_Vector2"
+item_6/text = "test_var_int"
+item_7/text = "test_var_float"
+item_8/text = "test_var_Array"
+item_9/text = "test_var_Dictionary"
+item_10/text = "test_var_Resource"
+item_11/text = "player_position"
+item_12/text = "cutscene_index_dic"
+item_13/text = "dialogue_resource"
+item_14/text = "temporary_game_states"
+item_15/text = "dialogue_config"
+item_16/text = "current_talker"
+item_17/text = "current_dialogue_balloon"
+item_18/text = "current_title"
+item_19/text = "current_start_obj"
+item_20/text = "current_start_title"
+item_21/text = "dialogue_title_dic"
+item_22/text = "dialogue_title_dic_tmp"
+item_23/text = "dialogue_line"
+item_24/text = "player_player"
+item_25/text = "player_health_config"
+item_26/text = "player_stamina_config"
+item_27/text = "player_born_facing_left"
+item_28/text = "player_exit_level_pos"
+item_29/text = "current_player_born_position"
+item_30/text = "player_control_lock"
+item_31/text = "face_left"
+item_32/text = "face_left_normalize"
+item_33/text = "running_left"
+item_34/text = "running_left_normalize"
+item_35/text = "player_interact_being_locked"
+item_36/text = "player_lock_interact_obj"
+item_37/text = "player_attack_lock"
+item_38/text = "player_z_index"
+item_39/text = "is_player_on_fighting"
+item_40/text = "player_on_fighting"
+item_41/text = "player_state_history"
+item_42/text = "player_unnormal_state"
+item_43/text = "player_global_position"
+item_44/text = "player_screen_position"
+item_45/text = "max_height"
+item_46/text = "current_height"
+item_47/text = "start_jump_height"
+item_48/text = "last_state"
+item_49/text = "last2_state"
+item_50/text = "current_state"
+item_51/text = "ability_lock"
+item_52/text = "dense_flag"
+item_53/text = "denseable_flag"
+item_54/text = "dense_success_flag"
+item_55/text = "attacking"
+item_56/text = "hitting"
+item_57/text = "lightable_flag"
+item_58/text = "light_flag"
+item_59/text = "player_be_hitting"
+item_60/text = "double_jump_able"
+item_61/text = "on_collection_hint"
+item_62/text = "bating"
 script = ExtResource("10_3lqxl")
 
 [node name="GraphEdit" type="GraphEdit" parent="VBoxContainer/WorkSpace" unique_id=1513983996]

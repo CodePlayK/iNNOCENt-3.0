@@ -1,15 +1,20 @@
 extends CanvasLayer
 @onready var eyes: TextureRect = $Eyes
+@onready var front_color: ColorRect = $FrontColor
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	show()
+	front_color.hide()
+	eyes.hide()
 	EventBus.play_screen_effect.connect(on_play_screen_effect)
-	pass # Replace with function body.
 
 
 func on_play_screen_effect(e_name:String,args:Array) -> void:
 	match e_name:
-		"eyes":
+		"黑屏":
+			front_color.color = Color.BLACK
+			front_color.show()
+		"眼睛":
 			eyes.play(args)
+			

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BalanceConfig" format=3 uid="uid://cyypvkx7qiq3s"]
+
+[ext_resource type="Script" uid="uid://do0i43povqug" path="res://core/common/attributes/BalanceConfig.gd" id="1_bhiln"]
+
+[resource]
+script = ExtResource("1_bhiln")
+metadata/_custom_type_script = "uid://do0i43povqug"

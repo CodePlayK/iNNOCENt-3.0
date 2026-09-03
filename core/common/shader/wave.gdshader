@@ -27,17 +27,16 @@ uniform float offset = 0;
 
 
 float getWind(vec2 vertex, vec2 uv, float time){
-    float diff = pow(maxStrength - minStrength, 2.0);
-    float strength = clamp(minStrength + diff + sin(time / interval) * diff, minStrength, maxStrength) * strengthScale;
-    float wind = (sin(time) + cos(time * detail)) * strength * max(0.0, (1.0-uv.y) - heightOffset);
-    
-    return wind; 
+	float diff = pow(maxStrength - minStrength, 2.0);
+	float strength = clamp(minStrength + diff + sin(time / interval) * diff, minStrength, maxStrength) * strengthScale;
+	float wind = (sin(time) + cos(time * detail)) * strength * max(0.0, (1.0-uv.y) - heightOffset);
+	
+	return wind; 
 }
 
 void vertex() {
-    vec4 pos = MODEL_MATRIX * vec4(0.0, 0.0, 0.0, 1.0);
-    float time = TIME * speed + offset;
-    //float time = TIME * speed + pos.x * pos.y  ; not working when moving...
-    VERTEX.x += getWind(VERTEX.xy, UV, time);
+	vec4 pos = MODEL_MATRIX * vec4(0.0, 0.0, 0.0, 1.0);
+	float time = TIME * speed + offset;
+	//float time = TIME * speed + pos.x * pos.y  ; not working when moving...
+	VERTEX.x += getWind(VERTEX.xy, UV, time);
 }
-

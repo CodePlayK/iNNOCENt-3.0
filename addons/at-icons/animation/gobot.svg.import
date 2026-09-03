@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/gobot.svg-9dd9984432e8509105b6e253a0b066a3.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

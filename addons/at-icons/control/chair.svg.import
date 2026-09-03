@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/chair.svg-df01f661bf341cd891eb2a3891651606.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

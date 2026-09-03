@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/dash-frame-o.png-e5f65e39d27b7df056e687525509
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

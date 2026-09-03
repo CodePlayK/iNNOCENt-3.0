@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/speaker.svg-c7d70b03f5fba6d6d457f8c6680b9be0.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

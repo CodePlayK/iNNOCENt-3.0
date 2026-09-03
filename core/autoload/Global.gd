@@ -9,9 +9,9 @@ func add_2_level_lights_dic(level_id:LevelState.LEVELS,bl:BaseLight):
 		level_lights_dic[level_id] = [bl]
 	else :
 		level_lights_dic[level_id].append(bl)
-		
+var everythingeverywhere42:Everythingeverywhere42		
 var test_mark:Node2D
-
+var camera_controller:CameraController
 enum transition_type {
 	RIGHT_ENTER,
 	RIGHT_LEFT,
@@ -32,3 +32,9 @@ enum EVENT_VALUE_TYPE {
 	RES = TYPE_OBJECT,
 	V2 = TYPE_VECTOR2
 }
+func generate_uuid_short_id() -> String:
+	# 获取微秒数（1秒 = 1,000,000微秒）
+	var ticks = Time.get_ticks_usec()
+	# 转换为 16 进制字符串并截取后 8 位
+	var hex_str = "%x" % ticks
+	return hex_str.right(8)

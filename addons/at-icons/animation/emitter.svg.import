@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/emitter.svg-788d3a29ec734dea763d96c63fe66c58.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

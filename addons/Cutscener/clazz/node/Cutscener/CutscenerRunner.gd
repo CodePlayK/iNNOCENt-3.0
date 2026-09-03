@@ -15,6 +15,7 @@ extends Node
 var Runners: Dictionary = {}
 
 @export_global_file("*.crd") var cutscener_data
+@export var change_CutsceneState_current_cutscene: bool = true
 @export var cutscener_name: String = "NA"
 
 var running: bool = false
@@ -38,7 +39,8 @@ func run(c_name: String):
 
 	if cutscener_data and FileAccess.file_exists(cutscener_data):
 		CutscenerGlobal.ACTION_LOG = "[%s]开始运行, 存档:[%s]" % [cutscener_name, cutscener_data]
-		CutsceneState.current_cutscene = cutscener_name
+		if change_CutsceneState_current_cutscene:
+			CutsceneState.current_cutscene = cutscener_name
 		dic = load_json(cutscener_data)
 	else:
 		dic = load_json(config_file["save_file_config"])
@@ -46,6 +48,7 @@ func run(c_name: String):
 
 	CutscenerGlobal.ACTION_LOG = "---------Cutscener[%s]开始运行---------" % cutscener_name
 	running = true
+	CutsceneState.cutscener_playing = true
 	current_save_raw_data = dic
 	await _run_graph(dic["base"])
 
@@ -54,8 +57,9 @@ func run(c_name: String):
 	else:
 		CutscenerGlobal.ACTION_LOG = "---------Cutscener[%s]运行结束---------" % cutscener_name
 		CutscenerGlobal.ACTION_LOG = "---------返回值: %s---------" % str(result)
+	CutsceneState.cutscener_playing = false
 	return result
-
+	
 
 ## 硬中断
 func stop() -> void:
@@ -116,6 +120,8 @@ func _do_hard_abort() -> void:
 	if CutscenerGlobal.has_signal("cutscener_stopped"):
 		CutscenerGlobal.cutscener_stopped.emit(cutscener_name)
 	CutscenerGlobal.cutscener_ended.emit()
+	CutsceneState.cutscener_playing = false
+
 
 # endregion
 

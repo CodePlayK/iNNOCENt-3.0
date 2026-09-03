@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://crnojtb7i7g1d"]
+[gd_scene format=3 uid="uid://crnojtb7i7g1d"]
 
-[ext_resource type="Script" path="res://core/common/component/cutscene_camera/cutscene_camera.gd" id="1_77qre"]
+[ext_resource type="Script" uid="uid://4asyld1fj6hh" path="res://core/common/component/cutscene_camera/cutscene_camera.gd" id="1_77qre"]
 
-[node name="CutsceneCamera" type="Node"]
+[node name="CutsceneCamera" type="Node" unique_id=642118126]
 script = ExtResource("1_77qre")

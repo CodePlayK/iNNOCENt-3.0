@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/sheep.svg-b89a10ac4ab0779f76bc6ec8aa4ee38e.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

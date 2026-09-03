@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/doors.svg-609ebc69f213530b30c9507105f3d1bc.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

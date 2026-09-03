@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/rainbow.svg-a0ea05f6b5f4a852d408c97294a39a73.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

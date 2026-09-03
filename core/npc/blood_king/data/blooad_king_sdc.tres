@@ -1,12 +1,9 @@
-[gd_resource type="Resource" script_class="SaveDataConfig" load_steps=2 format=3 uid="uid://bfxmr21psmy0w"]
+[gd_resource type="Resource" script_class="SaveDataConfig" format=3 uid="uid://bfxmr21psmy0w"]
 
-[ext_resource type="Script" path="res://core/common/saves/SaveDataConfig.gd" id="1_islrc"]
+[ext_resource type="Script" uid="uid://c4jrwqjv7uq1l" path="res://core/common/saves/SaveDataConfig.gd" id="1_islrc"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_islrc")
 group = 1
 key = "bloodking"
-save_id = 0
-level_id = -1
-data = {}

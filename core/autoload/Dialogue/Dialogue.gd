@@ -20,10 +20,20 @@ var current_dialogue_balloon:
 		#Debug.dprintwarn(DebugCT.dp("设置气球[%s]" %cdb.get_path(),self))
 		current_dialogue_balloon=cdb
 var current_title:String
-var current_start_obj
+var current_start_obj:
+	set(csb):
+		current_start_obj=csb
+		#Debug.dprintwarn(DebugCT.dp("设置当前对白启动物体[%s]" %csb.get_path(),self))
 var current_start_title:String
 #记录每条对话的执行次数：{对白资源名+标题名+[talker]}
 var dialogue_title_dic:Dictionary
+func get_dialogue_title_time(config:DialogueConfig) -> int:
+	if dialogue_title_dic.has(config.dialogue_res):
+		if dialogue_title_dic[config.dialogue_res].has(config.title):
+			return dialogue_title_dic[config.dialogue_res][config.title]
+	return 0
+	
+	
 #记录每条对话的执行次数：{对白资源名+标题名+[talker]:次数}
 var dialogue_title_dic_tmp:Dictionary
 
@@ -46,12 +56,10 @@ var dialogue_line: DialogueLine:
 			end_dialogue.emit()
 			return
 		dialogue_line = next_dialogue_line
-		if dialogue_line.expression:
-			dialogue_config.current_expression=dialogue_line.expression
 		if !current_talker.has(dialogue_line.character):
 			if current_dialogue_balloon:
 				current_dialogue_balloon.dialogue_finished()
-				Debug.dprintwarn(DebugCT.dp("当前气球[%s][%s]" %[current_dialogue_balloon.get_path(),current_dialogue_balloon.dialogue_label.dialogue_line.text],self))
+				#Debug.dprintwarn(DebugCT.dp("当前气球[%s][%s]" %[current_dialogue_balloon.get_path(),current_dialogue_balloon.dialogue_label.dialogue_line.text],self))
 
 		talk_start.emit(dialogue_line.character,dialogue_config,dialogue_line)
 

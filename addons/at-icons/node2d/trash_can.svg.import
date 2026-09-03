@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/trash_can.svg-c6342c1cc80f8e1579e4fbb0e5d9286
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

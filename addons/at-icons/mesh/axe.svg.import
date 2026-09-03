@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/axe.svg-9cda7f4d66dcda5623ee3a7e34693c6e.ctex
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

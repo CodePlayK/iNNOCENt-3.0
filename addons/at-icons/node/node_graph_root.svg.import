@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/node_graph_root.svg-1a5fd4156900da69f494abef4
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

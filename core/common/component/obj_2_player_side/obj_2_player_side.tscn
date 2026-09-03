@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5tj5di0fre4c"]
+[gd_scene format=3 uid="uid://b5tj5di0fre4c"]
 
-[ext_resource type="Script" path="res://core/common/component/obj_2_player_side/obj_2_player_side.gd" id="1_eu33s"]
+[ext_resource type="Script" uid="uid://o5igwxumsnhl" path="res://core/common/component/obj_2_player_side/obj_2_player_side.gd" id="1_eu33s"]
 
-[node name="Obj2PlayerSide" type="Node"]
+[node name="Obj2PlayerSide" type="Node" unique_id=1598020927]
 script = ExtResource("1_eu33s")

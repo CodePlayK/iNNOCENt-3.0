@@ -14,10 +14,19 @@ signal save_game
 signal load_game
 ## 仅通知 [BaseSaveFileSaver] 载入存档文件本身（不触发完整关卡状态刷新）
 signal load_save_file
+signal save_save_file
+signal load_level
 ## 删除指定存档（参数：save_id）
 signal delete_save
 ## 当前使用的存档 ID 发生变化（菜单选中 / 新建 / 删除后同步 UI）
 signal save_file_id_update
+##按下esc时
+signal on_esc_pressed
+##重置游戏
+signal reset_game
+##通知新建游戏存档
+signal new_save_game
+signal on_new_game
 #endregion
 
 
@@ -45,6 +54,8 @@ signal cutscene_is_playing
 signal play_cutscene_aniplayer
 ## 播放画面后处理/屏幕特效（参数：e_name 效果名, args 额外参数）
 signal play_screen_effect
+##老关卡被过场动画完全隐藏后发出
+signal old_level_hide_complete
 #endregion
 
 
@@ -103,6 +114,7 @@ signal player_face_changed
 signal player_running_changed
 signal player_into_lock_state
 signal player_load_save_file_pos
+signal start_qte
 #endregion
 
 
@@ -118,6 +130,10 @@ signal create_all_character_box
 signal test_layer_visiable
 ##添加过场到debug层
 signal add_debug(d:Node,ysize:Vector2)
+## 请求开始心跳复苏 QTE（参数：params 配置字典，可空）
+signal start_heartbeat_qte(params: Dictionary)
+## 心跳复苏 QTE 结束（参数：result 含 success / hit_count / success_score 等）
+signal heartbeat_qte_finished(result: Dictionary)
 #endregion
 func _add_debug(d:Node,size:Vector2,max_y:float):
 	add_debug.emit(d,size,max_y)
@@ -156,8 +172,8 @@ func _load_game() -> void:
 
 
 ## 发射 [signal load_save_file]
-func _load_save_file() -> void:
-	load_save_file.emit()
+func _load_save_file(update_current_save_id:bool) -> void:
+	load_save_file.emit(update_current_save_id)
 
 
 ## 发射 [signal delete_save]
@@ -242,7 +258,8 @@ func _camera_shake(strength: float, SHAKE_DECAY: float) -> void:
 func _change_level(level_id: LevelState.LEVELS,source:Node) -> void:
 	Debug.dprintwarn(DebugCT.dp("信号: 开始切换Level - [%s]" %[level_id],source))
 	change_level.emit(level_id)
-
+func _on_new_game():
+	on_new_game.emit()
 
 ## 发射 [signal level_changed]
 ## [param fl] 切换前关卡
@@ -371,6 +388,12 @@ func _remove_all_character_box(source:Node) -> void:
 ## [param flag] 是否显示测试层
 func _test_layer_visiable(flag: bool) -> void:
 	test_layer_visiable.emit(flag)
+
+
+## 发射 [signal start_heartbeat_qte]
+## [param params] QTE 配置覆盖（duration / heartbeat_count / required_hits / required_success 等）
+func _start_heartbeat_qte(params: Dictionary = {}) -> void:
+	start_heartbeat_qte.emit(params)
 #endregion
 
 

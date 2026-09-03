@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/thumbs_up.svg-036d9dc84cb89ccea82d4cc03d79f79
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

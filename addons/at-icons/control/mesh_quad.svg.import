@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/mesh_quad.svg-d5a675782e6d95ed9ee0f6181444a12
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

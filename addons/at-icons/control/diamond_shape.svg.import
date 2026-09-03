@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/diamond_shape.svg-ce028a4b95cb6d3d53c9b83873f
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

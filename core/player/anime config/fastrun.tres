@@ -17,6 +17,7 @@ stop_on_exit_state = true
 
 [resource]
 script = ExtResource("1_tecie")
-speed_scale = 1.2
+animation_name = "run"
+speed_scale = 1.5
 loop = true
 sound_config = Array[ExtResource("2_44hd3")]([SubResource("Resource_7yedt")])

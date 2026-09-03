@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/explosion.svg-4cd85a61a1b9c79187fb4b8d0c01903
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

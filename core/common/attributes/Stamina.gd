@@ -1,4 +1,4 @@
-extends Node2D
+extends Attributes
 @export var stamina_config:StaminaConfig
 
 func _physics_process(delta: float) -> void:
@@ -11,3 +11,6 @@ func stamina_recover(recover,update:bool = true):
 func damage_stamina(damage,update:bool = true):
 	stamina_config.current_stamina-=damage
 	if owner:owner.ui.on_stamina_damaged()
+
+func reset():
+	stamina_config.current_stamina = stamina_config.max_stamina

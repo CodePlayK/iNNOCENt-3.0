@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/scissors.svg-f0705df17d9e7bf8cdf88c64f0d8c850
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

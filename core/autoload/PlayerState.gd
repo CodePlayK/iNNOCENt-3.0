@@ -5,7 +5,15 @@ var player_player:Player
 var player_health_config:HealthConfig
 var player_stamina_config:StaminaConfig
 
-#位置
+func set_player_current_default_expression(exp:String):
+	player_player.character_box_config.current_default_expression = exp
+
+##玩家出生时朝向
+var player_born_facing_left:bool = false
+func set_player_born_facing_left(fl:bool,source:Node):
+	player_born_facing_left = fl
+	Debug.dprintinfo(DebugCT.dp("更新玩家出生面朝向左: [%s]" %[fl],source))
+	
 var player_exit_level_pos:Vector2
 var current_player_born_position:Vector2 = Vector2(-551.0,255.0,)
 
@@ -21,7 +29,10 @@ func set_player_control_lock(flag:bool,source:Node):
 	player_control_lock = flag
 	Debug.dprintinfo(DebugCT.dp("更新[玩家控制锁定状态]为[%s]" %[flag],source))
 	EventBus._player_control_lock(flag)
-
+	
+func get_player_control_lock(source:Node)->bool:
+	#Debug.dprintinfo(DebugCT.dp("获取[玩家控制锁定状态]为[%s]" %player_control_lock,source))
+	return player_control_lock
 ##面朝左
 var face_left:bool=false:
 	set(f):
@@ -70,6 +81,7 @@ var player_z_index={
 var is_player_on_fighting:bool=false:
 	set(f):
 		is_player_on_fighting = f
+		EventBus._player_on_fighting_changed(is_player_on_fighting)
 		if player_player:
 			player_player.ui.player_on_fighting_changed(f)
 

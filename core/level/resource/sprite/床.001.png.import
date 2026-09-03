@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/床.001.png-7cf270da80fe2443e9b90ada347a8a7f.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

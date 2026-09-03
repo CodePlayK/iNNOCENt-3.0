@@ -369,26 +369,62 @@ func _wait_buses_ready(max_frames: int = 12) -> void:
 		frame += 1
 
 
-## 从场景树或脚本资源解析可调用方法列表
-func _collect_method_dicts(bus_name: String) -> Array:
-	var result: Array = []
-	# 1) 优先已在树中的实例（运行时 / 部分编辑器 Autoload）
+## Autoload 对应的 GDScript（优先树上实例的 script，否则从 project.godot 路径加载）
+func _get_bus_script(bus_name: String) -> Script:
 	if get_tree() and get_tree().get_root().has_node(bus_name):
 		var node: Node = get_tree().get_root().get_node(bus_name)
-		for method in node.get_method_list():
+		var attached: Script = node.get_script()
+		if attached:
+			return attached
+	return _resolve_autoload_script(bus_name)
+
+
+## 匹配脚本源码中的 `func` / `static func` 声明（含父级 GDScript）。
+var _FUNC_DECL_REGEX: RegEx = RegEx.create_from_string("(?m)^[\\t ]*(static[\\t ]+)?func[\\t ]+([A-Za-z_][A-Za-z0-9_]*)")
+
+func _collect_declared_func_names(script: Script) -> Dictionary:
+	var names: Dictionary = {}
+	var s: Script = script
+	while s != null:
+		var src := str(s.source_code) if s.source_code else ""
+		if not src.is_empty() and _FUNC_DECL_REGEX:
+			for m in _FUNC_DECL_REGEX.search_all(src):
+				var fname := m.get_string(2)
+				if not fname.is_empty():
+					names[fname] = true
+		s = s.get_base_script()
+	return names
+
+
+## 只收集脚本里写出的方法，不含 Object/Node 等系统方法。
+## 1) get_script_method_list：拿签名（参数/返回值），不含原生引擎方法
+## 2) 源码 func 声明：去掉隐式 _init、@getter 等编译器产物
+## 3) 沿 get_base_script() 合并父级 GDScript，seen 去重
+func _collect_gdscript_methods(script: Script) -> Array:
+	var result: Array = []
+	var seen: Dictionary = {}
+	var declared := _collect_declared_func_names(script)
+	var s: Script = script
+	while s != null:
+		for method in s.get_script_method_list():
+			var n := str(method.get("name", ""))
+			if n.is_empty() or seen.has(n):
+				continue
+			if not declared.is_empty() and not declared.has(n):
+				continue
+			seen[n] = true
 			result.append(method)
-		return result
-	# 2) 编辑器回退：从 project.godot 路径加载脚本再扫
-	var script := _resolve_autoload_script(bus_name)
+		s = s.get_base_script()
+	return result
+
+
+## 从 Autoload 脚本解析可调用方法（绝不使用实例 get_method_list，以免混入系统方法）
+func _collect_method_dicts(bus_name: String) -> Array:
+	var script := _get_bus_script(bus_name)
 	if script == null:
 		ACTION_LOG = "无法解析 Autoload 脚本: %s（树中无节点且路径无效）" % bus_name
-		return result
-	if script.has_method("get_script_method_list"):
-		for method in script.get_script_method_list():
-			result.append(method)
-	else:
-		ACTION_LOG = "脚本不支持 get_script_method_list: %s" % bus_name
-	return result
+		return []
+	return _collect_gdscript_methods(script)
 
 
 func _resolve_autoload_script(bus_name: String) -> Script:
@@ -427,10 +463,7 @@ func _scan_methods() -> void:
 		var methods: Array = _collect_method_dicts(bus_name)
 		if methods.is_empty():
 			continue
-		var from_tree := get_tree() and get_tree().get_root().has_node(bus_name)
-		ACTION_LOG = "载入 METHOD_BUS [%s]（%s）" % [
-			bus_name, "场景树" if from_tree else "脚本回退"
-		]
+		ACTION_LOG = "载入 METHOD_BUS [%s]（脚本方法 %s）" % [bus_name, methods.size()]
 		for method in methods:
 			if not _is_callable_bus_method(method):
 				continue
@@ -453,19 +486,18 @@ func _scan_methods() -> void:
 
 func _is_callable_bus_method(method: Dictionary) -> bool:
 	var mname: String = str(method.get("name", ""))
-	if mname.is_empty() or mname == "free":
+	if mname.is_empty():
 		return false
-	if mname.begins_with("_"):
+	# 编译器生成的内联 getter/setter（@xxx_getter）和隐式函数，不是手写方法
+	if mname.begins_with("@"):
 		return false
-	# 脚本 get_script_method_list 可能没有完整 flags；有则过滤引擎/编辑器
+	# 脚本列表里一般不会出现系统方法；若带核心/编辑器旗标则丢掉
+	# 不按「_ 前缀」过滤：EventBus._save_game、用户写的 _ready 都要保留
 	if method.has("flags"):
 		var flags: int = int(method.flags)
 		if flags & METHOD_FLAG_OBJECT_CORE:
 			return false
 		if flags & METHOD_FLAG_EDITOR:
-			return false
-		# 实例 get_method_list：要求带 NORMAL；纯脚本列表往往 flags 为 1 或 0
-		if flags != 0 and not (flags & METHOD_FLAG_NORMAL):
 			return false
 	return true
 
@@ -476,27 +508,24 @@ func _scan_states() -> void:
 		return
 	for bus in STATE_BUSES:
 		var bus_name := str(bus)
-		# 1) 树中实例
-		if get_tree() and get_tree().get_root().has_node(bus_name):
-			var node: Node = get_tree().get_root().get_node(bus_name)
-			for prop in node.get_property_list():
-				if prop.usage & PROPERTY_USAGE_SCRIPT_VARIABLE:
-					CUTSCENE_BUS_STATE["%s.%s" % [bus_name, prop.name]] = prop.type
-			ACTION_LOG = "载入 STATE_BUS [%s]（场景树）" % bus_name
-			continue
-		# 2) 脚本回退
-		var script := _resolve_autoload_script(bus_name)
+		var script := _get_bus_script(bus_name)
 		if script == null:
 			ACTION_LOG = "STATE_BUS 无法解析: %s" % bus_name
 			continue
-		if script.has_method("get_script_property_list"):
-			for prop in script.get_script_property_list():
+		var s: Script = script
+		while s != null:
+			for prop in s.get_script_property_list():
 				var usage: int = int(prop.get("usage", 0))
-				if usage & PROPERTY_USAGE_SCRIPT_VARIABLE:
-					CUTSCENE_BUS_STATE["%s.%s" % [bus_name, prop.get("name", "")]] = prop.get("type", TYPE_NIL)
-			ACTION_LOG = "载入 STATE_BUS [%s]（脚本回退）" % bus_name
-		else:
-			ACTION_LOG = "STATE_BUS 脚本无属性列表: %s" % bus_name
+				if not (usage & PROPERTY_USAGE_SCRIPT_VARIABLE):
+					continue
+				var pname := str(prop.get("name", ""))
+				if pname.is_empty():
+					continue
+				var key := "%s.%s" % [bus_name, pname]
+				if not CUTSCENE_BUS_STATE.has(key):
+					CUTSCENE_BUS_STATE[key] = prop.get("type", TYPE_NIL)
+			s = s.get_base_script()
+		ACTION_LOG = "载入 STATE_BUS [%s]（脚本变量）" % bus_name
 
 
 func load_json(path):

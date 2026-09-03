@@ -1,3 +1,5 @@
+@icon("res://addons/at-icons/mesh/floppy_disks.svg")
+
 extends Node
 ## 配置单一对象存档数据的父类，只负责数据组装与属性赋值。[br]
 ## [b]挂载要求：[/b] 必须挂在目标储存对象相关节点下，且有且仅有一个 [BaseSaveFileSaver] 子节点。
@@ -113,11 +115,11 @@ func _pre_save_game() -> void:
 
 
 ## 载入存档
-func _load_save(data: Dictionary) -> void:
+func _load_save(data: Dictionary,update_current_save_id:bool) -> void:
 	if not enable_load:
 		return
 	_apply_common_load_data(data)
-	load_custom_data(data)
+	load_custom_data(data,update_current_save_id)
 
 
 ## 应用通用载入字段（位置、朝向）
@@ -141,7 +143,7 @@ func custom_key() -> void:
 
 
 ## 子类重写：载入自定义数据
-func load_custom_data(data: Dictionary) -> void:
+func load_custom_data(data: Dictionary,update_current_save_id:bool) -> void:
 	pass
 
 
@@ -182,11 +184,7 @@ func common_save_data() -> void:
 
 ## 存档查询条件（载入时使用）
 func get_condition_save() -> String:
-	var level_id: int = save_data_config.level_id
-	if level_id == LevelState.LEVELS.LEVEL_CURRENT:
-		level_id = LevelState.current_level
-	return "level_id = %s and group_id = %s and save_id = %s" % [
-		level_id,
+	return "group_id = %s and save_id = %s" % [
 		save_data_config.group,
-		DataState.current_save_id,
+		save_data_config.save_id,
 	]

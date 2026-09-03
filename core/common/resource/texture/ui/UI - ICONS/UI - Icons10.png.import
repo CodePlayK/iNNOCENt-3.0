@@ -17,6 +17,7 @@ dest_files=["res://.godot/imported/UI - Icons10.png-05eb5bcd466755b4394485076e41
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

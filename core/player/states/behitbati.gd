@@ -1,4 +1,5 @@
 extends StackingState
+## 霸体受击时 sprite 着色持续时长（秒）
 @export var bati_onhit_color_time:float = .2
 @onready var timer: Timer = $Timer
 

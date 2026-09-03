@@ -1,4 +1,5 @@
-@tool
+@icon("res://addons/at-icons/mesh/stars.svg")
+
 class_name FloatingDust
 extends Control
 @onready var particles: GPUParticles2D = $GPUParticles2D
@@ -50,7 +51,7 @@ extends Control
 		_update_particles()
 @export_group("粒子数量与生命周期")
 ## 同时存在的粒子数量。越大密度越高
-@export_range(10, 3000, 1) var amount: int = 160:
+@export_range(1, 3000, 1) var amount: int = 10:
 	set(value):
 		amount = value
 		_update_particles()

@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://cdntw5od5p7nc" path="res://core/common/resource/texture/bloodking/baseFX.png" id="32_w6rre"]
 [ext_resource type="Script" uid="uid://bke1mqqlq15ph" path="res://test/aniplayer.gd" id="33_doxy1"]
 [ext_resource type="Script" uid="uid://cic5x0t6w6rlw" path="res://core/common/anime/StandAloneFX/StandAloneFX.gd" id="34_uhq7q"]
+[ext_resource type="Script" uid="uid://cw24mjwekive" path="res://core/common/anime/offset_process.gd" id="35_iic6y"]
 [ext_resource type="Texture2D" uid="uid://ch5g0qgu7wg22" path="res://core/common/attackfxs/blood_gift/base.png" id="35_tg8rn"]
 [ext_resource type="Script" uid="uid://dweef2di1c1ym" path="res://core/npc/prototype/HurtFX.gd" id="36_3rumx"]
 [ext_resource type="Texture2D" uid="uid://ghubk6bmajx6" path="res://core/common/resource/texture/combat fx/FX Pack.png" id="37_ifdpf"]
@@ -79,18 +80,16 @@
 [ext_resource type="Resource" uid="uid://cdmof4sttwugr" path="res://core/npc/it/anime_config/birth.tres" id="73_iq3dp"]
 [ext_resource type="Script" uid="uid://dlqbna4lkm2xl" path="res://core/npc/prototype/npc_state_manager/states/dodge.gd" id="74_yic4q"]
 [ext_resource type="Resource" uid="uid://cq4s13vnjbwky" path="res://core/npc/it/anime_config/dodge.tres" id="75_at3co"]
-[ext_resource type="Script" uid="uid://bu1e7hpel2o8k" path="res://core/npc/it/states/jump.gd" id="76_y5iqo"]
 [ext_resource type="Script" uid="uid://c0fn718goy1wv" path="res://core/npc/prototype/npc_state_manager/states/chase.gd" id="77_iofog"]
 [ext_resource type="Resource" uid="uid://bpbl2jaxujatn" path="res://core/npc/it/anime_config/chase.tres" id="78_4jovu"]
 [ext_resource type="Script" uid="uid://b7wxk1c2fj11b" path="res://core/npc/prototype/npc_state_manager/states/_attack.gd" id="79_4ljbo"]
 [ext_resource type="Script" uid="uid://q0knawvfwgnj" path="res://core/npc/prototype/npc_state_manager/states/attack0.gd" id="80_411jk"]
 [ext_resource type="Resource" uid="uid://boriqsild1hsf" path="res://core/npc/it/anime_config/attack0.tres" id="81_dl7y8"]
+[ext_resource type="Script" uid="uid://nx3b0njps5ql" path="res://core/player/states/jump.gd" id="82_kll38"]
 [ext_resource type="Script" uid="uid://bnuh60joynv75" path="res://core/npc/prototype/npc_state_manager/states/attack1.gd" id="82_q5e8n"]
 [ext_resource type="Resource" uid="uid://mnr13x0ndyc2" path="res://core/npc/it/anime_config/attack2.tres" id="83_n05yu"]
 [ext_resource type="Resource" uid="uid://dqmbll2b5py7m" path="res://core/npc/it/anime_config/attack3.tres" id="84_5yqg1"]
 [ext_resource type="Resource" uid="uid://b3qkr156dvewp" path="res://core/npc/it/anime_config/attack4.tres" id="85_dcedk"]
-[ext_resource type="Script" uid="uid://jhd1spy0p5ln" path="res://core/events/BloodKingAttackTimeEvent.gd" id="86_uvsdt"]
-[ext_resource type="Resource" uid="uid://csvyky8nvlw57" path="res://core/events/BloodkingAttackTime.tres" id="87_3ysto"]
 [ext_resource type="Script" uid="uid://ccmnjmmgttt31" path="res://core/npc/prototype/npc_state_manager/states/air.gd" id="88_a4n65"]
 [ext_resource type="Script" uid="uid://b5hxh5sri45lm" path="res://core/npc/prototype/npc_state_manager/states/lift.gd" id="89_abfot"]
 [ext_resource type="Script" uid="uid://dqmqxfw8v3qe" path="res://core/npc/prototype/npc_state_manager/states/fall.gd" id="90_plgcc"]
@@ -2027,1043 +2026,280 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yx5l"]
 size = Vector2(325, 4.16665)
 
-[sub_resource type="Animation" id="Animation_o5pd2"]
+[sub_resource type="Animation" id="Animation_iic6y"]
 length = 0.595
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 4, 4]
 }
 
-[sub_resource type="Animation" id="Animation_eijvq"]
+[sub_resource type="Animation" id="Animation_kll38"]
 length = 0.595
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 53, 54, 55, 56, 4, 4]
 }
 
-[sub_resource type="Animation" id="Animation_8io8s"]
+[sub_resource type="Animation" id="Animation_l1873"]
 length = 0.595
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 23, 24, 25, 4, 4, 4]
 }
 
-[sub_resource type="Animation" id="Animation_1io33"]
+[sub_resource type="Animation" id="Animation_gxouy"]
 length = 0.51
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [30, 31, 32, 3, 33, 34]
 }
 
-[sub_resource type="Animation" id="Animation_y5mor"]
-length = 0.68
+[sub_resource type="Animation" id="Animation_iw165"]
+length = 0.6799999999999999
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [5, 4, 6, 7, 8, 9, 10, 11]
 }
 
-[sub_resource type="Animation" id="Animation_nl02f"]
+[sub_resource type="Animation" id="Animation_35qdw"]
 length = 0.425
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [57, 58, 59, 60, 4]
 }
 
-[sub_resource type="Animation" id="Animation_cd8ww"]
+[sub_resource type="Animation" id="Animation_y8q3r"]
 length = 0.425
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [12, 26, 27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_6kiah"]
-length = 1.19
+[sub_resource type="Animation" id="Animation_tsc85"]
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595, 0.68, 0.765, 0.85, 0.935, 1.02, 1.105),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [69, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 4]
 }
 
-[sub_resource type="Animation" id="Animation_282ve"]
+[sub_resource type="Animation" id="Animation_tglbh"]
 length = 0.255
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [12, 13, 14]
 }
 
-[sub_resource type="Animation" id="Animation_xev1p"]
-length = 0.765
+[sub_resource type="Animation" id="Animation_a76l1"]
+length = 0.7649999999999999
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595, 0.68),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [61, 62, 63, 64, 65, 66, 67, 68, 4]
 }
 
-[sub_resource type="Animation" id="Animation_3o45r"]
-length = 1.19
+[sub_resource type="Animation" id="Animation_yibsp"]
+length = 1.1899999999999995
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595, 0.68, 0.765, 0.85, 0.935, 1.02, 1.105),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103]
 }
 
-[sub_resource type="Animation" id="Animation_g1ike"]
+[sub_resource type="Animation" id="Animation_78o6x"]
 length = 0.255
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [42, 43, 44]
 }
 
-[sub_resource type="Animation" id="Animation_n1qpe"]
-length = 0.765
+[sub_resource type="Animation" id="Animation_r6nio"]
+length = 0.7649999999999999
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595, 0.68),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [15, 16, 17, 18, 19, 20, 21, 22, 4]
 }
 
-[sub_resource type="Animation" id="Animation_c0ar8"]
-length = 0.765
+[sub_resource type="Animation" id="Animation_qpo6r"]
+length = 0.7649999999999999
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595, 0.68),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [45, 46, 17, 47, 48, 49, 50, 51, 52]
 }
 
-[sub_resource type="Animation" id="Animation_pmg5p"]
-length = 0.765
+[sub_resource type="Animation" id="Animation_dt21l"]
+length = 0.7649999999999999
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595, 0.68),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [69, 70, 71, 72, 73, 74, 75, 76, 77]
 }
 
-[sub_resource type="Animation" id="Animation_xddxx"]
-length = 0.68
+[sub_resource type="Animation" id="Animation_erhr7"]
+length = 0.6799999999999999
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:texture")
+tracks/0/path = NodePath("../UnfollowedAnimation/HurtFX/HurtFX_base:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("37_ifdpf")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [11]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = false
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = false
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FollowAnimations/HurtFX/HurtFX_base:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = false
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255, 0.34, 0.425, 0.51, 0.595),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [5, 35, 36, 37, 38, 39, 40, 41]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iic6y"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhhgf"]
 _data = {
-&"Hit 1": SubResource("Animation_o5pd2"),
-&"Hit 1 Blood": SubResource("Animation_eijvq"),
-&"Hit 1 Sparks": SubResource("Animation_8io8s"),
-&"Hit 1 electric": SubResource("Animation_1io33"),
-&"Hit 2": SubResource("Animation_y5mor"),
-&"Hit 2 Blood": SubResource("Animation_nl02f"),
-&"Hit 2 Sparks": SubResource("Animation_cd8ww"),
-&"Hit 2 poison": SubResource("Animation_6kiah"),
-&"Hit 3": SubResource("Animation_282ve"),
-&"Hit 3 Blood": SubResource("Animation_xev1p"),
-&"Hit 3 Poison": SubResource("Animation_3o45r"),
-&"Hit 3 eletric": SubResource("Animation_g1ike"),
-&"Hit 4": SubResource("Animation_n1qpe"),
-&"Hit 4 Electric": SubResource("Animation_c0ar8"),
-&"Hit poison 1": SubResource("Animation_pmg5p"),
-&"hit 2 electric": SubResource("Animation_xddxx")
+&"Hit 1": SubResource("Animation_iic6y"),
+&"Hit 1 Blood": SubResource("Animation_kll38"),
+&"Hit 1 Sparks": SubResource("Animation_l1873"),
+&"Hit 1 electric": SubResource("Animation_gxouy"),
+&"Hit 2": SubResource("Animation_iw165"),
+&"Hit 2 Blood": SubResource("Animation_35qdw"),
+&"Hit 2 Sparks": SubResource("Animation_y8q3r"),
+&"Hit 2 poison": SubResource("Animation_tsc85"),
+&"Hit 3": SubResource("Animation_tglbh"),
+&"Hit 3 Blood": SubResource("Animation_a76l1"),
+&"Hit 3 Poison": SubResource("Animation_yibsp"),
+&"Hit 3 eletric": SubResource("Animation_78o6x"),
+&"Hit 4": SubResource("Animation_r6nio"),
+&"Hit 4 Electric": SubResource("Animation_qpo6r"),
+&"Hit poison 1": SubResource("Animation_dt21l"),
+&"hit 2 electric": SubResource("Animation_erhr7")
 }
 
 [sub_resource type="Resource" id="Resource_cxhh4"]
@@ -3145,7 +2381,7 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b8y3r"]
 size = Vector2(20.8333, 27.5)
 
-[sub_resource type="Resource" id="Resource_kll38"]
+[sub_resource type="Resource" id="Resource_iic6y"]
 resource_local_to_scene = true
 script = ExtResource("100_kll38")
 talkers = Array[String](["it"])
@@ -6777,14 +6013,14 @@ script = ExtResource("8_pd6sk")
 visible = false
 position = Vector2(35, -89)
 
-[node name="HurtFX" type="Node2D" parent="UIs" unique_id=413746258]
+[node name="HurtUI" type="Node2D" parent="UIs" unique_id=413746258]
 
-[node name="DamageNum" parent="UIs/HurtFX" unique_id=1574429031 instance=ExtResource("9_6yfy2")]
+[node name="DamageNum" parent="UIs/HurtUI" unique_id=1574429031 instance=ExtResource("9_6yfy2")]
 z_index = 19
 position = Vector2(0, -67)
 metadata/_edit_lock_ = true
 
-[node name="Marker" parent="UIs/HurtFX/DamageNum" unique_id=1340617557 instance=ExtResource("7_5rc01")]
+[node name="Marker" parent="UIs/HurtUI/DamageNum" unique_id=1340617557 instance=ExtResource("7_5rc01")]
 visible = false
 position = Vector2(-57, -61)
 
@@ -6967,7 +6203,7 @@ position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_ukrp4")
 
 [node name="FaceDirection" parent="Components" unique_id=390660390 node_paths=PackedStringArray("direction_objs") instance=ExtResource("17_30uib")]
-direction_objs = [NodePath("../HitBox"), NodePath("../HurtBox"), NodePath("../../UIs/DialoguePosition"), NodePath("../../UIs/HurtFX"), NodePath("../Areas/PlayerDetection"), NodePath("../HitBox/AttackRange"), NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../Areas/ChaseRange")]
+direction_objs = [NodePath("../HitBox"), NodePath("../HurtBox"), NodePath("../../UIs/DialoguePosition"), NodePath("../../UIs/HurtUI"), NodePath("../Areas/PlayerDetection"), NodePath("../HitBox/AttackRange"), NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../Areas/ChaseRange")]
 
 [node name="Light" parent="Components" unique_id=1579849258 instance=ExtResource("18_cch2e")]
 visible = false
@@ -7009,6 +6245,9 @@ current_frame = 4
 fx_color = Color(1, 0.0823529, 0, 1)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
+
+[node name="OffsetProcess" type="Node2D" parent="Animations/Anime" unique_id=1635307524]
+script = ExtResource("35_iic6y")
 
 [node name="base" type="Sprite2D" parent="Animations/Anime" unique_id=957510044]
 texture_filter = 1
@@ -7147,45 +6386,49 @@ root_node = NodePath("../../../../../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/FXs/BloodFloor/HitBox" unique_id=304295484]
 
-[node name="HurtFX" type="Node2D" parent="Animations/FXs" unique_id=788290771]
-visible = false
+[node name="UnfollowedAnimation" parent="." unique_id=1255084967 instance=ExtResource("28_dpg8q")]
+
+[node name="HurtFX" type="Node2D" parent="UnfollowedAnimation" unique_id=1480938714]
 light_mask = 0
 script = ExtResource("36_3rumx")
 
-[node name="aniplayer" type="AnimationPlayer" parent="Animations/FXs/HurtFX" unique_id=332450370]
-root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_iic6y")
+[node name="aniplayer" type="AnimationPlayer" parent="UnfollowedAnimation/HurtFX" unique_id=328546543]
+root_node = NodePath("../../../Animations")
+libraries/ = SubResource("AnimationLibrary_vhhgf")
+playback_auto_capture = false
 
-[node name="HurtFX_base" type="Sprite2D" parent="Animations/FXs/HurtFX" unique_id=211876820]
+[node name="HurtFX_base" type="Sprite2D" parent="UnfollowedAnimation/HurtFX" unique_id=1969407045]
 texture_filter = 1
 position = Vector2(-12.5, -22.5)
 texture = ExtResource("37_ifdpf")
 hframes = 11
 vframes = 10
 metadata/_aseprite_wizard_config_ = {
-"keep_anim_length": false,
-"layer": "",
-"o_ex_p": "",
-"o_folder": "res://core/common/resource/texture/combat fx",
-"o_name": "",
-"only_visible": true,
-"op_exp": true,
-"player": "Animations/HurtFX/aniplayer",
-"source": "D:/Create/iNNOCENt/ASE/FX Pack.aseprite"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {
 "convert_fps_field": 60.0,
 "convert_ms_field": 16.0,
 "convert_to_fps": false,
 "embed_tex": false,
 "i_mode": 0,
+"keep_anim_length": false,
 "layers": [],
+"o_ex_p": "",
+"o_folder": "res://core/common/resource/texture/combat fx",
+"o_name": "",
+"only_visible": true,
+"player": "UnfollowedAnimation/HurtFX/aniplayer",
 "scale": "1.0",
 "slice": "",
-"source_uid": -1
+"source": "res://core/common/anime/hurtFx/FX Pack.aseprite",
+"source_uid": 1818030842008748879
 }
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": true,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": true
 }
+metadata/_aseprite_wizard_source_file_hash_ = "f5b6743451848d73c9efe060b96ac8bf"
 
 [node name="Timer" type="Node" parent="." unique_id=683351968]
 
@@ -7413,7 +6656,7 @@ anime_config = ExtResource("75_at3co")
 one_shot = true
 
 [node name="jump" type="Node" parent="NpcStateManager/base/combat" unique_id=1549176731]
-script = ExtResource("76_y5iqo")
+script = ExtResource("82_kll38")
 
 [node name="chase" type="Node" parent="NpcStateManager/base/combat" unique_id=1601700905]
 script = ExtResource("77_iofog")
@@ -7507,11 +6750,6 @@ one_shot = true
 [node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack" unique_id=2845427]
 one_shot = true
 
-[node name="BloodkingAttackTime" type="Node" parent="NpcStateManager/base/combat/_attack" unique_id=846786530]
-unique_name_in_owner = true
-script = ExtResource("86_uvsdt")
-event = ExtResource("87_3ysto")
-
 [node name="air" type="Node" parent="NpcStateManager/base" unique_id=817406872]
 script = ExtResource("88_a4n65")
 
@@ -7560,7 +6798,7 @@ shape = SubResource("RectangleShape2D_b8y3r")
 [node name="Dialogue" parent="Interactions" unique_id=1132349855 instance=ExtResource("94_35ooo")]
 z_index = 107
 position = Vector2(10.8333, -59.1667)
-dialogue_config = SubResource("Resource_kll38")
+dialogue_config = SubResource("Resource_iic6y")
 
 [node name="Data" type="Node" parent="." unique_id=1325015612]
 process_mode = 3
@@ -7568,6 +6806,7 @@ process_mode = 3
 [node name="DataCollector" parent="Data" unique_id=491710752 instance=ExtResource("95_25bfe")]
 script = ExtResource("96_ubvsk")
 save_data_config = ExtResource("97_sxw3c")
+debug = false
 
 [node name="Test" type="Node2D" parent="." unique_id=224954711]
 
@@ -7638,7 +6877,7 @@ metadata/_aseprite_wizard_config_ = {
 [node name="Events" type="Node" parent="." unique_id=1119527216]
 
 [connection signal="frame_changed" from="Animations/Anime/base" to="Animations/Anime" method="_on_base_frame_changed"]
-[connection signal="animation_finished" from="Animations/FXs/HurtFX/aniplayer" to="Animations/FXs/HurtFX" method="_on_aniplayer_animation_finished"]
+[connection signal="animation_finished" from="UnfollowedAnimation/HurtFX/aniplayer" to="UnfollowedAnimation/HurtFX" method="_on_aniplayer_animation_finished"]
 [connection signal="timeout" from="NpcStateManager/stack/behitbati/Timer" to="NpcStateManager/stack/behitbati" method="_on_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/idle/FollowTimer" to="NpcStateManager/base/idle" method="_on_follow_timer_timeout"]
 [connection signal="timeout" from="NpcStateManager/base/combat/patrol/PatrolTimer" to="NpcStateManager/base/combat/patrol" method="_on_patrol_timer_timeout"]

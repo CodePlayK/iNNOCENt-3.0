@@ -5,7 +5,6 @@ type="CompressedTexture2D"
 uid="uid://4u64ucmw2upu"
 path="res://.godot/imported/cross.png-63d3ea83a0d4de4ccd72b24aea914a74.ctex"
 metadata={
-"has_editor_variant": true,
 "vram_texture": false
 }
 
@@ -18,6 +17,7 @@ dest_files=["res://.godot/imported/cross.png-63d3ea83a0d4de4ccd72b24aea914a74.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

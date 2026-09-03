@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c1l8e1yomi4wq"]
+
+[ext_resource type="Script" uid="uid://dfkp17lcit34m" path="res://core/common/class/InteractObj.gd" id="1_xd6s5"]
+[ext_resource type="Resource" uid="uid://dv32tpip8g3i4" path="res://core/dialogue/dialogues/common.dialogue" id="2_xc8h3"]
+[ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="3_cmx7l"]
+[ext_resource type="PackedScene" uid="uid://r17fxu1au77o" path="res://core/common/component/master/Master.tscn" id="4_wxap3"]
+[ext_resource type="PackedScene" uid="uid://cf1neckchry1q" path="res://core/dialogue/dialogue/dialogue_contect/DialogueContext.tscn" id="5_dkd80"]
+
+[sub_resource type="Resource" id="Resource_h27f5"]
+script = ExtResource("3_cmx7l")
+dialogue_res = ExtResource("2_xc8h3")
+talkers = Array[String](["bed", "床"])
+current_res = "common"
+use_local_res = true
+current_level = -2
+title = "NA"
+title_list = "祈祷 | "
+balloon_color = Color(0, 0, 0, 0.69803923)
+metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
+
+[sub_resource type="Resource" id="Resource_2swkk"]
+script = ExtResource("3_cmx7l")
+balloon_color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://b7htvwdj3cjtu"
+
+[node name="BodyInteractObj" type="Area2D" unique_id=1426902607]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_xd6s5")
+dialogue_config = SubResource("Resource_h27f5")
+
+[node name="Master" parent="." unique_id=2142575727 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("4_wxap3")]
+obj = NodePath("..")
+connects = [NodePath("../DialogueContect")]
+
+[node name="DialogueContect" parent="." unique_id=1536966825 instance=ExtResource("5_dkd80")]
+position = Vector2(-8, -91)
+dialogue_config = SubResource("Resource_2swkk")

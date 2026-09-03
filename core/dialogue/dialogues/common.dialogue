@@ -1,4 +1,39 @@
 ~ 祈祷
-床: 要对天使祈祷吗?
+床: 要对天使祈祷吗?已经祈祷{{EventData.events.祈祷次数}}次
 do CutscenerGlobal.cutscener_run.emit("0_0_0_pray")
+do EventData.events.祈祷次数+=1
+=> END!
+
+~ 监控
+玫: 红色的镜头每次醒来都很扎眼
+玫|sad: 不想面朝这边醒来...
+do PlayerState.set_player_current_default_expression("sad")
+=> END!
+~ 监控1
+玫|mad: 在哪儿都能看到
+=> END!
+~ 天使雕塑
+玫: 父亲说是专门为了我把雕塑搬过来
+玫: 虽然周围堆了很多东西
+玫|happy: 但我喜欢这里
+do PlayerState.set_player_current_default_expression("happy")
+
+玫: 至少不用见到其他人的眼睛...
+=> END!
+~ 他人床
+玫: 其他人的比赛都已经结束了
+玫|sad: 不知道今天又有几个人死掉...
+=> END!
+~ 他人武器架
+玫: 我只会用球棒...
+玫: 虽然盾牌应该会很用
+玫|sad: 但父亲不许我拿...
+=> END!
+~ 大堂到死斗场走廊
+走廊入口: 现在前往决斗场
+- 竞技场: 是
+	玫|hurt: 我...准备好了
+	do Dialogue.current_start_obj.change_level()
+- 竞技场: 否
+	玫: 再等一下...
 => END!

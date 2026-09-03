@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdyst5in4kt4m"]
+[gd_scene format=3 uid="uid://bdyst5in4kt4m"]
 
 [sub_resource type="Curve2D" id="Curve2D_7u4os"]
 _data = {
@@ -6,14 +6,14 @@ _data = {
 }
 point_count = 3
 
-[node name="Path0" type="Path2D"]
+[node name="Path0" type="Path2D" unique_id=805365516]
 position = Vector2(6, 0)
 curve = SubResource("Curve2D_7u4os")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=231430314]
 position = Vector2(1902, 525)
-rotation = -0.774646
+rotation = -1.0469639
 
-[node name="_Timer_38673" type="Timer" parent="PathFollow2D"]
+[node name="_Timer_38673" type="Timer" parent="PathFollow2D" unique_id=1670196391]
 wait_time = 0.2
 one_shot = true

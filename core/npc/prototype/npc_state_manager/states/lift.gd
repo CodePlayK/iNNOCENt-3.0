@@ -1,42 +1,26 @@
 extends NpcsBaseState
 
-@onready var timer: Timer = $Timer
-var speed_map_2_animation
-var face_direction: FaceDirection
 
-func init_var():
-	speed_map_2_animation = npc.speed_map_2_animation
-	face_direction = npc.face_direction
-	timer.timeout.connect(_on_timer_timeout)
 func enter():
 	super.enter()
-	timer.start()
-	npc.speed_map_2_animation.is_enable = true
+	if npc.speed_map_2_animation:
+		npc.speed_map_2_animation.is_enable = true
 	npc.astar_move.running = true
 	return
-func physics_process(delta: float):
-	if npc.velocity.x>=0:
-		npc.face_direction.set_faced(false)
-	else :
-		npc.face_direction.set_faced(true)
-	if npc.velocity.y==0 and npc.is_on_floor():
-		match npc.astar_mode:
-			npc.ASTAR_MODE.FOLLOW:
-				return follow_state
-			npc.ASTAR_MODE.MOVE:
-				return move2vec2_state
-			npc.ASTAR_MODE.CHASE:
-				return chase_state
-	if npc.velocity.y>0:
-		return fall_state
-	return	
-func _on_timer_timeout() -> void:
-	return
-	if state_manager.current_state == self and npc.is_on_floor() and npc.chase_range.has_overlapping_bodies():
-		state_manager.state2state(npc.chase_weight_machine.process(self),self)
 
-func exit(NpcsBaseState):
+
+func physics_process(_delta: float):
+	apply_face_from_velocity()
+	if npc.velocity.y == 0 and npc.is_on_floor():
+		return get_land_state()
+	if npc.velocity.y > 0:
+		return fall_state
+	return null
+
+
+func exit(_next_state: NpcsBaseState):
 	npc.astar_move.running = false
-	timer.stop()
-	npc.chase_weight_machine.exit()
-	npc.speed_map_2_animation.is_enable = false
+	if npc.chase_weight_machine:
+		npc.chase_weight_machine.exit()
+	if npc.speed_map_2_animation:
+		npc.speed_map_2_animation.is_enable = false

@@ -51,9 +51,13 @@
 [ext_resource type="Script" uid="uid://dlqbna4lkm2xl" path="res://core/npc/prototype/npc_state_manager/states/dodge.gd" id="27_tmin6"]
 [ext_resource type="PackedScene" uid="uid://b575b3phfd4ku" path="res://core/common/component/npc_state_manager/npc_state_manager.tscn" id="34_8it6l"]
 [ext_resource type="Script" uid="uid://dyteibxex88qy" path="res://core/npc/prototype/npc_state_manager/states/behitbati.gd" id="36_iywkd"]
+[ext_resource type="Script" uid="uid://brl66o65w1u3v" path="res://core/common/anime/AnimeOffsetConfig.gd" id="38_axn7t"]
 [ext_resource type="Script" uid="uid://ci5v274y2mbpg" path="res://core/common/anime/AnimeBatiConfig.gd" id="39_ed3bl"]
 [ext_resource type="Script" uid="uid://be4do16qkly4o" path="res://core/common/anime/AnimeHitBoxConfig.gd" id="40_fey0y"]
+[ext_resource type="Script" uid="uid://cswt0oq5xu6e" path="res://core/common/anime/AnimeFxConfig.gd" id="40_gd3px"]
+[ext_resource type="Script" uid="uid://cwi0ca7tqu3kd" path="res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd" id="41_fcih5"]
 [ext_resource type="Script" uid="uid://bbpovv13e4qsc" path="res://core/common/anime/AnimeSoundConfig.gd" id="41_ucp8k"]
+[ext_resource type="Script" uid="uid://6w3snvye50sn" path="res://core/common/anime/AnimeInvincibleConfig.gd" id="43_fydt8"]
 [ext_resource type="Script" uid="uid://bljkt4v4ao0md" path="res://core/npc/prototype/npc_state_manager/states/BehithardListener.gd" id="50_ear80"]
 [ext_resource type="Script" uid="uid://bceqfuhlady2g" path="res://core/common/component/sound_effect/SoundEffectConfig.gd" id="52_0ovgb"]
 [ext_resource type="Script" uid="uid://hycmc5c638nx" path="res://core/npc/prototype/TestCan.gd" id="55_5at8b"]
@@ -64,13 +68,7 @@
 
 [sub_resource type="Resource" id="Resource_six7i"]
 script = ExtResource("2_slmej")
-is_ready = false
-face_left = true
-npc_be_hitting = false
-attacking = false
-hitting = false
 health = 50.0
-stamina = 100.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_miijt"]
 font = ExtResource("11_6sqop")
@@ -99,24 +97,26 @@ size = Vector2(330, 59)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qsc3h"]
 resource_local_to_scene = true
 shader = ExtResource("6_nat5b")
-shader_parameter/color = null
+shader_parameter/enable = true
+shader_parameter/precision = 0.1
 shader_parameter/from_color = Color(1, 1, 1, 1)
 shader_parameter/to_color = Color(0, 0.913725, 0.792157, 1)
-shader_parameter/enable = true
-shader_parameter/colored = null
+shader_parameter/original_0 = Color(1, 0, 1, 1)
+shader_parameter/original_1 = Color(1, 0, 1, 1)
+shader_parameter/original_2 = Color(1, 0, 1, 1)
+shader_parameter/original_3 = Color(1, 0, 1, 1)
+shader_parameter/original_4 = Color(1, 0, 1, 1)
+shader_parameter/replace_0 = Color(0, 0, 0, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
 shader_parameter/mix_modulate = true
-shader_parameter/precision = 0.1
 shader_parameter/mix_modulate_strength = 1.747
-shader_parameter/original_0 = null
-shader_parameter/original_1 = null
-shader_parameter/original_2 = null
-shader_parameter/original_3 = null
-shader_parameter/original_4 = null
-shader_parameter/replace_0 = null
-shader_parameter/replace_1 = null
-shader_parameter/replace_2 = null
-shader_parameter/replace_3 = null
-shader_parameter/replace_4 = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_amg01"]
 atlas = ExtResource("5_saj2v")
@@ -422,7 +422,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_amg01")
 }],
-"loop": false,
+"loop": 0,
 "name": &"attack0",
 "speed": 12.0
 }, {
@@ -484,7 +484,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_amg01")
 }],
-"loop": false,
+"loop": 0,
 "name": &"attack1",
 "speed": 12.0
 }, {
@@ -558,7 +558,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j6vyo")
 }],
-"loop": false,
+"loop": 0,
 "name": &"death",
 "speed": 12.0
 }, {
@@ -599,7 +599,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q37d3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 12.0
 }, {
@@ -607,7 +607,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": false,
+"loop": 0,
 "name": &"lock",
 "speed": 5.0
 }, {
@@ -636,7 +636,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4uj5r")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 14.0
 }]
@@ -644,24 +644,26 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ptm87"]
 resource_local_to_scene = true
 shader = ExtResource("6_nat5b")
-shader_parameter/color = Color(0, 0.72549, 0.631373, 1)
+shader_parameter/enable = true
+shader_parameter/precision = 0.29
 shader_parameter/from_color = Color(1, 1, 1, 1)
 shader_parameter/to_color = Color(0, 0.72549, 0.631373, 1)
-shader_parameter/enable = true
-shader_parameter/colored = false
+shader_parameter/original_0 = Color(1, 0, 1, 1)
+shader_parameter/original_1 = Color(1, 0, 1, 1)
+shader_parameter/original_2 = Color(1, 0, 1, 1)
+shader_parameter/original_3 = Color(1, 0, 1, 1)
+shader_parameter/original_4 = Color(1, 0, 1, 1)
+shader_parameter/replace_0 = Color(0, 0, 0, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
 shader_parameter/mix_modulate = true
-shader_parameter/precision = 0.29
 shader_parameter/mix_modulate_strength = 1.35
-shader_parameter/original_0 = null
-shader_parameter/original_1 = null
-shader_parameter/original_2 = null
-shader_parameter/original_3 = null
-shader_parameter/original_4 = null
-shader_parameter/replace_0 = null
-shader_parameter/replace_1 = null
-shader_parameter/replace_2 = null
-shader_parameter/replace_3 = null
-shader_parameter/replace_4 = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbrhr"]
 atlas = ExtResource("6_uj1ur")
@@ -975,7 +977,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dbrhr")
 }],
-"loop": false,
+"loop": 0,
 "name": &"attack0",
 "speed": 12.0
 }, {
@@ -1037,7 +1039,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m0r73")
 }],
-"loop": false,
+"loop": 0,
 "name": &"attack1",
 "speed": 12.0
 }, {
@@ -1111,7 +1113,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pelj0")
 }],
-"loop": false,
+"loop": 0,
 "name": &"death",
 "speed": 12.0
 }, {
@@ -1152,7 +1154,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qvfbw")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 12.0
 }, {
@@ -1160,7 +1162,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": true,
+"loop": 1,
 "name": &"lock",
 "speed": 5.0
 }, {
@@ -1189,207 +1191,91 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fpb2v")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 14.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10gjk"]
 shader = ExtResource("6_nat5b")
-shader_parameter/color = Color(1, 0, 0, 1)
-shader_parameter/from_color = null
-shader_parameter/to_color = null
 shader_parameter/enable = true
-shader_parameter/colored = true
-shader_parameter/mix_modulate = true
 shader_parameter/precision = 0.1
+shader_parameter/from_color = Color(1, 0, 1, 1)
+shader_parameter/to_color = Color(1, 1, 1, 1)
+shader_parameter/original_0 = Color(1, 0, 1, 1)
+shader_parameter/original_1 = Color(1, 0, 1, 1)
+shader_parameter/original_2 = Color(1, 0, 1, 1)
+shader_parameter/original_3 = Color(1, 0, 1, 1)
+shader_parameter/original_4 = Color(1, 0, 1, 1)
+shader_parameter/replace_0 = Color(0, 0, 0, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = true
 shader_parameter/mix_modulate_strength = 1.0
-shader_parameter/original_0 = null
-shader_parameter/original_1 = null
-shader_parameter/original_2 = null
-shader_parameter/original_3 = null
-shader_parameter/original_4 = null
-shader_parameter/replace_0 = null
-shader_parameter/replace_1 = null
-shader_parameter/replace_2 = null
-shader_parameter/replace_3 = null
-shader_parameter/replace_4 = null
 
 [sub_resource type="Resource" id="Resource_qavwl"]
 script = ExtResource("52_0ovgb")
-start_time = 0.0
 se_name = "knife-stab"
-se_speed = 1.0
-se_pitch = 1.0
 
 [sub_resource type="Resource" id="Resource_n6igy"]
 script = ExtResource("41_ucp8k")
 se_name = "knife-stab"
-start_frame = 0
-end_frame = 0
-se_speed = 1.0
-se_pitch = 1.0
-stop_on_exit_state = false
 
 [sub_resource type="Resource" id="Resource_2bx7a"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
-animation_name = "NA"
-speed_scale = 1.0
-backward = false
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
 sound_config = Array[ExtResource("41_ucp8k")]([SubResource("Resource_n6igy")])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_w8awi"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
-animation_name = "NA"
-speed_scale = 1.0
-backward = false
 loop = true
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[ExtResource("41_ucp8k")]([])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_p3n3t"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
 animation_name = "run"
-speed_scale = 1.0
-backward = false
 loop = true
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[ExtResource("41_ucp8k")]([])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_en50q"]
 script = ExtResource("41_ucp8k")
 se_name = "knife-stab"
-start_frame = 0
-end_frame = 0
-se_speed = 1.0
-se_pitch = 1.0
-stop_on_exit_state = false
 
 [sub_resource type="Resource" id="Resource_aqrtg"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
-animation_name = "NA"
-speed_scale = 1.0
-backward = false
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
 sound_config = Array[ExtResource("41_ucp8k")]([SubResource("Resource_en50q")])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_6whgn"]
 script = ExtResource("52_0ovgb")
-start_time = 0.0
 se_name = "knife-stab"
-se_speed = 1.0
-se_pitch = 1.0
 
 [sub_resource type="Resource" id="Resource_g1w3o"]
 script = ExtResource("41_ucp8k")
 se_name = "knife-stab"
-start_frame = 0
-end_frame = 0
-se_speed = 1.0
-se_pitch = 1.0
-stop_on_exit_state = false
 
 [sub_resource type="Resource" id="Resource_w6oi1"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
 animation_name = "idle"
-speed_scale = 1.0
-backward = false
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
 sound_config = Array[ExtResource("41_ucp8k")]([SubResource("Resource_g1w3o")])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_8uhl6"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
-animation_name = "NA"
-speed_scale = 1.0
-backward = false
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[ExtResource("41_ucp8k")]([])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_7cmtq"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
 animation_name = "death"
-speed_scale = 1.0
 backward = true
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[ExtResource("41_ucp8k")]([])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_qrrxx"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
-animation_name = "NA"
-speed_scale = 1.0
-backward = false
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[ExtResource("41_ucp8k")]([])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_8wpoi"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
 animation_name = "run"
-speed_scale = 1.0
-backward = false
 loop = true
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[ExtResource("41_ucp8k")]([])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_qjkgv"]
 script = ExtResource("39_ed3bl")
@@ -1398,15 +1284,12 @@ bati_end_frame = 12
 
 [sub_resource type="Resource" id="Resource_valb6"]
 script = ExtResource("40_fey0y")
-collision_index = 0
-damage = 1.0
 hit_start_frame = 5
 hit_end_frame = 7
 
 [sub_resource type="Resource" id="Resource_3fh5v"]
 script = ExtResource("40_fey0y")
 collision_index = 1
-damage = 1.0
 hit_start_frame = 10
 hit_end_frame = 12
 
@@ -1414,34 +1297,18 @@ hit_end_frame = 12
 script = ExtResource("41_ucp8k")
 se_name = "slash5"
 start_frame = 4
-end_frame = 0
-se_speed = 1.0
-se_pitch = 1.0
-stop_on_exit_state = false
 
 [sub_resource type="Resource" id="Resource_hgdjm"]
 script = ExtResource("41_ucp8k")
 se_name = "slash6"
 start_frame = 9
-end_frame = 0
-se_speed = 1.0
-se_pitch = 1.0
-stop_on_exit_state = false
 
 [sub_resource type="Resource" id="Resource_33v8q"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
-animation_name = "NA"
 speed_scale = 2.0
-backward = false
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
 sound_config = Array[ExtResource("41_ucp8k")]([SubResource("Resource_qrnq8"), SubResource("Resource_hgdjm")])
 hitbox_config = Array[ExtResource("40_fey0y")]([SubResource("Resource_valb6"), SubResource("Resource_3fh5v")])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
 bati_config = Array[ExtResource("39_ed3bl")]([SubResource("Resource_qjkgv")])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_vucc5"]
 script = ExtResource("39_ed3bl")
@@ -1451,7 +1318,6 @@ bati_end_frame = 7
 [sub_resource type="Resource" id="Resource_d8jip"]
 script = ExtResource("40_fey0y")
 collision_index = 2
-damage = 1.0
 hit_start_frame = 5
 hit_end_frame = 7
 
@@ -1459,60 +1325,26 @@ hit_end_frame = 7
 script = ExtResource("41_ucp8k")
 se_name = "slash5"
 start_frame = 4
-end_frame = 0
-se_speed = 1.0
-se_pitch = 1.0
-stop_on_exit_state = false
 
 [sub_resource type="Resource" id="Resource_3bpv5"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
-animation_name = "NA"
 speed_scale = 2.0
-backward = false
-loop = false
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
 sound_config = Array[ExtResource("41_ucp8k")]([SubResource("Resource_7nluu")])
 hitbox_config = Array[ExtResource("40_fey0y")]([SubResource("Resource_d8jip")])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
 bati_config = Array[ExtResource("39_ed3bl")]([SubResource("Resource_vucc5")])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_dxtdh"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
-animation_name = "NA"
-speed_scale = 1.0
-backward = false
 loop = true
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[ExtResource("41_ucp8k")]([])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="Resource" id="Resource_bl01o"]
 script = ExtResource("14_o4s8h")
-state_name = "NA"
-animation_name = "NA"
-speed_scale = 1.0
-backward = false
 loop = true
-anime_offset = Array[Resource("res://core/common/anime/AnimeOffsetConfig.gd")]([])
-sound_config = Array[ExtResource("41_ucp8k")]([])
-hitbox_config = Array[ExtResource("40_fey0y")]([])
-fx_hitbox_config = Array[Resource("res://core/common/anime/anime_fx/AnimeFxHitboxConfig.gd")]([])
-bati_config = Array[ExtResource("39_ed3bl")]([])
-invincible_config = Array[Resource("res://core/common/anime/AnimeInvincibleConfig.gd")]([])
-fx_config = Array[Resource("res://core/common/anime/AnimeFxConfig.gd")]([])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y128r"]
 size = Vector2(22, 59)
 
-[node name="Npc" type="Area2D"]
+[node name="Npc" type="Area2D" unique_id=1183127474]
 script = ExtResource("1_2ye6o")
 npc_name = "npc"
 data = SubResource("Resource_six7i")
@@ -1520,59 +1352,59 @@ starting_state = "lock"
 starting1_state = "birth"
 running_state = "patrol"
 
-[node name="Master" parent="." node_paths=PackedStringArray("obj", "connects") instance=ExtResource("1_0ne74")]
+[node name="Master" parent="." unique_id=1029942944 node_paths=PackedStringArray("obj", "connects") instance=ExtResource("1_0ne74")]
 unique_name_in_owner = true
 obj = NodePath("..")
 connects = [NodePath("../Components/SpeedMap2Animation"), NodePath("../Components/FaceDirection"), NodePath("../NpcStateManager"), NodePath("../WeightMachines/ChaseWeightMachine"), NodePath("../WeightMachines/PatrolWeightMachine"), NodePath("../Components/HitBox"), NodePath("../Components/HurtBox"), NodePath("../Config/Health"), NodePath("../NpcStateManager/Listener/BehithardListener"), NodePath("../Config/Obj2PlayerSide"), NodePath("../Animations/HurtFX"), NodePath("../Components/Light"), NodePath("../Components/Move2Vec2")]
 
-[node name="Config" type="Node2D" parent="."]
+[node name="Config" type="Node2D" parent="." unique_id=1361194617]
 
-[node name="Health" parent="Config" node_paths=PackedStringArray("tagets") instance=ExtResource("4_tj0vd")]
+[node name="Health" parent="Config" unique_id=1151327871 node_paths=PackedStringArray("tagets") instance=ExtResource("4_tj0vd")]
 tagets = [NodePath("../../UIs")]
 max_health = 999.0
 
-[node name="Obj2PlayerSide" parent="Config" instance=ExtResource("5_xs57p")]
+[node name="Obj2PlayerSide" parent="Config" unique_id=1708039549 instance=ExtResource("5_xs57p")]
 
-[node name="UIs" type="Node2D" parent="."]
+[node name="UIs" type="Node2D" parent="." unique_id=2111398292]
 script = ExtResource("12_8n063")
 
-[node name="DialoguePosition" parent="UIs" instance=ExtResource("8_mkc15")]
+[node name="DialoguePosition" parent="UIs" unique_id=1427396784 instance=ExtResource("8_mkc15")]
 visible = false
 position = Vector2(35, -89)
 
-[node name="HurtFX" type="Node2D" parent="UIs"]
+[node name="HurtFX" type="Node2D" parent="UIs" unique_id=107686305]
 
-[node name="DamageNum" parent="UIs/HurtFX" instance=ExtResource("9_fyhnv")]
+[node name="DamageNum" parent="UIs/HurtFX" unique_id=2140167119 instance=ExtResource("9_fyhnv")]
 position = Vector2(0, -67)
 
-[node name="Marker" parent="UIs/HurtFX/DamageNum" instance=ExtResource("8_mkc15")]
+[node name="Marker" parent="UIs/HurtFX/DamageNum" unique_id=510976628 instance=ExtResource("8_mkc15")]
 visible = false
 position = Vector2(-57, -61)
 
-[node name="HealthBar" parent="UIs" instance=ExtResource("11_upfx8")]
+[node name="HealthBar" parent="UIs" unique_id=1398848524 instance=ExtResource("11_upfx8")]
 offset_top = -64.0
 offset_bottom = -62.0
 pivot_offset = Vector2(17, 0)
 bar_color = Color(0, 1, 0, 0.490196)
 metadata/_edit_use_anchors_ = true
 
-[node name="Test" type="Control" parent="UIs"]
+[node name="Test" type="Control" parent="UIs" unique_id=572877623]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="WeightMachineUi" parent="UIs/Test" instance=ExtResource("9_r8ax1")]
+[node name="WeightMachineUi" parent="UIs/Test" unique_id=1017417735 instance=ExtResource("9_r8ax1")]
 visible = false
 position = Vector2(1, -102)
 detail_state_name_flash_color = Color(1, 1, 1, 0.482353)
 
-[node name="WeightMachineUi2" parent="UIs/Test" instance=ExtResource("9_r8ax1")]
+[node name="WeightMachineUi2" parent="UIs/Test" unique_id=1197029850 instance=ExtResource("9_r8ax1")]
 visible = false
 position = Vector2(184, -102)
 detail_state_name_flash_color = Color(1, 1, 1, 0.482353)
 
-[node name="TestLabel" type="Label" parent="UIs/Test"]
+[node name="TestLabel" type="Label" parent="UIs/Test" unique_id=651708283]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -1592,51 +1424,51 @@ text = "asdasdhhhhhh888888nnn"
 label_settings = SubResource("LabelSettings_miijt")
 horizontal_alignment = 1
 
-[node name="Components" parent="." instance=ExtResource("2_fnh0d")]
+[node name="Components" parent="." unique_id=1197988880 instance=ExtResource("2_fnh0d")]
 
-[node name="HitBox" parent="Components" instance=ExtResource("8_2pr1n")]
+[node name="HitBox" parent="Components" unique_id=490434279 instance=ExtResource("8_2pr1n")]
 visible = false
 collision_layer = 16
 collision_mask = 32
 damage = 2.0
 
-[node name="attack0" type="CollisionShape2D" parent="Components/HitBox"]
+[node name="attack0" type="CollisionShape2D" parent="Components/HitBox" unique_id=1714162484]
 position = Vector2(19.5, -19)
 shape = SubResource("RectangleShape2D_5f15d")
 
-[node name="attack1" type="CollisionShape2D" parent="Components/HitBox"]
+[node name="attack1" type="CollisionShape2D" parent="Components/HitBox" unique_id=1780275982]
 position = Vector2(30, -41)
 shape = SubResource("RectangleShape2D_4oyll")
 
-[node name="attack2" type="CollisionShape2D" parent="Components/HitBox"]
+[node name="attack2" type="CollisionShape2D" parent="Components/HitBox" unique_id=929267274]
 position = Vector2(34.5, -38.5)
 shape = SubResource("RectangleShape2D_qigd1")
 
-[node name="AttackRange" type="Area2D" parent="Components/HitBox"]
+[node name="AttackRange" type="Area2D" parent="Components/HitBox" unique_id=611532827]
 collision_layer = 32
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitBox/AttackRange"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HitBox/AttackRange" unique_id=46808882]
 visible = false
 show_behind_parent = true
 position = Vector2(32, -29.5)
 shape = SubResource("RectangleShape2D_ywys1")
 
-[node name="HurtBox" parent="Components" node_paths=PackedStringArray("signal_node_list", "shape_list") instance=ExtResource("9_rsnrq")]
+[node name="HurtBox" parent="Components" unique_id=485312494 node_paths=PackedStringArray("signal_node_list", "shape_list") instance=ExtResource("9_rsnrq")]
 visible = false
 collision_layer = 0
 collision_mask = 8
 signal_node_list = [NodePath("../../NpcStateManager"), NodePath("../../NpcStateManager/base/combat/behithard")]
 shape_list = [NodePath("CollisionShape2D")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/HurtBox" unique_id=1116792339]
 position = Vector2(-2, -27)
 shape = SubResource("RectangleShape2D_vx5qp")
 
-[node name="FaceDirection" parent="Components" node_paths=PackedStringArray("direction_objs") instance=ExtResource("12_ggbwe")]
+[node name="FaceDirection" parent="Components" unique_id=1008975876 node_paths=PackedStringArray("direction_objs") instance=ExtResource("12_ggbwe")]
 direction_objs = [NodePath("../../Animations/Anime/base"), NodePath("../../Animations/Anime/baseFX"), NodePath("../HitBox"), NodePath("../HurtBox"), NodePath("../../UIs/DialoguePosition"), NodePath("../../Animations/HurtFX"), NodePath("../Areas/PlayerDetection"), NodePath("../HitBox/AttackRange")]
 
-[node name="Light" parent="Components" instance=ExtResource("14_y1coc")]
+[node name="Light" parent="Components" unique_id=1949654944 instance=ExtResource("14_y1coc")]
 visible = false
 max_bright = 3.0
 min_bright = 0.354
@@ -1644,39 +1476,37 @@ vfx_bright = 2.516
 vfx_color = Color(0.729412, 0, 0.00784314, 1)
 vfx_colored = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Light"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Light" unique_id=1465920695]
 position = Vector2(0, -27.5)
 shape = SubResource("RectangleShape2D_wa5or")
 
-[node name="SpeedMap2Animation" parent="Components" instance=ExtResource("16_qcplg")]
-map_max = 1.2
-map_min = 0.4
+[node name="SpeedMap2Animation" parent="Components" unique_id=168694371 instance=ExtResource("16_qcplg")]
 
-[node name="Areas" type="Node2D" parent="Components"]
+[node name="Areas" type="Node2D" parent="Components" unique_id=140490324]
 
-[node name="PlayerDetection" type="Area2D" parent="Components/Areas"]
+[node name="PlayerDetection" type="Area2D" parent="Components/Areas" unique_id=2085693656]
 collision_layer = 0
 collision_mask = 2
 
-[node name="PlayerDetectionRect" parent="Components/Areas/PlayerDetection" instance=ExtResource("17_kp6dm")]
+[node name="PlayerDetectionRect" parent="Components/Areas/PlayerDetection" unique_id=1840673944 instance=ExtResource("17_kp6dm")]
 visible = false
 modulate = Color(0.192157, 0.764706, 0.74902, 1)
 light_mask = 0
 z_index = 99
 color_normal = Color(0.192157, 0.764706, 0.74902, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/PlayerDetection"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Components/Areas/PlayerDetection" unique_id=433280198]
 visible = false
 position = Vector2(113, -29.5)
 shape = SubResource("RectangleShape2D_p7c7p")
 
-[node name="SoundEffect" parent="Components" instance=ExtResource("24_6lq1x")]
+[node name="SoundEffect" parent="Components" unique_id=649455870 instance=ExtResource("24_6lq1x")]
 
-[node name="Move2Vec2" parent="Components" instance=ExtResource("18_b1q6f")]
+[node name="Move2Vec2" parent="Components" unique_id=970301046 instance=ExtResource("18_b1q6f")]
 
-[node name="Animations" parent="." instance=ExtResource("3_kb0sk")]
+[node name="Animations" parent="." unique_id=1610210928 instance=ExtResource("3_kb0sk")]
 
-[node name="Anime" parent="Animations" node_paths=PackedStringArray("base", "sprite_list") instance=ExtResource("4_apn55")]
+[node name="Anime" parent="Animations" unique_id=1705877682 node_paths=PackedStringArray("base", "sprite_list") instance=ExtResource("4_apn55")]
 base = NodePath("base")
 sprite_list = [null]
 current_animation = "attack0"
@@ -1686,7 +1516,7 @@ mix_modulate_scale = 1.35
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="base" type="AnimatedSprite2D" parent="Animations/Anime"]
+[node name="base" type="AnimatedSprite2D" parent="Animations/Anime" unique_id=934949493]
 texture_filter = 1
 material = SubResource("ShaderMaterial_qsc3h")
 position = Vector2(1.13687e-13, -3.55271e-15)
@@ -1705,7 +1535,7 @@ metadata/_aseprite_wizard_config_ = {
 "source": "D:/Create/iNNOCENt/ASE/Samurai Re-design.aseprite"
 }
 
-[node name="baseFX" type="AnimatedSprite2D" parent="Animations/Anime"]
+[node name="baseFX" type="AnimatedSprite2D" parent="Animations/Anime" unique_id=1907245298]
 texture_filter = 1
 material = SubResource("ShaderMaterial_ptm87")
 position = Vector2(-9.53674e-07, 2.98023e-08)
@@ -1725,122 +1555,122 @@ metadata/_aseprite_wizard_config_ = {
 "source": "D:/Create/iNNOCENt/ASE/Samurai Re-design.aseprite"
 }
 
-[node name="HurtFX" type="Node2D" parent="Animations"]
+[node name="HurtFX" type="Node2D" parent="Animations" unique_id=231236969]
 script = ExtResource("9_g5jmw")
 
-[node name="base" type="AnimatedSprite2D" parent="Animations/HurtFX"]
+[node name="base" type="AnimatedSprite2D" parent="Animations/HurtFX" unique_id=903744082]
 material = SubResource("ShaderMaterial_10gjk")
 position = Vector2(-13, -28)
 sprite_frames = ExtResource("10_7o5li")
 animation = &"hit3"
 
-[node name="FXs" type="Node2D" parent="Animations"]
+[node name="FXs" type="Node2D" parent="Animations" unique_id=2074949827]
 
-[node name="LauncheFX" type="Node2D" parent="Animations/FXs"]
+[node name="LauncheFX" type="Node2D" parent="Animations/FXs" unique_id=1390947767]
 
-[node name="Timer" type="Node" parent="."]
+[node name="Timer" type="Node" parent="." unique_id=1705080768]
 
-[node name="time2LastAttackTimer" type="Timer" parent="Timer"]
+[node name="time2LastAttackTimer" type="Timer" parent="Timer" unique_id=1573833444]
 wait_time = 4096.0
 one_shot = true
 autostart = true
 
-[node name="WeightMachines" parent="." instance=ExtResource("16_nau66")]
+[node name="WeightMachines" parent="." unique_id=426907685 instance=ExtResource("16_nau66")]
 
-[node name="ChaseWeightMachine" parent="WeightMachines" node_paths=PackedStringArray("weight_machine_ui") instance=ExtResource("17_n878h")]
+[node name="ChaseWeightMachine" parent="WeightMachines" unique_id=1966280301 node_paths=PackedStringArray("weight_machine_ui") instance=ExtResource("17_n878h")]
 print_debug = false
 auto_run = false
 total_weight_max = 999.0
 weight_machine_ui = NodePath("../../UIs/Test/WeightMachineUi")
 
-[node name="attack0" type="Node2D" parent="WeightMachines/ChaseWeightMachine"]
+[node name="attack0" type="Node2D" parent="WeightMachines/ChaseWeightMachine" unique_id=986367584]
 modulate = Color(0.239216, 1, 1, 1)
 
-[node name="Time2LastAttackWeight" parent="WeightMachines/ChaseWeightMachine/attack0" instance=ExtResource("19_ajjmh")]
+[node name="Time2LastAttackWeight" parent="WeightMachines/ChaseWeightMachine/attack0" unique_id=1262675875 instance=ExtResource("19_ajjmh")]
 time_max = 5.0
 time_min = null
 custom_weight_scale = null
 confirmed_weight = 50.0
 impossible_weight = null
 
-[node name="Distance2Player" parent="WeightMachines/ChaseWeightMachine/attack0" instance=ExtResource("18_kmo02")]
+[node name="Distance2Player" parent="WeightMachines/ChaseWeightMachine/attack0" unique_id=887816443 instance=ExtResource("18_kmo02")]
 distance_max = 80.0
 distance_min = 30.0
 custom_weight_scale = null
 confirmed_weight = 100.0
 impossible_weight = null
 
-[node name="attack1" type="Node2D" parent="WeightMachines/ChaseWeightMachine"]
+[node name="attack1" type="Node2D" parent="WeightMachines/ChaseWeightMachine" unique_id=1754244769]
 modulate = Color(1, 0.278431, 0.278431, 1)
 
-[node name="distance2Player" parent="WeightMachines/ChaseWeightMachine/attack1" instance=ExtResource("18_kmo02")]
+[node name="distance2Player" parent="WeightMachines/ChaseWeightMachine/attack1" unique_id=154894391 instance=ExtResource("18_kmo02")]
 distance_max = 80.0
 distance_min = 20.0
 custom_weight_scale = null
 confirmed_weight = 100.0
 impossible_weight = null
 
-[node name="Time2LastAttackWeight" parent="WeightMachines/ChaseWeightMachine/attack1" instance=ExtResource("19_ajjmh")]
+[node name="Time2LastAttackWeight" parent="WeightMachines/ChaseWeightMachine/attack1" unique_id=813409197 instance=ExtResource("19_ajjmh")]
 time_max = 5.0
 time_min = null
 custom_weight_scale = null
 confirmed_weight = 50.0
 impossible_weight = null
 
-[node name="dodge" type="Node2D" parent="WeightMachines/ChaseWeightMachine"]
+[node name="dodge" type="Node2D" parent="WeightMachines/ChaseWeightMachine" unique_id=380767290]
 modulate = Color(1, 1, 0.270588, 1)
 
-[node name="Time2LastAttackWeight" parent="WeightMachines/ChaseWeightMachine/dodge" instance=ExtResource("19_ajjmh")]
+[node name="Time2LastAttackWeight" parent="WeightMachines/ChaseWeightMachine/dodge" unique_id=1983286285 instance=ExtResource("19_ajjmh")]
 time_max = 5.0
 time_min = null
 custom_weight_scale = null
 confirmed_weight = -10.0
 impossible_weight = null
 
-[node name="PlayerHitingWeight" parent="WeightMachines/ChaseWeightMachine/dodge" instance=ExtResource("20_nbfnc")]
+[node name="PlayerHitingWeight" parent="WeightMachines/ChaseWeightMachine/dodge" unique_id=673870232 instance=ExtResource("20_nbfnc")]
 confirmed_weight = 200.0
 impossible_weight = -200.0
 
-[node name="DodgeableWeight" parent="WeightMachines/ChaseWeightMachine/dodge" instance=ExtResource("21_6bkam")]
+[node name="DodgeableWeight" parent="WeightMachines/ChaseWeightMachine/dodge" unique_id=937986755 instance=ExtResource("21_6bkam")]
 impossible_weight = -300.0
 
-[node name="distance2Player" parent="WeightMachines/ChaseWeightMachine/dodge" instance=ExtResource("18_kmo02")]
+[node name="distance2Player" parent="WeightMachines/ChaseWeightMachine/dodge" unique_id=2072633651 instance=ExtResource("18_kmo02")]
 distance_max = 200.0
 distance_min = 50.0
 custom_weight_scale = null
 confirmed_weight = 10.589
 impossible_weight = null
 
-[node name="PatrolWeightMachine" parent="WeightMachines" node_paths=PackedStringArray("weight_machine_ui") instance=ExtResource("17_n878h")]
+[node name="PatrolWeightMachine" parent="WeightMachines" unique_id=459026196 node_paths=PackedStringArray("weight_machine_ui") instance=ExtResource("17_n878h")]
 print_debug = false
 auto_run = false
 total_weight_max = 999.0
 total_weight_min = 0.0
 weight_machine_ui = NodePath("../../UIs/Test/WeightMachineUi2")
 
-[node name="dodge" type="Node2D" parent="WeightMachines/PatrolWeightMachine"]
+[node name="dodge" type="Node2D" parent="WeightMachines/PatrolWeightMachine" unique_id=75091719]
 modulate = Color(1, 1, 0.270588, 1)
 
-[node name="PlayerHitingWeight" parent="WeightMachines/PatrolWeightMachine/dodge" instance=ExtResource("20_nbfnc")]
+[node name="PlayerHitingWeight" parent="WeightMachines/PatrolWeightMachine/dodge" unique_id=625413149 instance=ExtResource("20_nbfnc")]
 confirmed_weight = 100.0
 impossible_weight = -200.0
 
-[node name="PlayerDodgeableWeight" parent="WeightMachines/PatrolWeightMachine/dodge" instance=ExtResource("21_6bkam")]
+[node name="PlayerDodgeableWeight" parent="WeightMachines/PatrolWeightMachine/dodge" unique_id=791262172 instance=ExtResource("21_6bkam")]
 impossible_weight = -200.0
 
-[node name="distance2Player" parent="WeightMachines/PatrolWeightMachine/dodge" instance=ExtResource("18_kmo02")]
+[node name="distance2Player" parent="WeightMachines/PatrolWeightMachine/dodge" unique_id=1507127947 instance=ExtResource("18_kmo02")]
 distance_max = 300.0
 distance_min = 30.0
 confirmed_weight = 100.0
 impossible_weight = -100.0
 
-[node name="NpcStateManager" parent="." node_paths=PackedStringArray("starting_node") instance=ExtResource("34_8it6l")]
+[node name="NpcStateManager" parent="." unique_id=805940199 node_paths=PackedStringArray("starting_node") instance=ExtResource("34_8it6l")]
 starting_node = NodePath("base/combat/chase")
 
-[node name="stack" type="Node" parent="NpcStateManager"]
+[node name="stack" type="Node" parent="NpcStateManager" unique_id=517083769]
 script = ExtResource("5_44hpg")
 
-[node name="behitbati" type="Node" parent="NpcStateManager/stack"]
+[node name="behitbati" type="Node" parent="NpcStateManager/stack" unique_id=632653053]
 script = ExtResource("36_iywkd")
 sound_config = SubResource("Resource_qavwl")
 is_normal_state = false
@@ -1853,32 +1683,32 @@ pause_on_change_sprite_color = false
 sprite_color = Color(0.878431, 0.537255, 0, 1)
 anime_config = SubResource("Resource_2bx7a")
 
-[node name="Timer" type="Timer" parent="NpcStateManager/stack/behitbati"]
+[node name="Timer" type="Timer" parent="NpcStateManager/stack/behitbati" unique_id=292006496]
 one_shot = true
 
-[node name="base" type="Node" parent="NpcStateManager"]
+[node name="base" type="Node" parent="NpcStateManager" unique_id=11179621]
 script = ExtResource("4_jk4ip")
 
-[node name="idle" type="Node" parent="NpcStateManager/base"]
+[node name="idle" type="Node" parent="NpcStateManager/base" unique_id=1874574485]
 script = ExtResource("10_dtbc4")
 anime_config = SubResource("Resource_w8awi")
 
-[node name="lock" type="Node" parent="NpcStateManager/base"]
+[node name="lock" type="Node" parent="NpcStateManager/base" unique_id=1848527089]
 script = ExtResource("20_k1lrr")
 is_normal_state = false
 
-[node name="combat" type="Node" parent="NpcStateManager/base"]
+[node name="combat" type="Node" parent="NpcStateManager/base" unique_id=1431198035]
 script = ExtResource("11_i7q2i")
 
-[node name="patrol" type="Node" parent="NpcStateManager/base/combat"]
+[node name="patrol" type="Node" parent="NpcStateManager/base/combat" unique_id=337689802]
 script = ExtResource("12_fh824")
 on_combat = true
 enable_player_detection = true
 anime_config = SubResource("Resource_p3n3t")
 
-[node name="PatrolTimer" type="Timer" parent="NpcStateManager/base/combat/patrol"]
+[node name="PatrolTimer" type="Timer" parent="NpcStateManager/base/combat/patrol" unique_id=822533655]
 
-[node name="behit" type="Node" parent="NpcStateManager/base/combat"]
+[node name="behit" type="Node" parent="NpcStateManager/base/combat" unique_id=2013043058]
 script = ExtResource("22_m3edd")
 back_distance = 10.0
 froze_time = 0.2
@@ -1893,9 +1723,9 @@ change_sprite_color = true
 sprite_color = Color(1, 1, 1, 1)
 anime_config = SubResource("Resource_aqrtg")
 
-[node name="ProtectTimer" type="Timer" parent="NpcStateManager/base/combat/behit"]
+[node name="ProtectTimer" type="Timer" parent="NpcStateManager/base/combat/behit" unique_id=1159632359]
 
-[node name="behithard" type="Node" parent="NpcStateManager/base/combat"]
+[node name="behithard" type="Node" parent="NpcStateManager/base/combat" unique_id=2095922733]
 script = ExtResource("23_8mfd2")
 back_distance = 50.0
 stiff_time = 1.0
@@ -1911,19 +1741,19 @@ change_sprite_color = true
 sprite_color = Color(0.890196, 0.00784314, 0, 1)
 anime_config = SubResource("Resource_w6oi1")
 
-[node name="ProtectTimer" type="Timer" parent="NpcStateManager/base/combat/behithard"]
+[node name="ProtectTimer" type="Timer" parent="NpcStateManager/base/combat/behithard" unique_id=1493704547]
 
-[node name="death" type="Node" parent="NpcStateManager/base/combat"]
+[node name="death" type="Node" parent="NpcStateManager/base/combat" unique_id=93173645]
 script = ExtResource("25_38b4e")
 is_normal_state = false
 anime_config = SubResource("Resource_8uhl6")
 
-[node name="birth" type="Node" parent="NpcStateManager/base/combat"]
+[node name="birth" type="Node" parent="NpcStateManager/base/combat" unique_id=617644669]
 script = ExtResource("26_bkggc")
 is_normal_state = false
 anime_config = SubResource("Resource_7cmtq")
 
-[node name="dodge" type="Node" parent="NpcStateManager/base/combat"]
+[node name="dodge" type="Node" parent="NpcStateManager/base/combat" unique_id=2097615498]
 script = ExtResource("27_tmin6")
 dodge_distance = 100.0
 dodge_time = 0.3
@@ -1935,10 +1765,10 @@ enable_player_detection = true
 player_interact_lock = true
 anime_config = SubResource("Resource_qrrxx")
 
-[node name="Timer" type="Timer" parent="NpcStateManager/base/combat/dodge"]
+[node name="Timer" type="Timer" parent="NpcStateManager/base/combat/dodge" unique_id=1734580868]
 one_shot = true
 
-[node name="chase" type="Node" parent="NpcStateManager/base/combat"]
+[node name="chase" type="Node" parent="NpcStateManager/base/combat" unique_id=227558629]
 script = ExtResource("13_hdq4l")
 lost_distance = 300
 on_combat = true
@@ -1947,12 +1777,12 @@ enable_player_detection = true
 player_interact_lock = true
 anime_config = SubResource("Resource_8wpoi")
 
-[node name="Timer" type="Timer" parent="NpcStateManager/base/combat/chase"]
+[node name="Timer" type="Timer" parent="NpcStateManager/base/combat/chase" unique_id=1764461933]
 
-[node name="_attack" type="Node" parent="NpcStateManager/base/combat"]
+[node name="_attack" type="Node" parent="NpcStateManager/base/combat" unique_id=739911429]
 script = ExtResource("14_ahrom")
 
-[node name="attack0" type="Node" parent="NpcStateManager/base/combat/_attack" node_paths=PackedStringArray("fallback_state")]
+[node name="attack0" type="Node" parent="NpcStateManager/base/combat/_attack" unique_id=1681789407 node_paths=PackedStringArray("fallback_state")]
 script = ExtResource("19_tfq5m")
 fallback_state = NodePath("../../chase")
 after_attack_stiff_time = 1.0
@@ -1962,10 +1792,10 @@ on_fighting = true
 player_interact_lock = true
 anime_config = SubResource("Resource_33v8q")
 
-[node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack/attack0"]
+[node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack/attack0" unique_id=554024558]
 one_shot = true
 
-[node name="attack1" type="Node" parent="NpcStateManager/base/combat/_attack" node_paths=PackedStringArray("fallback_state")]
+[node name="attack1" type="Node" parent="NpcStateManager/base/combat/_attack" unique_id=744295984 node_paths=PackedStringArray("fallback_state")]
 script = ExtResource("55_xe7rv")
 fallback_state = NodePath("../../chase")
 after_attack_stiff_time = 1.0
@@ -1975,16 +1805,16 @@ on_fighting = true
 player_interact_lock = true
 anime_config = SubResource("Resource_3bpv5")
 
-[node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack/attack1"]
+[node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack/attack1" unique_id=1667257974]
 one_shot = true
 
-[node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack"]
+[node name="attackTimer" type="Timer" parent="NpcStateManager/base/combat/_attack" unique_id=1596240819]
 one_shot = true
 
-[node name="air" type="Node" parent="NpcStateManager/base"]
+[node name="air" type="Node" parent="NpcStateManager/base" unique_id=99764938]
 script = ExtResource("56_0y2f7")
 
-[node name="lift" type="Node" parent="NpcStateManager/base/air"]
+[node name="lift" type="Node" parent="NpcStateManager/base/air" unique_id=622962949]
 script = ExtResource("57_wxp8d")
 is_normal_state = null
 on_combat = true
@@ -2001,10 +1831,10 @@ stamina_cost = null
 need_stamina = null
 anime_config = SubResource("Resource_dxtdh")
 
-[node name="Timer" type="Timer" parent="NpcStateManager/base/air/lift"]
+[node name="Timer" type="Timer" parent="NpcStateManager/base/air/lift" unique_id=45358315]
 wait_time = 0.2
 
-[node name="fall" type="Node" parent="NpcStateManager/base/air"]
+[node name="fall" type="Node" parent="NpcStateManager/base/air" unique_id=389390388]
 script = ExtResource("58_s5th3")
 is_normal_state = null
 on_combat = true
@@ -2021,27 +1851,27 @@ stamina_cost = null
 need_stamina = null
 anime_config = SubResource("Resource_bl01o")
 
-[node name="Timer" type="Timer" parent="NpcStateManager/base/air/fall"]
+[node name="Timer" type="Timer" parent="NpcStateManager/base/air/fall" unique_id=1899970905]
 wait_time = 0.2
 
-[node name="Listener" type="Node" parent="NpcStateManager"]
+[node name="Listener" type="Node" parent="NpcStateManager" unique_id=1221941153]
 
-[node name="AttackListener" type="Node" parent="NpcStateManager/Listener"]
+[node name="AttackListener" type="Node" parent="NpcStateManager/Listener" unique_id=1287676313]
 script = ExtResource("19_fswia")
 
-[node name="Timer" type="Timer" parent="NpcStateManager/Listener/AttackListener"]
+[node name="Timer" type="Timer" parent="NpcStateManager/Listener/AttackListener" unique_id=1518020534]
 
-[node name="BehithardListener" type="Node" parent="NpcStateManager/Listener" node_paths=PackedStringArray("target_state")]
+[node name="BehithardListener" type="Node" parent="NpcStateManager/Listener" unique_id=847563027 node_paths=PackedStringArray("target_state")]
 script = ExtResource("50_ear80")
 target_state = NodePath("../../base/combat/behithard")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=431819228]
 visible = false
 show_behind_parent = true
 position = Vector2(0, -29.5)
 shape = SubResource("RectangleShape2D_y128r")
 
-[node name="Test" type="Node" parent="."]
+[node name="Test" type="Node" parent="." unique_id=219258427]
 script = ExtResource("55_5at8b")
 
 [connection signal="animation_finished" from="Animations/Anime/base" to="Test" method="_on_base_animation_finished"]

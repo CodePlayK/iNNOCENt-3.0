@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NpcsDataResource" format=3 uid="uid://c8tluxqxi7ggc"]
+
+[ext_resource type="Script" uid="uid://cd7hg22t3yjur" path="res://core/common/resource/npc/npc_data.gd" id="1_sqhmh"]
+
+[resource]
+script = ExtResource("1_sqhmh")
+health = 999.0

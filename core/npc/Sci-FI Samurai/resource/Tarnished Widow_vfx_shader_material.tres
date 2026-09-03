@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://tuv8hfdplilx"]
+
+[ext_resource type="Shader" uid="uid://cettmulqp7ipp" path="res://core/common/shader/color_sprit.gdshader" id="1_hrv6a"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_hrv6a")
+shader_parameter/enable = false
+shader_parameter/precision = 0.1
+shader_parameter/from_color = Color(1, 0, 1, 1)
+shader_parameter/to_color = Color(1, 1, 1, 1)
+shader_parameter/original_0 = Color(1, 1, 1, 1)
+shader_parameter/original_1 = Color(1, 0, 1, 1)
+shader_parameter/original_2 = Color(1, 0, 1, 1)
+shader_parameter/original_3 = Color(1, 0, 1, 1)
+shader_parameter/original_4 = Color(1, 0, 1, 1)
+shader_parameter/replace_0 = Color(1, 1, 1, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/overlay_enable = false
+shader_parameter/overlay_color = Color(1, 1, 1, 1)
+shader_parameter/overlay_strength = 0.5
+shader_parameter/overlay_mode = 1
+shader_parameter/mix_modulate = true
+shader_parameter/mix_modulate_strength = 1.0

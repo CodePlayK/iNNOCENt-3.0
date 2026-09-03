@@ -15,32 +15,31 @@
 [ext_resource type="PackedScene" uid="uid://df0bdvbjcfmpy" path="res://core/common/component/marker/marker.tscn" id="12_03555"]
 [ext_resource type="Theme" uid="uid://6qf0goyq51v6" path="res://core/common/ui/item_txt_box/item_txt_box.tres" id="13_iebd7"]
 [ext_resource type="Script" uid="uid://c8ig3wyy7fbpe" path="res://core/common/ui/item_txt_box/ItemTxtBox.gd" id="14_eynxe"]
-[ext_resource type="PackedScene" uid="uid://dr3sv5p0vd2na" path="res://core/autoload/EventData/events.tscn" id="15_0guur"]
-[ext_resource type="Script" uid="uid://dfuwy7thfv5dg" path="res://core/events/FlashlightCountEvent.gd" id="16_yvqr4"]
-[ext_resource type="Resource" uid="uid://kb1ml1x6xud" path="res://core/events/FlashlightCountEvent.tres" id="17_53xqx"]
 [ext_resource type="PackedScene" uid="uid://osw374to73sm" path="res://core/common/component/ui bar/ui_bar.tscn" id="18_b5c8y"]
 [ext_resource type="PackedScene" uid="uid://cpebs4ek1lfvb" path="res://core/common/ui/state_box/state_box.tscn" id="19_q484j"]
+[ext_resource type="Script" uid="uid://dn24mt7m2patw" path="res://core/level/everythingeverywhere/level_txt.gd" id="19_ydae1"]
 [ext_resource type="PackedScene" uid="uid://dwrkrtl7ks4vh" path="res://core/common/ui/txt_history_box/txt_history_box.tscn" id="20_xtiwo"]
 [ext_resource type="Script" uid="uid://bgnhte7evfn18" path="res://core/level/everythingeverywhere/ScreenEffect.gd" id="21_lj80u"]
 [ext_resource type="Shader" uid="uid://beth4v0fkqbsf" path="res://core/common/shader/screen ctr.gdshader" id="22_b6isf"]
 [ext_resource type="Script" uid="uid://dquny67va6ekv" path="res://core/common/cutscene_fx/eyes.gd" id="23_8whex"]
+[ext_resource type="PackedScene" uid="uid://cpdngfglsnrb1" path="res://core/level/everythingeverywhere/level_transition/level_transation.tscn" id="23_celhk"]
 [ext_resource type="Script" uid="uid://dndomblipxr46" path="res://core/level/character_box_canvas.gd" id="24_3yn66"]
+[ext_resource type="Shader" uid="uid://swk4220saky5" path="res://core/common/shader/LevelTransition.gdshader" id="24_ydae1"]
 [ext_resource type="PackedScene" uid="uid://dkgxdrht840tp" path="res://core/common/ui/character_dialogue_box/character_box.tscn" id="25_wck0l"]
-[ext_resource type="Theme" uid="uid://bbih6aoi0vxbv" path="res://core/common/ui/character_dialogue_box/character_dialogue_box.tres" id="26_535gr"]
+[ext_resource type="Shader" uid="uid://bcm7tyo5vegl5" path="res://core/common/shader/hurt_intensity.gdshader" id="27_ydae1"]
 [ext_resource type="Script" uid="uid://co5k7q4j1q0c4" path="res://core/level/everythingeverywhere/in_game_debug_layer.gd" id="28_7ue4y"]
 [ext_resource type="Script" uid="uid://ci4y1snlap0ev" path="res://test/test_canvas.gd" id="28_ghsbg"]
+[ext_resource type="Script" uid="uid://ci5q0rmdhqwov" path="res://core/common/component/player_health_indicator/player_health_indicator.gd" id="28_i74u8"]
+[ext_resource type="Resource" uid="uid://d1ihbafc4flbt" path="res://core/player/attributes/player_health.tres" id="29_7ue4y"]
 [ext_resource type="Script" uid="uid://dheawyf6jpi38" path="res://core/level/everythingeverywhere/test/Test.gd" id="29_imah0"]
-[ext_resource type="Resource" uid="uid://onb8u2j1uao2" path="res://test/dialogue/test1.dialogue" id="30_ylxf2"]
-[ext_resource type="Script" uid="uid://b7htvwdj3cjtu" path="res://core/dialogue/dialogue/dialogue config/DialogueConfig.gd" id="31_1gr5e"]
 [ext_resource type="FontFile" uid="uid://laf6jchxjl0q" path="res://core/common/resource/font/DinkieBitmap-9pxDemo.ttf" id="32_0sbtr"]
 [ext_resource type="FontFile" uid="uid://cgcv38l7xieq8" path="res://core/common/resource/font/凤凰点阵体 16px.ttf" id="33_0dkxc"]
 [ext_resource type="FontFile" uid="uid://bx2qeqncd3gv4" path="res://addons/Cutscener/resource/DinkieBitmap-9pxDemo.ttf" id="34_glnfy"]
 [ext_resource type="Texture2D" uid="uid://dwdj4u348kh38" path="res://core/player/resource/header_test.tres" id="35_l7ngx"]
 [ext_resource type="PackedScene" uid="uid://dcc7bu2anjt2v" path="res://addons/Cutscener/clazz/node/Cutscener/CutscenerRunner.tscn" id="36_2ea2m"]
-[ext_resource type="Script" uid="uid://b4otcmujx4vs6" path="res://test/NpcPath/PatrolArea.gd" id="37_as7kb"]
-[ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/SaveFileDataController/WorldDataController.gd" id="39_i74u8"]
+[ext_resource type="Script" uid="uid://co3ek17fnrqy0" path="res://core/common/saves/LevelDataController/LevelDataController.gd" id="39_i74u8"]
 [ext_resource type="Resource" uid="uid://b3q2mjg6h15ph" path="res://core/level/everythingeverywhere/word_sdc.tres" id="39_ydae1"]
-[ext_resource type="PackedScene" uid="uid://duo6bfrwl5qvr" path="res://core/common/saves/SaveFileDataController/BaseSaveFileController.tscn" id="40_i74u8"]
+[ext_resource type="PackedScene" uid="uid://duo6bfrwl5qvr" path="res://core/common/saves/LevelDataController/BaseLevelDataController.tscn" id="40_i74u8"]
 [ext_resource type="PackedScene" uid="uid://dejs55bavqfkl" path="res://core/player/player.tscn" id="41_i74u8"]
 
 [sub_resource type="Animation" id="Animation_i8m7f"]
@@ -81,7 +80,7 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_my7k5"]
-colors = PackedColorArray(0.012617188, 0.012617188, 0.012617188, 1, 2.3133948, 2.3133948, 2.3133948, 1)
+colors = PackedColorArray(0.012617188, 0.012617188, 0.012617188, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_b1qy0"]
 gradient = SubResource("Gradient_my7k5")
@@ -114,38 +113,20 @@ height = 646
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
-shader = ExtResource("22_b6isf")
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.0
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = false
-shader_parameter/roll = false
-shader_parameter/roll_speed = 1.145
-shader_parameter/roll_size = 5.03200023902
-shader_parameter/roll_variation = 1.50100006803762
-shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.0
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.010000000475
-shader_parameter/aberration = 4.7499999933364734e-08
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.21200001007
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.41200001957
+[sub_resource type="InputEventKey" id="InputEventKey_i74u8"]
+device = -1
+keycode = 4194305
 
-[sub_resource type="Gradient" id="Gradient_her8m"]
-colors = PackedColorArray(0, 0, 0, 0.0941176, 0, 0, 0, 1)
+[sub_resource type="Shortcut" id="Shortcut_07drm"]
+events = [SubResource("InputEventKey_i74u8")]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_usyv6"]
-gradient = SubResource("Gradient_her8m")
-width = 960
-height = 540
-fill = 1
-fill_from = Vector2(0.498246, 0.495906)
+[sub_resource type="LabelSettings" id="LabelSettings_07drm"]
+font = ExtResource("32_0sbtr")
+font_size = 26
+font_color = Color(0.41725737, 0.41725743, 0.41725728, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l83k0"]
+color = Color(0.34656936, 0.34656933, 0.34656933, 1)
 
 [sub_resource type="Animation" id="Animation_u6mta"]
 length = 0.001
@@ -173,6 +154,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScreenEffect/FrontColor:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1n72r"]
+resource_name = "black_screen"
 
 [sub_resource type="Animation" id="Animation_564en"]
 resource_name = "blink"
@@ -196,25 +192,82 @@ tracks/1/path = NodePath("ScreenEffect/Eyes:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScreenEffect/FrontColor:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.8666668, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oekpy"]
 _data = {
 &"RESET": SubResource("Animation_u6mta"),
+&"black_screen": SubResource("Animation_1n72r"),
 &"blink": SubResource("Animation_564en")
 }
 
-[sub_resource type="Resource" id="Resource_m1fas"]
-script = ExtResource("31_1gr5e")
-dialogue_res = ExtResource("30_ylxf2")
-current_res = "test1"
-title = "_0_0_2"
-title_list = "_0_0_0 | _0_0_1 | _0_0_2 | _0_0_3 | _0_0_5 | _0_0_6 | _0_0_7 | _0_0_8 | "
-import = true
+[sub_resource type="Gradient" id="Gradient_her8m"]
+colors = PackedColorArray(0, 0, 0, 0.0941176, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_usyv6"]
+gradient = SubResource("Gradient_her8m")
+width = 960
+height = 540
+fill = 1
+fill_from = Vector2(0.498246, 0.495906)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtj5p"]
+resource_local_to_scene = true
+shader = ExtResource("24_ydae1")
+shader_parameter/rect_size = Vector2(2332.13, 333)
+shader_parameter/bar_width_pixels = 69.68
+shader_parameter/grid_height_pixels = 20.0
+shader_parameter/progress = 0.0
+shader_parameter/seed = 0.27
+shader_parameter/length_randomness = 0.6650000315875
+shader_parameter/speed_randomness = 0.7930000376675
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky2o5"]
+shader = ExtResource("22_b6isf")
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 1.145
+shader_parameter/roll_size = 5.03200023902
+shader_parameter/roll_variation = 1.50100006803762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.010000000475
+shader_parameter/aberration = 4.7499999933364734e-08
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.400000019
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytg4i"]
+shader = ExtResource("27_ydae1")
+shader_parameter/hurt_intensity = 0.0
+shader_parameter/black_border_ratio = 0.6000000285
+shader_parameter/pulse_frequency = 0.10000000149012
+shader_parameter/blood_color = Color(0.48762423, 0.00051863893, 0.00028413988, 1)
+shader_parameter/border_black = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymnf6"]
 bg_color = Color(0.458824, 0.247059, 0.215686, 1)
@@ -257,21 +310,21 @@ bg_color = Color(0, 0.894118, 0.827451, 0.576471)
 font = ExtResource("34_glnfy")
 font_size = 12
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wces5"]
-size = Vector2(3915, 81.5)
-
 [node name="everythingeverywhere42" type="Node2D" unique_id=1354952185]
 script = ExtResource("1_celhk")
 
 [node name="Setting" type="Node2D" parent="." unique_id=226376598]
 
-[node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394]
+[node name="PlayerCamera" type="Camera2D" parent="Setting" unique_id=685069394 node_paths=PackedStringArray("node_to_follow")]
 unique_name_in_owner = true
+position = Vector2(1255, 356)
 ignore_rotation = false
 zoom = Vector2(2, 2)
-limit_left = -389
-limit_top = -25
-limit_bottom = -243
+process_callback = 0
+limit_left = 649
+limit_top = 873
+limit_right = 1827
+limit_bottom = -173
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
@@ -285,12 +338,12 @@ script = ExtResource("2_celhk")
 SHAKE_DECAY = 0.07
 SHAKE_ANGLE_MULTIPLIER = 0.287
 SHAKE_POSITION_MULTIPLIER = 0.85
+node_to_follow = NodePath("../../PlayerPlayer")
 
 [node name="CutsceneCamera" parent="Setting/PlayerCamera" unique_id=1018596231 instance=ExtResource("3_ydae1")]
 
-[node name="CamreaChageFace" parent="Setting/PlayerCamera" unique_id=208228070 instance=ExtResource("4_jtj5p")]
+[node name="CameraController" parent="Setting/PlayerCamera" unique_id=208228070 instance=ExtResource("4_jtj5p")]
 trans_time = 3.0
-base_drag_horizontal_offset = 0.3
 
 [node name="PlayerCameraAniplayer" type="AnimationPlayer" parent="Setting/PlayerCamera" unique_id=490699425]
 root_node = NodePath("../../..")
@@ -345,12 +398,10 @@ texture = SubResource("GradientTexture2D_b1qy0")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="MainCanvas" type="CanvasLayer" parent="." unique_id=1075155551 node_paths=PackedStringArray("fight_dely_time", "stamina_bar")]
+[node name="MainCanvas" type="CanvasLayer" parent="." unique_id=1075155551]
 layer = 10
 follow_viewport_scale = 0.001
 script = ExtResource("7_egao5")
-fight_dely_time = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime")
-stamina_bar = NodePath("StateBar/HBC/MarginContainer3/MarginContainer2/StaminaBar")
 stamina_config = ExtResource("8_se05l")
 
 [node name="MindTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1141188428]
@@ -401,6 +452,7 @@ metadata/_edit_lock_ = true
 
 [node name="DialogueLabel" type="RichTextLabel" parent="MainCanvas/MindTxtBox/VBoxContainer/CenterContainer" unique_id=1037003372]
 unique_name_in_owner = true
+light_mask = 2048
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -435,6 +487,7 @@ z_index = 2
 position = Vector2(89, 1025)
 
 [node name="ItemTxtBox" type="MarginContainer" parent="MainCanvas" unique_id=1058628516 node_paths=PackedStringArray("item_txt", "item_texture")]
+visible = false
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.514
@@ -550,10 +603,6 @@ size_flags_stretch_ratio = 2.81
 mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="FlashlightCountEvent" parent="MainCanvas/ItemTxtBox" unique_id=1875538207 instance=ExtResource("15_0guur")]
-script = ExtResource("16_yvqr4")
-event = ExtResource("17_53xqx")
-
 [node name="StateBar" type="VBoxContainer" parent="MainCanvas" unique_id=146361538]
 anchors_preset = 15
 anchor_right = 1.0
@@ -595,13 +644,13 @@ size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="StaminaBar" parent="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2" unique_id=1763954993 instance=ExtResource("18_b5c8y")]
+visible = false
 layout_mode = 2
 size_flags_stretch_ratio = 2.67
 mouse_filter = 2
+only_show_in_combat = false
+keep_show_in_combat = null
 bar_color = Color(1, 1, 0, 0.811765)
-
-[node name="FightDelyTime" type="Timer" parent="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2" unique_id=692563253]
-one_shot = true
 
 [node name="MarginContainer4" type="MarginContainer" parent="MainCanvas/StateBar/HBC" unique_id=1118141144]
 layout_mode = 2
@@ -611,6 +660,14 @@ mouse_filter = 2
 
 [node name="StateBox" parent="MainCanvas" unique_id=1721225745 instance=ExtResource("19_q484j")]
 
+[node name="ESC" type="Button" parent="MainCanvas" unique_id=699497220]
+unique_name_in_owner = true
+offset_left = -4974.0
+offset_top = 162.0
+offset_right = -4966.0
+offset_bottom = 170.0
+shortcut = SubResource("Shortcut_07drm")
+
 [node name="TxtHistoryBCanvas" type="CanvasLayer" parent="." unique_id=524535970]
 layer = 9
 visible = false
@@ -618,19 +675,87 @@ visible = false
 [node name="TxtHistoryBox" parent="TxtHistoryBCanvas" unique_id=1847707320 instance=ExtResource("20_xtiwo")]
 metadata/_edit_lock_ = true
 
-[node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
-layer = 7
-script = ExtResource("21_lj80u")
+[node name="ScreenTxt" type="CanvasLayer" parent="." unique_id=636526230]
 
-[node name="ColorRect" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
-light_mask = 0
-material = SubResource("ShaderMaterial_ky2o5")
+[node name="LevelTxt" type="VBoxContainer" parent="ScreenTxt" unique_id=2068474885]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("19_ydae1")
+
+[node name="top" type="Container" parent="ScreenTxt/LevelTxt" unique_id=1952464133]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.28
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenTxt/LevelTxt" unique_id=1531178453]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Left" type="Container" parent="ScreenTxt/LevelTxt/HBoxContainer" unique_id=432633915]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+mouse_filter = 2
+
+[node name="TxtBox" type="VBoxContainer" parent="ScreenTxt/LevelTxt/HBoxContainer" unique_id=1321770499]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.16
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(1.5, 0)
+mouse_filter = 2
+
+[node name="Txt" type="Label" parent="ScreenTxt/LevelTxt/HBoxContainer/TxtBox" unique_id=1814540729]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "地下室"
+label_settings = SubResource("LabelSettings_07drm")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="ScreenTxt/LevelTxt/HBoxContainer/TxtBox" unique_id=854157321]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxLine_l83k0")
+
+[node name="Right" type="Container" parent="ScreenTxt/LevelTxt/HBoxContainer" unique_id=536727058]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.07
+mouse_filter = 2
+
+[node name="bot" type="Container" parent="ScreenTxt/LevelTxt" unique_id=2048078758]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.82
+mouse_filter = 2
+
+[node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=488825760]
+layer = 7
+script = ExtResource("21_lj80u")
+
+[node name="aniplayer" type="AnimationPlayer" parent="ScreenEffect" unique_id=893686757]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_oekpy")
+
+[node name="FrontColor" type="ColorRect" parent="ScreenEffect" unique_id=1437392257]
+visible = false
+light_mask = 0
+z_index = -10
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScreenEffect" unique_id=464848443]
 visible = false
@@ -663,71 +788,60 @@ expand_mode = 3
 script = ExtResource("23_8whex")
 metadata/_edit_lock_ = true
 
-[node name="aniplayer" type="AnimationPlayer" parent="ScreenEffect/Eyes" unique_id=893686757]
-root_node = NodePath("../../..")
-libraries/ = SubResource("AnimationLibrary_oekpy")
+[node name="LevelTransation" parent="ScreenEffect" unique_id=1706298336 instance=ExtResource("23_celhk")]
+unique_name_in_owner = true
+mouse_filter = 2
 
-[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
-layer = 7
-script = ExtResource("24_3yn66")
+[node name="FALLING_BOX" type="ColorRect" parent="ScreenEffect/LevelTransation" unique_id=1297786577]
+material = SubResource("ShaderMaterial_jtj5p")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
-[node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]
+[node name="RestTimer" type="Timer" parent="ScreenEffect/LevelTransation" unique_id=1805130882]
+one_shot = true
 
-[node name="CharacterDialogueBox" type="MarginContainer" parent="CharacterBoxCanvas" unique_id=27117377]
-visible = false
+[node name="VHS" type="ColorRect" parent="ScreenEffect" unique_id=776308278]
+light_mask = 0
+material = SubResource("ShaderMaterial_ky2o5")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = ExtResource("26_535gr")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterBoxCanvas/CharacterDialogueBox" unique_id=520605068]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="MarginContainer3" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=1144078633]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 20.0
-mouse_filter = 2
-
-[node name="callPlayer" type="Button" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3" unique_id=1260254178]
+[node name="CharacterBoxCanvas" type="CanvasLayer" parent="." unique_id=1448137187]
+layer = 7
 visible = false
-layout_mode = 2
-mouse_filter = 2
-text = "展开"
+script = ExtResource("24_3yn66")
 
-[node name="MarginContainer" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=2147012840]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 16.91
-mouse_filter = 2
+[node name="CharacterBox" parent="CharacterBoxCanvas" unique_id=1194901040 instance=ExtResource("25_wck0l")]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer" unique_id=1289908402]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 15
+[node name="PlayerHealthIndicator" type="CanvasLayer" parent="." unique_id=1474834259]
+layer = 10
 
-[node name="MarginContainer3" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=872044987]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
+[node name="PlayerHealthIndicator" type="ColorRect" parent="PlayerHealthIndicator" unique_id=634499740]
+light_mask = 0
+material = SubResource("ShaderMaterial_ytg4i")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("28_i74u8")
+health_config = ExtResource("29_7ue4y")
+intensity_min_health = 0.4
+intensity_max_health = 0.8
+pulse_frequency_min_health = 0.7
+pulse_frequency_max_health = 1.2
 
-[node name="MarginContainer2" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1315556821]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 17.96
-mouse_filter = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer" unique_id=564318789]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.0
-mouse_filter = 2
-metadata/_edit_lock_ = true
+[node name="Timer" type="Timer" parent="PlayerHealthIndicator/PlayerHealthIndicator" unique_id=1298281834]
+wait_time = 0.5
+autostart = true
 
 [node name="TestCanvas" type="CanvasLayer" parent="." unique_id=470471263]
 layer = 21
@@ -737,6 +851,7 @@ script = ExtResource("28_ghsbg")
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.074
+offset_bottom = -46.92
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -745,18 +860,10 @@ mouse_filter = 2
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("29_imah0")
-dialogue_mind_config = SubResource("Resource_m1fas")
-enemy_max_count = 1
-camera_shake_add = 10.0
-range_r = 500.0
-test_vec2 = Vector2(1978, 95)
-chase_speed = 100.0
-npc_name = "BloodKing"
 
 [node name="MarginContainer" type="MarginContainer" parent="TestCanvas/MarginContainer/Test" unique_id=25995065]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.79
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TestCanvas/MarginContainer/Test" unique_id=1986667250]
@@ -769,54 +876,7 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="enemy" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1096782124]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-toggle_mode = true
-text = "生成敌人"
-icon_alignment = 1
-
-[node name="enemyTimer" type="Timer" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" unique_id=1365363174]
-
-[node name="cam_shake" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1101864140]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "相机震动"
-icon_alignment = 1
-
-[node name="move_to_node" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=71489798]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "移动到"
-icon_alignment = 1
-
-[node name="showAstar" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1491569528]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = SubResource("Theme_6glt8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
-theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "显示寻路ui"
-icon_alignment = 1
-
-[node name="CutsceneRunner" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1400360898]
+[node name="BUT0" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1588127649]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -826,31 +886,66 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "过场"
+text = "DEBUG层"
 icon_alignment = 1
 
-[node name="PlayCamera" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=293417076]
+[node name="BUT1" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1812113296]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 theme = SubResource("Theme_6glt8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "相机运动"
+text = "播放过场动画"
 icon_alignment = 1
 
-[node name="Effect" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1588127649]
+[node name="TextEdit" type="TextEdit" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=192691410]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+text = "combatidle"
+placeholder_text = "state名"
+
+[node name="BUT2" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=213828527]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 theme = SubResource("Theme_6glt8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
-text = "眼睛运动"
+text = "切换玩家状态"
+icon_alignment = 1
+
+[node name="BUT3" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=1364502721]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "执行QTE"
+icon_alignment = 1
+
+[node name="切换关卡" type="Button" parent="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer" unique_id=2004860816]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme = SubResource("Theme_6glt8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0i1q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osd2x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cnew3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y348u")
+text = "切换关卡"
 icon_alignment = 1
 
 [node name="PathFind" type="Node2D" parent="TestCanvas/MarginContainer/Test" unique_id=1532952576]
@@ -942,60 +1037,32 @@ cutscener_name = "0_0_1"
 [node name="Trash" type="Node2D" parent="." unique_id=790877502]
 visible = false
 
-[node name="NpcPathFind" type="Node2D" parent="Trash" unique_id=439683680]
-position = Vector2(510, 0)
-
-[node name="BloodKing" type="Node2D" parent="Trash/NpcPathFind" unique_id=272117893]
-
-[node name="PatrolArea" type="Area2D" parent="Trash/NpcPathFind/BloodKing" unique_id=1113371807]
-collision_layer = 0
-collision_mask = 0
-monitoring = false
-monitorable = false
-script = ExtResource("37_as7kb")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Trash/NpcPathFind/BloodKing/PatrolArea" unique_id=692576029]
-visible = false
-position = Vector2(63.5, 238)
-shape = SubResource("RectangleShape2D_wces5")
-
 [node name="Data" type="Node" parent="." unique_id=475305390]
 
-[node name="DataSaveFileCollector" parent="Data" unique_id=894643364 instance=ExtResource("40_i74u8")]
+[node name="LevelDataCollector" parent="Data" unique_id=894643364 instance=ExtResource("40_i74u8")]
 script = ExtResource("39_i74u8")
 save_data_config = ExtResource("39_ydae1")
 has_master = false
 debug = true
-load_on_ready = true
 save_position = false
 save_faced = false
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=537120733]
-enabled = false
-zoom = Vector2(0.305, 0.305)
-limit_enabled = false
-
 [node name="PlayerPlayer" parent="." unique_id=1119101225 instance=ExtResource("41_i74u8")]
 unique_name_in_owner = true
+process_mode = 3
 light_mask = 6
-position = Vector2(88, -35)
-talker_name = Array[String](["我", "P"])
-dialogue_config = null
-stamina_recovered_speed = 200.0
+position = Vector2(1462, 872)
 
 [node name="CameraMark" type="Node2D" parent="PlayerPlayer" unique_id=767088440]
 position = Vector2(0, -800)
 
 [connection signal="timeout" from="Setting/DoorLockedTime" to="." method="_on_door_locked_time_timeout"]
-[connection signal="timeout" from="MainCanvas/StateBar/HBC/MarginContainer3/MarginContainer2/FightDelyTime" to="MainCanvas" method="_on_fight_dely_time_timeout"]
-[connection signal="pressed" from="CharacterBoxCanvas/CharacterDialogueBox/VBoxContainer/MarginContainer3/callPlayer" to="CharacterBoxCanvas/CharacterDialogueBox" method="_on_call_player_pressed"]
+[connection signal="pressed" from="MainCanvas/ESC" to="MainCanvas" method="_on_esc_pressed"]
+[connection signal="timeout" from="ScreenEffect/LevelTransation/RestTimer" to="ScreenEffect/LevelTransation" method="_on_rest_timer_timeout"]
+[connection signal="timeout" from="PlayerHealthIndicator/PlayerHealthIndicator/Timer" to="PlayerHealthIndicator/PlayerHealthIndicator" method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="TestCanvas/MarginContainer/Test" to="TestCanvas/MarginContainer/Test" method="_on_mouse_entered"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" to="TestCanvas/MarginContainer/Test" method="_on_enemy_pressed"]
-[connection signal="toggled" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy" to="TestCanvas/MarginContainer/Test" method="_on_enemy_toggled"]
-[connection signal="timeout" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/enemy/enemyTimer" to="TestCanvas/MarginContainer/Test" method="_on_enemy_timer_timeout"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/cam_shake" to="TestCanvas/MarginContainer/Test" method="_on_cam_shake_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/move_to_node" to="TestCanvas/MarginContainer/Test" method="_on_move_to_node_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/showAstar" to="TestCanvas/MarginContainer/Test" method="_on_show_astar_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/CutsceneRunner" to="TestCanvas/MarginContainer/Test" method="_on_cutscene_runner_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/PlayCamera" to="TestCanvas/MarginContainer/Test" method="_on_show_mind_box_pressed"]
-[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/Effect" to="TestCanvas/MarginContainer/Test" method="_on_eyeseffect_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT0" to="TestCanvas/MarginContainer/Test" method="_on_but_0_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT1" to="TestCanvas/MarginContainer/Test" method="_on_but_1_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT2" to="TestCanvas/MarginContainer/Test" method="_on_but_2_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/BUT3" to="TestCanvas/MarginContainer/Test" method="_on_but_3_pressed"]
+[connection signal="pressed" from="TestCanvas/MarginContainer/Test/VBoxContainer/HBoxContainer/切换关卡" to="TestCanvas/MarginContainer/Test" method="_on_切换关卡_pressed"]

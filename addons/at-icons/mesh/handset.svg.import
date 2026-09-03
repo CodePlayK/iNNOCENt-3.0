@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/handset.svg-20c3a8d40d9febc76d0404ee038a45cd.
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

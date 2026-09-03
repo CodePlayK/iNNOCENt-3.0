@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://prs7nqmh6hre"]
+[gd_scene format=3 uid="uid://prs7nqmh6hre"]
 
-[ext_resource type="Script" path="res://core/common/component/npc_screen_vec_2/npc_screen_vec_2.gd" id="1_iddix"]
+[ext_resource type="Script" uid="uid://bqqle0g2bvdwy" path="res://core/common/component/npc_screen_vec_2/npc_screen_vec_2.gd" id="1_iddix"]
 
-[node name="NpcScreenVec2" type="Node2D"]
+[node name="NpcScreenVec2" type="Node2D" unique_id=1580683568]
 script = ExtResource("1_iddix")

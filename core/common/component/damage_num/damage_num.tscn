@@ -7,7 +7,7 @@
 script = ExtResource("1_2vv3y")
 
 [node name="damageNum" type="Label" parent="." unique_id=1308843710]
-light_mask = 97
+light_mask = 2048
 offset_left = -19.0
 offset_top = -11.0
 offset_right = 21.0

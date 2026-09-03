@@ -1,39 +1,38 @@
 extends BaseState
 signal into_indel_state
 
+
 func enter():
 	super.enter()
-	PlayerState.double_jump_able=true
-	#Debug.dprintinfo(DebugCT.dp("Playeridle信号发出",self))
+	PlayerState.double_jump_able = true
 	into_indel_state.emit()
 	return null
+
+
 func input(event: InputEvent) -> BaseState:
-	if event.is_action_pressed("jump") or event.is_action_pressed("light"):
+	if event.is_action_pressed("jump"):
 		return jump_state
-	#elif event.is_action_pressed("dash"):
-		#return dash_state
 	return null
+
 
 func physics_process(delta: float) -> BaseState:
-	move=get_movement_input_x()
+	move = get_movement_input_x()
 	apply_gravity(delta)
-	apply_acceleration_walk(move,delta)
+	apply_acceleration_walk(move, delta)
 	player_faced(move)
-	player.set_up_direction(Vector2.UP)
-	player.move_and_slide()
-	if !player.is_on_floor():
-		if player.velocity.y<=0:
-			return lift_state
-		else:
-			return fall_state
-	return null
+	if not move_player():
+		return null
+	return get_airborne_state()
 
-func after_physics_process(delta: float) -> BaseState:
-	if get_movement_input_x() and !is_player_blocked():
+
+func after_physics_process(_delta: float) -> BaseState:
+	move = get_movement_input_x()
+	if move != 0 and not is_player_blocked():
 		if Input.is_action_pressed("run"):
 			return run_state
 		return walk_state
 	return null
-	
-func exit(state:BaseState):
+
+
+func exit(state: BaseState):
 	super.exit(state)

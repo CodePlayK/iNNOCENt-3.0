@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/glass.svg-6bba81e4c4c6457e7705c8e8661b9b74.ct
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

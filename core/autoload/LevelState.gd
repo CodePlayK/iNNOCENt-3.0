@@ -1,22 +1,25 @@
 extends Node
 const LEVEL_0_PATH="res://core/level/level_0_地下室/level_0_地下室.tscn"
-const LEVEL_1_PATH="res://core/level/level1/level_1.tscn"
-const LEVEL_2_PATH="res://core/level/level2/level_2.tscn"
+const LEVEL_1_PATH="res://core/level/level_1_大堂/level_1_大堂.tscn"
+const LEVEL_2_PATH="res://core/level/level_2_决斗/level_2_决斗.tscn"
 const LEVEL_TEST_PATH="res://core/level/level_Test/level_Test.tscn"
+const LEVEL_MAIN_SCREEN_PATH="res://core/level/level_-999/level_-999_主界面.tscn"
 
 ##当前关卡
 var current_save_id:int=-99999
 var current_level:LEVELS=LEVELS.LEVEL_CURRENT
 ##储存当前载入过的所有关卡{ [enum LEVELS] : [Levels] }
-var level_dic:Dictionary
+var level_dic:Dictionary[LEVELS,Levels]
 var current_level_node:Levels
+var changing_level:bool = false
+
 ##目标关卡所在方向
 enum TRANS_DIRCTS {
 	UP=0,
 	DOWN=1
 }
 var current_trans_direct:TRANS_DIRCTS
-
+var main_scrren_player_pos:Vector2 = Vector2(1306.0,2414.0)
 
 var doors_locked:bool=false
 func set_doors_locked(flag:bool,source):
@@ -57,4 +60,5 @@ enum LEVELS
 	LEVEL_1=1,
 	LEVEL_2=2,
 	LEVEL_TEST=999,
+	LEVEL_MAIN_SCREEN=-999,
 }

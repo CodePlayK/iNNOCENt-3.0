@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/eraser.svg-64003f9a711eabb10c24b13c37a20a33.c
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0

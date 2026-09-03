@@ -18,6 +18,7 @@ dest_files=["res://.godot/imported/eye_closed.svg-599b2d6bdf2d0ea43d78242f799cdf
 
 compress/mode=0
 compress/high_quality=false
+compress/high_quality_mode=0
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
